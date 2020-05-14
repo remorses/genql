@@ -1,0 +1,35 @@
+{
+    "name": "nodejs-lib-template",
+    "_": "[bump]",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "module": "esm/index.js",
+    "types": "dist/index.d.ts",
+    "mocha": {
+        "require": "tests/init.js",
+        "spec": "tests/**.ts",
+        "timeout": 9999999999
+    },
+    "files": [
+        "/dist/*",
+        "/esm/*"
+    ],
+    "scripts": {
+        "test": "NODE_ENV=test mocha --colors --exit",
+        "example": "parcel serve --no-autoinstall example/index.html",
+        "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
+        "dev": "yarn compile && node dist"
+    },
+    "keywords": [],
+    "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^12.0.7",
+        "dotenv": "^8.2.0",
+        "mocha": "^6.1.4",
+        "sucrase": "^3.12.1",
+        "typescript": "^3.7.5"
+    }
+}
