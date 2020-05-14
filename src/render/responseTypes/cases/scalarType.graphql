@@ -1,0 +1,18 @@
+scalar Custom
+
+"single line description"
+scalar CustomD
+
+"""
+multiline
+description
+"""
+scalar CustomMD
+
+type Query {
+  int: Int
+  float: Float
+  string: String
+  boolean: Boolean
+  id: ID
+}

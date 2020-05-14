@@ -1,0 +1,39 @@
+type Object {
+  scalar: String
+  scalarOptionalArgs(arg: String): String
+  scalarRequiredArgs(arg: String!): String
+
+  object: Object
+  objectOptionalArgs(arg: String): Object
+  objectRequiredArgs(arg: String!): Object
+
+  scalarList: [String]
+  scalarListOptionalArgs(arg: String): [String]
+  scalarListRequiredArgs(arg: String!): [String]
+
+  objectList: [Object]
+  objectListOptionalArgs(arg: String): [Object]
+  objectListRequiredArgs(arg: String!): [Object]
+}
+
+type ObjectRequired {
+  scalar: String!
+  scalarOptionalArgs(arg: String): String!
+  scalarRequiredArgs(arg: String!): String!
+
+  object: Object!
+  objectOptionalArgs(arg: String): Object!
+  objectRequiredArgs(arg: String!): Object!
+
+  scalarList: [String!]!
+  scalarListOptionalArgs(arg: String): [String!]!
+  scalarListRequiredArgs(arg: String!): [String!]!
+
+  objectList: [Object!]!
+  objectListOptionalArgs(arg: String): [Object!]!
+  objectListRequiredArgs(arg: String!): [Object!]!
+}
+
+type Query {
+  _: Boolean
+}

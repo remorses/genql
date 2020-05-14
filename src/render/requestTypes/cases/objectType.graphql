@@ -1,0 +1,44 @@
+enum Enum {
+  some
+  other
+}
+
+interface Interface {
+  noArgs: Boolean
+  "single line description"
+  other: Boolean @deprecated
+}
+
+"single line description"
+type Object implements Interface {
+  "single line description"
+  noArgs: Boolean @deprecated
+  other: Boolean
+  optionalArg(optional: String): Boolean
+  requiredArg("single line description" required: String!): Boolean
+  optionalArgObj(optional: String): Interface
+  requiredArgObj("single line description" required: Enum!): Interface
+  argTypes(
+    """
+    multiline
+    description
+    """
+    value: Int!
+    "single line description"
+    maybeValue: Int
+    valueList: [Int!]!
+    maybeValueList: [Int]!
+    valueMaybeList: [Int!]
+    maybeValueMaybeList: [Int]
+    nested: [[[Int!]!]!]!
+    maybeNested: [[[Int]]]
+  ): Boolean
+}
+
+type InterfaceField {
+  field: Interface!
+}
+
+type Query {
+  _: Boolean
+}

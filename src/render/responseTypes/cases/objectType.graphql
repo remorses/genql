@@ -1,0 +1,65 @@
+interface A {
+  a1: Int!
+  a2: Int!
+}
+
+interface B {
+  b1: Int!
+  b2: Int!
+}
+
+type ObjectI implements A & B {
+  a1: Int!
+  a2: Int!
+  b1: Int!
+  b2: Int!
+  c1: Int!
+  c2: Int!
+}
+
+type ObjectF {
+  value: Int!
+  maybeValue: Int
+  valueList: [Int!]!
+  maybeValueList: [Int]!
+  valueMaybeList: [Int!]
+  maybeValueMaybeList: [Int]
+  nested: [[[Int!]!]!]!
+  maybeNested: [[[Int]]]
+}
+
+type Object {
+  some: Int
+  other: Int
+  another: Int
+}
+
+"single line description"
+type ObjectD {
+  some: Int @deprecated
+  "single line description"
+  other: Int
+  "single line description"
+  another: Int @deprecated
+}
+
+"""
+multiline
+description
+"""
+type ObjectMD {
+  """
+  multiline
+  description
+  """
+  some: Int
+  """
+  multiline
+  description
+  """
+  other: Int @deprecated
+}
+
+type Query {
+  _: Boolean
+}

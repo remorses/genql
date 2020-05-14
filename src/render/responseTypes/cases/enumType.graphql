@@ -1,0 +1,35 @@
+enum Enum {
+  some
+  other
+  another
+}
+
+"single line description"
+enum EnumD {
+  "single line description"
+  some
+  other @deprecated
+  "single line description"
+  another @deprecated
+}
+
+"""
+multiline
+description
+"""
+enum EnumMD {
+  """
+  multiline
+  description
+  """
+  some
+  """
+  multiline
+  description
+  """
+  other @deprecated
+}
+
+type Query {
+  _: Boolean
+}

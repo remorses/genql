@@ -1,0 +1,38 @@
+input InputF {
+  value: Int!
+  maybeValue: Int
+  valueList: [Int!]!
+  maybeValueList: [Int]!
+  valueMaybeList: [Int!]
+  maybeValueMaybeList: [Int]
+  nested: [[[Int!]!]!]!
+  maybeNested: [[[Int]]]
+}
+
+input Input {
+  some: Int
+  other: Int
+  another: Int
+}
+
+"single line description"
+input InputD {
+  "single line description"
+  another: Int
+}
+
+"""
+multiline
+description
+"""
+input InputMD {
+  """
+  multiline
+  description
+  """
+  some: Int
+}
+
+type Query {
+  _: Boolean
+}

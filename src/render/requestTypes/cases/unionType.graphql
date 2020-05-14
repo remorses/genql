@@ -1,0 +1,22 @@
+type A {
+  a: Int
+}
+
+type B {
+  b: Int
+}
+
+union Union = A | B
+
+"single line description"
+union UnionD = A | B
+
+"""
+multiline
+description
+"""
+union UnionMD = A | B
+
+type Query {
+  _: Boolean
+}

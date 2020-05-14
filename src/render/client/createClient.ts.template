@@ -1,0 +1,11 @@
+import { linkTypeMap, createClient as createClientOriginal, Client, ClientOptions } from '../..'
+
+export const createClient = (options: ClientOptions): Client<never, never, never, never, never, never> => {
+  const typeMap = linkTypeMap(require('./schema.json'))
+  return createClientOriginal({
+    ...options,
+    queryRoot: typeMap.Query,
+    mutationRoot: typeMap.Mutation,
+    subscriptionRoot: typeMap.Subscription,
+  })
+}

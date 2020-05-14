@@ -1,0 +1,46 @@
+interface InterfaceF {
+  value: Int!
+  maybeValue: Int
+  valueList: [Int!]!
+  maybeValueList: [Int]!
+  valueMaybeList: [Int!]
+  maybeValueMaybeList: [Int]
+  nested: [[[Int!]!]!]!
+  maybeNested: [[[Int]]]
+}
+
+interface Interface {
+  some: Int
+  other: Int
+  another: Int
+}
+
+"single line description"
+interface InterfaceD {
+  some: Int @deprecated
+  "single line description"
+  other: Int
+  "single line description"
+  another: Int @deprecated
+}
+
+"""
+multiline
+description
+"""
+interface InterfaceMD {
+  """
+  multiline
+  description
+  """
+  some: Int
+  """
+  multiline
+  description
+  """
+  other: Int @deprecated
+}
+
+type Query {
+  _: Boolean
+}
