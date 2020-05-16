@@ -5,52 +5,67 @@ import { RenderContext } from '../common/RenderContext'
 const packageJson = require('../../../package.json')
 
 export const renderClient = (schema: GraphQLSchema, ctx: RenderContext) => {
-  const options = []
+    const options = []
 
-  const queryType = schema.getQueryType()
-  const mutationType = schema.getMutationType()
-  const subscriptionType = schema.getSubscriptionType()
+    const queryType = schema.getQueryType()
+    const mutationType = schema.getMutationType()
+    const subscriptionType = schema.getSubscriptionType()
 
-  if (queryType) options.push(`queryRoot: typeMap.${queryType.name}`)
-  if (mutationType) options.push(`mutationRoot: typeMap.${mutationType.name}`)
-  if (subscriptionType) options.push(`subscriptionRoot: typeMap.${subscriptionType.name}`)
+    if (queryType) options.push(`queryRoot: typeMap.${queryType.name}`)
+    if (mutationType) options.push(`mutationRoot: typeMap.${mutationType.name}`)
+    if (subscriptionType)
+        options.push(`subscriptionRoot: typeMap.${subscriptionType.name}`)
 
-  const typeMapperImport =
-    ctx.config &&
-    ctx.config.output &&
-    ctx.config.options &&
-    ctx.config.options.typeMapper &&
-    relativeImportPath(ctx.config.output, ctx.config.options.typeMapper.location)
+    
 
-  if (typeMapperImport) options.push('typeMapper')
+    const typeMapperImport =
+        ctx?.config?.output &&
+        ctx?.config?.options?.typeMapper &&
+        relativeImportPath(
+            ctx?.config?.output,
+            ctx.config.options.typeMapper.location,
+        )
 
-  ctx.addCodeBlock(`
-    "use strict";
-    var __assign =
-      (this && this.__assign) ||
-      function() {
-        __assign =
-          Object.assign ||
-          function(t) {
-            for (var s, i = 1, n = arguments.length; i < n; i++) {
-              s = arguments[i];
-              for (var p in s)
-                if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-            }
-            return t;
-          };
-        return __assign.apply(this, arguments);
-      };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var __1 = require("${packageJson.name}");
-    ${typeMapperImport ? `var typeMapper = require("${typeMapperImport}").typeMapper;` : ''}
-    exports.createClient = function(options) {
-      var typeMap = __1.linkTypeMap(require("./typeMap.json"));
-      return __1.createClient(
-        __assign({}, options, {
-          ${options.join(',')}
-        })
-      );
-    };
+    if (typeMapperImport) options.push('typeMapper')
+
+    ctx.addCodeBlock(`
+  const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('${packageJson.name}')
+  module.exports.createClient = (options = {}) => {
+    const typeMap = linkTypeMap(require('./typeMap.json'))
+    return createClientOriginal({
+      fetcher: createDefaultFetcher({ url: "${ctx.config?.endpoint}" }),
+      queryRoot: typeMap.Query,
+      mutationRoot: typeMap.Mutation,
+      subscriptionRoot: typeMap.Subscription,
+      ...options,
+    })
+  }
   `)
 }
+
+// 'use strict'
+// var __assign =
+//   (this && this.__assign) ||
+//   function() {
+//     __assign =
+//       Object.assign ||
+//       function(t) {
+//         for (var s, i = 1, n = arguments.length; i < n; i++) {
+//           s = arguments[i]
+//           for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p]
+//         }
+//         return t
+//       }
+//     return __assign.apply(this, arguments)
+//   }
+// Object.defineProperty(exports, '__esModule', { value: true })
+// var __1 = require('genql')
+
+// exports.createClient = function(options) {
+//   var typeMap = __1.linkTypeMap(require('./typeMap.json'))
+//   return __1.createClient(
+//     __assign({}, options, {
+//       queryRoot: typeMap.Query,
+//     }),
+//   )
+// }

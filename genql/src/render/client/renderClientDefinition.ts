@@ -37,6 +37,6 @@ export const renderClientDefinition = (schema: GraphQLSchema, ctx: RenderContext
   ctx.addCodeBlock(`
     import { Client, ClientOptions } from '${packageJson.name}'
     ${imports.length > 0 ? `import {${imports.join(',')}} from './schema'` : ''}
-    export declare const createClient:(options:ClientOptions)=>Client<${types.join(',')}>
+    export declare const createClient:(options?:ClientOptions)=>Client<${types.join(',')}>
   `)
 }

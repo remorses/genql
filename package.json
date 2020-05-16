@@ -4,6 +4,7 @@
     "scripts": {
         "play": "node -r sucrase/register genql/src/cli.ts",
         "test": "cd genql && yarn jest",
-        "example": "yarn play -o example/generated --schema example/schema.graphql"
+        "example": "yarn play -o example/generated -e https://countries.trevorblades.com",
+        "runexample": "node -r sucrase/register example/example.ts"
     }
   }

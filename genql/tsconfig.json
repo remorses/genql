@@ -3,6 +3,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    // "noImplicitAny": false,
     "strict": true,
     "declaration": true,
     "target": "es5",

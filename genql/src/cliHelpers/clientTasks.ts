@@ -14,7 +14,7 @@ import { renderTypeMap } from '../render/typeMap/renderTypeMap'
 const schemaGqlFile = 'schema.graphql'
 const schemaTypesFile = 'schema.ts'
 const typeMapFile = 'typeMap.json'
-const clientFile = 'createClient.js'
+const clientFile = 'createClient.js' 
 const clientTypesFile = 'createClient.d.ts'
 
 export const clientTasks = (config: Config): ListrTask[] => {
@@ -68,7 +68,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
               task: async ctx => {
                 const renderCtx = new RenderContext(ctx.schema, config)
 
-                renderClient(ctx.schema, renderCtx)
+                renderClient(ctx.schema, renderCtx) // TODO render an esm version of generated code
 
                 await writeFileToPath([output, clientFile], renderCtx.toCode('babel'))
               },

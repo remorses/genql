@@ -1,20 +1,15 @@
-import 'isomorphic-fetch'
-import qs from 'qs'
 import { ExecutionResult, GraphQLError } from 'graphql'
-import { NEVER, Observable } from 'rxjs'
+import 'isomorphic-fetch'
 import get from 'lodash.get'
+import qs from 'qs'
+import { NEVER, Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import {
-    applyTypeMapperToResponse,
-    TypeMapper,
-} from './applyTypeMapperToResponse'
+import { Fetcher } from '../fetcher'
+import { applyTypeMapperToResponse, TypeMapper } from './applyTypeMapperToResponse'
 import { chain } from './chain'
+import { getSubscriptionCreator, SubscriptionCreatorOptions } from './getSubscriptionCreator'
 import { LinkedType } from './linkTypeMap'
-import { Fields, Gql, requestToGql } from './requestToGql'
-import {
-    getSubscriptionCreator,
-    SubscriptionCreatorOptions,
-} from './getSubscriptionCreator'
+import { Fields, requestToGql } from './requestToGql'
 
 export class ClientError extends Error {
     constructor(message?: string, public errors?: ReadonlyArray<GraphQLError>) {
@@ -32,9 +27,7 @@ export class ClientError extends Error {
     }
 }
 
-export interface Fetcher {
-    (gql: Gql, fetchImpl: typeof fetch, qsImpl: typeof qs): Promise<any>
-}
+
 
 export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
     query(request: QR): Promise<Q>
@@ -148,7 +141,7 @@ export const createClient = <
             : resultObservable
     }
 
-    const mapResponse = (path: string[], defaultValue: any) => (
+    const mapResponse = (path: string[], defaultValue: any=undefined) => (
         response: ExecutionResult,
     ) => {
         if (response.errors)
