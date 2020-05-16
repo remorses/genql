@@ -3,13 +3,31 @@ import { createClient } from './generated/createClient'
 const client = createClient({})
 
 async function main() {
-    const x = await client.query({
-        continents: {
-            code: 1,
-            name: 1,
+    const q = await client.query({
+        viewer: {
+            category: {
+                _id: 1,
+                name: 1,
+            },
+            order: {
+                customer: {
+                    address: {
+                        city: 1,
+                    },
+                },
+            },
         },
     })
-    console.log(JSON.stringify(x, null, 4))
+    console.log(JSON.stringify(q, null, 4))
+
+    const m = await client.mutation({
+        createOrder: [
+            { record: { customerID: '345345' } },
+            { record: { _id: 1, details: { product: { name: 1 } } } },
+        ],
+    })
+    console.log(JSON.stringify(m, null, 4))
+
 }
 
-main()
+main().catch(console.error)
