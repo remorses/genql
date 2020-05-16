@@ -8,7 +8,6 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "rootDir": "example/src",
     "outDir": "./dist",
     "esModuleInterop": true,
     "allowJs": true,
