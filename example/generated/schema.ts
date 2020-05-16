@@ -1,4 +1,4 @@
-import { Observable } from 'nodejs-lib-template'
+import { Observable } from 'genql'
 
 export interface Query {
   user: User | null
@@ -77,6 +77,3 @@ export interface UserObservableChain {
   age: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   email: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
 }
-
-
-

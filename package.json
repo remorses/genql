@@ -1,5 +1,5 @@
 {
-    "name": "nodejs-lib-template",
+    "name": "genql",
     "_": "[bump]",
     "version": "0.0.1",
     "description": "",
@@ -22,7 +22,7 @@
         "test": "NODE_ENV=test mocha --colors --exit",
         "jest": "jest",
         "play": "node -r sucrase/register src/cli.ts",
-        "example": "parcel serve --no-autoinstall example/index.html",
+        "example": "yarn play -o example/generated --schema example/schema.graphql",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"
     },
@@ -62,7 +62,6 @@
         "graphql-tools": "^4.0.6",
         "isomorphic-fetch": "^2.2.1",
         "listr": "^0.14.3",
-        "lodash": "^4.17.15",
         "lodash.get": "^4.4.2",
         "lodash.startswith": "^4.2.1",
         "mkdirp": "^0.5.1",

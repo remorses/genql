@@ -14,7 +14,7 @@ var __assign =
     return __assign.apply(this, arguments)
   }
 Object.defineProperty(exports, '__esModule', { value: true })
-var __1 = require('nodejs-lib-template')
+var __1 = require('genql')
 
 exports.createClient = function(options) {
   var typeMap = __1.linkTypeMap(require('./typeMap.json'))

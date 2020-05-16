@@ -1,4 +1,4 @@
-import { Client, ClientOptions } from 'nodejs-lib-template'
+import { Client, ClientOptions } from 'genql'
 import { QueryRequest, QueryPromiseChain, Query } from './schema'
 export declare const createClient: (
   options: ClientOptions,
