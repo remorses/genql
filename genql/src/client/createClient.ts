@@ -148,7 +148,7 @@ export const createClient = <
             throw new ClientError(`Response contains errors`, response.errors)
         if (!response.data) throw new ClientError('Response data is empty')
 
-        const result = get(response, path, defaultValue)
+        const result = get(response, ['data', ...path], defaultValue)
 
         if (result === undefined)
             throw new ClientError(

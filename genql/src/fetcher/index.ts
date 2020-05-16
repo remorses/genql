@@ -10,7 +10,7 @@ export const createDefaultFetcher = ({
     url,
 }: {
     url: string
-}): Fetcher => async ({ query, variables }, fetch, qs) => {
+}): Fetcher => async ({ query, variables }, fetch, ) => {
     const res = await fetch(url, {
         headers: {
             Authorization: 'bearer MY_TOKEN', // TODO add jwt data

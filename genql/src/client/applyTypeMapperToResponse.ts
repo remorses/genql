@@ -38,4 +38,4 @@ export const applyTypeMapperToResponse = <T>(
     root: LinkedType,
     result: ExecutionResult<T>,
     mapper: TypeMapper,
-): T => applyRecursively(root, result.data, mapper, [])
+): ExecutionResult<T> => ({data: applyRecursively(root, result.data, mapper, []), errors: result.errors})

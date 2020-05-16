@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "description": "",
     "main": "dist/index.js",
-    "module": "esm/index.js",
+    "module": "dist/mylib.esm.js",
     "types": "dist/index.d.ts",
     "mocha": {
         "require": "tests/init.js",
@@ -19,7 +19,8 @@
         "/esm/*"
     ],
     "scripts": {
-        "test": "NODE_ENV=test mocha --colors --exit",
+        "start": "tsdx watch",
+        "build": "tsdx build",
         "jest": "jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"
@@ -42,6 +43,7 @@
         "pretty-quick": "^1.10.0",
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
+        "tsdx": "^0.13.2",
         "typescript": "^3.7.5"
     },
     "dependencies": {
@@ -78,7 +80,14 @@
         "roots": [
             "<rootDir>/src"
         ],
-        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ],
         "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
         "testEnvironment": "node",
         "collectCoverageFrom": [

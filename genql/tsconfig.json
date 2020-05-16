@@ -6,14 +6,15 @@
     // "noImplicitAny": false,
     "strict": true,
     "declaration": true,
-    "target": "es5",
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "./dist",
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
-    "lib": ["dom", "es2017", "esnext.asynciterable"]
+    "lib": ["dom", "es2017", "esnext.asynciterable"],
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "**/*.case.ts", "tests", "example", "dist"]
 }
