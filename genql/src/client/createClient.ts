@@ -33,15 +33,13 @@ export class ClientError extends Error {
 }
 
 export interface Fetcher {
-    (gql: Gql, fetchImpl: typeof fetch, qsImpl: typeof qs): Promise<
-        ExecutionResult<any>
-    >
+    (gql: Gql, fetchImpl: typeof fetch, qsImpl: typeof qs): Promise<any>
 }
 
 export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
-    query(request: QR): Promise<ExecutionResult<Q>>
-    mutation(request: MR): Promise<ExecutionResult<M>>
-    subscription(request: SR): Observable<ExecutionResult<S>>
+    query(request: QR): Promise<Q>
+    mutation(request: MR): Promise<M>
+    subscription(request: SR): Observable<S>
     chain: {
         query: QC
         mutation: MC
@@ -93,7 +91,7 @@ export const createClient = <
         ? getSubscriptionCreator(subscriptionCreatorOptions)
         : () => NEVER
 
-    const query = (request: QR): Promise<ExecutionResult<Q>> => {
+    const query = (request: QR): Promise<Q> => {
         if (!fetcher) throw new Error('fetcher argument is missing')
         if (!queryRoot) throw new Error('queryRoot argument is missing')
 
@@ -110,7 +108,7 @@ export const createClient = <
             : resultPromise
     }
 
-    const mutation = (request: MR): Promise<ExecutionResult<M>> => {
+    const mutation = (request: MR): Promise<M> => {
         if (!fetcher) throw new Error('fetcher argument is missing')
         if (!mutationRoot) throw new Error('mutationRoot argument is missing')
 
@@ -127,7 +125,7 @@ export const createClient = <
             : resultPromise
     }
 
-    const subscription = (request: SR): Observable<ExecutionResult<S>> => {
+    const subscription = (request: SR): Observable<S> => {
         if (!subscriptionCreatorOptions)
             throw new Error('subscriptionClientOptions argument is missing')
         if (!subscriptionRoot)

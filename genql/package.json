@@ -28,6 +28,7 @@
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
     "license": "ISC",
     "devDependencies": {
+        "@sucrase/jest-plugin": "^2.0.0",
         "@types/common-tags": "^1.8.0",
         "@types/jest": "^23.3.13",
         "@types/listr": "^0.13.0",
@@ -71,10 +72,14 @@
         "ws": "^6.1.4"
     },
     "jest": {
-        "preset": "ts-jest",
+        "transform": {
+            ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+        },
         "roots": [
             "<rootDir>/src"
         ],
+        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
         "testEnvironment": "node",
         "collectCoverageFrom": [
             "src/**/*.ts",
