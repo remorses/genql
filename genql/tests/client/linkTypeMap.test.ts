@@ -1,4 +1,4 @@
-import { linkTypeMap } from './linkTypeMap'
+import { linkTypeMap } from '../linkTypeMap'
 
 test('linkTypeMap', () => {
   const typeMap = <any>linkTypeMap({

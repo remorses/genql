@@ -1,6 +1,6 @@
 import { GraphQLObjectType, GraphQLSchema } from 'graphql'
-import { toClientSchema } from '../../testHelpers/render'
-import { renderTyping } from './renderTyping'
+import { toClientSchema } from '../../../testHelpers/render'
+import { renderTyping } from '../renderTyping'
 
 let schema: GraphQLSchema
 

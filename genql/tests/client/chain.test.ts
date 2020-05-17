@@ -1,4 +1,4 @@
-import { chain } from './chain'
+import { chain } from '../chain'
 
 describe('chain', () => {
   test('convert deep scalar query', () => {

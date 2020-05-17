@@ -1,8 +1,8 @@
-import { prettify } from '../helpers/prettify'
-import { renderTypeMap } from '../render/typeMap/renderTypeMap'
-import { schemaRenderTest } from '../testHelpers/render'
-import { linkTypeMap } from './linkTypeMap'
-import { requestToGql } from './requestToGql'
+import { prettify } from '../../helpers/prettify'
+import { renderTypeMap } from '../../render/typeMap/renderTypeMap'
+import { schemaRenderTest } from '../../testHelpers/render'
+import { linkTypeMap } from '../linkTypeMap'
+import { requestToGql } from '../requestToGql'
 
 const getRoot = async () => {
   const result = await schemaRenderTest(

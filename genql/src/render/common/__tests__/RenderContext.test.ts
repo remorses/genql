@@ -1,5 +1,5 @@
-import { prettify } from '../../helpers/prettify'
-import { RenderContext } from './RenderContext'
+import { prettify } from '../../../helpers/prettify'
+import { RenderContext } from '../RenderContext'
 
 describe('RenderContext', () => {
   test('prettify', () => {

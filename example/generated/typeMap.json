@@ -1,1 +1,2609 @@
-{"Query":{"name":"Query","fields":{"viewer":{"type":"Viewer"},"__typename":{"type":"String"}}},"Viewer":{"name":"Viewer","fields":{"category":{"type":"Category","args":{"filter":["FilterFindOneCategoryInput","FilterFindOneCategoryInput"],"skip":["Int","Int"],"sort":["SortFindOneCategoryInput","SortFindOneCategoryInput"]}},"categoryList":{"type":"Category","args":{"filter":["FilterFindManyCategoryInput","FilterFindManyCategoryInput"],"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyCategoryInput","SortFindManyCategoryInput"]}},"customer":{"type":"Customer","args":{"filter":["FilterFindOneCustomerInput","FilterFindOneCustomerInput"],"skip":["Int","Int"],"sort":["SortFindOneCustomerInput","SortFindOneCustomerInput"]}},"customerPagination":{"type":"CustomerPagination","args":{"page":["Int","Int"],"perPage":["Int","Int"],"filter":["FilterFindManyCustomerInput","FilterFindManyCustomerInput"],"sort":["SortFindManyCustomerInput","SortFindManyCustomerInput"]}},"customerConnection":{"type":"CustomerConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"filter":["FilterFindManyCustomerInput","FilterFindManyCustomerInput"],"sort":["SortConnectionCustomerEnum","SortConnectionCustomerEnum"]}},"employee":{"type":"Employee","args":{"filter":["FilterFindOneEmployeeInput","FilterFindOneEmployeeInput"],"skip":["Int","Int"],"sort":["SortFindOneEmployeeInput","SortFindOneEmployeeInput"]}},"employeeList":{"type":"Employee","args":{"filter":["FilterFindManyEmployeeInput","FilterFindManyEmployeeInput"],"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyEmployeeInput","SortFindManyEmployeeInput"]}},"employeePagination":{"type":"EmployeePagination","args":{"page":["Int","Int"],"perPage":["Int","Int"],"filter":["FilterFindManyEmployeeInput","FilterFindManyEmployeeInput"],"sort":["SortFindManyEmployeeInput","SortFindManyEmployeeInput"]}},"order":{"type":"Order","args":{"filter":["FilterFindOneOrderInput","FilterFindOneOrderInput"],"skip":["Int","Int"],"sort":["SortFindOneOrderInput","SortFindOneOrderInput"]}},"orderPagination":{"type":"OrderPagination","args":{"page":["Int","Int"],"perPage":["Int","Int"],"filter":["FilterFindManyOrderInput","FilterFindManyOrderInput"],"sort":["SortFindManyOrderInput","SortFindManyOrderInput"]}},"orderConnection":{"type":"OrderConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"filter":["FilterFindManyOrderInput","FilterFindManyOrderInput"],"sort":["SortConnectionOrderEnum","SortConnectionOrderEnum"]}},"product":{"type":"Product","args":{"filter":["FilterFindOneProductInput","FilterFindOneProductInput"],"skip":["Int","Int"],"sort":["SortFindOneProductInput","SortFindOneProductInput"]}},"productList":{"type":"Product","args":{"filter":["FilterFindManyProductInput","FilterFindManyProductInput"],"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyProductInput","SortFindManyProductInput"]}},"productPagination":{"type":"ProductPagination","args":{"page":["Int","Int"],"perPage":["Int","Int"],"filter":["FilterFindManyProductInput","FilterFindManyProductInput"],"sort":["SortFindManyProductInput","SortFindManyProductInput"]}},"productConnection":{"type":"ProductConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"filter":["FilterFindManyProductInput","FilterFindManyProductInput"],"sort":["SortConnectionProductEnum","SortConnectionProductEnum"]}},"region":{"type":"Region","args":{"filter":["FilterFindOneRegionInput","FilterFindOneRegionInput"],"skip":["Int","Int"],"sort":["SortFindOneRegionInput","SortFindOneRegionInput"]}},"regionList":{"type":"Region","args":{"filter":["FilterFindManyRegionInput","FilterFindManyRegionInput"],"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyRegionInput","SortFindManyRegionInput"]}},"shipper":{"type":"Shipper","args":{"filter":["FilterFindOneShipperInput","FilterFindOneShipperInput"],"skip":["Int","Int"],"sort":["SortFindOneShipperInput","SortFindOneShipperInput"]}},"shipperList":{"type":"Shipper","args":{"filter":["FilterFindManyShipperInput","FilterFindManyShipperInput"],"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyShipperInput","SortFindManyShipperInput"]}},"supplier":{"type":"Supplier","args":{"filter":["FilterFindOneSupplierInput","FilterFindOneSupplierInput"],"skip":["Int","Int"],"sort":["SortFindOneSupplierInput","SortFindOneSupplierInput"]}},"supplierConnection":{"type":"SupplierConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"filter":["FilterFindManySupplierInput","FilterFindManySupplierInput"],"sort":["SortConnectionSupplierEnum","SortConnectionSupplierEnum"]}},"__typename":{"type":"String"}}},"FilterFindOneCategoryInput":{"name":"FilterFindOneCategoryInput","fields":{"categoryID":{"type":"Float"},"name":{"type":"String"},"description":{"type":"String"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneCategoryInput"},"OR":{"type":"FilterFindOneCategoryInput"},"AND":{"type":"FilterFindOneCategoryInput"},"__typename":{"type":"String"}},"scalar":["categoryID","name","description","_id","_ids"]},"Float":{"name":"Float"},"String":{"name":"String"},"MongoID":{"name":"MongoID"},"OperatorsFilterFindOneCategoryInput":{"name":"OperatorsFilterFindOneCategoryInput","fields":{"categoryID":{"type":"CategoryIDOperatorsFilterFindOneCategoryInput"},"name":{"type":"NameOperatorsFilterFindOneCategoryInput"},"_id":{"type":"_idOperatorsFilterFindOneCategoryInput"},"__typename":{"type":"String"}}},"CategoryIDOperatorsFilterFindOneCategoryInput":{"name":"CategoryIDOperatorsFilterFindOneCategoryInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"NameOperatorsFilterFindOneCategoryInput":{"name":"NameOperatorsFilterFindOneCategoryInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindOneCategoryInput":{"name":"_idOperatorsFilterFindOneCategoryInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"Int":{"name":"Int"},"SortFindOneCategoryInput":{"name":"SortFindOneCategoryInput"},"Category":{"name":"Category","fields":{"categoryID":{"type":"Float"},"name":{"type":"String"},"description":{"type":"String"},"_id":{"type":"MongoID"},"productConnection":{"type":"ProductConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"sort":["SortConnectionProductEnum","SortConnectionProductEnum"]}},"productList":{"type":"Product","args":{"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyProductInput","SortFindManyProductInput"]}},"__typename":{"type":"String"}},"scalar":["categoryID","name","description","_id"]},"SortConnectionProductEnum":{"name":"SortConnectionProductEnum"},"ProductConnection":{"name":"ProductConnection","fields":{"count":{"type":"Int"},"pageInfo":{"type":"PageInfo"},"edges":{"type":"ProductEdge"},"__typename":{"type":"String"}},"scalar":["count"]},"PageInfo":{"name":"PageInfo","fields":{"hasNextPage":{"type":"Boolean"},"hasPreviousPage":{"type":"Boolean"},"startCursor":{"type":"String"},"endCursor":{"type":"String"},"__typename":{"type":"String"}},"scalar":["hasNextPage","hasPreviousPage","startCursor","endCursor"]},"Boolean":{"name":"Boolean"},"ProductEdge":{"name":"ProductEdge","fields":{"node":{"type":"Product"},"cursor":{"type":"String"},"__typename":{"type":"String"}},"scalar":["cursor"]},"Product":{"name":"Product","fields":{"productID":{"type":"Float"},"name":{"type":"String"},"supplierID":{"type":"Float"},"categoryID":{"type":"Float"},"quantityPerUnit":{"type":"String"},"unitPrice":{"type":"Float"},"unitsInStock":{"type":"Float"},"unitsOnOrder":{"type":"Float"},"reorderLevel":{"type":"Float"},"discontinued":{"type":"Boolean"},"_id":{"type":"MongoID"},"orderConnection":{"type":"OrderConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"sort":["SortConnectionOrderEnum","SortConnectionOrderEnum"]}},"orderList":{"type":"Order","args":{"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyOrderInput","SortFindManyOrderInput"]}},"supplier":{"type":"Supplier"},"category":{"type":"Category"},"__typename":{"type":"String"}},"scalar":["productID","name","supplierID","categoryID","quantityPerUnit","unitPrice","unitsInStock","unitsOnOrder","reorderLevel","discontinued","_id"]},"SortConnectionOrderEnum":{"name":"SortConnectionOrderEnum"},"OrderConnection":{"name":"OrderConnection","fields":{"count":{"type":"Int"},"pageInfo":{"type":"PageInfo"},"edges":{"type":"OrderEdge"},"__typename":{"type":"String"}},"scalar":["count"]},"OrderEdge":{"name":"OrderEdge","fields":{"node":{"type":"Order"},"cursor":{"type":"String"},"__typename":{"type":"String"}},"scalar":["cursor"]},"Order":{"name":"Order","fields":{"orderID":{"type":"Float"},"customerID":{"type":"String"},"employeeID":{"type":"Float"},"orderDate":{"type":"Date"},"requiredDate":{"type":"Date"},"shippedDate":{"type":"Date"},"shipVia":{"type":"Float"},"freight":{"type":"Float"},"shipName":{"type":"String"},"shipAddress":{"type":"CustomerAddress"},"details":{"type":"OrderDetails"},"_id":{"type":"MongoID"},"customer":{"type":"Customer"},"employee":{"type":"Employee"},"shipper":{"type":"Shipper"},"__typename":{"type":"String"}},"scalar":["orderID","customerID","employeeID","orderDate","requiredDate","shippedDate","shipVia","freight","shipName","_id"]},"Date":{"name":"Date"},"CustomerAddress":{"name":"CustomerAddress","fields":{"street":{"type":"String"},"city":{"type":"String"},"region":{"type":"String"},"postalCode":{"type":"String"},"country":{"type":"String"},"phone":{"type":"String"},"__typename":{"type":"String"}},"scalar":["street","city","region","postalCode","country","phone"]},"OrderDetails":{"name":"OrderDetails","fields":{"productID":{"type":"Float"},"unitPrice":{"type":"Float"},"quantity":{"type":"Float"},"discount":{"type":"Float"},"product":{"type":"Product"},"__typename":{"type":"String"}},"scalar":["productID","unitPrice","quantity","discount"]},"Customer":{"name":"Customer","fields":{"customerID":{"type":"String"},"companyName":{"type":"String"},"contactName":{"type":"String"},"contactTitle":{"type":"String"},"address":{"type":"CustomerAddress"},"_id":{"type":"MongoID"},"orderConnection":{"type":"OrderConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"sort":["SortConnectionOrderEnum","SortConnectionOrderEnum"]}},"orderList":{"type":"Order","args":{"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyOrderInput","SortFindManyOrderInput"]}},"__typename":{"type":"String"}},"scalar":["customerID","companyName","contactName","contactTitle","_id"]},"SortFindManyOrderInput":{"name":"SortFindManyOrderInput"},"Employee":{"name":"Employee","fields":{"employeeID":{"type":"Float"},"lastName":{"type":"String"},"firstName":{"type":"String"},"title":{"type":"String"},"titleOfCourtesy":{"type":"String"},"birthDate":{"type":"Date"},"hireDate":{"type":"Date"},"address":{"type":"CustomerAddress"},"notes":{"type":"String"},"reportsTo":{"type":"Float"},"territoryIDs":{"type":"Float"},"_id":{"type":"MongoID"},"chief":{"type":"Employee"},"subordinates":{"type":"Employee","args":{"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyEmployeeInput","SortFindManyEmployeeInput"]}},"orderConnection":{"type":"OrderConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"sort":["SortConnectionOrderEnum","SortConnectionOrderEnum"]}},"__typename":{"type":"String"}},"scalar":["employeeID","lastName","firstName","title","titleOfCourtesy","birthDate","hireDate","notes","reportsTo","territoryIDs","_id"]},"SortFindManyEmployeeInput":{"name":"SortFindManyEmployeeInput"},"Shipper":{"name":"Shipper","fields":{"shipperID":{"type":"Float"},"companyName":{"type":"String"},"phone":{"type":"String"},"_id":{"type":"MongoID"},"orderConnection":{"type":"OrderConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"sort":["SortConnectionOrderEnum","SortConnectionOrderEnum"]}},"__typename":{"type":"String"}},"scalar":["shipperID","companyName","phone","_id"]},"Supplier":{"name":"Supplier","fields":{"supplierID":{"type":"Float"},"companyName":{"type":"String"},"contactName":{"type":"String"},"contactTitle":{"type":"String"},"address":{"type":"CustomerAddress"},"_id":{"type":"MongoID"},"productConnection":{"type":"ProductConnection","args":{"first":["Int","Int"],"after":["String","String"],"last":["Int","Int"],"before":["String","String"],"sort":["SortConnectionProductEnum","SortConnectionProductEnum"]}},"__typename":{"type":"String"}},"scalar":["supplierID","companyName","contactName","contactTitle","_id"]},"SortFindManyProductInput":{"name":"SortFindManyProductInput"},"FilterFindManyCategoryInput":{"name":"FilterFindManyCategoryInput","fields":{"categoryID":{"type":"Float"},"name":{"type":"String"},"description":{"type":"String"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManyCategoryInput"},"OR":{"type":"FilterFindManyCategoryInput"},"AND":{"type":"FilterFindManyCategoryInput"},"__typename":{"type":"String"}},"scalar":["categoryID","name","description","_id","_ids"]},"OperatorsFilterFindManyCategoryInput":{"name":"OperatorsFilterFindManyCategoryInput","fields":{"categoryID":{"type":"CategoryIDOperatorsFilterFindManyCategoryInput"},"name":{"type":"NameOperatorsFilterFindManyCategoryInput"},"_id":{"type":"_idOperatorsFilterFindManyCategoryInput"},"__typename":{"type":"String"}}},"CategoryIDOperatorsFilterFindManyCategoryInput":{"name":"CategoryIDOperatorsFilterFindManyCategoryInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"NameOperatorsFilterFindManyCategoryInput":{"name":"NameOperatorsFilterFindManyCategoryInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindManyCategoryInput":{"name":"_idOperatorsFilterFindManyCategoryInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindManyCategoryInput":{"name":"SortFindManyCategoryInput"},"FilterFindOneCustomerInput":{"name":"FilterFindOneCustomerInput","fields":{"customerID":{"type":"String"},"companyName":{"type":"String"},"contactName":{"type":"String"},"contactTitle":{"type":"String"},"address":{"type":"CustomerAddressInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneCustomerInput"},"OR":{"type":"FilterFindOneCustomerInput"},"AND":{"type":"FilterFindOneCustomerInput"},"__typename":{"type":"String"}},"scalar":["customerID","companyName","contactName","contactTitle","_id","_ids"]},"CustomerAddressInput":{"name":"CustomerAddressInput","fields":{"street":{"type":"String"},"city":{"type":"String"},"region":{"type":"String"},"postalCode":{"type":"String"},"country":{"type":"String"},"phone":{"type":"String"},"__typename":{"type":"String"}},"scalar":["street","city","region","postalCode","country","phone"]},"OperatorsFilterFindOneCustomerInput":{"name":"OperatorsFilterFindOneCustomerInput","fields":{"customerID":{"type":"CustomerIDOperatorsFilterFindOneCustomerInput"},"companyName":{"type":"CompanyNameOperatorsFilterFindOneCustomerInput"},"_id":{"type":"_idOperatorsFilterFindOneCustomerInput"},"__typename":{"type":"String"}}},"CustomerIDOperatorsFilterFindOneCustomerInput":{"name":"CustomerIDOperatorsFilterFindOneCustomerInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"CompanyNameOperatorsFilterFindOneCustomerInput":{"name":"CompanyNameOperatorsFilterFindOneCustomerInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindOneCustomerInput":{"name":"_idOperatorsFilterFindOneCustomerInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindOneCustomerInput":{"name":"SortFindOneCustomerInput"},"FilterFindManyCustomerInput":{"name":"FilterFindManyCustomerInput","fields":{"customerID":{"type":"String"},"companyName":{"type":"String"},"contactName":{"type":"String"},"contactTitle":{"type":"String"},"address":{"type":"CustomerAddressInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManyCustomerInput"},"OR":{"type":"FilterFindManyCustomerInput"},"AND":{"type":"FilterFindManyCustomerInput"},"__typename":{"type":"String"}},"scalar":["customerID","companyName","contactName","contactTitle","_id","_ids"]},"OperatorsFilterFindManyCustomerInput":{"name":"OperatorsFilterFindManyCustomerInput","fields":{"customerID":{"type":"CustomerIDOperatorsFilterFindManyCustomerInput"},"companyName":{"type":"CompanyNameOperatorsFilterFindManyCustomerInput"},"_id":{"type":"_idOperatorsFilterFindManyCustomerInput"},"__typename":{"type":"String"}}},"CustomerIDOperatorsFilterFindManyCustomerInput":{"name":"CustomerIDOperatorsFilterFindManyCustomerInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"CompanyNameOperatorsFilterFindManyCustomerInput":{"name":"CompanyNameOperatorsFilterFindManyCustomerInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindManyCustomerInput":{"name":"_idOperatorsFilterFindManyCustomerInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindManyCustomerInput":{"name":"SortFindManyCustomerInput"},"CustomerPagination":{"name":"CustomerPagination","fields":{"count":{"type":"Int"},"items":{"type":"Customer"},"pageInfo":{"type":"PaginationInfo"},"__typename":{"type":"String"}},"scalar":["count"]},"PaginationInfo":{"name":"PaginationInfo","fields":{"currentPage":{"type":"Int"},"perPage":{"type":"Int"},"pageCount":{"type":"Int"},"itemCount":{"type":"Int"},"hasNextPage":{"type":"Boolean"},"hasPreviousPage":{"type":"Boolean"},"__typename":{"type":"String"}},"scalar":["currentPage","perPage","pageCount","itemCount","hasNextPage","hasPreviousPage"]},"SortConnectionCustomerEnum":{"name":"SortConnectionCustomerEnum"},"CustomerConnection":{"name":"CustomerConnection","fields":{"count":{"type":"Int"},"pageInfo":{"type":"PageInfo"},"edges":{"type":"CustomerEdge"},"__typename":{"type":"String"}},"scalar":["count"]},"CustomerEdge":{"name":"CustomerEdge","fields":{"node":{"type":"Customer"},"cursor":{"type":"String"},"__typename":{"type":"String"}},"scalar":["cursor"]},"FilterFindOneEmployeeInput":{"name":"FilterFindOneEmployeeInput","fields":{"employeeID":{"type":"Float"},"lastName":{"type":"String"},"firstName":{"type":"String"},"title":{"type":"String"},"titleOfCourtesy":{"type":"String"},"birthDate":{"type":"Date"},"hireDate":{"type":"Date"},"address":{"type":"CustomerAddressInput"},"notes":{"type":"String"},"reportsTo":{"type":"Float"},"territoryIDs":{"type":"Float"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneEmployeeInput"},"OR":{"type":"FilterFindOneEmployeeInput"},"AND":{"type":"FilterFindOneEmployeeInput"},"__typename":{"type":"String"}},"scalar":["employeeID","lastName","firstName","title","titleOfCourtesy","birthDate","hireDate","notes","reportsTo","territoryIDs","_id","_ids"]},"OperatorsFilterFindOneEmployeeInput":{"name":"OperatorsFilterFindOneEmployeeInput","fields":{"employeeID":{"type":"EmployeeIDOperatorsFilterFindOneEmployeeInput"},"lastName":{"type":"LastNameOperatorsFilterFindOneEmployeeInput"},"territoryIDs":{"type":"TerritoryIDsOperatorsFilterFindOneEmployeeInput"},"_id":{"type":"_idOperatorsFilterFindOneEmployeeInput"},"__typename":{"type":"String"}}},"EmployeeIDOperatorsFilterFindOneEmployeeInput":{"name":"EmployeeIDOperatorsFilterFindOneEmployeeInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"LastNameOperatorsFilterFindOneEmployeeInput":{"name":"LastNameOperatorsFilterFindOneEmployeeInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"TerritoryIDsOperatorsFilterFindOneEmployeeInput":{"name":"TerritoryIDsOperatorsFilterFindOneEmployeeInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindOneEmployeeInput":{"name":"_idOperatorsFilterFindOneEmployeeInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindOneEmployeeInput":{"name":"SortFindOneEmployeeInput"},"FilterFindManyEmployeeInput":{"name":"FilterFindManyEmployeeInput","fields":{"employeeID":{"type":"Float"},"lastName":{"type":"String"},"firstName":{"type":"String"},"title":{"type":"String"},"titleOfCourtesy":{"type":"String"},"birthDate":{"type":"Date"},"hireDate":{"type":"Date"},"address":{"type":"CustomerAddressInput"},"notes":{"type":"String"},"reportsTo":{"type":"Float"},"territoryIDs":{"type":"Float"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManyEmployeeInput"},"OR":{"type":"FilterFindManyEmployeeInput"},"AND":{"type":"FilterFindManyEmployeeInput"},"fullTextSearch":{"type":"String"},"__typename":{"type":"String"}},"scalar":["employeeID","lastName","firstName","title","titleOfCourtesy","birthDate","hireDate","notes","reportsTo","territoryIDs","_id","_ids","fullTextSearch"]},"OperatorsFilterFindManyEmployeeInput":{"name":"OperatorsFilterFindManyEmployeeInput","fields":{"employeeID":{"type":"EmployeeIDOperatorsFilterFindManyEmployeeInput"},"lastName":{"type":"LastNameOperatorsFilterFindManyEmployeeInput"},"territoryIDs":{"type":"TerritoryIDsOperatorsFilterFindManyEmployeeInput"},"_id":{"type":"_idOperatorsFilterFindManyEmployeeInput"},"__typename":{"type":"String"}}},"EmployeeIDOperatorsFilterFindManyEmployeeInput":{"name":"EmployeeIDOperatorsFilterFindManyEmployeeInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"LastNameOperatorsFilterFindManyEmployeeInput":{"name":"LastNameOperatorsFilterFindManyEmployeeInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"TerritoryIDsOperatorsFilterFindManyEmployeeInput":{"name":"TerritoryIDsOperatorsFilterFindManyEmployeeInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindManyEmployeeInput":{"name":"_idOperatorsFilterFindManyEmployeeInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"EmployeePagination":{"name":"EmployeePagination","fields":{"count":{"type":"Int"},"items":{"type":"Employee"},"pageInfo":{"type":"PaginationInfo"},"__typename":{"type":"String"}},"scalar":["count"]},"FilterFindOneOrderInput":{"name":"FilterFindOneOrderInput","fields":{"orderID":{"type":"Float"},"customerID":{"type":"String"},"employeeID":{"type":"Float"},"orderDate":{"type":"Date"},"requiredDate":{"type":"Date"},"shippedDate":{"type":"Date"},"shipVia":{"type":"Float"},"freight":{"type":"Float"},"shipName":{"type":"String"},"shipAddress":{"type":"CustomerAddressInput"},"details":{"type":"OrderDetailsInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneOrderInput"},"OR":{"type":"FilterFindOneOrderInput"},"AND":{"type":"FilterFindOneOrderInput"},"__typename":{"type":"String"}},"scalar":["orderID","customerID","employeeID","orderDate","requiredDate","shippedDate","shipVia","freight","shipName","_id","_ids"]},"OrderDetailsInput":{"name":"OrderDetailsInput","fields":{"productID":{"type":"Float"},"unitPrice":{"type":"Float"},"quantity":{"type":"Float"},"discount":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["productID","unitPrice","quantity","discount"]},"OperatorsFilterFindOneOrderInput":{"name":"OperatorsFilterFindOneOrderInput","fields":{"orderID":{"type":"OrderIDOperatorsFilterFindOneOrderInput"},"details":{"type":"DetailsOperatorsFilterFindOneOrderInput"},"_id":{"type":"_idOperatorsFilterFindOneOrderInput"},"__typename":{"type":"String"}}},"OrderIDOperatorsFilterFindOneOrderInput":{"name":"OrderIDOperatorsFilterFindOneOrderInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"DetailsOperatorsFilterFindOneOrderInput":{"name":"DetailsOperatorsFilterFindOneOrderInput","fields":{"gt":{"type":"OrderDetailsInput"},"gte":{"type":"OrderDetailsInput"},"lt":{"type":"OrderDetailsInput"},"lte":{"type":"OrderDetailsInput"},"ne":{"type":"OrderDetailsInput"},"in":{"type":"OrderDetailsInput"},"nin":{"type":"OrderDetailsInput"},"__typename":{"type":"String"}}},"_idOperatorsFilterFindOneOrderInput":{"name":"_idOperatorsFilterFindOneOrderInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindOneOrderInput":{"name":"SortFindOneOrderInput"},"FilterFindManyOrderInput":{"name":"FilterFindManyOrderInput","fields":{"orderID":{"type":"Float"},"customerID":{"type":"String"},"employeeID":{"type":"Float"},"orderDate":{"type":"Date"},"requiredDate":{"type":"Date"},"shippedDate":{"type":"Date"},"shipVia":{"type":"Float"},"freight":{"type":"Float"},"shipName":{"type":"String"},"shipAddress":{"type":"CustomerAddressInput"},"details":{"type":"OrderDetailsInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManyOrderInput"},"OR":{"type":"FilterFindManyOrderInput"},"AND":{"type":"FilterFindManyOrderInput"},"__typename":{"type":"String"}},"scalar":["orderID","customerID","employeeID","orderDate","requiredDate","shippedDate","shipVia","freight","shipName","_id","_ids"]},"OperatorsFilterFindManyOrderInput":{"name":"OperatorsFilterFindManyOrderInput","fields":{"orderID":{"type":"OrderIDOperatorsFilterFindManyOrderInput"},"details":{"type":"DetailsOperatorsFilterFindManyOrderInput"},"_id":{"type":"_idOperatorsFilterFindManyOrderInput"},"__typename":{"type":"String"}}},"OrderIDOperatorsFilterFindManyOrderInput":{"name":"OrderIDOperatorsFilterFindManyOrderInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"DetailsOperatorsFilterFindManyOrderInput":{"name":"DetailsOperatorsFilterFindManyOrderInput","fields":{"gt":{"type":"OrderDetailsInput"},"gte":{"type":"OrderDetailsInput"},"lt":{"type":"OrderDetailsInput"},"lte":{"type":"OrderDetailsInput"},"ne":{"type":"OrderDetailsInput"},"in":{"type":"OrderDetailsInput"},"nin":{"type":"OrderDetailsInput"},"__typename":{"type":"String"}}},"_idOperatorsFilterFindManyOrderInput":{"name":"_idOperatorsFilterFindManyOrderInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"OrderPagination":{"name":"OrderPagination","fields":{"count":{"type":"Int"},"items":{"type":"Order"},"pageInfo":{"type":"PaginationInfo"},"__typename":{"type":"String"}},"scalar":["count"]},"FilterFindOneProductInput":{"name":"FilterFindOneProductInput","fields":{"productID":{"type":"Float"},"name":{"type":"String"},"supplierID":{"type":"Float"},"categoryID":{"type":"Float"},"quantityPerUnit":{"type":"String"},"unitPrice":{"type":"Float"},"unitsInStock":{"type":"Float"},"unitsOnOrder":{"type":"Float"},"reorderLevel":{"type":"Float"},"discontinued":{"type":"Boolean"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneProductInput"},"OR":{"type":"FilterFindOneProductInput"},"AND":{"type":"FilterFindOneProductInput"},"__typename":{"type":"String"}},"scalar":["productID","name","supplierID","categoryID","quantityPerUnit","unitPrice","unitsInStock","unitsOnOrder","reorderLevel","discontinued","_id","_ids"]},"OperatorsFilterFindOneProductInput":{"name":"OperatorsFilterFindOneProductInput","fields":{"productID":{"type":"ProductIDOperatorsFilterFindOneProductInput"},"name":{"type":"NameOperatorsFilterFindOneProductInput"},"unitPrice":{"type":"UnitPriceOperatorsFilterFindOneProductInput"},"_id":{"type":"_idOperatorsFilterFindOneProductInput"},"__typename":{"type":"String"}}},"ProductIDOperatorsFilterFindOneProductInput":{"name":"ProductIDOperatorsFilterFindOneProductInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"NameOperatorsFilterFindOneProductInput":{"name":"NameOperatorsFilterFindOneProductInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"UnitPriceOperatorsFilterFindOneProductInput":{"name":"UnitPriceOperatorsFilterFindOneProductInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindOneProductInput":{"name":"_idOperatorsFilterFindOneProductInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindOneProductInput":{"name":"SortFindOneProductInput"},"FilterFindManyProductInput":{"name":"FilterFindManyProductInput","fields":{"productID":{"type":"Float"},"name":{"type":"String"},"supplierID":{"type":"Float"},"categoryID":{"type":"Float"},"quantityPerUnit":{"type":"String"},"unitPrice":{"type":"Float"},"unitsInStock":{"type":"Float"},"unitsOnOrder":{"type":"Float"},"reorderLevel":{"type":"Float"},"discontinued":{"type":"Boolean"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManyProductInput"},"OR":{"type":"FilterFindManyProductInput"},"AND":{"type":"FilterFindManyProductInput"},"nameRegexp":{"type":"String"},"__typename":{"type":"String"}},"scalar":["productID","name","supplierID","categoryID","quantityPerUnit","unitPrice","unitsInStock","unitsOnOrder","reorderLevel","discontinued","_id","_ids","nameRegexp"]},"OperatorsFilterFindManyProductInput":{"name":"OperatorsFilterFindManyProductInput","fields":{"productID":{"type":"ProductIDOperatorsFilterFindManyProductInput"},"name":{"type":"NameOperatorsFilterFindManyProductInput"},"unitPrice":{"type":"UnitPriceOperatorsFilterFindManyProductInput"},"_id":{"type":"_idOperatorsFilterFindManyProductInput"},"__typename":{"type":"String"}}},"ProductIDOperatorsFilterFindManyProductInput":{"name":"ProductIDOperatorsFilterFindManyProductInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"NameOperatorsFilterFindManyProductInput":{"name":"NameOperatorsFilterFindManyProductInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"UnitPriceOperatorsFilterFindManyProductInput":{"name":"UnitPriceOperatorsFilterFindManyProductInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindManyProductInput":{"name":"_idOperatorsFilterFindManyProductInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"ProductPagination":{"name":"ProductPagination","fields":{"count":{"type":"Int"},"items":{"type":"Product"},"pageInfo":{"type":"PaginationInfo"},"__typename":{"type":"String"}},"scalar":["count"]},"FilterFindOneRegionInput":{"name":"FilterFindOneRegionInput","fields":{"regionID":{"type":"Float"},"name":{"type":"String"},"territories":{"type":"RegionTerritoriesInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneRegionInput"},"OR":{"type":"FilterFindOneRegionInput"},"AND":{"type":"FilterFindOneRegionInput"},"__typename":{"type":"String"}},"scalar":["regionID","name","_id","_ids"]},"RegionTerritoriesInput":{"name":"RegionTerritoriesInput","fields":{"territoryID":{"type":"Float"},"name":{"type":"String"},"__typename":{"type":"String"}},"scalar":["territoryID","name"]},"OperatorsFilterFindOneRegionInput":{"name":"OperatorsFilterFindOneRegionInput","fields":{"regionID":{"type":"RegionIDOperatorsFilterFindOneRegionInput"},"_id":{"type":"_idOperatorsFilterFindOneRegionInput"},"__typename":{"type":"String"}}},"RegionIDOperatorsFilterFindOneRegionInput":{"name":"RegionIDOperatorsFilterFindOneRegionInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindOneRegionInput":{"name":"_idOperatorsFilterFindOneRegionInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindOneRegionInput":{"name":"SortFindOneRegionInput"},"Region":{"name":"Region","fields":{"regionID":{"type":"Float"},"name":{"type":"String"},"territories":{"type":"RegionTerritories"},"_id":{"type":"MongoID"},"employees":{"type":"Employee","args":{"skip":["Int","Int"],"limit":["Int","Int"],"sort":["SortFindManyEmployeeInput","SortFindManyEmployeeInput"]}},"__typename":{"type":"String"}},"scalar":["regionID","name","_id"]},"RegionTerritories":{"name":"RegionTerritories","fields":{"territoryID":{"type":"Float"},"name":{"type":"String"},"__typename":{"type":"String"}},"scalar":["territoryID","name"]},"FilterFindManyRegionInput":{"name":"FilterFindManyRegionInput","fields":{"regionID":{"type":"Float"},"name":{"type":"String"},"territories":{"type":"RegionTerritoriesInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManyRegionInput"},"OR":{"type":"FilterFindManyRegionInput"},"AND":{"type":"FilterFindManyRegionInput"},"__typename":{"type":"String"}},"scalar":["regionID","name","_id","_ids"]},"OperatorsFilterFindManyRegionInput":{"name":"OperatorsFilterFindManyRegionInput","fields":{"regionID":{"type":"RegionIDOperatorsFilterFindManyRegionInput"},"_id":{"type":"_idOperatorsFilterFindManyRegionInput"},"__typename":{"type":"String"}}},"RegionIDOperatorsFilterFindManyRegionInput":{"name":"RegionIDOperatorsFilterFindManyRegionInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindManyRegionInput":{"name":"_idOperatorsFilterFindManyRegionInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindManyRegionInput":{"name":"SortFindManyRegionInput"},"FilterFindOneShipperInput":{"name":"FilterFindOneShipperInput","fields":{"shipperID":{"type":"Float"},"companyName":{"type":"String"},"phone":{"type":"String"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneShipperInput"},"OR":{"type":"FilterFindOneShipperInput"},"AND":{"type":"FilterFindOneShipperInput"},"__typename":{"type":"String"}},"scalar":["shipperID","companyName","phone","_id","_ids"]},"OperatorsFilterFindOneShipperInput":{"name":"OperatorsFilterFindOneShipperInput","fields":{"shipperID":{"type":"ShipperIDOperatorsFilterFindOneShipperInput"},"_id":{"type":"_idOperatorsFilterFindOneShipperInput"},"__typename":{"type":"String"}}},"ShipperIDOperatorsFilterFindOneShipperInput":{"name":"ShipperIDOperatorsFilterFindOneShipperInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindOneShipperInput":{"name":"_idOperatorsFilterFindOneShipperInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindOneShipperInput":{"name":"SortFindOneShipperInput"},"FilterFindManyShipperInput":{"name":"FilterFindManyShipperInput","fields":{"shipperID":{"type":"Float"},"companyName":{"type":"String"},"phone":{"type":"String"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManyShipperInput"},"OR":{"type":"FilterFindManyShipperInput"},"AND":{"type":"FilterFindManyShipperInput"},"__typename":{"type":"String"}},"scalar":["shipperID","companyName","phone","_id","_ids"]},"OperatorsFilterFindManyShipperInput":{"name":"OperatorsFilterFindManyShipperInput","fields":{"shipperID":{"type":"ShipperIDOperatorsFilterFindManyShipperInput"},"_id":{"type":"_idOperatorsFilterFindManyShipperInput"},"__typename":{"type":"String"}}},"ShipperIDOperatorsFilterFindManyShipperInput":{"name":"ShipperIDOperatorsFilterFindManyShipperInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindManyShipperInput":{"name":"_idOperatorsFilterFindManyShipperInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindManyShipperInput":{"name":"SortFindManyShipperInput"},"FilterFindOneSupplierInput":{"name":"FilterFindOneSupplierInput","fields":{"supplierID":{"type":"Float"},"companyName":{"type":"String"},"contactName":{"type":"String"},"contactTitle":{"type":"String"},"address":{"type":"CustomerAddressInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindOneSupplierInput"},"OR":{"type":"FilterFindOneSupplierInput"},"AND":{"type":"FilterFindOneSupplierInput"},"__typename":{"type":"String"}},"scalar":["supplierID","companyName","contactName","contactTitle","_id","_ids"]},"OperatorsFilterFindOneSupplierInput":{"name":"OperatorsFilterFindOneSupplierInput","fields":{"supplierID":{"type":"SupplierIDOperatorsFilterFindOneSupplierInput"},"companyName":{"type":"CompanyNameOperatorsFilterFindOneSupplierInput"},"_id":{"type":"_idOperatorsFilterFindOneSupplierInput"},"__typename":{"type":"String"}}},"SupplierIDOperatorsFilterFindOneSupplierInput":{"name":"SupplierIDOperatorsFilterFindOneSupplierInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"CompanyNameOperatorsFilterFindOneSupplierInput":{"name":"CompanyNameOperatorsFilterFindOneSupplierInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindOneSupplierInput":{"name":"_idOperatorsFilterFindOneSupplierInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortFindOneSupplierInput":{"name":"SortFindOneSupplierInput"},"FilterFindManySupplierInput":{"name":"FilterFindManySupplierInput","fields":{"supplierID":{"type":"Float"},"companyName":{"type":"String"},"contactName":{"type":"String"},"contactTitle":{"type":"String"},"address":{"type":"CustomerAddressInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterFindManySupplierInput"},"OR":{"type":"FilterFindManySupplierInput"},"AND":{"type":"FilterFindManySupplierInput"},"__typename":{"type":"String"}},"scalar":["supplierID","companyName","contactName","contactTitle","_id","_ids"]},"OperatorsFilterFindManySupplierInput":{"name":"OperatorsFilterFindManySupplierInput","fields":{"supplierID":{"type":"SupplierIDOperatorsFilterFindManySupplierInput"},"companyName":{"type":"CompanyNameOperatorsFilterFindManySupplierInput"},"_id":{"type":"_idOperatorsFilterFindManySupplierInput"},"__typename":{"type":"String"}}},"SupplierIDOperatorsFilterFindManySupplierInput":{"name":"SupplierIDOperatorsFilterFindManySupplierInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"CompanyNameOperatorsFilterFindManySupplierInput":{"name":"CompanyNameOperatorsFilterFindManySupplierInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterFindManySupplierInput":{"name":"_idOperatorsFilterFindManySupplierInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortConnectionSupplierEnum":{"name":"SortConnectionSupplierEnum"},"SupplierConnection":{"name":"SupplierConnection","fields":{"count":{"type":"Int"},"pageInfo":{"type":"PageInfo"},"edges":{"type":"SupplierEdge"},"__typename":{"type":"String"}},"scalar":["count"]},"SupplierEdge":{"name":"SupplierEdge","fields":{"node":{"type":"Supplier"},"cursor":{"type":"String"},"__typename":{"type":"String"}},"scalar":["cursor"]},"Mutation":{"name":"Mutation","fields":{"createProduct":{"type":"CreateOneProductPayload","args":{"record":["CreateOneProductInput!","CreateOneProductInput"]}},"updateProduct":{"type":"UpdateByIdProductPayload","args":{"record":["UpdateByIdProductInput!","UpdateByIdProductInput"]}},"removeProduct":{"type":"RemoveOneProductPayload","args":{"filter":["FilterRemoveOneProductInput","FilterRemoveOneProductInput"],"sort":["SortRemoveOneProductInput","SortRemoveOneProductInput"]}},"createOrder":{"type":"CreateOneOrderPayload","args":{"record":["CreateOneOrderInput!","CreateOneOrderInput"]}},"updateOrder":{"type":"UpdateByIdOrderPayload","args":{"record":["UpdateByIdOrderInput!","UpdateByIdOrderInput"]}},"removeOrder":{"type":"RemoveOneOrderPayload","args":{"filter":["FilterRemoveOneOrderInput","FilterRemoveOneOrderInput"],"sort":["SortRemoveOneOrderInput","SortRemoveOneOrderInput"]}},"updateEmployee":{"type":"UpdateByIdEmployeePayload","args":{"record":["UpdateByIdEmployeeInput!","UpdateByIdEmployeeInput"]}},"resetData":{"type":"String"},"__typename":{"type":"String"}},"scalar":["resetData"]},"CreateOneProductInput":{"name":"CreateOneProductInput","fields":{"productID":{"type":"Float"},"name":{"type":"String"},"supplierID":{"type":"Float"},"categoryID":{"type":"Float"},"quantityPerUnit":{"type":"String"},"unitPrice":{"type":"Float"},"unitsInStock":{"type":"Float"},"unitsOnOrder":{"type":"Float"},"reorderLevel":{"type":"Float"},"discontinued":{"type":"Boolean"},"__typename":{"type":"String"}},"scalar":["productID","name","supplierID","categoryID","quantityPerUnit","unitPrice","unitsInStock","unitsOnOrder","reorderLevel","discontinued"]},"CreateOneProductPayload":{"name":"CreateOneProductPayload","fields":{"recordId":{"type":"MongoID"},"record":{"type":"Product"},"query":{"type":"Query"},"__typename":{"type":"String"}},"scalar":["recordId"]},"UpdateByIdProductInput":{"name":"UpdateByIdProductInput","fields":{"productID":{"type":"Float"},"name":{"type":"String"},"supplierID":{"type":"Float"},"categoryID":{"type":"Float"},"quantityPerUnit":{"type":"String"},"unitPrice":{"type":"Float"},"unitsInStock":{"type":"Float"},"unitsOnOrder":{"type":"Float"},"reorderLevel":{"type":"Float"},"discontinued":{"type":"Boolean"},"_id":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["productID","name","supplierID","categoryID","quantityPerUnit","unitPrice","unitsInStock","unitsOnOrder","reorderLevel","discontinued","_id"]},"UpdateByIdProductPayload":{"name":"UpdateByIdProductPayload","fields":{"recordId":{"type":"MongoID"},"record":{"type":"Product"},"query":{"type":"Query"},"__typename":{"type":"String"}},"scalar":["recordId"]},"FilterRemoveOneProductInput":{"name":"FilterRemoveOneProductInput","fields":{"productID":{"type":"Float"},"name":{"type":"String"},"supplierID":{"type":"Float"},"categoryID":{"type":"Float"},"quantityPerUnit":{"type":"String"},"unitPrice":{"type":"Float"},"unitsInStock":{"type":"Float"},"unitsOnOrder":{"type":"Float"},"reorderLevel":{"type":"Float"},"discontinued":{"type":"Boolean"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterRemoveOneProductInput"},"OR":{"type":"FilterRemoveOneProductInput"},"AND":{"type":"FilterRemoveOneProductInput"},"__typename":{"type":"String"}},"scalar":["productID","name","supplierID","categoryID","quantityPerUnit","unitPrice","unitsInStock","unitsOnOrder","reorderLevel","discontinued","_id","_ids"]},"OperatorsFilterRemoveOneProductInput":{"name":"OperatorsFilterRemoveOneProductInput","fields":{"productID":{"type":"ProductIDOperatorsFilterRemoveOneProductInput"},"name":{"type":"NameOperatorsFilterRemoveOneProductInput"},"unitPrice":{"type":"UnitPriceOperatorsFilterRemoveOneProductInput"},"_id":{"type":"_idOperatorsFilterRemoveOneProductInput"},"__typename":{"type":"String"}}},"ProductIDOperatorsFilterRemoveOneProductInput":{"name":"ProductIDOperatorsFilterRemoveOneProductInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"NameOperatorsFilterRemoveOneProductInput":{"name":"NameOperatorsFilterRemoveOneProductInput","fields":{"gt":{"type":"String"},"gte":{"type":"String"},"lt":{"type":"String"},"lte":{"type":"String"},"ne":{"type":"String"},"in":{"type":"String"},"nin":{"type":"String"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"UnitPriceOperatorsFilterRemoveOneProductInput":{"name":"UnitPriceOperatorsFilterRemoveOneProductInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"_idOperatorsFilterRemoveOneProductInput":{"name":"_idOperatorsFilterRemoveOneProductInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortRemoveOneProductInput":{"name":"SortRemoveOneProductInput"},"RemoveOneProductPayload":{"name":"RemoveOneProductPayload","fields":{"recordId":{"type":"MongoID"},"record":{"type":"Product"},"query":{"type":"Query"},"__typename":{"type":"String"}},"scalar":["recordId"]},"CreateOneOrderInput":{"name":"CreateOneOrderInput","fields":{"orderID":{"type":"Float"},"customerID":{"type":"String"},"employeeID":{"type":"Float"},"orderDate":{"type":"Date"},"requiredDate":{"type":"Date"},"shippedDate":{"type":"Date"},"shipVia":{"type":"Float"},"freight":{"type":"Float"},"shipName":{"type":"String"},"shipAddress":{"type":"CustomerAddressInput"},"details":{"type":"OrderDetailsInput"},"__typename":{"type":"String"}},"scalar":["orderID","customerID","employeeID","orderDate","requiredDate","shippedDate","shipVia","freight","shipName"]},"CreateOneOrderPayload":{"name":"CreateOneOrderPayload","fields":{"recordId":{"type":"MongoID"},"record":{"type":"Order"},"query":{"type":"Query"},"__typename":{"type":"String"}},"scalar":["recordId"]},"UpdateByIdOrderInput":{"name":"UpdateByIdOrderInput","fields":{"orderID":{"type":"Float"},"customerID":{"type":"String"},"employeeID":{"type":"Float"},"orderDate":{"type":"Date"},"requiredDate":{"type":"Date"},"shippedDate":{"type":"Date"},"shipVia":{"type":"Float"},"freight":{"type":"Float"},"shipName":{"type":"String"},"shipAddress":{"type":"CustomerAddressInput"},"details":{"type":"OrderDetailsInput"},"_id":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["orderID","customerID","employeeID","orderDate","requiredDate","shippedDate","shipVia","freight","shipName","_id"]},"UpdateByIdOrderPayload":{"name":"UpdateByIdOrderPayload","fields":{"recordId":{"type":"MongoID"},"record":{"type":"Order"},"query":{"type":"Query"},"__typename":{"type":"String"}},"scalar":["recordId"]},"FilterRemoveOneOrderInput":{"name":"FilterRemoveOneOrderInput","fields":{"orderID":{"type":"Float"},"customerID":{"type":"String"},"employeeID":{"type":"Float"},"orderDate":{"type":"Date"},"requiredDate":{"type":"Date"},"shippedDate":{"type":"Date"},"shipVia":{"type":"Float"},"freight":{"type":"Float"},"shipName":{"type":"String"},"shipAddress":{"type":"CustomerAddressInput"},"details":{"type":"OrderDetailsInput"},"_id":{"type":"MongoID"},"_ids":{"type":"MongoID"},"_operators":{"type":"OperatorsFilterRemoveOneOrderInput"},"OR":{"type":"FilterRemoveOneOrderInput"},"AND":{"type":"FilterRemoveOneOrderInput"},"__typename":{"type":"String"}},"scalar":["orderID","customerID","employeeID","orderDate","requiredDate","shippedDate","shipVia","freight","shipName","_id","_ids"]},"OperatorsFilterRemoveOneOrderInput":{"name":"OperatorsFilterRemoveOneOrderInput","fields":{"orderID":{"type":"OrderIDOperatorsFilterRemoveOneOrderInput"},"details":{"type":"DetailsOperatorsFilterRemoveOneOrderInput"},"_id":{"type":"_idOperatorsFilterRemoveOneOrderInput"},"__typename":{"type":"String"}}},"OrderIDOperatorsFilterRemoveOneOrderInput":{"name":"OrderIDOperatorsFilterRemoveOneOrderInput","fields":{"gt":{"type":"Float"},"gte":{"type":"Float"},"lt":{"type":"Float"},"lte":{"type":"Float"},"ne":{"type":"Float"},"in":{"type":"Float"},"nin":{"type":"Float"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"DetailsOperatorsFilterRemoveOneOrderInput":{"name":"DetailsOperatorsFilterRemoveOneOrderInput","fields":{"gt":{"type":"OrderDetailsInput"},"gte":{"type":"OrderDetailsInput"},"lt":{"type":"OrderDetailsInput"},"lte":{"type":"OrderDetailsInput"},"ne":{"type":"OrderDetailsInput"},"in":{"type":"OrderDetailsInput"},"nin":{"type":"OrderDetailsInput"},"__typename":{"type":"String"}}},"_idOperatorsFilterRemoveOneOrderInput":{"name":"_idOperatorsFilterRemoveOneOrderInput","fields":{"gt":{"type":"MongoID"},"gte":{"type":"MongoID"},"lt":{"type":"MongoID"},"lte":{"type":"MongoID"},"ne":{"type":"MongoID"},"in":{"type":"MongoID"},"nin":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["gt","gte","lt","lte","ne","in","nin"]},"SortRemoveOneOrderInput":{"name":"SortRemoveOneOrderInput"},"RemoveOneOrderPayload":{"name":"RemoveOneOrderPayload","fields":{"recordId":{"type":"MongoID"},"record":{"type":"Order"},"query":{"type":"Query"},"__typename":{"type":"String"}},"scalar":["recordId"]},"UpdateByIdEmployeeInput":{"name":"UpdateByIdEmployeeInput","fields":{"employeeID":{"type":"Float"},"lastName":{"type":"String"},"firstName":{"type":"String"},"title":{"type":"String"},"titleOfCourtesy":{"type":"String"},"birthDate":{"type":"Date"},"hireDate":{"type":"Date"},"address":{"type":"CustomerAddressInput"},"notes":{"type":"String"},"reportsTo":{"type":"Float"},"territoryIDs":{"type":"Float"},"_id":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["employeeID","lastName","firstName","title","titleOfCourtesy","birthDate","hireDate","notes","reportsTo","territoryIDs","_id"]},"UpdateByIdEmployeePayload":{"name":"UpdateByIdEmployeePayload","fields":{"recordId":{"type":"MongoID"},"record":{"type":"Employee"},"query":{"type":"Query"},"__typename":{"type":"String"}},"scalar":["recordId"]},"Subscription":{"name":"Subscription","fields":{"orderCreated":{"type":"Order"},"orderUpdated":{"type":"Order"},"orderRemoved":{"type":"MongoID"},"__typename":{"type":"String"}},"scalar":["orderRemoved"]}}
+{
+    "Query": {
+        "name": "Query",
+        "fields": {
+            "viewer": { "type": "Viewer" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "Viewer": {
+        "name": "Viewer",
+        "fields": {
+            "category": {
+                "type": "Category",
+                "args": {
+                    "filter": [
+                        "FilterFindOneCategoryInput",
+                        "FilterFindOneCategoryInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": [
+                        "SortFindOneCategoryInput",
+                        "SortFindOneCategoryInput"
+                    ]
+                }
+            },
+            "categoryList": {
+                "type": "Category",
+                "args": {
+                    "filter": [
+                        "FilterFindManyCategoryInput",
+                        "FilterFindManyCategoryInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyCategoryInput",
+                        "SortFindManyCategoryInput"
+                    ]
+                }
+            },
+            "customer": {
+                "type": "Customer",
+                "args": {
+                    "filter": [
+                        "FilterFindOneCustomerInput",
+                        "FilterFindOneCustomerInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": [
+                        "SortFindOneCustomerInput",
+                        "SortFindOneCustomerInput"
+                    ]
+                }
+            },
+            "customerPagination": {
+                "type": "CustomerPagination",
+                "args": {
+                    "page": ["Int", "Int"],
+                    "perPage": ["Int", "Int"],
+                    "filter": [
+                        "FilterFindManyCustomerInput",
+                        "FilterFindManyCustomerInput"
+                    ],
+                    "sort": [
+                        "SortFindManyCustomerInput",
+                        "SortFindManyCustomerInput"
+                    ]
+                }
+            },
+            "customerConnection": {
+                "type": "CustomerConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "filter": [
+                        "FilterFindManyCustomerInput",
+                        "FilterFindManyCustomerInput"
+                    ],
+                    "sort": [
+                        "SortConnectionCustomerEnum",
+                        "SortConnectionCustomerEnum"
+                    ]
+                }
+            },
+            "employee": {
+                "type": "Employee",
+                "args": {
+                    "filter": [
+                        "FilterFindOneEmployeeInput",
+                        "FilterFindOneEmployeeInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": [
+                        "SortFindOneEmployeeInput",
+                        "SortFindOneEmployeeInput"
+                    ]
+                }
+            },
+            "employeeList": {
+                "type": "Employee",
+                "args": {
+                    "filter": [
+                        "FilterFindManyEmployeeInput",
+                        "FilterFindManyEmployeeInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyEmployeeInput",
+                        "SortFindManyEmployeeInput"
+                    ]
+                }
+            },
+            "employeePagination": {
+                "type": "EmployeePagination",
+                "args": {
+                    "page": ["Int", "Int"],
+                    "perPage": ["Int", "Int"],
+                    "filter": [
+                        "FilterFindManyEmployeeInput",
+                        "FilterFindManyEmployeeInput"
+                    ],
+                    "sort": [
+                        "SortFindManyEmployeeInput",
+                        "SortFindManyEmployeeInput"
+                    ]
+                }
+            },
+            "order": {
+                "type": "Order",
+                "args": {
+                    "filter": [
+                        "FilterFindOneOrderInput",
+                        "FilterFindOneOrderInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": ["SortFindOneOrderInput", "SortFindOneOrderInput"]
+                }
+            },
+            "orderPagination": {
+                "type": "OrderPagination",
+                "args": {
+                    "page": ["Int", "Int"],
+                    "perPage": ["Int", "Int"],
+                    "filter": [
+                        "FilterFindManyOrderInput",
+                        "FilterFindManyOrderInput"
+                    ],
+                    "sort": ["SortFindManyOrderInput", "SortFindManyOrderInput"]
+                }
+            },
+            "orderConnection": {
+                "type": "OrderConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "filter": [
+                        "FilterFindManyOrderInput",
+                        "FilterFindManyOrderInput"
+                    ],
+                    "sort": [
+                        "SortConnectionOrderEnum",
+                        "SortConnectionOrderEnum"
+                    ]
+                }
+            },
+            "product": {
+                "type": "Product",
+                "args": {
+                    "filter": [
+                        "FilterFindOneProductInput",
+                        "FilterFindOneProductInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": [
+                        "SortFindOneProductInput",
+                        "SortFindOneProductInput"
+                    ]
+                }
+            },
+            "productList": {
+                "type": "Product",
+                "args": {
+                    "filter": [
+                        "FilterFindManyProductInput",
+                        "FilterFindManyProductInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyProductInput",
+                        "SortFindManyProductInput"
+                    ]
+                }
+            },
+            "productPagination": {
+                "type": "ProductPagination",
+                "args": {
+                    "page": ["Int", "Int"],
+                    "perPage": ["Int", "Int"],
+                    "filter": [
+                        "FilterFindManyProductInput",
+                        "FilterFindManyProductInput"
+                    ],
+                    "sort": [
+                        "SortFindManyProductInput",
+                        "SortFindManyProductInput"
+                    ]
+                }
+            },
+            "productConnection": {
+                "type": "ProductConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "filter": [
+                        "FilterFindManyProductInput",
+                        "FilterFindManyProductInput"
+                    ],
+                    "sort": [
+                        "SortConnectionProductEnum",
+                        "SortConnectionProductEnum"
+                    ]
+                }
+            },
+            "region": {
+                "type": "Region",
+                "args": {
+                    "filter": [
+                        "FilterFindOneRegionInput",
+                        "FilterFindOneRegionInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": ["SortFindOneRegionInput", "SortFindOneRegionInput"]
+                }
+            },
+            "regionList": {
+                "type": "Region",
+                "args": {
+                    "filter": [
+                        "FilterFindManyRegionInput",
+                        "FilterFindManyRegionInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyRegionInput",
+                        "SortFindManyRegionInput"
+                    ]
+                }
+            },
+            "shipper": {
+                "type": "Shipper",
+                "args": {
+                    "filter": [
+                        "FilterFindOneShipperInput",
+                        "FilterFindOneShipperInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": [
+                        "SortFindOneShipperInput",
+                        "SortFindOneShipperInput"
+                    ]
+                }
+            },
+            "shipperList": {
+                "type": "Shipper",
+                "args": {
+                    "filter": [
+                        "FilterFindManyShipperInput",
+                        "FilterFindManyShipperInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyShipperInput",
+                        "SortFindManyShipperInput"
+                    ]
+                }
+            },
+            "supplier": {
+                "type": "Supplier",
+                "args": {
+                    "filter": [
+                        "FilterFindOneSupplierInput",
+                        "FilterFindOneSupplierInput"
+                    ],
+                    "skip": ["Int", "Int"],
+                    "sort": [
+                        "SortFindOneSupplierInput",
+                        "SortFindOneSupplierInput"
+                    ]
+                }
+            },
+            "supplierConnection": {
+                "type": "SupplierConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "filter": [
+                        "FilterFindManySupplierInput",
+                        "FilterFindManySupplierInput"
+                    ],
+                    "sort": [
+                        "SortConnectionSupplierEnum",
+                        "SortConnectionSupplierEnum"
+                    ]
+                }
+            },
+            "__typename": { "type": "String" }
+        }
+    },
+    "FilterFindOneCategoryInput": {
+        "name": "FilterFindOneCategoryInput",
+        "fields": {
+            "categoryID": { "type": "Float" },
+            "name": { "type": "String" },
+            "description": { "type": "String" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneCategoryInput" },
+            "OR": { "type": "FilterFindOneCategoryInput" },
+            "AND": { "type": "FilterFindOneCategoryInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["categoryID", "name", "description", "_id", "_ids"]
+    },
+    "Float": { "name": "Float" },
+    "String": { "name": "String" },
+    "MongoID": { "name": "MongoID" },
+    "OperatorsFilterFindOneCategoryInput": {
+        "name": "OperatorsFilterFindOneCategoryInput",
+        "fields": {
+            "categoryID": {
+                "type": "CategoryIDOperatorsFilterFindOneCategoryInput"
+            },
+            "name": { "type": "NameOperatorsFilterFindOneCategoryInput" },
+            "_id": { "type": "_idOperatorsFilterFindOneCategoryInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "CategoryIDOperatorsFilterFindOneCategoryInput": {
+        "name": "CategoryIDOperatorsFilterFindOneCategoryInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "NameOperatorsFilterFindOneCategoryInput": {
+        "name": "NameOperatorsFilterFindOneCategoryInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindOneCategoryInput": {
+        "name": "_idOperatorsFilterFindOneCategoryInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "Int": { "name": "Int" },
+    "SortFindOneCategoryInput": { "name": "SortFindOneCategoryInput" },
+    "Category": {
+        "name": "Category",
+        "fields": {
+            "categoryID": { "type": "Float" },
+            "name": { "type": "String" },
+            "description": { "type": "String" },
+            "_id": { "type": "MongoID" },
+            "productConnection": {
+                "type": "ProductConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "sort": [
+                        "SortConnectionProductEnum",
+                        "SortConnectionProductEnum"
+                    ]
+                }
+            },
+            "productList": {
+                "type": "Product",
+                "args": {
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyProductInput",
+                        "SortFindManyProductInput"
+                    ]
+                }
+            },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["categoryID", "name", "description", "_id"]
+    },
+    "SortConnectionProductEnum": { "name": "SortConnectionProductEnum" },
+    "ProductConnection": {
+        "name": "ProductConnection",
+        "fields": {
+            "count": { "type": "Int" },
+            "pageInfo": { "type": "PageInfo" },
+            "edges": { "type": "ProductEdge" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "PageInfo": {
+        "name": "PageInfo",
+        "fields": {
+            "hasNextPage": { "type": "Boolean" },
+            "hasPreviousPage": { "type": "Boolean" },
+            "startCursor": { "type": "String" },
+            "endCursor": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["hasNextPage", "hasPreviousPage", "startCursor", "endCursor"]
+    },
+    "Boolean": { "name": "Boolean" },
+    "ProductEdge": {
+        "name": "ProductEdge",
+        "fields": {
+            "node": { "type": "Product" },
+            "cursor": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["cursor"]
+    },
+    "Product": {
+        "name": "Product",
+        "fields": {
+            "productID": { "type": "Float" },
+            "name": { "type": "String" },
+            "supplierID": { "type": "Float" },
+            "categoryID": { "type": "Float" },
+            "quantityPerUnit": { "type": "String" },
+            "unitPrice": { "type": "Float" },
+            "unitsInStock": { "type": "Float" },
+            "unitsOnOrder": { "type": "Float" },
+            "reorderLevel": { "type": "Float" },
+            "discontinued": { "type": "Boolean" },
+            "_id": { "type": "MongoID" },
+            "orderConnection": {
+                "type": "OrderConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "sort": [
+                        "SortConnectionOrderEnum",
+                        "SortConnectionOrderEnum"
+                    ]
+                }
+            },
+            "orderList": {
+                "type": "Order",
+                "args": {
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": ["SortFindManyOrderInput", "SortFindManyOrderInput"]
+                }
+            },
+            "supplier": { "type": "Supplier" },
+            "category": { "type": "Category" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "productID",
+            "name",
+            "supplierID",
+            "categoryID",
+            "quantityPerUnit",
+            "unitPrice",
+            "unitsInStock",
+            "unitsOnOrder",
+            "reorderLevel",
+            "discontinued",
+            "_id"
+        ]
+    },
+    "SortConnectionOrderEnum": { "name": "SortConnectionOrderEnum" },
+    "OrderConnection": {
+        "name": "OrderConnection",
+        "fields": {
+            "count": { "type": "Int" },
+            "pageInfo": { "type": "PageInfo" },
+            "edges": { "type": "OrderEdge" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "OrderEdge": {
+        "name": "OrderEdge",
+        "fields": {
+            "node": { "type": "Order" },
+            "cursor": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["cursor"]
+    },
+    "Order": {
+        "name": "Order",
+        "fields": {
+            "orderID": { "type": "Float" },
+            "customerID": { "type": "String" },
+            "employeeID": { "type": "Float" },
+            "orderDate": { "type": "Date" },
+            "requiredDate": { "type": "Date" },
+            "shippedDate": { "type": "Date" },
+            "shipVia": { "type": "Float" },
+            "freight": { "type": "Float" },
+            "shipName": { "type": "String" },
+            "shipAddress": { "type": "CustomerAddress" },
+            "details": { "type": "OrderDetails" },
+            "_id": { "type": "MongoID" },
+            "customer": { "type": "Customer" },
+            "employee": { "type": "Employee" },
+            "shipper": { "type": "Shipper" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "orderID",
+            "customerID",
+            "employeeID",
+            "orderDate",
+            "requiredDate",
+            "shippedDate",
+            "shipVia",
+            "freight",
+            "shipName",
+            "_id"
+        ]
+    },
+    "Date": { "name": "Date" },
+    "CustomerAddress": {
+        "name": "CustomerAddress",
+        "fields": {
+            "street": { "type": "String" },
+            "city": { "type": "String" },
+            "region": { "type": "String" },
+            "postalCode": { "type": "String" },
+            "country": { "type": "String" },
+            "phone": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["street", "city", "region", "postalCode", "country", "phone"]
+    },
+    "OrderDetails": {
+        "name": "OrderDetails",
+        "fields": {
+            "productID": { "type": "Float" },
+            "unitPrice": { "type": "Float" },
+            "quantity": { "type": "Float" },
+            "discount": { "type": "Float" },
+            "product": { "type": "Product" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["productID", "unitPrice", "quantity", "discount"]
+    },
+    "Customer": {
+        "name": "Customer",
+        "fields": {
+            "customerID": { "type": "String" },
+            "companyName": { "type": "String" },
+            "contactName": { "type": "String" },
+            "contactTitle": { "type": "String" },
+            "address": { "type": "CustomerAddress" },
+            "_id": { "type": "MongoID" },
+            "orderConnection": {
+                "type": "OrderConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "sort": [
+                        "SortConnectionOrderEnum",
+                        "SortConnectionOrderEnum"
+                    ]
+                }
+            },
+            "orderList": {
+                "type": "Order",
+                "args": {
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": ["SortFindManyOrderInput", "SortFindManyOrderInput"]
+                }
+            },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "customerID",
+            "companyName",
+            "contactName",
+            "contactTitle",
+            "_id"
+        ]
+    },
+    "SortFindManyOrderInput": { "name": "SortFindManyOrderInput" },
+    "Employee": {
+        "name": "Employee",
+        "fields": {
+            "employeeID": { "type": "Float" },
+            "lastName": { "type": "String" },
+            "firstName": { "type": "String" },
+            "title": { "type": "String" },
+            "titleOfCourtesy": { "type": "String" },
+            "birthDate": { "type": "Date" },
+            "hireDate": { "type": "Date" },
+            "address": { "type": "CustomerAddress" },
+            "notes": { "type": "String" },
+            "reportsTo": { "type": "Float" },
+            "territoryIDs": { "type": "Float" },
+            "_id": { "type": "MongoID" },
+            "chief": { "type": "Employee" },
+            "subordinates": {
+                "type": "Employee",
+                "args": {
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyEmployeeInput",
+                        "SortFindManyEmployeeInput"
+                    ]
+                }
+            },
+            "orderConnection": {
+                "type": "OrderConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "sort": [
+                        "SortConnectionOrderEnum",
+                        "SortConnectionOrderEnum"
+                    ]
+                }
+            },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "employeeID",
+            "lastName",
+            "firstName",
+            "title",
+            "titleOfCourtesy",
+            "birthDate",
+            "hireDate",
+            "notes",
+            "reportsTo",
+            "territoryIDs",
+            "_id"
+        ]
+    },
+    "SortFindManyEmployeeInput": { "name": "SortFindManyEmployeeInput" },
+    "Shipper": {
+        "name": "Shipper",
+        "fields": {
+            "shipperID": { "type": "Float" },
+            "companyName": { "type": "String" },
+            "phone": { "type": "String" },
+            "_id": { "type": "MongoID" },
+            "orderConnection": {
+                "type": "OrderConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "sort": [
+                        "SortConnectionOrderEnum",
+                        "SortConnectionOrderEnum"
+                    ]
+                }
+            },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["shipperID", "companyName", "phone", "_id"]
+    },
+    "Supplier": {
+        "name": "Supplier",
+        "fields": {
+            "supplierID": { "type": "Float" },
+            "companyName": { "type": "String" },
+            "contactName": { "type": "String" },
+            "contactTitle": { "type": "String" },
+            "address": { "type": "CustomerAddress" },
+            "_id": { "type": "MongoID" },
+            "productConnection": {
+                "type": "ProductConnection",
+                "args": {
+                    "first": ["Int", "Int"],
+                    "after": ["String", "String"],
+                    "last": ["Int", "Int"],
+                    "before": ["String", "String"],
+                    "sort": [
+                        "SortConnectionProductEnum",
+                        "SortConnectionProductEnum"
+                    ]
+                }
+            },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "supplierID",
+            "companyName",
+            "contactName",
+            "contactTitle",
+            "_id"
+        ]
+    },
+    "SortFindManyProductInput": { "name": "SortFindManyProductInput" },
+    "FilterFindManyCategoryInput": {
+        "name": "FilterFindManyCategoryInput",
+        "fields": {
+            "categoryID": { "type": "Float" },
+            "name": { "type": "String" },
+            "description": { "type": "String" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManyCategoryInput" },
+            "OR": { "type": "FilterFindManyCategoryInput" },
+            "AND": { "type": "FilterFindManyCategoryInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["categoryID", "name", "description", "_id", "_ids"]
+    },
+    "OperatorsFilterFindManyCategoryInput": {
+        "name": "OperatorsFilterFindManyCategoryInput",
+        "fields": {
+            "categoryID": {
+                "type": "CategoryIDOperatorsFilterFindManyCategoryInput"
+            },
+            "name": { "type": "NameOperatorsFilterFindManyCategoryInput" },
+            "_id": { "type": "_idOperatorsFilterFindManyCategoryInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "CategoryIDOperatorsFilterFindManyCategoryInput": {
+        "name": "CategoryIDOperatorsFilterFindManyCategoryInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "NameOperatorsFilterFindManyCategoryInput": {
+        "name": "NameOperatorsFilterFindManyCategoryInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindManyCategoryInput": {
+        "name": "_idOperatorsFilterFindManyCategoryInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindManyCategoryInput": { "name": "SortFindManyCategoryInput" },
+    "FilterFindOneCustomerInput": {
+        "name": "FilterFindOneCustomerInput",
+        "fields": {
+            "customerID": { "type": "String" },
+            "companyName": { "type": "String" },
+            "contactName": { "type": "String" },
+            "contactTitle": { "type": "String" },
+            "address": { "type": "CustomerAddressInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneCustomerInput" },
+            "OR": { "type": "FilterFindOneCustomerInput" },
+            "AND": { "type": "FilterFindOneCustomerInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "customerID",
+            "companyName",
+            "contactName",
+            "contactTitle",
+            "_id",
+            "_ids"
+        ]
+    },
+    "CustomerAddressInput": {
+        "name": "CustomerAddressInput",
+        "fields": {
+            "street": { "type": "String" },
+            "city": { "type": "String" },
+            "region": { "type": "String" },
+            "postalCode": { "type": "String" },
+            "country": { "type": "String" },
+            "phone": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["street", "city", "region", "postalCode", "country", "phone"]
+    },
+    "OperatorsFilterFindOneCustomerInput": {
+        "name": "OperatorsFilterFindOneCustomerInput",
+        "fields": {
+            "customerID": {
+                "type": "CustomerIDOperatorsFilterFindOneCustomerInput"
+            },
+            "companyName": {
+                "type": "CompanyNameOperatorsFilterFindOneCustomerInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindOneCustomerInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "CustomerIDOperatorsFilterFindOneCustomerInput": {
+        "name": "CustomerIDOperatorsFilterFindOneCustomerInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "CompanyNameOperatorsFilterFindOneCustomerInput": {
+        "name": "CompanyNameOperatorsFilterFindOneCustomerInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindOneCustomerInput": {
+        "name": "_idOperatorsFilterFindOneCustomerInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindOneCustomerInput": { "name": "SortFindOneCustomerInput" },
+    "FilterFindManyCustomerInput": {
+        "name": "FilterFindManyCustomerInput",
+        "fields": {
+            "customerID": { "type": "String" },
+            "companyName": { "type": "String" },
+            "contactName": { "type": "String" },
+            "contactTitle": { "type": "String" },
+            "address": { "type": "CustomerAddressInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManyCustomerInput" },
+            "OR": { "type": "FilterFindManyCustomerInput" },
+            "AND": { "type": "FilterFindManyCustomerInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "customerID",
+            "companyName",
+            "contactName",
+            "contactTitle",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterFindManyCustomerInput": {
+        "name": "OperatorsFilterFindManyCustomerInput",
+        "fields": {
+            "customerID": {
+                "type": "CustomerIDOperatorsFilterFindManyCustomerInput"
+            },
+            "companyName": {
+                "type": "CompanyNameOperatorsFilterFindManyCustomerInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindManyCustomerInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "CustomerIDOperatorsFilterFindManyCustomerInput": {
+        "name": "CustomerIDOperatorsFilterFindManyCustomerInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "CompanyNameOperatorsFilterFindManyCustomerInput": {
+        "name": "CompanyNameOperatorsFilterFindManyCustomerInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindManyCustomerInput": {
+        "name": "_idOperatorsFilterFindManyCustomerInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindManyCustomerInput": { "name": "SortFindManyCustomerInput" },
+    "CustomerPagination": {
+        "name": "CustomerPagination",
+        "fields": {
+            "count": { "type": "Int" },
+            "items": { "type": "Customer" },
+            "pageInfo": { "type": "PaginationInfo" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "PaginationInfo": {
+        "name": "PaginationInfo",
+        "fields": {
+            "currentPage": { "type": "Int" },
+            "perPage": { "type": "Int" },
+            "pageCount": { "type": "Int" },
+            "itemCount": { "type": "Int" },
+            "hasNextPage": { "type": "Boolean" },
+            "hasPreviousPage": { "type": "Boolean" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "currentPage",
+            "perPage",
+            "pageCount",
+            "itemCount",
+            "hasNextPage",
+            "hasPreviousPage"
+        ]
+    },
+    "SortConnectionCustomerEnum": { "name": "SortConnectionCustomerEnum" },
+    "CustomerConnection": {
+        "name": "CustomerConnection",
+        "fields": {
+            "count": { "type": "Int" },
+            "pageInfo": { "type": "PageInfo" },
+            "edges": { "type": "CustomerEdge" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "CustomerEdge": {
+        "name": "CustomerEdge",
+        "fields": {
+            "node": { "type": "Customer" },
+            "cursor": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["cursor"]
+    },
+    "FilterFindOneEmployeeInput": {
+        "name": "FilterFindOneEmployeeInput",
+        "fields": {
+            "employeeID": { "type": "Float" },
+            "lastName": { "type": "String" },
+            "firstName": { "type": "String" },
+            "title": { "type": "String" },
+            "titleOfCourtesy": { "type": "String" },
+            "birthDate": { "type": "Date" },
+            "hireDate": { "type": "Date" },
+            "address": { "type": "CustomerAddressInput" },
+            "notes": { "type": "String" },
+            "reportsTo": { "type": "Float" },
+            "territoryIDs": { "type": "Float" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneEmployeeInput" },
+            "OR": { "type": "FilterFindOneEmployeeInput" },
+            "AND": { "type": "FilterFindOneEmployeeInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "employeeID",
+            "lastName",
+            "firstName",
+            "title",
+            "titleOfCourtesy",
+            "birthDate",
+            "hireDate",
+            "notes",
+            "reportsTo",
+            "territoryIDs",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterFindOneEmployeeInput": {
+        "name": "OperatorsFilterFindOneEmployeeInput",
+        "fields": {
+            "employeeID": {
+                "type": "EmployeeIDOperatorsFilterFindOneEmployeeInput"
+            },
+            "lastName": {
+                "type": "LastNameOperatorsFilterFindOneEmployeeInput"
+            },
+            "territoryIDs": {
+                "type": "TerritoryIDsOperatorsFilterFindOneEmployeeInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindOneEmployeeInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "EmployeeIDOperatorsFilterFindOneEmployeeInput": {
+        "name": "EmployeeIDOperatorsFilterFindOneEmployeeInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "LastNameOperatorsFilterFindOneEmployeeInput": {
+        "name": "LastNameOperatorsFilterFindOneEmployeeInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "TerritoryIDsOperatorsFilterFindOneEmployeeInput": {
+        "name": "TerritoryIDsOperatorsFilterFindOneEmployeeInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindOneEmployeeInput": {
+        "name": "_idOperatorsFilterFindOneEmployeeInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindOneEmployeeInput": { "name": "SortFindOneEmployeeInput" },
+    "FilterFindManyEmployeeInput": {
+        "name": "FilterFindManyEmployeeInput",
+        "fields": {
+            "employeeID": { "type": "Float" },
+            "lastName": { "type": "String" },
+            "firstName": { "type": "String" },
+            "title": { "type": "String" },
+            "titleOfCourtesy": { "type": "String" },
+            "birthDate": { "type": "Date" },
+            "hireDate": { "type": "Date" },
+            "address": { "type": "CustomerAddressInput" },
+            "notes": { "type": "String" },
+            "reportsTo": { "type": "Float" },
+            "territoryIDs": { "type": "Float" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManyEmployeeInput" },
+            "OR": { "type": "FilterFindManyEmployeeInput" },
+            "AND": { "type": "FilterFindManyEmployeeInput" },
+            "fullTextSearch": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "employeeID",
+            "lastName",
+            "firstName",
+            "title",
+            "titleOfCourtesy",
+            "birthDate",
+            "hireDate",
+            "notes",
+            "reportsTo",
+            "territoryIDs",
+            "_id",
+            "_ids",
+            "fullTextSearch"
+        ]
+    },
+    "OperatorsFilterFindManyEmployeeInput": {
+        "name": "OperatorsFilterFindManyEmployeeInput",
+        "fields": {
+            "employeeID": {
+                "type": "EmployeeIDOperatorsFilterFindManyEmployeeInput"
+            },
+            "lastName": {
+                "type": "LastNameOperatorsFilterFindManyEmployeeInput"
+            },
+            "territoryIDs": {
+                "type": "TerritoryIDsOperatorsFilterFindManyEmployeeInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindManyEmployeeInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "EmployeeIDOperatorsFilterFindManyEmployeeInput": {
+        "name": "EmployeeIDOperatorsFilterFindManyEmployeeInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "LastNameOperatorsFilterFindManyEmployeeInput": {
+        "name": "LastNameOperatorsFilterFindManyEmployeeInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "TerritoryIDsOperatorsFilterFindManyEmployeeInput": {
+        "name": "TerritoryIDsOperatorsFilterFindManyEmployeeInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindManyEmployeeInput": {
+        "name": "_idOperatorsFilterFindManyEmployeeInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "EmployeePagination": {
+        "name": "EmployeePagination",
+        "fields": {
+            "count": { "type": "Int" },
+            "items": { "type": "Employee" },
+            "pageInfo": { "type": "PaginationInfo" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "FilterFindOneOrderInput": {
+        "name": "FilterFindOneOrderInput",
+        "fields": {
+            "orderID": { "type": "Float" },
+            "customerID": { "type": "String" },
+            "employeeID": { "type": "Float" },
+            "orderDate": { "type": "Date" },
+            "requiredDate": { "type": "Date" },
+            "shippedDate": { "type": "Date" },
+            "shipVia": { "type": "Float" },
+            "freight": { "type": "Float" },
+            "shipName": { "type": "String" },
+            "shipAddress": { "type": "CustomerAddressInput" },
+            "details": { "type": "OrderDetailsInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneOrderInput" },
+            "OR": { "type": "FilterFindOneOrderInput" },
+            "AND": { "type": "FilterFindOneOrderInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "orderID",
+            "customerID",
+            "employeeID",
+            "orderDate",
+            "requiredDate",
+            "shippedDate",
+            "shipVia",
+            "freight",
+            "shipName",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OrderDetailsInput": {
+        "name": "OrderDetailsInput",
+        "fields": {
+            "productID": { "type": "Float" },
+            "unitPrice": { "type": "Float" },
+            "quantity": { "type": "Float" },
+            "discount": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["productID", "unitPrice", "quantity", "discount"]
+    },
+    "OperatorsFilterFindOneOrderInput": {
+        "name": "OperatorsFilterFindOneOrderInput",
+        "fields": {
+            "orderID": { "type": "OrderIDOperatorsFilterFindOneOrderInput" },
+            "details": { "type": "DetailsOperatorsFilterFindOneOrderInput" },
+            "_id": { "type": "_idOperatorsFilterFindOneOrderInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "OrderIDOperatorsFilterFindOneOrderInput": {
+        "name": "OrderIDOperatorsFilterFindOneOrderInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "DetailsOperatorsFilterFindOneOrderInput": {
+        "name": "DetailsOperatorsFilterFindOneOrderInput",
+        "fields": {
+            "gt": { "type": "OrderDetailsInput" },
+            "gte": { "type": "OrderDetailsInput" },
+            "lt": { "type": "OrderDetailsInput" },
+            "lte": { "type": "OrderDetailsInput" },
+            "ne": { "type": "OrderDetailsInput" },
+            "in": { "type": "OrderDetailsInput" },
+            "nin": { "type": "OrderDetailsInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "_idOperatorsFilterFindOneOrderInput": {
+        "name": "_idOperatorsFilterFindOneOrderInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindOneOrderInput": { "name": "SortFindOneOrderInput" },
+    "FilterFindManyOrderInput": {
+        "name": "FilterFindManyOrderInput",
+        "fields": {
+            "orderID": { "type": "Float" },
+            "customerID": { "type": "String" },
+            "employeeID": { "type": "Float" },
+            "orderDate": { "type": "Date" },
+            "requiredDate": { "type": "Date" },
+            "shippedDate": { "type": "Date" },
+            "shipVia": { "type": "Float" },
+            "freight": { "type": "Float" },
+            "shipName": { "type": "String" },
+            "shipAddress": { "type": "CustomerAddressInput" },
+            "details": { "type": "OrderDetailsInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManyOrderInput" },
+            "OR": { "type": "FilterFindManyOrderInput" },
+            "AND": { "type": "FilterFindManyOrderInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "orderID",
+            "customerID",
+            "employeeID",
+            "orderDate",
+            "requiredDate",
+            "shippedDate",
+            "shipVia",
+            "freight",
+            "shipName",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterFindManyOrderInput": {
+        "name": "OperatorsFilterFindManyOrderInput",
+        "fields": {
+            "orderID": { "type": "OrderIDOperatorsFilterFindManyOrderInput" },
+            "details": { "type": "DetailsOperatorsFilterFindManyOrderInput" },
+            "_id": { "type": "_idOperatorsFilterFindManyOrderInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "OrderIDOperatorsFilterFindManyOrderInput": {
+        "name": "OrderIDOperatorsFilterFindManyOrderInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "DetailsOperatorsFilterFindManyOrderInput": {
+        "name": "DetailsOperatorsFilterFindManyOrderInput",
+        "fields": {
+            "gt": { "type": "OrderDetailsInput" },
+            "gte": { "type": "OrderDetailsInput" },
+            "lt": { "type": "OrderDetailsInput" },
+            "lte": { "type": "OrderDetailsInput" },
+            "ne": { "type": "OrderDetailsInput" },
+            "in": { "type": "OrderDetailsInput" },
+            "nin": { "type": "OrderDetailsInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "_idOperatorsFilterFindManyOrderInput": {
+        "name": "_idOperatorsFilterFindManyOrderInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "OrderPagination": {
+        "name": "OrderPagination",
+        "fields": {
+            "count": { "type": "Int" },
+            "items": { "type": "Order" },
+            "pageInfo": { "type": "PaginationInfo" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "FilterFindOneProductInput": {
+        "name": "FilterFindOneProductInput",
+        "fields": {
+            "productID": { "type": "Float" },
+            "name": { "type": "String" },
+            "supplierID": { "type": "Float" },
+            "categoryID": { "type": "Float" },
+            "quantityPerUnit": { "type": "String" },
+            "unitPrice": { "type": "Float" },
+            "unitsInStock": { "type": "Float" },
+            "unitsOnOrder": { "type": "Float" },
+            "reorderLevel": { "type": "Float" },
+            "discontinued": { "type": "Boolean" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneProductInput" },
+            "OR": { "type": "FilterFindOneProductInput" },
+            "AND": { "type": "FilterFindOneProductInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "productID",
+            "name",
+            "supplierID",
+            "categoryID",
+            "quantityPerUnit",
+            "unitPrice",
+            "unitsInStock",
+            "unitsOnOrder",
+            "reorderLevel",
+            "discontinued",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterFindOneProductInput": {
+        "name": "OperatorsFilterFindOneProductInput",
+        "fields": {
+            "productID": {
+                "type": "ProductIDOperatorsFilterFindOneProductInput"
+            },
+            "name": { "type": "NameOperatorsFilterFindOneProductInput" },
+            "unitPrice": {
+                "type": "UnitPriceOperatorsFilterFindOneProductInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindOneProductInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "ProductIDOperatorsFilterFindOneProductInput": {
+        "name": "ProductIDOperatorsFilterFindOneProductInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "NameOperatorsFilterFindOneProductInput": {
+        "name": "NameOperatorsFilterFindOneProductInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "UnitPriceOperatorsFilterFindOneProductInput": {
+        "name": "UnitPriceOperatorsFilterFindOneProductInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindOneProductInput": {
+        "name": "_idOperatorsFilterFindOneProductInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindOneProductInput": { "name": "SortFindOneProductInput" },
+    "FilterFindManyProductInput": {
+        "name": "FilterFindManyProductInput",
+        "fields": {
+            "productID": { "type": "Float" },
+            "name": { "type": "String" },
+            "supplierID": { "type": "Float" },
+            "categoryID": { "type": "Float" },
+            "quantityPerUnit": { "type": "String" },
+            "unitPrice": { "type": "Float" },
+            "unitsInStock": { "type": "Float" },
+            "unitsOnOrder": { "type": "Float" },
+            "reorderLevel": { "type": "Float" },
+            "discontinued": { "type": "Boolean" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManyProductInput" },
+            "OR": { "type": "FilterFindManyProductInput" },
+            "AND": { "type": "FilterFindManyProductInput" },
+            "nameRegexp": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "productID",
+            "name",
+            "supplierID",
+            "categoryID",
+            "quantityPerUnit",
+            "unitPrice",
+            "unitsInStock",
+            "unitsOnOrder",
+            "reorderLevel",
+            "discontinued",
+            "_id",
+            "_ids",
+            "nameRegexp"
+        ]
+    },
+    "OperatorsFilterFindManyProductInput": {
+        "name": "OperatorsFilterFindManyProductInput",
+        "fields": {
+            "productID": {
+                "type": "ProductIDOperatorsFilterFindManyProductInput"
+            },
+            "name": { "type": "NameOperatorsFilterFindManyProductInput" },
+            "unitPrice": {
+                "type": "UnitPriceOperatorsFilterFindManyProductInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindManyProductInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "ProductIDOperatorsFilterFindManyProductInput": {
+        "name": "ProductIDOperatorsFilterFindManyProductInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "NameOperatorsFilterFindManyProductInput": {
+        "name": "NameOperatorsFilterFindManyProductInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "UnitPriceOperatorsFilterFindManyProductInput": {
+        "name": "UnitPriceOperatorsFilterFindManyProductInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindManyProductInput": {
+        "name": "_idOperatorsFilterFindManyProductInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "ProductPagination": {
+        "name": "ProductPagination",
+        "fields": {
+            "count": { "type": "Int" },
+            "items": { "type": "Product" },
+            "pageInfo": { "type": "PaginationInfo" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "FilterFindOneRegionInput": {
+        "name": "FilterFindOneRegionInput",
+        "fields": {
+            "regionID": { "type": "Float" },
+            "name": { "type": "String" },
+            "territories": { "type": "RegionTerritoriesInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneRegionInput" },
+            "OR": { "type": "FilterFindOneRegionInput" },
+            "AND": { "type": "FilterFindOneRegionInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["regionID", "name", "_id", "_ids"]
+    },
+    "RegionTerritoriesInput": {
+        "name": "RegionTerritoriesInput",
+        "fields": {
+            "territoryID": { "type": "Float" },
+            "name": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["territoryID", "name"]
+    },
+    "OperatorsFilterFindOneRegionInput": {
+        "name": "OperatorsFilterFindOneRegionInput",
+        "fields": {
+            "regionID": { "type": "RegionIDOperatorsFilterFindOneRegionInput" },
+            "_id": { "type": "_idOperatorsFilterFindOneRegionInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "RegionIDOperatorsFilterFindOneRegionInput": {
+        "name": "RegionIDOperatorsFilterFindOneRegionInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindOneRegionInput": {
+        "name": "_idOperatorsFilterFindOneRegionInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindOneRegionInput": { "name": "SortFindOneRegionInput" },
+    "Region": {
+        "name": "Region",
+        "fields": {
+            "regionID": { "type": "Float" },
+            "name": { "type": "String" },
+            "territories": { "type": "RegionTerritories" },
+            "_id": { "type": "MongoID" },
+            "employees": {
+                "type": "Employee",
+                "args": {
+                    "skip": ["Int", "Int"],
+                    "limit": ["Int", "Int"],
+                    "sort": [
+                        "SortFindManyEmployeeInput",
+                        "SortFindManyEmployeeInput"
+                    ]
+                }
+            },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["regionID", "name", "_id"]
+    },
+    "RegionTerritories": {
+        "name": "RegionTerritories",
+        "fields": {
+            "territoryID": { "type": "Float" },
+            "name": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["territoryID", "name"]
+    },
+    "FilterFindManyRegionInput": {
+        "name": "FilterFindManyRegionInput",
+        "fields": {
+            "regionID": { "type": "Float" },
+            "name": { "type": "String" },
+            "territories": { "type": "RegionTerritoriesInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManyRegionInput" },
+            "OR": { "type": "FilterFindManyRegionInput" },
+            "AND": { "type": "FilterFindManyRegionInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["regionID", "name", "_id", "_ids"]
+    },
+    "OperatorsFilterFindManyRegionInput": {
+        "name": "OperatorsFilterFindManyRegionInput",
+        "fields": {
+            "regionID": {
+                "type": "RegionIDOperatorsFilterFindManyRegionInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindManyRegionInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "RegionIDOperatorsFilterFindManyRegionInput": {
+        "name": "RegionIDOperatorsFilterFindManyRegionInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindManyRegionInput": {
+        "name": "_idOperatorsFilterFindManyRegionInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindManyRegionInput": { "name": "SortFindManyRegionInput" },
+    "FilterFindOneShipperInput": {
+        "name": "FilterFindOneShipperInput",
+        "fields": {
+            "shipperID": { "type": "Float" },
+            "companyName": { "type": "String" },
+            "phone": { "type": "String" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneShipperInput" },
+            "OR": { "type": "FilterFindOneShipperInput" },
+            "AND": { "type": "FilterFindOneShipperInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["shipperID", "companyName", "phone", "_id", "_ids"]
+    },
+    "OperatorsFilterFindOneShipperInput": {
+        "name": "OperatorsFilterFindOneShipperInput",
+        "fields": {
+            "shipperID": {
+                "type": "ShipperIDOperatorsFilterFindOneShipperInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindOneShipperInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "ShipperIDOperatorsFilterFindOneShipperInput": {
+        "name": "ShipperIDOperatorsFilterFindOneShipperInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindOneShipperInput": {
+        "name": "_idOperatorsFilterFindOneShipperInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindOneShipperInput": { "name": "SortFindOneShipperInput" },
+    "FilterFindManyShipperInput": {
+        "name": "FilterFindManyShipperInput",
+        "fields": {
+            "shipperID": { "type": "Float" },
+            "companyName": { "type": "String" },
+            "phone": { "type": "String" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManyShipperInput" },
+            "OR": { "type": "FilterFindManyShipperInput" },
+            "AND": { "type": "FilterFindManyShipperInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["shipperID", "companyName", "phone", "_id", "_ids"]
+    },
+    "OperatorsFilterFindManyShipperInput": {
+        "name": "OperatorsFilterFindManyShipperInput",
+        "fields": {
+            "shipperID": {
+                "type": "ShipperIDOperatorsFilterFindManyShipperInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindManyShipperInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "ShipperIDOperatorsFilterFindManyShipperInput": {
+        "name": "ShipperIDOperatorsFilterFindManyShipperInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindManyShipperInput": {
+        "name": "_idOperatorsFilterFindManyShipperInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindManyShipperInput": { "name": "SortFindManyShipperInput" },
+    "FilterFindOneSupplierInput": {
+        "name": "FilterFindOneSupplierInput",
+        "fields": {
+            "supplierID": { "type": "Float" },
+            "companyName": { "type": "String" },
+            "contactName": { "type": "String" },
+            "contactTitle": { "type": "String" },
+            "address": { "type": "CustomerAddressInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindOneSupplierInput" },
+            "OR": { "type": "FilterFindOneSupplierInput" },
+            "AND": { "type": "FilterFindOneSupplierInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "supplierID",
+            "companyName",
+            "contactName",
+            "contactTitle",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterFindOneSupplierInput": {
+        "name": "OperatorsFilterFindOneSupplierInput",
+        "fields": {
+            "supplierID": {
+                "type": "SupplierIDOperatorsFilterFindOneSupplierInput"
+            },
+            "companyName": {
+                "type": "CompanyNameOperatorsFilterFindOneSupplierInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindOneSupplierInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "SupplierIDOperatorsFilterFindOneSupplierInput": {
+        "name": "SupplierIDOperatorsFilterFindOneSupplierInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "CompanyNameOperatorsFilterFindOneSupplierInput": {
+        "name": "CompanyNameOperatorsFilterFindOneSupplierInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindOneSupplierInput": {
+        "name": "_idOperatorsFilterFindOneSupplierInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortFindOneSupplierInput": { "name": "SortFindOneSupplierInput" },
+    "FilterFindManySupplierInput": {
+        "name": "FilterFindManySupplierInput",
+        "fields": {
+            "supplierID": { "type": "Float" },
+            "companyName": { "type": "String" },
+            "contactName": { "type": "String" },
+            "contactTitle": { "type": "String" },
+            "address": { "type": "CustomerAddressInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterFindManySupplierInput" },
+            "OR": { "type": "FilterFindManySupplierInput" },
+            "AND": { "type": "FilterFindManySupplierInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "supplierID",
+            "companyName",
+            "contactName",
+            "contactTitle",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterFindManySupplierInput": {
+        "name": "OperatorsFilterFindManySupplierInput",
+        "fields": {
+            "supplierID": {
+                "type": "SupplierIDOperatorsFilterFindManySupplierInput"
+            },
+            "companyName": {
+                "type": "CompanyNameOperatorsFilterFindManySupplierInput"
+            },
+            "_id": { "type": "_idOperatorsFilterFindManySupplierInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "SupplierIDOperatorsFilterFindManySupplierInput": {
+        "name": "SupplierIDOperatorsFilterFindManySupplierInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "CompanyNameOperatorsFilterFindManySupplierInput": {
+        "name": "CompanyNameOperatorsFilterFindManySupplierInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterFindManySupplierInput": {
+        "name": "_idOperatorsFilterFindManySupplierInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortConnectionSupplierEnum": { "name": "SortConnectionSupplierEnum" },
+    "SupplierConnection": {
+        "name": "SupplierConnection",
+        "fields": {
+            "count": { "type": "Int" },
+            "pageInfo": { "type": "PageInfo" },
+            "edges": { "type": "SupplierEdge" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["count"]
+    },
+    "SupplierEdge": {
+        "name": "SupplierEdge",
+        "fields": {
+            "node": { "type": "Supplier" },
+            "cursor": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["cursor"]
+    },
+    "Mutation": {
+        "name": "Mutation",
+        "fields": {
+            "createProduct": {
+                "type": "CreateOneProductPayload",
+                "args": {
+                    "record": [
+                        "CreateOneProductInput!",
+                        "CreateOneProductInput"
+                    ]
+                }
+            },
+            "updateProduct": {
+                "type": "UpdateByIdProductPayload",
+                "args": {
+                    "record": [
+                        "UpdateByIdProductInput!",
+                        "UpdateByIdProductInput"
+                    ]
+                }
+            },
+            "removeProduct": {
+                "type": "RemoveOneProductPayload",
+                "args": {
+                    "filter": [
+                        "FilterRemoveOneProductInput",
+                        "FilterRemoveOneProductInput"
+                    ],
+                    "sort": [
+                        "SortRemoveOneProductInput",
+                        "SortRemoveOneProductInput"
+                    ]
+                }
+            },
+            "createOrder": {
+                "type": "CreateOneOrderPayload",
+                "args": {
+                    "record": ["CreateOneOrderInput!", "CreateOneOrderInput"]
+                }
+            },
+            "updateOrder": {
+                "type": "UpdateByIdOrderPayload",
+                "args": {
+                    "record": ["UpdateByIdOrderInput!", "UpdateByIdOrderInput"]
+                }
+            },
+            "removeOrder": {
+                "type": "RemoveOneOrderPayload",
+                "args": {
+                    "filter": [
+                        "FilterRemoveOneOrderInput",
+                        "FilterRemoveOneOrderInput"
+                    ],
+                    "sort": [
+                        "SortRemoveOneOrderInput",
+                        "SortRemoveOneOrderInput"
+                    ]
+                }
+            },
+            "updateEmployee": {
+                "type": "UpdateByIdEmployeePayload",
+                "args": {
+                    "record": [
+                        "UpdateByIdEmployeeInput!",
+                        "UpdateByIdEmployeeInput"
+                    ]
+                }
+            },
+            "resetData": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["resetData"]
+    },
+    "CreateOneProductInput": {
+        "name": "CreateOneProductInput",
+        "fields": {
+            "productID": { "type": "Float" },
+            "name": { "type": "String" },
+            "supplierID": { "type": "Float" },
+            "categoryID": { "type": "Float" },
+            "quantityPerUnit": { "type": "String" },
+            "unitPrice": { "type": "Float" },
+            "unitsInStock": { "type": "Float" },
+            "unitsOnOrder": { "type": "Float" },
+            "reorderLevel": { "type": "Float" },
+            "discontinued": { "type": "Boolean" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "productID",
+            "name",
+            "supplierID",
+            "categoryID",
+            "quantityPerUnit",
+            "unitPrice",
+            "unitsInStock",
+            "unitsOnOrder",
+            "reorderLevel",
+            "discontinued"
+        ]
+    },
+    "CreateOneProductPayload": {
+        "name": "CreateOneProductPayload",
+        "fields": {
+            "recordId": { "type": "MongoID" },
+            "record": { "type": "Product" },
+            "query": { "type": "Query" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["recordId"]
+    },
+    "UpdateByIdProductInput": {
+        "name": "UpdateByIdProductInput",
+        "fields": {
+            "productID": { "type": "Float" },
+            "name": { "type": "String" },
+            "supplierID": { "type": "Float" },
+            "categoryID": { "type": "Float" },
+            "quantityPerUnit": { "type": "String" },
+            "unitPrice": { "type": "Float" },
+            "unitsInStock": { "type": "Float" },
+            "unitsOnOrder": { "type": "Float" },
+            "reorderLevel": { "type": "Float" },
+            "discontinued": { "type": "Boolean" },
+            "_id": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "productID",
+            "name",
+            "supplierID",
+            "categoryID",
+            "quantityPerUnit",
+            "unitPrice",
+            "unitsInStock",
+            "unitsOnOrder",
+            "reorderLevel",
+            "discontinued",
+            "_id"
+        ]
+    },
+    "UpdateByIdProductPayload": {
+        "name": "UpdateByIdProductPayload",
+        "fields": {
+            "recordId": { "type": "MongoID" },
+            "record": { "type": "Product" },
+            "query": { "type": "Query" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["recordId"]
+    },
+    "FilterRemoveOneProductInput": {
+        "name": "FilterRemoveOneProductInput",
+        "fields": {
+            "productID": { "type": "Float" },
+            "name": { "type": "String" },
+            "supplierID": { "type": "Float" },
+            "categoryID": { "type": "Float" },
+            "quantityPerUnit": { "type": "String" },
+            "unitPrice": { "type": "Float" },
+            "unitsInStock": { "type": "Float" },
+            "unitsOnOrder": { "type": "Float" },
+            "reorderLevel": { "type": "Float" },
+            "discontinued": { "type": "Boolean" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterRemoveOneProductInput" },
+            "OR": { "type": "FilterRemoveOneProductInput" },
+            "AND": { "type": "FilterRemoveOneProductInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "productID",
+            "name",
+            "supplierID",
+            "categoryID",
+            "quantityPerUnit",
+            "unitPrice",
+            "unitsInStock",
+            "unitsOnOrder",
+            "reorderLevel",
+            "discontinued",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterRemoveOneProductInput": {
+        "name": "OperatorsFilterRemoveOneProductInput",
+        "fields": {
+            "productID": {
+                "type": "ProductIDOperatorsFilterRemoveOneProductInput"
+            },
+            "name": { "type": "NameOperatorsFilterRemoveOneProductInput" },
+            "unitPrice": {
+                "type": "UnitPriceOperatorsFilterRemoveOneProductInput"
+            },
+            "_id": { "type": "_idOperatorsFilterRemoveOneProductInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "ProductIDOperatorsFilterRemoveOneProductInput": {
+        "name": "ProductIDOperatorsFilterRemoveOneProductInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "NameOperatorsFilterRemoveOneProductInput": {
+        "name": "NameOperatorsFilterRemoveOneProductInput",
+        "fields": {
+            "gt": { "type": "String" },
+            "gte": { "type": "String" },
+            "lt": { "type": "String" },
+            "lte": { "type": "String" },
+            "ne": { "type": "String" },
+            "in": { "type": "String" },
+            "nin": { "type": "String" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "UnitPriceOperatorsFilterRemoveOneProductInput": {
+        "name": "UnitPriceOperatorsFilterRemoveOneProductInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "_idOperatorsFilterRemoveOneProductInput": {
+        "name": "_idOperatorsFilterRemoveOneProductInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortRemoveOneProductInput": { "name": "SortRemoveOneProductInput" },
+    "RemoveOneProductPayload": {
+        "name": "RemoveOneProductPayload",
+        "fields": {
+            "recordId": { "type": "MongoID" },
+            "record": { "type": "Product" },
+            "query": { "type": "Query" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["recordId"]
+    },
+    "CreateOneOrderInput": {
+        "name": "CreateOneOrderInput",
+        "fields": {
+            "orderID": { "type": "Float" },
+            "customerID": { "type": "String" },
+            "employeeID": { "type": "Float" },
+            "orderDate": { "type": "Date" },
+            "requiredDate": { "type": "Date" },
+            "shippedDate": { "type": "Date" },
+            "shipVia": { "type": "Float" },
+            "freight": { "type": "Float" },
+            "shipName": { "type": "String" },
+            "shipAddress": { "type": "CustomerAddressInput" },
+            "details": { "type": "OrderDetailsInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "orderID",
+            "customerID",
+            "employeeID",
+            "orderDate",
+            "requiredDate",
+            "shippedDate",
+            "shipVia",
+            "freight",
+            "shipName"
+        ]
+    },
+    "CreateOneOrderPayload": {
+        "name": "CreateOneOrderPayload",
+        "fields": {
+            "recordId": { "type": "MongoID" },
+            "record": { "type": "Order" },
+            "query": { "type": "Query" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["recordId"]
+    },
+    "UpdateByIdOrderInput": {
+        "name": "UpdateByIdOrderInput",
+        "fields": {
+            "orderID": { "type": "Float" },
+            "customerID": { "type": "String" },
+            "employeeID": { "type": "Float" },
+            "orderDate": { "type": "Date" },
+            "requiredDate": { "type": "Date" },
+            "shippedDate": { "type": "Date" },
+            "shipVia": { "type": "Float" },
+            "freight": { "type": "Float" },
+            "shipName": { "type": "String" },
+            "shipAddress": { "type": "CustomerAddressInput" },
+            "details": { "type": "OrderDetailsInput" },
+            "_id": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "orderID",
+            "customerID",
+            "employeeID",
+            "orderDate",
+            "requiredDate",
+            "shippedDate",
+            "shipVia",
+            "freight",
+            "shipName",
+            "_id"
+        ]
+    },
+    "UpdateByIdOrderPayload": {
+        "name": "UpdateByIdOrderPayload",
+        "fields": {
+            "recordId": { "type": "MongoID" },
+            "record": { "type": "Order" },
+            "query": { "type": "Query" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["recordId"]
+    },
+    "FilterRemoveOneOrderInput": {
+        "name": "FilterRemoveOneOrderInput",
+        "fields": {
+            "orderID": { "type": "Float" },
+            "customerID": { "type": "String" },
+            "employeeID": { "type": "Float" },
+            "orderDate": { "type": "Date" },
+            "requiredDate": { "type": "Date" },
+            "shippedDate": { "type": "Date" },
+            "shipVia": { "type": "Float" },
+            "freight": { "type": "Float" },
+            "shipName": { "type": "String" },
+            "shipAddress": { "type": "CustomerAddressInput" },
+            "details": { "type": "OrderDetailsInput" },
+            "_id": { "type": "MongoID" },
+            "_ids": { "type": "MongoID" },
+            "_operators": { "type": "OperatorsFilterRemoveOneOrderInput" },
+            "OR": { "type": "FilterRemoveOneOrderInput" },
+            "AND": { "type": "FilterRemoveOneOrderInput" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "orderID",
+            "customerID",
+            "employeeID",
+            "orderDate",
+            "requiredDate",
+            "shippedDate",
+            "shipVia",
+            "freight",
+            "shipName",
+            "_id",
+            "_ids"
+        ]
+    },
+    "OperatorsFilterRemoveOneOrderInput": {
+        "name": "OperatorsFilterRemoveOneOrderInput",
+        "fields": {
+            "orderID": { "type": "OrderIDOperatorsFilterRemoveOneOrderInput" },
+            "details": { "type": "DetailsOperatorsFilterRemoveOneOrderInput" },
+            "_id": { "type": "_idOperatorsFilterRemoveOneOrderInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "OrderIDOperatorsFilterRemoveOneOrderInput": {
+        "name": "OrderIDOperatorsFilterRemoveOneOrderInput",
+        "fields": {
+            "gt": { "type": "Float" },
+            "gte": { "type": "Float" },
+            "lt": { "type": "Float" },
+            "lte": { "type": "Float" },
+            "ne": { "type": "Float" },
+            "in": { "type": "Float" },
+            "nin": { "type": "Float" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "DetailsOperatorsFilterRemoveOneOrderInput": {
+        "name": "DetailsOperatorsFilterRemoveOneOrderInput",
+        "fields": {
+            "gt": { "type": "OrderDetailsInput" },
+            "gte": { "type": "OrderDetailsInput" },
+            "lt": { "type": "OrderDetailsInput" },
+            "lte": { "type": "OrderDetailsInput" },
+            "ne": { "type": "OrderDetailsInput" },
+            "in": { "type": "OrderDetailsInput" },
+            "nin": { "type": "OrderDetailsInput" },
+            "__typename": { "type": "String" }
+        }
+    },
+    "_idOperatorsFilterRemoveOneOrderInput": {
+        "name": "_idOperatorsFilterRemoveOneOrderInput",
+        "fields": {
+            "gt": { "type": "MongoID" },
+            "gte": { "type": "MongoID" },
+            "lt": { "type": "MongoID" },
+            "lte": { "type": "MongoID" },
+            "ne": { "type": "MongoID" },
+            "in": { "type": "MongoID" },
+            "nin": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["gt", "gte", "lt", "lte", "ne", "in", "nin"]
+    },
+    "SortRemoveOneOrderInput": { "name": "SortRemoveOneOrderInput" },
+    "RemoveOneOrderPayload": {
+        "name": "RemoveOneOrderPayload",
+        "fields": {
+            "recordId": { "type": "MongoID" },
+            "record": { "type": "Order" },
+            "query": { "type": "Query" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["recordId"]
+    },
+    "UpdateByIdEmployeeInput": {
+        "name": "UpdateByIdEmployeeInput",
+        "fields": {
+            "employeeID": { "type": "Float" },
+            "lastName": { "type": "String" },
+            "firstName": { "type": "String" },
+            "title": { "type": "String" },
+            "titleOfCourtesy": { "type": "String" },
+            "birthDate": { "type": "Date" },
+            "hireDate": { "type": "Date" },
+            "address": { "type": "CustomerAddressInput" },
+            "notes": { "type": "String" },
+            "reportsTo": { "type": "Float" },
+            "territoryIDs": { "type": "Float" },
+            "_id": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": [
+            "employeeID",
+            "lastName",
+            "firstName",
+            "title",
+            "titleOfCourtesy",
+            "birthDate",
+            "hireDate",
+            "notes",
+            "reportsTo",
+            "territoryIDs",
+            "_id"
+        ]
+    },
+    "UpdateByIdEmployeePayload": {
+        "name": "UpdateByIdEmployeePayload",
+        "fields": {
+            "recordId": { "type": "MongoID" },
+            "record": { "type": "Employee" },
+            "query": { "type": "Query" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["recordId"]
+    },
+    "Subscription": {
+        "name": "Subscription",
+        "fields": {
+            "orderCreated": { "type": "Order" },
+            "orderUpdated": { "type": "Order" },
+            "orderRemoved": { "type": "MongoID" },
+            "__typename": { "type": "String" }
+        },
+        "scalar": ["orderRemoved"]
+    }
+}

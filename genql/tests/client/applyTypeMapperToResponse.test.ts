@@ -1,7 +1,7 @@
-import { renderTypeMap } from '../render/typeMap/renderTypeMap'
-import { schemaRenderTest } from '../testHelpers/render'
-import { applyTypeMapperToResponse } from './applyTypeMapperToResponse'
-import { linkTypeMap } from './linkTypeMap'
+import { renderTypeMap } from '../../render/typeMap/renderTypeMap'
+import { schemaRenderTest } from '../../testHelpers/render'
+import { applyTypeMapperToResponse } from '../applyTypeMapperToResponse'
+import { linkTypeMap } from '../linkTypeMap'
 
 const getRoot = async () => {
   const result = await schemaRenderTest(

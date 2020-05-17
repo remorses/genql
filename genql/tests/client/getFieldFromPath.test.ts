@@ -1,5 +1,5 @@
-import { getFieldFromPath } from './getFieldFromPath'
-import { linkTypeMap } from './linkTypeMap'
+import { getFieldFromPath } from '../getFieldFromPath'
+import { linkTypeMap } from '../linkTypeMap'
 
 describe('getFieldFromPath', () => {
   test('gets nested field definition', () => {
