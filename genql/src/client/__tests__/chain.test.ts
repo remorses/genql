@@ -5,7 +5,7 @@ describe('chain', () => {
     const onExecute = jest.fn()
     const c = chain(onExecute)
 
-    c.path.to.scalar.execute()
+    c.path.to.scalar.get()
 
     expect(onExecute.mock.calls[0]).toEqual([['path', 'to', 'scalar'], { path: { to: { scalar: 1 } } }, undefined])
   })
@@ -14,7 +14,7 @@ describe('chain', () => {
     const onExecute = jest.fn()
     const c = chain(onExecute)
 
-    c.path.to.scalar.execute(1, 'defaultValue')
+    c.path.to.scalar.get(1, 'defaultValue')
 
     expect(onExecute.mock.calls[0]).toEqual([['path', 'to', 'scalar'], { path: { to: { scalar: 1 } } }, 'defaultValue'])
   })
@@ -26,7 +26,7 @@ describe('chain', () => {
     c.path
       .to({ id: 'ID' })
       .scalar({ id: 'ID' })
-      .execute()
+      .get()
 
     expect(onExecute.mock.calls[0]).toEqual([
       ['path', 'to', 'scalar'],
@@ -42,7 +42,7 @@ describe('chain', () => {
     c.path
       .to({ id: 'ID' })
       .scalar({ id: 'ID' })
-      .execute(1, 'defaultValue')
+      .get(1, 'defaultValue')
 
     expect(onExecute.mock.calls[0]).toEqual([
       ['path', 'to', 'scalar'],
@@ -55,7 +55,7 @@ describe('chain', () => {
     const onExecute = jest.fn()
     const c = chain(onExecute)
 
-    c.path.to.object.execute({ some: 1, other: 1 })
+    c.path.to.object.get({ some: 1, other: 1 })
 
     expect(onExecute.mock.calls[0]).toEqual([
       ['path', 'to', 'object'],
@@ -68,7 +68,7 @@ describe('chain', () => {
     const onExecute = jest.fn()
     const c = chain(onExecute)
 
-    c.path.to.object.execute({ some: 1, other: 1 }, 'defaultValue')
+    c.path.to.object.get({ some: 1, other: 1 }, 'defaultValue')
 
     expect(onExecute.mock.calls[0]).toEqual([
       ['path', 'to', 'object'],
@@ -84,7 +84,7 @@ describe('chain', () => {
     c.path
       .to({ id: 'ID' })
       .object({ id: 'ID' })
-      .execute({ some: 1, other: 1 })
+      .get({ some: 1, other: 1 })
 
     expect(onExecute.mock.calls[0]).toEqual([
       ['path', 'to', 'object'],
@@ -100,7 +100,7 @@ describe('chain', () => {
     c.path
       .to({ id: 'ID' })
       .object({ id: 'ID' })
-      .execute({ some: 1, other: 1 }, 'defaultValue')
+      .get({ some: 1, other: 1 }, 'defaultValue')
 
     expect(onExecute.mock.calls[0]).toEqual([
       ['path', 'to', 'object'],

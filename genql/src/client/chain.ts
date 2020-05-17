@@ -32,7 +32,7 @@ const wrapInProxy = (chain: Chain, onExecute: (path: string[], request: any, def
     get(target, prop) {
       if (typeof prop !== 'string') throw new Error('property is not a string')
 
-      if (prop === 'execute') {
+      if (prop === 'get') {
         return (fields: any, defaultValue: any) =>
           onExecute(target.path.map(i => i[0]), pathToRequest(target.path, fields), defaultValue)
       } else {

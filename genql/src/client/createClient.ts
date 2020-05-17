@@ -1,32 +1,17 @@
-import { ExecutionResult, GraphQLError } from 'graphql'
+import { ExecutionResult } from 'graphql'
 import 'isomorphic-fetch'
 import get from 'lodash.get'
 import qs from 'qs'
 import { NEVER, Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { Fetcher } from '../fetcher'
+import { Fetcher, ClientError } from '../fetcher'
 import { chain } from './chain'
-import { getSubscriptionCreator, SubscriptionCreatorOptions } from './getSubscriptionCreator'
+import {
+    getSubscriptionCreator,
+    SubscriptionCreatorOptions,
+} from './getSubscriptionCreator'
 import { LinkedType } from './linkTypeMap'
 import { Fields, requestToGql } from './requestToGql'
-
-export class ClientError extends Error {
-    constructor(message?: string, public errors?: ReadonlyArray<GraphQLError>) {
-        super(
-            errors
-                ? `${message}\n${errors
-                      .map((error) => JSON.stringify(error, null, 2))
-                      .join('\n')}`
-                : message,
-        )
-
-        new.target.prototype.name = new.target.name
-        Object.setPrototypeOf(this, new.target.prototype)
-        if (Error.captureStackTrace) Error.captureStackTrace(this, ClientError)
-    }
-}
-
-
 
 export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
     query(request: QR): Promise<Q>
@@ -99,7 +84,7 @@ export const createClient = <
         if (!mutationRoot) throw new Error('mutationRoot argument is missing')
 
         const resultPromise = fetcher(
-            requestToGql('mutation', mutationRoot, request, ),
+            requestToGql('mutation', mutationRoot, request),
             fetch,
             qs,
         )
@@ -114,20 +99,16 @@ export const createClient = <
             throw new Error('subscriptionRoot argument is missing')
 
         const resultObservable = createSubscription(
-            requestToGql('subscription', subscriptionRoot, request, ),
+            requestToGql('subscription', subscriptionRoot, request),
         )
 
         return resultObservable
     }
 
-    const mapResponse = (path: string[], defaultValue: any=undefined) => (
+    const mapResponse = (path: string[], defaultValue: any = undefined) => (
         response: ExecutionResult,
     ) => {
-        if (response.errors)
-            throw new ClientError(`Response contains errors`, response.errors)
-        if (!response.data) throw new ClientError('Response data is empty')
-
-        const result = get(response, ['data', ...path], defaultValue)
+        const result = get(response, [...path], defaultValue)
 
         if (result === undefined)
             throw new ClientError(

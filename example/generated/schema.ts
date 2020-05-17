@@ -2922,13 +2922,13 @@ export const isSubscription = (obj: { __typename: String }): obj is Subscription
 
 export interface QueryPromiseChain {
   /** Data under client context */
-  viewer: ViewerPromiseChain & { execute: (request: ViewerRequest, defaultValue?: Viewer | null) => Promise<Viewer | null> }
+  viewer: ViewerPromiseChain & { get: (request: ViewerRequest, defaultValue?: Viewer | null) => Promise<Viewer | null> }
 }
 
 export interface QueryObservableChain {
   /** Data under client context */
   viewer: ViewerObservableChain & {
-    execute: (request: ViewerRequest, defaultValue?: Viewer | null) => Observable<Viewer | null>
+    get: (request: ViewerRequest, defaultValue?: Viewer | null) => Observable<Viewer | null>
   }
 }
 
@@ -2939,11 +2939,9 @@ export interface ViewerPromiseChain {
     skip?: Int | null
     sort?: SortFindOneCategoryInput | null
   }) => CategoryPromiseChain & {
-    execute: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null>
+    get: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null>
   }) &
-    (CategoryPromiseChain & {
-      execute: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null>
-    })
+    (CategoryPromiseChain & { get: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null> })
   categoryList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyCategoryInput | null
@@ -2951,21 +2949,17 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyCategoryInput | null
   }) => {
-    execute: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Promise<(Category | null)[] | null>
-  }) & {
-    execute: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Promise<(Category | null)[] | null>
-  }
+    get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Promise<(Category | null)[] | null>
+  }) & { get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Promise<(Category | null)[] | null> }
   customer: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneCustomerInput | null
     skip?: Int | null
     sort?: SortFindOneCustomerInput | null
   }) => CustomerPromiseChain & {
-    execute: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null>
+    get: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null>
   }) &
-    (CustomerPromiseChain & {
-      execute: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null>
-    })
+    (CustomerPromiseChain & { get: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null> })
   customerPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -2974,13 +2968,10 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyCustomerInput | null
     sort?: SortFindManyCustomerInput | null
   }) => CustomerPaginationPromiseChain & {
-    execute: (
-      request: CustomerPaginationRequest,
-      defaultValue?: CustomerPagination | null,
-    ) => Promise<CustomerPagination | null>
+    get: (request: CustomerPaginationRequest, defaultValue?: CustomerPagination | null) => Promise<CustomerPagination | null>
   }) &
     (CustomerPaginationPromiseChain & {
-      execute: (
+      get: (
         request: CustomerPaginationRequest,
         defaultValue?: CustomerPagination | null,
       ) => Promise<CustomerPagination | null>
@@ -2999,13 +2990,10 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionCustomerEnum | null
   }) => CustomerConnectionPromiseChain & {
-    execute: (
-      request: CustomerConnectionRequest,
-      defaultValue?: CustomerConnection | null,
-    ) => Promise<CustomerConnection | null>
+    get: (request: CustomerConnectionRequest, defaultValue?: CustomerConnection | null) => Promise<CustomerConnection | null>
   }) &
     (CustomerConnectionPromiseChain & {
-      execute: (
+      get: (
         request: CustomerConnectionRequest,
         defaultValue?: CustomerConnection | null,
       ) => Promise<CustomerConnection | null>
@@ -3016,11 +3004,9 @@ export interface ViewerPromiseChain {
     skip?: Int | null
     sort?: SortFindOneEmployeeInput | null
   }) => EmployeePromiseChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
   }) &
-    (EmployeePromiseChain & {
-      execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
-    })
+    (EmployeePromiseChain & { get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null> })
   employeeList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyEmployeeInput | null
@@ -3028,10 +3014,8 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }) & {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
+  }) & { get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null> }
   employeePagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3040,13 +3024,10 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyEmployeeInput | null
     sort?: SortFindManyEmployeeInput | null
   }) => EmployeePaginationPromiseChain & {
-    execute: (
-      request: EmployeePaginationRequest,
-      defaultValue?: EmployeePagination | null,
-    ) => Promise<EmployeePagination | null>
+    get: (request: EmployeePaginationRequest, defaultValue?: EmployeePagination | null) => Promise<EmployeePagination | null>
   }) &
     (EmployeePaginationPromiseChain & {
-      execute: (
+      get: (
         request: EmployeePaginationRequest,
         defaultValue?: EmployeePagination | null,
       ) => Promise<EmployeePagination | null>
@@ -3056,8 +3037,8 @@ export interface ViewerPromiseChain {
     filter?: FilterFindOneOrderInput | null
     skip?: Int | null
     sort?: SortFindOneOrderInput | null
-  }) => OrderPromiseChain & { execute: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }) &
-    (OrderPromiseChain & { execute: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> })
+  }) => OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }) &
+    (OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> })
   orderPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3066,10 +3047,10 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyOrderInput | null
     sort?: SortFindManyOrderInput | null
   }) => OrderPaginationPromiseChain & {
-    execute: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Promise<OrderPagination | null>
+    get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Promise<OrderPagination | null>
   }) &
     (OrderPaginationPromiseChain & {
-      execute: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Promise<OrderPagination | null>
+      get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Promise<OrderPagination | null>
     })
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3085,20 +3066,18 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
   }) &
     (OrderConnectionPromiseChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
     })
   product: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneProductInput | null
     skip?: Int | null
     sort?: SortFindOneProductInput | null
-  }) => ProductPromiseChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null>
-  }) &
-    (ProductPromiseChain & { execute: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> })
+  }) => ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }) &
+    (ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> })
   productList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyProductInput | null
@@ -3106,8 +3085,8 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null>
-  }) & { execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
+    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null>
+  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
   productPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3116,16 +3095,10 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyProductInput | null
     sort?: SortFindManyProductInput | null
   }) => ProductPaginationPromiseChain & {
-    execute: (
-      request: ProductPaginationRequest,
-      defaultValue?: ProductPagination | null,
-    ) => Promise<ProductPagination | null>
+    get: (request: ProductPaginationRequest, defaultValue?: ProductPagination | null) => Promise<ProductPagination | null>
   }) &
     (ProductPaginationPromiseChain & {
-      execute: (
-        request: ProductPaginationRequest,
-        defaultValue?: ProductPagination | null,
-      ) => Promise<ProductPagination | null>
+      get: (request: ProductPaginationRequest, defaultValue?: ProductPagination | null) => Promise<ProductPagination | null>
     })
   productConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3141,42 +3114,34 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionPromiseChain & {
-    execute: (
-      request: ProductConnectionRequest,
-      defaultValue?: ProductConnection | null,
-    ) => Promise<ProductConnection | null>
+    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
   }) &
     (ProductConnectionPromiseChain & {
-      execute: (
-        request: ProductConnectionRequest,
-        defaultValue?: ProductConnection | null,
-      ) => Promise<ProductConnection | null>
+      get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
     })
   region: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneRegionInput | null
     skip?: Int | null
     sort?: SortFindOneRegionInput | null
-  }) => RegionPromiseChain & { execute: (request: RegionRequest, defaultValue?: Region | null) => Promise<Region | null> }) &
-    (RegionPromiseChain & { execute: (request: RegionRequest, defaultValue?: Region | null) => Promise<Region | null> })
+  }) => RegionPromiseChain & { get: (request: RegionRequest, defaultValue?: Region | null) => Promise<Region | null> }) &
+    (RegionPromiseChain & { get: (request: RegionRequest, defaultValue?: Region | null) => Promise<Region | null> })
   regionList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyRegionInput | null
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyRegionInput | null
-  }) => {
-    execute: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Promise<(Region | null)[] | null>
-  }) & { execute: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Promise<(Region | null)[] | null> }
+  }) => { get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Promise<(Region | null)[] | null> }) & {
+    get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Promise<(Region | null)[] | null>
+  }
   shipper: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneShipperInput | null
     skip?: Int | null
     sort?: SortFindOneShipperInput | null
-  }) => ShipperPromiseChain & {
-    execute: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null>
-  }) &
-    (ShipperPromiseChain & { execute: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null> })
+  }) => ShipperPromiseChain & { get: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null> }) &
+    (ShipperPromiseChain & { get: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null> })
   shipperList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyShipperInput | null
@@ -3184,19 +3149,17 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyShipperInput | null
   }) => {
-    execute: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Promise<(Shipper | null)[] | null>
-  }) & { execute: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Promise<(Shipper | null)[] | null> }
+    get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Promise<(Shipper | null)[] | null>
+  }) & { get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Promise<(Shipper | null)[] | null> }
   supplier: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneSupplierInput | null
     skip?: Int | null
     sort?: SortFindOneSupplierInput | null
   }) => SupplierPromiseChain & {
-    execute: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null>
+    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null>
   }) &
-    (SupplierPromiseChain & {
-      execute: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null>
-    })
+    (SupplierPromiseChain & { get: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null> })
   supplierConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3211,13 +3174,10 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionSupplierEnum | null
   }) => SupplierConnectionPromiseChain & {
-    execute: (
-      request: SupplierConnectionRequest,
-      defaultValue?: SupplierConnection | null,
-    ) => Promise<SupplierConnection | null>
+    get: (request: SupplierConnectionRequest, defaultValue?: SupplierConnection | null) => Promise<SupplierConnection | null>
   }) &
     (SupplierConnectionPromiseChain & {
-      execute: (
+      get: (
         request: SupplierConnectionRequest,
         defaultValue?: SupplierConnection | null,
       ) => Promise<SupplierConnection | null>
@@ -3231,10 +3191,10 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneCategoryInput | null
   }) => CategoryObservableChain & {
-    execute: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
+    get: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
   }) &
     (CategoryObservableChain & {
-      execute: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
+      get: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
     })
   categoryList: ((args?: {
     /** Filter by fields */
@@ -3243,9 +3203,9 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyCategoryInput | null
   }) => {
-    execute: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Observable<(Category | null)[] | null>
+    get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Observable<(Category | null)[] | null>
   }) & {
-    execute: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Observable<(Category | null)[] | null>
+    get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Observable<(Category | null)[] | null>
   }
   customer: ((args?: {
     /** Filter by fields */
@@ -3253,10 +3213,10 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneCustomerInput | null
   }) => CustomerObservableChain & {
-    execute: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
+    get: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
   }) &
     (CustomerObservableChain & {
-      execute: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
+      get: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
     })
   customerPagination: ((args?: {
     /** Page number for displaying */
@@ -3266,13 +3226,13 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyCustomerInput | null
     sort?: SortFindManyCustomerInput | null
   }) => CustomerPaginationObservableChain & {
-    execute: (
+    get: (
       request: CustomerPaginationRequest,
       defaultValue?: CustomerPagination | null,
     ) => Observable<CustomerPagination | null>
   }) &
     (CustomerPaginationObservableChain & {
-      execute: (
+      get: (
         request: CustomerPaginationRequest,
         defaultValue?: CustomerPagination | null,
       ) => Observable<CustomerPagination | null>
@@ -3291,13 +3251,13 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionCustomerEnum | null
   }) => CustomerConnectionObservableChain & {
-    execute: (
+    get: (
       request: CustomerConnectionRequest,
       defaultValue?: CustomerConnection | null,
     ) => Observable<CustomerConnection | null>
   }) &
     (CustomerConnectionObservableChain & {
-      execute: (
+      get: (
         request: CustomerConnectionRequest,
         defaultValue?: CustomerConnection | null,
       ) => Observable<CustomerConnection | null>
@@ -3308,10 +3268,10 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneEmployeeInput | null
   }) => EmployeeObservableChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
   }) &
     (EmployeeObservableChain & {
-      execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+      get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
     })
   employeeList: ((args?: {
     /** Filter by fields */
@@ -3320,9 +3280,9 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
   }) & {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
   }
   employeePagination: ((args?: {
     /** Page number for displaying */
@@ -3332,13 +3292,13 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyEmployeeInput | null
     sort?: SortFindManyEmployeeInput | null
   }) => EmployeePaginationObservableChain & {
-    execute: (
+    get: (
       request: EmployeePaginationRequest,
       defaultValue?: EmployeePagination | null,
     ) => Observable<EmployeePagination | null>
   }) &
     (EmployeePaginationObservableChain & {
-      execute: (
+      get: (
         request: EmployeePaginationRequest,
         defaultValue?: EmployeePagination | null,
       ) => Observable<EmployeePagination | null>
@@ -3348,10 +3308,8 @@ export interface ViewerObservableChain {
     filter?: FilterFindOneOrderInput | null
     skip?: Int | null
     sort?: SortFindOneOrderInput | null
-  }) => OrderObservableChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
-  }) &
-    (OrderObservableChain & { execute: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> })
+  }) => OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }) &
+    (OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> })
   orderPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3360,10 +3318,10 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyOrderInput | null
     sort?: SortFindManyOrderInput | null
   }) => OrderPaginationObservableChain & {
-    execute: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Observable<OrderPagination | null>
+    get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Observable<OrderPagination | null>
   }) &
     (OrderPaginationObservableChain & {
-      execute: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Observable<OrderPagination | null>
+      get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Observable<OrderPagination | null>
     })
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3379,10 +3337,10 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
   }) &
     (OrderConnectionObservableChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
     })
   product: ((args?: {
     /** Filter by fields */
@@ -3390,10 +3348,10 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneProductInput | null
   }) => ProductObservableChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
   }) &
     (ProductObservableChain & {
-      execute: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+      get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
     })
   productList: ((args?: {
     /** Filter by fields */
@@ -3402,10 +3360,8 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
-  }) & {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
-  }
+    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
+  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null> }
   productPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3414,13 +3370,10 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyProductInput | null
     sort?: SortFindManyProductInput | null
   }) => ProductPaginationObservableChain & {
-    execute: (
-      request: ProductPaginationRequest,
-      defaultValue?: ProductPagination | null,
-    ) => Observable<ProductPagination | null>
+    get: (request: ProductPaginationRequest, defaultValue?: ProductPagination | null) => Observable<ProductPagination | null>
   }) &
     (ProductPaginationObservableChain & {
-      execute: (
+      get: (
         request: ProductPaginationRequest,
         defaultValue?: ProductPagination | null,
       ) => Observable<ProductPagination | null>
@@ -3439,13 +3392,10 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionObservableChain & {
-    execute: (
-      request: ProductConnectionRequest,
-      defaultValue?: ProductConnection | null,
-    ) => Observable<ProductConnection | null>
+    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Observable<ProductConnection | null>
   }) &
     (ProductConnectionObservableChain & {
-      execute: (
+      get: (
         request: ProductConnectionRequest,
         defaultValue?: ProductConnection | null,
       ) => Observable<ProductConnection | null>
@@ -3456,11 +3406,9 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneRegionInput | null
   }) => RegionObservableChain & {
-    execute: (request: RegionRequest, defaultValue?: Region | null) => Observable<Region | null>
+    get: (request: RegionRequest, defaultValue?: Region | null) => Observable<Region | null>
   }) &
-    (RegionObservableChain & {
-      execute: (request: RegionRequest, defaultValue?: Region | null) => Observable<Region | null>
-    })
+    (RegionObservableChain & { get: (request: RegionRequest, defaultValue?: Region | null) => Observable<Region | null> })
   regionList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyRegionInput | null
@@ -3468,18 +3416,18 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyRegionInput | null
   }) => {
-    execute: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Observable<(Region | null)[] | null>
-  }) & { execute: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Observable<(Region | null)[] | null> }
+    get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Observable<(Region | null)[] | null>
+  }) & { get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Observable<(Region | null)[] | null> }
   shipper: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneShipperInput | null
     skip?: Int | null
     sort?: SortFindOneShipperInput | null
   }) => ShipperObservableChain & {
-    execute: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
+    get: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
   }) &
     (ShipperObservableChain & {
-      execute: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
+      get: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
     })
   shipperList: ((args?: {
     /** Filter by fields */
@@ -3488,20 +3436,18 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyShipperInput | null
   }) => {
-    execute: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Observable<(Shipper | null)[] | null>
-  }) & {
-    execute: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Observable<(Shipper | null)[] | null>
-  }
+    get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Observable<(Shipper | null)[] | null>
+  }) & { get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Observable<(Shipper | null)[] | null> }
   supplier: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneSupplierInput | null
     skip?: Int | null
     sort?: SortFindOneSupplierInput | null
   }) => SupplierObservableChain & {
-    execute: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
+    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
   }) &
     (SupplierObservableChain & {
-      execute: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
+      get: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
     })
   supplierConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3517,13 +3463,13 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionSupplierEnum | null
   }) => SupplierConnectionObservableChain & {
-    execute: (
+    get: (
       request: SupplierConnectionRequest,
       defaultValue?: SupplierConnection | null,
     ) => Observable<SupplierConnection | null>
   }) &
     (SupplierConnectionObservableChain & {
-      execute: (
+      get: (
         request: SupplierConnectionRequest,
         defaultValue?: SupplierConnection | null,
       ) => Observable<SupplierConnection | null>
@@ -3532,10 +3478,10 @@ export interface ViewerObservableChain {
 
 export interface CategoryPromiseChain {
   /** Category unique ID */
-  categoryID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  description: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  categoryID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  description: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   productConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3548,32 +3494,26 @@ export interface CategoryPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionPromiseChain & {
-    execute: (
-      request: ProductConnectionRequest,
-      defaultValue?: ProductConnection | null,
-    ) => Promise<ProductConnection | null>
+    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
   }) &
     (ProductConnectionPromiseChain & {
-      execute: (
-        request: ProductConnectionRequest,
-        defaultValue?: ProductConnection | null,
-      ) => Promise<ProductConnection | null>
+      get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
     })
   productList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null>
-  }) & { execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
+    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null>
+  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
 }
 
 export interface CategoryObservableChain {
   /** Category unique ID */
-  categoryID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  description: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  categoryID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  description: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   productConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3586,13 +3526,10 @@ export interface CategoryObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionObservableChain & {
-    execute: (
-      request: ProductConnectionRequest,
-      defaultValue?: ProductConnection | null,
-    ) => Observable<ProductConnection | null>
+    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Observable<ProductConnection | null>
   }) &
     (ProductConnectionObservableChain & {
-      execute: (
+      get: (
         request: ProductConnectionRequest,
         defaultValue?: ProductConnection | null,
       ) => Observable<ProductConnection | null>
@@ -3602,87 +3539,83 @@ export interface CategoryObservableChain {
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
-  }) & {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
-  }
+    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
+  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null> }
 }
 
 /** A connection to a list of items. */
 export interface ProductConnectionPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: ProductEdgeRequest, defaultValue?: ProductEdge[]) => Promise<ProductEdge[]> }
+  edges: { get: (request: ProductEdgeRequest, defaultValue?: ProductEdge[]) => Promise<ProductEdge[]> }
 }
 
 /** A connection to a list of items. */
 export interface ProductConnectionObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & {
-    execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo>
-  }
+  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: ProductEdgeRequest, defaultValue?: ProductEdge[]) => Observable<ProductEdge[]> }
+  edges: { get: (request: ProductEdgeRequest, defaultValue?: ProductEdge[]) => Observable<ProductEdge[]> }
 }
 
 /** Information about pagination in a connection. */
 export interface PageInfoPromiseChain {
   /** When paginating forwards, are there more items? */
-  hasNextPage: { execute: (request?: boolean | number, defaultValue?: Boolean) => Promise<Boolean> }
+  hasNextPage: { get: (request?: boolean | number, defaultValue?: Boolean) => Promise<Boolean> }
   /** When paginating backwards, are there more items? */
-  hasPreviousPage: { execute: (request?: boolean | number, defaultValue?: Boolean) => Promise<Boolean> }
+  hasPreviousPage: { get: (request?: boolean | number, defaultValue?: Boolean) => Promise<Boolean> }
   /** When paginating backwards, the cursor to continue. */
-  startCursor: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  startCursor: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   /** When paginating forwards, the cursor to continue. */
-  endCursor: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  endCursor: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
 }
 
 /** Information about pagination in a connection. */
 export interface PageInfoObservableChain {
   /** When paginating forwards, are there more items? */
-  hasNextPage: { execute: (request?: boolean | number, defaultValue?: Boolean) => Observable<Boolean> }
+  hasNextPage: { get: (request?: boolean | number, defaultValue?: Boolean) => Observable<Boolean> }
   /** When paginating backwards, are there more items? */
-  hasPreviousPage: { execute: (request?: boolean | number, defaultValue?: Boolean) => Observable<Boolean> }
+  hasPreviousPage: { get: (request?: boolean | number, defaultValue?: Boolean) => Observable<Boolean> }
   /** When paginating backwards, the cursor to continue. */
-  startCursor: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  startCursor: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   /** When paginating forwards, the cursor to continue. */
-  endCursor: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  endCursor: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
 }
 
 /** An edge in a connection. */
 export interface ProductEdgePromiseChain {
   /** The item at the end of the edge */
-  node: ProductPromiseChain & { execute: (request: ProductRequest, defaultValue?: Product) => Promise<Product> }
+  node: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product) => Promise<Product> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Promise<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
 
 /** An edge in a connection. */
 export interface ProductEdgeObservableChain {
   /** The item at the end of the edge */
-  node: ProductObservableChain & { execute: (request: ProductRequest, defaultValue?: Product) => Observable<Product> }
+  node: ProductObservableChain & { get: (request: ProductRequest, defaultValue?: Product) => Observable<Product> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Observable<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
 
 export interface ProductPromiseChain {
   /** Unique product id */
-  productID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  supplierID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  categoryID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  quantityPerUnit: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  unitPrice: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  unitsInStock: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  unitsOnOrder: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  reorderLevel: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  discontinued: { execute: (request?: boolean | number, defaultValue?: Boolean | null) => Promise<Boolean | null> }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  productID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  supplierID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  categoryID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  quantityPerUnit: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  unitPrice: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  unitsInStock: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  unitsOnOrder: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  reorderLevel: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  discontinued: { get: (request?: boolean | number, defaultValue?: Boolean | null) => Promise<Boolean | null> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3695,39 +3628,39 @@ export interface ProductPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
   }) &
     (OrderConnectionPromiseChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => { execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }) & {
-    execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null>
+  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }) & {
+    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null>
   }
   supplier: SupplierPromiseChain & {
-    execute: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null>
+    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null>
   }
   category: CategoryPromiseChain & {
-    execute: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null>
+    get: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null>
   }
 }
 
 export interface ProductObservableChain {
   /** Unique product id */
-  productID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  supplierID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  categoryID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  quantityPerUnit: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  unitPrice: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  unitsInStock: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  unitsOnOrder: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  reorderLevel: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  discontinued: { execute: (request?: boolean | number, defaultValue?: Boolean | null) => Observable<Boolean | null> }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  productID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  supplierID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  categoryID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  quantityPerUnit: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  unitPrice: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  unitsInStock: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  unitsOnOrder: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  reorderLevel: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  discontinued: { get: (request?: boolean | number, defaultValue?: Boolean | null) => Observable<Boolean | null> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3740,178 +3673,172 @@ export interface ProductObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
   }) &
     (OrderConnectionObservableChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => {
-    execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null>
-  }) & { execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }
+  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }) & {
+    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null>
+  }
   supplier: SupplierObservableChain & {
-    execute: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
+    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
   }
   category: CategoryObservableChain & {
-    execute: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
+    get: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
   }
 }
 
 /** A connection to a list of items. */
 export interface OrderConnectionPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: OrderEdgeRequest, defaultValue?: OrderEdge[]) => Promise<OrderEdge[]> }
+  edges: { get: (request: OrderEdgeRequest, defaultValue?: OrderEdge[]) => Promise<OrderEdge[]> }
 }
 
 /** A connection to a list of items. */
 export interface OrderConnectionObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & {
-    execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo>
-  }
+  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: OrderEdgeRequest, defaultValue?: OrderEdge[]) => Observable<OrderEdge[]> }
+  edges: { get: (request: OrderEdgeRequest, defaultValue?: OrderEdge[]) => Observable<OrderEdge[]> }
 }
 
 /** An edge in a connection. */
 export interface OrderEdgePromiseChain {
   /** The item at the end of the edge */
-  node: OrderPromiseChain & { execute: (request: OrderRequest, defaultValue?: Order) => Promise<Order> }
+  node: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order) => Promise<Order> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Promise<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
 
 /** An edge in a connection. */
 export interface OrderEdgeObservableChain {
   /** The item at the end of the edge */
-  node: OrderObservableChain & { execute: (request: OrderRequest, defaultValue?: Order) => Observable<Order> }
+  node: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order) => Observable<Order> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Observable<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
 
 export interface OrderPromiseChain {
   /** Order unique ID */
-  orderID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  customerID: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  employeeID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  orderDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
-  requiredDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
-  shippedDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
-  shipVia: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  freight: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  shipName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  orderID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  customerID: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  employeeID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  orderDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
+  requiredDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
+  shippedDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
+  shipVia: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  freight: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  shipName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   shipAddress: CustomerAddressPromiseChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
   }
   /** List of ordered products */
   details: {
-    execute: (
+    get: (
       request: OrderDetailsRequest,
       defaultValue?: (OrderDetails | null)[] | null,
     ) => Promise<(OrderDetails | null)[] | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   customer: CustomerPromiseChain & {
-    execute: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null>
+    get: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null>
   }
   employee: EmployeePromiseChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
   }
-  shipper: ShipperPromiseChain & {
-    execute: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null>
-  }
+  shipper: ShipperPromiseChain & { get: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null> }
 }
 
 export interface OrderObservableChain {
   /** Order unique ID */
-  orderID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  customerID: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  employeeID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  orderDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
-  requiredDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
-  shippedDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
-  shipVia: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  freight: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  shipName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  orderID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  customerID: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  employeeID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  orderDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
+  requiredDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
+  shippedDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
+  shipVia: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  freight: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  shipName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   shipAddress: CustomerAddressObservableChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
   }
   /** List of ordered products */
   details: {
-    execute: (
+    get: (
       request: OrderDetailsRequest,
       defaultValue?: (OrderDetails | null)[] | null,
     ) => Observable<(OrderDetails | null)[] | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   customer: CustomerObservableChain & {
-    execute: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
+    get: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
   }
   employee: EmployeeObservableChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
   }
   shipper: ShipperObservableChain & {
-    execute: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
+    get: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
   }
 }
 
 export interface CustomerAddressPromiseChain {
-  street: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  city: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  region: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  postalCode: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  country: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  phone: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  street: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  city: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  region: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  postalCode: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  country: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  phone: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
 }
 
 export interface CustomerAddressObservableChain {
-  street: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  city: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  region: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  postalCode: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  country: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  phone: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  street: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  city: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  region: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  postalCode: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  country: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  phone: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
 }
 
 export interface OrderDetailsPromiseChain {
-  productID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  unitPrice: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  quantity: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  discount: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  product: ProductPromiseChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null>
-  }
+  productID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  unitPrice: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  quantity: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  discount: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  product: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
 }
 
 export interface OrderDetailsObservableChain {
-  productID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  unitPrice: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  quantity: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  discount: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  productID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  unitPrice: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  quantity: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  discount: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
   product: ProductObservableChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
   }
 }
 
 export interface CustomerPromiseChain {
   /** Customer unique ID */
-  customerID: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  companyName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  contactName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  contactTitle: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  customerID: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  companyName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   address: CustomerAddressPromiseChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3924,30 +3851,30 @@ export interface CustomerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
   }) &
     (OrderConnectionPromiseChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => { execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }) & {
-    execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null>
+  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }) & {
+    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null>
   }
 }
 
 export interface CustomerObservableChain {
   /** Customer unique ID */
-  customerID: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  companyName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  contactName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  contactTitle: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  customerID: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  companyName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   address: CustomerAddressObservableChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3960,52 +3887,50 @@ export interface CustomerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
   }) &
     (OrderConnectionObservableChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => {
-    execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null>
-  }) & { execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }
+  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }) & {
+    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null>
+  }
 }
 
 export interface EmployeePromiseChain {
   /** Category unique ID */
-  employeeID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  lastName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  firstName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  title: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  titleOfCourtesy: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  birthDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
-  hireDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
+  employeeID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  lastName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  firstName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  title: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  titleOfCourtesy: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  birthDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
+  hireDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
   address: CustomerAddressPromiseChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
   }
-  notes: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  notes: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   /** ID of chief */
-  reportsTo: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  reportsTo: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
   /** Attached territory ID from region collection */
   territoryIDs: {
-    execute: (request?: boolean | number, defaultValue?: (Float | null)[] | null) => Promise<(Float | null)[] | null>
+    get: (request?: boolean | number, defaultValue?: (Float | null)[] | null) => Promise<(Float | null)[] | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   chief: EmployeePromiseChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
   }
   subordinates: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }) & {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
+  }) & { get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null> }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -4018,44 +3943,44 @@ export interface EmployeePromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
   }) &
     (OrderConnectionPromiseChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
     })
 }
 
 export interface EmployeeObservableChain {
   /** Category unique ID */
-  employeeID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  lastName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  firstName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  title: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  titleOfCourtesy: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  birthDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
-  hireDate: { execute: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
+  employeeID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  lastName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  firstName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  title: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  titleOfCourtesy: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  birthDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
+  hireDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
   address: CustomerAddressObservableChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
   }
-  notes: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  notes: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   /** ID of chief */
-  reportsTo: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  reportsTo: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
   /** Attached territory ID from region collection */
   territoryIDs: {
-    execute: (request?: boolean | number, defaultValue?: (Float | null)[] | null) => Observable<(Float | null)[] | null>
+    get: (request?: boolean | number, defaultValue?: (Float | null)[] | null) => Observable<(Float | null)[] | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   chief: EmployeeObservableChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
   }
   subordinates: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
   }) & {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
   }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -4069,19 +3994,19 @@ export interface EmployeeObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
   }) &
     (OrderConnectionObservableChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
     })
 }
 
 export interface ShipperPromiseChain {
   /** Shipper unique ID */
-  shipperID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  companyName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  phone: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  shipperID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  companyName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  phone: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -4094,19 +4019,19 @@ export interface ShipperPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
   }) &
     (OrderConnectionPromiseChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
     })
 }
 
 export interface ShipperObservableChain {
   /** Shipper unique ID */
-  shipperID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  companyName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  phone: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  shipperID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  companyName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  phone: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -4119,23 +4044,23 @@ export interface ShipperObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
   }) &
     (OrderConnectionObservableChain & {
-      execute: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
     })
 }
 
 export interface SupplierPromiseChain {
   /** Supplier unique ID */
-  supplierID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  companyName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  contactName: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
-  contactTitle: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  supplierID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  companyName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   address: CustomerAddressPromiseChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   productConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -4148,29 +4073,23 @@ export interface SupplierPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionPromiseChain & {
-    execute: (
-      request: ProductConnectionRequest,
-      defaultValue?: ProductConnection | null,
-    ) => Promise<ProductConnection | null>
+    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
   }) &
     (ProductConnectionPromiseChain & {
-      execute: (
-        request: ProductConnectionRequest,
-        defaultValue?: ProductConnection | null,
-      ) => Promise<ProductConnection | null>
+      get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
     })
 }
 
 export interface SupplierObservableChain {
   /** Supplier unique ID */
-  supplierID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  companyName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  contactName: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
-  contactTitle: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  supplierID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  companyName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   address: CustomerAddressObservableChain & {
-    execute: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   productConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -4183,13 +4102,10 @@ export interface SupplierObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionObservableChain & {
-    execute: (
-      request: ProductConnectionRequest,
-      defaultValue?: ProductConnection | null,
-    ) => Observable<ProductConnection | null>
+    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Observable<ProductConnection | null>
   }) &
     (ProductConnectionObservableChain & {
-      execute: (
+      get: (
         request: ProductConnectionRequest,
         defaultValue?: ProductConnection | null,
       ) => Observable<ProductConnection | null>
@@ -4199,257 +4115,249 @@ export interface SupplierObservableChain {
 /** List of items with pagination. */
 export interface CustomerPaginationPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
   items: {
-    execute: (request: CustomerRequest, defaultValue?: (Customer | null)[] | null) => Promise<(Customer | null)[] | null>
+    get: (request: CustomerRequest, defaultValue?: (Customer | null)[] | null) => Promise<(Customer | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
 /** List of items with pagination. */
 export interface CustomerPaginationObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
   items: {
-    execute: (request: CustomerRequest, defaultValue?: (Customer | null)[] | null) => Observable<(Customer | null)[] | null>
+    get: (request: CustomerRequest, defaultValue?: (Customer | null)[] | null) => Observable<(Customer | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
 export interface PaginationInfoPromiseChain {
-  currentPage: { execute: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
-  perPage: { execute: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
-  pageCount: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
-  itemCount: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
-  hasNextPage: { execute: (request?: boolean | number, defaultValue?: Boolean | null) => Promise<Boolean | null> }
-  hasPreviousPage: { execute: (request?: boolean | number, defaultValue?: Boolean | null) => Promise<Boolean | null> }
+  currentPage: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
+  perPage: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
+  pageCount: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
+  itemCount: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
+  hasNextPage: { get: (request?: boolean | number, defaultValue?: Boolean | null) => Promise<Boolean | null> }
+  hasPreviousPage: { get: (request?: boolean | number, defaultValue?: Boolean | null) => Promise<Boolean | null> }
 }
 
 export interface PaginationInfoObservableChain {
-  currentPage: { execute: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
-  perPage: { execute: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
-  pageCount: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
-  itemCount: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
-  hasNextPage: { execute: (request?: boolean | number, defaultValue?: Boolean | null) => Observable<Boolean | null> }
-  hasPreviousPage: { execute: (request?: boolean | number, defaultValue?: Boolean | null) => Observable<Boolean | null> }
+  currentPage: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
+  perPage: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
+  pageCount: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
+  itemCount: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
+  hasNextPage: { get: (request?: boolean | number, defaultValue?: Boolean | null) => Observable<Boolean | null> }
+  hasPreviousPage: { get: (request?: boolean | number, defaultValue?: Boolean | null) => Observable<Boolean | null> }
 }
 
 /** A connection to a list of items. */
 export interface CustomerConnectionPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: CustomerEdgeRequest, defaultValue?: CustomerEdge[]) => Promise<CustomerEdge[]> }
+  edges: { get: (request: CustomerEdgeRequest, defaultValue?: CustomerEdge[]) => Promise<CustomerEdge[]> }
 }
 
 /** A connection to a list of items. */
 export interface CustomerConnectionObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & {
-    execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo>
-  }
+  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: CustomerEdgeRequest, defaultValue?: CustomerEdge[]) => Observable<CustomerEdge[]> }
+  edges: { get: (request: CustomerEdgeRequest, defaultValue?: CustomerEdge[]) => Observable<CustomerEdge[]> }
 }
 
 /** An edge in a connection. */
 export interface CustomerEdgePromiseChain {
   /** The item at the end of the edge */
-  node: CustomerPromiseChain & { execute: (request: CustomerRequest, defaultValue?: Customer) => Promise<Customer> }
+  node: CustomerPromiseChain & { get: (request: CustomerRequest, defaultValue?: Customer) => Promise<Customer> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Promise<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
 
 /** An edge in a connection. */
 export interface CustomerEdgeObservableChain {
   /** The item at the end of the edge */
-  node: CustomerObservableChain & { execute: (request: CustomerRequest, defaultValue?: Customer) => Observable<Customer> }
+  node: CustomerObservableChain & { get: (request: CustomerRequest, defaultValue?: Customer) => Observable<Customer> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Observable<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
 
 /** List of items with pagination. */
 export interface EmployeePaginationPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
   items: {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
 /** List of items with pagination. */
 export interface EmployeePaginationObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
   items: {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
 /** List of items with pagination. */
 export interface OrderPaginationPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
-  items: { execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }
+  items: { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
 /** List of items with pagination. */
 export interface OrderPaginationObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
-  items: { execute: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }
+  items: { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
 /** List of items with pagination. */
 export interface ProductPaginationPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
-  items: {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null>
-  }
+  items: { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
 /** List of items with pagination. */
 export interface ProductPaginationObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
+  count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
   items: {
-    execute: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
+    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    execute: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
 export interface RegionPromiseChain {
   /** Region unique ID */
-  regionID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  regionID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   territories: {
-    execute: (
+    get: (
       request: RegionTerritoriesRequest,
       defaultValue?: (RegionTerritories | null)[] | null,
     ) => Promise<(RegionTerritories | null)[] | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   employees: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }) & {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
+  }) & { get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null> }
 }
 
 export interface RegionObservableChain {
   /** Region unique ID */
-  regionID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  regionID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   territories: {
-    execute: (
+    get: (
       request: RegionTerritoriesRequest,
       defaultValue?: (RegionTerritories | null)[] | null,
     ) => Observable<(RegionTerritories | null)[] | null>
   }
-  _id: { execute: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
+  _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   employees: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
   }) & {
-    execute: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
   }
 }
 
 export interface RegionTerritoriesPromiseChain {
-  territoryID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  territoryID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
 }
 
 export interface RegionTerritoriesObservableChain {
-  territoryID: { execute: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
-  name: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  territoryID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
+  name: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
 }
 
 /** A connection to a list of items. */
 export interface SupplierConnectionPromiseChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: SupplierEdgeRequest, defaultValue?: SupplierEdge[]) => Promise<SupplierEdge[]> }
+  edges: { get: (request: SupplierEdgeRequest, defaultValue?: SupplierEdge[]) => Promise<SupplierEdge[]> }
 }
 
 /** A connection to a list of items. */
 export interface SupplierConnectionObservableChain {
   /** Total object count. */
-  count: { execute: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
+  count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & {
-    execute: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo>
-  }
+  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
   /** Information to aid in pagination. */
-  edges: { execute: (request: SupplierEdgeRequest, defaultValue?: SupplierEdge[]) => Observable<SupplierEdge[]> }
+  edges: { get: (request: SupplierEdgeRequest, defaultValue?: SupplierEdge[]) => Observable<SupplierEdge[]> }
 }
 
 /** An edge in a connection. */
 export interface SupplierEdgePromiseChain {
   /** The item at the end of the edge */
-  node: SupplierPromiseChain & { execute: (request: SupplierRequest, defaultValue?: Supplier) => Promise<Supplier> }
+  node: SupplierPromiseChain & { get: (request: SupplierRequest, defaultValue?: Supplier) => Promise<Supplier> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Promise<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
 
 /** An edge in a connection. */
 export interface SupplierEdgeObservableChain {
   /** The item at the end of the edge */
-  node: SupplierObservableChain & { execute: (request: SupplierRequest, defaultValue?: Supplier) => Observable<Supplier> }
+  node: SupplierObservableChain & { get: (request: SupplierRequest, defaultValue?: Supplier) => Observable<Supplier> }
   /** A cursor for use in pagination */
-  cursor: { execute: (request?: boolean | number, defaultValue?: String) => Observable<String> }
+  cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
 
 export interface MutationPromiseChain {
@@ -4457,7 +4365,7 @@ export interface MutationPromiseChain {
   createProduct: (args: {
     record: CreateOneProductInput
   }) => CreateOneProductPayloadPromiseChain & {
-    execute: (
+    get: (
       request: CreateOneProductPayloadRequest,
       defaultValue?: CreateOneProductPayload | null,
     ) => Promise<CreateOneProductPayload | null>
@@ -4466,7 +4374,7 @@ export interface MutationPromiseChain {
   updateProduct: (args: {
     record: UpdateByIdProductInput
   }) => UpdateByIdProductPayloadPromiseChain & {
-    execute: (
+    get: (
       request: UpdateByIdProductPayloadRequest,
       defaultValue?: UpdateByIdProductPayload | null,
     ) => Promise<UpdateByIdProductPayload | null>
@@ -4477,13 +4385,13 @@ export interface MutationPromiseChain {
     filter?: FilterRemoveOneProductInput | null
     sort?: SortRemoveOneProductInput | null
   }) => RemoveOneProductPayloadPromiseChain & {
-    execute: (
+    get: (
       request: RemoveOneProductPayloadRequest,
       defaultValue?: RemoveOneProductPayload | null,
     ) => Promise<RemoveOneProductPayload | null>
   }) &
     (RemoveOneProductPayloadPromiseChain & {
-      execute: (
+      get: (
         request: RemoveOneProductPayloadRequest,
         defaultValue?: RemoveOneProductPayload | null,
       ) => Promise<RemoveOneProductPayload | null>
@@ -4492,7 +4400,7 @@ export interface MutationPromiseChain {
   createOrder: (args: {
     record: CreateOneOrderInput
   }) => CreateOneOrderPayloadPromiseChain & {
-    execute: (
+    get: (
       request: CreateOneOrderPayloadRequest,
       defaultValue?: CreateOneOrderPayload | null,
     ) => Promise<CreateOneOrderPayload | null>
@@ -4501,7 +4409,7 @@ export interface MutationPromiseChain {
   updateOrder: (args: {
     record: UpdateByIdOrderInput
   }) => UpdateByIdOrderPayloadPromiseChain & {
-    execute: (
+    get: (
       request: UpdateByIdOrderPayloadRequest,
       defaultValue?: UpdateByIdOrderPayload | null,
     ) => Promise<UpdateByIdOrderPayload | null>
@@ -4512,13 +4420,13 @@ export interface MutationPromiseChain {
     filter?: FilterRemoveOneOrderInput | null
     sort?: SortRemoveOneOrderInput | null
   }) => RemoveOneOrderPayloadPromiseChain & {
-    execute: (
+    get: (
       request: RemoveOneOrderPayloadRequest,
       defaultValue?: RemoveOneOrderPayload | null,
     ) => Promise<RemoveOneOrderPayload | null>
   }) &
     (RemoveOneOrderPayloadPromiseChain & {
-      execute: (
+      get: (
         request: RemoveOneOrderPayloadRequest,
         defaultValue?: RemoveOneOrderPayload | null,
       ) => Promise<RemoveOneOrderPayload | null>
@@ -4527,13 +4435,13 @@ export interface MutationPromiseChain {
   updateEmployee: (args: {
     record: UpdateByIdEmployeeInput
   }) => UpdateByIdEmployeePayloadPromiseChain & {
-    execute: (
+    get: (
       request: UpdateByIdEmployeePayloadRequest,
       defaultValue?: UpdateByIdEmployeePayload | null,
     ) => Promise<UpdateByIdEmployeePayload | null>
   }
   /** Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes. */
-  resetData: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  resetData: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
 }
 
 export interface MutationObservableChain {
@@ -4541,7 +4449,7 @@ export interface MutationObservableChain {
   createProduct: (args: {
     record: CreateOneProductInput
   }) => CreateOneProductPayloadObservableChain & {
-    execute: (
+    get: (
       request: CreateOneProductPayloadRequest,
       defaultValue?: CreateOneProductPayload | null,
     ) => Observable<CreateOneProductPayload | null>
@@ -4550,7 +4458,7 @@ export interface MutationObservableChain {
   updateProduct: (args: {
     record: UpdateByIdProductInput
   }) => UpdateByIdProductPayloadObservableChain & {
-    execute: (
+    get: (
       request: UpdateByIdProductPayloadRequest,
       defaultValue?: UpdateByIdProductPayload | null,
     ) => Observable<UpdateByIdProductPayload | null>
@@ -4561,13 +4469,13 @@ export interface MutationObservableChain {
     filter?: FilterRemoveOneProductInput | null
     sort?: SortRemoveOneProductInput | null
   }) => RemoveOneProductPayloadObservableChain & {
-    execute: (
+    get: (
       request: RemoveOneProductPayloadRequest,
       defaultValue?: RemoveOneProductPayload | null,
     ) => Observable<RemoveOneProductPayload | null>
   }) &
     (RemoveOneProductPayloadObservableChain & {
-      execute: (
+      get: (
         request: RemoveOneProductPayloadRequest,
         defaultValue?: RemoveOneProductPayload | null,
       ) => Observable<RemoveOneProductPayload | null>
@@ -4576,7 +4484,7 @@ export interface MutationObservableChain {
   createOrder: (args: {
     record: CreateOneOrderInput
   }) => CreateOneOrderPayloadObservableChain & {
-    execute: (
+    get: (
       request: CreateOneOrderPayloadRequest,
       defaultValue?: CreateOneOrderPayload | null,
     ) => Observable<CreateOneOrderPayload | null>
@@ -4585,7 +4493,7 @@ export interface MutationObservableChain {
   updateOrder: (args: {
     record: UpdateByIdOrderInput
   }) => UpdateByIdOrderPayloadObservableChain & {
-    execute: (
+    get: (
       request: UpdateByIdOrderPayloadRequest,
       defaultValue?: UpdateByIdOrderPayload | null,
     ) => Observable<UpdateByIdOrderPayload | null>
@@ -4596,13 +4504,13 @@ export interface MutationObservableChain {
     filter?: FilterRemoveOneOrderInput | null
     sort?: SortRemoveOneOrderInput | null
   }) => RemoveOneOrderPayloadObservableChain & {
-    execute: (
+    get: (
       request: RemoveOneOrderPayloadRequest,
       defaultValue?: RemoveOneOrderPayload | null,
     ) => Observable<RemoveOneOrderPayload | null>
   }) &
     (RemoveOneOrderPayloadObservableChain & {
-      execute: (
+      get: (
         request: RemoveOneOrderPayloadRequest,
         defaultValue?: RemoveOneOrderPayload | null,
       ) => Observable<RemoveOneOrderPayload | null>
@@ -4611,165 +4519,149 @@ export interface MutationObservableChain {
   updateEmployee: (args: {
     record: UpdateByIdEmployeeInput
   }) => UpdateByIdEmployeePayloadObservableChain & {
-    execute: (
+    get: (
       request: UpdateByIdEmployeePayloadRequest,
       defaultValue?: UpdateByIdEmployeePayload | null,
     ) => Observable<UpdateByIdEmployeePayload | null>
   }
   /** Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes. */
-  resetData: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  resetData: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
 }
 
 export interface CreateOneProductPayloadPromiseChain {
   /** Created document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Created document */
-  record: ProductPromiseChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null>
-  }
-  query: QueryPromiseChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
+  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
 }
 
 export interface CreateOneProductPayloadObservableChain {
   /** Created document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Created document */
   record: ProductObservableChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
   }
-  query: QueryObservableChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
 }
 
 export interface UpdateByIdProductPayloadPromiseChain {
   /** Updated document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Updated document */
-  record: ProductPromiseChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null>
-  }
-  query: QueryPromiseChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
+  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
 }
 
 export interface UpdateByIdProductPayloadObservableChain {
   /** Updated document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Updated document */
   record: ProductObservableChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
   }
-  query: QueryObservableChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
 }
 
 export interface RemoveOneProductPayloadPromiseChain {
   /** Removed document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Removed document */
-  record: ProductPromiseChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null>
-  }
-  query: QueryPromiseChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
+  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
 }
 
 export interface RemoveOneProductPayloadObservableChain {
   /** Removed document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Removed document */
   record: ProductObservableChain & {
-    execute: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
   }
-  query: QueryObservableChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
 }
 
 export interface CreateOneOrderPayloadPromiseChain {
   /** Created document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Created document */
-  record: OrderPromiseChain & { execute: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
-  query: QueryPromiseChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
+  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
 }
 
 export interface CreateOneOrderPayloadObservableChain {
   /** Created document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Created document */
-  record: OrderObservableChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
-  }
-  query: QueryObservableChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  record: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }
+  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
 }
 
 export interface UpdateByIdOrderPayloadPromiseChain {
   /** Updated document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Updated document */
-  record: OrderPromiseChain & { execute: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
-  query: QueryPromiseChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
+  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
 }
 
 export interface UpdateByIdOrderPayloadObservableChain {
   /** Updated document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Updated document */
-  record: OrderObservableChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
-  }
-  query: QueryObservableChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  record: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }
+  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
 }
 
 export interface RemoveOneOrderPayloadPromiseChain {
   /** Removed document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Removed document */
-  record: OrderPromiseChain & { execute: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
-  query: QueryPromiseChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
+  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
 }
 
 export interface RemoveOneOrderPayloadObservableChain {
   /** Removed document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Removed document */
-  record: OrderObservableChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
-  }
-  query: QueryObservableChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  record: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }
+  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
 }
 
 export interface UpdateByIdEmployeePayloadPromiseChain {
   /** Updated document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Updated document */
   record: EmployeePromiseChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
   }
-  query: QueryPromiseChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
 }
 
 export interface UpdateByIdEmployeePayloadObservableChain {
   /** Updated document ID */
-  recordId: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Updated document */
   record: EmployeeObservableChain & {
-    execute: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
   }
-  query: QueryObservableChain & { execute: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
 }
 
 export interface SubscriptionPromiseChain {
-  orderCreated: OrderPromiseChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null>
-  }
-  orderUpdated: OrderPromiseChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null>
-  }
-  orderRemoved: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
+  orderCreated: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
+  orderUpdated: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
+  orderRemoved: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
 }
 
 export interface SubscriptionObservableChain {
   orderCreated: OrderObservableChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
+    get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
   }
   orderUpdated: OrderObservableChain & {
-    execute: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
+    get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
   }
-  orderRemoved: { execute: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
+  orderRemoved: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
 }

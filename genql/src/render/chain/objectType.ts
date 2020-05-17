@@ -39,13 +39,13 @@ export const objectType = (
 
     const fieldType = resolvable
       ? stopChain
-        ? `{execute:(request:${requestTypeName(
+        ? `{get:(request:${requestTypeName(
             resolvedType,
           )},defaultValue?:${executeReturnType})=>${executeReturnTypeWrapped}}`
-        : `${chainTypeName(resolvedType, wrapper)}&{execute:(request:${requestTypeName(
+        : `${chainTypeName(resolvedType, wrapper)}&{get:(request:${requestTypeName(
             resolvedType,
           )},defaultValue?:${executeReturnType})=>${executeReturnTypeWrapped}}`
-      : `{execute:(request?:boolean|number,defaultValue?:${executeReturnType})=>${executeReturnTypeWrapped}}`
+      : `{get:(request?:boolean|number,defaultValue?:${executeReturnType})=>${executeReturnTypeWrapped}}`
 
     const result = []
 
