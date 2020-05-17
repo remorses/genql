@@ -49,29 +49,18 @@
     "dependencies": {
         "@types/graphql": "^14.5.0",
         "@types/isomorphic-fetch": "^0.0.35",
-        "@types/lodash": "^4.14.149",
-        "@types/lodash.get": "^4.4.6",
-        "@types/lodash.startswith": "^4.2.6",
         "@types/node": "*",
         "@types/prettier": "^1.19.0",
-        "@types/qs": "^6.9.0",
-        "@types/ws": "^6.0.1",
         "chalk": "^2.4.2",
         "commander": "^2.19.0",
         "graphql": "^14.5.8",
         "graphql-toolkit": "^0.3.0",
-        "graphql-tools": "^4.0.6",
         "isomorphic-fetch": "^2.2.1",
         "listr": "^0.14.3",
-        "lodash.get": "^4.4.2",
-        "lodash.startswith": "^4.2.1",
         "mkdirp": "^0.5.1",
         "prettier": "^1.19.1",
         "qs": "^6.9.1",
-        "rimraf": "^2.6.3",
-        "rxjs": "^6.5.4",
-        "subscriptions-transport-ws": "^0.9.16",
-        "ws": "^6.1.4"
+        "rimraf": "^2.6.3"
     },
     "jest": {
         "transform": {
