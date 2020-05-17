@@ -1,7 +1,7 @@
 import { LinkedField, LinkedType } from './linkTypeMap'
 import startsWith from 'lodash.startswith'
 
-export const getFieldFromPath = (
+export const getFieldFromPath = ( // TODO typeMap.json is only needed for getFieldFormPath, can be removed? uses .fields and .type
     root: LinkedType | undefined,
     path: string[],
 ) => {

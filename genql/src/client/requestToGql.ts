@@ -49,7 +49,7 @@ const parseRequest = (request: Request | undefined, ctx: Context, path: string[]
       ctx.varCounter++
       const varName = `v${ctx.varCounter}`
 
-      const typing = field.args && field.args[argName]
+      const typing = field.args && field.args[argName] // TODO typeMap used here, .args
 
       if (!typing) {
         throw new Error(`no typing defined for argument \`${argName}\` in path \`${path.join('.')}\``)
@@ -129,7 +129,7 @@ export const requestToGql = (
   return {
     query: [`${operation}${varsString}${result}`, ...ctx.fragments].join(','),
     variables: Object.keys(ctx.variables).reduce<{ [name: string]: any }>((r, v) => {
-      r[v] = applyTypeMapperToVariable(ctx.variables[v].value, ctx.variables[v].typing[1], typeMapper)
+      r[v] = applyTypeMapperToVariable(ctx.variables[v].value, ctx.variables[v].typing[1], typeMapper) // can be removed
       return r
     }, {}),
   }
