@@ -9,3 +9,6 @@ module.exports.createClient = (options = {}) => {
     ...options,
   })
 }
+module.exports.everything = {
+  __scalar: 1,
+}

@@ -40,6 +40,9 @@ export const renderClient = (schema: GraphQLSchema, ctx: RenderContext) => {
       ...options,
     })
   }
+  module.exports.everything = {
+    __scalar: true
+}
   `)
 }
 

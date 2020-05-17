@@ -1,4 +1,4 @@
-import { createClient } from './generated/createClient'
+import { createClient, everything } from './generated/createClient'
 
 const client = createClient({})
 
@@ -6,10 +6,10 @@ async function main() {
     const q = await client.query({
         viewer: {
             category: {
-                _id: 1,
-                name: 1,
+                ...everything,
             },
             order: {
+                ...everything,
                 customer: {
                     address: {
                         city: 1,
@@ -27,7 +27,6 @@ async function main() {
         ],
     })
     console.log(JSON.stringify(m, null, 4))
-
 }
 
 main().catch(console.error)

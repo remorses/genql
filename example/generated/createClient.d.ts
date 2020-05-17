@@ -23,3 +23,4 @@ export declare const createClient: (
   SubscriptionObservableChain,
   Subscription
 >
+export declare const everything: { __scalar: boolean }
