@@ -15,7 +15,7 @@ function generatePackageJson({ name }) {
         module: './createClient.esm.js',
         types: './createClient.d.ts',
         dependencies: {
-            genql: 'latest',
+            'genql-runtime': 'latest',
         },
     }
 }
@@ -36,7 +36,7 @@ export async function createPackage({
     name,
     callback,
 }: GenerateApiParams & { callback }) {
-    const { path: tmpPath, cleanup } = await tmp.dir({unsafeCleanup: true})
+    const { path: tmpPath, cleanup } = await tmp.dir({ unsafeCleanup: true })
     await generateProject({
         endpoint,
         output: tmpPath,

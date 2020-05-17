@@ -29,6 +29,7 @@
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
     "license": "ISC",
     "devDependencies": {
+        "genql": "*",
         "@sucrase/jest-plugin": "^2.0.0",
         "@types/common-tags": "^1.8.0",
         "@types/jest": "^23.3.13",

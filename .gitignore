@@ -78,3 +78,5 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+.now
