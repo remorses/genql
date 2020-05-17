@@ -14,8 +14,8 @@ import { RenderContext } from '../common/RenderContext'
 import { renderTyping } from '../common/renderTyping'
 import { toArgsString } from '../common/toArgsString'
 import { requestTypeName } from '../requestTypes/requestTypeName'
+import { RUNTIME_LIB_NAME } from '../../config'
 
-const packageJson = require('../../../package.json')
 
 export const chainTypeName = (type: GraphQLNamedType, wrapper: 'Promise' | 'Observable') => `${type.name}${wrapper}Chain`
 
@@ -61,7 +61,7 @@ export const objectType = (
   })
 
   if (wrapper === 'Observable') {
-    ctx.addImport(packageJson.name, false, 'Observable', true, true)
+    ctx.addImport(RUNTIME_LIB_NAME, false, 'Observable', true, true)
   }
 
   ctx.addCodeBlock(`${typeComment(type)}export interface ${chainTypeName(type, wrapper)}{${fieldStrings.join(',')}}`)

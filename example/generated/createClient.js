@@ -1,4 +1,4 @@
-const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('genql')
+const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('genql-runtime')
 module.exports.createClient = function(options) {
   var typeMap = linkTypeMap(require('./typeMap.json'))
   options = options || {}

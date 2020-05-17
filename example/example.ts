@@ -1,5 +1,6 @@
 import { createClient, everything } from './generated/createClient'
-const client = createClient({})
+
+const client = createClient()
 
 async function main() {
     const q = await client.query({

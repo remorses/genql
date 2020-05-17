@@ -6,6 +6,6 @@
   "author": "remorses",
   "license": "MIT",
   "dependencies": {
-    "genql": "*"
+    "genql-runtime": "*"
   }
 }

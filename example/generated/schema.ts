@@ -1,4 +1,4 @@
-import { Observable } from 'genql'
+import { Observable } from 'genql-runtime'
 
 export interface Query {
   /** Data under client context */

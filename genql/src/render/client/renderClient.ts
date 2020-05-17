@@ -1,7 +1,6 @@
 import { GraphQLSchema } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
-
-const packageJson = require('../../../package.json')
+import { RUNTIME_LIB_NAME } from '../../config'
 
 const createClientCode = (ctx: RenderContext) => `
 function(options) {
@@ -21,9 +20,7 @@ function(options) {
 
 export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
-  const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('${
-      packageJson.name
-  }')
+  const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('${RUNTIME_LIB_NAME}')
   module.exports.createClient = ${createClientCode(ctx)}
   module.exports.everything = {
     __scalar: true
@@ -33,9 +30,7 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
 
 export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
-  import { linkTypeMap, createClient as createClientOriginal, createDefaultFetcher } from '${
-      packageJson.name
-  }'
+  import { linkTypeMap, createClient as createClientOriginal, createDefaultFetcher } from '${RUNTIME_LIB_NAME}'
   export const createClient = ${createClientCode(ctx)}
   export const everything = {
     __scalar: true

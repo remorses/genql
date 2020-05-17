@@ -1,4 +1,4 @@
-import { Client, ClientOptions } from 'genql'
+import { Client, ClientOptions } from 'genql-runtime'
 import {
   QueryRequest,
   QueryPromiseChain,
