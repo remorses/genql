@@ -5,7 +5,6 @@ import qs from 'qs'
 import { NEVER, Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { Fetcher } from '../fetcher'
-import { applyTypeMapperToResponse, TypeMapper } from './applyTypeMapperToResponse'
 import { chain } from './chain'
 import { getSubscriptionCreator, SubscriptionCreatorOptions } from './getSubscriptionCreator'
 import { LinkedType } from './linkTypeMap'
@@ -49,7 +48,6 @@ export interface ClientEmbeddedOptions {
     queryRoot?: LinkedType
     mutationRoot?: LinkedType
     subscriptionRoot?: LinkedType
-    typeMapper?: TypeMapper
 }
 
 export const createClient = <
@@ -68,7 +66,6 @@ export const createClient = <
     queryRoot,
     mutationRoot,
     subscriptionRoot,
-    typeMapper,
 }: ClientOptions & ClientEmbeddedOptions): Client<
     QR,
     QC,
@@ -89,16 +86,12 @@ export const createClient = <
         if (!queryRoot) throw new Error('queryRoot argument is missing')
 
         const resultPromise = fetcher(
-            requestToGql('query', queryRoot, request, typeMapper),
+            requestToGql('query', queryRoot, request),
             fetch,
             qs,
         )
 
-        return typeMapper
-            ? resultPromise.then((result) =>
-                  applyTypeMapperToResponse(queryRoot, result, typeMapper),
-              )
-            : resultPromise
+        return resultPromise
     }
 
     const mutation = (request: MR): Promise<M> => {
@@ -106,16 +99,12 @@ export const createClient = <
         if (!mutationRoot) throw new Error('mutationRoot argument is missing')
 
         const resultPromise = fetcher(
-            requestToGql('mutation', mutationRoot, request, typeMapper),
+            requestToGql('mutation', mutationRoot, request, ),
             fetch,
             qs,
         )
 
-        return typeMapper
-            ? resultPromise.then((result) =>
-                  applyTypeMapperToResponse(mutationRoot, result, typeMapper),
-              )
-            : resultPromise
+        return resultPromise
     }
 
     const subscription = (request: SR): Observable<S> => {
@@ -125,20 +114,10 @@ export const createClient = <
             throw new Error('subscriptionRoot argument is missing')
 
         const resultObservable = createSubscription(
-            requestToGql('subscription', subscriptionRoot, request, typeMapper),
+            requestToGql('subscription', subscriptionRoot, request, ),
         )
 
-        return typeMapper
-            ? resultObservable.pipe(
-                  map((result) =>
-                      applyTypeMapperToResponse(
-                          subscriptionRoot,
-                          result,
-                          typeMapper,
-                      ),
-                  ),
-              )
-            : resultObservable
+        return resultObservable
     }
 
     const mapResponse = (path: string[], defaultValue: any=undefined) => (

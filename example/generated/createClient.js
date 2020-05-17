@@ -10,5 +10,5 @@ module.exports.createClient = (options = {}) => {
   })
 }
 module.exports.everything = {
-  __scalar: 1,
+  __scalar: true,
 }

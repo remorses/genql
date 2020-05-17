@@ -1,5 +1,4 @@
 import { GraphQLSchema } from 'graphql'
-import { relativeImportPath } from '../common/relativeImportPath'
 import { RenderContext } from '../common/RenderContext'
 
 const packageJson = require('../../../package.json')
@@ -11,22 +10,11 @@ export const renderClient = (schema: GraphQLSchema, ctx: RenderContext) => {
     const mutationType = schema.getMutationType()
     const subscriptionType = schema.getSubscriptionType()
 
+    // TODO these could be removed or maybe implemented
     if (queryType) options.push(`queryRoot: typeMap.${queryType.name}`)
     if (mutationType) options.push(`mutationRoot: typeMap.${mutationType.name}`)
     if (subscriptionType)
         options.push(`subscriptionRoot: typeMap.${subscriptionType.name}`)
-
-    
-
-    const typeMapperImport =
-        ctx?.config?.output &&
-        ctx?.config?.options?.typeMapper &&
-        relativeImportPath(
-            ctx?.config?.output,
-            ctx.config.options.typeMapper.location,
-        )
-
-    if (typeMapperImport) options.push('typeMapper')
 
     ctx.addCodeBlock(`
   const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('${packageJson.name}')

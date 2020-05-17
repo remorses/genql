@@ -4,17 +4,17 @@ import { SchemaFetcher } from './schema/fetchSchema'
 import { Options as SchemaPrintOptions } from 'graphql/utilities/schemaPrinter'
 
 export interface Options {
-  schemaValidation?: GraphQLSchemaValidationOptions
-  schemaPrint?: SchemaPrintOptions
-  schemaBuild?: BuildSchemaOptions & ParseOptions
-  typeMapper?: { location: string; types: [string] }
+    schemaValidation?: GraphQLSchemaValidationOptions
+    schemaPrint?: SchemaPrintOptions
+    schemaBuild?: BuildSchemaOptions & ParseOptions
 }
 
 export interface Config {
-  endpoint?: string
-  post?: boolean
-  schema?: string
-  output?: string
-  fetcher?: string | SchemaFetcher
-  options?: Options
+    endpoint?: string
+    post?: boolean
+    schema?: string
+    output?: string
+    fetcher?: string | SchemaFetcher
+    options?: Options
+    scalarTypes?: { [k: string]: string }
 }

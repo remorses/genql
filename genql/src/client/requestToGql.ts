@@ -1,8 +1,6 @@
 import { OperationTypeNode } from 'graphql'
 import { getFieldFromPath } from './getFieldFromPath'
 import { LinkedType } from './linkTypeMap'
-import { applyTypeMapperToVariable } from './applyTypeMapperToVariable'
-import { TypeMapper } from './applyTypeMapperToResponse'
 
 export interface Args {
   [arg: string]: any | undefined
@@ -117,7 +115,6 @@ export const requestToGql = (
   operation: OperationTypeNode,
   root: LinkedType,
   fields: Fields,
-  typeMapper?: TypeMapper,
 ): Gql => {
   const ctx: Context = { root, varCounter: 0, variables: {}, fragmentCounter: 0, fragments: [] }
   const result = parseRequest(fields, ctx, [])
@@ -129,7 +126,7 @@ export const requestToGql = (
   return {
     query: [`${operation}${varsString}${result}`, ...ctx.fragments].join(','),
     variables: Object.keys(ctx.variables).reduce<{ [name: string]: any }>((r, v) => {
-      r[v] = applyTypeMapperToVariable(ctx.variables[v].value, ctx.variables[v].typing[1], typeMapper) // can be removed
+      r[v] = ctx.variables[v].value
       return r
     }, {}),
   }
