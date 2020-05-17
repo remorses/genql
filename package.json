@@ -1,6 +1,6 @@
 {
     "private": true,
-    "workspaces": ["genql", "example"],
+    "workspaces": ["genql", "example", "website"],
     "scripts": {
         "play": "node -r sucrase/register genql/src/cli.ts",
         "test": "cd genql && yarn jest",

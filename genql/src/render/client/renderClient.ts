@@ -3,34 +3,43 @@ import { RenderContext } from '../common/RenderContext'
 
 const packageJson = require('../../../package.json')
 
-export const renderClient = (schema: GraphQLSchema, ctx: RenderContext) => {
-    const options = []
+const createClientCode = (ctx: RenderContext) => `
+function(options) {
+    var typeMap = linkTypeMap(require('./typeMap.json'))
+    options = options || {}
+    var opts = {
+        fetcher: createDefaultFetcher({ url: "${ctx.config?.endpoint}" }),
+        queryRoot: typeMap.Query,
+        mutationRoot: typeMap.Mutation,
+        subscriptionRoot: typeMap.Subscription,        
+    }
+    for (var attrname in options) { 
+        opts[attrname] = options[attrname];
+    }
+    return createClientOriginal(opts)
+}`
 
-    const queryType = schema.getQueryType()
-    const mutationType = schema.getMutationType()
-    const subscriptionType = schema.getSubscriptionType()
-
-    // TODO these could be removed or maybe implemented
-    if (queryType) options.push(`queryRoot: typeMap.${queryType.name}`)
-    if (mutationType) options.push(`mutationRoot: typeMap.${mutationType.name}`)
-    if (subscriptionType)
-        options.push(`subscriptionRoot: typeMap.${subscriptionType.name}`)
-
+export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
-  const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('${packageJson.name}')
-  module.exports.createClient = (options = {}) => {
-    const typeMap = linkTypeMap(require('./typeMap.json'))
-    return createClientOriginal({
-      fetcher: createDefaultFetcher({ url: "${ctx.config?.endpoint}" }),
-      queryRoot: typeMap.Query,
-      mutationRoot: typeMap.Mutation,
-      subscriptionRoot: typeMap.Subscription,
-      ...options,
-    })
-  }
+  const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('${
+      packageJson.name
+  }')
+  module.exports.createClient = ${createClientCode(ctx)}
   module.exports.everything = {
     __scalar: true
+  }
+  `)
 }
+
+export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
+    ctx.addCodeBlock(`
+  import { linkTypeMap, createClient as createClientOriginal, createDefaultFetcher } from '${
+      packageJson.name
+  }'
+  export const createClient = ${createClientCode(ctx)}
+  export const everything = {
+    __scalar: true
+  }
   `)
 }
 

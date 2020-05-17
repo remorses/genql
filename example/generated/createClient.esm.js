@@ -1,5 +1,5 @@
-const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('genql')
-module.exports.createClient = function(options) {
+import { linkTypeMap, createClient as createClientOriginal, createDefaultFetcher } from 'genql'
+export const createClient = function(options) {
   var typeMap = linkTypeMap(require('./typeMap.json'))
   options = options || {}
   var opts = {
@@ -13,6 +13,6 @@ module.exports.createClient = function(options) {
   }
   return createClientOriginal(opts)
 }
-module.exports.everything = {
+export const everything = {
   __scalar: true,
 }

@@ -7,14 +7,26 @@
     "build": "next build",
     "start": "next start"
   },
+  "mocha": {
+    "require": "tests/init.js",
+    "spec": "tests/**.ts",
+    "timeout": 9999999999
+  },
   "dependencies": {
+    "genql": "*",
     "next": "9.4.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "rollup": "^2.10.2",
+    "tmp-promise": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^14.0.1",
     "@types/react": "^16.9.35",
+    "@types/tmp": "^0.2.0",
+    "mocha": "^7.1.2",
+    "next-transpile-modules": "^3.3.0",
+    "sucrase": "^3.14.0",
     "typescript": "^3.9.2"
   }
 }

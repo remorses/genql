@@ -69,6 +69,7 @@
         "prettier": "^1.19.1",
         "qs": "^6.9.1",
         "rimraf": "^2.6.3",
+        "rollup": "^2.10.2",
         "rxjs": "^6.5.4",
         "subscriptions-transport-ws": "^0.9.16",
         "ws": "^6.1.4"
