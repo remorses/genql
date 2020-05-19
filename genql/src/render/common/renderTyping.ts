@@ -35,7 +35,7 @@ const render = (
   }
 
   if (isListType(type)) {
-    const typing = `${wrap(render(type.ofType, false, false, undefinableValues, undefinableFields))}[]`
+    const typing = `${render(type.ofType, false, false, undefinableValues, undefinableFields, wrap)}[]`
 
     if (undefinableValues) {
       return nonNull ? typing : `(${typing}|undefined)`

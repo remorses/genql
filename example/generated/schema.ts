@@ -2967,13 +2967,13 @@ export interface ViewerPromiseChain {
   }) => {
     get: <R extends CategoryRequest>(
       request: R,
-      defaultValue?: MapType<Category | null, R>[] | null,
-    ) => Promise<MapType<Category | null, R>[] | null>
+      defaultValue?: (MapType<Category, R> | null)[] | null,
+    ) => Promise<(MapType<Category, R> | null)[] | null>
   }) & {
     get: <R extends CategoryRequest>(
       request: R,
-      defaultValue?: MapType<Category | null, R>[] | null,
-    ) => Promise<MapType<Category | null, R>[] | null>
+      defaultValue?: (MapType<Category, R> | null)[] | null,
+    ) => Promise<(MapType<Category, R> | null)[] | null>
   }
   customer: ((args?: {
     /** Filter by fields */
@@ -3062,13 +3062,13 @@ export interface ViewerPromiseChain {
   }) => {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Promise<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Promise<(MapType<Employee, R> | null)[] | null>
   }) & {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Promise<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Promise<(MapType<Employee, R> | null)[] | null>
   }
   employeePagination: ((args?: {
     /** Page number for displaying */
@@ -3170,13 +3170,13 @@ export interface ViewerPromiseChain {
   }) => {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Promise<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Promise<(MapType<Product, R> | null)[] | null>
   }) & {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Promise<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Promise<(MapType<Product, R> | null)[] | null>
   }
   productPagination: ((args?: {
     /** Page number for displaying */
@@ -3248,13 +3248,13 @@ export interface ViewerPromiseChain {
   }) => {
     get: <R extends RegionRequest>(
       request: R,
-      defaultValue?: MapType<Region | null, R>[] | null,
-    ) => Promise<MapType<Region | null, R>[] | null>
+      defaultValue?: (MapType<Region, R> | null)[] | null,
+    ) => Promise<(MapType<Region, R> | null)[] | null>
   }) & {
     get: <R extends RegionRequest>(
       request: R,
-      defaultValue?: MapType<Region | null, R>[] | null,
-    ) => Promise<MapType<Region | null, R>[] | null>
+      defaultValue?: (MapType<Region, R> | null)[] | null,
+    ) => Promise<(MapType<Region, R> | null)[] | null>
   }
   shipper: ((args?: {
     /** Filter by fields */
@@ -3282,13 +3282,13 @@ export interface ViewerPromiseChain {
   }) => {
     get: <R extends ShipperRequest>(
       request: R,
-      defaultValue?: MapType<Shipper | null, R>[] | null,
-    ) => Promise<MapType<Shipper | null, R>[] | null>
+      defaultValue?: (MapType<Shipper, R> | null)[] | null,
+    ) => Promise<(MapType<Shipper, R> | null)[] | null>
   }) & {
     get: <R extends ShipperRequest>(
       request: R,
-      defaultValue?: MapType<Shipper | null, R>[] | null,
-    ) => Promise<MapType<Shipper | null, R>[] | null>
+      defaultValue?: (MapType<Shipper, R> | null)[] | null,
+    ) => Promise<(MapType<Shipper, R> | null)[] | null>
   }
   supplier: ((args?: {
     /** Filter by fields */
@@ -3361,13 +3361,13 @@ export interface ViewerObservableChain {
   }) => {
     get: <R extends CategoryRequest>(
       request: R,
-      defaultValue?: MapType<Category | null, R>[] | null,
-    ) => Observable<MapType<Category | null, R>[] | null>
+      defaultValue?: (MapType<Category, R> | null)[] | null,
+    ) => Observable<(MapType<Category, R> | null)[] | null>
   }) & {
     get: <R extends CategoryRequest>(
       request: R,
-      defaultValue?: MapType<Category | null, R>[] | null,
-    ) => Observable<MapType<Category | null, R>[] | null>
+      defaultValue?: (MapType<Category, R> | null)[] | null,
+    ) => Observable<(MapType<Category, R> | null)[] | null>
   }
   customer: ((args?: {
     /** Filter by fields */
@@ -3456,13 +3456,13 @@ export interface ViewerObservableChain {
   }) => {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Observable<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Observable<(MapType<Employee, R> | null)[] | null>
   }) & {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Observable<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Observable<(MapType<Employee, R> | null)[] | null>
   }
   employeePagination: ((args?: {
     /** Page number for displaying */
@@ -3570,13 +3570,13 @@ export interface ViewerObservableChain {
   }) => {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Observable<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Observable<(MapType<Product, R> | null)[] | null>
   }) & {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Observable<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Observable<(MapType<Product, R> | null)[] | null>
   }
   productPagination: ((args?: {
     /** Page number for displaying */
@@ -3648,13 +3648,13 @@ export interface ViewerObservableChain {
   }) => {
     get: <R extends RegionRequest>(
       request: R,
-      defaultValue?: MapType<Region | null, R>[] | null,
-    ) => Observable<MapType<Region | null, R>[] | null>
+      defaultValue?: (MapType<Region, R> | null)[] | null,
+    ) => Observable<(MapType<Region, R> | null)[] | null>
   }) & {
     get: <R extends RegionRequest>(
       request: R,
-      defaultValue?: MapType<Region | null, R>[] | null,
-    ) => Observable<MapType<Region | null, R>[] | null>
+      defaultValue?: (MapType<Region, R> | null)[] | null,
+    ) => Observable<(MapType<Region, R> | null)[] | null>
   }
   shipper: ((args?: {
     /** Filter by fields */
@@ -3682,13 +3682,13 @@ export interface ViewerObservableChain {
   }) => {
     get: <R extends ShipperRequest>(
       request: R,
-      defaultValue?: MapType<Shipper | null, R>[] | null,
-    ) => Observable<MapType<Shipper | null, R>[] | null>
+      defaultValue?: (MapType<Shipper, R> | null)[] | null,
+    ) => Observable<(MapType<Shipper, R> | null)[] | null>
   }) & {
     get: <R extends ShipperRequest>(
       request: R,
-      defaultValue?: MapType<Shipper | null, R>[] | null,
-    ) => Observable<MapType<Shipper | null, R>[] | null>
+      defaultValue?: (MapType<Shipper, R> | null)[] | null,
+    ) => Observable<(MapType<Shipper, R> | null)[] | null>
   }
   supplier: ((args?: {
     /** Filter by fields */
@@ -3770,13 +3770,13 @@ export interface CategoryPromiseChain {
   }) => {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Promise<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Promise<(MapType<Product, R> | null)[] | null>
   }) & {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Promise<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Promise<(MapType<Product, R> | null)[] | null>
   }
 }
 
@@ -3816,13 +3816,13 @@ export interface CategoryObservableChain {
   }) => {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Observable<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Observable<(MapType<Product, R> | null)[] | null>
   }) & {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Observable<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Observable<(MapType<Product, R> | null)[] | null>
   }
 }
 
@@ -3935,13 +3935,13 @@ export interface ProductPromiseChain {
   }) => {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Promise<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Promise<(MapType<Order, R> | null)[] | null>
   }) & {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Promise<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Promise<(MapType<Order, R> | null)[] | null>
   }
   supplier: SupplierPromiseChain & {
     get: <R extends SupplierRequest>(
@@ -4000,13 +4000,13 @@ export interface ProductObservableChain {
   }) => {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Observable<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Observable<(MapType<Order, R> | null)[] | null>
   }) & {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Observable<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Observable<(MapType<Order, R> | null)[] | null>
   }
   supplier: SupplierObservableChain & {
     get: <R extends SupplierRequest>(
@@ -4083,8 +4083,8 @@ export interface OrderPromiseChain {
   details: {
     get: <R extends OrderDetailsRequest>(
       request: R,
-      defaultValue?: MapType<OrderDetails | null, R>[] | null,
-    ) => Promise<MapType<OrderDetails | null, R>[] | null>
+      defaultValue?: (MapType<OrderDetails, R> | null)[] | null,
+    ) => Promise<(MapType<OrderDetails, R> | null)[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   customer: CustomerPromiseChain & {
@@ -4128,8 +4128,8 @@ export interface OrderObservableChain {
   details: {
     get: <R extends OrderDetailsRequest>(
       request: R,
-      defaultValue?: MapType<OrderDetails | null, R>[] | null,
-    ) => Observable<MapType<OrderDetails | null, R>[] | null>
+      defaultValue?: (MapType<OrderDetails, R> | null)[] | null,
+    ) => Observable<(MapType<OrderDetails, R> | null)[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   customer: CustomerObservableChain & {
@@ -4239,13 +4239,13 @@ export interface CustomerPromiseChain {
   }) => {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Promise<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Promise<(MapType<Order, R> | null)[] | null>
   }) & {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Promise<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Promise<(MapType<Order, R> | null)[] | null>
   }
 }
 
@@ -4292,13 +4292,13 @@ export interface CustomerObservableChain {
   }) => {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Observable<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Observable<(MapType<Order, R> | null)[] | null>
   }) & {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Observable<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Observable<(MapType<Order, R> | null)[] | null>
   }
 }
 
@@ -4338,13 +4338,13 @@ export interface EmployeePromiseChain {
   }) => {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Promise<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Promise<(MapType<Employee, R> | null)[] | null>
   }) & {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Promise<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Promise<(MapType<Employee, R> | null)[] | null>
   }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -4407,13 +4407,13 @@ export interface EmployeeObservableChain {
   }) => {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Observable<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Observable<(MapType<Employee, R> | null)[] | null>
   }) & {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Observable<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Observable<(MapType<Employee, R> | null)[] | null>
   }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -4586,8 +4586,8 @@ export interface CustomerPaginationPromiseChain {
   items: {
     get: <R extends CustomerRequest>(
       request: R,
-      defaultValue?: MapType<Customer | null, R>[] | null,
-    ) => Promise<MapType<Customer | null, R>[] | null>
+      defaultValue?: (MapType<Customer, R> | null)[] | null,
+    ) => Promise<(MapType<Customer, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
@@ -4603,8 +4603,8 @@ export interface CustomerPaginationObservableChain {
   items: {
     get: <R extends CustomerRequest>(
       request: R,
-      defaultValue?: MapType<Customer | null, R>[] | null,
-    ) => Observable<MapType<Customer | null, R>[] | null>
+      defaultValue?: (MapType<Customer, R> | null)[] | null,
+    ) => Observable<(MapType<Customer, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
@@ -4680,8 +4680,8 @@ export interface EmployeePaginationPromiseChain {
   items: {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Promise<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Promise<(MapType<Employee, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
@@ -4697,8 +4697,8 @@ export interface EmployeePaginationObservableChain {
   items: {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Observable<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Observable<(MapType<Employee, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
@@ -4714,8 +4714,8 @@ export interface OrderPaginationPromiseChain {
   items: {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Promise<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Promise<(MapType<Order, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
@@ -4731,8 +4731,8 @@ export interface OrderPaginationObservableChain {
   items: {
     get: <R extends OrderRequest>(
       request: R,
-      defaultValue?: MapType<Order | null, R>[] | null,
-    ) => Observable<MapType<Order | null, R>[] | null>
+      defaultValue?: (MapType<Order, R> | null)[] | null,
+    ) => Observable<(MapType<Order, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
@@ -4748,8 +4748,8 @@ export interface ProductPaginationPromiseChain {
   items: {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Promise<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Promise<(MapType<Product, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
@@ -4765,8 +4765,8 @@ export interface ProductPaginationObservableChain {
   items: {
     get: <R extends ProductRequest>(
       request: R,
-      defaultValue?: MapType<Product | null, R>[] | null,
-    ) => Observable<MapType<Product | null, R>[] | null>
+      defaultValue?: (MapType<Product, R> | null)[] | null,
+    ) => Observable<(MapType<Product, R> | null)[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
@@ -4781,8 +4781,8 @@ export interface RegionPromiseChain {
   territories: {
     get: <R extends RegionTerritoriesRequest>(
       request: R,
-      defaultValue?: MapType<RegionTerritories | null, R>[] | null,
-    ) => Promise<MapType<RegionTerritories | null, R>[] | null>
+      defaultValue?: (MapType<RegionTerritories, R> | null)[] | null,
+    ) => Promise<(MapType<RegionTerritories, R> | null)[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   employees: ((args?: {
@@ -4792,13 +4792,13 @@ export interface RegionPromiseChain {
   }) => {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Promise<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Promise<(MapType<Employee, R> | null)[] | null>
   }) & {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Promise<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Promise<(MapType<Employee, R> | null)[] | null>
   }
 }
 
@@ -4809,8 +4809,8 @@ export interface RegionObservableChain {
   territories: {
     get: <R extends RegionTerritoriesRequest>(
       request: R,
-      defaultValue?: MapType<RegionTerritories | null, R>[] | null,
-    ) => Observable<MapType<RegionTerritories | null, R>[] | null>
+      defaultValue?: (MapType<RegionTerritories, R> | null)[] | null,
+    ) => Observable<(MapType<RegionTerritories, R> | null)[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   employees: ((args?: {
@@ -4820,13 +4820,13 @@ export interface RegionObservableChain {
   }) => {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Observable<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Observable<(MapType<Employee, R> | null)[] | null>
   }) & {
     get: <R extends EmployeeRequest>(
       request: R,
-      defaultValue?: MapType<Employee | null, R>[] | null,
-    ) => Observable<MapType<Employee | null, R>[] | null>
+      defaultValue?: (MapType<Employee, R> | null)[] | null,
+    ) => Observable<(MapType<Employee, R> | null)[] | null>
   }
 }
 
