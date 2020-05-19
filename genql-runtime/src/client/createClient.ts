@@ -41,11 +41,21 @@ function getSubscriptionClient(
     opts?: SubscirptionOptions & { url: string },
 ): [SubscriptionClient, Error] {
     if (!opts?.url) {
-        return [null!, Error('missing url parameter')]
+        return [
+            null!,
+            Error('Subscription client error: missing url parameter'),
+        ]
     }
     const subClient = new SubscriptionClient(
         opts?.url,
-        { lazy: true, reconnect: true, ...opts },
+        {
+            lazy: true,
+            reconnect: true,
+            reconnectionAttempts: 3,
+            connectionCallback: (err, res) =>
+                console.log('connection', err, res),
+            ...opts,
+        },
         ws,
     )
     return [subClient, null!]

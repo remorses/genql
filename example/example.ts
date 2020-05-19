@@ -1,8 +1,25 @@
 import { createClient, everything } from './generated/createClient'
 
-const client = createClient()
+const client = createClient({
+    subscriptionOptions: {
+
+        url: 'ws://graphql-compose.herokuapp.com/northwind/',
+    },
+})
 
 async function main() {
+    const s1 = await client
+        .subscription({
+            orderCreated: {
+                ...everything,
+            },
+        })
+        .subscribe({
+            next: (x) => console.log(JSON.stringify(x, null, '   ')),
+            error: console.error,
+            complete: () => console.error('complete'),
+        })
+
     const q = await client.query({
         viewer: {
             category: {
@@ -45,6 +62,8 @@ async function main() {
     console.log(JSON.stringify(m2, null, 4))
     m2.record._id
     m2.record.customer?._id
+
+    s1.unsubscribe()
 }
 
 main().catch(console.error)
