@@ -13,7 +13,7 @@ import { renderTypeMap } from '../render/typeMap/renderTypeMap'
 
 const schemaGqlFile = 'schema.graphql'
 const schemaTypesFile = 'schema.ts'
-const typeMapFile = 'typeMap.json'
+const typeMapFile = 'types.json'
 const clientFileCjs = 'createClient.js'
 const clientFileEsm = 'createClient.esm.js'
 const clientTypesFile = 'createClient.d.ts'

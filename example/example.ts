@@ -40,11 +40,11 @@ async function main() {
                 shipAddress: { city: 'Milano', country: 'Italy' },
             },
         })
-        .get({ record: { _id: 1, customer: { ...everything } } })
-    m2.record._id
-    m2.record.customer._id
-    m2.record.customer.companyName
+        .get({ record: { _id: 1, customer: { _id: 1 } } })
+    // m2.record.customer?.companyName
     console.log(JSON.stringify(m2, null, 4))
+    m2.record._id
+    m2.record.customer?._id
 }
 
 main().catch(console.error)

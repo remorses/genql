@@ -1,6 +1,6 @@
 const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('genql-runtime')
 module.exports.createClient = function(options) {
-  var typeMap = linkTypeMap(require('./typeMap.json'))
+  var typeMap = linkTypeMap(require('./types.json'))
   options = options || {}
   var opts = {
     fetcher: createDefaultFetcher({ url: 'https://graphql-compose.herokuapp.com/northwind/' }),

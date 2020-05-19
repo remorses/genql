@@ -4,7 +4,7 @@ import { RUNTIME_LIB_NAME } from '../../config'
 
 const createClientCode = (ctx: RenderContext) => `
 function(options) {
-    var typeMap = linkTypeMap(require('./typeMap.json'))
+    var typeMap = linkTypeMap(require('./types.json'))
     options = options || {}
     var opts = {
         fetcher: createDefaultFetcher({ url: "${ctx.config?.endpoint}" }),
@@ -57,7 +57,7 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
 // var __1 = require('genql')
 
 // exports.createClient = function(options) {
-//   var typeMap = __1.linkTypeMap(require('./typeMap.json'))
+//   var typeMap = __1.linkTypeMap(require('./types.json'))
 //   return __1.createClient(
 //     __assign({}, options, {
 //       queryRoot: typeMap.Query,
