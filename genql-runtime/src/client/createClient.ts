@@ -52,8 +52,10 @@ function getSubscriptionClient(
             lazy: true,
             reconnect: true,
             reconnectionAttempts: 3,
-            connectionCallback: (err, res) =>
-                console.log('connection', err, res),
+            connectionCallback: (err, res) => {
+                console.log('connection', err, res)
+                return true
+            },
             ...opts,
         },
         ws,
