@@ -3,6 +3,7 @@
     "workspaces": ["genql", "example", "website", "genql-runtime"],
     "scripts": {
         "play": "node -r sucrase/register genql/src/cli.ts",
+        "compile": "cd genql && tsc --incremental && cd ../genql-runtime && tsc --incremental",
         "test": "cd genql && yarn jest",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
         "example": "node -r sucrase/register example/generate.ts",

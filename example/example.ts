@@ -6,10 +6,11 @@ async function main() {
     const q = await client.query({
         viewer: {
             category: {
-                ...everything,
+                // ...everything,
+                _id: 1
             },
             order: {
-                ...everything,
+                // ...everything,
                 customer: {
                     address: {
                         city: 1,
@@ -19,7 +20,7 @@ async function main() {
         },
     })
     console.log(JSON.stringify(q, null, 4))
-
+    q.viewer.order
     // const m = await client.mutation({
     //     createOrder: [
     //         { record: { customerID: '345345' } },
@@ -28,7 +29,7 @@ async function main() {
     // })
     // console.log(JSON.stringify(m, null, 4))
 
-    const q2 = await client.chain.query.viewer.category.get({ ...everything })
+    const q2 = await client.chain.query.viewer.category.get({ _id: 1 })
     console.log(JSON.stringify(q2, null, 4))
 
     const m2 = await client.chain.mutation

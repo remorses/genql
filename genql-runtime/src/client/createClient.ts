@@ -11,11 +11,12 @@ import {
 } from './getSubscriptionCreator'
 import { LinkedType } from './linkTypeMap'
 import { Fields, requestToGql } from './requestToGql'
+import { MapType } from './typeSelection'
 
 export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
-    query(request: QR): Promise<Q>
-    mutation(request: MR): Promise<M>
-    subscription(request: SR): Observable<S>
+    query<R extends QR>(request: R): Promise<MapType<Q, R>>
+    mutation<R extends MR>(request: R): Promise<MapType<M, R>>
+    subscription<R extends SR>(request: R): Observable<MapType<S, R>>
     chain: {
         query: QC
         mutation: MC
@@ -65,43 +66,6 @@ export const createClient = <
         ? getSubscriptionCreator(subscriptionCreatorOptions)
         : () => NEVER
 
-    const query = (request: QR): Promise<Q> => {
-        if (!fetcher) throw new Error('fetcher argument is missing')
-        if (!queryRoot) throw new Error('queryRoot argument is missing')
-
-        const resultPromise = fetcher(
-            requestToGql('query', queryRoot, request),
-            fetch,
-        )
-
-        return resultPromise
-    }
-
-    const mutation = (request: MR): Promise<M> => {
-        if (!fetcher) throw new Error('fetcher argument is missing')
-        if (!mutationRoot) throw new Error('mutationRoot argument is missing')
-
-        const resultPromise = fetcher(
-            requestToGql('mutation', mutationRoot, request),
-            fetch,
-        )
-
-        return resultPromise
-    }
-
-    const subscription = (request: SR): Observable<S> => {
-        if (!subscriptionCreatorOptions)
-            throw new Error('subscriptionClientOptions argument is missing')
-        if (!subscriptionRoot)
-            throw new Error('subscriptionRoot argument is missing')
-
-        const resultObservable = createSubscription(
-            requestToGql('subscription', subscriptionRoot, request),
-        )
-
-        return resultObservable
-    }
-
     const mapResponse = (path: string[], defaultValue: any = undefined) => (
         response: ExecutionResult,
     ) => {
@@ -114,27 +78,63 @@ export const createClient = <
 
         return result
     }
+    const funcs = {
+        query: (request: QR) => {
+            if (!fetcher) throw new Error('fetcher argument is missing')
+            if (!queryRoot) throw new Error('queryRoot argument is missing')
 
+            const resultPromise = fetcher(
+                requestToGql('query', queryRoot, request),
+                fetch,
+            )
+
+            return resultPromise
+        },
+        mutation: (request: MR) => {
+            if (!fetcher) throw new Error('fetcher argument is missing')
+            if (!mutationRoot)
+                throw new Error('mutationRoot argument is missing')
+
+            const resultPromise = fetcher(
+                requestToGql('mutation', mutationRoot, request),
+                fetch,
+            )
+
+            return resultPromise
+        },
+        subscription: (request: SR) => {
+            if (!subscriptionCreatorOptions)
+                throw new Error('subscriptionClientOptions argument is missing')
+            if (!subscriptionRoot)
+                throw new Error('subscriptionRoot argument is missing')
+
+            const resultObservable = createSubscription(
+                requestToGql('subscription', subscriptionRoot, request),
+            )
+
+            return resultObservable
+        },
+    }
     return {
-        query,
-        mutation,
-        subscription,
+        ...funcs,
         chain: {
             query: <any>(
                 chain((path, request, defaultValue) =>
-                    query(request).then(mapResponse(path, defaultValue)),
+                    funcs.query(request).then(mapResponse(path, defaultValue)),
                 )
             ),
             mutation: <any>(
                 chain((path, request, defaultValue) =>
-                    mutation(request).then(mapResponse(path, defaultValue)),
+                    funcs
+                        .mutation(request)
+                        .then(mapResponse(path, defaultValue)),
                 )
             ),
             subscription: <any>(
                 chain((path, request, defaultValue) =>
-                    subscription(request).pipe(
-                        map(mapResponse(path, defaultValue)),
-                    ),
+                    funcs
+                        .subscription(request)
+                        .pipe(map(mapResponse(path, defaultValue))),
                 )
             ),
         },
