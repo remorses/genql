@@ -124,7 +124,29 @@ export const createClient = <
             if (!subClient) throw subClientError
 
             const op = requestToGql('subscription', subscriptionRoot, request)
-            return subClient.request(op)
+            return {
+                subscribe: (observer: Observer<any>) => {
+                    return subClient.request(op).subscribe({
+                        next: (val) => {
+                            if (
+                                val?.errors?.length &&
+                                val?.errors?.length > 0
+                            ) {
+                                observer?.error?.(
+                                    new ClientError(
+                                        `Subscription errors`,
+                                        val?.errors,
+                                    ),
+                                )
+                                return
+                            }
+                            observer.next?.(val.data)
+                        },
+                        error: (e) => observer.error?.(e),
+                        complete: () => observer.complete?.(),
+                    })
+                },
+            }
         },
     }
     return {
@@ -143,25 +165,13 @@ export const createClient = <
                 )
             ),
             subscription: <any>chain((path, request, defaultValue) => {
-                const gql = funcs.subscription(request)
+                const obs = funcs.subscription(request)
+                const mapper = mapResponse(path, defaultValue)
                 return {
-                    subscribe: (observer: Observer<ExecutionResult>) => {
-                        const mapper = mapResponse(path, defaultValue)
-                        return subClient.request(gql).subscribe({
+                    subscribe: (observer: Observer<any>) => {
+                        return obs.subscribe({
                             next: (val) => {
-                                if (
-                                    val?.errors?.length &&
-                                    val?.errors?.length > 0
-                                ) {
-                                    observer?.error?.(
-                                        new ClientError(
-                                            `Subscription errors`,
-                                            val?.errors,
-                                        ),
-                                    )
-                                    return
-                                }
-                                const res = mapper(val.data)
+                                const res = mapper(val)
                                 observer.next?.(res)
                             },
                             error: (e) => observer.error?.(e),
