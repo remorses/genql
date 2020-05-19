@@ -7,7 +7,6 @@ type SRC = {
         c: boolean
     }
     order: {
-        __scalar: boolean
         customer: {
             address: {
                 city: 1
@@ -37,7 +36,28 @@ type DST = {
     }
 }
 
-const x: SRC = {} as any
+const x: SRC = {
+    category: {
+        a: true,
+        b: true,
+        c: true,
+    },
+    order: {
+        customer: {
+            address: {
+                a: 1,
+                b: 1,
+                city: 1,
+            },
+        },
+    },
+    xxx: {
+        xxx: true,
+    },
+    yyy: {
+        yyy: true,
+    },
+}
 
 const z: MapType<SRC, DST> = x
 
@@ -48,5 +68,4 @@ z.category.c
 z.order
 z.order.customer.address.city
 
-
-
+test('ts does not complain', () => {})

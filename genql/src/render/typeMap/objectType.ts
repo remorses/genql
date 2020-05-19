@@ -12,6 +12,8 @@ import {
 import { RenderContext } from '../common/RenderContext'
 import { ArgMap, Field, FieldMap, Type } from './renderTypeMap'
 
+
+// TODO render only fields with arguments, they are required for the variables type name construction
 export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | GraphQLInputObjectType, ctx: RenderContext) => {
   const typeObj: Type & { fields: FieldMap } = {
     name: type.name,
