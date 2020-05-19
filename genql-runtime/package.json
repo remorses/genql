@@ -56,7 +56,6 @@
         "isomorphic-fetch": "^2.2.1",
         "lodash.get": "^4.4.2",
         "lodash.startswith": "^4.2.1",
-        "rxjs": "^6.5.4",
         "subscriptions-transport-ws": "^0.9.16",
         "utility-types": "^3.10.0",
         "ws": "^6.1.4"

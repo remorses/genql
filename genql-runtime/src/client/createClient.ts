@@ -1,4 +1,3 @@
-import { ExecutionResult } from 'graphql'
 import 'isomorphic-fetch'
 import get from 'lodash.get'
 import ws from 'ws'
