@@ -1,33 +1,24 @@
+import { PickByValue } from 'utility-types'
 
+type ScalarFields<T> = PickByValue<
+    T,
+    string | number | Date | boolean | null | undefined
+>
 
 export type MapType<SRC extends Anify<DST>, DST> = DST extends boolean
-? SRC
-: DST extends {
-      __alias: any
-  }
-? {
-      [A in keyof DST['__alias']]: Required<SRC> extends Anify<
-          DST['__alias'][A]
-      >
-          ? MapType<Required<SRC>, DST['__alias'][A]>
-          : never
-  } &
-      {
-          [Key in keyof Omit<DST, '__alias'>]: DST[Key] extends [
-              any,
-              infer PAYLOAD,
-          ]
-              ? LastMapTypeSRCResolver<SRC[Key], PAYLOAD>
-              : LastMapTypeSRCResolver<SRC[Key], DST[Key]>
+    ? SRC
+    : DST extends {
+          __scalar: any
       }
-: {
-      [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
-          ? LastMapTypeSRCResolver<SRC[Key], PAYLOAD>
-          : LastMapTypeSRCResolver<SRC[Key], DST[Key]>
-  }
-
-
-
+    ? Omit<ScalarFields<SRC>, '__scalar'> // if __scalar is present return all scalar fields
+    : Omit<
+          {
+              [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
+                  ? LastMapTypeSRCResolver<SRC[Key], PAYLOAD>
+                  : LastMapTypeSRCResolver<SRC[Key], DST[Key]>
+          },
+          '__scalar'
+      >
 
 export type MapInterface<SRC, DST> = SRC extends {
     __interface: infer INTERFACE

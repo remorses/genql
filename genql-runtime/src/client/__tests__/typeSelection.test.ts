@@ -1,14 +1,18 @@
-import { MapType } from './typeSelection'
+import { MapType } from '../typeSelection'
 
 type SRC = {
     category: {
-        __scalar: boolean
+        a: boolean
+        b: boolean
+        c: boolean
     }
     order: {
         __scalar: boolean
         customer: {
             address: {
                 city: 1
+                a: 1
+                b: 1
             }
         }
     }
@@ -25,7 +29,6 @@ type DST = {
         __scalar: boolean
     }
     order: {
-        __scalar: boolean
         customer: {
             address: {
                 city: 1
@@ -38,6 +41,12 @@ const x: SRC = {} as any
 
 const z: MapType<SRC, DST> = x
 
-z
+z.category
+z.category.a
+z.category.b
+z.category.c
+z.order
+z.order.customer.address.city
+
 
 

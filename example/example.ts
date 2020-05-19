@@ -6,8 +6,8 @@ async function main() {
     const q = await client.query({
         viewer: {
             category: {
-                // ...everything,
-                _id: 1
+                ...everything,
+                _id: 1,
             },
             order: {
                 // ...everything,
@@ -19,8 +19,8 @@ async function main() {
             },
         },
     })
+    q.viewer.category._id
     console.log(JSON.stringify(q, null, 4))
-    q.viewer.order
     // const m = await client.mutation({
     //     createOrder: [
     //         { record: { customerID: '345345' } },
@@ -40,7 +40,10 @@ async function main() {
                 shipAddress: { city: 'Milano', country: 'Italy' },
             },
         })
-        .get({ record: { _id: 1 } })
+        .get({ record: { _id: 1, customer: { ...everything } } })
+    m2.record._id
+    m2.record.customer._id
+    m2.record.customer.companyName
     console.log(JSON.stringify(m2, null, 4))
 }
 
