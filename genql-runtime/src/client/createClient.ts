@@ -1,17 +1,19 @@
 import { ExecutionResult } from 'graphql'
 import 'isomorphic-fetch'
 import get from 'lodash.get'
-import { NEVER, Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import ws from 'ws'
+
 import { Fetcher, ClientError } from '../fetcher'
 import { chain } from './chain'
-import {
-    getSubscriptionCreator,
-    SubscriptionCreatorOptions,
-} from './getSubscriptionCreator'
 import { LinkedType } from './linkTypeMap'
 import { Fields, requestToGql } from './requestToGql'
 import { MapType } from './typeSelection'
+import {
+    Observable,
+    Observer,
+    ClientOptions as SubscirptionOptions,
+    SubscriptionClient,
+} from 'subscriptions-transport-ws'
 
 export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
     query<R extends QR>(request: R): Promise<MapType<Q, R>>
@@ -26,13 +28,28 @@ export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
 
 export interface ClientOptions {
     fetcher?: Fetcher
-    subscriptionCreatorOptions?: SubscriptionCreatorOptions
+    subscriptionUrl?: string
+    subscriptionOptions?: SubscirptionOptions & { url: string }
 }
 
 export interface ClientEmbeddedOptions {
     queryRoot?: LinkedType
     mutationRoot?: LinkedType
     subscriptionRoot?: LinkedType
+}
+
+function getSubscriptionClient(
+    opts?: SubscirptionOptions & { url: string },
+): [SubscriptionClient, Error] {
+    if (!opts?.url) {
+        return [null!, Error('missing url parameter')]
+    }
+    const subClient = new SubscriptionClient(
+        opts?.url,
+        { lazy: true, reconnect: true, ...opts },
+        ws,
+    )
+    return [subClient, null!]
 }
 
 export const createClient = <
@@ -47,7 +64,7 @@ export const createClient = <
     S
 >({
     fetcher,
-    subscriptionCreatorOptions,
+    subscriptionOptions,
     queryRoot,
     mutationRoot,
     subscriptionRoot,
@@ -62,12 +79,8 @@ export const createClient = <
     SC,
     S
 > => {
-    const createSubscription = subscriptionCreatorOptions
-        ? getSubscriptionCreator(subscriptionCreatorOptions)
-        : () => NEVER
-
     const mapResponse = (path: string[], defaultValue: any = undefined) => (
-        response: ExecutionResult,
+        response: any,
     ) => {
         const result = get(response, [...path], defaultValue)
 
@@ -78,6 +91,9 @@ export const createClient = <
 
         return result
     }
+    const [subClient, subClientError] = getSubscriptionClient(
+        subscriptionOptions,
+    )
     const funcs = {
         query: (request: QR) => {
             if (!fetcher) throw new Error('fetcher argument is missing')
@@ -103,16 +119,12 @@ export const createClient = <
             return resultPromise
         },
         subscription: (request: SR) => {
-            if (!subscriptionCreatorOptions)
-                throw new Error('subscriptionClientOptions argument is missing')
             if (!subscriptionRoot)
                 throw new Error('subscriptionRoot argument is missing')
+            if (!subClient) throw subClientError
 
-            const resultObservable = createSubscription(
-                requestToGql('subscription', subscriptionRoot, request),
-            )
-
-            return resultObservable
+            const op = requestToGql('subscription', subscriptionRoot, request)
+            return subClient.request(op)
         },
     }
     return {
@@ -130,13 +142,34 @@ export const createClient = <
                         .then(mapResponse(path, defaultValue)),
                 )
             ),
-            subscription: <any>(
-                chain((path, request, defaultValue) =>
-                    funcs
-                        .subscription(request)
-                        .pipe(map(mapResponse(path, defaultValue))),
-                )
-            ),
+            subscription: <any>chain((path, request, defaultValue) => {
+                const gql = funcs.subscription(request)
+                return {
+                    subscribe: (observer: Observer<ExecutionResult>) => {
+                        const mapper = mapResponse(path, defaultValue)
+                        return subClient.request(gql).subscribe({
+                            next: (val) => {
+                                if (
+                                    val?.errors?.length &&
+                                    val?.errors?.length > 0
+                                ) {
+                                    observer?.error?.(
+                                        new ClientError(
+                                            `Subscription errors`,
+                                            val?.errors,
+                                        ),
+                                    )
+                                    return
+                                }
+                                const res = mapper(val.data)
+                                observer.next?.(res)
+                            },
+                            error: (e) => observer.error?.(e),
+                            complete: () => observer.complete?.(),
+                        })
+                    },
+                }
+            }),
         },
     }
 }

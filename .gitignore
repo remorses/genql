@@ -8,6 +8,7 @@ yarn-error.log*
 play*
 dist/*
 esm
+node_modules
 
 # Runtime data
 pids
