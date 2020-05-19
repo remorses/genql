@@ -11,7 +11,7 @@ const render = (
   wrap: (x: string) => string = x => x
 ): string => {
     
-  if (root) {
+  if (root) { // TODO this is used for args to add a : prefix, is it really necessary?
     if (undefinableFields) {
       if (isNonNullType(type)) {
         return `:${render(type.ofType, true, false, undefinableValues, undefinableFields)}`

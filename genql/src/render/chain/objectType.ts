@@ -37,12 +37,13 @@ export const objectType = (
     const executeReturnType = renderTyping(field.type, false, false, false, )
     const executeReturnTypeWithTypeMap = renderTyping(field.type, false, false, false, (x:string) => `MapType<${x}, R>` )
     
+
     // get: <R extends CreateOneOrderPayloadRequest>(
     //     request: R,
     //     defaultValue?: CreateOneOrderPayload | null,
     //   ) => Promise<MapType<CreateOneOrderPayload, R>  | null>
 
-    // TODO refoactor this function
+    // TODO refactor this function, test
     const getFnType = `{get:<R extends ${requestTypeName(
         resolvedType,
       )}>(request: R, defaultValue?:${executeReturnTypeWithTypeMap})=>${wrapper}<${executeReturnTypeWithTypeMap}>}`
