@@ -40,8 +40,7 @@ async function main() {
                 shipAddress: { city: 'Milano', country: 'Italy' },
             },
         })
-        .get({ ...everything, record: { ...everything } })
-
+        .get({ record: { _id: 1 } })
     console.log(JSON.stringify(m2, null, 4))
 }
 

@@ -1,12 +1,16 @@
 import { GraphQLInputType, GraphQLNonNull, GraphQLOutputType, isListType, isNamedType, isNonNullType } from 'graphql'
 
+
+// TODO add tests for the wrap function
 const render = (
   type: GraphQLOutputType | GraphQLInputType,
   nonNull: boolean,
   root: boolean,
   undefinableValues: boolean,
   undefinableFields: boolean,
+  wrap: (x: string) => string = x => x
 ): string => {
+    
   if (root) {
     if (undefinableFields) {
       if (isNonNullType(type)) {
@@ -21,7 +25,7 @@ const render = (
   }
 
   if (isNamedType(type)) {
-    const typing = type.name
+    const typing = wrap(type.name)
 
     if (undefinableValues) {
       return nonNull ? typing : `(${typing}|undefined)`
@@ -31,7 +35,7 @@ const render = (
   }
 
   if (isListType(type)) {
-    const typing = `${render(type.ofType, false, false, undefinableValues, undefinableFields)}[]`
+    const typing = `${wrap(render(type.ofType, false, false, undefinableValues, undefinableFields))}[]`
 
     if (undefinableValues) {
       return nonNull ? typing : `(${typing}|undefined)`
@@ -48,4 +52,5 @@ export const renderTyping = (
   undefinableValues: boolean,
   undefinableFields: boolean,
   root = true,
-) => render(type, false, root, undefinableValues, undefinableFields)
+  wrap: any = undefined
+) => render(type, false, root, undefinableValues, undefinableFields, wrap)

@@ -1,4 +1,4 @@
-import { Observable } from 'genql-runtime'
+import { MapType, Observable } from 'genql-runtime'
 
 export interface Query {
   /** Data under client context */
@@ -2922,13 +2922,21 @@ export const isSubscription = (obj: { __typename: String }): obj is Subscription
 
 export interface QueryPromiseChain {
   /** Data under client context */
-  viewer: ViewerPromiseChain & { get: (request: ViewerRequest, defaultValue?: Viewer | null) => Promise<Viewer | null> }
+  viewer: ViewerPromiseChain & {
+    get: <R extends ViewerRequest>(
+      request: R,
+      defaultValue?: MapType<Viewer, R> | null,
+    ) => Promise<MapType<Viewer, R> | null>
+  }
 }
 
 export interface QueryObservableChain {
   /** Data under client context */
   viewer: ViewerObservableChain & {
-    get: (request: ViewerRequest, defaultValue?: Viewer | null) => Observable<Viewer | null>
+    get: <R extends ViewerRequest>(
+      request: R,
+      defaultValue?: MapType<Viewer, R> | null,
+    ) => Observable<MapType<Viewer, R> | null>
   }
 }
 
@@ -2939,9 +2947,17 @@ export interface ViewerPromiseChain {
     skip?: Int | null
     sort?: SortFindOneCategoryInput | null
   }) => CategoryPromiseChain & {
-    get: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null>
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category, R> | null,
+    ) => Promise<MapType<Category, R> | null>
   }) &
-    (CategoryPromiseChain & { get: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null> })
+    (CategoryPromiseChain & {
+      get: <R extends CategoryRequest>(
+        request: R,
+        defaultValue?: MapType<Category, R> | null,
+      ) => Promise<MapType<Category, R> | null>
+    })
   categoryList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyCategoryInput | null
@@ -2949,17 +2965,33 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyCategoryInput | null
   }) => {
-    get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Promise<(Category | null)[] | null>
-  }) & { get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Promise<(Category | null)[] | null> }
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category | null, R>[] | null,
+    ) => Promise<MapType<Category | null, R>[] | null>
+  }) & {
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category | null, R>[] | null,
+    ) => Promise<MapType<Category | null, R>[] | null>
+  }
   customer: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneCustomerInput | null
     skip?: Int | null
     sort?: SortFindOneCustomerInput | null
   }) => CustomerPromiseChain & {
-    get: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null>
+    get: <R extends CustomerRequest>(
+      request: R,
+      defaultValue?: MapType<Customer, R> | null,
+    ) => Promise<MapType<Customer, R> | null>
   }) &
-    (CustomerPromiseChain & { get: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null> })
+    (CustomerPromiseChain & {
+      get: <R extends CustomerRequest>(
+        request: R,
+        defaultValue?: MapType<Customer, R> | null,
+      ) => Promise<MapType<Customer, R> | null>
+    })
   customerPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -2968,13 +3000,16 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyCustomerInput | null
     sort?: SortFindManyCustomerInput | null
   }) => CustomerPaginationPromiseChain & {
-    get: (request: CustomerPaginationRequest, defaultValue?: CustomerPagination | null) => Promise<CustomerPagination | null>
+    get: <R extends CustomerPaginationRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerPagination, R> | null,
+    ) => Promise<MapType<CustomerPagination, R> | null>
   }) &
     (CustomerPaginationPromiseChain & {
-      get: (
-        request: CustomerPaginationRequest,
-        defaultValue?: CustomerPagination | null,
-      ) => Promise<CustomerPagination | null>
+      get: <R extends CustomerPaginationRequest>(
+        request: R,
+        defaultValue?: MapType<CustomerPagination, R> | null,
+      ) => Promise<MapType<CustomerPagination, R> | null>
     })
   customerConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -2990,13 +3025,16 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionCustomerEnum | null
   }) => CustomerConnectionPromiseChain & {
-    get: (request: CustomerConnectionRequest, defaultValue?: CustomerConnection | null) => Promise<CustomerConnection | null>
+    get: <R extends CustomerConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerConnection, R> | null,
+    ) => Promise<MapType<CustomerConnection, R> | null>
   }) &
     (CustomerConnectionPromiseChain & {
-      get: (
-        request: CustomerConnectionRequest,
-        defaultValue?: CustomerConnection | null,
-      ) => Promise<CustomerConnection | null>
+      get: <R extends CustomerConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<CustomerConnection, R> | null,
+      ) => Promise<MapType<CustomerConnection, R> | null>
     })
   employee: ((args?: {
     /** Filter by fields */
@@ -3004,9 +3042,17 @@ export interface ViewerPromiseChain {
     skip?: Int | null
     sort?: SortFindOneEmployeeInput | null
   }) => EmployeePromiseChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Promise<MapType<Employee, R> | null>
   }) &
-    (EmployeePromiseChain & { get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null> })
+    (EmployeePromiseChain & {
+      get: <R extends EmployeeRequest>(
+        request: R,
+        defaultValue?: MapType<Employee, R> | null,
+      ) => Promise<MapType<Employee, R> | null>
+    })
   employeeList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyEmployeeInput | null
@@ -3014,8 +3060,16 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }) & { get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null> }
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Promise<MapType<Employee | null, R>[] | null>
+  }) & {
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Promise<MapType<Employee | null, R>[] | null>
+  }
   employeePagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3024,21 +3078,28 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyEmployeeInput | null
     sort?: SortFindManyEmployeeInput | null
   }) => EmployeePaginationPromiseChain & {
-    get: (request: EmployeePaginationRequest, defaultValue?: EmployeePagination | null) => Promise<EmployeePagination | null>
+    get: <R extends EmployeePaginationRequest>(
+      request: R,
+      defaultValue?: MapType<EmployeePagination, R> | null,
+    ) => Promise<MapType<EmployeePagination, R> | null>
   }) &
     (EmployeePaginationPromiseChain & {
-      get: (
-        request: EmployeePaginationRequest,
-        defaultValue?: EmployeePagination | null,
-      ) => Promise<EmployeePagination | null>
+      get: <R extends EmployeePaginationRequest>(
+        request: R,
+        defaultValue?: MapType<EmployeePagination, R> | null,
+      ) => Promise<MapType<EmployeePagination, R> | null>
     })
   order: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneOrderInput | null
     skip?: Int | null
     sort?: SortFindOneOrderInput | null
-  }) => OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }) &
-    (OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> })
+  }) => OrderPromiseChain & {
+    get: <R extends OrderRequest>(request: R, defaultValue?: MapType<Order, R> | null) => Promise<MapType<Order, R> | null>
+  }) &
+    (OrderPromiseChain & {
+      get: <R extends OrderRequest>(request: R, defaultValue?: MapType<Order, R> | null) => Promise<MapType<Order, R> | null>
+    })
   orderPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3047,10 +3108,16 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyOrderInput | null
     sort?: SortFindManyOrderInput | null
   }) => OrderPaginationPromiseChain & {
-    get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Promise<OrderPagination | null>
+    get: <R extends OrderPaginationRequest>(
+      request: R,
+      defaultValue?: MapType<OrderPagination, R> | null,
+    ) => Promise<MapType<OrderPagination, R> | null>
   }) &
     (OrderPaginationPromiseChain & {
-      get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Promise<OrderPagination | null>
+      get: <R extends OrderPaginationRequest>(
+        request: R,
+        defaultValue?: MapType<OrderPagination, R> | null,
+      ) => Promise<MapType<OrderPagination, R> | null>
     })
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3066,18 +3133,34 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Promise<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionPromiseChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Promise<MapType<OrderConnection, R> | null>
     })
   product: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneProductInput | null
     skip?: Int | null
     sort?: SortFindOneProductInput | null
-  }) => ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }) &
-    (ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> })
+  }) => ProductPromiseChain & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Promise<MapType<Product, R> | null>
+  }) &
+    (ProductPromiseChain & {
+      get: <R extends ProductRequest>(
+        request: R,
+        defaultValue?: MapType<Product, R> | null,
+      ) => Promise<MapType<Product, R> | null>
+    })
   productList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyProductInput | null
@@ -3085,8 +3168,16 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null>
-  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Promise<MapType<Product | null, R>[] | null>
+  }) & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Promise<MapType<Product | null, R>[] | null>
+  }
   productPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3095,10 +3186,16 @@ export interface ViewerPromiseChain {
     filter?: FilterFindManyProductInput | null
     sort?: SortFindManyProductInput | null
   }) => ProductPaginationPromiseChain & {
-    get: (request: ProductPaginationRequest, defaultValue?: ProductPagination | null) => Promise<ProductPagination | null>
+    get: <R extends ProductPaginationRequest>(
+      request: R,
+      defaultValue?: MapType<ProductPagination, R> | null,
+    ) => Promise<MapType<ProductPagination, R> | null>
   }) &
     (ProductPaginationPromiseChain & {
-      get: (request: ProductPaginationRequest, defaultValue?: ProductPagination | null) => Promise<ProductPagination | null>
+      get: <R extends ProductPaginationRequest>(
+        request: R,
+        defaultValue?: MapType<ProductPagination, R> | null,
+      ) => Promise<MapType<ProductPagination, R> | null>
     })
   productConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3114,34 +3211,68 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionPromiseChain & {
-    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
+    get: <R extends ProductConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<ProductConnection, R> | null,
+    ) => Promise<MapType<ProductConnection, R> | null>
   }) &
     (ProductConnectionPromiseChain & {
-      get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
+      get: <R extends ProductConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<ProductConnection, R> | null,
+      ) => Promise<MapType<ProductConnection, R> | null>
     })
   region: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneRegionInput | null
     skip?: Int | null
     sort?: SortFindOneRegionInput | null
-  }) => RegionPromiseChain & { get: (request: RegionRequest, defaultValue?: Region | null) => Promise<Region | null> }) &
-    (RegionPromiseChain & { get: (request: RegionRequest, defaultValue?: Region | null) => Promise<Region | null> })
+  }) => RegionPromiseChain & {
+    get: <R extends RegionRequest>(
+      request: R,
+      defaultValue?: MapType<Region, R> | null,
+    ) => Promise<MapType<Region, R> | null>
+  }) &
+    (RegionPromiseChain & {
+      get: <R extends RegionRequest>(
+        request: R,
+        defaultValue?: MapType<Region, R> | null,
+      ) => Promise<MapType<Region, R> | null>
+    })
   regionList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyRegionInput | null
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyRegionInput | null
-  }) => { get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Promise<(Region | null)[] | null> }) & {
-    get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Promise<(Region | null)[] | null>
+  }) => {
+    get: <R extends RegionRequest>(
+      request: R,
+      defaultValue?: MapType<Region | null, R>[] | null,
+    ) => Promise<MapType<Region | null, R>[] | null>
+  }) & {
+    get: <R extends RegionRequest>(
+      request: R,
+      defaultValue?: MapType<Region | null, R>[] | null,
+    ) => Promise<MapType<Region | null, R>[] | null>
   }
   shipper: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneShipperInput | null
     skip?: Int | null
     sort?: SortFindOneShipperInput | null
-  }) => ShipperPromiseChain & { get: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null> }) &
-    (ShipperPromiseChain & { get: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null> })
+  }) => ShipperPromiseChain & {
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper, R> | null,
+    ) => Promise<MapType<Shipper, R> | null>
+  }) &
+    (ShipperPromiseChain & {
+      get: <R extends ShipperRequest>(
+        request: R,
+        defaultValue?: MapType<Shipper, R> | null,
+      ) => Promise<MapType<Shipper, R> | null>
+    })
   shipperList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyShipperInput | null
@@ -3149,17 +3280,33 @@ export interface ViewerPromiseChain {
     limit?: Int | null
     sort?: SortFindManyShipperInput | null
   }) => {
-    get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Promise<(Shipper | null)[] | null>
-  }) & { get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Promise<(Shipper | null)[] | null> }
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper | null, R>[] | null,
+    ) => Promise<MapType<Shipper | null, R>[] | null>
+  }) & {
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper | null, R>[] | null,
+    ) => Promise<MapType<Shipper | null, R>[] | null>
+  }
   supplier: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneSupplierInput | null
     skip?: Int | null
     sort?: SortFindOneSupplierInput | null
   }) => SupplierPromiseChain & {
-    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null>
+    get: <R extends SupplierRequest>(
+      request: R,
+      defaultValue?: MapType<Supplier, R> | null,
+    ) => Promise<MapType<Supplier, R> | null>
   }) &
-    (SupplierPromiseChain & { get: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null> })
+    (SupplierPromiseChain & {
+      get: <R extends SupplierRequest>(
+        request: R,
+        defaultValue?: MapType<Supplier, R> | null,
+      ) => Promise<MapType<Supplier, R> | null>
+    })
   supplierConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3174,13 +3321,16 @@ export interface ViewerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionSupplierEnum | null
   }) => SupplierConnectionPromiseChain & {
-    get: (request: SupplierConnectionRequest, defaultValue?: SupplierConnection | null) => Promise<SupplierConnection | null>
+    get: <R extends SupplierConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<SupplierConnection, R> | null,
+    ) => Promise<MapType<SupplierConnection, R> | null>
   }) &
     (SupplierConnectionPromiseChain & {
-      get: (
-        request: SupplierConnectionRequest,
-        defaultValue?: SupplierConnection | null,
-      ) => Promise<SupplierConnection | null>
+      get: <R extends SupplierConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<SupplierConnection, R> | null,
+      ) => Promise<MapType<SupplierConnection, R> | null>
     })
 }
 
@@ -3191,10 +3341,16 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneCategoryInput | null
   }) => CategoryObservableChain & {
-    get: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category, R> | null,
+    ) => Observable<MapType<Category, R> | null>
   }) &
     (CategoryObservableChain & {
-      get: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
+      get: <R extends CategoryRequest>(
+        request: R,
+        defaultValue?: MapType<Category, R> | null,
+      ) => Observable<MapType<Category, R> | null>
     })
   categoryList: ((args?: {
     /** Filter by fields */
@@ -3203,9 +3359,15 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyCategoryInput | null
   }) => {
-    get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Observable<(Category | null)[] | null>
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category | null, R>[] | null,
+    ) => Observable<MapType<Category | null, R>[] | null>
   }) & {
-    get: (request: CategoryRequest, defaultValue?: (Category | null)[] | null) => Observable<(Category | null)[] | null>
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category | null, R>[] | null,
+    ) => Observable<MapType<Category | null, R>[] | null>
   }
   customer: ((args?: {
     /** Filter by fields */
@@ -3213,10 +3375,16 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneCustomerInput | null
   }) => CustomerObservableChain & {
-    get: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
+    get: <R extends CustomerRequest>(
+      request: R,
+      defaultValue?: MapType<Customer, R> | null,
+    ) => Observable<MapType<Customer, R> | null>
   }) &
     (CustomerObservableChain & {
-      get: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
+      get: <R extends CustomerRequest>(
+        request: R,
+        defaultValue?: MapType<Customer, R> | null,
+      ) => Observable<MapType<Customer, R> | null>
     })
   customerPagination: ((args?: {
     /** Page number for displaying */
@@ -3226,16 +3394,16 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyCustomerInput | null
     sort?: SortFindManyCustomerInput | null
   }) => CustomerPaginationObservableChain & {
-    get: (
-      request: CustomerPaginationRequest,
-      defaultValue?: CustomerPagination | null,
-    ) => Observable<CustomerPagination | null>
+    get: <R extends CustomerPaginationRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerPagination, R> | null,
+    ) => Observable<MapType<CustomerPagination, R> | null>
   }) &
     (CustomerPaginationObservableChain & {
-      get: (
-        request: CustomerPaginationRequest,
-        defaultValue?: CustomerPagination | null,
-      ) => Observable<CustomerPagination | null>
+      get: <R extends CustomerPaginationRequest>(
+        request: R,
+        defaultValue?: MapType<CustomerPagination, R> | null,
+      ) => Observable<MapType<CustomerPagination, R> | null>
     })
   customerConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3251,16 +3419,16 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionCustomerEnum | null
   }) => CustomerConnectionObservableChain & {
-    get: (
-      request: CustomerConnectionRequest,
-      defaultValue?: CustomerConnection | null,
-    ) => Observable<CustomerConnection | null>
+    get: <R extends CustomerConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerConnection, R> | null,
+    ) => Observable<MapType<CustomerConnection, R> | null>
   }) &
     (CustomerConnectionObservableChain & {
-      get: (
-        request: CustomerConnectionRequest,
-        defaultValue?: CustomerConnection | null,
-      ) => Observable<CustomerConnection | null>
+      get: <R extends CustomerConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<CustomerConnection, R> | null,
+      ) => Observable<MapType<CustomerConnection, R> | null>
     })
   employee: ((args?: {
     /** Filter by fields */
@@ -3268,10 +3436,16 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneEmployeeInput | null
   }) => EmployeeObservableChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Observable<MapType<Employee, R> | null>
   }) &
     (EmployeeObservableChain & {
-      get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+      get: <R extends EmployeeRequest>(
+        request: R,
+        defaultValue?: MapType<Employee, R> | null,
+      ) => Observable<MapType<Employee, R> | null>
     })
   employeeList: ((args?: {
     /** Filter by fields */
@@ -3280,9 +3454,15 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Observable<MapType<Employee | null, R>[] | null>
   }) & {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Observable<MapType<Employee | null, R>[] | null>
   }
   employeePagination: ((args?: {
     /** Page number for displaying */
@@ -3292,24 +3472,34 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyEmployeeInput | null
     sort?: SortFindManyEmployeeInput | null
   }) => EmployeePaginationObservableChain & {
-    get: (
-      request: EmployeePaginationRequest,
-      defaultValue?: EmployeePagination | null,
-    ) => Observable<EmployeePagination | null>
+    get: <R extends EmployeePaginationRequest>(
+      request: R,
+      defaultValue?: MapType<EmployeePagination, R> | null,
+    ) => Observable<MapType<EmployeePagination, R> | null>
   }) &
     (EmployeePaginationObservableChain & {
-      get: (
-        request: EmployeePaginationRequest,
-        defaultValue?: EmployeePagination | null,
-      ) => Observable<EmployeePagination | null>
+      get: <R extends EmployeePaginationRequest>(
+        request: R,
+        defaultValue?: MapType<EmployeePagination, R> | null,
+      ) => Observable<MapType<EmployeePagination, R> | null>
     })
   order: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneOrderInput | null
     skip?: Int | null
     sort?: SortFindOneOrderInput | null
-  }) => OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }) &
-    (OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> })
+  }) => OrderObservableChain & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order, R> | null,
+    ) => Observable<MapType<Order, R> | null>
+  }) &
+    (OrderObservableChain & {
+      get: <R extends OrderRequest>(
+        request: R,
+        defaultValue?: MapType<Order, R> | null,
+      ) => Observable<MapType<Order, R> | null>
+    })
   orderPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3318,10 +3508,16 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyOrderInput | null
     sort?: SortFindManyOrderInput | null
   }) => OrderPaginationObservableChain & {
-    get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Observable<OrderPagination | null>
+    get: <R extends OrderPaginationRequest>(
+      request: R,
+      defaultValue?: MapType<OrderPagination, R> | null,
+    ) => Observable<MapType<OrderPagination, R> | null>
   }) &
     (OrderPaginationObservableChain & {
-      get: (request: OrderPaginationRequest, defaultValue?: OrderPagination | null) => Observable<OrderPagination | null>
+      get: <R extends OrderPaginationRequest>(
+        request: R,
+        defaultValue?: MapType<OrderPagination, R> | null,
+      ) => Observable<MapType<OrderPagination, R> | null>
     })
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3337,10 +3533,16 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Observable<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionObservableChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Observable<MapType<OrderConnection, R> | null>
     })
   product: ((args?: {
     /** Filter by fields */
@@ -3348,10 +3550,16 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneProductInput | null
   }) => ProductObservableChain & {
-    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Observable<MapType<Product, R> | null>
   }) &
     (ProductObservableChain & {
-      get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+      get: <R extends ProductRequest>(
+        request: R,
+        defaultValue?: MapType<Product, R> | null,
+      ) => Observable<MapType<Product, R> | null>
     })
   productList: ((args?: {
     /** Filter by fields */
@@ -3360,8 +3568,16 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
-  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null> }
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Observable<MapType<Product | null, R>[] | null>
+  }) & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Observable<MapType<Product | null, R>[] | null>
+  }
   productPagination: ((args?: {
     /** Page number for displaying */
     page?: Int | null
@@ -3370,13 +3586,16 @@ export interface ViewerObservableChain {
     filter?: FilterFindManyProductInput | null
     sort?: SortFindManyProductInput | null
   }) => ProductPaginationObservableChain & {
-    get: (request: ProductPaginationRequest, defaultValue?: ProductPagination | null) => Observable<ProductPagination | null>
+    get: <R extends ProductPaginationRequest>(
+      request: R,
+      defaultValue?: MapType<ProductPagination, R> | null,
+    ) => Observable<MapType<ProductPagination, R> | null>
   }) &
     (ProductPaginationObservableChain & {
-      get: (
-        request: ProductPaginationRequest,
-        defaultValue?: ProductPagination | null,
-      ) => Observable<ProductPagination | null>
+      get: <R extends ProductPaginationRequest>(
+        request: R,
+        defaultValue?: MapType<ProductPagination, R> | null,
+      ) => Observable<MapType<ProductPagination, R> | null>
     })
   productConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3392,13 +3611,16 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionObservableChain & {
-    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Observable<ProductConnection | null>
+    get: <R extends ProductConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<ProductConnection, R> | null,
+    ) => Observable<MapType<ProductConnection, R> | null>
   }) &
     (ProductConnectionObservableChain & {
-      get: (
-        request: ProductConnectionRequest,
-        defaultValue?: ProductConnection | null,
-      ) => Observable<ProductConnection | null>
+      get: <R extends ProductConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<ProductConnection, R> | null,
+      ) => Observable<MapType<ProductConnection, R> | null>
     })
   region: ((args?: {
     /** Filter by fields */
@@ -3406,9 +3628,17 @@ export interface ViewerObservableChain {
     skip?: Int | null
     sort?: SortFindOneRegionInput | null
   }) => RegionObservableChain & {
-    get: (request: RegionRequest, defaultValue?: Region | null) => Observable<Region | null>
+    get: <R extends RegionRequest>(
+      request: R,
+      defaultValue?: MapType<Region, R> | null,
+    ) => Observable<MapType<Region, R> | null>
   }) &
-    (RegionObservableChain & { get: (request: RegionRequest, defaultValue?: Region | null) => Observable<Region | null> })
+    (RegionObservableChain & {
+      get: <R extends RegionRequest>(
+        request: R,
+        defaultValue?: MapType<Region, R> | null,
+      ) => Observable<MapType<Region, R> | null>
+    })
   regionList: ((args?: {
     /** Filter by fields */
     filter?: FilterFindManyRegionInput | null
@@ -3416,18 +3646,32 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyRegionInput | null
   }) => {
-    get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Observable<(Region | null)[] | null>
-  }) & { get: (request: RegionRequest, defaultValue?: (Region | null)[] | null) => Observable<(Region | null)[] | null> }
+    get: <R extends RegionRequest>(
+      request: R,
+      defaultValue?: MapType<Region | null, R>[] | null,
+    ) => Observable<MapType<Region | null, R>[] | null>
+  }) & {
+    get: <R extends RegionRequest>(
+      request: R,
+      defaultValue?: MapType<Region | null, R>[] | null,
+    ) => Observable<MapType<Region | null, R>[] | null>
+  }
   shipper: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneShipperInput | null
     skip?: Int | null
     sort?: SortFindOneShipperInput | null
   }) => ShipperObservableChain & {
-    get: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper, R> | null,
+    ) => Observable<MapType<Shipper, R> | null>
   }) &
     (ShipperObservableChain & {
-      get: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
+      get: <R extends ShipperRequest>(
+        request: R,
+        defaultValue?: MapType<Shipper, R> | null,
+      ) => Observable<MapType<Shipper, R> | null>
     })
   shipperList: ((args?: {
     /** Filter by fields */
@@ -3436,18 +3680,32 @@ export interface ViewerObservableChain {
     limit?: Int | null
     sort?: SortFindManyShipperInput | null
   }) => {
-    get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Observable<(Shipper | null)[] | null>
-  }) & { get: (request: ShipperRequest, defaultValue?: (Shipper | null)[] | null) => Observable<(Shipper | null)[] | null> }
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper | null, R>[] | null,
+    ) => Observable<MapType<Shipper | null, R>[] | null>
+  }) & {
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper | null, R>[] | null,
+    ) => Observable<MapType<Shipper | null, R>[] | null>
+  }
   supplier: ((args?: {
     /** Filter by fields */
     filter?: FilterFindOneSupplierInput | null
     skip?: Int | null
     sort?: SortFindOneSupplierInput | null
   }) => SupplierObservableChain & {
-    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
+    get: <R extends SupplierRequest>(
+      request: R,
+      defaultValue?: MapType<Supplier, R> | null,
+    ) => Observable<MapType<Supplier, R> | null>
   }) &
     (SupplierObservableChain & {
-      get: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
+      get: <R extends SupplierRequest>(
+        request: R,
+        defaultValue?: MapType<Supplier, R> | null,
+      ) => Observable<MapType<Supplier, R> | null>
     })
   supplierConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3463,16 +3721,16 @@ export interface ViewerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionSupplierEnum | null
   }) => SupplierConnectionObservableChain & {
-    get: (
-      request: SupplierConnectionRequest,
-      defaultValue?: SupplierConnection | null,
-    ) => Observable<SupplierConnection | null>
+    get: <R extends SupplierConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<SupplierConnection, R> | null,
+    ) => Observable<MapType<SupplierConnection, R> | null>
   }) &
     (SupplierConnectionObservableChain & {
-      get: (
-        request: SupplierConnectionRequest,
-        defaultValue?: SupplierConnection | null,
-      ) => Observable<SupplierConnection | null>
+      get: <R extends SupplierConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<SupplierConnection, R> | null,
+      ) => Observable<MapType<SupplierConnection, R> | null>
     })
 }
 
@@ -3494,18 +3752,32 @@ export interface CategoryPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionPromiseChain & {
-    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
+    get: <R extends ProductConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<ProductConnection, R> | null,
+    ) => Promise<MapType<ProductConnection, R> | null>
   }) &
     (ProductConnectionPromiseChain & {
-      get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
+      get: <R extends ProductConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<ProductConnection, R> | null,
+      ) => Promise<MapType<ProductConnection, R> | null>
     })
   productList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null>
-  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Promise<MapType<Product | null, R>[] | null>
+  }) & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Promise<MapType<Product | null, R>[] | null>
+  }
 }
 
 export interface CategoryObservableChain {
@@ -3526,21 +3798,32 @@ export interface CategoryObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionObservableChain & {
-    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Observable<ProductConnection | null>
+    get: <R extends ProductConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<ProductConnection, R> | null,
+    ) => Observable<MapType<ProductConnection, R> | null>
   }) &
     (ProductConnectionObservableChain & {
-      get: (
-        request: ProductConnectionRequest,
-        defaultValue?: ProductConnection | null,
-      ) => Observable<ProductConnection | null>
+      get: <R extends ProductConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<ProductConnection, R> | null,
+      ) => Observable<MapType<ProductConnection, R> | null>
     })
   productList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyProductInput | null
   }) => {
-    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
-  }) & { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null> }
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Observable<MapType<Product | null, R>[] | null>
+  }) & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Observable<MapType<Product | null, R>[] | null>
+  }
 }
 
 /** A connection to a list of items. */
@@ -3548,9 +3831,11 @@ export interface ProductConnectionPromiseChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Promise<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: ProductEdgeRequest, defaultValue?: ProductEdge[]) => Promise<ProductEdge[]> }
+  edges: { get: <R extends ProductEdgeRequest>(request: R, defaultValue?: ProductEdge[]) => Promise<ProductEdge[]> }
 }
 
 /** A connection to a list of items. */
@@ -3558,9 +3843,11 @@ export interface ProductConnectionObservableChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
+  pageInfo: PageInfoObservableChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Observable<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: ProductEdgeRequest, defaultValue?: ProductEdge[]) => Observable<ProductEdge[]> }
+  edges: { get: <R extends ProductEdgeRequest>(request: R, defaultValue?: ProductEdge[]) => Observable<ProductEdge[]> }
 }
 
 /** Information about pagination in a connection. */
@@ -3590,7 +3877,7 @@ export interface PageInfoObservableChain {
 /** An edge in a connection. */
 export interface ProductEdgePromiseChain {
   /** The item at the end of the edge */
-  node: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product) => Promise<Product> }
+  node: ProductPromiseChain & { get: <R extends ProductRequest>(request: R, defaultValue?: Product) => Promise<Product> }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
@@ -3598,7 +3885,9 @@ export interface ProductEdgePromiseChain {
 /** An edge in a connection. */
 export interface ProductEdgeObservableChain {
   /** The item at the end of the edge */
-  node: ProductObservableChain & { get: (request: ProductRequest, defaultValue?: Product) => Observable<Product> }
+  node: ProductObservableChain & {
+    get: <R extends ProductRequest>(request: R, defaultValue?: Product) => Observable<Product>
+  }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
@@ -3628,23 +3917,43 @@ export interface ProductPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Promise<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionPromiseChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Promise<MapType<OrderConnection, R> | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }) & {
-    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null>
+  }) => {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Promise<MapType<Order | null, R>[] | null>
+  }) & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Promise<MapType<Order | null, R>[] | null>
   }
   supplier: SupplierPromiseChain & {
-    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Promise<Supplier | null>
+    get: <R extends SupplierRequest>(
+      request: R,
+      defaultValue?: MapType<Supplier, R> | null,
+    ) => Promise<MapType<Supplier, R> | null>
   }
   category: CategoryPromiseChain & {
-    get: (request: CategoryRequest, defaultValue?: Category | null) => Promise<Category | null>
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category, R> | null,
+    ) => Promise<MapType<Category, R> | null>
   }
 }
 
@@ -3673,23 +3982,43 @@ export interface ProductObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Observable<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionObservableChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Observable<MapType<OrderConnection, R> | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }) & {
-    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null>
+  }) => {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Observable<MapType<Order | null, R>[] | null>
+  }) & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Observable<MapType<Order | null, R>[] | null>
   }
   supplier: SupplierObservableChain & {
-    get: (request: SupplierRequest, defaultValue?: Supplier | null) => Observable<Supplier | null>
+    get: <R extends SupplierRequest>(
+      request: R,
+      defaultValue?: MapType<Supplier, R> | null,
+    ) => Observable<MapType<Supplier, R> | null>
   }
   category: CategoryObservableChain & {
-    get: (request: CategoryRequest, defaultValue?: Category | null) => Observable<Category | null>
+    get: <R extends CategoryRequest>(
+      request: R,
+      defaultValue?: MapType<Category, R> | null,
+    ) => Observable<MapType<Category, R> | null>
   }
 }
 
@@ -3698,9 +4027,11 @@ export interface OrderConnectionPromiseChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Promise<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: OrderEdgeRequest, defaultValue?: OrderEdge[]) => Promise<OrderEdge[]> }
+  edges: { get: <R extends OrderEdgeRequest>(request: R, defaultValue?: OrderEdge[]) => Promise<OrderEdge[]> }
 }
 
 /** A connection to a list of items. */
@@ -3708,15 +4039,17 @@ export interface OrderConnectionObservableChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
+  pageInfo: PageInfoObservableChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Observable<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: OrderEdgeRequest, defaultValue?: OrderEdge[]) => Observable<OrderEdge[]> }
+  edges: { get: <R extends OrderEdgeRequest>(request: R, defaultValue?: OrderEdge[]) => Observable<OrderEdge[]> }
 }
 
 /** An edge in a connection. */
 export interface OrderEdgePromiseChain {
   /** The item at the end of the edge */
-  node: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order) => Promise<Order> }
+  node: OrderPromiseChain & { get: <R extends OrderRequest>(request: R, defaultValue?: Order) => Promise<Order> }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
@@ -3724,7 +4057,7 @@ export interface OrderEdgePromiseChain {
 /** An edge in a connection. */
 export interface OrderEdgeObservableChain {
   /** The item at the end of the edge */
-  node: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order) => Observable<Order> }
+  node: OrderObservableChain & { get: <R extends OrderRequest>(request: R, defaultValue?: Order) => Observable<Order> }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
@@ -3741,23 +4074,37 @@ export interface OrderPromiseChain {
   freight: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
   shipName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   shipAddress: CustomerAddressPromiseChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Promise<MapType<CustomerAddress, R> | null>
   }
   /** List of ordered products */
   details: {
-    get: (
-      request: OrderDetailsRequest,
-      defaultValue?: (OrderDetails | null)[] | null,
-    ) => Promise<(OrderDetails | null)[] | null>
+    get: <R extends OrderDetailsRequest>(
+      request: R,
+      defaultValue?: MapType<OrderDetails | null, R>[] | null,
+    ) => Promise<MapType<OrderDetails | null, R>[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   customer: CustomerPromiseChain & {
-    get: (request: CustomerRequest, defaultValue?: Customer | null) => Promise<Customer | null>
+    get: <R extends CustomerRequest>(
+      request: R,
+      defaultValue?: MapType<Customer, R> | null,
+    ) => Promise<MapType<Customer, R> | null>
   }
   employee: EmployeePromiseChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Promise<MapType<Employee, R> | null>
   }
-  shipper: ShipperPromiseChain & { get: (request: ShipperRequest, defaultValue?: Shipper | null) => Promise<Shipper | null> }
+  shipper: ShipperPromiseChain & {
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper, R> | null,
+    ) => Promise<MapType<Shipper, R> | null>
+  }
 }
 
 export interface OrderObservableChain {
@@ -3772,24 +4119,36 @@ export interface OrderObservableChain {
   freight: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
   shipName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   shipAddress: CustomerAddressObservableChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Observable<MapType<CustomerAddress, R> | null>
   }
   /** List of ordered products */
   details: {
-    get: (
-      request: OrderDetailsRequest,
-      defaultValue?: (OrderDetails | null)[] | null,
-    ) => Observable<(OrderDetails | null)[] | null>
+    get: <R extends OrderDetailsRequest>(
+      request: R,
+      defaultValue?: MapType<OrderDetails | null, R>[] | null,
+    ) => Observable<MapType<OrderDetails | null, R>[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   customer: CustomerObservableChain & {
-    get: (request: CustomerRequest, defaultValue?: Customer | null) => Observable<Customer | null>
+    get: <R extends CustomerRequest>(
+      request: R,
+      defaultValue?: MapType<Customer, R> | null,
+    ) => Observable<MapType<Customer, R> | null>
   }
   employee: EmployeeObservableChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Observable<MapType<Employee, R> | null>
   }
   shipper: ShipperObservableChain & {
-    get: (request: ShipperRequest, defaultValue?: Shipper | null) => Observable<Shipper | null>
+    get: <R extends ShipperRequest>(
+      request: R,
+      defaultValue?: MapType<Shipper, R> | null,
+    ) => Observable<MapType<Shipper, R> | null>
   }
 }
 
@@ -3816,7 +4175,12 @@ export interface OrderDetailsPromiseChain {
   unitPrice: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
   quantity: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
   discount: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
-  product: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
+  product: ProductPromiseChain & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Promise<MapType<Product, R> | null>
+  }
 }
 
 export interface OrderDetailsObservableChain {
@@ -3825,7 +4189,10 @@ export interface OrderDetailsObservableChain {
   quantity: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
   discount: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
   product: ProductObservableChain & {
-    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Observable<MapType<Product, R> | null>
   }
 }
 
@@ -3836,7 +4203,10 @@ export interface CustomerPromiseChain {
   contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   address: CustomerAddressPromiseChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Promise<MapType<CustomerAddress, R> | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   orderConnection: ((args?: {
@@ -3851,17 +4221,31 @@ export interface CustomerPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Promise<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionPromiseChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Promise<MapType<OrderConnection, R> | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }) & {
-    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null>
+  }) => {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Promise<MapType<Order | null, R>[] | null>
+  }) & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Promise<MapType<Order | null, R>[] | null>
   }
 }
 
@@ -3872,7 +4256,10 @@ export interface CustomerObservableChain {
   contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   address: CustomerAddressObservableChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Observable<MapType<CustomerAddress, R> | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   orderConnection: ((args?: {
@@ -3887,17 +4274,31 @@ export interface CustomerObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Observable<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionObservableChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Observable<MapType<OrderConnection, R> | null>
     })
   orderList: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyOrderInput | null
-  }) => { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }) & {
-    get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null>
+  }) => {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Observable<MapType<Order | null, R>[] | null>
+  }) & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Observable<MapType<Order | null, R>[] | null>
   }
 }
 
@@ -3911,7 +4312,10 @@ export interface EmployeePromiseChain {
   birthDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
   hireDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Promise<Date | null> }
   address: CustomerAddressPromiseChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Promise<MapType<CustomerAddress, R> | null>
   }
   notes: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   /** ID of chief */
@@ -3922,15 +4326,26 @@ export interface EmployeePromiseChain {
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   chief: EmployeePromiseChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Promise<MapType<Employee, R> | null>
   }
   subordinates: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }) & { get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null> }
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Promise<MapType<Employee | null, R>[] | null>
+  }) & {
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Promise<MapType<Employee | null, R>[] | null>
+  }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
     first?: Int | null
@@ -3943,10 +4358,16 @@ export interface EmployeePromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Promise<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionPromiseChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Promise<MapType<OrderConnection, R> | null>
     })
 }
 
@@ -3960,7 +4381,10 @@ export interface EmployeeObservableChain {
   birthDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
   hireDate: { get: (request?: boolean | number, defaultValue?: Date | null) => Observable<Date | null> }
   address: CustomerAddressObservableChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Observable<MapType<CustomerAddress, R> | null>
   }
   notes: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   /** ID of chief */
@@ -3971,16 +4395,25 @@ export interface EmployeeObservableChain {
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   chief: EmployeeObservableChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Observable<MapType<Employee, R> | null>
   }
   subordinates: ((args?: {
     skip?: Int | null
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Observable<MapType<Employee | null, R>[] | null>
   }) & {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Observable<MapType<Employee | null, R>[] | null>
   }
   orderConnection: ((args?: {
     /** Forward pagination argument for returning at most first edges */
@@ -3994,10 +4427,16 @@ export interface EmployeeObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Observable<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionObservableChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Observable<MapType<OrderConnection, R> | null>
     })
 }
 
@@ -4019,10 +4458,16 @@ export interface ShipperPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionPromiseChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Promise<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionPromiseChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Promise<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Promise<MapType<OrderConnection, R> | null>
     })
 }
 
@@ -4044,10 +4489,16 @@ export interface ShipperObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionOrderEnum | null
   }) => OrderConnectionObservableChain & {
-    get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+    get: <R extends OrderConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<OrderConnection, R> | null,
+    ) => Observable<MapType<OrderConnection, R> | null>
   }) &
     (OrderConnectionObservableChain & {
-      get: (request: OrderConnectionRequest, defaultValue?: OrderConnection | null) => Observable<OrderConnection | null>
+      get: <R extends OrderConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<OrderConnection, R> | null,
+      ) => Observable<MapType<OrderConnection, R> | null>
     })
 }
 
@@ -4058,7 +4509,10 @@ export interface SupplierPromiseChain {
   contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   address: CustomerAddressPromiseChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Promise<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Promise<MapType<CustomerAddress, R> | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   productConnection: ((args?: {
@@ -4073,10 +4527,16 @@ export interface SupplierPromiseChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionPromiseChain & {
-    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
+    get: <R extends ProductConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<ProductConnection, R> | null,
+    ) => Promise<MapType<ProductConnection, R> | null>
   }) &
     (ProductConnectionPromiseChain & {
-      get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Promise<ProductConnection | null>
+      get: <R extends ProductConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<ProductConnection, R> | null,
+      ) => Promise<MapType<ProductConnection, R> | null>
     })
 }
 
@@ -4087,7 +4547,10 @@ export interface SupplierObservableChain {
   contactName: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   contactTitle: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   address: CustomerAddressObservableChain & {
-    get: (request: CustomerAddressRequest, defaultValue?: CustomerAddress | null) => Observable<CustomerAddress | null>
+    get: <R extends CustomerAddressRequest>(
+      request: R,
+      defaultValue?: MapType<CustomerAddress, R> | null,
+    ) => Observable<MapType<CustomerAddress, R> | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   productConnection: ((args?: {
@@ -4102,13 +4565,16 @@ export interface SupplierObservableChain {
     /** Sort argument for data ordering */
     sort?: SortConnectionProductEnum | null
   }) => ProductConnectionObservableChain & {
-    get: (request: ProductConnectionRequest, defaultValue?: ProductConnection | null) => Observable<ProductConnection | null>
+    get: <R extends ProductConnectionRequest>(
+      request: R,
+      defaultValue?: MapType<ProductConnection, R> | null,
+    ) => Observable<MapType<ProductConnection, R> | null>
   }) &
     (ProductConnectionObservableChain & {
-      get: (
-        request: ProductConnectionRequest,
-        defaultValue?: ProductConnection | null,
-      ) => Observable<ProductConnection | null>
+      get: <R extends ProductConnectionRequest>(
+        request: R,
+        defaultValue?: MapType<ProductConnection, R> | null,
+      ) => Observable<MapType<ProductConnection, R> | null>
     })
 }
 
@@ -4118,11 +4584,14 @@ export interface CustomerPaginationPromiseChain {
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
   items: {
-    get: (request: CustomerRequest, defaultValue?: (Customer | null)[] | null) => Promise<(Customer | null)[] | null>
+    get: <R extends CustomerRequest>(
+      request: R,
+      defaultValue?: MapType<Customer | null, R>[] | null,
+    ) => Promise<MapType<Customer | null, R>[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
@@ -4132,11 +4601,14 @@ export interface CustomerPaginationObservableChain {
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
   items: {
-    get: (request: CustomerRequest, defaultValue?: (Customer | null)[] | null) => Observable<(Customer | null)[] | null>
+    get: <R extends CustomerRequest>(
+      request: R,
+      defaultValue?: MapType<Customer | null, R>[] | null,
+    ) => Observable<MapType<Customer | null, R>[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
@@ -4163,9 +4635,11 @@ export interface CustomerConnectionPromiseChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Promise<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: CustomerEdgeRequest, defaultValue?: CustomerEdge[]) => Promise<CustomerEdge[]> }
+  edges: { get: <R extends CustomerEdgeRequest>(request: R, defaultValue?: CustomerEdge[]) => Promise<CustomerEdge[]> }
 }
 
 /** A connection to a list of items. */
@@ -4173,15 +4647,17 @@ export interface CustomerConnectionObservableChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
+  pageInfo: PageInfoObservableChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Observable<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: CustomerEdgeRequest, defaultValue?: CustomerEdge[]) => Observable<CustomerEdge[]> }
+  edges: { get: <R extends CustomerEdgeRequest>(request: R, defaultValue?: CustomerEdge[]) => Observable<CustomerEdge[]> }
 }
 
 /** An edge in a connection. */
 export interface CustomerEdgePromiseChain {
   /** The item at the end of the edge */
-  node: CustomerPromiseChain & { get: (request: CustomerRequest, defaultValue?: Customer) => Promise<Customer> }
+  node: CustomerPromiseChain & { get: <R extends CustomerRequest>(request: R, defaultValue?: Customer) => Promise<Customer> }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
@@ -4189,7 +4665,9 @@ export interface CustomerEdgePromiseChain {
 /** An edge in a connection. */
 export interface CustomerEdgeObservableChain {
   /** The item at the end of the edge */
-  node: CustomerObservableChain & { get: (request: CustomerRequest, defaultValue?: Customer) => Observable<Customer> }
+  node: CustomerObservableChain & {
+    get: <R extends CustomerRequest>(request: R, defaultValue?: Customer) => Observable<Customer>
+  }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
@@ -4200,11 +4678,14 @@ export interface EmployeePaginationPromiseChain {
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
   items: {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Promise<MapType<Employee | null, R>[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
@@ -4214,11 +4695,14 @@ export interface EmployeePaginationObservableChain {
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
   items: {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Observable<MapType<Employee | null, R>[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
@@ -4227,10 +4711,15 @@ export interface OrderPaginationPromiseChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
-  items: { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Promise<(Order | null)[] | null> }
+  items: {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Promise<MapType<Order | null, R>[] | null>
+  }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
@@ -4239,10 +4728,15 @@ export interface OrderPaginationObservableChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
-  items: { get: (request: OrderRequest, defaultValue?: (Order | null)[] | null) => Observable<(Order | null)[] | null> }
+  items: {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order | null, R>[] | null,
+    ) => Observable<MapType<Order | null, R>[] | null>
+  }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
@@ -4251,10 +4745,15 @@ export interface ProductPaginationPromiseChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   /** Array of objects. */
-  items: { get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Promise<(Product | null)[] | null> }
+  items: {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Promise<MapType<Product | null, R>[] | null>
+  }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoPromiseChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Promise<PaginationInfo>
   }
 }
 
@@ -4264,11 +4763,14 @@ export interface ProductPaginationObservableChain {
   count: { get: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   /** Array of objects. */
   items: {
-    get: (request: ProductRequest, defaultValue?: (Product | null)[] | null) => Observable<(Product | null)[] | null>
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product | null, R>[] | null,
+    ) => Observable<MapType<Product | null, R>[] | null>
   }
   /** Information to aid in pagination. */
   pageInfo: PaginationInfoObservableChain & {
-    get: (request: PaginationInfoRequest, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
+    get: <R extends PaginationInfoRequest>(request: R, defaultValue?: PaginationInfo) => Observable<PaginationInfo>
   }
 }
 
@@ -4277,10 +4779,10 @@ export interface RegionPromiseChain {
   regionID: { get: (request?: boolean | number, defaultValue?: Float | null) => Promise<Float | null> }
   name: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   territories: {
-    get: (
-      request: RegionTerritoriesRequest,
-      defaultValue?: (RegionTerritories | null)[] | null,
-    ) => Promise<(RegionTerritories | null)[] | null>
+    get: <R extends RegionTerritoriesRequest>(
+      request: R,
+      defaultValue?: MapType<RegionTerritories | null, R>[] | null,
+    ) => Promise<MapType<RegionTerritories | null, R>[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Promise<MongoID> }
   employees: ((args?: {
@@ -4288,8 +4790,16 @@ export interface RegionPromiseChain {
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null>
-  }) & { get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Promise<(Employee | null)[] | null> }
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Promise<MapType<Employee | null, R>[] | null>
+  }) & {
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Promise<MapType<Employee | null, R>[] | null>
+  }
 }
 
 export interface RegionObservableChain {
@@ -4297,10 +4807,10 @@ export interface RegionObservableChain {
   regionID: { get: (request?: boolean | number, defaultValue?: Float | null) => Observable<Float | null> }
   name: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   territories: {
-    get: (
-      request: RegionTerritoriesRequest,
-      defaultValue?: (RegionTerritories | null)[] | null,
-    ) => Observable<(RegionTerritories | null)[] | null>
+    get: <R extends RegionTerritoriesRequest>(
+      request: R,
+      defaultValue?: MapType<RegionTerritories | null, R>[] | null,
+    ) => Observable<MapType<RegionTerritories | null, R>[] | null>
   }
   _id: { get: (request?: boolean | number, defaultValue?: MongoID) => Observable<MongoID> }
   employees: ((args?: {
@@ -4308,9 +4818,15 @@ export interface RegionObservableChain {
     limit?: Int | null
     sort?: SortFindManyEmployeeInput | null
   }) => {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Observable<MapType<Employee | null, R>[] | null>
   }) & {
-    get: (request: EmployeeRequest, defaultValue?: (Employee | null)[] | null) => Observable<(Employee | null)[] | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee | null, R>[] | null,
+    ) => Observable<MapType<Employee | null, R>[] | null>
   }
 }
 
@@ -4329,9 +4845,11 @@ export interface SupplierConnectionPromiseChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Promise<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoPromiseChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Promise<PageInfo> }
+  pageInfo: PageInfoPromiseChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Promise<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: SupplierEdgeRequest, defaultValue?: SupplierEdge[]) => Promise<SupplierEdge[]> }
+  edges: { get: <R extends SupplierEdgeRequest>(request: R, defaultValue?: SupplierEdge[]) => Promise<SupplierEdge[]> }
 }
 
 /** A connection to a list of items. */
@@ -4339,15 +4857,17 @@ export interface SupplierConnectionObservableChain {
   /** Total object count. */
   count: { get: (request?: boolean | number, defaultValue?: Int) => Observable<Int> }
   /** Information to aid in pagination. */
-  pageInfo: PageInfoObservableChain & { get: (request: PageInfoRequest, defaultValue?: PageInfo) => Observable<PageInfo> }
+  pageInfo: PageInfoObservableChain & {
+    get: <R extends PageInfoRequest>(request: R, defaultValue?: PageInfo) => Observable<PageInfo>
+  }
   /** Information to aid in pagination. */
-  edges: { get: (request: SupplierEdgeRequest, defaultValue?: SupplierEdge[]) => Observable<SupplierEdge[]> }
+  edges: { get: <R extends SupplierEdgeRequest>(request: R, defaultValue?: SupplierEdge[]) => Observable<SupplierEdge[]> }
 }
 
 /** An edge in a connection. */
 export interface SupplierEdgePromiseChain {
   /** The item at the end of the edge */
-  node: SupplierPromiseChain & { get: (request: SupplierRequest, defaultValue?: Supplier) => Promise<Supplier> }
+  node: SupplierPromiseChain & { get: <R extends SupplierRequest>(request: R, defaultValue?: Supplier) => Promise<Supplier> }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Promise<String> }
 }
@@ -4355,7 +4875,9 @@ export interface SupplierEdgePromiseChain {
 /** An edge in a connection. */
 export interface SupplierEdgeObservableChain {
   /** The item at the end of the edge */
-  node: SupplierObservableChain & { get: (request: SupplierRequest, defaultValue?: Supplier) => Observable<Supplier> }
+  node: SupplierObservableChain & {
+    get: <R extends SupplierRequest>(request: R, defaultValue?: Supplier) => Observable<Supplier>
+  }
   /** A cursor for use in pagination */
   cursor: { get: (request?: boolean | number, defaultValue?: String) => Observable<String> }
 }
@@ -4365,19 +4887,19 @@ export interface MutationPromiseChain {
   createProduct: (args: {
     record: CreateOneProductInput
   }) => CreateOneProductPayloadPromiseChain & {
-    get: (
-      request: CreateOneProductPayloadRequest,
-      defaultValue?: CreateOneProductPayload | null,
-    ) => Promise<CreateOneProductPayload | null>
+    get: <R extends CreateOneProductPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<CreateOneProductPayload, R> | null,
+    ) => Promise<MapType<CreateOneProductPayload, R> | null>
   }
   /** Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it. */
   updateProduct: (args: {
     record: UpdateByIdProductInput
   }) => UpdateByIdProductPayloadPromiseChain & {
-    get: (
-      request: UpdateByIdProductPayloadRequest,
-      defaultValue?: UpdateByIdProductPayload | null,
-    ) => Promise<UpdateByIdProductPayload | null>
+    get: <R extends UpdateByIdProductPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<UpdateByIdProductPayload, R> | null,
+    ) => Promise<MapType<UpdateByIdProductPayload, R> | null>
   }
   /** Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document. */
   removeProduct: ((args?: {
@@ -4385,34 +4907,34 @@ export interface MutationPromiseChain {
     filter?: FilterRemoveOneProductInput | null
     sort?: SortRemoveOneProductInput | null
   }) => RemoveOneProductPayloadPromiseChain & {
-    get: (
-      request: RemoveOneProductPayloadRequest,
-      defaultValue?: RemoveOneProductPayload | null,
-    ) => Promise<RemoveOneProductPayload | null>
+    get: <R extends RemoveOneProductPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<RemoveOneProductPayload, R> | null,
+    ) => Promise<MapType<RemoveOneProductPayload, R> | null>
   }) &
     (RemoveOneProductPayloadPromiseChain & {
-      get: (
-        request: RemoveOneProductPayloadRequest,
-        defaultValue?: RemoveOneProductPayload | null,
-      ) => Promise<RemoveOneProductPayload | null>
+      get: <R extends RemoveOneProductPayloadRequest>(
+        request: R,
+        defaultValue?: MapType<RemoveOneProductPayload, R> | null,
+      ) => Promise<MapType<RemoveOneProductPayload, R> | null>
     })
   /** Create one document with mongoose defaults, setters, hooks and validation */
   createOrder: (args: {
     record: CreateOneOrderInput
   }) => CreateOneOrderPayloadPromiseChain & {
-    get: (
-      request: CreateOneOrderPayloadRequest,
-      defaultValue?: CreateOneOrderPayload | null,
-    ) => Promise<CreateOneOrderPayload | null>
+    get: <R extends CreateOneOrderPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<CreateOneOrderPayload, R> | null,
+    ) => Promise<MapType<CreateOneOrderPayload, R> | null>
   }
   /** Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it. */
   updateOrder: (args: {
     record: UpdateByIdOrderInput
   }) => UpdateByIdOrderPayloadPromiseChain & {
-    get: (
-      request: UpdateByIdOrderPayloadRequest,
-      defaultValue?: UpdateByIdOrderPayload | null,
-    ) => Promise<UpdateByIdOrderPayload | null>
+    get: <R extends UpdateByIdOrderPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<UpdateByIdOrderPayload, R> | null,
+    ) => Promise<MapType<UpdateByIdOrderPayload, R> | null>
   }
   /** Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document. */
   removeOrder: ((args?: {
@@ -4420,25 +4942,25 @@ export interface MutationPromiseChain {
     filter?: FilterRemoveOneOrderInput | null
     sort?: SortRemoveOneOrderInput | null
   }) => RemoveOneOrderPayloadPromiseChain & {
-    get: (
-      request: RemoveOneOrderPayloadRequest,
-      defaultValue?: RemoveOneOrderPayload | null,
-    ) => Promise<RemoveOneOrderPayload | null>
+    get: <R extends RemoveOneOrderPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<RemoveOneOrderPayload, R> | null,
+    ) => Promise<MapType<RemoveOneOrderPayload, R> | null>
   }) &
     (RemoveOneOrderPayloadPromiseChain & {
-      get: (
-        request: RemoveOneOrderPayloadRequest,
-        defaultValue?: RemoveOneOrderPayload | null,
-      ) => Promise<RemoveOneOrderPayload | null>
+      get: <R extends RemoveOneOrderPayloadRequest>(
+        request: R,
+        defaultValue?: MapType<RemoveOneOrderPayload, R> | null,
+      ) => Promise<MapType<RemoveOneOrderPayload, R> | null>
     })
   /** Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it. */
   updateEmployee: (args: {
     record: UpdateByIdEmployeeInput
   }) => UpdateByIdEmployeePayloadPromiseChain & {
-    get: (
-      request: UpdateByIdEmployeePayloadRequest,
-      defaultValue?: UpdateByIdEmployeePayload | null,
-    ) => Promise<UpdateByIdEmployeePayload | null>
+    get: <R extends UpdateByIdEmployeePayloadRequest>(
+      request: R,
+      defaultValue?: MapType<UpdateByIdEmployeePayload, R> | null,
+    ) => Promise<MapType<UpdateByIdEmployeePayload, R> | null>
   }
   /** Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes. */
   resetData: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
@@ -4449,19 +4971,19 @@ export interface MutationObservableChain {
   createProduct: (args: {
     record: CreateOneProductInput
   }) => CreateOneProductPayloadObservableChain & {
-    get: (
-      request: CreateOneProductPayloadRequest,
-      defaultValue?: CreateOneProductPayload | null,
-    ) => Observable<CreateOneProductPayload | null>
+    get: <R extends CreateOneProductPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<CreateOneProductPayload, R> | null,
+    ) => Observable<MapType<CreateOneProductPayload, R> | null>
   }
   /** Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it. */
   updateProduct: (args: {
     record: UpdateByIdProductInput
   }) => UpdateByIdProductPayloadObservableChain & {
-    get: (
-      request: UpdateByIdProductPayloadRequest,
-      defaultValue?: UpdateByIdProductPayload | null,
-    ) => Observable<UpdateByIdProductPayload | null>
+    get: <R extends UpdateByIdProductPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<UpdateByIdProductPayload, R> | null,
+    ) => Observable<MapType<UpdateByIdProductPayload, R> | null>
   }
   /** Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document. */
   removeProduct: ((args?: {
@@ -4469,34 +4991,34 @@ export interface MutationObservableChain {
     filter?: FilterRemoveOneProductInput | null
     sort?: SortRemoveOneProductInput | null
   }) => RemoveOneProductPayloadObservableChain & {
-    get: (
-      request: RemoveOneProductPayloadRequest,
-      defaultValue?: RemoveOneProductPayload | null,
-    ) => Observable<RemoveOneProductPayload | null>
+    get: <R extends RemoveOneProductPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<RemoveOneProductPayload, R> | null,
+    ) => Observable<MapType<RemoveOneProductPayload, R> | null>
   }) &
     (RemoveOneProductPayloadObservableChain & {
-      get: (
-        request: RemoveOneProductPayloadRequest,
-        defaultValue?: RemoveOneProductPayload | null,
-      ) => Observable<RemoveOneProductPayload | null>
+      get: <R extends RemoveOneProductPayloadRequest>(
+        request: R,
+        defaultValue?: MapType<RemoveOneProductPayload, R> | null,
+      ) => Observable<MapType<RemoveOneProductPayload, R> | null>
     })
   /** Create one document with mongoose defaults, setters, hooks and validation */
   createOrder: (args: {
     record: CreateOneOrderInput
   }) => CreateOneOrderPayloadObservableChain & {
-    get: (
-      request: CreateOneOrderPayloadRequest,
-      defaultValue?: CreateOneOrderPayload | null,
-    ) => Observable<CreateOneOrderPayload | null>
+    get: <R extends CreateOneOrderPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<CreateOneOrderPayload, R> | null,
+    ) => Observable<MapType<CreateOneOrderPayload, R> | null>
   }
   /** Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it. */
   updateOrder: (args: {
     record: UpdateByIdOrderInput
   }) => UpdateByIdOrderPayloadObservableChain & {
-    get: (
-      request: UpdateByIdOrderPayloadRequest,
-      defaultValue?: UpdateByIdOrderPayload | null,
-    ) => Observable<UpdateByIdOrderPayload | null>
+    get: <R extends UpdateByIdOrderPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<UpdateByIdOrderPayload, R> | null,
+    ) => Observable<MapType<UpdateByIdOrderPayload, R> | null>
   }
   /** Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document. */
   removeOrder: ((args?: {
@@ -4504,25 +5026,25 @@ export interface MutationObservableChain {
     filter?: FilterRemoveOneOrderInput | null
     sort?: SortRemoveOneOrderInput | null
   }) => RemoveOneOrderPayloadObservableChain & {
-    get: (
-      request: RemoveOneOrderPayloadRequest,
-      defaultValue?: RemoveOneOrderPayload | null,
-    ) => Observable<RemoveOneOrderPayload | null>
+    get: <R extends RemoveOneOrderPayloadRequest>(
+      request: R,
+      defaultValue?: MapType<RemoveOneOrderPayload, R> | null,
+    ) => Observable<MapType<RemoveOneOrderPayload, R> | null>
   }) &
     (RemoveOneOrderPayloadObservableChain & {
-      get: (
-        request: RemoveOneOrderPayloadRequest,
-        defaultValue?: RemoveOneOrderPayload | null,
-      ) => Observable<RemoveOneOrderPayload | null>
+      get: <R extends RemoveOneOrderPayloadRequest>(
+        request: R,
+        defaultValue?: MapType<RemoveOneOrderPayload, R> | null,
+      ) => Observable<MapType<RemoveOneOrderPayload, R> | null>
     })
   /** Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it. */
   updateEmployee: (args: {
     record: UpdateByIdEmployeeInput
   }) => UpdateByIdEmployeePayloadObservableChain & {
-    get: (
-      request: UpdateByIdEmployeePayloadRequest,
-      defaultValue?: UpdateByIdEmployeePayload | null,
-    ) => Observable<UpdateByIdEmployeePayload | null>
+    get: <R extends UpdateByIdEmployeePayloadRequest>(
+      request: R,
+      defaultValue?: MapType<UpdateByIdEmployeePayload, R> | null,
+    ) => Observable<MapType<UpdateByIdEmployeePayload, R> | null>
   }
   /** Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes. */
   resetData: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
@@ -4532,8 +5054,15 @@ export interface CreateOneProductPayloadPromiseChain {
   /** Created document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Created document */
-  record: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
-  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: ProductPromiseChain & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Promise<MapType<Product, R> | null>
+  }
+  query: QueryPromiseChain & {
+    get: <R extends QueryRequest>(request: R, defaultValue?: MapType<Query, R> | null) => Promise<MapType<Query, R> | null>
+  }
 }
 
 export interface CreateOneProductPayloadObservableChain {
@@ -4541,17 +5070,32 @@ export interface CreateOneProductPayloadObservableChain {
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Created document */
   record: ProductObservableChain & {
-    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Observable<MapType<Product, R> | null>
   }
-  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & {
+    get: <R extends QueryRequest>(
+      request: R,
+      defaultValue?: MapType<Query, R> | null,
+    ) => Observable<MapType<Query, R> | null>
+  }
 }
 
 export interface UpdateByIdProductPayloadPromiseChain {
   /** Updated document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Updated document */
-  record: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
-  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: ProductPromiseChain & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Promise<MapType<Product, R> | null>
+  }
+  query: QueryPromiseChain & {
+    get: <R extends QueryRequest>(request: R, defaultValue?: MapType<Query, R> | null) => Promise<MapType<Query, R> | null>
+  }
 }
 
 export interface UpdateByIdProductPayloadObservableChain {
@@ -4559,17 +5103,32 @@ export interface UpdateByIdProductPayloadObservableChain {
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Updated document */
   record: ProductObservableChain & {
-    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Observable<MapType<Product, R> | null>
   }
-  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & {
+    get: <R extends QueryRequest>(
+      request: R,
+      defaultValue?: MapType<Query, R> | null,
+    ) => Observable<MapType<Query, R> | null>
+  }
 }
 
 export interface RemoveOneProductPayloadPromiseChain {
   /** Removed document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Removed document */
-  record: ProductPromiseChain & { get: (request: ProductRequest, defaultValue?: Product | null) => Promise<Product | null> }
-  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: ProductPromiseChain & {
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Promise<MapType<Product, R> | null>
+  }
+  query: QueryPromiseChain & {
+    get: <R extends QueryRequest>(request: R, defaultValue?: MapType<Query, R> | null) => Promise<MapType<Query, R> | null>
+  }
 }
 
 export interface RemoveOneProductPayloadObservableChain {
@@ -4577,57 +5136,107 @@ export interface RemoveOneProductPayloadObservableChain {
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Removed document */
   record: ProductObservableChain & {
-    get: (request: ProductRequest, defaultValue?: Product | null) => Observable<Product | null>
+    get: <R extends ProductRequest>(
+      request: R,
+      defaultValue?: MapType<Product, R> | null,
+    ) => Observable<MapType<Product, R> | null>
   }
-  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & {
+    get: <R extends QueryRequest>(
+      request: R,
+      defaultValue?: MapType<Query, R> | null,
+    ) => Observable<MapType<Query, R> | null>
+  }
 }
 
 export interface CreateOneOrderPayloadPromiseChain {
   /** Created document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Created document */
-  record: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
-  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: OrderPromiseChain & {
+    get: <R extends OrderRequest>(request: R, defaultValue?: MapType<Order, R> | null) => Promise<MapType<Order, R> | null>
+  }
+  query: QueryPromiseChain & {
+    get: <R extends QueryRequest>(request: R, defaultValue?: MapType<Query, R> | null) => Promise<MapType<Query, R> | null>
+  }
 }
 
 export interface CreateOneOrderPayloadObservableChain {
   /** Created document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Created document */
-  record: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }
-  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  record: OrderObservableChain & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order, R> | null,
+    ) => Observable<MapType<Order, R> | null>
+  }
+  query: QueryObservableChain & {
+    get: <R extends QueryRequest>(
+      request: R,
+      defaultValue?: MapType<Query, R> | null,
+    ) => Observable<MapType<Query, R> | null>
+  }
 }
 
 export interface UpdateByIdOrderPayloadPromiseChain {
   /** Updated document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Updated document */
-  record: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
-  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: OrderPromiseChain & {
+    get: <R extends OrderRequest>(request: R, defaultValue?: MapType<Order, R> | null) => Promise<MapType<Order, R> | null>
+  }
+  query: QueryPromiseChain & {
+    get: <R extends QueryRequest>(request: R, defaultValue?: MapType<Query, R> | null) => Promise<MapType<Query, R> | null>
+  }
 }
 
 export interface UpdateByIdOrderPayloadObservableChain {
   /** Updated document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Updated document */
-  record: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }
-  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  record: OrderObservableChain & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order, R> | null,
+    ) => Observable<MapType<Order, R> | null>
+  }
+  query: QueryObservableChain & {
+    get: <R extends QueryRequest>(
+      request: R,
+      defaultValue?: MapType<Query, R> | null,
+    ) => Observable<MapType<Query, R> | null>
+  }
 }
 
 export interface RemoveOneOrderPayloadPromiseChain {
   /** Removed document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Removed document */
-  record: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
-  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  record: OrderPromiseChain & {
+    get: <R extends OrderRequest>(request: R, defaultValue?: MapType<Order, R> | null) => Promise<MapType<Order, R> | null>
+  }
+  query: QueryPromiseChain & {
+    get: <R extends QueryRequest>(request: R, defaultValue?: MapType<Query, R> | null) => Promise<MapType<Query, R> | null>
+  }
 }
 
 export interface RemoveOneOrderPayloadObservableChain {
   /** Removed document ID */
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Removed document */
-  record: OrderObservableChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null> }
-  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  record: OrderObservableChain & {
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order, R> | null,
+    ) => Observable<MapType<Order, R> | null>
+  }
+  query: QueryObservableChain & {
+    get: <R extends QueryRequest>(
+      request: R,
+      defaultValue?: MapType<Query, R> | null,
+    ) => Observable<MapType<Query, R> | null>
+  }
 }
 
 export interface UpdateByIdEmployeePayloadPromiseChain {
@@ -4635,9 +5244,14 @@ export interface UpdateByIdEmployeePayloadPromiseChain {
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
   /** Updated document */
   record: EmployeePromiseChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Promise<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Promise<MapType<Employee, R> | null>
   }
-  query: QueryPromiseChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Promise<Query | null> }
+  query: QueryPromiseChain & {
+    get: <R extends QueryRequest>(request: R, defaultValue?: MapType<Query, R> | null) => Promise<MapType<Query, R> | null>
+  }
 }
 
 export interface UpdateByIdEmployeePayloadObservableChain {
@@ -4645,23 +5259,41 @@ export interface UpdateByIdEmployeePayloadObservableChain {
   recordId: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
   /** Updated document */
   record: EmployeeObservableChain & {
-    get: (request: EmployeeRequest, defaultValue?: Employee | null) => Observable<Employee | null>
+    get: <R extends EmployeeRequest>(
+      request: R,
+      defaultValue?: MapType<Employee, R> | null,
+    ) => Observable<MapType<Employee, R> | null>
   }
-  query: QueryObservableChain & { get: (request: QueryRequest, defaultValue?: Query | null) => Observable<Query | null> }
+  query: QueryObservableChain & {
+    get: <R extends QueryRequest>(
+      request: R,
+      defaultValue?: MapType<Query, R> | null,
+    ) => Observable<MapType<Query, R> | null>
+  }
 }
 
 export interface SubscriptionPromiseChain {
-  orderCreated: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
-  orderUpdated: OrderPromiseChain & { get: (request: OrderRequest, defaultValue?: Order | null) => Promise<Order | null> }
+  orderCreated: OrderPromiseChain & {
+    get: <R extends OrderRequest>(request: R, defaultValue?: MapType<Order, R> | null) => Promise<MapType<Order, R> | null>
+  }
+  orderUpdated: OrderPromiseChain & {
+    get: <R extends OrderRequest>(request: R, defaultValue?: MapType<Order, R> | null) => Promise<MapType<Order, R> | null>
+  }
   orderRemoved: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Promise<MongoID | null> }
 }
 
 export interface SubscriptionObservableChain {
   orderCreated: OrderObservableChain & {
-    get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order, R> | null,
+    ) => Observable<MapType<Order, R> | null>
   }
   orderUpdated: OrderObservableChain & {
-    get: (request: OrderRequest, defaultValue?: Order | null) => Observable<Order | null>
+    get: <R extends OrderRequest>(
+      request: R,
+      defaultValue?: MapType<Order, R> | null,
+    ) => Observable<MapType<Order, R> | null>
   }
   orderRemoved: { get: (request?: boolean | number, defaultValue?: MongoID | null) => Observable<MongoID | null> }
 }

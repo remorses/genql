@@ -34,18 +34,23 @@ export const objectType = (
     const argsOptional = !field.args.find(a => isNonNullType(a.type))
     const argsString = toArgsString(field)
 
-    const executeReturnType = `${renderTyping(field.type, false, false, false)}`
-    const executeReturnTypeWrapped = `${wrapper}<${executeReturnType}>`
+    const executeReturnType = renderTyping(field.type, false, false, false, )
+    const executeReturnTypeWithTypeMap = renderTyping(field.type, false, false, false, (x:string) => `MapType<${x}, R>` )
+    
+    // get: <R extends CreateOneOrderPayloadRequest>(
+    //     request: R,
+    //     defaultValue?: CreateOneOrderPayload | null,
+    //   ) => Promise<MapType<CreateOneOrderPayload, R>  | null>
 
+    // TODO refoactor this function
+    const getFnType = `{get:<R extends ${requestTypeName(
+        resolvedType,
+      )}>(request: R, defaultValue?:${executeReturnTypeWithTypeMap})=>${wrapper}<${executeReturnTypeWithTypeMap}>}`
     const fieldType = resolvable
       ? stopChain
-        ? `{get:(request:${requestTypeName(
-            resolvedType,
-          )},defaultValue?:${executeReturnType})=>${executeReturnTypeWrapped}}`
-        : `${chainTypeName(resolvedType, wrapper)}&{get:(request:${requestTypeName(
-            resolvedType,
-          )},defaultValue?:${executeReturnType})=>${executeReturnTypeWrapped}}`
-      : `{get:(request?:boolean|number,defaultValue?:${executeReturnType})=>${executeReturnTypeWrapped}}`
+        ? getFnType
+        : `${chainTypeName(resolvedType, wrapper)} & ${getFnType}`
+      : `{get:(request?:boolean|number,defaultValue?:${executeReturnType})=>${wrapper}<${executeReturnType}>}`
 
     const result = []
 
@@ -59,6 +64,8 @@ export const objectType = (
 
     return `${fieldComment(field)}${field.name}:${result.join('&')}`
   })
+
+  ctx.addImport(RUNTIME_LIB_NAME, false, 'MapType', true, true)
 
   if (wrapper === 'Observable') {
     ctx.addImport(RUNTIME_LIB_NAME, false, 'Observable', true, true)
