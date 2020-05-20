@@ -4607,6 +4607,13 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+genql@*:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/genql/-/genql-2.0.0.tgz#7ab794fe086d2fbb3b1efcf4e4dbe53e6e4ff743"
+  integrity sha512-2pYEVlTedUqfPddobI6UNlTwFBmuZSGwnEFB0iuv5gHAhxG/kabv/dpD60DHXmkV5xcvAp/sT+12HQzMe9kcgQ==
+  dependencies:
+    lodash "^4.17.15"
+
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269"
