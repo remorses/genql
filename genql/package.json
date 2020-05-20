@@ -1,5 +1,5 @@
 {
-    "name": "genql",
+    "name": "genql-cli",
     "_": "[bump]",
     "version": "0.0.1",
     "description": "",
