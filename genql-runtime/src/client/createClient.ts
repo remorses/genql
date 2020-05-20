@@ -7,17 +7,17 @@ import { chain } from './chain'
 import { LinkedType } from './linkTypeMap'
 import { Fields, requestToGql } from './requestToGql'
 import { MapType } from './typeSelection'
+import { Observable, ObservableLike } from 'zen-observable-ts'
 import {
-    Observable,
-    Observer,
     ClientOptions as SubscirptionOptions,
     SubscriptionClient,
 } from 'subscriptions-transport-ws'
+import { ExecutionResult } from 'graphql'
 
 export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
     query<R extends QR>(request: R): Promise<MapType<Q, R>>
     mutation<R extends MR>(request: R): Promise<MapType<M, R>>
-    subscription<R extends SR>(request: R): Observable<MapType<S, R>>
+    subscription<R extends SR>(request: R): ObservableLike<MapType<S, R>>
     chain: {
         query: QC
         mutation: MC
@@ -135,29 +135,17 @@ export const createClient = <
             if (!subClient) throw subClientError
 
             const op = requestToGql('subscription', subscriptionRoot, request)
-            return {
-                subscribe: (observer: Observer<any>) => {
-                    return subClient.request(op).subscribe({
-                        next: (val) => {
-                            if (
-                                val?.errors?.length &&
-                                val?.errors?.length > 0
-                            ) {
-                                observer?.error?.(
-                                    new ClientError(
-                                        `Subscription errors`,
-                                        val?.errors,
-                                    ),
-                                )
-                                return
-                            }
-                            observer.next?.(val.data)
-                        },
-                        error: (e) => observer.error?.(e),
-                        complete: () => observer.complete?.(),
-                    })
+            return Observable.from(subClient.request(op) as any).map(
+                (val: ExecutionResult<any>) => {
+                    if (val?.errors?.length && val?.errors?.length > 0) {
+                        throw new ClientError(
+                            `Subscription errors`,
+                            val?.errors,
+                        )
+                    }
+                    return val
                 },
-            }
+            )
         },
     }
     return {
@@ -178,18 +166,7 @@ export const createClient = <
             subscription: <any>chain((path, request, defaultValue) => {
                 const obs = funcs.subscription(request)
                 const mapper = mapResponse(path, defaultValue)
-                return {
-                    subscribe: (observer: Observer<any>) => {
-                        return obs.subscribe({
-                            next: (val) => {
-                                const res = mapper(val)
-                                observer.next?.(res)
-                            },
-                            error: (e) => observer.error?.(e),
-                            complete: () => observer.complete?.(),
-                        })
-                    },
-                }
+                return Observable.from(obs).map(mapper)
             }),
         },
     }

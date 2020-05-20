@@ -58,7 +58,8 @@
         "lodash.startswith": "^4.2.1",
         "subscriptions-transport-ws": "^0.9.16",
         "utility-types": "^3.10.0",
-        "ws": "^6.1.4"
+        "ws": "^6.1.4",
+        "zen-observable-ts": "^0.8.21"
     },
     "jest": {
         "transform": {
