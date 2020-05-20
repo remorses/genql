@@ -4,7 +4,6 @@
     "version": "0.0.1",
     "description": "",
     "main": "dist/index.js",
-    "module": "dist/genql.esm.js",
     "types": "dist/index.d.ts",
     "mocha": {
         "require": "tests/init.js",
@@ -21,7 +20,7 @@
     ],
     "scripts": {
         "start": "tsdx watch",
-        "build": "tsdx build",
+        "build": "tsc",
         "jest": "jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"
