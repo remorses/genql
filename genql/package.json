@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "description": "",
     "main": "dist/index.js",
-    "module": "dist/index.esm.js",
+    "module": "dist/genql.esm.js",
     "types": "dist/index.d.ts",
     "mocha": {
         "require": "tests/init.js",
