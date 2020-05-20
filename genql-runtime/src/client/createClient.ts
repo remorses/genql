@@ -9,7 +9,7 @@ import { Fields, requestToGql } from './requestToGql'
 import { MapType } from './typeSelection'
 import { Observable, ObservableLike } from 'zen-observable-ts'
 import {
-    ClientOptions as SubscirptionOptions,
+    ClientOptions as SubscriptionOptions,
     SubscriptionClient,
 } from 'subscriptions-transport-ws'
 import { ExecutionResult } from 'graphql'
@@ -28,7 +28,7 @@ export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
 export interface ClientOptions {
     fetcher?: Fetcher
     subscriptionUrl?: string
-    subscriptionOptions?: SubscirptionOptions & { url: string }
+    subscriptionOptions?: SubscriptionOptions & { url: string }
 }
 
 export interface ClientEmbeddedOptions {
@@ -38,7 +38,7 @@ export interface ClientEmbeddedOptions {
 }
 
 function getSubscriptionClient(
-    opts?: SubscirptionOptions & { url: string },
+    opts?: SubscriptionOptions & { url: string },
 ): [SubscriptionClient, Error] {
     if (!opts?.url) {
         return [
