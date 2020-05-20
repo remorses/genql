@@ -16,7 +16,8 @@
     },
     "files": [
         "/dist/*",
-        "/esm/*"
+        "/esm/*",
+        "src"
     ],
     "scripts": {
         "start": "tsdx watch",

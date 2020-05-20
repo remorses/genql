@@ -1,0 +1,31 @@
+name: Genql Npm Package
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - genql/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: cd genql && yarn
+      - run: yarn jest
+      - run: cd genql && yarn build
+      - name: Bump version
+        uses: remorses/bump-version@js
+        with:
+          version_file: genql/VERSION
+          prefix: genql
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: cd genql && yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
