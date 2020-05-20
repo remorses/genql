@@ -12,7 +12,7 @@
         "timeout": 9999999999
     },
     "bin": {
-        "generate-graphql-client": "./dist/cli.js"
+        "genql": "./dist/cli.js"
     },
     "files": [
         "/dist/*",
