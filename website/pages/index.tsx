@@ -1,4 +1,13 @@
-import { AspectRatioBox, Box, Image, Stack, Flex } from '@chakra-ui/core'
+import {
+    AspectRatioBox,
+    Box,
+    Image,
+    Stack,
+    Flex,
+    InputGroup,
+    InputLeftAddon,
+    Input,
+} from '@chakra-ui/core'
 import {
     FaArrowRight as ArrowRight,
     FaReact as ReactIcon,
@@ -47,17 +56,40 @@ const BG =
 const MainForm = ({ ...rest }) => {
     return (
         <Stack
-            spacing='100px'
-            justify='center'
-            align='center'
+            spacing='40px'
+            // justify='center'
+            p='40px'
+            direction='row'
+            align='flex-end'
             borderRadius='10px'
             shadow='xl'
             bg='white'
             minH='100px'
             minW='400px'
             {...rest}
-        ></Stack>
+        >
+            <Stack>
+                <Label>Generated package name</Label>
+                <InputGroup>
+                    <InputLeftAddon children='@genql/' />
+                    <Input
+                        roundedLeft='0'
+                        type='text'
+                        placeholder='Package Name'
+                    />
+                </InputGroup>
+            </Stack>
+            <Stack>
+                <Label>Graphql api endpoint</Label>
+                <Input type='url' placeholder='https://your-graphql-api' />
+            </Stack>
+            <Button>Generate Graphql client</Button>
+        </Stack>
     )
+}
+
+const Label = (props) => {
+    return <Box opacity={0.8} {...props} />
 }
 
 const Page = () => (
