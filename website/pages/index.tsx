@@ -113,6 +113,20 @@ const MainForm = ({ ...rest }) => {
     )
 }
 
+const CodeBackground = (props) => {
+    return (
+        <Stack
+            align='center'
+            justify='center'
+            w='400px'
+            h='300px'
+            borderRadius='10px'
+            bg='white'
+            {...props}
+        />
+    )
+}
+
 const Label = (props) => {
     return <Box opacity={0.5} {...props} />
 }
@@ -163,26 +177,37 @@ const Page = () => (
                     // image={<Image h='200px' w='300px' src='/robot.svg' />}
                     image={
                         <Box>
-                            <Keyframes>
-                                <Frame duration={3000}>
-                                    <CodeSnippet
-                                        dark
-                                        bg='gray.700'
-                                        language='bash'
-                                        isTyping
-                                        code='npm i @genql/my-package'
-                                    />
-                                </Frame>
-                                <Frame duration={500}>
-                                    <Faded>
-                                        <CodeSnippet
-                                            language='javascript'
-                                            isTyping
-                                            code={jsQueryCode}
-                                        />
-                                    </Faded>
-                                </Frame>
-                            </Keyframes>
+                            <PatternBackground
+                                pattern='diagonalLinesSm'
+                                color='gray.200'
+                                scatter={20}
+                            >
+                                <Keyframes>
+                                    <Frame duration={2000}>
+                                        <Faded>
+                                            <CodeSnippet
+                                                key='1'
+                                                dark
+                                                bg='gray.700'
+                                                shadow='xl'
+                                                language='bash'
+                                                isTyping
+                                                code='npm i @genql/my-package'
+                                            />
+                                        </Faded>
+                                    </Frame>
+                                    <Frame duration={500}>
+                                        <Faded>
+                                            <CodeSnippet
+                                                key='2'
+                                                language='javascript'
+                                                isTyping
+                                                code={jsQueryCode}
+                                            />
+                                        </Faded>
+                                    </Frame>
+                                </Keyframes>
+                            </PatternBackground>
                         </Box>
                     }
                     // cta={<Button>Try Genql in 5 minutes</Button>}
