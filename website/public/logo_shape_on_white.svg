@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="219px" height="186px" viewBox="0 0 219 186" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>logo_shape_on_white</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-399.000000, -178.000000)">
+            <g id="logo_on_white" transform="translate(373.000000, 166.000000)">
+                <g id="logo_shape_on_white">
+                    <g id="Triangle-2" transform="translate(48.000000, 26.000000)"></g>
+                    <line x1="51" y1="56.3215793" x2="113.123009" y2="18.8775741" id="Line-3" stroke="#D566C5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></line>
+                    <line x1="159.372044" y1="55.3910697" x2="221.495053" y2="17.9470645" id="Line-3-Copy" stroke="#D566C5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" transform="translate(190.433549, 36.669067) rotate(61.000000) translate(-190.433549, -36.669067) "></line>
+                    <line x1="1.73646931" y1="147.689451" x2="63.8594779" y2="110.245446" id="Line-3-Copy" stroke="#D566C5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" transform="translate(32.797974, 128.967448) rotate(301.000000) translate(-32.797974, -128.967448) "></line>
+                    <line x1="207.736469" y1="148.689451" x2="269.859478" y2="111.245446" id="Line-3-Copy-2" stroke="#D566C5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" transform="translate(238.797974, 129.967448) rotate(301.000000) translate(-238.797974, -129.967448) "></line>
+                    <path d="M138,49 L56,193 L138,49 Z" id="Triangle" stroke="#D566C5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                    <path d="M137,49 L219,191 L137,49 Z" id="Triangle" stroke="#D566C5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                    <line x1="220" y1="193" x2="57" y2="193" id="Triangle" stroke="#D566C5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -13,10 +13,16 @@
     "timeout": 9999999999
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27",
     "genql": "*",
+    "landing-blocks": "^1.0.27",
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-icons": "^3.10.0",
     "tmp-promise": "^3.0.2"
   },
   "devDependencies": {

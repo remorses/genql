@@ -1,209 +1,234 @@
-import Head from 'next/head'
+import { AspectRatioBox, Box, Image, Stack, Flex } from '@chakra-ui/core'
+import {
+    FaArrowRight as ArrowRight,
+    FaReact as ReactIcon,
+    FaAngular as AngularIcon,
+    FaNode as NodeIcon,
+    FaNodeJs as NodeIcon2,
+    FaServer as OtherIcon,
+} from 'react-icons/fa'
+import {
+    Banner,
+    Button,
+    CodeSnippet,
+    Feature,
+    Footer,
+    Heading,
+    Hero,
+    LandingProvider,
+    NavBar,
+    SectionTitle,
+    PageContainer,
+    Section,
+    TestimonialsLogos,
+    Divider,
+} from 'landing-blocks'
+import React, { Fragment } from 'react'
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const jsQueryCode = `
+// Creating a new record
+await Genql.users.create({
+  data: {
+    firstName: "Alice",
+    email: "alice@Genql.io",
+    active: true,
+  }
+})`
+const gqlQueryCode = `
+query {
+    User {
+        ciao
+    }
+}`
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+const BG =
+    'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+const MainForm = ({ ...rest }) => {
+    return (
+        <Stack
+            spacing='100px'
+            justify='center'
+            align='center'
+            borderRadius='10px'
+            shadow='xl'
+            bg='white'
+            minH='100px'
+            minW='400px'
+            {...rest}
+        ></Stack>
+    )
 }
+
+const Page = () => (
+    <Fragment>
+        <LandingProvider primary='#48BB79'>
+            <Stack
+                spacing='60px'
+                position='relative'
+                background={BG}
+                backgroundSize='cover'
+            >
+                <NavBar
+                    dark
+                    logo={
+                        <Box fontWeight='medium' fontSize='24px'>
+                            Genql
+                        </Box>
+                        // <Image
+                        //     width='120px'
+                        //     stroke='#000'
+                        //     src='/logo_on_black.svg'
+                        // />
+                    }
+                    navs={[
+                        <a>Features</a>,
+                        <a>Use Cases</a>,
+                        <a>Pricing</a>,
+                        <a>About Us</a>,
+                        <a>Login</a>,
+                    ]}
+                />
+                <Hero
+                    bullet='Introducing Genql 1.0'
+                    dark
+                    heading={
+                        <Heading maxW='600px' fontSize='50px'>
+                            Graphql queries as code
+                        </Heading>
+                    }
+                    subheading={
+                        <Fragment>
+                            Get a full featured graphql client
+                            <br />
+                            from your graphql schema
+                        </Fragment>
+                    }
+                    image={<Image w='300px' src='/logo_shape_on_white.svg' />}
+                    // cta={<Button>Try Genql in 5 minutes</Button>}
+                    // fingerprint='Already using Genql? Sign in'
+                />
+                <Divider dark heading='works everywhere' />
+                <TestimonialsLogos
+                    dark
+                    // heading='Works everywhere'
+                    // subheading='browser and node environments'
+                    testimonials={[
+                        <Box size='90px' as={ReactIcon} />,
+                        <Box size='90px' as={AngularIcon} />,
+                        <Box size='90px' as={NodeIcon} />,
+                        <Box size='90px' as={OtherIcon} />,
+                        <Box size='90px' as={NodeIcon2} />,
+                    ]}
+                />
+
+                {/* cta form  */}
+                <Flex justify='center'>
+                    <MainForm alignSelf='center' mb='-60px' />
+                </Flex>
+            </Stack>
+
+            {/* code snippets */}
+            <Box mt='60px' />
+            <SectionTitle
+                heading='Generate a client for your graphql api'
+                subheading='From js to graphql'
+            />
+            <PageContainer>
+                <Stack
+                    spacing='40px'
+                    justify='center'
+                    flexDir={['column', null, 'row']}
+                    direction='row'
+                    align='center'
+                >
+                    <CodeSnippet
+                        shadow='lg'
+                        lineNumbers
+                        w='500px'
+                        h='300px'
+                        code={jsQueryCode}
+                        language='javascript'
+                    />
+                    <Box
+                        opacity={0.6}
+                        size='30px'
+                        color='primary'
+                        as={ArrowRight}
+                    />
+                    <CodeSnippet
+                        dark
+                        shadow='xl'
+                        lineNumbers
+                        w='500px'
+                        h='300px'
+                        code={gqlQueryCode}
+                        language='graphql'
+                    />
+                </Stack>
+            </PageContainer>
+
+            <Box mt='60px' />
+            <Section degree={1} background='#0d0f14'>
+                <Feature
+                    dark
+                    flip
+                    heading='Auto completion for your queries'
+                    subheading='Genql generates a typescript client modeled on your graphql schema, this means that it supports autocompletion.'
+                    image={
+                        <Image
+                            h='300px'
+                            borderRadius='10px'
+                            shadow='lg'
+                            src='/auto-completions.png'
+                        />
+                    }
+                />
+                <Feature
+                    dark
+                    heading='Queries validated by typescript'
+                    subheading='Genql is the perfect companion for building web APIs. It saves repetitive CRUD boilerplate and provides a flexible API for common use cases such as pagination and filtering.'
+                    image={
+                        <Image
+                            h='300px'
+                            borderRadius='10px'
+                            shadow='lg'
+                            src='/auto-completions.png'
+                        />
+                    }
+                />
+            </Section>
+            <Banner
+                heading='Add Genql to Your App or Start From Scratch'
+                bullet='READY TO TRY?'
+                bg='transparent'
+                image={
+                    <Image ml='-60px' width='200px' src='/bannerImage.svg' />
+                }
+                cta={<Button>Try Genql in 5 minutes</Button>}
+            />
+            <Footer
+                businessName='Prismic'
+                columns={{
+                    Developers: [
+                        <a>Quickstart</a>,
+                        <a>Documentation</a>,
+                        <a>Samples</a>,
+                    ],
+                    Company: [
+                        <a>Quickstart</a>,
+                        <a>Documentation</a>,
+                        <a>Samples</a>,
+                    ],
+                    Product: [
+                        <a>Quickstart</a>,
+                        <a>Documentation</a>,
+                        <a>Samples</a>,
+                    ],
+                }}
+            />
+        </LandingProvider>
+    </Fragment>
+)
+
+export default Page
