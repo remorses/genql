@@ -78,7 +78,7 @@ const MainForm = ({ ...rest }) => {
             <Stack direction='row' align='flex-end'>
                 <Stack>
                     <Label>Npm package name</Label>
-                    <InputGroup>
+                    <InputGroup shadow='md'>
                         <InputLeftAddon>
                             <Box opacity={0.6}>@genql/</Box>
                         </InputLeftAddon>
@@ -92,12 +92,13 @@ const MainForm = ({ ...rest }) => {
                 <Stack>
                     <Label>Your Graphql api endpoint</Label>
                     <Input
+                        shadow='md'
                         minW='300px'
                         type='url'
                         placeholder='https://your-graphql-api'
                     />
                 </Stack>
-                <Button>Generate Graphql client</Button>
+                <Button shadow='md'>Generate Graphql client</Button>
             </Stack>
         </Stack>
     )
