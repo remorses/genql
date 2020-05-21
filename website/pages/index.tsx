@@ -35,6 +35,7 @@ import {
     Section,
     TestimonialsLogos,
     Divider,
+    PatternBackground,
 } from 'landing-blocks'
 import React, { Fragment } from 'react'
 
@@ -255,12 +256,14 @@ const Page = () => (
                     heading='Auto completion for your queries'
                     subheading='Genql generates a typescript client modeled on your graphql schema, this means that it supports autocompletion.'
                     image={
-                        <Image
-                            h='300px'
-                            borderRadius='10px'
-                            shadow='lg'
-                            src='/auto-completions.png'
-                        />
+                        <PatternBackground pattern='diagonalLinesSm' scatter={20} color='grey.100'>
+                            <Image
+                                h='300px'
+                                borderRadius='10px'
+                                shadow='lg'
+                                src='/auto-completions.png'
+                            />
+                        </PatternBackground>
                     }
                 />
                 <Feature
@@ -268,12 +271,14 @@ const Page = () => (
                     heading='Queries validated by typescript'
                     subheading='Genql is the perfect companion for building web APIs. It saves repetitive CRUD boilerplate and provides a flexible API for common use cases such as pagination and filtering.'
                     image={
-                        <Image
-                            h='300px'
-                            borderRadius='10px'
-                            shadow='lg'
-                            src='/auto-completions.png'
-                        />
+                        <PatternBackground pattern='diagonalLinesSm' scatter={20} color='gray.300'>
+                            <Image
+                                h='300px'
+                                borderRadius='10px'
+                                shadow='lg'
+                                src='/auto-completions.png'
+                            />
+                        </PatternBackground>
                     }
                 />
             </Section>
