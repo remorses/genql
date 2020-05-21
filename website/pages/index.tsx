@@ -69,9 +69,11 @@ const MainForm = ({ ...rest }) => {
             {...rest}
         >
             <Stack>
-                <Label>Generated package name</Label>
+                <Label>Npm package name</Label>
                 <InputGroup>
-                    <InputLeftAddon children='@genql/' />
+                    <InputLeftAddon>
+                        <Box opacity={0.6}>@genql/</Box>
+                    </InputLeftAddon>
                     <Input
                         roundedLeft='0'
                         type='text'
@@ -80,8 +82,12 @@ const MainForm = ({ ...rest }) => {
                 </InputGroup>
             </Stack>
             <Stack>
-                <Label>Graphql api endpoint</Label>
-                <Input type='url' placeholder='https://your-graphql-api' />
+                <Label>Your Graphql api endpoint</Label>
+                <Input
+                    minW='300px'
+                    type='url'
+                    placeholder='https://your-graphql-api'
+                />
             </Stack>
             <Button>Generate Graphql client</Button>
         </Stack>
