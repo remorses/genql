@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
 import { promises as fs } from 'fs'
-import { generateProject } from 'genql/src/main'
+import { generateProject } from 'genql-cli/src/main'
 import tmp from 'tmp-promise'
 import { rollup } from 'rollup'
 import { exec } from 'child_process'

@@ -1,6 +1,6 @@
 {
     "private": true,
-    "workspaces": ["genql", "example", "website", "genql-runtime"],
+    "workspaces": ["genql-cli", "example", "website", "genql-runtime"],
     "scripts": {
         "play": "node -r sucrase/register genql/src/cli.ts",
         "compile": "cd genql && tsc --incremental && cd ../genql-runtime && tsc --incremental",
