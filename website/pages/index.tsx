@@ -59,8 +59,6 @@ const MainForm = ({ ...rest }) => {
             spacing='40px'
             // justify='center'
             p='40px'
-            direction='row'
-            align='flex-end'
             borderRadius='10px'
             shadow='xl'
             bg='white'
@@ -68,39 +66,50 @@ const MainForm = ({ ...rest }) => {
             minW='400px'
             {...rest}
         >
-            <Stack>
-                <Label>Npm package name</Label>
-                <InputGroup>
-                    <InputLeftAddon>
-                        <Box opacity={0.6}>@genql/</Box>
-                    </InputLeftAddon>
+            <Box
+                color='primary'
+                fontWeight='medium'
+                fontSize='text'
+                opacity={0.6}
+                textAlign='center'
+            >
+                Get a full featured graphql client from your graphql schema
+            </Box>
+            <Stack direction='row' align='flex-end'>
+                <Stack>
+                    <Label>Npm package name</Label>
+                    <InputGroup>
+                        <InputLeftAddon>
+                            <Box opacity={0.6}>@genql/</Box>
+                        </InputLeftAddon>
+                        <Input
+                            roundedLeft='0'
+                            type='text'
+                            placeholder='Package Name'
+                        />
+                    </InputGroup>
+                </Stack>
+                <Stack>
+                    <Label>Your Graphql api endpoint</Label>
                     <Input
-                        roundedLeft='0'
-                        type='text'
-                        placeholder='Package Name'
+                        minW='300px'
+                        type='url'
+                        placeholder='https://your-graphql-api'
                     />
-                </InputGroup>
+                </Stack>
+                <Button>Generate Graphql client</Button>
             </Stack>
-            <Stack>
-                <Label>Your Graphql api endpoint</Label>
-                <Input
-                    minW='300px'
-                    type='url'
-                    placeholder='https://your-graphql-api'
-                />
-            </Stack>
-            <Button>Generate Graphql client</Button>
         </Stack>
     )
 }
 
 const Label = (props) => {
-    return <Box opacity={0.8} {...props} />
+    return <Box opacity={0.5} {...props} />
 }
 
 const Page = () => (
     <Fragment>
-        <LandingProvider primary='#48BB79'>
+        <LandingProvider primary='#D566C5'>
             <Stack
                 spacing='60px'
                 position='relative'
