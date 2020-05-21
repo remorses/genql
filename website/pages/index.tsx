@@ -75,7 +75,7 @@ const MainForm = ({ ...rest }) => {
                 textAlign='center'
             >
                 <Box>
-                    Get a full featured graphql client from your graphql schema.
+                    Generate a typed graphql client from your graphql api.
                 </Box>
                 {/* <Code>npm install @genql/package-name</Code> */}
             </Box>
@@ -102,7 +102,7 @@ const MainForm = ({ ...rest }) => {
                         placeholder='https://your-graphql-api'
                     />
                 </Stack>
-                <Button shadow='md'>Generate Graphql client</Button>
+                <Button shadow='md'>Generate Sdk Package</Button>
             </Stack>
         </Stack>
     )
@@ -151,9 +151,8 @@ const Page = () => (
                     }
                     subheading={
                         <Fragment>
-                            Get a full featured graphql client
-                            <br />
-                            from your graphql schema
+                            Generate a typed graphql client
+                            <br /> from your graphql api.
                         </Fragment>
                     }
                     image={<Image w='300px' src='/logo_shape_on_white.svg' />}
@@ -183,7 +182,7 @@ const Page = () => (
             {/* code snippets */}
             <Box mt='60px' />
             <SectionTitle
-                heading='Generate a client for your graphql api'
+                heading='No more brittle graphql queries string'
                 subheading='From js to graphql'
             />
             <PageContainer>
