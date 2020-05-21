@@ -7,6 +7,7 @@ import {
     InputGroup,
     InputLeftAddon,
     Input,
+    Code,
 } from '@chakra-ui/core'
 import {
     FaArrowRight as ArrowRight,
@@ -67,13 +68,16 @@ const MainForm = ({ ...rest }) => {
             {...rest}
         >
             <Box
-                color='primary'
+                // color='primary'
                 fontWeight='medium'
                 fontSize='text'
                 opacity={0.6}
                 textAlign='center'
             >
-                Get a full featured graphql client from your graphql schema
+                <Box>
+                    Get a full featured graphql client from your graphql schema.
+                </Box>
+                {/* <Code>npm install @genql/package-name</Code> */}
             </Box>
             <Stack direction='row' align='flex-end'>
                 <Stack spacing='10px'>
