@@ -76,7 +76,7 @@ const MainForm = ({ ...rest }) => {
                 Get a full featured graphql client from your graphql schema
             </Box>
             <Stack direction='row' align='flex-end'>
-                <Stack>
+                <Stack spacing='10px'>
                     <Label>Npm package name</Label>
                     <InputGroup shadow='md'>
                         <InputLeftAddon>
@@ -89,7 +89,7 @@ const MainForm = ({ ...rest }) => {
                         />
                     </InputGroup>
                 </Stack>
-                <Stack>
+                <Stack spacing='10px'>
                     <Label>Your Graphql api endpoint</Label>
                     <Input
                         shadow='md'
