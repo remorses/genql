@@ -256,10 +256,14 @@ const Page = () => (
                     heading='Auto completion for your queries'
                     subheading='Genql generates a typescript client modeled on your graphql schema, this means that it supports autocompletion.'
                     image={
-                        <PatternBackground pattern='diagonalLinesSm' scatter={20} color='grey.100'>
+                        <PatternBackground
+                            color='gray.200'
+                            pattern='diagonalLinesSm'
+                            scatter={20}
+                        >
                             <Image
                                 h='300px'
-                                borderRadius='10px'
+                                // borderRadius='10px'
                                 shadow='lg'
                                 src='/auto-completions.png'
                             />
@@ -271,10 +275,14 @@ const Page = () => (
                     heading='Queries validated by typescript'
                     subheading='Genql is the perfect companion for building web APIs. It saves repetitive CRUD boilerplate and provides a flexible API for common use cases such as pagination and filtering.'
                     image={
-                        <PatternBackground pattern='diagonalLinesSm' scatter={20} color='gray.300'>
+                        <PatternBackground
+                            pattern='diagonalLinesSm'
+                            scatter={20}
+                            color='gray.200'
+                        >
                             <Image
                                 h='300px'
-                                borderRadius='10px'
+                                // borderRadius='10px'
                                 shadow='lg'
                                 src='/auto-completions.png'
                             />
