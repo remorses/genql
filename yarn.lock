@@ -2674,6 +2674,16 @@ baby-i-am-faded@^0.0.12:
     react-intersection-observer "^8.26.1"
     react-is "^16.13.1"
 
+baby-i-am-faded@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/baby-i-am-faded/-/baby-i-am-faded-0.0.14.tgz#a2d28b1fb441eb866ba78184e54a8ec68874e34c"
+  integrity sha512-zHr5dIioKwxU5Blkuxl/1ZBVuebM4+5LRZA77TJRW2Dzy34DFMHtyhiMu/MVmHDCyn4+6F2PuGpA5WtdAS+lLQ==
+  dependencies:
+    "@emotion/serialize" "^0.11.16"
+    "@emotion/styled" "^10.0.27"
+    react-intersection-observer "^8.26.1"
+    react-is "^16.13.1"
+
 babylon@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
@@ -9093,6 +9103,11 @@ react-is@16.13.1, react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0, react-
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-keyframes@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/react-keyframes/-/react-keyframes-0.2.3.tgz#1dca7e5684b36718f8080c7cf9bf24ce750b1b38"
+  integrity sha512-bR5Fc6KbdkB62TYNjMP7otlNP3J+4Pmi9HeHxeETiuo6qZg6cdxUe/ZV1+QVvvFccMCap4C84XpFXP/UMhgq3g==
 
 react-mailchimp-subscribe@^2.1.0:
   version "2.1.0"

@@ -9,6 +9,9 @@ import {
     Input,
     Code,
 } from '@chakra-ui/core'
+import { Faded } from 'baby-i-am-faded'
+import { Keyframes, Frame } from 'react-keyframes'
+
 import {
     FaArrowRight as ArrowRight,
     FaReact as ReactIcon,
@@ -44,6 +47,7 @@ await Genql.users.create({
     active: true,
   }
 })`
+
 const gqlQueryCode = `
 query {
     User {
@@ -59,7 +63,7 @@ const MainForm = ({ ...rest }) => {
         <Stack
             spacing='40px'
             // justify='center'
-            p='40px'
+            p='60px'
             borderRadius='10px'
             shadow='xl'
             bg='white'
@@ -155,7 +159,31 @@ const Page = () => (
                             <br /> from your graphql api.
                         </Fragment>
                     }
-                    image={<Image w='300px' src='/logo_shape_on_white.svg' />}
+                    // image={<Image h='200px' w='300px' src='/robot.svg' />}
+                    image={
+                        <Box>
+                            <Keyframes>
+                                <Frame duration={3000}>
+                                    <CodeSnippet
+                                        dark
+                                        bg='gray.700'
+                                        language='bash'
+                                        isTyping
+                                        code='npm i @genql/my-package'
+                                    />
+                                </Frame>
+                                <Frame duration={500}>
+                                    <Faded>
+                                        <CodeSnippet
+                                            language='javascript'
+                                            isTyping
+                                            code={jsQueryCode}
+                                        />
+                                    </Faded>
+                                </Frame>
+                            </Keyframes>
+                        </Box>
+                    }
                     // cta={<Button>Try Genql in 5 minutes</Button>}
                     // fingerprint='Already using Genql? Sign in'
                 />
