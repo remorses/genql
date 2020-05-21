@@ -40,7 +40,7 @@ import {
 import React, { Fragment } from 'react'
 
 const jsQueryCode = `
-// Creating a new record
+import { genql } from '@genql/my-lib'
 await Genql.users.create({
   data: {
     firstName: "Alice",
@@ -107,23 +107,11 @@ const MainForm = ({ ...rest }) => {
                         placeholder='https://your-graphql-api'
                     />
                 </Stack>
-                <Button shadow='md'>Generate Sdk Package</Button>
+                <Button animate shadow='md'>
+                    Generate Sdk Package
+                </Button>
             </Stack>
         </Stack>
-    )
-}
-
-const CodeBackground = (props) => {
-    return (
-        <Stack
-            align='center'
-            justify='center'
-            w='400px'
-            h='300px'
-            borderRadius='10px'
-            bg='white'
-            {...props}
-        />
     )
 }
 
@@ -216,6 +204,7 @@ const Page = () => (
                 <Divider dark heading='works everywhere' />
                 <TestimonialsLogos
                     dark
+                    animate
                     // heading='Works everywhere'
                     // subheading='browser and node environments'
                     testimonials={[
@@ -241,6 +230,10 @@ const Page = () => (
             />
             <PageContainer>
                 <Stack
+                    as={Faded}
+                    // @ts-ignore
+                    cascade
+                    // @ts-ignore
                     spacing='40px'
                     justify='center'
                     flexDir={['column', null, 'row']}
@@ -248,7 +241,8 @@ const Page = () => (
                     align='center'
                 >
                     <CodeSnippet
-                        shadow='lg'
+                        // bg='gray.200'
+                        shadow='xl'
                         lineNumbers
                         w='500px'
                         h='300px'
