@@ -18,11 +18,13 @@
     "@emotion/styled": "^10.0.27",
     "baby-i-am-faded": "^0.0.14",
     "emotion-theming": "^10.0.27",
+    "final-form": "^4.19.1",
     "genql-cli": "*",
     "landing-blocks": "^1.0.27",
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-final-form": "^6.4.0",
     "react-icons": "^3.10.0",
     "react-keyframes": "^0.2.3",
     "tmp-promise": "^3.0.2"
