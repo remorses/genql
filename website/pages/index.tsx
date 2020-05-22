@@ -9,7 +9,11 @@ import {
     Input,
     Code,
     StackProps,
+    Spinner,
 } from '@chakra-ui/core'
+require('isomorphic-fetch')
+
+import Router from 'next/router'
 import { Faded } from 'baby-i-am-faded'
 import { Field, Form, FormProps, useField } from 'react-final-form'
 import { Keyframes, Frame } from 'react-keyframes'
@@ -61,9 +65,18 @@ query {
 const BG =
     'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
 
-async function pusblishPackage(values) {
-    alert('pub ' + JSON.stringify(values, null, 4))
-    // TODO redirect to result page
+async function publishPackage(values: MainFormData) {
+    console.log('sending ' + JSON.stringify(values, null, 4))
+    const res = await fetch('/api/generate', {
+        body: JSON.stringify(values),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'POST',
+    })
+    const json = await res.json()
+    console.log('received ' + JSON.stringify(json, null, 4))
+    await Router.push({ query: { name: json.name }, pathname: '/ok' })
 }
 
 export const ValidationError = ({ name, ...rest }) => {
@@ -73,7 +86,7 @@ export const ValidationError = ({ name, ...rest }) => {
     if (touched && error) {
         return (
             <Box
-                bottom='-0px'
+                bottom='-50px'
                 position='absolute'
                 minH='40px'
                 color='red.500'
@@ -86,11 +99,19 @@ export const ValidationError = ({ name, ...rest }) => {
     return null
 }
 
-async function validate(data) {
-    const errors: any = {}
-    errors.name = 'error catched'
-    errors.endpoint = 'error catched\n dsfkl a'
-    // TODO check the endpoint is an url
+export type MainFormData = {
+    name: string
+    endpoint: string
+}
+
+async function validate(data: Partial<MainFormData>) {
+    const errors: Partial<MainFormData> = {}
+    if (!data.name) {
+        errors.name = 'name required'
+    }
+    if (!data.endpoint) {
+        errors.endpoint = 'url required'
+    }
     // TODO check if the name already exists
     return errors
 }
@@ -99,87 +120,115 @@ const MainForm = ({ ...rest }: StackProps) => {
     return (
         <Form
             validate={validate}
-            onSubmit={pusblishPackage}
-            render={({ handleSubmit }) => (
-                <Stack
-                    spacing='40px'
-                    // justify='center'
-                    p='60px'
-                    borderRadius='10px'
-                    shadow='xl'
-                    bg='white'
-                    minH='100px'
-                    minW='400px'
-                    {...rest}
-                >
-                    <Box
-                        // color='primary'
-                        fontWeight='medium'
-                        fontSize='text'
-                        opacity={0.6}
-                        textAlign='center'
+            onSubmit={publishPackage}
+            render={({ handleSubmit, submitting }) => {
+                return (
+                    <Stack
+                        spacing='40px'
+                        // justify='center'
+                        p='60px'
+                        borderRadius='10px'
+                        shadow='xl'
+                        bg='white'
+                        minH='100px'
+                        minW='400px'
+                        {...rest}
                     >
-                        <Box>
-                            Generate a typed graphql client from your graphql
-                            api.
-                        </Box>
-                        {/* <Code>npm install @genql/package-name</Code> */}
-                    </Box>
-                    <Stack direction='row' align='flex-end'>
-                        <Stack spacing='10px'>
-                            <Label>Npm package name</Label>
-                            <Field
-                                name='name'
-                                render={({ input, meta }) => (
-                                    <InputGroup shadow='md'>
-                                        <InputLeftAddon>
-                                            <Box opacity={0.6}>@genql/</Box>
-                                        </InputLeftAddon>
+                        {submitting && (
+                            <Stack
+                                // color='primary'
+                                align='center'
+                                justify='center'
+                                fontWeight='medium'
+                                fontSize='text'
+                                spacing='40px'
+                                opacity={0.6}
+                                textAlign='center'
+                            >
+                                <Box>Generating the sdk package</Box>
+                                <Spinner />
+                                {/* <Code>npm install @genql/package-name</Code> */}
+                            </Stack>
+                        )}
+                        {!submitting && (
+                            <Fragment>
+                                <Box
+                                    // color='primary'
+                                    fontWeight='medium'
+                                    fontSize='text'
+                                    opacity={0.6}
+                                    textAlign='center'
+                                >
+                                    <Box>
+                                        Generate a typed graphql client from
+                                        your graphql api.
+                                    </Box>
+                                    {/* <Code>npm install @genql/package-name</Code> */}
+                                </Box>
+                                <Stack direction='row' align='flex-end'>
+                                    <Stack position='relative' spacing='10px'>
+                                        <Label>Npm package name</Label>
+                                        <Field
+                                            name='name'
+                                            render={({ input, meta }) => (
+                                                <InputGroup shadow='md'>
+                                                    <InputLeftAddon>
+                                                        <Box opacity={0.6}>
+                                                            @genql/
+                                                        </Box>
+                                                    </InputLeftAddon>
 
-                                        <Input
-                                            {...input}
-                                            isInvalid={
-                                                meta.touched && meta.invalid
-                                            }
-                                            roundedLeft='0'
-                                            type='text'
-                                            placeholder='Package Name'
+                                                    <Input
+                                                        {...input}
+                                                        isInvalid={
+                                                            meta.touched &&
+                                                            meta.invalid
+                                                        }
+                                                        roundedLeft='0'
+                                                        type='text'
+                                                        placeholder='Package Name'
+                                                    />
+                                                </InputGroup>
+                                            )}
                                         />
-                                    </InputGroup>
-                                )}
-                            />
-                            <ValidationError name='name' />
-                        </Stack>
-                        <Stack spacing='10px'>
-                            <Label>Your Graphql api endpoint</Label>
-                            <Field
-                                name='endpoint'
-                                render={({ input, meta }) => (
-                                    <Input
-                                        {...input}
-                                        isInvalid={meta.touched && meta.invalid}
+                                        <ValidationError name='name' />
+                                    </Stack>
+                                    <Stack position='relative' spacing='10px'>
+                                        <Label>Your Graphql api endpoint</Label>
+                                        <Field
+                                            name='endpoint'
+                                            render={({ input, meta }) => (
+                                                <Input
+                                                    {...input}
+                                                    isInvalid={
+                                                        meta.touched &&
+                                                        meta.invalid
+                                                    }
+                                                    shadow='md'
+                                                    minW='300px'
+                                                    type='url'
+                                                    placeholder='https://your-graphql-api'
+                                                />
+                                            )}
+                                        />
+                                        <ValidationError name='endpoint' />
+                                    </Stack>
+                                    <Button
+                                        onClick={() => {
+                                            console.log('click')
+                                            handleSubmit()
+                                        }}
+                                        animate
                                         shadow='md'
-                                        minW='300px'
-                                        type='url'
-                                        placeholder='https://your-graphql-api'
-                                    />
-                                )}
-                            />
-                            <ValidationError name='endpoint' />
-                        </Stack>
-                        <Button
-                            onClick={() => {
-                                console.log('click')
-                                handleSubmit()
-                            }}
-                            animate
-                            shadow='md'
-                        >
-                            Generate Sdk Package
-                        </Button>
+                                    >
+                                        Generate Sdk Package
+                                    </Button>
+                                </Stack>
+                            </Fragment>
+                        )}
                     </Stack>
-                </Stack>
-            )}
+                )
+            }}
         />
     )
 }

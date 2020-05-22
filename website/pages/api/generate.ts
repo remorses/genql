@@ -1,9 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import npmLoginPromise from 'npm-login-promise'
+
 import path from 'path'
 import { promises as fs } from 'fs'
 import { generateProject } from 'genql-cli/src/main'
 import tmp from 'tmp-promise'
-import { rollup } from 'rollup'
+
 import { exec } from 'child_process'
 import { NPM_SCOPE, NPM_TOKEN } from '../../constants'
 
@@ -20,14 +22,22 @@ function generatePackageJson({ name }) {
     }
 }
 
+
+
 export function runCommand({ cmd, cwd }) {
     return new Promise((res, rej) => {
-        exec(cmd, { cwd }, (err, stdout, stderr) => {
-            if (err) {
-                rej(err)
-            }
-            res(stdout)
-        })
+        const ps = exec(
+            cmd,
+            { cwd, env: process.env },
+            (err, stdout, stderr) => {
+                if (err) {
+                    rej(err)
+                }
+                res(stdout)
+            },
+        )
+        ps.stdout.pipe(process.stdout)
+        ps.stderr.pipe(process.stdout)
     })
 }
 
@@ -49,6 +59,7 @@ export async function createPackage({
     const cwd = path.join(tmpPath)
     await callback({ cwd })
     await cleanup()
+    return packageJson
 }
 
 export interface GenerateApiParams {
@@ -57,16 +68,25 @@ export interface GenerateApiParams {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const { name, endpoint } = await req.body
-    await createPackage({
-        endpoint,
-        name,
-        callback: async ({ cwd }) => {
-            await runCommand({ cmd: `npm login ${NPM_TOKEN}`, cwd })
-            await runCommand({ cmd: `npm publish`, cwd })
-        },
-    })
-    console.log('generated package files')
-    res.statusCode = 200
-    res.json({ name: 'John Doe' })
+    try {
+        const { name, endpoint } = await req.body
+        const packageJson = await createPackage({
+            endpoint,
+            name,
+            callback: async ({ cwd }) => {
+                // await npmLoginPromise(username, password, email)
+
+                await runCommand({ cmd: `npm set _authToken ${NPM_TOKEN}`, cwd })
+                await runCommand({ cmd: `npm publish --access public`, cwd })
+            },
+        })
+        console.log('generated package files')
+        res.statusCode = 200
+        res.json({ ...packageJson, ok: true })
+        res.end()
+    } catch (e) {
+        console.error(e)
+        // TODO handle error
+        res.json({ ok: false, error: e })
+    }
 }
