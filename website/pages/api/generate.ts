@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import npmLoginPromise from 'npm-login-promise'
 
 import path from 'path'
 import packageNameAvailable from 'npm-name'
