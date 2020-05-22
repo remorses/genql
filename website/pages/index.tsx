@@ -302,7 +302,7 @@ const Page = () => (
                     dark
                     heading={
                         <Heading maxW='600px' fontSize='50px'>
-                            Graphql queries as code
+                            Graphql queries <br /> as code
                         </Heading>
                     }
                     subheading={
@@ -367,9 +367,22 @@ const Page = () => (
                 />
 
                 {/* cta form  */}
-                <Flex justify='center'>
-                    <MainForm alignSelf='center' mb='-60px' />
-                </Flex>
+
+                <Box>
+                    <Stack spacing='40px' mb='-60px'>
+                        <SectionTitle
+                            // opacity={0.8}
+                            dark
+                            subheading={
+                                <>
+                                    Generate a typed graphql client from your
+                                    graphql api.
+                                </>
+                            }
+                        />
+                        <MainForm alignSelf='center' />
+                    </Stack>
+                </Box>
             </Stack>
 
             {/* code snippets */}
