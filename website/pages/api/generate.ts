@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import npmLoginPromise from 'npm-login-promise'
 
 import path from 'path'
+import packageNameAvailable from 'npm-name'
 import { promises as fs } from 'fs'
 import { generateProject } from 'genql-cli/src/main'
 import tmp from 'tmp-promise'
@@ -10,7 +11,8 @@ import { exec } from 'child_process'
 import { NPM_SCOPE, NPM_TOKEN } from '../../constants'
 
 function generatePackageJson({ name }) {
-    return { // TODO add a README with a quickstart
+    return {
+        // TODO add a README with a quickstart
         name: `${NPM_SCOPE}/${name}`,
         version: '1.0.0',
         main: './createClient.js',
@@ -21,8 +23,6 @@ function generatePackageJson({ name }) {
         },
     }
 }
-
-
 
 export function runCommand({ cmd, cwd }) {
     return new Promise((res, rej) => {
@@ -70,13 +70,19 @@ export interface GenerateApiParams {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const { name, endpoint } = await req.body
+        if (!(await packageNameAvailable(name))) {
+            throw new Error('package name already exists')
+        }
         const packageJson = await createPackage({
             endpoint,
             name,
             callback: async ({ cwd }) => {
                 // await npmLoginPromise(username, password, email)
 
-                await runCommand({ cmd: `npm set _authToken ${NPM_TOKEN}`, cwd })
+                await runCommand({
+                    cmd: `npm set _authToken ${NPM_TOKEN}`,
+                    cwd,
+                })
                 await runCommand({ cmd: `npm publish --access public`, cwd })
             },
         })
