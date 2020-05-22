@@ -183,19 +183,6 @@ const MainForm = ({ ...rest }: StackProps) => {
                             )}
                             {!submitting && !error && (
                                 <Stack spacing='40px'>
-                                    <Box
-                                        // color='primary'
-                                        fontWeight='medium'
-                                        fontSize='text'
-                                        opacity={0.6}
-                                        textAlign='center'
-                                    >
-                                        <Box>
-                                            Generate a typed graphql client from
-                                            your graphql api.
-                                        </Box>
-                                        {/* <Code>npm install @genql/package-name</Code> */}
-                                    </Box>
                                     <Stack
                                         direction='row'
                                         justify='space-between'
