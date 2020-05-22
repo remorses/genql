@@ -8,21 +8,13 @@ const BG =
 
 const Page = () => {
     const { query } = useRouter()
-    const href = `https://www.npmjs.com/package/${query.name}`
     return (
         <Fragment>
-            <LandingProvider primary='#D566C5'>
+            <LandingProvider>
                 <SectionTitle
                     my='100px'
-                    heading='Package published! 🥳'
-                    subheading={
-                        <Box>
-                            Check out your package at <br />
-                            <Link isExternal fontSize='subheading' mx='1em' href={href}>
-                                {href}
-                            </Link>
-                        </Box>
-                    }
+                    heading='Got an error 😢'
+                    subheading={<Box color='red.500'>{query.error}</Box>}
                 />
             </LandingProvider>
         </Fragment>

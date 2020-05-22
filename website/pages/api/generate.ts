@@ -10,7 +10,7 @@ import { exec } from 'child_process'
 import { NPM_SCOPE, NPM_TOKEN } from '../../constants'
 
 function generatePackageJson({ name }) {
-    return {
+    return { // TODO add a README with a quickstart
         name: `${NPM_SCOPE}/${name}`,
         version: '1.0.0',
         main: './createClient.js',
@@ -87,6 +87,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     } catch (e) {
         console.error(e)
         // TODO handle error
-        res.json({ ok: false, error: e })
+        res.json({ ok: false, error: String(e) })
     }
 }

@@ -75,6 +75,10 @@ async function publishPackage(values: MainFormData) {
         method: 'POST',
     })
     const json = await res.json()
+    if (!json.ok) {
+        await Router.push({ query: { error: json.error }, pathname: '/error' })
+        return
+    }
     console.log('received ' + JSON.stringify(json, null, 4))
     await Router.push({ query: { name: json.name }, pathname: '/ok' })
 }
