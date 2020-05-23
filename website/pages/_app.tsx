@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import React from 'react'
 import { Link, Stack, Box, useColorMode } from '@chakra-ui/core'
 
-import { AuthProvider } from 'firebase-react-components'
+import { AuthProvider, useAuthData } from 'firebase-react-components'
 import { LandingProvider, NavBar, Footer } from 'landing-blocks'
 
 export const BG =
@@ -19,26 +19,7 @@ export default function App(props) {
             onError={(e) => alert(e.message)}
         >
             <LandingProvider background={BG} black='#333' primary='#D566C5'>
-                <NavBar
-                    dark
-                    logo={
-                        <Box fontWeight='medium' fontSize='24px'>
-                            Genql
-                        </Box>
-                        // <Image
-                        //     width='120px'
-                        //     stroke='#000'
-                        //     src='/logo_on_black.svg'
-                        // />
-                    }
-                    navs={[
-                        <a>Features</a>,
-                        <a>Use Cases</a>,
-                        <a>Pricing</a>,
-                        <a>About Us</a>,
-                        <a>Login</a>,
-                    ]}
-                />
+                <MyNavbar />
                 <Component {...pageProps} />
                 <MyFooter dark />
             </LandingProvider>
@@ -72,8 +53,34 @@ export function MyFooter({ ...rest }) {
         />
     )
 }
+export function MyNavbar({ ...rest }) {
+    const { user, loading } = useAuthData()
+    const navs = [
+        <MyLink>Use Cases</MyLink>,
+        <MyLink>Pricing</MyLink>,
+        <MyLink>About Us</MyLink>,
+        user ? <MyLink>User</MyLink> : <MyLink>Login</MyLink>,
+    ]
+    return (
+        <NavBar
+            dark
+            logo={
+                <Box fontWeight='medium' fontSize='24px'>
+                    Genql
+                </Box>
+                // <Image
+                //     width='120px'
+                //     stroke='#000'
+                //     src='/logo_on_black.svg'
+                // />
+            }
+            navs={navs}
+            {...rest}
+        />
+    )
+}
 
-export function MyLink({ href, ...rest }) {
+export function MyLink({ href = '#', ...rest }) {
     return (
         <NextLink href={href} passHref {...rest}>
             <Link
