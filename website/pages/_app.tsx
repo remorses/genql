@@ -14,7 +14,7 @@ export default function App(props) {
         <AuthProvider
             noPersistence // disable firebase persistence
             onLogin={async (user, creds) => {
-                console.log(creds.toJSON())
+                console.log(user, creds.toJSON())
             }}
             onError={(e) => alert(e.message)}
         >
