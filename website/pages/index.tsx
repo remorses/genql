@@ -99,7 +99,12 @@ async function validate(data: Partial<MainFormData>) {
     if (!data.endpoint) {
         errors.endpoint = 'url required'
     }
-    // TODO check if the name already exists
+    if (
+        !data.endpoint.startsWith('http://') ||
+        !data.endpoint.startsWith('https://')
+    ) {
+        errors.endpoint = 'graphql endpoint should be an url'
+    }
     return errors
 }
 
