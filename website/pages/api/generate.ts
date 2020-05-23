@@ -45,20 +45,27 @@ export async function createPackage({
     name,
     callback,
 }: GenerateApiParams & { callback }) {
-    const { path: tmpPath, cleanup } = await tmp.dir({ unsafeCleanup: true })
-    await generateProject({
-        endpoint,
-        output: tmpPath,
+    const { path: tmpPath, cleanup } = await tmp.dir({
+        unsafeCleanup: true,
     })
-    const packageJson = generatePackageJson({ name })
-    await fs.writeFile(
-        path.join(tmpPath, 'package.json'),
-        JSON.stringify(packageJson, null, 4),
-    )
-    const cwd = path.join(tmpPath)
-    await callback({ cwd })
-    await cleanup()
-    return packageJson
+    try {
+        await generateProject({
+            endpoint,
+            output: tmpPath,
+        })
+        const packageJson = generatePackageJson({ name })
+        await fs.writeFile(
+            path.join(tmpPath, 'package.json'),
+            JSON.stringify(packageJson, null, 4),
+        )
+        const cwd = path.join(tmpPath)
+        await callback({ cwd })
+        return packageJson
+    } catch (e) {
+        throw new Error('Could not publish package: ' + String(e))
+    } finally {
+        await cleanup()
+    }
 }
 
 export interface GenerateApiParams {
@@ -93,5 +100,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         console.error(e)
         // TODO handle error
         res.json({ ok: false, error: String(e) })
+        res.end()
     }
 }

@@ -375,7 +375,7 @@ const Page = () => (
                             dark
                             subheading={
                                 <>
-                                    Generate a typed graphql client from your
+                                    Generate a typed graphql client for your
                                     graphql api.
                                 </>
                             }

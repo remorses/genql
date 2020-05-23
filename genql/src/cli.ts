@@ -35,4 +35,7 @@ const config: Config = program.config
 
 if (!validateConfigs([config])) program.help()
 
-generateProject(config)
+generateProject(config).catch((e: any) => {
+    console.error(e)
+    process.exit(1)
+})
