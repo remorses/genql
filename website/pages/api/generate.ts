@@ -28,7 +28,7 @@ export function runCommand({ cmd, cwd }) {
     return new Promise((res, rej) => {
         const ps = exec(
             cmd,
-            { cwd, env: process.env },
+            { cwd, env: { ...process.env, HOME: os.tmpdir() } },
             (err, stdout, stderr) => {
                 if (err) {
                     rej(err)
@@ -77,16 +77,6 @@ export interface GenerateApiParams {
     endpoint: string
 }
 
-async function withTemporaryNpmDir(cwd, func) {
-    if (process.env.NODE_ENV == 'production') {
-        await runCommand({
-            cmd: `npm config set prefix ${os.tmpdir()}`,
-            cwd,
-        })
-    }
-    await func()
-}
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const { name, endpoint } = await req.body
@@ -96,19 +86,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             name,
             callback: async ({ name, cwd }) => {
                 // await npmLoginPromise(username, password, email)
-                await withTemporaryNpmDir(cwd, async () => {
-                    await runCommand({
-                        cmd: `npm set _authToken ${NPM_TOKEN}`,
-                        cwd,
-                    })
-                    await runCommand({
-                        cmd: `npm publish --access public`,
-                        cwd,
-                    })
-                    await runCommand({
-                        cmd: `npm unpublish ${name} --force`,
-                        cwd,
-                    })
+
+                await runCommand({
+                    cmd: `npm set _authToken ${NPM_TOKEN} --prefix='${os.tmpdir()}'`,
+                    cwd,
+                })
+                await runCommand({
+                    cmd: `npm publish --access public --prefix='${os.tmpdir()}'`,
+                    cwd,
+                })
+                await runCommand({
+                    cmd: `npm unpublish ${name} --force --prefix='${os.tmpdir()}'`,
+                    cwd,
                 })
             },
         })
