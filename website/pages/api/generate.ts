@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import path from 'path'
+import os from 'os'
 import packageNameAvailable from 'npm-name'
 import { promises as fs } from 'fs'
 import { generateProject } from 'genql-cli/src/main'
@@ -54,12 +55,15 @@ export async function createPackage({
             output: tmpPath,
         })
         const packageJson = generatePackageJson({ name })
+        if (!(await packageNameAvailable(packageJson.name))) {
+            throw new Error('package name already exists')
+        }
         await fs.writeFile(
             path.join(tmpPath, 'package.json'),
             JSON.stringify(packageJson, null, 4),
         )
         const cwd = path.join(tmpPath)
-        await callback({ cwd })
+        await callback({ name: packageJson.name, cwd })
         return packageJson
     } catch (e) {
         throw new Error('Could not publish package: ' + String(e))
@@ -73,23 +77,39 @@ export interface GenerateApiParams {
     endpoint: string
 }
 
+async function withTemporaryNpmDir(cwd, func) {
+    if (process.env.NODE_ENV == 'production') {
+        await runCommand({
+            cmd: `npm config set prefix ${os.tmpdir()}`,
+            cwd,
+        })
+    }
+    await func()
+}
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const { name, endpoint } = await req.body
-        if (!(await packageNameAvailable(name))) {
-            throw new Error('package name already exists')
-        }
+
         const packageJson = await createPackage({
             endpoint,
             name,
-            callback: async ({ cwd }) => {
+            callback: async ({ name, cwd }) => {
                 // await npmLoginPromise(username, password, email)
-
-                await runCommand({
-                    cmd: `npm set _authToken ${NPM_TOKEN}`,
-                    cwd,
+                await withTemporaryNpmDir(cwd, async () => {
+                    await runCommand({
+                        cmd: `npm set _authToken ${NPM_TOKEN}`,
+                        cwd,
+                    })
+                    await runCommand({
+                        cmd: `npm publish --access public`,
+                        cwd,
+                    })
+                    await runCommand({
+                        cmd: `npm unpublish ${name} --force`,
+                        cwd,
+                    })
                 })
-                await runCommand({ cmd: `npm publish --access public`, cwd })
             },
         })
         console.log('generated package files')
