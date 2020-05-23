@@ -91,13 +91,16 @@ export type MainFormData = {
     endpoint: string
 }
 
-async function validate(data: Partial<MainFormData>) {
+async function validate(
+    data: Partial<MainFormData>,
+): Promise<Partial<MainFormData>> {
     const errors: Partial<MainFormData> = {}
     if (!data.name) {
         errors.name = 'name required'
     }
     if (!data.endpoint) {
         errors.endpoint = 'url required'
+        return errors
     }
     console.log(data.endpoint)
     if (
