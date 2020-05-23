@@ -99,9 +99,10 @@ async function validate(data: Partial<MainFormData>) {
     if (!data.endpoint) {
         errors.endpoint = 'url required'
     }
+    console.log(data.endpoint)
     if (
-        !data.endpoint.startsWith('http://') ||
-        !data.endpoint.startsWith('https://')
+        !data?.endpoint?.startsWith('http://') &&
+        !data?.endpoint?.startsWith('https://')
     ) {
         errors.endpoint = 'graphql endpoint should be an url'
     }
