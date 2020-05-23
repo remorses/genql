@@ -7159,10 +7159,10 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-landing-blocks@^1.0.27:
-  version "1.0.27"
-  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.27.tgz#67b8d1dbadb7d563cf63d68283c948407fda1a01"
-  integrity sha512-SUKNx6EXTStXdQ03y5NtOizYM50/GnRROUokWrmkFUWUCcfbBMfqsvlrLAoS7k1zfM0ETgsgUoPDv2yDVZy9Xw==
+landing-blocks@^1.0.29:
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.29.tgz#c8b687211b899f2a357e1900fdc91b03cb991d2c"
+  integrity sha512-av+RNZ/OXmONrlENA7CCxenoh5k37ve+PDrapiFWkjZ5f68ATAozTTYNeYx33KobNVortO8R7nj55Nuk6tazcQ==
   dependencies:
     "@emotion/styled" "^10.0.27"
     baby-i-am-faded "^0.0.12"

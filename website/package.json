@@ -21,7 +21,7 @@
     "final-form": "^4.19.1",
     "genql-cli": "*",
     "isomorphic-fetch": "^2.2.1",
-    "landing-blocks": "^1.0.27",
+    "landing-blocks": "^1.0.29",
     "next": "9.4.1",
     "npm-name": "^6.0.0",
     "react": "16.13.1",

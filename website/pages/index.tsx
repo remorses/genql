@@ -366,12 +366,13 @@ const Page = () => (
                     // heading='Works everywhere'
                     // subheading='browser and node environments'
                     testimonials={[
-                        <Box size='90px' as={ReactIcon} />,
+                        <Box size='80px' as={ReactIcon} />,
                         <Box size='90px' as={AngularIcon} />,
                         <Box size='90px' as={NodeIcon} />,
-                        <Box size='90px' as={OtherIcon} />,
-                        <Box size='90px' as={NodeIcon2} />, // TODO Nextjs icon
-                        <Box size='90px' as={NodeIcon2} />, // TODO Hasura icon
+                        // <Box size='90px' as={OtherIcon} />,
+                        <Image size='80px' src='/apollo-logo.svg' />, 
+                        <Image size='90px' src='/nextjs-logo.svg' />, 
+                        <Image size='90px' src='/hasura-logo.svg' />, 
                     ]}
                 />
 
