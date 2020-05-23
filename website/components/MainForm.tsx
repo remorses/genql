@@ -7,11 +7,30 @@ import {
     Stack,
     StackProps,
 } from '@chakra-ui/core'
+import { useStorageState } from 'react-storage-hooks'
+
+import {
+    AuthProvider,
+    GoogleButton,
+    GithubButton,
+    useAuthData,
+} from 'firebase-react-components'
 import { Button, PageContainer } from 'landing-blocks'
 import Router from 'next/router'
 import React, { useState } from 'react'
 import { Field, Form, useField } from 'react-final-form'
+import {
+    NPM_SCOPE,
+    firebaseConfig,
+    SESSION_STORAGE_CONFIG_KEY,
+} from '../constants'
 require('isomorphic-fetch')
+import firebase from 'firebase/app'
+import 'firebase/auth'
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig)
+}
 
 export type MainFormData = {
     name: string
@@ -39,10 +58,28 @@ async function validate(
     return errors
 }
 
+function useInitialValues(): [MainFormData, Function] {
+    const [initialValues, setInitialValues] = useStorageState(
+        typeof window === 'undefined' ? null : localStorage,
+        SESSION_STORAGE_CONFIG_KEY,
+        '{}',
+    )
+    let data: any
+    try {
+        data = JSON.parse(initialValues)
+    } catch {
+        data = {}
+    }
+    return [data, (x) => setInitialValues(JSON.stringify(x))]
+}
+
 export const MainForm = ({ ...rest }: StackProps) => {
     const [error, setError] = useState('')
+
+    const [initialValues, setInitialValues] = useInitialValues()
     async function publishPackage(values: MainFormData) {
         // TODO user should first login
+        setInitialValues(values)
         console.log('sending ' + JSON.stringify(values, null, 4))
         const res = await fetch('/api/generate', {
             body: JSON.stringify(values),
@@ -61,6 +98,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
     }
     return (
         <Form
+            initialValues={initialValues}
             validate={validate}
             onSubmit={publishPackage}
             render={({ handleSubmit, submitting }) => {
@@ -79,13 +117,17 @@ export const MainForm = ({ ...rest }: StackProps) => {
                             // minW='400px'
                             {...rest}
                         >
-                            <Box as='form' onSubmit={handleSubmit}>
+                            <Stack
+                                align='center'
+                                as='form'
+                                onSubmit={handleSubmit}
+                            >
                                 <MainFormContent
                                     error={error}
                                     resetError={() => setError('')}
                                     submitting={submitting}
                                 />
-                            </Box>
+                            </Stack>
                         </Stack>
                     </PageContainer>
                 )
@@ -95,7 +137,9 @@ export const MainForm = ({ ...rest }: StackProps) => {
 }
 
 const MainFormContent = ({ submitting, resetError, error }) => {
-    if (submitting)
+    const [shouldLogin, setShouldLogin] = useState(false)
+    const { user, loading } = useAuthData()
+    if (submitting || loading) {
         return (
             <Stack
                 // color='primary'
@@ -107,12 +151,33 @@ const MainFormContent = ({ submitting, resetError, error }) => {
                 opacity={0.6}
                 textAlign='center'
             >
-                <Box>Generating the sdk package</Box>
+                <Box>
+                    {loading ? 'logging in' : 'Generating the sdk package'}
+                </Box>
                 <Spinner />
                 {/* <Code>npm install @genql/package-name</Code> */}
             </Stack>
         )
-    if (error)
+    }
+    if (shouldLogin && !user) {
+        return (
+            <Stack
+                maxW='400px'
+                // color='primary'
+                align='center'
+                justify='center'
+                fontWeight='medium'
+                fontSize='text'
+                spacing='40px'
+                textAlign='center'
+            >
+                <Box>Login first to create the client</Box>
+                <GithubButton text='Start With Github' />
+                {/* <DisplayUser /> */}
+            </Stack>
+        )
+    }
+    if (error) {
         return (
             <Stack
                 // color='primary'
@@ -135,7 +200,8 @@ const MainFormContent = ({ submitting, resetError, error }) => {
                 {/* <Code>npm install @genql/package-name</Code> */}
             </Stack>
         )
-    if (!submitting)
+    }
+    if (!submitting) {
         return (
             <Stack spacing='40px'>
                 <Stack direction='row' justify='space-between' align='flex-end'>
@@ -146,7 +212,7 @@ const MainFormContent = ({ submitting, resetError, error }) => {
                             render={({ input, meta }) => (
                                 <InputGroup shadow='sm'>
                                     <InputLeftAddon>
-                                        <Box opacity={0.6}>@genql/</Box>
+                                        <Box opacity={0.6}>{NPM_SCOPE}/</Box>
                                     </InputLeftAddon>
 
                                     <Input
@@ -178,12 +244,18 @@ const MainFormContent = ({ submitting, resetError, error }) => {
                         />
                         <ValidationError name='endpoint' />
                     </Stack>
-                    <Button type='submit' animate shadow='md'>
+                    <Button
+                        onClick={() => setShouldLogin(true)}
+                        type='submit'
+                        animate
+                        shadow='md'
+                    >
                         Generate Sdk Package
                     </Button>
                 </Stack>
             </Stack>
         )
+    }
 }
 
 const Label = (props) => {

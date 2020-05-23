@@ -19,6 +19,8 @@
     "baby-i-am-faded": "^0.0.14",
     "emotion-theming": "^10.0.27",
     "final-form": "^4.19.1",
+    "firebase": "^7.14.5",
+    "firebase-react-components": "^1.1.21",
     "genql-cli": "*",
     "isomorphic-fetch": "^2.2.1",
     "landing-blocks": "^1.0.29",
@@ -29,6 +31,7 @@
     "react-final-form": "^6.4.0",
     "react-icons": "^3.10.0",
     "react-keyframes": "^0.2.3",
+    "react-storage-hooks": "^4.0.1",
     "tmp-promise": "^3.0.2"
   },
   "devDependencies": {
