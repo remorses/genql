@@ -1,6 +1,6 @@
 export const NPM_SCOPE =
     process.env.NODE_ENV === 'production'
-        ? 'shitty-scope-name'
+        ? '@shitty-scope-name' // TODO add real npm scope
         : '@shitty-scope-name'
 export const NPM_TOKEN = process.env.NPM_TOKEN
 console.assert('NPM_TOKEN', NPM_TOKEN)
