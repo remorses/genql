@@ -36,10 +36,10 @@ export default function App(props) {
             // noPersistence // disable firebase persistence
             onLogin={async (user, creds) => {
                 console.log(user, creds.toJSON())
-                const uid = await user.getIdToken()
-                Cookies.set(FIREBASE_ID_TOKEN_COOKIE, uid, {
-                    path: '/',
-                })
+                // const uid = await user.getIdToken()
+                // Cookies.set(FIREBASE_ID_TOKEN_COOKIE, uid, {
+                //     path: '/',
+                // })
             }}
             onError={(e) => alert(e.message)}
         >
