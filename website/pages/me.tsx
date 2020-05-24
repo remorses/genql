@@ -73,7 +73,7 @@ const Page = (props: Props) => (
         >
             <Box h='140px' />
 
-            <PackagesTable packages={[]} />
+            <PackagesTable packages={props.packages} />
         </PageContainer>
     </Stack>
 )
