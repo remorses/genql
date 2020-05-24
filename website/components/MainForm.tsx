@@ -18,15 +18,17 @@ import {
 import { Button, PageContainer } from 'landing-blocks'
 import Router from 'next/router'
 import React, { useState } from 'react'
-import { Field, Form, useField } from 'react-final-form'
+import { Field, Form, useField, useForm, useFormState } from 'react-final-form'
 import {
     NPM_SCOPE,
     firebaseConfig,
     SESSION_STORAGE_CONFIG_KEY,
+    FIREBASE_ID_TOKEN_COOKIE,
 } from '../constants'
 require('isomorphic-fetch')
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import Cookies from 'js-cookie'
 
 export type MainFormData = {
     name: string
@@ -71,10 +73,17 @@ function useInitialValues(): [MainFormData, Function] {
 
 export const MainForm = ({ ...rest }: StackProps) => {
     const [error, setError] = useState('')
-
+    const [shouldLogin, setShouldLogin] = useState(false)
+    const { user, loading } = useAuthData()
     const [initialValues, setInitialValues] = useInitialValues()
-    async function publishPackage(values: MainFormData) {
+    async function onSubmit(values: MainFormData) {
+        console.log('onSubmit')
         // TODO user should first login
+        if (!user) {
+            console.log('shouldLogin')
+            setShouldLogin(true)
+            return
+        }
         setInitialValues(values)
         console.log('sending ' + JSON.stringify(values, null, 4))
         const res = await fetch('/api/generate', {
@@ -96,7 +105,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
         <Form
             initialValues={initialValues}
             validate={validate}
-            onSubmit={publishPackage}
+            onSubmit={onSubmit}
             render={({ handleSubmit, submitting }) => {
                 return (
                     <PageContainer>
@@ -113,17 +122,27 @@ export const MainForm = ({ ...rest }: StackProps) => {
                             // minW='400px'
                             {...rest}
                         >
-                            <Stack align='center' as='form'>
+                            <Stack onSubmit={handleSubmit} align='center' as='form'>
                                 <AuthProvider
-                                    onLogin={async () => {
+                                    onError={console.error}
+                                    onLogin={async (user) => {
+                                        setShouldLogin(false)
                                         console.log(
                                             'called on login, redirecting',
                                         )
+                                        // const uid = await user.getIdToken()
+                                        // Cookies.set(
+                                        //     FIREBASE_ID_TOKEN_COOKIE,
+                                        //     uid,
+                                        //     {
+                                        //         path: '/',
+                                        //     },
+                                        // )
                                         await Router.push('/me')
                                     }}
                                 >
                                     <MainFormContent
-                                        handleSubmit={handleSubmit}
+                                        shouldLogin={shouldLogin}
                                         error={error}
                                         resetError={() => setError('')}
                                         submitting={submitting}
@@ -138,9 +157,9 @@ export const MainForm = ({ ...rest }: StackProps) => {
     )
 }
 
-const MainFormContent = ({ submitting, handleSubmit, resetError, error }) => {
-    const [shouldLogin, setShouldLogin] = useState(false)
-    const { user, loading } = useAuthData()
+const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
+    const { loading, user } = useAuthData()
+    const { valid } = useFormState()
     if (submitting || loading) {
         return (
             <Stack
@@ -248,12 +267,8 @@ const MainFormContent = ({ submitting, handleSubmit, resetError, error }) => {
                         <ValidationError name='endpoint' />
                     </Stack>
                     <Button
-                        onClick={() => {
-                            setShouldLogin(true)
-                            if (user) {
-                                handleSubmit()
-                            }
-                        }}
+                        type='submit'
+                        // onClick={() => setShouldLogin(true)}
                         animate
                         shadow='md'
                     >

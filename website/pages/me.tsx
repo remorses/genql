@@ -27,6 +27,7 @@ export async function getServerSideProps(
     const uid = nextCookies(ctx)[FIREBASE_ID_TOKEN_COOKIE]
     console.log('uid', uid)
     if (!uid) {
+        console.log('redirecting to /')
         ctx.res.writeHead(302, { Location: '/' }).end()
         return
     }

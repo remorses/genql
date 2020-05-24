@@ -19,9 +19,10 @@ if (!firebase.apps.length) {
 export default function App(props) {
     const { Component, pageProps } = props
     useEffect(() => {
+        // TODO this could be a npm package
         return firebase.auth().onIdTokenChanged(async (user) => {
             if (!user) {
-                Cookies.remove(FIREBASE_ID_TOKEN_COOKIE)
+                // Cookies.remove(FIREBASE_ID_TOKEN_COOKIE)
                 return
             }
             const uid = await user.getIdToken()
@@ -32,9 +33,13 @@ export default function App(props) {
     }, [])
     return (
         <AuthProvider
-            noPersistence // disable firebase persistence
+            // noPersistence // disable firebase persistence
             onLogin={async (user, creds) => {
                 console.log(user, creds.toJSON())
+                const uid = await user.getIdToken()
+                Cookies.set(FIREBASE_ID_TOKEN_COOKIE, uid, {
+                    path: '/',
+                })
             }}
             onError={(e) => alert(e.message)}
         >
