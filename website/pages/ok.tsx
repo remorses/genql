@@ -11,7 +11,7 @@ const Page = () => {
     const href = `https://www.npmjs.com/package/${query.name}`
     return (
         <Fragment>
-            <LandingProvider primary='#D566C5'>
+            <LandingProvider bg='white' primary='#D566C5'>
                 <SectionTitle
                     my='100px'
                     heading='Package published! 🥳'

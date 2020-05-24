@@ -99,6 +99,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     cmd: `npm unpublish ${name} --force --prefix='${os.tmpdir()}'`,
                     cwd,
                 })
+                // TODO add the generated package name to the user in database
             },
         })
         console.log('generated package files')

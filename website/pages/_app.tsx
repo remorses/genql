@@ -18,23 +18,16 @@ export default function App(props) {
             }}
             onError={(e) => alert(e.message)}
         >
-            <LandingProvider background={BG} black='#333' primary='#D566C5'>
+            <LandingProvider minH='100%' h='100%' background={BG} black='#333' primary='#D566C5'>
                 <MyNavbar />
-                <Component {...pageProps} />
+                <Stack  h='100%' minH='100vh'>
+                    <Component {...pageProps} />
+                </Stack>
                 <MyFooter dark />
             </LandingProvider>
         </AuthProvider>
     )
 }
-
-export const headingNavLinks = (
-    <Stack isInline spacing='20px'>
-        <MyLink href='/#components'>Components</MyLink>
-        <MyLink href='/#demos'>Demos</MyLink>
-        <MyLink href='#'>Newsletter</MyLink>,
-        <Box />
-    </Stack>
-)
 
 export function MyFooter({ ...rest }) {
     return (
@@ -59,7 +52,7 @@ export function MyNavbar({ ...rest }) {
         <MyLink>Use Cases</MyLink>,
         <MyLink>Pricing</MyLink>,
         <MyLink>About Us</MyLink>,
-        user ? <MyLink>User</MyLink> : <MyLink>Login</MyLink>,
+        user ? <MyLink>User</MyLink> : <MyLink>Login</MyLink>, // TODO add pages for user page
     ]
     return (
         <NavBar

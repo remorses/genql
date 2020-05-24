@@ -122,11 +122,20 @@ export const MainForm = ({ ...rest }: StackProps) => {
                                 as='form'
                                 onSubmit={handleSubmit}
                             >
-                                <MainFormContent
-                                    error={error}
-                                    resetError={() => setError('')}
-                                    submitting={submitting}
-                                />
+                                <AuthProvider
+                                    onLogin={async () => {
+                                        console.log(
+                                            'called on login, redirecting',
+                                        )
+                                        await Router.push('/me')
+                                    }}
+                                >
+                                    <MainFormContent
+                                        error={error}
+                                        resetError={() => setError('')}
+                                        submitting={submitting}
+                                    />
+                                </AuthProvider>
                             </Stack>
                         </Stack>
                     </PageContainer>
@@ -172,7 +181,8 @@ const MainFormContent = ({ submitting, resetError, error }) => {
                 textAlign='center'
             >
                 <Box>Login first to create the client</Box>
-                <GithubButton text='Start With Github' />
+                <GithubButton text='Login With Github' />
+
                 {/* <DisplayUser /> */}
             </Stack>
         )
