@@ -3,6 +3,7 @@ export const NPM_SCOPE =
         ? '@shitty-scope-name' // TODO add real npm scope
         : '@shitty-scope-name'
 export const NPM_TOKEN = process.env.NPM_TOKEN
+export const FIREBASE_ID_TOKEN_COOKIE = 'FIREBASE_ID_TOKEN_COOKIE'
 export const SESSION_STORAGE_CONFIG_KEY = 'SESSION_STORAGE_CONFIG_KEY'
 console.assert('NPM_TOKEN', NPM_TOKEN)
 console.log('NODE_ENV', process.env.NODE_ENV)

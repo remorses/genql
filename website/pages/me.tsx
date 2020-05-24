@@ -1,31 +1,18 @@
-import { Box, Image, Stack, Divider } from '@chakra-ui/core'
-import { Faded } from 'baby-i-am-faded'
+import { Box, Image, Stack } from '@chakra-ui/core'
+import firebase from 'firebase'
 import {
     Banner,
     Button,
-    CodeSnippet,
-    Feature,
-    Footer,
-    Heading,
-    Hero,
-    LandingProvider,
-    NavBar,
     Link,
     PageContainer,
-    PatternBackground,
-    Section,
     SectionTitle,
-    TestimonialsLogos,
 } from 'landing-blocks'
-import React, { Fragment } from 'react'
-import {
-    FaAngular as AngularIcon,
-    FaArrowRight as ArrowRight,
-    FaNode as NodeIcon,
-    FaReact as ReactIcon,
-} from 'react-icons/fa'
-import { Frame, Keyframes } from 'react-keyframes'
+import { GetServerSidePropsContext } from 'next'
+import nextCookies from 'next-cookies'
+import Router from 'next/router'
+import React from 'react'
 import { MainForm } from '../components/MainForm'
+import { FIREBASE_ID_TOKEN_COOKIE } from '../constants'
 
 type Props = {
     packages: {
@@ -34,14 +21,24 @@ type Props = {
     }[]
 }
 
-export async function getServerSideProps(): Promise<{ props: Props }> {
+export async function getServerSideProps(
+    ctx: GetServerSidePropsContext,
+): Promise<{ props: Props }> {
+    const uid = nextCookies(ctx)[FIREBASE_ID_TOKEN_COOKIE]
+    console.log('uid', uid)
+    if (!uid) {
+        ctx.res.writeHead(302, { Location: '/' }).end()
+        return
+    }
+    const packages: any = await firebase
+        .firestore()
+        .collection('packages')
+        .where('user_uid', '==', uid)
+        .get()
     return {
+        // TODO fetch user packages from firestore
         props: {
-            packages: [
-                { name: 'xxx', url: 'https://countries.trevorblades.com' },
-                { name: 'yyy' },
-                { name: 'shit' },
-            ],
+            packages: packages.docs,
         },
     }
 }

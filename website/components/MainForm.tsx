@@ -28,7 +28,6 @@ require('isomorphic-fetch')
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
-
 export type MainFormData = {
     name: string
     endpoint: string
@@ -114,11 +113,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
                             // minW='400px'
                             {...rest}
                         >
-                            <Stack
-                                align='center'
-                                as='form'
-                                onSubmit={handleSubmit}
-                            >
+                            <Stack align='center' as='form'>
                                 <AuthProvider
                                     onLogin={async () => {
                                         console.log(
@@ -128,6 +123,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
                                     }}
                                 >
                                     <MainFormContent
+                                        handleSubmit={handleSubmit}
                                         error={error}
                                         resetError={() => setError('')}
                                         submitting={submitting}
@@ -142,7 +138,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
     )
 }
 
-const MainFormContent = ({ submitting, resetError, error }) => {
+const MainFormContent = ({ submitting, handleSubmit, resetError, error }) => {
     const [shouldLogin, setShouldLogin] = useState(false)
     const { user, loading } = useAuthData()
     if (submitting || loading) {
@@ -252,8 +248,12 @@ const MainFormContent = ({ submitting, resetError, error }) => {
                         <ValidationError name='endpoint' />
                     </Stack>
                     <Button
-                        onClick={() => setShouldLogin(true)}
-                        type='submit'
+                        onClick={() => {
+                            setShouldLogin(true)
+                            if (user) {
+                                handleSubmit()
+                            }
+                        }}
                         animate
                         shadow='md'
                     >

@@ -1,12 +1,13 @@
 import NextLink from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
+import Cookies from 'js-cookie'
 import { Link, Stack, Box, useColorMode } from '@chakra-ui/core'
 
 import { AuthProvider, useAuthData } from 'firebase-react-components'
 import { LandingProvider, NavBar, Footer } from 'landing-blocks'
 import firebase from 'firebase'
 import 'firebase/app'
-import { firebaseConfig } from '../constants'
+import { firebaseConfig, FIREBASE_ID_TOKEN_COOKIE } from '../constants'
 
 export const BG =
     'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
@@ -17,6 +18,18 @@ if (!firebase.apps.length) {
 
 export default function App(props) {
     const { Component, pageProps } = props
+    useEffect(() => {
+        return firebase.auth().onIdTokenChanged(async (user) => {
+            if (!user) {
+                Cookies.remove(FIREBASE_ID_TOKEN_COOKIE)
+                return
+            }
+            const uid = await user.getIdToken()
+            Cookies.set(FIREBASE_ID_TOKEN_COOKIE, uid, {
+                path: '/',
+            })
+        })
+    }, [])
     return (
         <AuthProvider
             noPersistence // disable firebase persistence
