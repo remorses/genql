@@ -226,7 +226,7 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
     if (!submitting) {
         return (
             <Stack spacing='40px'>
-                <Stack direction='row' justify='space-between' align='flex-end'>
+                <Stack spacing='30px' direction='row' justify='space-between' align='flex-end'>
                     <Stack position='relative' spacing='10px'>
                         <Label>Npm package name</Label>
                         <Field
