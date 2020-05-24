@@ -12,6 +12,9 @@
     "spec": "tests/**.ts",
     "timeout": 9999999999
   },
+  "browser": {
+      "firebase-admin": false
+  },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
@@ -21,6 +24,7 @@
     "emotion-theming": "^10.0.27",
     "final-form": "^4.19.1",
     "firebase": "^7.14.5",
+    "firebase-admin": "^8.12.1",
     "firebase-react-components": "^1.1.21",
     "genql-cli": "*",
     "isomorphic-fetch": "^2.2.1",

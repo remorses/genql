@@ -13,6 +13,8 @@ import Router from 'next/router'
 import React from 'react'
 import { MainForm } from '../components/MainForm'
 import { FIREBASE_ID_TOKEN_COOKIE } from '../constants'
+import { getFirebaseDecodedToken, initAdmin } from '../support/server'
+import admin from 'firebase-admin'
 
 type Props = {
     packages: {
@@ -24,22 +26,26 @@ type Props = {
 export async function getServerSideProps(
     ctx: GetServerSidePropsContext,
 ): Promise<{ props: Props }> {
-    const uid = nextCookies(ctx)[FIREBASE_ID_TOKEN_COOKIE]
+    const { uid } = await getFirebaseDecodedToken(ctx.req)
     console.log('uid', uid)
     if (!uid) {
         console.log('redirecting to /')
         ctx.res.writeHead(302, { Location: '/' }).end()
         return
     }
-    const packages: any = await firebase
+    const packages = await admin
         .firestore()
         .collection('packages')
         .where('user_uid', '==', uid)
         .get()
+
     return {
         // TODO fetch user packages from firestore
         props: {
-            packages: packages.docs,
+            packages: packages.docs.map((x) => {
+                const data = x.data()
+                return data
+            }) as any,
         },
     }
 }

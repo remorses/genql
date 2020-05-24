@@ -9,6 +9,8 @@ import tmp from 'tmp-promise'
 
 import { exec } from 'child_process'
 import { NPM_SCOPE, NPM_TOKEN } from '../../constants'
+import { getFirebaseDecodedToken } from '../../support/server'
+import admin from 'firebase-admin'
 
 function generatePackageJson({ name }) {
     return {
@@ -80,7 +82,10 @@ export interface GenerateApiParams {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const { name, endpoint } = await req.body
-
+        const { uid } = await getFirebaseDecodedToken(req)
+        if (!uid) {
+            throw new Error('you must be authenticated')
+        }
         const packageJson = await createPackage({
             endpoint,
             name,
@@ -102,6 +107,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 // TODO add the generated package name to the user in database
             },
         })
+        const r = await admin
+            .firestore()
+            .collection('packages')
+            .add({
+                user_uid: uid,
+                name: packageJson.name,
+                graphql_endpoint: endpoint,
+                created_at: new Date().toUTCString(),
+            })
+
         console.log('generated package files')
         res.statusCode = 200
         res.json({ ...packageJson, ok: true })
