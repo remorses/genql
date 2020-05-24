@@ -101,6 +101,7 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
             <Stack spacing='40px'>
                 {packages.map((p) => (
                     <Stack
+                        key={p.url}
                         direction='row'
                         justify='stretch'
                         bg='white'
@@ -110,14 +111,11 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                         borderWidth='1px'
                     >
                         <Box flex='1'>{p.name}</Box>
-                        <Link
-                            isTruncated
-                            isExternal
-                            fontSize='inherit'
-                            flex='1'
-                        >
-                            {p.url}
-                        </Link>
+                        <Box flex='1'>
+                            <Link isTruncated isExternal fontSize='inherit'>
+                                {p.url}
+                            </Link>
+                        </Box>
                         <Box flex='1'>{p.url}</Box>
                     </Stack>
                 ))}
