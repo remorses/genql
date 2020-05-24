@@ -9,6 +9,7 @@ console.assert('NPM_TOKEN', NPM_TOKEN)
 console.log('NODE_ENV', process.env.NODE_ENV)
 
 export const FIREBASE_ADMIN_CONFIG = JSON.parse(process.env.FIREBASE_ADMIN_CONFIG || '{}')
+console.log('FIREBASE_ADMIN_CONFIG', FIREBASE_ADMIN_CONFIG)
 
 export var firebaseConfig = {
     apiKey: 'AIzaSyABYuGq1OrRbgMQcXUHUJ0FnzNeXtb3Sio',
