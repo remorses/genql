@@ -1,10 +1,9 @@
-import { Box, Image, Stack } from '@chakra-ui/core'
+import { Box, Image, Stack, Divider } from '@chakra-ui/core'
 import { Faded } from 'baby-i-am-faded'
 import {
     Banner,
     Button,
     CodeSnippet,
-    Divider,
     Feature,
     Footer,
     Heading,
@@ -83,12 +82,14 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
         return <SectionTitle subheading='You have no packages yet' />
     }
     return (
-        <Stack spacing='40px' {...rest}>
+        <Stack spacing='20px' {...rest}>
             <SectionTitle subheading='Your packages' />
-            <Stack direction='row'>
+            <Stack fontWeight='medium' opacity={0.6} direction='row'>
                 <Box flex='1'>name</Box>
                 <Box flex='1'>url</Box>
+                <Box flex='1'>created at</Box>
             </Stack>
+            {/* <Divider /> */}
             <Stack spacing='40px'>
                 {packages.map((p) => (
                     <Stack
@@ -101,6 +102,7 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                         borderWidth='1px'
                     >
                         <Box flex='1'>{p.name}</Box>
+                        <Box flex='1'>{p.url}</Box>
                         <Box flex='1'>{p.url}</Box>
                     </Stack>
                 ))}

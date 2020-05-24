@@ -65,7 +65,11 @@ export function MyNavbar({ ...rest }) {
         <MyLink>Use Cases</MyLink>,
         <MyLink>Pricing</MyLink>,
         <MyLink>About Us</MyLink>,
-        user ? <MyLink>User</MyLink> : <MyLink href='/login'>Login</MyLink>, // TODO add pages for user page
+        user ? (
+            <MyLink href='/me'>Dashboard</MyLink>
+        ) : (
+            <MyLink href='/login'>Login</MyLink>
+        ), // TODO add pages for user page
     ]
     return (
         <NavBar
