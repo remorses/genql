@@ -72,13 +72,25 @@ const Page = (props: Props) => (
             bg='gray.50'
         >
             <Box h='140px' />
+
+            <PackagesTable packages={[]} />
+        </PageContainer>
+    </Stack>
+)
+
+const PackagesTable = ({ packages, ...rest }: Props) => {
+    if (packages.length === 0) {
+        return <SectionTitle subheading='You have no packages yet' />
+    }
+    return (
+        <Stack spacing='40px' {...rest}>
             <SectionTitle subheading='Your packages' />
             <Stack direction='row'>
                 <Box flex='1'>name</Box>
                 <Box flex='1'>url</Box>
             </Stack>
             <Stack spacing='40px'>
-                {props.packages.map((p) => (
+                {packages.map((p) => (
                     <Stack
                         direction='row'
                         justify='stretch'
@@ -93,8 +105,8 @@ const Page = (props: Props) => (
                     </Stack>
                 ))}
             </Stack>
-        </PageContainer>
-    </Stack>
-)
+        </Stack>
+    )
+}
 
 export default Page
