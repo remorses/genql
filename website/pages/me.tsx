@@ -10,6 +10,7 @@ import {
     Hero,
     LandingProvider,
     NavBar,
+    Link,
     PageContainer,
     PatternBackground,
     Section,
@@ -37,7 +38,7 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
     return {
         props: {
             packages: [
-                { name: 'xxx', url: 'sdf' },
+                { name: 'xxx', url: 'https://countries.trevorblades.com' },
                 { name: 'yyy' },
                 { name: 'shit' },
             ],
@@ -62,7 +63,7 @@ const Page = (props: Props) => (
                 <MainForm alignSelf='center' />
             </Stack>
         </Box>
-        <PageContainer
+        <Stack
             spacing='40px'
             flex='1'
             w='100%'
@@ -71,9 +72,16 @@ const Page = (props: Props) => (
             bg='gray.50'
         >
             <Box h='140px' />
-
-            <PackagesTable packages={props.packages} />
-        </PageContainer>
+            <PackagesTable packages={props.packages} />{' '}
+        </Stack>
+        <Banner
+            dark
+            heading='Add Genql to Your App or Start From Scratch'
+            bullet='READY TO TRY?'
+            bg='transparent'
+            image={<Image ml='-60px' width='200px' src='/bannerImage.svg' />}
+            cta={<Button>Generate your graphql api sdk</Button>}
+        />
     </Stack>
 )
 
@@ -82,9 +90,9 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
         return <SectionTitle subheading='You have no packages yet' />
     }
     return (
-        <Stack spacing='20px' {...rest}>
+        <PageContainer spacing='20px' {...rest}>
             <SectionTitle subheading='Your packages' />
-            <Stack fontWeight='medium' opacity={0.6} direction='row'>
+            <Stack px='20px' fontWeight='medium' opacity={0.6} direction='row'>
                 <Box flex='1'>name</Box>
                 <Box flex='1'>url</Box>
                 <Box flex='1'>created at</Box>
@@ -98,16 +106,23 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                         bg='white'
                         shadow='sm'
                         p='20px'
-                        borderRadius='md'
+                        borderRadius='lg'
                         borderWidth='1px'
                     >
                         <Box flex='1'>{p.name}</Box>
-                        <Box flex='1'>{p.url}</Box>
+                        <Link
+                            isTruncated
+                            isExternal
+                            fontSize='inherit'
+                            flex='1'
+                        >
+                            {p.url}
+                        </Link>
                         <Box flex='1'>{p.url}</Box>
                     </Stack>
                 ))}
             </Stack>
-        </Stack>
+        </PageContainer>
     )
 }
 
