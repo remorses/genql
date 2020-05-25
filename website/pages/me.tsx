@@ -1,5 +1,6 @@
 import { Box, Image, Stack } from '@chakra-ui/core'
 import firebase from 'firebase'
+import dayjs, { Dayjs } from 'dayjs'
 import {
     Banner,
     Button,
@@ -15,11 +16,14 @@ import { MainForm } from '../components/MainForm'
 import { FIREBASE_ID_TOKEN_COOKIE } from '../constants'
 import { getFirebaseDecodedToken, initAdmin } from '../support/server'
 import admin from 'firebase-admin'
+import relativeTime from 'dayjs/plugin/relativeTime'
+dayjs.extend(relativeTime)
 
 type Props = {
     packages: {
         name: string
         url?: string
+        createdAt?: number
     }[]
 }
 
@@ -44,7 +48,11 @@ export async function getServerSideProps(
         props: {
             packages: packages.docs.map((x) => {
                 const data = x.data()
-                return data
+                return {
+                    ...data,
+                    url: `https://www.npmjs.com/package/${data?.name}`,
+                    createdAt: (x?.createTime?.toMillis() || 0) / 1000,
+                }
             }) as any,
         },
     }
@@ -108,6 +116,7 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                         key={p.url}
                         direction='row'
                         justify='stretch'
+                        fontWeight='normal'
                         bg='white'
                         shadow='sm'
                         p='20px'
@@ -116,11 +125,15 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                     >
                         <Box flex='1'>{p.name}</Box>
                         <Box flex='1'>
-                            <Link isTruncated isExternal fontSize='inherit'>
-                                {p.url}
-                            </Link>
+                            <Box isTruncated maxWidth='300px'>
+                                <Link isExternal fontSize='inherit'>
+                                    {p.url}
+                                </Link>
+                            </Box>
                         </Box>
-                        <Box flex='1'>{p.url}</Box>
+                        <Box opacity={0.6} flex='1'>
+                            {dayjs(1000 * p.createdAt).fromNow()}
+                        </Box>
                     </Stack>
                 ))}
             </Stack>
