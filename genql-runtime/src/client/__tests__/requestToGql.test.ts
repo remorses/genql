@@ -1,6 +1,6 @@
-import { prettify } from 'genql/dist/helpers/prettify'
-import { renderTypeMap } from 'genql/dist/render/typeMap/renderTypeMap'
-import { schemaRenderTest } from 'genql/dist/testHelpers/render'
+import { prettify } from 'genql-cli/dist/helpers/prettify'
+import { renderTypeMap } from 'genql-cli/dist/render/typeMap/renderTypeMap'
+import { schemaRenderTest } from 'genql-cli/dist/testHelpers/render'
 import { linkTypeMap } from '../linkTypeMap'
 import { requestToGql } from '../requestToGql'
 

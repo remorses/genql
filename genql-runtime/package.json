@@ -39,7 +39,7 @@
         "@types/rimraf": "^2.0.2",
         "common-tags": "^1.8.0",
         "dotenv": "^8.2.0",
-        "genql": "*",
+        "genql-cli": "*",
         "jest": ">=22 <24",
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
@@ -48,13 +48,12 @@
     },
     "dependencies": {
         "@types/graphql": "^14.5.0",
-        "@types/isomorphic-fetch": "^0.0.35",
         "@types/lodash.get": "^4.4.6",
         "@types/lodash.startswith": "^4.2.6",
         "@types/qs": "^6.9.0",
         "@types/ws": "^6.0.1",
         "graphql": "^14.5.8",
-        "isomorphic-fetch": "^2.2.1",
+        "isomorphic-unfetch": "latest",
         "lodash.get": "^4.4.2",
         "lodash.startswith": "^4.2.1",
         "subscriptions-transport-ws": "^0.9.16",
@@ -77,6 +76,9 @@
             "json",
             "node"
         ],
+        "modulePaths": [
+            "<rootDir>"
+          ],
         "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
         "testEnvironment": "node",
         "collectCoverageFrom": [

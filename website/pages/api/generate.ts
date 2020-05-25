@@ -19,6 +19,7 @@ function generatePackageJson({ name }) {
         version: '1.0.0',
         main: './createClient.js',
         module: './createClient.esm.js',
+        sideEffects: false,
         types: './createClient.d.ts',
         dependencies: {
             'genql-runtime': 'latest',

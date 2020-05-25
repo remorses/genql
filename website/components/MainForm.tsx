@@ -25,7 +25,7 @@ import {
     SESSION_STORAGE_CONFIG_KEY,
     FIREBASE_ID_TOKEN_COOKIE,
 } from '../constants'
-require('isomorphic-fetch')
+import fetch from 'isomorphic-unfetch'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import Cookies from 'js-cookie'

@@ -116,7 +116,7 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                         <Box flex='1'>{p.name}</Box>
                         <Box flex='1'>
                             <Box isTruncated maxWidth='300px'>
-                                <Link isExternal fontSize='inherit'>
+                                <Link href={p.url} isExternal fontSize='inherit'>
                                     {p.url}
                                 </Link>
                             </Box>

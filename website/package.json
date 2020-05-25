@@ -28,7 +28,7 @@
     "firebase-admin": "^8.12.1",
     "firebase-react-components": "^1.1.21",
     "genql-cli": "*",
-    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-unfetch": "latest",
     "js-cookie": "^2.2.1",
     "landing-blocks": "^1.0.29",
     "next": "9.4.1",

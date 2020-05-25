@@ -1,4 +1,4 @@
-import 'isomorphic-fetch'
+import fetch from 'isomorphic-unfetch'
 import get from 'lodash.get'
 import ws from 'ws'
 

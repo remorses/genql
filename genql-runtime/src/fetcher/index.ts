@@ -1,5 +1,6 @@
 import { Gql } from '../client/requestToGql'
 import { ClientError } from './error'
+import fetch from 'isomorphic-unfetch'
 
 export { ClientError }
 
