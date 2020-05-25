@@ -8,6 +8,11 @@ export const SESSION_STORAGE_CONFIG_KEY = 'SESSION_STORAGE_CONFIG_KEY'
 console.assert('NPM_TOKEN', NPM_TOKEN)
 console.log('NODE_ENV', process.env.NODE_ENV)
 
+
+
+export const GITHUB_LINK = 'https://github.com/remorses/genql'
+export const DOCS_LINK = '/docs'
+
 export const FIREBASE_ADMIN_CONFIG = JSON.parse(process.env.FIREBASE_ADMIN_CONFIG || '{}')
 console.log('FIREBASE_ADMIN_CONFIG', FIREBASE_ADMIN_CONFIG)
 
