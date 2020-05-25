@@ -1,22 +1,12 @@
 import { Box, Image, Stack } from '@chakra-ui/core'
-import firebase from 'firebase'
-import dayjs, { Dayjs } from 'dayjs'
-import {
-    Banner,
-    Button,
-    Link,
-    PageContainer,
-    SectionTitle,
-} from 'landing-blocks'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import admin from 'firebase-admin'
+import { Banner, Button, Link, PageContainer, SectionTitle } from 'landing-blocks'
 import { GetServerSidePropsContext } from 'next'
-import nextCookies from 'next-cookies'
-import Router from 'next/router'
 import React from 'react'
 import { MainForm } from '../components/MainForm'
-import { FIREBASE_ID_TOKEN_COOKIE } from '../constants'
-import { getFirebaseDecodedToken, initAdmin } from '../support/server'
-import admin from 'firebase-admin'
-import relativeTime from 'dayjs/plugin/relativeTime'
+import { getFirebaseDecodedToken } from '../support/server'
 dayjs.extend(relativeTime)
 
 type Props = {

@@ -80,15 +80,17 @@ export function MyFooter({ ...rest }) {
 export function MyNavbar({ ...rest }) {
     const { user, loading } = useAuthData()
     const navs = [
-        <MyLink>Use Cases</MyLink>,
-        <MyLink>Pricing</MyLink>,
-        <MyLink>About Us</MyLink>,
+        <MyLink href='https://github.com/remorses/genql'>Github</MyLink>,
+        <MyLink>Docs</MyLink>,
         user ? (
             <MyLink href='/me'>Dashboard</MyLink>
         ) : (
             <MyLink href='/login'>Login</MyLink>
-        ), // TODO add pages for user page
+        ),
     ]
+    if (user) {
+        navs.push(<MyLink  href='/logout'>Logout</MyLink>)
+    }
     return (
         <NavBar
             dark
