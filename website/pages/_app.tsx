@@ -5,8 +5,8 @@ import { Link, Stack, Box, useColorMode } from '@chakra-ui/core'
 
 import { AuthProvider, useAuthData } from 'firebase-react-components'
 import { LandingProvider, NavBar, Footer } from 'landing-blocks'
-import firebase from 'firebase'
-import 'firebase/app'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 import {
     firebaseConfig,
     FIREBASE_ID_TOKEN_COOKIE,
