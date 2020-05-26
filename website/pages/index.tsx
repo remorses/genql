@@ -62,7 +62,7 @@ const Page = () => (
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
             image={
-                <Box>
+                <Box fontSize={['sm', null, 'md']} m='10px'>
                     <PatternBackground
                         pattern='diagonalLinesSm'
                         color='gray.200'
@@ -75,6 +75,9 @@ const Page = () => (
                                         key='1'
                                         dark
                                         bg='gray.700'
+                                        w='auto'
+                                        overflow='hidden'
+                                        minWidth='200px'
                                         shadow='xl'
                                         language='bash'
                                         isTyping
@@ -86,6 +89,9 @@ const Page = () => (
                                 <Faded>
                                     <CodeSnippet
                                         key='2'
+                                        overflow='hidden'
+                                        w='auto'
+                                        minWidth='300px'
                                         language='javascript'
                                         isTyping
                                         code={jsQueryCode}
@@ -146,7 +152,7 @@ const Page = () => (
                     as={Faded}
                     // @ts-ignore
                     cascade
-                    // @ts-ignore
+                    fontSize={['sm', null, 'md']}
                     spacing='40px'
                     justify='center'
                     flexDir={['column', null, 'row']}
@@ -157,8 +163,9 @@ const Page = () => (
                         // bg='gray.200'
                         shadow='xl'
                         lineNumbers
-                        w='500px'
-                        h='300px'
+                        // w='500px'
+                        w='auto'
+                        minWidth='300px'
                         code={jsQueryCode}
                         language='javascript'
                     />
@@ -172,8 +179,8 @@ const Page = () => (
                         dark
                         shadow='xl'
                         lineNumbers
-                        w='500px'
-                        h='300px'
+                        w='auto'
+                        minWidth='300px'
                         code={gqlQueryCode}
                         language='graphql'
                     />

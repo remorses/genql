@@ -122,7 +122,11 @@ export const MainForm = ({ ...rest }: StackProps) => {
                             // minW='400px'
                             {...rest}
                         >
-                            <Stack onSubmit={handleSubmit} align='center' as='form'>
+                            <Stack
+                                onSubmit={handleSubmit}
+                                align='center'
+                                as='form'
+                            >
                                 <AuthProvider
                                     onError={console.error}
                                     onLogin={async (user) => {
@@ -225,56 +229,61 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
     }
     if (!submitting) {
         return (
-            <Stack spacing='40px'>
-                <Stack spacing='30px' direction='row' justify='space-between' align='flex-end'>
-                    <Stack position='relative' spacing='10px'>
-                        <Label>Npm package name</Label>
-                        <Field
-                            name='name'
-                            render={({ input, meta }) => (
-                                <InputGroup shadow='sm'>
-                                    <InputLeftAddon>
-                                        <Box opacity={0.6}>{NPM_SCOPE}/</Box>
-                                    </InputLeftAddon>
+            <Stack
+                flexDir={['column', null, null, 'row']}
+                spacing='30px'
+                direction='row'
+                // shouldWrapChildren
+                justify={['center', null, 'space-between']}
+                align={['center', null, 'flex-end']}
+            >
+                <Stack position='relative' spacing='10px'>
+                    <Label>Npm package name</Label>
+                    <Field
+                        name='name'
+                        render={({ input, meta }) => (
+                            <InputGroup shadow='sm'>
+                                <InputLeftAddon>
+                                    <Box opacity={0.6}>{NPM_SCOPE}/</Box>
+                                </InputLeftAddon>
 
-                                    <Input
-                                        {...input}
-                                        isInvalid={meta.touched && meta.invalid}
-                                        roundedLeft='0'
-                                        type='text'
-                                        placeholder='Package Name'
-                                    />
-                                </InputGroup>
-                            )}
-                        />
-                        <ValidationError name='name' />
-                    </Stack>
-                    <Stack position='relative' spacing='10px'>
-                        <Label>Your Graphql api endpoint</Label>
-                        <Field
-                            name='endpoint'
-                            render={({ input, meta }) => (
                                 <Input
                                     {...input}
                                     isInvalid={meta.touched && meta.invalid}
-                                    shadow='sm'
-                                    minW='300px'
-                                    type='url'
-                                    placeholder='https://your-graphql-api'
+                                    roundedLeft='0'
+                                    type='text'
+                                    placeholder='Package Name'
                                 />
-                            )}
-                        />
-                        <ValidationError name='endpoint' />
-                    </Stack>
-                    <Button
-                        type='submit'
-                        // onClick={() => setShouldLogin(true)}
-                        animate
-                        shadow='md'
-                    >
-                        Generate Sdk Package
-                    </Button>
+                            </InputGroup>
+                        )}
+                    />
+                    <ValidationError name='name' />
                 </Stack>
+                <Stack position='relative' spacing='10px'>
+                    <Label>Your Graphql api endpoint</Label>
+                    <Field
+                        name='endpoint'
+                        render={({ input, meta }) => (
+                            <Input
+                                {...input}
+                                isInvalid={meta.touched && meta.invalid}
+                                shadow='sm'
+                                minW='300px'
+                                type='url'
+                                placeholder='https://your-graphql-api'
+                            />
+                        )}
+                    />
+                    <ValidationError name='endpoint' />
+                </Stack>
+                <Button
+                    type='submit'
+                    // onClick={() => setShouldLogin(true)}
+                    animate
+                    shadow='md'
+                >
+                    Generate Sdk Package
+                </Button>
             </Stack>
         )
     }
