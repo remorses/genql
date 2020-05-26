@@ -70,11 +70,12 @@ const Page = (props: Props) => (
             flex='1'
             w='100%'
             h='100%'
+            pb='60px'
             minH='100%'
             bg='gray.50'
         >
             <Box h='140px' />
-            <PackagesTable packages={props.packages} />{' '}
+            <PackagesTable packages={props.packages} />
         </Stack>
         <Banner
             dark
@@ -94,7 +95,7 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
     return (
         <PageContainer spacing='20px' {...rest}>
             <SectionTitle subheading='Your packages' />
-            <Stack px='20px' fontWeight='medium' opacity={0.6} direction='row'>
+            <Stack px='20px' fontWeight='medium' opacity={0.6} flexDir={['column', null, 'row']} display={['none', null, 'flex']}>
                 <Box flex='1'>name</Box>
                 <Box flex='1'>url</Box>
                 <Box flex='1'>created at</Box>
@@ -104,7 +105,7 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                 {packages.map((p) => (
                     <Stack
                         key={p.url}
-                        direction='row'
+                        flexDir={['column', null, 'row']}
                         justify='stretch'
                         fontWeight='normal'
                         bg='white'
