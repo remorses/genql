@@ -34,7 +34,6 @@ export async function getServerSideProps(
         .get()
 
     return {
-        // TODO fetch user packages from firestore
         props: {
             packages: packages.docs.map((x) => {
                 const data = x.data()

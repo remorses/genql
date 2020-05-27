@@ -2,7 +2,6 @@ import { createClient, everything } from './generated/createClient'
 
 const client = createClient({
     subscriptionOptions: {
-
         url: 'ws://graphql-compose.herokuapp.com/northwind/',
     },
 })
@@ -14,11 +13,21 @@ async function main() {
                 ...everything,
             },
         })
-        .subscribe({
-            next: (x) => console.log(JSON.stringify(x, null, '   ')),
-            error: console.error,
-            complete: () => console.error('complete'),
-        })
+        .subscribe(
+            {
+                closed: false,
+                next(x) {
+                    console.log('got value ' + x)
+                },
+                error(err) {
+                    console.error('something wrong occurred: ' + err)
+                },
+                complete() {
+                    console.log('done')
+                },
+            },
+            // console.error,
+        )
 
     const q = await client.query({
         viewer: {

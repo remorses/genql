@@ -1,6 +1,6 @@
 export const NPM_SCOPE =
     process.env.NODE_ENV === 'production'
-        ? '@shitty-scope-name' // TODO add real npm scope
+        ? '@genql'
         : '@shitty-scope-name'
 export const NPM_TOKEN = process.env.NPM_TOKEN
 export const FIREBASE_ID_TOKEN_COOKIE = 'FIREBASE_ID_TOKEN_COOKIE'
