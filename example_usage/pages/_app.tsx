@@ -1,4 +1,4 @@
-import { Stack } from '@chakra-ui/core'
+import { Stack, DarkMode } from '@chakra-ui/core'
 import { LandingProvider } from 'landing-blocks'
 import React from 'react'
 
@@ -9,6 +9,7 @@ export const client = createClient() // TODO instead of passing a fetcher you ca
 export default function App(props) {
     const { Component, pageProps } = props
     return (
+        <DarkMode>
         <LandingProvider
             minH='100%'
             h='100%'
@@ -20,5 +21,6 @@ export default function App(props) {
                 <Component {...pageProps} />
             </Stack>
         </LandingProvider>
+        </DarkMode>
     )
 }
