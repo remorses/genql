@@ -16,11 +16,11 @@ const Page = () => {
         }),
     )
     return (
-        <Stack spacing='40px'>
+        <Stack spacing='40px' mt='40px'>
             <Hero
-                bullet='Introducing Genql 1.0'
+                bullet='Genql lets you write graphql queries as code'
                 heading='Example use of Genql'
-                subheading='Loo at this'
+                subheading='Search for countries via https://countries.trevorblades.com'
             />
             <PageContainer>
                 <Box>Search a continent</Box>
@@ -32,7 +32,7 @@ const Page = () => {
                 />
             </PageContainer>
             <PageContainer>
-                <SectionTitle heading='Continents' />
+                <SectionTitle heading='Countries' />
                 {!data && (
                     <Stack justify='center' align='center'>
                         <Spinner />
