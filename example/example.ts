@@ -1,13 +1,18 @@
-import { createClient, everything } from './generated/createClient'
+import {
+    createClient,
+    createSubscriptionClient,
+    everything,
+} from './generated/createClient'
 
-const client = createClient({
-    subscriptionOptions: {
-        url: 'ws://graphql-compose.herokuapp.com/northwind/',
-    },
+const client = createClient()
+
+const subClient = createSubscriptionClient({
+    url: 'ws://graphql-compose.herokuapp.com/northwind/',
+    
 })
 
 async function main() {
-    const s1 = await client
+    const s1 = await subClient
         .subscription({
             orderCreated: {
                 ...everything,

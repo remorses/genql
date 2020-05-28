@@ -45,27 +45,32 @@ export const renderClientDefinition = (
         types.push('never', 'never', 'never')
     }
 
-    if (subscriptionType) {
-        types.push(
-            requestTypeName(subscriptionType),
-            chainTypeName(subscriptionType, 'Observable'),
-            subscriptionType.name,
-        )
-        imports.push(
-            requestTypeName(subscriptionType),
-            chainTypeName(subscriptionType, 'Observable'),
-            subscriptionType.name,
-        )
-    } else {
-        types.push('never', 'never', 'never')
-    }
-
     ctx.addCodeBlock(`
-    import { Client, ClientOptions } from '${RUNTIME_LIB_NAME}'
+    import { Client, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
     ${imports.length > 0 ? `import {${imports.join(',')}} from './schema'` : ''}
     export declare const createClient:(options?:ClientOptions)=>Client<${types.join(
         ',',
     )}>
     export declare const everything: { __scalar: boolean }
   `)
+
+    if (subscriptionType) {
+        const subscriptionTypes = [
+            requestTypeName(subscriptionType),
+            chainTypeName(subscriptionType, 'Observable'),
+            subscriptionType.name,
+        ]
+        const subscriptionImports = [
+            requestTypeName(subscriptionType),
+            chainTypeName(subscriptionType, 'Observable'),
+            subscriptionType.name,
+        ]
+        ctx.addCodeBlock(
+            `import {${subscriptionImports.join(',')}} from './schema'`,
+        )
+        ctx.addCodeBlock(`
+        export declare const createSubscriptionClient:(options?:SubscriptionClientOptions)=>SubscriptionClient<${subscriptionTypes.join(
+            ',',
+        )}>`)
+    }
 }

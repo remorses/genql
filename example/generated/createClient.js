@@ -1,4 +1,9 @@
-const { linkTypeMap, createClient: createClientOriginal, createFetcher } = require('genql-runtime')
+const {
+  linkTypeMap,
+  createClient: createClientOriginal,
+  createSubscriptionClient: createSubscriptionClientOriginal,
+  createFetcher,
+} = require('genql-runtime')
 module.exports.createClient = function(options) {
   var typeMap = linkTypeMap(require('./types.json'))
   options = options || {}
@@ -10,8 +15,14 @@ module.exports.createClient = function(options) {
     fetcher: createFetcher(fetcherOpts),
     queryRoot: typeMap.Query,
     mutationRoot: typeMap.Mutation,
-    subscriptionRoot: typeMap.Subscription,
   })
+}
+module.exports.createSubscriptionClient = function(options) {
+  var typeMap = linkTypeMap(require('./types.json'))
+  options = options || {}
+  options.url = options.url || 'https://graphql-compose.herokuapp.com/northwind/'
+  options.subscriptionRoot = typeMap.Subscription
+  return createSubscriptionClientOriginal(options)
 }
 module.exports.everything = {
   __scalar: true,

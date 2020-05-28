@@ -9,17 +9,22 @@ import { MapType } from './typeSelection'
 import { Observable } from 'zen-observable-ts'
 import {
     ClientOptions as SubscriptionOptions,
-    SubscriptionClient,
+    SubscriptionClient as wsSubscriptionClient,
 } from 'subscriptions-transport-ws'
 import { ExecutionResult } from 'graphql'
 
-export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
+export interface Client<QR, QC, Q, MR, MC, M> {
     query<R extends QR>(request: R): Promise<MapType<Q, R>>
     mutation<R extends MR>(request: R): Promise<MapType<M, R>>
-    subscription<R extends SR>(request: R): Observable<MapType<S, R>>
     chain: {
         query: QC
         mutation: MC
+    }
+}
+
+export interface SubscriptionClient<SR, SC, S> {
+    subscription<R extends SR>(request: R): Observable<MapType<S, R>>
+    chain: {
         subscription: SC
     }
 }
@@ -27,42 +32,9 @@ export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
 export interface ClientOptions {
     url?: string
     headers?: RequestInit['headers'] | (() => RequestInit['headers'])
-    subscriptionUrl?: string
-    subscriptionOptions?: SubscriptionOptions & { url: string }
 }
 
-export interface ClientEmbeddedOptions {
-    fetcher: Fetcher
-    queryRoot?: LinkedType
-    mutationRoot?: LinkedType
-    subscriptionRoot?: LinkedType
-}
-
-function getSubscriptionClient(
-    opts?: SubscriptionOptions & { url: string },
-): [SubscriptionClient, Error] {
-    if (!opts?.url) {
-        return [
-            null!,
-            Error('Subscription client error: missing url parameter'),
-        ]
-    }
-    const subClient = new SubscriptionClient(
-        opts?.url,
-        {
-            lazy: true,
-            reconnect: true,
-            reconnectionAttempts: 3,
-            connectionCallback: (err, res) => {
-                console.log('connection', err, res)
-                return true
-            },
-            ...opts,
-        },
-        ws,
-    )
-    return [subClient, null!]
-}
+export type SubscriptionClientOptions = ClientOptions & SubscriptionOptions
 
 export const createClient = <
     QR extends Fields,
@@ -70,41 +42,16 @@ export const createClient = <
     Q,
     MR extends Fields,
     MC,
-    M,
-    SR extends Fields,
-    SC,
-    S
+    M
 >({
     fetcher,
-    subscriptionOptions,
     queryRoot,
     mutationRoot,
-    subscriptionRoot,
-}: ClientOptions & ClientEmbeddedOptions): Client<
-    QR,
-    QC,
-    Q,
-    MR,
-    MC,
-    M,
-    SR,
-    SC,
-    S
-> => {
-    const mapResponse = (path: string[], defaultValue: any = undefined) => (
-        response: any,
-    ) => {
-        const result = get(response, [...path], defaultValue)
-
-        if (result === undefined) {
-            throw new Error(`Response path \`${path.join('.')}\` is empty`)
-        }
-
-        return result
-    }
-    const [subClient, subClientError] = getSubscriptionClient(
-        subscriptionOptions,
-    )
+}: ClientOptions & {
+    fetcher: Fetcher
+    queryRoot?: LinkedType
+    mutationRoot?: LinkedType
+}): Client<QR, QC, Q, MR, MC, M> => {
     const funcs = {
         query: (request: QR) => {
             if (!fetcher) throw new Error('fetcher argument is missing')
@@ -127,21 +74,6 @@ export const createClient = <
 
             return resultPromise
         },
-        subscription: (request: SR) => {
-            if (!subscriptionRoot)
-                throw new Error('subscriptionRoot argument is missing')
-            if (!subClient) throw subClientError
-
-            const op = requestToGql('subscription', subscriptionRoot, request)
-            return Observable.from(subClient.request(op) as any).map(
-                (val: ExecutionResult<any>): any => {
-                    if (val?.errors?.length > 0) {
-                        throw new ClientError(val?.errors)
-                    }
-                    return val
-                },
-            )
-        },
     }
     return {
         ...funcs,
@@ -158,6 +90,36 @@ export const createClient = <
                         .then(mapResponse(path, defaultValue)),
                 )
             ),
+        },
+    }
+}
+
+export const createSubscriptionClient = <SR extends Fields, SC, S>({
+    subscriptionRoot,
+    ...options
+}: SubscriptionClientOptions & {
+    subscriptionRoot?: LinkedType
+}): SubscriptionClient<SR, SC, S> => {
+    const subClient = getSubscriptionClient(options)
+    const funcs = {
+        subscription: (request: SR) => {
+            if (!subscriptionRoot)
+                throw new Error('subscriptionRoot argument is missing')
+
+            const op = requestToGql('subscription', subscriptionRoot, request)
+            return Observable.from(subClient.request(op) as any).map(
+                (val: ExecutionResult<any>): any => {
+                    if (val?.errors?.length > 0) {
+                        throw new ClientError(val?.errors)
+                    }
+                    return val
+                },
+            )
+        },
+    }
+    return {
+        ...funcs,
+        chain: {
             subscription: <any>chain((path, request, defaultValue) => {
                 const obs = funcs.subscription(request)
                 const mapper = mapResponse(path, defaultValue)
@@ -165,4 +127,46 @@ export const createClient = <
             }),
         },
     }
+}
+
+const mapResponse = (path: string[], defaultValue: any = undefined) => (
+    response: any,
+) => {
+    const result = get(response, [...path], defaultValue)
+
+    if (result === undefined) {
+        throw new Error(`Response path \`${path.join('.')}\` is empty`)
+    }
+
+    return result
+}
+
+
+function getSubscriptionClient(
+    opts?: SubscriptionClientOptions,
+): wsSubscriptionClient {
+    if (!opts?.url) {
+        throw new Error('Subscription client error: missing url parameter')
+    }
+    const subClient = new wsSubscriptionClient(
+        opts?.url,
+        {
+            lazy: true,
+            reconnect: true,
+            reconnectionAttempts: 3,
+            connectionCallback: (err, res) => {
+                console.log('connection', err, res)
+                return true
+            },
+            connectionParams: {
+                headers:
+                    typeof opts.headers == 'function'
+                        ? opts.headers()
+                        : opts.headers,
+            },
+            ...opts,
+        },
+        ws,
+    )
+    return subClient
 }
