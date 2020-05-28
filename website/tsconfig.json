@@ -25,6 +25,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx", "tests/testGenerateQueries"
   ]
 }

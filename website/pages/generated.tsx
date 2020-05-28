@@ -1,22 +1,9 @@
-import { Box, Stack } from '@chakra-ui/core'
-import { useRouter } from 'next/router'
-import {
-    LandingProvider,
-    Link,
-    SectionTitle,
-    PageContainer,
-} from 'landing-blocks'
+import { Box } from '@chakra-ui/core'
 import { print } from 'genql-cli/src/printer'
-import React, { Fragment } from 'react'
+import { buildSchema } from 'graphql'
 import { generateRandomQuery } from 'graphql-query-generator'
-import {
-    buildSchema,
-    validate,
-    DocumentNode,
-    OperationDefinitionNode,
-    DefinitionNode,
-    parse,
-} from 'graphql'
+import { LandingProvider, PageContainer, SectionTitle } from 'landing-blocks'
+import React from 'react'
 
 const schema = buildSchema(`
 interface Node {

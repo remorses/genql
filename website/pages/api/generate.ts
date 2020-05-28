@@ -6,16 +6,19 @@ import packageNameAvailable from 'npm-name'
 import { promises as fs } from 'fs'
 import { generateProject } from 'genql-cli/src/main'
 import tmp from 'tmp-promise'
+import { buildSchema } from 'graphql'
 
 import { exec } from 'child_process'
 import { NPM_SCOPE, NPM_TOKEN } from '../../constants'
 import { getFirebaseDecodedToken } from '../../support/server'
 import admin from 'firebase-admin'
+import { generateQueries } from '../../support/generateQueries'
 
 function generatePackageJson({ name }) {
     return {
         // TODO add a README with a quickstart
         name: `${NPM_SCOPE}/${name}`,
+        description: 'Graphql client',
         version: '1.0.0',
         main: './createClient.js',
         module: './createClient.esm.js',
@@ -25,6 +28,26 @@ function generatePackageJson({ name }) {
             'genql-runtime': 'latest',
         },
     }
+}
+
+function generateReadme({ name, schema }) {
+    const exampleCode = generateQueries({
+        packageName: name,
+        schema: buildSchema(schema),
+        number: 6,
+    })
+    return `
+# ${name}
+
+Your awesome graphql client ❤️
+
+## Example usage
+
+\`\`\`
+${exampleCode}
+\`\`\`
+
+`
 }
 
 export function runCommand({ cmd, cwd }) {
@@ -53,18 +76,26 @@ export async function createPackage({
         unsafeCleanup: true,
     })
     try {
-        await generateProject({
-            endpoint,
-            output: tmpPath,
-        })
         const packageJson = generatePackageJson({ name })
         if (!(await packageNameAvailable(packageJson.name))) {
             throw new Error('package name already exists')
         }
+        await generateProject({
+            endpoint,
+            output: tmpPath,
+        })
         await fs.writeFile(
             path.join(tmpPath, 'package.json'),
             JSON.stringify(packageJson, null, 4),
         )
+        const readme = generateReadme({
+            name: packageJson.name,
+            schema: await fs.readFile(
+                path.join(tmpPath, 'schema.graphql'),
+                'utf-8',
+            ),
+        })
+        await fs.writeFile(path.join(tmpPath, 'README.md'), readme)
         const cwd = path.join(tmpPath)
         await callback({ name: packageJson.name, cwd })
         return packageJson
