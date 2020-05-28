@@ -15,7 +15,6 @@ async function main() {
         })
         .subscribe(
             {
-                closed: false,
                 next(x) {
                     console.log('got value ' + x)
                 },
