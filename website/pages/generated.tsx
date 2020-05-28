@@ -76,6 +76,7 @@ export async function getServerSideProps() {
             // seed: 2,
         },
     )
+    // console.log(variableValues)
     return {
         props: {
             query: print(queryDocument, {
