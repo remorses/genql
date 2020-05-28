@@ -1,11 +1,11 @@
-name: Genql-cli Npm Package
+name: genql-cli-cli Npm Package
 
 on:
   push:
     branches:
       - master
     paths:
-      - genql/**
+      - genql-cli/**
 
 jobs:
   build:
@@ -17,16 +17,16 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: cd genql && yarn
-      - run: cd genql && yarn jest
-      - run: cd genql && yarn build
+      - run: cd genql-cli && yarn
+      - run: cd genql-cli && yarn jest
+      - run: cd genql-cli && yarn build
       - name: Bump version
         uses: remorses/bump-version@js
         with:
-          version_file: genql/VERSION
-          prefix: genql
+          version_file: genql-cli/VERSION
+          prefix: genql-cli
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: cd genql && yarn publish
+      - run: cd genql-cli && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
