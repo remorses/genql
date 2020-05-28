@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    // "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
     "strict": true,
     "declaration": true,
     "target": "ES2015",

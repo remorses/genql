@@ -6,11 +6,11 @@ import {
     SectionTitle,
     PageContainer,
 } from 'landing-blocks'
+import { print } from 'genql-cli/src/printer'
 import React, { Fragment } from 'react'
 import { generateRandomQuery } from 'graphql-query-generator'
 import {
     buildSchema,
-    print,
     validate,
     DocumentNode,
     OperationDefinitionNode,
@@ -69,20 +69,27 @@ interface Node {
     query: Query
   }`)
 
-const Page = () => {
-    const { query } = useRouter()
+export async function getServerSideProps() {
     const { queryDocument, variableValues, seed } = generateRandomQuery(
         schema,
         {
-            seed: 2,
+            // seed: 2,
         },
     )
+    return {
+        props: {
+            query: print(queryDocument),
+        },
+    }
+}
+
+const Page = ({ query }) => {
     return (
         <LandingProvider bg='white' primary='#D566C5'>
             <SectionTitle my='100px' heading='Example query' />
             <PageContainer>
                 <Box fontSize='14px' as='pre'>
-                    {print(queryDocument)}
+                    {query}
                 </Box>
             </PageContainer>
         </LandingProvider>

@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import { Config } from '../config'
 
 export const validateConfigs = (configs: Config[]) => {
-  const errors = []
+  const errors: string[] = []
 
   if (configs.length === 0) errors.push('config array is empty')
 

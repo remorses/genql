@@ -53,7 +53,7 @@ export const objectType = (
         : `${chainTypeName(resolvedType, wrapper)} & ${getFnType}`
       : `{get:(request?:boolean|number,defaultValue?:${executeReturnType})=>${wrapper}<${executeReturnType}>}`
 
-    const result = []
+    const result: string[] = []
 
     if (argsPresent) {
       result.push(`((args${argsOptional ? '?' : ''}:${argsString})=>${fieldType})`)

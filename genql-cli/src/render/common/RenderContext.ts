@@ -51,10 +51,10 @@ export class RenderContext {
     Object.keys(this.imports).forEach(from => {
       let defaultImport = this.imports[from].find(i => i.isDefault)
       const namedImports = this.imports[from].filter(i => !i.isDefault)
-      const statements = []
+      const statements: string[] = []
 
       if (defaultImport) {
-        statements.push(defaultImport.alias)
+        statements.push(defaultImport.alias || '')
       }
 
       if (namedImports.length > 0) {

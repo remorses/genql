@@ -1,6 +1,6 @@
 import prettier, { BuiltInParserName } from 'prettier'
 
-export const prettify = (code: string, parser: BuiltInParserName): string =>
+export const prettify = (code: string, parser?: BuiltInParserName): string =>
   prettier.format(code, {
     parser,
     semi: false,

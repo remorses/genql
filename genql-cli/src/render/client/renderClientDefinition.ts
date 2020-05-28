@@ -8,8 +8,8 @@ export const renderClientDefinition = (
     schema: GraphQLSchema,
     ctx: RenderContext,
 ) => {
-    const types = []
-    const imports = []
+    const types: string[] = []
+    const imports: string[] = []
 
     const queryType = schema.getQueryType()
     const mutationType = schema.getMutationType()
