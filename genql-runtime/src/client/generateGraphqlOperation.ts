@@ -27,7 +27,7 @@ export interface Context {
   fragments: string[]
 }
 
-export interface Gql {
+export interface GraphqlOperation {
   query: string
   variables: { [name: string]: any }
 }
@@ -115,7 +115,7 @@ export const generateGraphqlOperation = (
   operation: OperationTypeNode,
   root: LinkedType,
   fields: Fields,
-): Gql => {
+): GraphqlOperation => {
   const ctx: Context = { root, varCounter: 0, variables: {}, fragmentCounter: 0, fragments: [] }
   const result = parseRequest(fields, ctx, [])
 

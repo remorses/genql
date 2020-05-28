@@ -1,11 +1,11 @@
-import { Gql } from '../client/generateGraphqlOperation'
+import { GraphqlOperation } from '../client/generateGraphqlOperation'
 import { ClientError } from './error'
 import fetch from 'isomorphic-unfetch'
 
 export { ClientError }
 
 export interface Fetcher {
-    (gql: Gql): Promise<any>
+    (gql: GraphqlOperation): Promise<any>
 }
 
 export const createFetcher = ({

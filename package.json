@@ -3,11 +3,12 @@
     "workspaces": ["genql-cli", "example", "website", "genql-runtime", "example_usage"],
     "scripts": {
         "play": "node -r sucrase/register genql-cli/src/cli.ts",
+        
         "dev": "cd website && yarn dev",
-        "compile": "cd genql-cli && tsc --incremental && cd ../genql-runtime && tsc --incremental",
+        "compile": "cd genql-cli && yarn compile && cd ../genql-runtime && yarn compile",
         "test": "cd genql-cli && yarn jest && cd ../genql-runtime && yarn jest",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
-        "example": "node -r sucrase/register example/generate.ts",
+        "example": "yarn compile && node -r sucrase/register example/generate.ts",
         "runexample": "node -r sucrase/register example/example.ts"
     }
   }

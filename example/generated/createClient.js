@@ -3,6 +3,7 @@ const {
   createClient: createClientOriginal,
   createSubscriptionClient: createSubscriptionClientOriginal,
   createFetcher,
+  generateGraphqlOperation,
 } = require('genql-runtime')
 var typeMap = linkTypeMap(require('./types.json'))
 module.exports.createClient = function(options) {

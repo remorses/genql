@@ -2,13 +2,13 @@ import {
     createClient,
     createSubscriptionClient,
     everything,
+    generateQueryOp,
 } from './generated/createClient'
 
 const client = createClient()
 
 const subClient = createSubscriptionClient({
     url: 'ws://graphql-compose.herokuapp.com/northwind/',
-    
 })
 
 async function main() {
@@ -80,3 +80,13 @@ async function main() {
 }
 
 main().catch(console.error)
+
+const { query, variables } = generateQueryOp({
+    viewer: {
+        category: {
+            _id: 1,
+        },
+    },
+})
+
+console.log(query)

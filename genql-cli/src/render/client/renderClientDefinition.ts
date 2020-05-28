@@ -46,21 +46,35 @@ export const renderClientDefinition = (
     }
 
     ctx.addCodeBlock(`
-    import { Client, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
+    import { Client, GraphqlOperation, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
     ${imports.length > 0 ? `import {${imports.join(',')}} from './schema'` : ''}
     export declare const createClient:(options?:ClientOptions)=>Client<${types.join(
         ',',
     )}>
-    export declare const everything: { __scalar: boolean }
     
+    export declare const everything: { __scalar: boolean }
   `)
 
+    if (queryType) {
+        ctx.addCodeBlock(`
+      export declare const generateQueryOp: (fields: ${requestTypeName(
+          queryType,
+      )}) => GraphqlOperation`)
+    }
+    if (mutationType) {
+        ctx.addCodeBlock(`
+      export declare const generateMutationOp: (fields: ${requestTypeName(
+        mutationType,
+      )}) => GraphqlOperation`)
+    }
     if (subscriptionType) {
-        const subscriptionTypes = [
-            requestTypeName(subscriptionType),
-            chainTypeName(subscriptionType, 'Observable'),
-            subscriptionType.name,
-        ]
+        ctx.addCodeBlock(`
+      export declare const generateSubscriptionOp: (fields: ${requestTypeName(
+        subscriptionType,
+      )}) => GraphqlOperation`)
+    }
+
+    if (subscriptionType) {
         const subscriptionImports = [
             requestTypeName(subscriptionType),
             chainTypeName(subscriptionType, 'Observable'),
@@ -69,10 +83,14 @@ export const renderClientDefinition = (
         ctx.addCodeBlock(
             `import {${subscriptionImports.join(',')}} from './schema'`,
         )
+        const subscriptionTypes = [
+            requestTypeName(subscriptionType),
+            chainTypeName(subscriptionType, 'Observable'),
+            subscriptionType.name,
+        ]
         ctx.addCodeBlock(`
         export declare const createSubscriptionClient:(options?:SubscriptionClientOptions)=>SubscriptionClient<${subscriptionTypes.join(
             ',',
         )}>`)
-  
     }
 }

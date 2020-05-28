@@ -28,7 +28,13 @@ function(options) {
 
 export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
-  const { linkTypeMap, createClient: createClientOriginal, createSubscriptionClient: createSubscriptionClientOriginal, createFetcher } = require('${RUNTIME_LIB_NAME}')
+  const { 
+      linkTypeMap, 
+      createClient: createClientOriginal, 
+      createSubscriptionClient: createSubscriptionClientOriginal, 
+      createFetcher,
+      generateGraphqlOperation
+  } = require('${RUNTIME_LIB_NAME}')
   var typeMap = linkTypeMap(require('./types.json'))
   module.exports.createClient = ${createClientCode(ctx)}
   module.exports.createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
