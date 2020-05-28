@@ -6,21 +6,21 @@ const createClientCode = (ctx: RenderContext) => `
 function(options) {
     var typeMap = linkTypeMap(require('./types.json'))
     options = options || {}
-    var opts = {
-        fetcher: createDefaultFetcher({ url: "${ctx.config?.endpoint}" }),
+    var fetcherOpts = { url: "${ctx.config?.endpoint}" }
+    for (var attrname in options) { 
+        fetcherOpts[attrname] = options[attrname];
+    }
+    return createClientOriginal({
+        fetcher: createFetcher(fetcherOpts),
         queryRoot: typeMap.Query,
         mutationRoot: typeMap.Mutation,
         subscriptionRoot: typeMap.Subscription,        
-    }
-    for (var attrname in options) { 
-        opts[attrname] = options[attrname];
-    }
-    return createClientOriginal(opts)
+    })
 }`
 
 export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
-  const { linkTypeMap, createClient: createClientOriginal, createDefaultFetcher } = require('${RUNTIME_LIB_NAME}')
+  const { linkTypeMap, createClient: createClientOriginal, createFetcher } = require('${RUNTIME_LIB_NAME}')
   module.exports.createClient = ${createClientCode(ctx)}
   module.exports.everything = {
     __scalar: true
@@ -30,7 +30,7 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
 
 export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
-  import { linkTypeMap, createClient as createClientOriginal, createDefaultFetcher } from '${RUNTIME_LIB_NAME}'
+  import { linkTypeMap, createClient as createClientOriginal, createFetcher } from '${RUNTIME_LIB_NAME}'
   export const createClient = ${createClientCode(ctx)}
   export const everything = {
     __scalar: true

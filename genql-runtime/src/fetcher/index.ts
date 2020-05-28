@@ -5,28 +5,35 @@ import fetch from 'isomorphic-unfetch'
 export { ClientError }
 
 export interface Fetcher {
-    (gql: Gql, fetchImpl: typeof fetch,): Promise<any>
+    (gql: Gql): Promise<any>
 }
 
-export const createDefaultFetcher = ({
+export const createFetcher = ({
     url,
+    headers = {},
+    ...rest
 }: {
     url: string
-}): Fetcher => async ({ query, variables }, fetch) => {
+    headers
+} & RequestInit): Fetcher => async ({ query, variables }) => {
+    if (typeof headers == 'function') {
+        headers = headers()
+    }
     const res = await fetch(url, {
         headers: {
-            Authorization: 'bearer MY_TOKEN', // TODO add jwt data
             'Content-Type': 'application/json',
+            ...headers,
         },
         method: 'POST',
         body: JSON.stringify({ query, variables }),
+        ...rest,
     })
     if (!res.ok) {
         throw new Error(`${res.statusText}: ${await res.text()}`)
     }
     const json = await res.json()
     if (json?.errors?.length) {
-        throw new ClientError(`Response contains errors`, json.errors)
+        throw new ClientError(json.errors)
     }
     return json.data
 }

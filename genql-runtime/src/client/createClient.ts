@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-unfetch'
 import get from 'lodash.get'
 import ws from 'ws'
 
@@ -26,12 +25,14 @@ export interface Client<QR, QC, Q, MR, MC, M, SR, SC, S> {
 }
 
 export interface ClientOptions {
-    fetcher?: Fetcher
+    url?: string
+    headers?: RequestInit['headers'] | (() => RequestInit['headers'])
     subscriptionUrl?: string
     subscriptionOptions?: SubscriptionOptions & { url: string }
 }
 
 export interface ClientEmbeddedOptions {
+    fetcher: Fetcher
     queryRoot?: LinkedType
     mutationRoot?: LinkedType
     subscriptionRoot?: LinkedType
@@ -95,10 +96,9 @@ export const createClient = <
     ) => {
         const result = get(response, [...path], defaultValue)
 
-        if (result === undefined)
-            throw new ClientError(
-                `Response path \`${path.join('.')}\` is empty`,
-            )
+        if (result === undefined) {
+            throw new Error(`Response path \`${path.join('.')}\` is empty`)
+        }
 
         return result
     }
@@ -112,7 +112,6 @@ export const createClient = <
 
             const resultPromise = fetcher(
                 requestToGql('query', queryRoot, request),
-                fetch,
             )
 
             return resultPromise
@@ -124,7 +123,6 @@ export const createClient = <
 
             const resultPromise = fetcher(
                 requestToGql('mutation', mutationRoot, request),
-                fetch,
             )
 
             return resultPromise
@@ -137,11 +135,8 @@ export const createClient = <
             const op = requestToGql('subscription', subscriptionRoot, request)
             return Observable.from(subClient.request(op) as any).map(
                 (val: ExecutionResult<any>): any => {
-                    if (val?.errors?.length && val?.errors?.length > 0) {
-                        throw new ClientError(
-                            `Subscription errors`,
-                            val?.errors,
-                        )
+                    if (val?.errors?.length > 0) {
+                        throw new ClientError(val?.errors)
                     }
                     return val
                 },
