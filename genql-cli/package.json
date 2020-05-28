@@ -1,6 +1,6 @@
 {
     "name": "genql-cli",
-    "_": "[bump]",
+    "_": "[bump if genql-cli]",
     "version": "0.0.1",
     "description": "",
     "main": "dist/index.js",

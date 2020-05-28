@@ -1,6 +1,6 @@
 {
     "name": "genql-runtime",
-    "_": "[bump]",
+    "_": "[bump if genql-runtime]",
     "version": "0.0.1",
     "description": "",
     "main": "dist/index.js",
