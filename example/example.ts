@@ -3,6 +3,7 @@ import {
     createSubscriptionClient,
     everything,
     generateQueryOp,
+    QueryResult,
 } from './generated/createClient'
 
 const client = createClient()
@@ -81,12 +82,23 @@ async function main() {
 
 main().catch(console.error)
 
-const { query, variables } = generateQueryOp({
+const q = {
     viewer: {
         category: {
             _id: 1,
         },
     },
-})
+}
+const { query, variables } = generateQueryOp(q)
+
+const res: QueryResult<typeof q> = {
+    viewer: {
+        category: {
+            _id: 234,
+        },
+    },
+}
+
+res
 
 console.log(query)

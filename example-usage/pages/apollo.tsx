@@ -4,16 +4,19 @@ import ApolloClient from 'apollo-boost'
 import gql from 'graphql-tag'
 import { Hero, PageContainer, SectionTitle } from 'landing-blocks'
 import React from 'react'
-import { generateQueryOp } from '../generated/createClient'
+import { generateQueryOp, QueryResult } from '../generated/createClient'
 
 const Page = () => {
-    const { query, variables } = generateQueryOp({
+    const q = {
         countries: {
             name: 1,
             code: 1,
         },
+    }
+    const { query, variables } = generateQueryOp(q)
+    const { data, error } = useQuery<QueryResult<typeof q>>(gql(query), {
+        variables,
     })
-    const { data, error } = useQuery(gql(query), { variables })
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero
@@ -43,11 +46,9 @@ const Page = () => {
     )
 }
 
-
 const client = new ApolloClient({
     uri: 'https://countries.trevorblades.com',
 })
-
 
 const PageWrapped = () => {
     return (

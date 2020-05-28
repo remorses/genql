@@ -46,7 +46,7 @@ export const renderClientDefinition = (
     }
 
     ctx.addCodeBlock(`
-    import { Client, GraphqlOperation, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
+    import { Client, FieldsSelection, GraphqlOperation, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
     ${imports.length > 0 ? `import {${imports.join(',')}} from './schema'` : ''}
     export declare const createClient:(options?:ClientOptions)=>Client<${types.join(
         ',',
@@ -57,21 +57,33 @@ export const renderClientDefinition = (
 
     if (queryType) {
         ctx.addCodeBlock(`
-      export declare const generateQueryOp: (fields: ${requestTypeName(
-          queryType,
-      )}) => GraphqlOperation`)
+        export type QueryResult<fields extends ${requestTypeName(
+            queryType,
+        )}> = FieldsSelection<${queryType.name}, fields>
+
+        export declare const generateQueryOp: (fields: ${requestTypeName(
+            queryType,
+        )}) => GraphqlOperation`)
     }
     if (mutationType) {
         ctx.addCodeBlock(`
-      export declare const generateMutationOp: (fields: ${requestTypeName(
-        mutationType,
-      )}) => GraphqlOperation`)
+        export type MutationResult<fields extends ${requestTypeName(
+            mutationType,
+        )}> = FieldsSelection<${mutationType.name}, fields>
+
+        export declare const generateMutationOp: (fields: ${requestTypeName(
+            mutationType,
+        )}) => GraphqlOperation`)
     }
     if (subscriptionType) {
         ctx.addCodeBlock(`
-      export declare const generateSubscriptionOp: (fields: ${requestTypeName(
-        subscriptionType,
-      )}) => GraphqlOperation`)
+        export type SubscriptionResult<fields extends ${requestTypeName(
+            subscriptionType,
+        )}> = FieldsSelection<${subscriptionType.name}, fields>
+
+        export declare const generateSubscriptionOp: (fields: ${requestTypeName(
+            subscriptionType,
+        )}) => GraphqlOperation`)
     }
 
     if (subscriptionType) {

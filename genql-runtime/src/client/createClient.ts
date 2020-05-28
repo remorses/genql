@@ -5,7 +5,7 @@ import { Fetcher, ClientError } from '../fetcher'
 import { chain } from './chain'
 import { LinkedType } from './linkTypeMap'
 import { Fields, generateGraphqlOperation } from './generateGraphqlOperation'
-import { MapType } from './typeSelection'
+import { FieldsSelection } from './typeSelection'
 import { Observable } from 'zen-observable-ts'
 import {
     ClientOptions as SubscriptionOptions,
@@ -14,8 +14,8 @@ import {
 import { ExecutionResult } from 'graphql'
 
 export interface Client<QR, QC, Q, MR, MC, M> {
-    query<R extends QR>(request: R): Promise<MapType<Q, R>>
-    mutation<R extends MR>(request: R): Promise<MapType<M, R>>
+    query<R extends QR>(request: R): Promise<FieldsSelection<Q, R>>
+    mutation<R extends MR>(request: R): Promise<FieldsSelection<M, R>>
     chain: {
         query: QC
         mutation: MC
@@ -23,7 +23,7 @@ export interface Client<QR, QC, Q, MR, MC, M> {
 }
 
 export interface SubscriptionClient<SR, SC, S> {
-    subscription<R extends SR>(request: R): Observable<MapType<S, R>>
+    subscription<R extends SR>(request: R): Observable<FieldsSelection<S, R>>
     chain: {
         subscription: SC
     }

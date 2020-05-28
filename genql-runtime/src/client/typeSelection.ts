@@ -5,7 +5,7 @@ type ScalarFields<T> = PickByValue<
     string | number | Date | boolean | null | undefined
 >
 
-export type MapType<SRC extends Anify<DST>, DST> = DST extends boolean
+export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends boolean
     ? SRC
     : DST extends {
           __scalar: any
@@ -31,7 +31,7 @@ export type MapInterface<SRC, DST> = SRC extends {
                       DST,
                       keyof INTERFACE | '__typename'
                   >]: Key extends keyof IMPLEMENTORS
-                      ? MapType<IMPLEMENTORS[Key], DST[Key]> &
+                      ? FieldsSelection<IMPLEMENTORS[Key], DST[Key]> &
                             Omit<
                                 {
                                     [Key in keyof Omit<
@@ -47,7 +47,7 @@ export type MapInterface<SRC, DST> = SRC extends {
                                 keyof IMPLEMENTORS
                             > &
                             (DST extends { __typename: any }
-                                ? MapType<
+                                ? FieldsSelection<
                                       IMPLEMENTORS[Key],
                                       { __typename: true }
                                   >
@@ -82,7 +82,7 @@ type LastMapTypeSRCResolver<SRC, DST> = SRC extends undefined
     : SRC extends { __interface: any; __resolve: any }
     ? MapInterface<SRC, DST>
     : SRC extends { __union: any; __resolve: infer RESOLVE }
-    ? ObjectToUnion<MapType<RESOLVE, ValueToUnion<DST>>>
+    ? ObjectToUnion<FieldsSelection<RESOLVE, ValueToUnion<DST>>>
     : DST extends boolean
     ? SRC
-    : MapType<SRC, DST>
+    : FieldsSelection<SRC, DST>
