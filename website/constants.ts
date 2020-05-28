@@ -14,7 +14,7 @@ export const GITHUB_LINK = 'https://github.com/remorses/genql'
 export const DOCS_LINK = '/docs'
 
 export const FIREBASE_ADMIN_CONFIG = JSON.parse(process.env.FIREBASE_ADMIN_CONFIG || '{}')
-console.log('FIREBASE_ADMIN_CONFIG', FIREBASE_ADMIN_CONFIG)
+// console.log('FIREBASE_ADMIN_CONFIG', FIREBASE_ADMIN_CONFIG)
 
 export var firebaseConfig = {
     apiKey: 'AIzaSyABYuGq1OrRbgMQcXUHUJ0FnzNeXtb3Sio',
