@@ -1771,6 +1771,13 @@
   resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.0.5.tgz#accee0bce88a9047672f7c8faf3cada59c996b81"
   integrity sha512-9WKaGVpQH905Aqkk+BczFEeLQxS07rl04afFRPUG9IcSlOwmo5EVVuuNu0d4M9LMYucObvK0LoAe+5HfMW2QhQ==
 
+"@shitty-scope-name/hellox@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@shitty-scope-name/hellox/-/hellox-1.0.0.tgz#74e6c0647913cbf40fc82360986a8c5c2b15c738"
+  integrity sha512-bRDVMyYxkQz9W155Z3XyOhcuwg68PrDz+DxlS+wFZVHtOKTOnLhTyMD+SbZc9AyTs8Jgcvou3RbpPCATAey8FQ==
+  dependencies:
+    genql-runtime latest
+
 "@sindresorhus/is@^2.0.0":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-2.1.1.tgz#ceff6a28a5b4867c2dd4a1ba513de278ccbe8bb1"
@@ -1999,6 +2006,11 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.0.tgz#9140779736aa2655635ee756e2467d787cfe8a2a"
   integrity sha512-c3Xy026kOF7QOTn00hbIllV1dLR9hG9NkSrLQgCVs8NF6sBU+VGWjD3wLPhmh1TYAc7ugCFsvHYMN4VcBN1U1A==
+
+"@types/isomorphic-fetch@^0.0.35":
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@types/isomorphic-fetch/-/isomorphic-fetch-0.0.35.tgz#c1c0d402daac324582b6186b91f8905340ea3361"
+  integrity sha512-DaZNUvLDCAnCTjgwxgiL1eQdxIKEpNLOlTNtAgnZc50bG2copGhRrFN9/PxPBuJe+tZVLCbQ7ls0xveXVRPkvw==
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.2"
@@ -5964,6 +5976,26 @@ gcs-resumable-upload@^2.2.4:
     pumpify "^2.0.0"
     stream-events "^1.0.4"
 
+genql-runtime@latest:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/genql-runtime/-/genql-runtime-0.0.1.tgz#a0cebf8b788eb1a1e6f7fc492b40df5609c21120"
+  integrity sha512-sxCzHo5E3HVEh6Lamo1HzE/vLwFV6bUnYt2CbCXJq7mh5z9IeO3nJxEF1gwVK8lLMYshiChc0/pmVUUvzvrIEQ==
+  dependencies:
+    "@types/graphql" "^14.5.0"
+    "@types/isomorphic-fetch" "^0.0.35"
+    "@types/lodash.get" "^4.4.6"
+    "@types/lodash.startswith" "^4.2.6"
+    "@types/qs" "^6.9.0"
+    "@types/ws" "^6.0.1"
+    graphql "^14.5.8"
+    isomorphic-fetch "^2.2.1"
+    lodash.get "^4.4.2"
+    lodash.startswith "^4.2.1"
+    subscriptions-transport-ws "^0.9.16"
+    utility-types "^3.10.0"
+    ws "^6.1.4"
+    zen-observable-ts "^0.8.21"
+
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269"
@@ -7179,7 +7211,7 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-isomorphic-fetch@2.2.1:
+isomorphic-fetch@2.2.1, isomorphic-fetch@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
   integrity sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=

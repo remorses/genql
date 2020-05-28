@@ -34,7 +34,7 @@ function generateReadme({ name, schema }) {
     const exampleCode = generateQueries({
         packageName: name,
         schema: buildSchema(schema),
-        number: 6,
+        number: 3,
     })
     return `
 # ${name}
@@ -43,7 +43,7 @@ Your awesome graphql client ❤️
 
 ## Example usage
 
-\`\`\`
+\`\`\`js
 ${exampleCode}
 \`\`\`
 

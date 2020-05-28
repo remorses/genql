@@ -1,6 +1,12 @@
 {
     "private": true,
-    "workspaces": ["genql-cli", "example", "website", "genql-runtime", "example-usage"],
+    "workspaces": [
+        "genql-cli",
+        "example",
+        "website",
+        "genql-runtime",
+        "example-usage"
+    ],
     "scripts": {
         "play": "node -r sucrase/register genql-cli/src/cli.ts",
         "build": "cd genql-cli && yarn build && cd ../genql-runtime && yarn build",
@@ -10,5 +16,8 @@
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
         "example": "yarn compile && node -r sucrase/register example/generate.ts",
         "runexample": "node -r sucrase/register example/example.ts"
+    },
+    "dependencies": {
+        "@shitty-scope-name/hellox": "^1.0.0"
     }
-  }
+}

@@ -7,6 +7,7 @@ import { prettify } from './helpers/prettify'
  * formatting rules.
  */
 
+
 export type PrintOptions = {
     clientVarName?: string
     transformVariableName?: (x: string) => string
@@ -46,7 +47,7 @@ const printDocASTReducer = ({
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
-        return 'let ' + variable.replace('$', '')
+        return 'var ' + variable.replace('$', '')
     },
     SelectionSet: ({ selections }) => block(selections),
 

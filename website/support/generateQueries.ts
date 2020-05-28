@@ -27,7 +27,7 @@ export function generateQueries(p: {
     return code
 }
 
-const thenCode = 'console.log'
+const thenCode = 'x => console.log(JSON.stringify(x, null, 4)'
 
 const transformVariableName = (x) => {
     return x
