@@ -29,12 +29,14 @@ export interface SubscriptionClient<SR, SC, S> {
     }
 }
 
-export interface ClientOptions {
+export interface BaseClientOptions {
     url?: string
     headers?: RequestInit['headers'] | (() => RequestInit['headers'])
 }
 
-export type SubscriptionClientOptions = ClientOptions & SubscriptionOptions
+export type ClientOptions = BaseClientOptions & Omit<RequestInit, 'body' | 'headers'>
+
+export type SubscriptionClientOptions = BaseClientOptions & SubscriptionOptions
 
 export const createClient = <
     QR extends Fields,

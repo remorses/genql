@@ -4,7 +4,7 @@ import React from 'react'
 
 import { createClient } from '../generated/createClient'
 
-export const client = createClient() // TODO instead of passing a fetcher you can pass options to fetch function like headers, url, method, ...
+export const client = createClient()
 
 export default function App(props) {
     const { Component, pageProps } = props
