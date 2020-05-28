@@ -102,3 +102,5 @@ const res: QueryResult<typeof q> = {
 res
 
 console.log(query)
+
+

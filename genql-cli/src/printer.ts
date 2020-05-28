@@ -10,6 +10,7 @@ import { prettify } from './helpers/prettify'
 export type PrintOptions = {
     clientVarName?: string
     transformVariableName?: (x: string) => string
+    thenCode?: string
 }
 export function print(ast: ASTNode, options: PrintOptions = {}): string {
     const str = visit(ast, { leave: printDocASTReducer(options) })
@@ -19,6 +20,7 @@ export function print(ast: ASTNode, options: PrintOptions = {}): string {
 const printDocASTReducer = ({
     clientVarName = 'client',
     transformVariableName = (x) => x,
+    thenCode,
 }: PrintOptions): any => ({
     Name: (node) => node.value,
     Variable: (node) => transformVariableName(node.name),
@@ -31,15 +33,16 @@ const printDocASTReducer = ({
         const selectionSet = node.selectionSet
         // Anonymous queries with no directives or variable definitions can use
         // the query short form.
-        let vars = join(node.variableDefinitions, '\n')
+        let code = join(node.variableDefinitions, '\n')
         if (node.variableDefinitions.length) {
-            vars = '//variables\n' + vars
-            vars += '\n\n'
+            code = '// variables\n' + code
+            code += '\n\n'
         }
-        return (
-            vars +
-            prettify(`${clientVarName}.${node.operation}(` + selectionSet + ')')
-        )
+        code += `${clientVarName}.${node.operation}(` + selectionSet + ')'
+        if (thenCode) {
+            code += `.then(${thenCode})`
+        }
+        return prettify(code)
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
