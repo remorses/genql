@@ -111,6 +111,12 @@ export interface GenerateApiParams {
     endpoint: string
 }
 
+export interface Package {
+    name: string
+    graphql_endpoint: string
+    user_uid: string
+}
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const { name, endpoint } = await req.body
@@ -147,7 +153,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 name: packageJson.name,
                 graphql_endpoint: endpoint,
                 created_at: new Date().toUTCString(),
-            })
+            } as Package)
 
         console.log('generated package files')
         res.statusCode = 200

@@ -2,19 +2,25 @@ import { Box, Image, Stack } from '@chakra-ui/core'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import admin from 'firebase-admin'
-import { Banner, Button, Link, PageContainer, SectionTitle } from 'landing-blocks'
+import {
+    Banner,
+    Button,
+    Link,
+    PageContainer,
+    SectionTitle,
+} from 'landing-blocks'
 import { GetServerSidePropsContext } from 'next'
 import React from 'react'
 import { MainForm } from '../components/MainForm'
 import { getFirebaseDecodedToken } from '../support/server'
+import { Package } from './api/generate'
 dayjs.extend(relativeTime)
 
 type Props = {
-    packages: {
-        name: string
+    packages: ({
         url?: string
         createdAt?: number
-    }[]
+    } & Package)[]
 }
 
 export async function getServerSideProps(
@@ -93,10 +99,16 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
     }
     return (
         <PageContainer spacing='20px' {...rest}>
-            <SectionTitle subheading='Your packages' />
-            <Stack px='20px' fontWeight='medium' opacity={0.6} flexDir={['column', null, 'row']} display={['none', null, 'flex']}>
+            {/* <SectionTitle subheading='Your packages' /> */}
+            <Stack
+                px='20px'
+                fontWeight='medium'
+                opacity={0.4}
+                flexDir={['column', null, 'row']}
+                display={['none', null, 'flex']}
+            >
                 <Box flex='1'>name</Box>
-                <Box flex='1'>url</Box>
+                <Box flex='1'>graphql endpoint</Box>
                 <Box flex='1'>created at</Box>
             </Stack>
             {/* <Divider /> */}
@@ -113,11 +125,20 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                         borderRadius='lg'
                         borderWidth='1px'
                     >
-                        <Box flex='1'>{p.name}</Box>
+                        <Box flex='1'>
+                            <Link href={p.url} isExternal fontSize='inherit'>
+                                {p.name}
+                            </Link>
+                        </Box>
                         <Box flex='1'>
                             <Box isTruncated maxWidth='300px'>
-                                <Link href={p.url} isExternal fontSize='inherit'>
-                                    {p.url}
+                                <Link
+                                    color='gray.500'
+                                    href={p.graphql_endpoint}
+                                    isExternal
+                                    fontSize='inherit'
+                                >
+                                    {p.graphql_endpoint}
                                 </Link>
                             </Box>
                         </Box>
