@@ -6,23 +6,28 @@ import { prettify } from './helpers/prettify'
  * Converts an AST into a string, using one set of reasonable
  * formatting rules.
  */
-export function print(ast: ASTNode): string {
-    const str = visit(ast, { leave: printDocASTReducer })
-    console.log(str)
+
+export type PrintOptions = {
+    clientVarName?: string
+    transformVariableName?: (x: string) => string
+}
+export function print(ast: ASTNode, options: PrintOptions = {}): string {
+    const str = visit(ast, { leave: printDocASTReducer(options) })
     return str
 }
 
-const printDocASTReducer: any = {
+const printDocASTReducer = ({
+    clientVarName = 'client',
+    transformVariableName = (x) => x,
+}: PrintOptions): any => ({
     Name: (node) => node.value,
-    Variable: (node) => '$' + node.name,
+    Variable: (node) => transformVariableName(node.name),
 
     // Document
 
     Document: (node) => join(node.definitions, '\n\n') + '\n',
 
     OperationDefinition(node) {
-        const name = node.name
-        const directives = join(node.directives, ' ')
         const selectionSet = node.selectionSet
         // Anonymous queries with no directives or variable definitions can use
         // the query short form.
@@ -31,7 +36,10 @@ const printDocASTReducer: any = {
             vars = '//variables\n' + vars
             vars += '\n\n'
         }
-        return vars + prettify(`client.${node.operation}(` + selectionSet + ')')
+        return (
+            vars +
+            prettify(`${clientVarName}.${node.operation}(` + selectionSet + ')')
+        )
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
@@ -51,12 +59,13 @@ const printDocASTReducer: any = {
     },
     // join(directives, ' '),
 
-    Argument: ({ name, value }) => name + ': ' + value.replace('$', ''),
+    Argument: ({ name, value }) =>
+        name + ': ' + transformVariableName(value.replace('$', '')),
 
     // Fragments
 
     // Directive
-}
+})
 
 /**
  * Given maybeArray, print an empty string if it is null or empty, otherwise

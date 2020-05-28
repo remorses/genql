@@ -78,7 +78,14 @@ export async function getServerSideProps() {
     )
     return {
         props: {
-            query: print(queryDocument),
+            query: print(queryDocument, {
+                transformVariableName: (x) => {
+                    return x
+                        .replace('Query__', '')
+                        .replace('Mutation__', '')
+                        .replace('Subscription__', '')
+                },
+            }),
         },
     }
 }
