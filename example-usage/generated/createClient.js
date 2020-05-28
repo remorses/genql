@@ -3,9 +3,10 @@ const {
   createClient: createClientOriginal,
   createSubscriptionClient: createSubscriptionClientOriginal,
   createFetcher,
+  generateGraphqlOperation,
 } = require('genql-runtime')
+var typeMap = linkTypeMap(require('./types.json'))
 module.exports.createClient = function(options) {
-  var typeMap = linkTypeMap(require('./types.json'))
   options = options || {}
   var fetcherOpts = { url: 'https://countries.trevorblades.com' }
   for (var attrname in options) {
@@ -18,11 +19,19 @@ module.exports.createClient = function(options) {
   })
 }
 module.exports.createSubscriptionClient = function(options) {
-  var typeMap = linkTypeMap(require('./types.json'))
   options = options || {}
   options.url = options.url || 'https://countries.trevorblades.com'
   options.subscriptionRoot = typeMap.Subscription
   return createSubscriptionClientOriginal(options)
+}
+module.exports.generateQueryOp = function(fields) {
+  return generateGraphqlOperation('query', typeMap.Query, fields)
+}
+module.exports.generateMutationOp = function(fields) {
+  return generateGraphqlOperation('mutation', typeMap.Mutation, fields)
+}
+module.exports.generateSubscriptionOp = function(fields) {
+  return generateGraphqlOperation('subscription', typeMap.Subscription, fields)
 }
 module.exports.everything = {
   __scalar: true,

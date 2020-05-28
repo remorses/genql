@@ -6,7 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "gen": "cd .. && yarn play -o example_usage/generated -e https://countries.trevorblades.com"
+        "gen": "cd .. && yarn play -o example-usage/generated -e https://countries.trevorblades.com"
     },
     "mocha": {
         "require": "tests/init.js",
@@ -17,14 +17,17 @@
         "firebase-admin": false
     },
     "dependencies": {
+        "@apollo/react-hooks": "^3.1.5",
         "@chakra-ui/core": "^0.8.0",
         "@emotion/core": "^10.0.28",
         "@emotion/styled": "^10.0.27",
         "@types/js-cookie": "^2.2.6",
+        "apollo-boost": "^0.4.9",
         "baby-i-am-faded": "^0.0.14",
         "emotion-theming": "^10.0.27",
         "genql-cli": "*",
         "genql-runtime": "*",
+        "graphql-tag": "^2.10.3",
         "landing-blocks": "^1.0.29",
         "react": "16.13.1",
         "react-dom": "16.13.1",

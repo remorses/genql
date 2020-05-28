@@ -9,6 +9,7 @@ import { everything } from '../generated/createClient'
 const paths = {
     'react-query': '/react-query',
     swr: '/swr',
+    apollo: '/apollo',
 }
 
 const Page = () => {
