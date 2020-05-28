@@ -12,7 +12,7 @@
         "build": "cd genql-cli && yarn build && cd ../genql-runtime && yarn build",
         "dev": "cd website && yarn dev",
         "compile": "cd genql-cli && yarn compile && cd ../genql-runtime && yarn compile",
-        "test": "cd genql-cli && yarn jest && cd ../genql-runtime && yarn jest",
+        "test": "cd genql-cli && yarn test && cd ../genql-runtime && yarn test",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
         "example": "yarn compile && node -r sucrase/register example/generate.ts",
         "runexample": "node -r sucrase/register example/example.ts"

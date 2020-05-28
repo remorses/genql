@@ -22,7 +22,7 @@
     "scripts": {
         "start": "tsdx watch",
         "build": "tsdx build",
-        "jest": "jest",
+        "test": "cd ../genql-cli && tsc --incremental && cd ../genql-runtime && jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"
     },

@@ -15,7 +15,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: cd genql-runtime && yarn
-      - run: cd genql-runtime && yarn jest
+      - run: cd genql-runtime && yarn test
       - run: cd genql-runtime && yarn build
       - name: Bump version
         uses: remorses/bump-version@js
