@@ -3,9 +3,10 @@ import {
   createClient as createClientOriginal,
   createSubscriptionClient as createSubscriptionClientOriginal,
   createFetcher,
+  generateGraphqlOperation,
 } from 'genql-runtime'
-export const createClient = function(options) {
-  var typeMap = linkTypeMap(require('./types.json'))
+var typeMap = linkTypeMap(require('./types.json'))
+export var createClient = function(options) {
   options = options || {}
   var fetcherOpts = { url: 'https://graphql-compose.herokuapp.com/northwind/' }
   for (var attrname in options) {
@@ -17,13 +18,27 @@ export const createClient = function(options) {
     mutationRoot: typeMap.Mutation,
   })
 }
-export const createSubscriptionClient = function(options) {
-  var typeMap = linkTypeMap(require('./types.json'))
+export var createSubscriptionClient = function(options) {
   options = options || {}
   options.url = options.url || 'https://graphql-compose.herokuapp.com/northwind/'
   options.subscriptionRoot = typeMap.Subscription
   return createSubscriptionClientOriginal(options)
 }
-export const everything = {
+export var createSubscriptionClient = function(options) {
+  options = options || {}
+  options.url = options.url || 'https://graphql-compose.herokuapp.com/northwind/'
+  options.subscriptionRoot = typeMap.Subscription
+  return createSubscriptionClientOriginal(options)
+}
+export var generateQueryOp = function(fields) {
+  return generateGraphqlOperation('query', typeMap.Query, fields)
+}
+export var generateMutationOp = function(fields) {
+  return generateGraphqlOperation('mutation', typeMap.Mutation, fields)
+}
+export var generateSubscriptionOp = function(fields) {
+  return generateGraphqlOperation('subscription', typeMap.Subscription, fields)
+}
+export var everything = {
   __scalar: true,
 }

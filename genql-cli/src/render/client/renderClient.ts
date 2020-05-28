@@ -4,7 +4,7 @@ import { RUNTIME_LIB_NAME } from '../../config'
 
 const createClientCode = (ctx: RenderContext) => `
 function(options) {
-    var typeMap = linkTypeMap(require('./types.json'))
+    
     options = options || {}
     var fetcherOpts = { url: "${ctx.config?.endpoint}" }
     for (var attrname in options) { 
@@ -19,7 +19,7 @@ function(options) {
 
 const createSubscriptionClientCode = (ctx: RenderContext) => `
 function(options) {
-    var typeMap = linkTypeMap(require('./types.json'))
+    
     options = options || {}
     options.url = options.url || "${ctx.config?.endpoint}"
     options.subscriptionRoot = typeMap.Subscription
@@ -29,8 +29,18 @@ function(options) {
 export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
   const { linkTypeMap, createClient: createClientOriginal, createSubscriptionClient: createSubscriptionClientOriginal, createFetcher } = require('${RUNTIME_LIB_NAME}')
+  var typeMap = linkTypeMap(require('./types.json'))
   module.exports.createClient = ${createClientCode(ctx)}
   module.exports.createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
+  module.exports.generateQueryOp = function(fields) {
+    return generateGraphqlOperation('query', typeMap.Query, fields)
+  }
+  module.exports.generateMutationOp = function(fields) {
+    return generateGraphqlOperation('mutation', typeMap.Mutation, fields)
+  }
+  module.exports.generateSubscriptionOp = function(fields) {
+    return generateGraphqlOperation('subscription', typeMap.Subscription, fields)
+  }
   module.exports.everything = {
     __scalar: true
   }
@@ -39,10 +49,27 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
 
 export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
-  import { linkTypeMap, createClient as createClientOriginal, createSubscriptionClient as createSubscriptionClientOriginal, createFetcher } from '${RUNTIME_LIB_NAME}'
-  export const createClient = ${createClientCode(ctx)}
-  export const createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
-  export const everything = {
+  import { 
+      linkTypeMap, 
+      createClient as createClientOriginal, 
+      createSubscriptionClient as createSubscriptionClientOriginal, 
+      createFetcher,
+      generateGraphqlOperation,
+  } from '${RUNTIME_LIB_NAME}'
+  var typeMap = linkTypeMap(require('./types.json'))
+  export var createClient = ${createClientCode(ctx)}
+  export var createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
+  export var createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
+  export var generateQueryOp = function(fields) {
+    return generateGraphqlOperation('query', typeMap.Query, fields)
+  }
+  export var generateMutationOp = function(fields) {
+    return generateGraphqlOperation('mutation', typeMap.Mutation, fields)
+  }
+  export var generateSubscriptionOp = function(fields) {
+    return generateGraphqlOperation('subscription', typeMap.Subscription, fields)
+  }
+  export var everything = {
     __scalar: true
   }
   `)
