@@ -111,7 +111,7 @@ const parseRequest = (request: Request | undefined, ctx: Context, path: string[]
   }
 }
 
-export const requestToGql = (
+export const generateGraphqlOperation = (
   operation: OperationTypeNode,
   root: LinkedType,
   fields: Fields,

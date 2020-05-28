@@ -4,7 +4,7 @@ import ws from 'ws'
 import { Fetcher, ClientError } from '../fetcher'
 import { chain } from './chain'
 import { LinkedType } from './linkTypeMap'
-import { Fields, requestToGql } from './requestToGql'
+import { Fields, generateGraphqlOperation } from './requestToGql'
 import { MapType } from './typeSelection'
 import { Observable } from 'zen-observable-ts'
 import {
@@ -60,7 +60,7 @@ export const createClient = <
             if (!queryRoot) throw new Error('queryRoot argument is missing')
 
             const resultPromise = fetcher(
-                requestToGql('query', queryRoot, request),
+                generateGraphqlOperation('query', queryRoot, request),
             )
 
             return resultPromise
@@ -71,7 +71,7 @@ export const createClient = <
                 throw new Error('mutationRoot argument is missing')
 
             const resultPromise = fetcher(
-                requestToGql('mutation', mutationRoot, request),
+                generateGraphqlOperation('mutation', mutationRoot, request),
             )
 
             return resultPromise
@@ -108,7 +108,7 @@ export const createSubscriptionClient = <SR extends Fields, SC, S>({
             if (!subscriptionRoot)
                 throw new Error('subscriptionRoot argument is missing')
 
-            const op = requestToGql('subscription', subscriptionRoot, request)
+            const op = generateGraphqlOperation('subscription', subscriptionRoot, request)
             return Observable.from(subClient.request(op) as any).map(
                 (val: ExecutionResult<any>): any => {
                     if (val?.errors?.length > 0) {
