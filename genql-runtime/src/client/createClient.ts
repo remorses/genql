@@ -4,7 +4,7 @@ import ws from 'ws'
 import { Fetcher, ClientError } from '../fetcher'
 import { chain } from './chain'
 import { LinkedType } from './linkTypeMap'
-import { Fields, generateGraphqlOperation } from './requestToGql'
+import { Fields, generateGraphqlOperation } from './generateGraphqlOperation'
 import { MapType } from './typeSelection'
 import { Observable } from 'zen-observable-ts'
 import {

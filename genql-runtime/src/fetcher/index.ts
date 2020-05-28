@@ -1,4 +1,4 @@
-import { Gql } from '../client/requestToGql'
+import { Gql } from '../client/generateGraphqlOperation'
 import { ClientError } from './error'
 import fetch from 'isomorphic-unfetch'
 

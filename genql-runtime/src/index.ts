@@ -1,5 +1,5 @@
 export { createClient, Client, ClientOptions, createSubscriptionClient, SubscriptionClient, SubscriptionClientOptions } from './client/createClient'
-export { generateGraphqlOperation } from './client/'
+export { generateGraphqlOperation } from './client/generateGraphqlOperation'
 export { linkTypeMap } from './client/linkTypeMap'
 export { Observable } from 'subscriptions-transport-ws'
 export { MapType } from './client/typeSelection'
