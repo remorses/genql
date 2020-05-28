@@ -52,6 +52,7 @@ export const renderClientDefinition = (
         ',',
     )}>
     export declare const everything: { __scalar: boolean }
+    
   `)
 
     if (subscriptionType) {
@@ -72,5 +73,6 @@ export const renderClientDefinition = (
         export declare const createSubscriptionClient:(options?:SubscriptionClientOptions)=>SubscriptionClient<${subscriptionTypes.join(
             ',',
         )}>`)
+  
     }
 }
