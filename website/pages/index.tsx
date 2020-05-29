@@ -67,8 +67,8 @@ const Page = () => (
             }
             subheading={
                 <Fragment>
-                    Generate a typed graphql client
-                    <br /> from your graphql api.
+                    Genql generates a typed graphql client
+                    <br /> for your graphql api.
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
@@ -155,8 +155,8 @@ const Page = () => (
         <Stack spacing='40px' py='120px' bg='white'>
             <SectionTitle
                 mt='40px'
-                heading='Get autocompletion and validation for your graphql queries'
-                subheading='From js to graphql'
+                heading='Graphql queries written in code'
+                subheading='Genql generates a graphql client with typescript types, giving you type safety and auto completion'
             />
             <PageContainer>
                 <Stack
@@ -202,8 +202,8 @@ const Page = () => (
         <Feature
             dark
             flip
-            heading='Auto completion for your queries'
-            subheading='Genql generates a typescript client modeled on your graphql schema, this means that it supports autocompletion.'
+            heading='Auto completion'
+            subheading='Queries written with a genql client support auto completion thanks to typescript typings'
             image={
                 <Box overflow='hidden' mr='-50%' mb='-50%' zIndex={-1} bg={BG}>
                     <video
@@ -222,8 +222,8 @@ const Page = () => (
         />
         <Feature
             dark
-            heading='Queries validated by typescript'
-            subheading='Genql is the perfect companion for building web APIs. It saves repetitive CRUD boilerplate and provides a flexible API for common use cases such as pagination and filtering.'
+            heading='Type Validation'
+            subheading={`Every query written with genql is validated against its schema, you can't write invalid queries anymore`}
             image={
                 <Box overflow='hidden' mr='-60%' mb='-50%' zIndex={-2} bg={BG}>
                     <video
@@ -241,20 +241,22 @@ const Page = () => (
             }
         />
 
-        <Section zIndex={1} bg='white'>
+        <Section degree={0} zIndex={1} bg='white'>
             <Banner
                 // dark
-                heading='Add Genql to Your App or Start From Scratch'
-                bullet='READY TO TRY?'
+                heading='Genql is well documented'
+                bullet='everything you need to know'
+                subheading='You can see examples and explanations in the documentation'
                 bg='transparent'
                 image={
                     <Image
                         ml='-60px'
-                        width='200px'
-                        src='/logo_shape_on_white.svg'
+                        minW='300px'
+                        width='500px'
+                        src='/banner.jpg'
                     />
                 }
-                cta={<Button>Generate your graphql api sdk</Button>}
+                cta={<Button>Read the Docs</Button>}
             />
         </Section>
     </Stack>
