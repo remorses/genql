@@ -2,11 +2,12 @@ import NextLink from 'next/link'
 import React, { useEffect } from 'react'
 import Cookies from 'js-cookie'
 import { Link, Stack, Box, useColorMode } from '@chakra-ui/core'
-
+import { DokzProvider } from 'dokz'
 import { AuthProvider, useAuthData } from 'firebase-react-components'
 import { LandingProvider, NavBar, Footer } from 'landing-blocks'
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import { useRouter } from 'next/router'
 import {
     firebaseConfig,
     FIREBASE_ID_TOKEN_COOKIE,
@@ -15,7 +16,7 @@ import {
 } from '../constants'
 
 export const BG = '#2d3748'
-    // 'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
+// 'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
@@ -23,6 +24,7 @@ if (!firebase.apps.length) {
 
 export default function App(props) {
     const { Component, pageProps } = props
+    const { pathname } = useRouter()
     useEffect(() => {
         // TODO this could be a npm package
         return firebase.auth().onIdTokenChanged(async (user) => {
@@ -36,6 +38,14 @@ export default function App(props) {
             })
         })
     }, [])
+    console.log({ pathname })
+    if (pathname.startsWith('/docs')) {
+        return (
+            <DokzProvider headerLogo={<Logo/>}>
+                <Component {...pageProps} />
+            </DokzProvider>
+        )
+    }
     return (
         <AuthProvider
             // noPersistence // disable firebase persistence
@@ -79,8 +89,12 @@ export function MyFooter({ ...rest }) {
                     <MyLink href='https://github.com/remorses/'>Github</MyLink>,
                 ],
                 'Who made this?': [
-                    <MyLink href='https://twitter.com/__morse'>My Twitter</MyLink>,
-                    <MyLink href='https://github.com/remorses/'>My Github</MyLink>,
+                    <MyLink href='https://twitter.com/__morse'>
+                        My Twitter
+                    </MyLink>,
+                    <MyLink href='https://github.com/remorses/'>
+                        My Github
+                    </MyLink>,
                 ],
             }}
             {...rest}
@@ -105,11 +119,7 @@ export function MyNavbar({ ...rest }) {
         <NavBar
             dark
             logo={
-                <NextLink href='/'>
-                    <Box cursor='pointer' fontWeight='medium' fontSize='24px'>
-                        Genql
-                    </Box>
-                </NextLink>
+                <Logo />
                 // <Image
                 //     width='120px'
                 //     stroke='#000'
@@ -121,6 +131,14 @@ export function MyNavbar({ ...rest }) {
         />
     )
 }
+
+const Logo = () => (
+    <NextLink href='/'>
+        <Box cursor='pointer' fontWeight='medium' fontSize='24px'>
+            Genql
+        </Box>
+    </NextLink>
+)
 
 export function MyLink({ href = '#', ...rest }) {
     const isExternal = href.startsWith('http')

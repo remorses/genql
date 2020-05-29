@@ -1,0 +1,29 @@
+{
+    "path": "pages",
+    "name": "pages",
+    "children": [
+        {
+            "path": "pages/api",
+            "name": "api",
+            "children": [],
+            "size": 0,
+            "type": "directory"
+        },
+        {
+            "path": "pages/docs",
+            "name": "docs",
+            "children": [
+                {
+                    "path": "pages/docs/index.mdx",
+                    "name": "index.mdx",
+                    "title": "xxx",
+                    "url": "/docs/index"
+                }
+            ],
+            "size": null,
+            "type": "directory"
+        }
+    ],
+    "size": null,
+    "type": "directory"
+}

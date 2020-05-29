@@ -1,5 +1,6 @@
 import { Box, Image, Stack } from '@chakra-ui/core'
 import { Faded } from 'baby-i-am-faded'
+import NextLink from 'next/link'
 // @jsx jsx
 import { jsx, css } from '@emotion/core'
 import {
@@ -256,7 +257,11 @@ const Page = () => (
                         src='/banner.jpg'
                     />
                 }
-                cta={<Button>Read the Docs</Button>}
+                cta={
+                    <NextLink href='/docs'>
+                        <Button>Read the Docs</Button>
+                    </NextLink>
+                }
             />
         </Section>
     </Stack>
