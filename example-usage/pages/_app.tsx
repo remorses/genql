@@ -10,17 +10,16 @@ export default function App(props) {
     const { Component, pageProps } = props
     return (
         <DarkMode>
-        <LandingProvider
-            minH='100%'
-            h='100%'
-            // background={BG}
-            black='#333'
-            primary='#D566C5'
-        >
-            <Stack h='100%' minH='100vh'>
-                <Component {...pageProps} />
-            </Stack>
-        </LandingProvider>
+            <LandingProvider
+                minH='100%'
+                h='100%'
+                // background={BG}
+                black='#333'
+            >
+                <Stack h='100%' minH='100vh'>
+                    <Component {...pageProps} />
+                </Stack>
+            </LandingProvider>
         </DarkMode>
     )
 }

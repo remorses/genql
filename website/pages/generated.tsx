@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/core'
+import { Box, Stack } from '@chakra-ui/core'
 import { print } from 'genql-cli/src/printer'
 import { buildSchema } from 'graphql'
 import { generateRandomQuery } from 'graphql-query-generator'
@@ -80,14 +80,14 @@ export async function getServerSideProps() {
 
 const Page = ({ query }) => {
     return (
-        <LandingProvider bg='white' primary='#D566C5'>
+        <Stack>
             <SectionTitle my='100px' heading='Example query' />
             <PageContainer>
                 <Box fontSize='14px' as='pre'>
                     {query}
                 </Box>
             </PageContainer>
-        </LandingProvider>
+        </Stack>
     )
 }
 export default Page

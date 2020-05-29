@@ -15,7 +15,6 @@
         "compile": "cd genql-cli && yarn compile && cd ../genql-runtime && yarn compile",
         "test": "cd genql-cli && yarn test && cd ../genql-runtime && yarn test",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
-        "example": "yarn compile ",
         "runexample": "node -r sucrase/register example/example.ts"
     }
 }

@@ -53,7 +53,7 @@ export default function App(props) {
                 h='100%'
                 background={BG}
                 black='#333'
-                primary='#D566C5'
+                primary='#48BB79'
             >
                 <MyNavbar />
                 <Stack h='100%' minH='100vh'>
