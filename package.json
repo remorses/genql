@@ -5,7 +5,8 @@
         "example",
         "website",
         "genql-runtime",
-        "example-usage"
+        "example-usage",
+        "integration-tests"
     ],
     "scripts": {
         "play": "node -r sucrase/register genql-cli/src/cli.ts",
