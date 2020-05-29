@@ -32,8 +32,8 @@ import { createClient, everything } from '@genql/my-lib'
 
 await createClient().query({
     User: {
-        name: 1,
-        surname: 1,
+        name: true,
+        surname: true,
         address: {
             ...everything,
         }
