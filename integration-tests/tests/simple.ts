@@ -16,15 +16,13 @@ describe('simple', () => {
 
 const { query } = generateQueryOp({
     user: [
-        { username: '', choice: Choice.ONE },
+        { username: 'user', choice: Choice.ONE },
         {
-            name: 1,
+            name: true,
             company: {
-                ceo: {
-                    name: 1,
-                    
-                },
-            },
+                id: true,
+                name: true,
+            }
         },
     ],
 })

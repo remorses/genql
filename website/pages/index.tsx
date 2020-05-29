@@ -205,14 +205,17 @@ const Page = () => (
             heading='Auto completion for your queries'
             subheading='Genql generates a typescript client modeled on your graphql schema, this means that it supports autocompletion.'
             image={
-                <Box bg={BG}>
-                    <Image
+                <Box mb='-50%' zIndex={-1} bg={BG}>
+                    <video
+                        loop
+                        autoPlay
+                        muted
                         css={css`
+                            min-width: 800px;
                             mix-blend-mode: lighten;
                         `}
-                        h='400px'
                         // borderRadius='10px'
-                        src='/completion.png'
+                        src='/completion.mov'
                     />
                 </Box>
             }
@@ -222,28 +225,34 @@ const Page = () => (
             heading='Queries validated by typescript'
             subheading='Genql is the perfect companion for building web APIs. It saves repetitive CRUD boilerplate and provides a flexible API for common use cases such as pagination and filtering.'
             image={
-                <Box bg={BG}>
-                    <Image
+                <Box mr='-60%' mb='-50%' zIndex={-2} bg={BG}>
+                    <video
+                        loop
+                        autoPlay
+                        muted
                         css={css`
+                            min-width: 800px;
                             mix-blend-mode: lighten;
                         `}
-                        h='400px'
                         // borderRadius='10px'
-                        // shadow='lg'
-                        src='/completion.png'
+                        src='/completion.mov'
                     />
                 </Box>
             }
         />
 
-        <Section bg='white'>
+        <Section zIndex={1} bg='white'>
             <Banner
                 // dark
                 heading='Add Genql to Your App or Start From Scratch'
                 bullet='READY TO TRY?'
                 bg='transparent'
                 image={
-                    <Image ml='-60px' width='200px' src='/bannerImage.svg' />
+                    <Image
+                        ml='-60px'
+                        width='200px'
+                        src='/logo_shape_on_white.svg'
+                    />
                 }
                 cta={<Button>Generate your graphql api sdk</Button>}
             />
