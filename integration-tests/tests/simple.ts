@@ -1,4 +1,4 @@
-import { generateQueryOp } from '../generated/createClient'
+import { generateQueryOp, createClient } from '../generated/createClient'
 import { Choice } from '../generated/schema'
 import { prettify } from 'genql-cli/dist/helpers/prettify'
 
@@ -14,15 +14,11 @@ describe('simple', () => {
     })
 })
 
-const { query } = generateQueryOp({
-    user: [
-        { username: 'user', choice: Choice.ONE },
-        {
-            name: true,
-            company: {
-                id: true,
-                name: true,
-            }
-        },
-    ],
-})
+// const client = createClient()
+
+// client.query({
+//     company: {
+//         name: true,
+//         id: true,
+//     }
+// })

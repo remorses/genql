@@ -67,7 +67,7 @@ export type Boolean = boolean
 export interface QueryRequest {
   user?: [{ username: String; choice: Choice }, UserRequest]
   users?: [{ limit: Int; first?: Int | null; last?: Int | null }, UserRequest]
-  company?: [{ id: String; max: Int }, CompanyRequest]
+  company?: [{ id?: String | null; max?: Int | null }, CompanyRequest] | CompanyRequest
   node?: [{ id?: ID | null }, NodeRequest] | NodeRequest
   other?: [{ _id: ID }]
   __typename?: boolean | number
@@ -171,15 +171,21 @@ export interface QueryPromiseChain {
       defaultValue?: (MapType<User, R> | null)[] | null,
     ) => Promise<(MapType<User, R> | null)[] | null>
   }
-  company: (args: {
-    id: String
-    max: Int
+  company: ((args?: {
+    id?: String | null
+    max?: Int | null
   }) => CompanyPromiseChain & {
     get: <R extends CompanyRequest>(
       request: R,
       defaultValue?: MapType<Company, R> | null,
     ) => Promise<MapType<Company, R> | null>
-  }
+  }) &
+    (CompanyPromiseChain & {
+      get: <R extends CompanyRequest>(
+        request: R,
+        defaultValue?: MapType<Company, R> | null,
+      ) => Promise<MapType<Company, R> | null>
+    })
   node: ((args?: {
     id?: ID | null
   }) => NodePromiseChain & {
@@ -208,15 +214,21 @@ export interface QueryObservableChain {
       defaultValue?: (MapType<User, R> | null)[] | null,
     ) => Observable<(MapType<User, R> | null)[] | null>
   }
-  company: (args: {
-    id: String
-    max: Int
+  company: ((args?: {
+    id?: String | null
+    max?: Int | null
   }) => CompanyObservableChain & {
     get: <R extends CompanyRequest>(
       request: R,
       defaultValue?: MapType<Company, R> | null,
     ) => Observable<MapType<Company, R> | null>
-  }
+  }) &
+    (CompanyObservableChain & {
+      get: <R extends CompanyRequest>(
+        request: R,
+        defaultValue?: MapType<Company, R> | null,
+      ) => Observable<MapType<Company, R> | null>
+    })
   node: ((args?: {
     id?: ID | null
   }) => NodeObservableChain & {

@@ -31,7 +31,7 @@ interface Node {
 type Query {
   user(username: String!, choice: Choice!): User
   users(limit: Int! = 1, first: Int = 1, last: Int = 1): [User]
-  company(id: String!, max: Int! = 1): Company
+  company(id: String, max: Int = 1): Company
   node(id: ID): Node
   other(_id: ID!): String
 }

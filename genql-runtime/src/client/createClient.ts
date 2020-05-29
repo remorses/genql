@@ -14,8 +14,8 @@ import {
 import { ExecutionResult } from 'graphql'
 
 export interface Client<QR, QC, Q, MR, MC, M> {
-    query<R extends QR>(request: R): Promise<FieldsSelection<Q, R>>
-    mutation<R extends MR>(request: R): Promise<FieldsSelection<M, R>>
+    query<R extends QR>(request: {[P in keyof R]?: R[P]}): Promise<FieldsSelection<Q, R>>
+    mutation<R extends MR>(request: {[P in keyof R]?: R[P]}): Promise<FieldsSelection<M, R>>
     chain: {
         query: QC
         mutation: MC
@@ -23,7 +23,7 @@ export interface Client<QR, QC, Q, MR, MC, M> {
 }
 
 export interface SubscriptionClient<SR, SC, S> {
-    subscription<R extends SR>(request: R): Observable<FieldsSelection<S, R>>
+    subscription<R extends SR>(request: {[P in keyof R]?: R[P]}): Observable<FieldsSelection<S, R>>
     chain: {
         subscription: SC
     }
@@ -55,7 +55,7 @@ export const createClient = <
     mutationRoot?: LinkedType
 }): Client<QR, QC, Q, MR, MC, M> => {
     const funcs = {
-        query: (request: QR) => {
+        query: (request) => {
             if (!fetcher) throw new Error('fetcher argument is missing')
             if (!queryRoot) throw new Error('queryRoot argument is missing')
 
@@ -65,7 +65,7 @@ export const createClient = <
 
             return resultPromise
         },
-        mutation: (request: MR) => {
+        mutation: (request) => {
             if (!fetcher) throw new Error('fetcher argument is missing')
             if (!mutationRoot)
                 throw new Error('mutationRoot argument is missing')
@@ -104,7 +104,7 @@ export const createSubscriptionClient = <SR extends Fields, SC, S>({
 }): SubscriptionClient<SR, SC, S> => {
     const subClient = getSubscriptionClient(options)
     const funcs = {
-        subscription: (request: SR) => {
+        subscription: (request) => {
             if (!subscriptionRoot)
                 throw new Error('subscriptionRoot argument is missing')
 
