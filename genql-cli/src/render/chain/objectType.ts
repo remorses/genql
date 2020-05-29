@@ -35,13 +35,13 @@ export const objectType = (
     const argsString = toArgsString(field)
 
     const executeReturnType = renderTyping(field.type, false, false, false, )
-    const executeReturnTypeWithTypeMap = renderTyping(field.type, false, false, false, (x:string) => `MapType<${x}, R>` )
+    const executeReturnTypeWithTypeMap = renderTyping(field.type, false, false, false, (x:string) => `FieldsSelection<${x}, R>` )
     
 
     // get: <R extends CreateOneOrderPayloadRequest>(
     //     request: R,
     //     defaultValue?: CreateOneOrderPayload | null,
-    //   ) => Promise<MapType<CreateOneOrderPayload, R>  | null>
+    //   ) => Promise<FieldsSelection<CreateOneOrderPayload, R>  | null>
 
     // TODO refactor this function, test
     const getFnType = `{get:<R extends ${requestTypeName(
@@ -66,7 +66,7 @@ export const objectType = (
     return `${fieldComment(field)}${field.name}:${result.join('&')}`
   })
 
-  ctx.addImport(RUNTIME_LIB_NAME, false, 'MapType', true, true)
+  ctx.addImport(RUNTIME_LIB_NAME, false, 'FieldsSelection', true, true)
 
   if (wrapper === 'Observable') {
     ctx.addImport(RUNTIME_LIB_NAME, false, 'Observable', true, true)

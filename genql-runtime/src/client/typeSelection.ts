@@ -14,8 +14,8 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends boolean
     : Omit<
           {
               [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
-                  ? LastMapTypeSRCResolver<SRC[Key], PAYLOAD>
-                  : LastMapTypeSRCResolver<SRC[Key], DST[Key]>
+                  ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
+                  : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
           },
           '__scalar'
       >
@@ -38,7 +38,7 @@ export type MapInterface<SRC, DST> = SRC extends {
                                         DST,
                                         keyof IMPLEMENTORS | '__typename'
                                     >]: Key extends keyof INTERFACE
-                                        ? LastMapTypeSRCResolver<
+                                        ? LastFieldsSelectionSRCResolver<
                                               INTERFACE[Key],
                                               DST[Key]
                                           >
@@ -75,10 +75,10 @@ export type ObjectToUnion<T> = {
 
 type Anify<T> = { [P in keyof T]?: any }
 
-type LastMapTypeSRCResolver<SRC, DST> = SRC extends undefined
+type LastFieldsSelectionSRCResolver<SRC, DST> = SRC extends undefined
     ? undefined
     : SRC extends Array<infer AR>
-    ? LastMapTypeSRCResolver<AR, DST>[]
+    ? LastFieldsSelectionSRCResolver<AR, DST>[]
     : SRC extends { __interface: any; __resolve: any }
     ? MapInterface<SRC, DST>
     : SRC extends { __union: any; __resolve: infer RESOLVE }

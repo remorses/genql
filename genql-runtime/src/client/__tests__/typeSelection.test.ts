@@ -1,4 +1,4 @@
-import { MapType } from '../typeSelection'
+import { FieldsSelection } from '../typeSelection'
 
 type SRC = {
     category: {
@@ -59,7 +59,7 @@ const x: SRC = {
     },
 }
 
-const z: MapType<SRC, DST> = x
+const z: FieldsSelection<SRC, DST> = x
 
 z.category
 z.category.a

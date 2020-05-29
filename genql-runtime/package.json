@@ -4,7 +4,7 @@
     "version": "1.0.1",
     "description": "",
     "main": "dist/index.js",
-    "module": "dist/genql-runtime.esm.js",
+    "module": "esm/index.js",
     "types": "dist/index.d.ts",
     "mocha": {
         "require": "tests/init.js",
@@ -21,7 +21,7 @@
     ],
     "scripts": {
         "start": "tsdx watch",
-        "build": "tsdx build",
+        "build": "tsc && tsc -m ESNext --outDir esm",
         "test": "cd ../genql-cli && tsc --incremental && cd ../genql-runtime && jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"
@@ -43,7 +43,7 @@
         "jest": ">=22 <24",
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
-        "tsdx": "^0.13.2",
+        
         "typescript": "^3.9.2"
     },
     "dependencies": {

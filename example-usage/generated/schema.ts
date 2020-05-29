@@ -1,4 +1,4 @@
-import { MapType, Observable } from 'genql-runtime'
+import { FieldsSelection, Observable } from 'genql-runtime'
 
 export interface Query {
   continents: Continent[]
@@ -183,8 +183,8 @@ export interface QueryPromiseChain {
   }) => ContinentPromiseChain & {
     get: <R extends ContinentRequest>(
       request: R,
-      defaultValue?: MapType<Continent, R> | null,
-    ) => Promise<MapType<Continent, R> | null>
+      defaultValue?: FieldsSelection<Continent, R> | null,
+    ) => Promise<FieldsSelection<Continent, R> | null>
   }
   countries: ((args?: {
     filter?: CountryFilterInput | null
@@ -196,8 +196,8 @@ export interface QueryPromiseChain {
   }) => CountryPromiseChain & {
     get: <R extends CountryRequest>(
       request: R,
-      defaultValue?: MapType<Country, R> | null,
-    ) => Promise<MapType<Country, R> | null>
+      defaultValue?: FieldsSelection<Country, R> | null,
+    ) => Promise<FieldsSelection<Country, R> | null>
   }
   languages: ((args?: {
     filter?: LanguageFilterInput | null
@@ -209,8 +209,8 @@ export interface QueryPromiseChain {
   }) => LanguagePromiseChain & {
     get: <R extends LanguageRequest>(
       request: R,
-      defaultValue?: MapType<Language, R> | null,
-    ) => Promise<MapType<Language, R> | null>
+      defaultValue?: FieldsSelection<Language, R> | null,
+    ) => Promise<FieldsSelection<Language, R> | null>
   }
 }
 
@@ -225,8 +225,8 @@ export interface QueryObservableChain {
   }) => ContinentObservableChain & {
     get: <R extends ContinentRequest>(
       request: R,
-      defaultValue?: MapType<Continent, R> | null,
-    ) => Observable<MapType<Continent, R> | null>
+      defaultValue?: FieldsSelection<Continent, R> | null,
+    ) => Observable<FieldsSelection<Continent, R> | null>
   }
   countries: ((args?: {
     filter?: CountryFilterInput | null
@@ -238,8 +238,8 @@ export interface QueryObservableChain {
   }) => CountryObservableChain & {
     get: <R extends CountryRequest>(
       request: R,
-      defaultValue?: MapType<Country, R> | null,
-    ) => Observable<MapType<Country, R> | null>
+      defaultValue?: FieldsSelection<Country, R> | null,
+    ) => Observable<FieldsSelection<Country, R> | null>
   }
   languages: ((args?: {
     filter?: LanguageFilterInput | null
@@ -251,8 +251,8 @@ export interface QueryObservableChain {
   }) => LanguageObservableChain & {
     get: <R extends LanguageRequest>(
       request: R,
-      defaultValue?: MapType<Language, R> | null,
-    ) => Observable<MapType<Language, R> | null>
+      defaultValue?: FieldsSelection<Language, R> | null,
+    ) => Observable<FieldsSelection<Language, R> | null>
   }
 }
 

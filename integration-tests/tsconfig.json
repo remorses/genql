@@ -2,6 +2,7 @@
   "compilerOptions": {
     "noImplicitReturns": true,
     "noUnusedLocals": false,
+    "noEmit": true,
     "noUnusedParameters": false,
     "noImplicitAny": false,
     "strict": true,
@@ -12,9 +13,8 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "allowJs": true,
-    "sourceMap": true,
+    "skipLibCheck": true,
     "lib": ["dom", "es2017", "esnext.asynciterable"],
-    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "**/*.case.ts", "tests", "example", "dist", "**/__tests__"]
+  "exclude": ["node_modules", "**/*.case.ts", "example", "dist",]
 }

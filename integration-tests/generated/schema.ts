@@ -1,4 +1,4 @@
-import { MapType, Observable } from 'genql-runtime'
+import { FieldsSelection, Observable } from 'genql-runtime'
 
 export interface Query {
   user: User | null
@@ -159,7 +159,10 @@ export interface QueryPromiseChain {
     username: String
     choice: Choice
   }) => UserPromiseChain & {
-    get: <R extends UserRequest>(request: R, defaultValue?: MapType<User, R> | null) => Promise<MapType<User, R> | null>
+    get: <R extends UserRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<User, R> | null,
+    ) => Promise<FieldsSelection<User, R> | null>
   }
   users: (args: {
     limit: Int
@@ -168,8 +171,8 @@ export interface QueryPromiseChain {
   }) => {
     get: <R extends UserRequest>(
       request: R,
-      defaultValue?: (MapType<User, R> | null)[] | null,
-    ) => Promise<(MapType<User, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<User, R> | null)[] | null,
+    ) => Promise<(FieldsSelection<User, R> | null)[] | null>
   }
   company: ((args?: {
     id?: String | null
@@ -177,22 +180,28 @@ export interface QueryPromiseChain {
   }) => CompanyPromiseChain & {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: MapType<Company, R> | null,
-    ) => Promise<MapType<Company, R> | null>
+      defaultValue?: FieldsSelection<Company, R> | null,
+    ) => Promise<FieldsSelection<Company, R> | null>
   }) &
     (CompanyPromiseChain & {
       get: <R extends CompanyRequest>(
         request: R,
-        defaultValue?: MapType<Company, R> | null,
-      ) => Promise<MapType<Company, R> | null>
+        defaultValue?: FieldsSelection<Company, R> | null,
+      ) => Promise<FieldsSelection<Company, R> | null>
     })
   node: ((args?: {
     id?: ID | null
   }) => NodePromiseChain & {
-    get: <R extends NodeRequest>(request: R, defaultValue?: MapType<Node, R> | null) => Promise<MapType<Node, R> | null>
+    get: <R extends NodeRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<Node, R> | null,
+    ) => Promise<FieldsSelection<Node, R> | null>
   }) &
     (NodePromiseChain & {
-      get: <R extends NodeRequest>(request: R, defaultValue?: MapType<Node, R> | null) => Promise<MapType<Node, R> | null>
+      get: <R extends NodeRequest>(
+        request: R,
+        defaultValue?: FieldsSelection<Node, R> | null,
+      ) => Promise<FieldsSelection<Node, R> | null>
     })
   other: (args: { _id: ID }) => { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
 }
@@ -202,7 +211,10 @@ export interface QueryObservableChain {
     username: String
     choice: Choice
   }) => UserObservableChain & {
-    get: <R extends UserRequest>(request: R, defaultValue?: MapType<User, R> | null) => Observable<MapType<User, R> | null>
+    get: <R extends UserRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<User, R> | null,
+    ) => Observable<FieldsSelection<User, R> | null>
   }
   users: (args: {
     limit: Int
@@ -211,8 +223,8 @@ export interface QueryObservableChain {
   }) => {
     get: <R extends UserRequest>(
       request: R,
-      defaultValue?: (MapType<User, R> | null)[] | null,
-    ) => Observable<(MapType<User, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<User, R> | null)[] | null,
+    ) => Observable<(FieldsSelection<User, R> | null)[] | null>
   }
   company: ((args?: {
     id?: String | null
@@ -220,22 +232,28 @@ export interface QueryObservableChain {
   }) => CompanyObservableChain & {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: MapType<Company, R> | null,
-    ) => Observable<MapType<Company, R> | null>
+      defaultValue?: FieldsSelection<Company, R> | null,
+    ) => Observable<FieldsSelection<Company, R> | null>
   }) &
     (CompanyObservableChain & {
       get: <R extends CompanyRequest>(
         request: R,
-        defaultValue?: MapType<Company, R> | null,
-      ) => Observable<MapType<Company, R> | null>
+        defaultValue?: FieldsSelection<Company, R> | null,
+      ) => Observable<FieldsSelection<Company, R> | null>
     })
   node: ((args?: {
     id?: ID | null
   }) => NodeObservableChain & {
-    get: <R extends NodeRequest>(request: R, defaultValue?: MapType<Node, R> | null) => Observable<MapType<Node, R> | null>
+    get: <R extends NodeRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<Node, R> | null,
+    ) => Observable<FieldsSelection<Node, R> | null>
   }) &
     (NodeObservableChain & {
-      get: <R extends NodeRequest>(request: R, defaultValue?: MapType<Node, R> | null) => Observable<MapType<Node, R> | null>
+      get: <R extends NodeRequest>(
+        request: R,
+        defaultValue?: FieldsSelection<Node, R> | null,
+      ) => Observable<FieldsSelection<Node, R> | null>
     })
   other: (args: {
     _id: ID
@@ -249,28 +267,28 @@ export interface UserPromiseChain {
   }) => CompanyPromiseChain & {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: MapType<Company, R> | null,
-    ) => Promise<MapType<Company, R> | null>
+      defaultValue?: FieldsSelection<Company, R> | null,
+    ) => Promise<FieldsSelection<Company, R> | null>
   }) &
     (CompanyPromiseChain & {
       get: <R extends CompanyRequest>(
         request: R,
-        defaultValue?: MapType<Company, R> | null,
-      ) => Promise<MapType<Company, R> | null>
+        defaultValue?: FieldsSelection<Company, R> | null,
+      ) => Promise<FieldsSelection<Company, R> | null>
     })
   employerCompany: CompanyPromiseChain & {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: MapType<Company, R> | null,
-    ) => Promise<MapType<Company, R> | null>
+      defaultValue?: FieldsSelection<Company, R> | null,
+    ) => Promise<FieldsSelection<Company, R> | null>
   }
   pastEmployers: (args: {
     max: Int
   }) => {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: (MapType<Company, R> | null)[] | null,
-    ) => Promise<(MapType<Company, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<Company, R> | null)[] | null,
+    ) => Promise<(FieldsSelection<Company, R> | null)[] | null>
   }
   id: { get: (request?: boolean | number, defaultValue?: ID | null) => Promise<ID | null> }
 }
@@ -282,28 +300,28 @@ export interface UserObservableChain {
   }) => CompanyObservableChain & {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: MapType<Company, R> | null,
-    ) => Observable<MapType<Company, R> | null>
+      defaultValue?: FieldsSelection<Company, R> | null,
+    ) => Observable<FieldsSelection<Company, R> | null>
   }) &
     (CompanyObservableChain & {
       get: <R extends CompanyRequest>(
         request: R,
-        defaultValue?: MapType<Company, R> | null,
-      ) => Observable<MapType<Company, R> | null>
+        defaultValue?: FieldsSelection<Company, R> | null,
+      ) => Observable<FieldsSelection<Company, R> | null>
     })
   employerCompany: CompanyObservableChain & {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: MapType<Company, R> | null,
-    ) => Observable<MapType<Company, R> | null>
+      defaultValue?: FieldsSelection<Company, R> | null,
+    ) => Observable<FieldsSelection<Company, R> | null>
   }
   pastEmployers: (args: {
     max: Int
   }) => {
     get: <R extends CompanyRequest>(
       request: R,
-      defaultValue?: (MapType<Company, R> | null)[] | null,
-    ) => Observable<(MapType<Company, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<Company, R> | null)[] | null,
+    ) => Observable<(FieldsSelection<Company, R> | null)[] | null>
   }
   id: { get: (request?: boolean | number, defaultValue?: ID | null) => Observable<ID | null> }
 }
@@ -321,12 +339,15 @@ export interface CompanyPromiseChain {
   nested: NestedPromiseChain & {
     get: <R extends NestedRequest>(
       request: R,
-      defaultValue?: MapType<Nested, R> | null,
-    ) => Promise<MapType<Nested, R> | null>
+      defaultValue?: FieldsSelection<Nested, R> | null,
+    ) => Promise<FieldsSelection<Nested, R> | null>
   }
   legalForm: { get: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   ceo: UserPromiseChain & {
-    get: <R extends UserRequest>(request: R, defaultValue?: MapType<User, R> | null) => Promise<MapType<User, R> | null>
+    get: <R extends UserRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<User, R> | null,
+    ) => Promise<FieldsSelection<User, R> | null>
   }
   id: { get: (request?: boolean | number, defaultValue?: ID | null) => Promise<ID | null> }
   employees: (args: {
@@ -334,16 +355,16 @@ export interface CompanyPromiseChain {
   }) => {
     get: <R extends UserRequest>(
       request: R,
-      defaultValue?: (MapType<User, R> | null)[] | null,
-    ) => Promise<(MapType<User, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<User, R> | null)[] | null,
+    ) => Promise<(FieldsSelection<User, R> | null)[] | null>
   }
   directors: (args: {
     limit: Int
   }) => DirectorConnectionPromiseChain & {
     get: <R extends DirectorConnectionRequest>(
       request: R,
-      defaultValue?: MapType<DirectorConnection, R> | null,
-    ) => Promise<MapType<DirectorConnection, R> | null>
+      defaultValue?: FieldsSelection<DirectorConnection, R> | null,
+    ) => Promise<FieldsSelection<DirectorConnection, R> | null>
   }
   choice: { get: (request?: boolean | number, defaultValue?: Choice | null) => Promise<Choice | null> }
 }
@@ -353,12 +374,15 @@ export interface CompanyObservableChain {
   nested: NestedObservableChain & {
     get: <R extends NestedRequest>(
       request: R,
-      defaultValue?: MapType<Nested, R> | null,
-    ) => Observable<MapType<Nested, R> | null>
+      defaultValue?: FieldsSelection<Nested, R> | null,
+    ) => Observable<FieldsSelection<Nested, R> | null>
   }
   legalForm: { get: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   ceo: UserObservableChain & {
-    get: <R extends UserRequest>(request: R, defaultValue?: MapType<User, R> | null) => Observable<MapType<User, R> | null>
+    get: <R extends UserRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<User, R> | null,
+    ) => Observable<FieldsSelection<User, R> | null>
   }
   id: { get: (request?: boolean | number, defaultValue?: ID | null) => Observable<ID | null> }
   employees: (args: {
@@ -366,29 +390,35 @@ export interface CompanyObservableChain {
   }) => {
     get: <R extends UserRequest>(
       request: R,
-      defaultValue?: (MapType<User, R> | null)[] | null,
-    ) => Observable<(MapType<User, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<User, R> | null)[] | null,
+    ) => Observable<(FieldsSelection<User, R> | null)[] | null>
   }
   directors: (args: {
     limit: Int
   }) => DirectorConnectionObservableChain & {
     get: <R extends DirectorConnectionRequest>(
       request: R,
-      defaultValue?: MapType<DirectorConnection, R> | null,
-    ) => Observable<MapType<DirectorConnection, R> | null>
+      defaultValue?: FieldsSelection<DirectorConnection, R> | null,
+    ) => Observable<FieldsSelection<DirectorConnection, R> | null>
   }
   choice: { get: (request?: boolean | number, defaultValue?: Choice | null) => Observable<Choice | null> }
 }
 
 export interface NestedPromiseChain {
   user: UserPromiseChain & {
-    get: <R extends UserRequest>(request: R, defaultValue?: MapType<User, R> | null) => Promise<MapType<User, R> | null>
+    get: <R extends UserRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<User, R> | null,
+    ) => Promise<FieldsSelection<User, R> | null>
   }
 }
 
 export interface NestedObservableChain {
   user: UserObservableChain & {
-    get: <R extends UserRequest>(request: R, defaultValue?: MapType<User, R> | null) => Observable<MapType<User, R> | null>
+    get: <R extends UserRequest>(
+      request: R,
+      defaultValue?: FieldsSelection<User, R> | null,
+    ) => Observable<FieldsSelection<User, R> | null>
   }
 }
 
@@ -396,8 +426,8 @@ export interface DirectorConnectionPromiseChain {
   ceos: {
     get: <R extends UserRequest>(
       request: R,
-      defaultValue?: (MapType<User, R> | null)[] | null,
-    ) => Promise<(MapType<User, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<User, R> | null)[] | null,
+    ) => Promise<(FieldsSelection<User, R> | null)[] | null>
   }
   cursor: { get: (request?: boolean | number, defaultValue?: ID | null) => Promise<ID | null> }
 }
@@ -406,8 +436,8 @@ export interface DirectorConnectionObservableChain {
   ceos: {
     get: <R extends UserRequest>(
       request: R,
-      defaultValue?: (MapType<User, R> | null)[] | null,
-    ) => Observable<(MapType<User, R> | null)[] | null>
+      defaultValue?: (FieldsSelection<User, R> | null)[] | null,
+    ) => Observable<(FieldsSelection<User, R> | null)[] | null>
   }
   cursor: { get: (request?: boolean | number, defaultValue?: ID | null) => Observable<ID | null> }
 }
