@@ -78,13 +78,13 @@ export const MainForm = ({ ...rest }: StackProps) => {
     const [initialValues, setInitialValues] = useInitialValues()
     async function onSubmit(values: MainFormData) {
         console.log('onSubmit')
-        // TODO user should first login
         if (!user) {
             console.log('shouldLogin')
+            setInitialValues(values)
             setShouldLogin(true)
             return
         }
-        setInitialValues(values)
+        
         console.log('sending ' + JSON.stringify(values, null, 4))
         const res = await fetch('/api/generate', {
             body: JSON.stringify(values),

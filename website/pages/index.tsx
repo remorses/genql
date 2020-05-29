@@ -28,19 +28,27 @@ import { Frame, Keyframes } from 'react-keyframes'
 import { MainForm } from '../components/MainForm'
 
 const jsQueryCode = `
-import { genql } from '@genql/my-lib'
-await Genql.users.create({
-  data: {
-    firstName: "Alice",
-    email: "alice@Genql.io",
-    active: true,
-  }
+import { createClient, everything } from '@genql/my-lib'
+
+await createClient().query({
+    User: {
+        name: 1,
+        surname: 1,
+        address: {
+            ...everything,
+        }
+    }
 })`
 
 const gqlQueryCode = `
 query {
     User {
-        ciao
+        name
+        surname
+        address {
+            city
+            state
+        }
     }
 }`
 

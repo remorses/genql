@@ -1,6 +1,12 @@
-import { Box } from '@chakra-ui/core'
+import { Box, Stack } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
-import { LandingProvider, Link, SectionTitle } from 'landing-blocks'
+import {
+    LandingProvider,
+    Link,
+    SectionTitle,
+    Button,
+    PageContainer,
+} from 'landing-blocks'
 import React, { Fragment } from 'react'
 
 const BG =
@@ -11,20 +17,30 @@ const Page = () => {
     const href = `https://www.npmjs.com/package/${query.name}`
     return (
         <Fragment>
-            <LandingProvider bg='white' primary='#D566C5'>
-                <SectionTitle
-                    my='100px'
-                    heading='Package published! 🥳'
-                    subheading={
-                        <Box>
-                            Check out your package at <br />
-                            <Link isExternal fontSize='subheading' mx='1em' href={href}>
-                                {href}
-                            </Link>
-                        </Box>
-                    }
-                />
-            </LandingProvider>
+            <SectionTitle
+                dark
+                my='100px'
+                heading='Package published! 🥳'
+                subheading={
+                    <Box opacity={1}>
+                        Check out your package at <br />
+                        <Link
+                            
+                            isExternal
+                            fontSize='subheading'
+                            mx='1em'
+                            href={href}
+                        >
+                            {href}
+                        </Link>
+                    </Box>
+                }
+            />
+            <PageContainer>
+                <Stack align='center'>
+                    <Link color='gray.100'>Return Back</Link>
+                </Stack>
+            </PageContainer>
         </Fragment>
     )
 }
