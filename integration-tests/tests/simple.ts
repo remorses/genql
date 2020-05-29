@@ -13,3 +13,18 @@ describe('simple', () => {
         console.log(prettify(query, 'graphql'))
     })
 })
+
+const { query } = generateQueryOp({
+    user: [
+        { username: '', choice: Choice.ONE },
+        {
+            name: 1,
+            company: {
+                ceo: {
+                    name: 1,
+                    
+                },
+            },
+        },
+    ],
+})

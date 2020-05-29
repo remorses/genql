@@ -1,5 +1,7 @@
 import { Box, Image, Stack } from '@chakra-ui/core'
 import { Faded } from 'baby-i-am-faded'
+// @jsx jsx
+import { jsx, css } from '@emotion/core'
 import {
     Banner,
     Button,
@@ -26,6 +28,7 @@ import {
 } from 'react-icons/fa'
 import { Frame, Keyframes } from 'react-keyframes'
 import { MainForm } from '../components/MainForm'
+import { BG } from './_app'
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -202,18 +205,16 @@ const Page = () => (
             heading='Auto completion for your queries'
             subheading='Genql generates a typescript client modeled on your graphql schema, this means that it supports autocompletion.'
             image={
-                <PatternBackground
-                    color='gray.200'
-                    pattern='diagonalLinesSm'
-                    scatter={20}
-                >
+                <Box bg={BG}>
                     <Image
-                        h='300px'
+                        css={css`
+                            mix-blend-mode: lighten;
+                        `}
+                        h='400px'
                         // borderRadius='10px'
-                        shadow='lg'
-                        src='/auto-completions.png'
+                        src='/completion.png'
                     />
-                </PatternBackground>
+                </Box>
             }
         />
         <Feature
@@ -221,18 +222,17 @@ const Page = () => (
             heading='Queries validated by typescript'
             subheading='Genql is the perfect companion for building web APIs. It saves repetitive CRUD boilerplate and provides a flexible API for common use cases such as pagination and filtering.'
             image={
-                <PatternBackground
-                    pattern='diagonalLinesSm'
-                    scatter={20}
-                    color='gray.200'
-                >
+                <Box bg={BG}>
                     <Image
-                        h='300px'
+                        css={css`
+                            mix-blend-mode: lighten;
+                        `}
+                        h='400px'
                         // borderRadius='10px'
-                        shadow='lg'
-                        src='/auto-completions.png'
+                        // shadow='lg'
+                        src='/completion.png'
                     />
-                </PatternBackground>
+                </Box>
             }
         />
 
