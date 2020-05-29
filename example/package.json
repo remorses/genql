@@ -1,12 +1,26 @@
 {
-  "name": "example",
-  "private": true,
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "remorses",
-  "license": "MIT",
-  "dependencies": {
-    "genql-runtime": "*",
-    "genql-cli": "*"
-  }
+    "name": "example",
+    "private": true,
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "remorses",
+    "license": "MIT",
+    "scripts": {
+        "test": "mocha -r sucrase/register",
+        "gen": "node -r sucrase/register generate.ts"
+    },
+    "dependencies": {
+        "genql-cli": "*",
+        "genql-runtime": "*"
+    },
+    "mocha": {
+        "spec": "tests/**.ts",
+        "timeout": 9999999999
+    },
+    "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "mocha": "^7.2.0",
+        "sucrase": "^3.15.0",
+        "typescript": "^3.9.3"
+    }
 }

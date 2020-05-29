@@ -44,7 +44,7 @@
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
         "tsdx": "^0.13.2",
-        "typescript": "^3.7.5"
+        "typescript": "^3.9.2"
     },
     "dependencies": {
         "@types/graphql": "^14.5.0",

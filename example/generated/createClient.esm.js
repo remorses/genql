@@ -8,7 +8,7 @@ import {
 var typeMap = linkTypeMap(require('./types.json'))
 export var createClient = function(options) {
   options = options || {}
-  var fetcherOpts = { url: 'https://graphql-compose.herokuapp.com/northwind/' }
+  var fetcherOpts = { url: 'undefined' }
   for (var attrname in options) {
     fetcherOpts[attrname] = options[attrname]
   }
@@ -20,13 +20,13 @@ export var createClient = function(options) {
 }
 export var createSubscriptionClient = function(options) {
   options = options || {}
-  options.url = options.url || 'https://graphql-compose.herokuapp.com/northwind/'
+  options.url = options.url || 'undefined'
   options.subscriptionRoot = typeMap.Subscription
   return createSubscriptionClientOriginal(options)
 }
 export var createSubscriptionClient = function(options) {
   options = options || {}
-  options.url = options.url || 'https://graphql-compose.herokuapp.com/northwind/'
+  options.url = options.url || 'undefined'
   options.subscriptionRoot = typeMap.Subscription
   return createSubscriptionClientOriginal(options)
 }
