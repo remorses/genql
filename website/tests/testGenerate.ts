@@ -1,4 +1,4 @@
-import { createPackage, runCommand } from '../pages/api/generate'
+import { createPackage, runCommand } from '../pages/api/publish'
 
 it('createPackage', async () => {
     await createPackage({
