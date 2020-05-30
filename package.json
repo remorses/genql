@@ -9,9 +9,13 @@
         "integration-tests"
     ],
     "scripts": {
+        "dev": "yarn --cwd website dev",
+        "build": "yarn --cwd website build",
+        "start": "yarn --cwd website start",
+
         "play": "node -r sucrase/register genql-cli/src/cli.ts",
-        "build": "cd genql-cli && yarn build && cd ../genql-runtime && yarn build",
-        "dev": "cd website && yarn dev",
+        "bb": "cd genql-cli && yarn build && cd ../genql-runtime && yarn build",
+        
         "compile": "cd genql-cli && yarn compile && cd ../genql-runtime && yarn compile",
         "test": "cd genql-cli && yarn test && cd ../genql-runtime && yarn test",
         "spec": "cd integration-tests && yarn gen && tsc && yarn test",
