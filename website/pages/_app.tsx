@@ -38,7 +38,7 @@ export default function App(props) {
             })
         })
     }, [])
-    console.log({ pathname })
+    // console.log({ pathname })
     if (pathname.startsWith('/docs')) {
         return (
             <DokzProvider headerLogo={<Logo />}>

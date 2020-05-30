@@ -67,7 +67,7 @@ export function runCommand({ cmd, cwd }) {
     })
 }
 
-export async function createPackage({
+export async function createPackage({ // TODO move pkg gen logic in cli, 
     endpoint,
     name,
     callback,
@@ -156,12 +156,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             } as Package)
 
         console.log('generated package files')
-        res.statusCode = 200
-        res.json({ ...packageJson, ok: true })
-        res.end()
+        res.status(200).json({ ...packageJson, ok: true })
     } catch (e) {
         console.error(e)
-        res.json({ ok: false, error: String(e) })
-        res.end()
+        res.status(200).json({ ok: false, error: String(e) })
+        
     }
 }
