@@ -78,13 +78,13 @@ export const MainForm = ({ ...rest }: StackProps) => {
     const [initialValues, setInitialValues] = useInitialValues()
     async function onSubmit(values: MainFormData) {
         console.log('onSubmit')
+        setInitialValues(values)
         if (!user) {
             console.log('shouldLogin')
-            setInitialValues(values)
             setShouldLogin(true)
             return
         }
-        
+
         console.log('sending ' + JSON.stringify(values, null, 4))
         const res = await fetch('/api/publish', {
             body: JSON.stringify(values),
@@ -219,7 +219,10 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
                 <Box color='red.500'>{error}</Box>
                 <Button
                     // color='black'
-                    onClick={resetError}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        resetError()
+                    }}
                 >
                     Retry
                 </Button>

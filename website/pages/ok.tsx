@@ -38,7 +38,7 @@ const Page = () => {
             />
             <PageContainer>
                 <Stack align='center'>
-                    <Link color='gray.100'>Return Back</Link>
+                    <Link href='/me' color='gray.100'>Return Back</Link>
                 </Stack>
             </PageContainer>
         </Fragment>

@@ -4477,10 +4477,10 @@ directory-tree@^2.2.4:
   resolved "https://registry.yarnpkg.com/directory-tree/-/directory-tree-2.2.4.tgz#6d5bd7d82e48378e256a1e87b678a43c50076e2e"
   integrity sha512-2N43msQptKbi3WMfIs+U09yi6bfyKL+MWyj5VMj8t1F/Tx04bt1cn/EEIU3o1JBltlJk7NQnzOEuTNa/KQvbWA==
 
-dokz@^0.2.10:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/dokz/-/dokz-0.2.10.tgz#0df91285c16b6f00f33b39b9fd957becfd64cd52"
-  integrity sha512-ZQgMZn0Qun3gbqFI7bOK65LJ7XQabogA5aZ/0Yz5oPFXXhb8kIJH60/CSyYoUq1pESM/2qu17DOcfXtoJx620w==
+dokz@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/dokz/-/dokz-1.0.4.tgz#a1b22887c4c135c30e9cd211a1bc1bafa9ebc2ef"
+  integrity sha512-+fzXhlTiJ/vKNQhq2eCfDDpMDc2Rxiz8x12yUne3C/adov3VOKA98iVYhkAXsOseE+7z+f/RQ/Ubnzo5f1AD1Q==
   dependencies:
     "@emotion/styled" "^10.0.27"
     "@mdx-js/loader" "^1.5.8"
@@ -4498,7 +4498,7 @@ dokz@^0.2.10:
     mdast "^3.0.0"
     mdast-util-to-string "^1.1.0"
     prism-react-renderer "^1.0.2"
-    re-resizable "^6.3.2"
+    re-resizable "^6.4.0"
     react-frame-component "^4.1.1"
     react-icons "^3.9.0"
     react-live "^2.2.2"
@@ -9636,7 +9636,7 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-re-resizable@^6.3.2:
+re-resizable@^6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/re-resizable/-/re-resizable-6.4.0.tgz#4c862f021a913ec519bb053c34af45559e8c1b26"
   integrity sha512-E8WOtM8RfcGv4kOdasdR10jw8IU45j5jVift/rSA6AZMnaBRxJdt6YAkPHFv/04vsMNNvNu3G8vlyNOsVwqPpA==

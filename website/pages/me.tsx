@@ -36,6 +36,7 @@ export async function getServerSideProps(
     const packages = await admin
         .firestore()
         .collection('packages')
+        .orderBy('timestamp', 'desc')
         .where('user_uid', '==', uid)
         .get()
 

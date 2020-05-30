@@ -23,7 +23,7 @@
     "@types/js-cookie": "^2.2.6",
     "baby-i-am-faded": "^0.0.14",
     "dayjs": "^1.8.27",
-    "dokz": "^0.2.10",
+    "dokz": "^1.0.4",
     "emotion-theming": "^10.0.27",
     "final-form": "^4.19.1",
     "firebase": "^7.14.5",

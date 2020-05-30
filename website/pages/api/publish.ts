@@ -67,7 +67,8 @@ export function runCommand({ cmd, cwd }) {
     })
 }
 
-export async function createPackage({ // TODO move pkg gen logic in cli, 
+export async function createPackage({
+    // TODO move pkg gen logic in cli,
     endpoint,
     name,
     callback,
@@ -153,6 +154,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 name: packageJson.name,
                 graphql_endpoint: endpoint,
                 created_at: new Date().toUTCString(),
+                timestamp: new Date().getTime() / 1000,
             } as Package)
 
         console.log('generated package files')
@@ -160,6 +162,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     } catch (e) {
         console.error(e)
         res.status(200).json({ ok: false, error: String(e) })
-        
     }
 }

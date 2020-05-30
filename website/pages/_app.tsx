@@ -41,8 +41,7 @@ export default function App(props) {
     // console.log({ pathname })
     if (pathname.startsWith('/docs')) {
         return (
-            <DokzProvider headerLogo={<Logo />}>
-                {/* TODO add rootPath to /docs */}
+            <DokzProvider docsRootPath='pages/docs' headerLogo={<Logo />}>
                 <Component {...pageProps} />
             </DokzProvider>
         )
