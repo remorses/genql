@@ -86,7 +86,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
         }
         
         console.log('sending ' + JSON.stringify(values, null, 4))
-        const res = await fetch('/api/generate', {
+        const res = await fetch('/api/publish', {
             body: JSON.stringify(values),
             headers: {
                 'Content-Type': 'application/json',
