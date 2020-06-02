@@ -16,5 +16,5 @@
     "lib": ["dom", "es2017", "esnext.asynciterable"],
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "**/*.case.ts", "tests", "example", "dist", "**/__tests__"]
+  "exclude": ["node_modules", "**/*.case.ts", "tests", "example", "dist", "**/__tests__", "esm"]
 }

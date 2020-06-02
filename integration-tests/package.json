@@ -10,9 +10,13 @@
         "gen": "node -r sucrase/register generate.ts"
     },
     "dependencies": {
+        "apollo-server": "^2.14.1",
+        "deep-equal": "^2.0.3",
         "genql-cli": "*",
         "genql-runtime": "*",
-        "graphql": "^15.0.0"
+        "graphql": "^15.0.0",
+        "graphql-easy-mocks": "^1.1.1",
+        "tsdef": "^0.0.13"
     },
     "mocha": {
         "spec": "tests/**.ts",

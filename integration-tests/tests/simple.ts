@@ -5,6 +5,7 @@ import {
 } from '../generated/createClient'
 import { prettify } from 'genql-cli/dist/helpers/prettify'
 import { parse } from 'graphql'
+import { SearchType } from '../generated/schema'
 
 describe('generate queries', () => {
     it('simple', () => {
@@ -27,7 +28,6 @@ describe('generate queries', () => {
                 },
             ],
         })
-        parse(query)
         console.log(prettify(query, 'graphql'))
     })
     it('many', () => {
@@ -59,16 +59,8 @@ describe('generate queries', () => {
                 },
             ],
         })
-        parse(query)
         console.log(prettify(query, 'graphql'))
     })
 })
 
-// const client = createClient()
 
-// client.query({
-//     company: {
-//         name: true,
-//         id: true,
-//     }
-// })

@@ -15,25 +15,30 @@ export const createFetcher = ({
 }: {
     url: string
     headers
-} & RequestInit): Fetcher => async ({ query, variables }) => {
-    if (typeof headers == 'function') {
-        headers = headers()
+} & RequestInit): Fetcher => {
+    if (!url) {
+        throw new Error('url is required')
     }
-    const res = await fetch(url, {
-        headers: {
-            'Content-Type': 'application/json',
-            ...headers,
-        },
-        method: 'POST',
-        body: JSON.stringify({ query, variables }),
-        ...rest,
-    })
-    if (!res.ok) {
-        throw new Error(`${res.statusText}: ${await res.text()}`)
+    return async ({ query, variables }) => {
+        if (typeof headers == 'function') {
+            headers = headers()
+        }
+        const res = await fetch(url, {
+            headers: {
+                'Content-Type': 'application/json',
+                ...headers,
+            },
+            method: 'POST',
+            body: JSON.stringify({ query, variables }),
+            ...rest,
+        })
+        if (!res.ok) {
+            throw new Error(`${res.statusText}: ${await res.text()}`)
+        }
+        const json = await res.json()
+        if (json?.errors?.length) {
+            throw new ClientError(json.errors)
+        }
+        return json.data
     }
-    const json = await res.json()
-    if (json?.errors?.length) {
-        throw new ClientError(json.errors)
-    }
-    return json.data
 }

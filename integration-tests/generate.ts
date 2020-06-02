@@ -1,4 +1,4 @@
-import { generateProject } from 'genql-cli/dist/main'
+import { generateProject } from 'genql-cli/src/main'
 import fs from 'fs'
 import path from 'path'
 

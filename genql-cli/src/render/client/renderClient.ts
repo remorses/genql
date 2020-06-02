@@ -2,11 +2,15 @@ import { GraphQLSchema } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
 
-const createClientCode = (ctx: RenderContext) => `
+const createClientCode = (ctx: RenderContext) => {
+    const url = ctx.config?.endpoint
+        ? '"' + ctx.config?.endpoint + '"'
+        : 'undefined'
+    return `
 function(options) {
     
     options = options || {}
-    var fetcherOpts = { url: "${ctx.config?.endpoint}" }
+    var fetcherOpts = { url: ${url} }
     for (var attrname in options) { 
         fetcherOpts[attrname] = options[attrname];
     }
@@ -16,6 +20,7 @@ function(options) {
         mutationRoot: typeMap.Mutation,
     })
 }`
+}
 
 const createSubscriptionClientCode = (ctx: RenderContext) => `
 function(options) {

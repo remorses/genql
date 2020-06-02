@@ -8,7 +8,7 @@ import {
 var typeMap = linkTypeMap(require('./types.json'))
 export var createClient = function(options) {
   options = options || {}
-  var fetcherOpts = { url: 'undefined' }
+  var fetcherOpts = { url: undefined }
   for (var attrname in options) {
     fetcherOpts[attrname] = options[attrname]
   }
