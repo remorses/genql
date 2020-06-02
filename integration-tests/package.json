@@ -11,7 +11,8 @@
     },
     "dependencies": {
         "genql-cli": "*",
-        "genql-runtime": "*"
+        "genql-runtime": "*",
+        "graphql": "^15.0.0"
     },
     "mocha": {
         "spec": "tests/**.ts",
