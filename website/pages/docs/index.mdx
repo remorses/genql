@@ -2,18 +2,57 @@
 name: Quick Start
 ---
 
+# Quick Start
 
-# Getting Started
+Genql translate typed code into graphql queries, enabling you to get auto completion and validation for your graphql queries.
 
-Here is some code
+To first use genql you need to generate a sdk client this can be don in 2 ways:
+
+-   using the genql website to generate a client npm package for a public graphql api
+-   using the `genql-cli` package to generate code locally
+
+## Generate with the cli
+
+First install the required package from npm
+
+```
+npm init -y
+npm i --save-dev genql-cli
+npm i genql-runtime
+```
+
+> `genql-cli` is a dev dependency because it is only required to generate the client, `genql-runtime` instead is a direct dependency of the generated code
+
+Then run the genql command to generate the client inside a directory
+
+```bash
+genql --schema ./schema.graphql --out ./generated
+# or using a graphql api url
+genql --endpoint https://countries.trevorblades.com --out ./generated
+```
+
+## Using the client
+
+The generated files expose a function `createClient`, this creates a client you can use to send requests
 
 ```ts
-const client = createClient()
+import { createClient } from './generated'
 
-client.query({
-    company: {
-        name: true,
-        id: true,
+const client = createClient({
+    url: 'https://countries.trevorblades.com',
+    headers: {
+        'Some-Header': 'hello',
     },
 })
+
+client
+    .query({
+        countries: {
+            name: true,
+            code: true,
+        },
+    })
+    .then((x) => console.log(JSON.stringify(x)))
 ```
+
+Read more about the graphql client methods in the documentation

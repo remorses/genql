@@ -258,9 +258,9 @@ const Page = () => (
                     />
                 }
                 cta={
-                    <NextLink href='/docs'>
+                    <a href='/docs'>
                         <Button>Read the Docs</Button>
-                    </NextLink>
+                    </a>
                 }
             />
         </Section>

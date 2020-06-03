@@ -63,7 +63,7 @@ const Page = (props: Props) => (
                     dark
                     subheading={
                         <>
-                            Generate a typed graphql client for your graphql
+                            Generate a typed sdk client for your graphql
                             api.
                         </>
                     }
@@ -85,11 +85,11 @@ const Page = (props: Props) => (
         </Stack>
         <Banner
             dark
-            heading='Add Genql to Your App or Start From Scratch'
-            bullet='READY TO TRY?'
+            heading='Read Genql documentation'
+            bullet='LEARN MORE'
             bg='transparent'
-            image={<Image ml='-60px' width='200px' src='/bannerImage.svg' />}
-            cta={<Button>Generate your graphql api sdk</Button>}
+            // image={<Image ml='-60px' width='200px' src='/banner.jpg' />}
+            cta={<a href='/docs'><Button>Read the docs</Button></a>}
         />
     </Stack>
 )
