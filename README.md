@@ -1,10 +1,12 @@
 <div align='center'>
     <br/>
     <br/>
-    <img src='https://geqnl.now.sh/banner.jpg' width='400px'>
+    <img src='https://genql.now.sh/banner.jpg' width='400px'>
     <br/>
     <br/>
-    <h3>Graphql queries as code,</br>with type validation and auto completion</h3>
+    <h3>Graphql queries as code</h3>
+    </br>
+    <h4>with type validation and auto completionh</h4>
     <br/>
     <br/>
 </div>
