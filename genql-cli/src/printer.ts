@@ -53,7 +53,7 @@ const printDocASTReducer = ({
 
     Field: ({ alias, name, arguments: args, directives, selectionSet }) => {
         if (args.length == 0 && !join([selectionSet])) {
-            return name + ': 1'
+            return name + ': true'
         }
         if (args.length == 0) {
             return name + ': ' + join([selectionSet])
