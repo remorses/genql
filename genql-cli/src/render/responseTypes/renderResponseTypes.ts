@@ -7,10 +7,11 @@ import { scalarType } from './scalarType'
 import { unionType } from './unionType'
 
 export const renderResponseTypes = (schema: GraphQLSchema, ctx: RenderContext) => {
-  for (const name in schema.getTypeMap()) {
+  const typeMap = schema.getTypeMap()
+  for (const name in typeMap) {
     if (excludedTypes.includes(name)) continue
 
-    const type = schema.getTypeMap()[name]
+    const type = typeMap[name]
 
     if (isEnumType(type)) enumType(type, ctx)
     if (isUnionType(type)) unionType(type, ctx)
