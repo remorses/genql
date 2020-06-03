@@ -4,7 +4,8 @@ import { RenderContext } from '../common/RenderContext'
 import { renderTyping } from '../common/renderTyping'
 
 export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType, ctx: RenderContext) => {
-  const fields = Object.keys(type.getFields()).map(fieldName => type.getFields()[fieldName])
+  const fieldsMap = type.getFields()
+  const fields = Object.keys(fieldsMap).map(fieldName => fieldsMap[fieldName])
 
   if (!ctx.schema) throw new Error('no schema provided')
 

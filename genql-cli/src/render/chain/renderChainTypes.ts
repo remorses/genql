@@ -4,10 +4,11 @@ import { RenderContext } from '../common/RenderContext'
 import { objectType } from './objectType'
 
 export const renderChainTypes = (schema: GraphQLSchema, ctx: RenderContext) => {
-  for (const name in schema.getTypeMap()) {
+  const typeMap = schema.getTypeMap()
+  for (const name in typeMap) {
     if (excludedTypes.includes(name)) continue
 
-    const type = schema.getTypeMap()[name]
+    const type = typeMap[name]
 
     if (isObjectType(type) || isInterfaceType(type)) {
       objectType(type, ctx, 'Promise')

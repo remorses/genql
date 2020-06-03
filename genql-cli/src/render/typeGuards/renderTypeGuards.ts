@@ -11,10 +11,11 @@ const renderTypeGuard = (target: string, possible: string[]) => `
 `
 
 export const renderTypeGuards = (schema: GraphQLSchema, ctx: RenderContext) => {
-  for (const name in schema.getTypeMap()) {
+  const typeMap = schema.getTypeMap()
+  for (const name in typeMap) {
     if (excludedTypes.includes(name)) continue
 
-    const type = schema.getTypeMap()[name]
+    const type = typeMap[name]
 
     if (isUnionType(type)) {
       const types = type.getTypes().map(t => t.name)

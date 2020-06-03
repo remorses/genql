@@ -6,10 +6,11 @@ import { objectType } from './objectType'
 import { unionType } from './unionType'
 
 export const renderRequestTypes = (schema: GraphQLSchema, ctx: RenderContext) => {
-  for (const name in schema.getTypeMap()) {
+  const typeMap = schema.getTypeMap()
+  for (const name in typeMap) {
     if (excludedTypes.includes(name)) continue
 
-    const type = schema.getTypeMap()[name]
+    const type = typeMap[name]
 
     if (isObjectType(type) || isInterfaceType(type)) objectType(type, ctx)
     if (isInputObjectType(type)) inputObjectType(type, ctx)

@@ -5,8 +5,9 @@ import { toArgsString } from '../common/toArgsString'
 import { requestTypeName } from './requestTypeName'
 
 export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType, ctx: RenderContext) => {
-  const fieldStrings = Object.keys(type.getFields()).map(fieldName => {
-    const field = type.getFields()[fieldName]
+  const fields = type.getFields()
+  const fieldStrings = Object.keys(fields).map(fieldName => {
+    const field = fields[fieldName]
 
     const types: string[] = []
     const resolvedType = getNamedType(field.type)
