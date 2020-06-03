@@ -28,7 +28,7 @@ First generate your client filling the form at [genql.now.sh](https://genql.now.
 
 Then you can use your client as follow
 
-```
+```js
 import { createClient } from '@genql/my-package'
 const client = createClient()
 
