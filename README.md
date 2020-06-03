@@ -1,4 +1,4 @@
-0 generate the package.json with custom `name`, genql dependency, main set to the createClient.js, types set to createClient.d.ts
+0 generate the package.json with custom `name`, genql dependency, main set to the index.js, types set to index.d.ts
 
 1 generate the types.json, schema.ts files
 

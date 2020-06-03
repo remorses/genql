@@ -2,7 +2,7 @@ import { Stack, DarkMode } from '@chakra-ui/core'
 import { LandingProvider } from 'landing-blocks'
 import React from 'react'
 
-import { createClient } from '../generated/createClient'
+import { createClient } from '../generated'
 
 export const client = createClient()
 

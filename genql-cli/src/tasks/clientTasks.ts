@@ -14,9 +14,9 @@ import { renderTypeMap } from '../render/typeMap/renderTypeMap'
 const schemaGqlFile = 'schema.graphql'
 const schemaTypesFile = 'schema.ts'
 const typeMapFile = 'types.json'
-const clientFileCjs = 'createClient.js'
-const clientFileEsm = 'createClient.esm.js'
-const clientTypesFile = 'createClient.d.ts'
+const clientFileCjs = 'index.js'
+const clientFileEsm = 'index.esm.js'
+const clientTypesFile = 'index.d.ts'
 
 export const clientTasks = (config: Config): ListrTask[] => {
     if (!config.output)

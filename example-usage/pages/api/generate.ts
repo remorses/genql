@@ -17,10 +17,10 @@ function generatePackageJson({ name }) {
         // TODO add a README with a quickstart
         name: `${NPM_SCOPE}/${name}`,
         version: '1.0.0',
-        main: './createClient.js',
-        module: './createClient.esm.js',
+        main: './index.js',
+        module: './index.esm.js',
         sideEffects: false,
-        types: './createClient.d.ts',
+        types: './index.d.ts',
         dependencies: {
             'genql-runtime': 'latest',
         },

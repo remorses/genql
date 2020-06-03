@@ -47,6 +47,7 @@ export const renderClientDefinition = (
 
     ctx.addCodeBlock(`
     import { Client, FieldsSelection, GraphqlOperation, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
+    export * from './schema'
     ${imports.length > 0 ? `import {${imports.join(',')}} from './schema'` : ''}
     export declare const createClient:(options?:ClientOptions)=>Client<${types.join(
         ',',

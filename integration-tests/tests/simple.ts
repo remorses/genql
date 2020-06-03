@@ -2,10 +2,10 @@ import {
     generateQueryOp,
     createClient,
     everything,
-} from '../generated/createClient'
+} from '../generated'
 import { prettify } from 'genql-cli/dist/helpers/prettify'
 import { parse } from 'graphql'
-import { SearchType } from '../generated/schema'
+import { SearchType } from '../generated'
 
 describe('generate queries', () => {
     it('simple', () => {

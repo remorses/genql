@@ -4,12 +4,12 @@ import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
 import { DeepPartial } from 'tsdef'
-import { createClient } from '../generated/createClient'
-import { SearchResultItemConnection } from '../generated/schema'
+import { createClient } from '../generated'
+import { SearchResultItemConnection } from '../generated'
 
 
 
-const PORT = 8090
+const PORT = 8010
 const URL = `http://localhost:` + PORT
 
 async function server({ resolvers, port = PORT }) {

@@ -6,6 +6,7 @@ import {
   ClientOptions,
   SubscriptionClientOptions,
 } from 'genql-runtime'
+export * from './schema'
 import { QueryRequest, QueryPromiseChain, Query, MutationRequest, MutationPromiseChain, Mutation } from './schema'
 export declare const createClient: (
   options?: ClientOptions,

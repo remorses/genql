@@ -55,6 +55,7 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
   module.exports.everything = {
     __scalar: true
   }
+  
   `)
 }
 
