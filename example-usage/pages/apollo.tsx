@@ -4,7 +4,7 @@ import ApolloClient from 'apollo-boost'
 import gql from 'graphql-tag'
 import { Hero, PageContainer, SectionTitle } from 'landing-blocks'
 import React from 'react'
-import { generateQueryOp, QueryResult } from '../generated/createClient'
+import { generateQueryOp, QueryResult } from '../generated/'
 
 const Page = () => {
     const q = {

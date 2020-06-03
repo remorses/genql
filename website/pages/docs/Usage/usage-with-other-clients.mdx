@@ -1,0 +1,65 @@
+---
+name: Usage with other clients
+---
+
+# Usage with other clients
+
+Genql exposes a `generateQueryOp` and `generateMutationOp` that let you use queries as code with any client.
+
+`generateQueryOp` returns an object with a `query` and `variables` fields, you can pass them to any client
+
+```js
+const { query, variables } = generateQueryOp({
+    countries: {
+        name: true,
+        code: true,
+    },
+})
+```
+
+## Usage with apollo and react
+
+To use with apollo first generate query and variables with `generateQueryOp`, then pass them to `useQuery`
+
+```jsx
+import React from 'react'
+import { useQuery, ApolloProvider } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
+import { generateQueryOp } from '../generated/'
+
+const Page = () => {
+    const { query, variables } = generateQueryOp({
+        countries: {
+            name: 1,
+            code: 1,
+        },
+    })
+    const { data, error } = useQuery(gql(query), {
+        variables,
+    })
+    return <div>{JSON.stringify(data)}</div>
+}
+```
+
+If you want you can also apply a type to the resulting data
+
+```tsx
+import React from 'react'
+import { useQuery, ApolloProvider } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
+import { generateQueryOp, QueryResult } from '../generated/'
+
+const Page = () => {
+    const q = {
+        countries: {
+            name: 1,
+            code: 1,
+        },
+    }
+    const { query, variables } = generateQueryOp(q)
+    const { data, error } = useQuery<QueryResult<typeof q>>(gql(query), {
+        variables,
+    })
+    return <div>{JSON.stringify(data)}</div>
+}
+```

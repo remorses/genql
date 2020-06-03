@@ -3,7 +3,7 @@ import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { client } from './_app'
-import { everything } from '../generated/createClient'
+import { everything } from '../generated/'
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')

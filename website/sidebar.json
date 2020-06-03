@@ -14,6 +14,38 @@
             "name": "docs",
             "children": [
                 {
+                    "path": "pages/docs/Usage",
+                    "name": "Usage",
+                    "children": [
+                        {
+                            "path": "pages/docs/Usage/selecting-fields.mdx",
+                            "name": "selecting-fields.mdx",
+                            "title": "Selecting fields",
+                            "url": "/docs/Usage/selecting-fields"
+                        },
+                        {
+                            "path": "pages/docs/Usage/usage-in-react.mdx",
+                            "name": "usage-in-react.mdx",
+                            "title": "Usage in React",
+                            "url": "/docs/Usage/usage-in-react"
+                        },
+                        {
+                            "path": "pages/docs/Usage/usage-with-other-clients.mdx",
+                            "name": "usage-with-other-clients.mdx",
+                            "title": "Usage with other clients",
+                            "url": "/docs/Usage/usage-with-other-clients"
+                        },
+                        {
+                            "path": "pages/docs/Usage/using-chain-syntax.mdx",
+                            "name": "using-chain-syntax.mdx",
+                            "title": "Using the chain syntax",
+                            "url": "/docs/Usage/using-chain-syntax"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
+                },
+                {
                     "path": "pages/docs/index.mdx",
                     "name": "index.mdx",
                     "title": "Quick Start",
