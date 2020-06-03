@@ -10,11 +10,9 @@
     <br/>
 </div>
 
-Generate your client package at [**genql.now.sh**](https://genql.now.sh)
+Generate your client package at [**genql.now.sh**](https://genql.now.sh) or read the [quick start guide](https://genql.now.sh/dokz) to generate a client locally instead
 
-Read the [_quick start guide_](https://genql.now.sh/dokz) to generate a client locally instead
-
-🔥 Features
+🔥 **Features**
 
 -   Type completion
 -   Type validation
