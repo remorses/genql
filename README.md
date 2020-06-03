@@ -1,7 +1,7 @@
 <div align='center'>
     <br/>
     <br/>
-    <img src='https://genql.now.sh/banner.jpg' width='400px'>
+    <img src='https://genql.now.sh/banner.jpg' width='420px'>
     <br/>
     <br/>
     <h3>Graphql queries as code</h3>
