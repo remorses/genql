@@ -10,6 +10,10 @@
     <br/>
 </div>
 
+Generate your client package at [**genql.now.sh**](https://genql.now.sh)
+
+Read the [_quick start guide_](https://genql.now.sh/dokz) to generate a client locally instead
+
 🔥 Features
 
 -   Type completion
@@ -20,11 +24,9 @@
 -   Works with any client
 -   Works in node and the browser
 
-Read the [**quick start guide**](https://genql.now.sh/dokz)
-
 ## Example
 
-First generate your client filling the form at [genql.now.sh](https://genql.now.sh)
+First generate your client filling the form at [**genql.now.sh**](https://genql.now.sh)
 
 Then you can use your client as follow
 
@@ -39,10 +41,10 @@ client
             code: true,
         },
     })
-    .then((x) => console.log(JSON.stringify(x)))
+    .then(console.log)
 ```
 
-The code above wil request the following graphql query
+The code above wil fetch the graphql query below
 
 ```graphql
 query {
