@@ -5,7 +5,7 @@ describe('RenderContext', () => {
   test('prettify', () => {
     const ctx = new RenderContext()
     ctx.addCodeBlock('interface A{}')
-    expect(ctx.toCode('typescript')).toBe(prettify(`interface A{}`, 'typescript'))
+    expect(ctx.toCode('typescript', true)).toBe(prettify(`interface A{}`, 'typescript'))
   })
 
   test('raw', () => {
