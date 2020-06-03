@@ -66,7 +66,7 @@ describe('execute queries with chain', () => {
             },
         })
         const res = await client.chain.query
-            .search({ query: '', type: SearchType.USER })
+            .search({ query: '', type: 'USER' })
             .nodes.get({
                 on_Issue: {
                     __typename: true,
