@@ -43,7 +43,7 @@ const printDocASTReducer = ({
         if (thenCode) {
             code += `.then(${thenCode})`
         }
-        return prettify(code)
+        return prettify(code, "babel")
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {

@@ -68,7 +68,7 @@ export class RenderContext {
     else return
   }
 
-  toCode(parser?: BuiltInParserName) {
+  toCode(parser?: BuiltInParserName, pretty=false) {
     const blocks = [...this.codeBlocks]
 
     if (parser && (parser === 'typescript' || parser === 'babel')) {
@@ -76,6 +76,6 @@ export class RenderContext {
       if (importBlock) blocks.unshift(importBlock)
     }
 
-    return parser ? prettify(blocks.join('\n\n'), parser) : blocks.join('')
+    return parser && pretty ? prettify(blocks.join('\n\n'), parser) : blocks.join('')
   }
 }

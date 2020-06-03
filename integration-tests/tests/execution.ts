@@ -1,24 +1,13 @@
-import {
-    generateQueryOp,
-    createClient,
-    everything,
-} from '../generated/createClient'
-import { DeepPartial } from 'tsdef'
-
-import { prettify } from 'genql-cli/dist/helpers/prettify'
-import { parse } from 'graphql'
-import {
-    SearchType,
-    SearchResultItem,
-    SearchResultItemConnection,
-} from '../generated/schema'
-import { main as graphqlMocks } from 'graphql-easy-mocks/dist/main'
+import { ApolloServer } from 'apollo-server'
+import assert from 'assert'
+import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
-import deepEq from 'deep-equal'
-import assert from 'assert'
+import { DeepPartial } from 'tsdef'
+import { createClient } from '../generated/createClient'
+import { SearchResultItemConnection } from '../generated/schema'
 
-import { ApolloServer } from 'apollo-server'
+
 
 const PORT = 8090
 const URL = `http://localhost:` + PORT

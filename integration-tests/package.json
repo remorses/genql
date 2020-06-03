@@ -7,7 +7,8 @@
     "license": "MIT",
     "scripts": {
         "test": "mocha -r sucrase/register",
-        "gen": "node -r sucrase/register generate.ts"
+        "gen": "node -r sucrase/register --prof generate.ts",
+        "flame": "node --prof-process --preprocess -j isolate*.log | flamebearer && open flamegraph.html"
     },
     "dependencies": {
         "apollo-server": "^2.14.1",
