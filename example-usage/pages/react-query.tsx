@@ -1,5 +1,6 @@
-import { Stack, Box, Spinner, Input } from '@chakra-ui/core'
+import { Box, Spinner, Input } from '@chakra-ui/core'
 import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
+import { Stack } from 'layout-kit-react'
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { client } from './_app'

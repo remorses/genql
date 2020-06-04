@@ -4,12 +4,10 @@ import {
     InputGroup,
     InputLeftAddon,
     Spinner,
-    Stack,
-    StackProps,
 } from '@chakra-ui/core'
 import { useStorageState } from 'react-storage-hooks'
 import debounce from 'p-debounce'
-
+import { Stack, StackProps } from 'layout-kit-react'
 import {
     AuthProvider,
     GoogleButton,
@@ -113,9 +111,8 @@ export const MainForm = ({ ...rest }: StackProps) => {
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting }) => {
                 return (
-                    <PageContainer>
+                    <PageContainer spacing='0px'>
                         <Stack
-                            spacing='40px'
                             // justify='center'
                             // align='space-between'
                             minW='100%'
@@ -130,6 +127,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
                             <Stack
                                 onSubmit={handleSubmit}
                                 align='center'
+                                w='100%'
                                 as='form'
                             >
                                 <AuthProvider
@@ -151,6 +149,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
                                     }}
                                 >
                                     <MainFormContent
+                                    w='100%'
                                         shouldLogin={shouldLogin}
                                         error={error}
                                         resetError={() => setError('')}
@@ -166,7 +165,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
     )
 }
 
-const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
+const MainFormContent = ({ submitting, shouldLogin, resetError, error, ...rest }) => {
     const { loading, user } = useAuthData()
     const { valid } = useFormState()
     if (submitting || loading) {
@@ -180,6 +179,7 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
                 spacing='40px'
                 opacity={0.6}
                 textAlign='center'
+                {...rest}
             >
                 <Box>
                     {loading ? 'logging in' : 'Generating the sdk package'}
@@ -238,14 +238,14 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
     if (!submitting) {
         return (
             <Stack
-                flexDir={['column', null, null, 'row']}
-                spacing='30px'
-                direction='row'
+                // flexDir={['column', null, null, 'row']}
+                spacing={['50px', null, '30px']}
+                direction={['column', null, 'row']}
                 // shouldWrapChildren
-                justify={['center', null, 'space-between']}
+                justify={['space-between', null, 'center']}
                 align={['center', null, 'flex-end']}
             >
-                <Stack position='relative' spacing='10px'>
+                <Stack flex='1'  position='relative' spacing='10px'>
                     <Label>Npm package name</Label>
                     <Field
                         name='name'
@@ -257,6 +257,7 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
 
                                 <Input
                                     {...input}
+                                    minW='160px'
                                     isInvalid={meta.touched && meta.invalid}
                                     roundedLeft='0'
                                     type='text'
@@ -267,7 +268,11 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
                     />
                     <ValidationError name='name' />
                 </Stack>
-                <Stack position='relative' spacing='10px'>
+                <Stack
+                    w={['100%', null, null, 'auto']}
+                    position='relative'
+                    spacing='10px'
+                >
                     <Label>Your Graphql api endpoint</Label>
                     <Field
                         name='endpoint'
@@ -288,6 +293,7 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error }) => {
                     type='submit'
                     // onClick={() => setShouldLogin(true)}
                     animate
+                    w={['100%', null, null, 'auto']}
                     shadow='md'
                 >
                     Generate Sdk Package
