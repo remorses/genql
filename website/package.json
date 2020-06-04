@@ -37,6 +37,7 @@
     "next": "9.4.1",
     "next-cookies": "^2.0.3",
     "npm-name": "^6.0.0",
+    "p-debounce": "^2.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-final-form": "^6.4.0",

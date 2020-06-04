@@ -8,6 +8,7 @@ import {
     StackProps,
 } from '@chakra-ui/core'
 import { useStorageState } from 'react-storage-hooks'
+import debounce from 'p-debounce'
 
 import {
     AuthProvider,
@@ -321,12 +322,14 @@ export const ValidationError = ({ name, ...rest }) => {
     return null
 }
 
-export async function npmNameAvailable(name) {
+export const npmNameAvailable = debounce(async (name) => {
     if (typeof name !== 'string') {
         return Promise.reject(new Error('Name must be a string'))
     }
 
     const url = `https://unpkg.com/${name.toLowerCase()}`
-    const res = await fetch(url).catch(e => {console.log('catched fetch err')})
+    const res = await fetch(url).catch((e) => {
+        console.log('catched fetch err')
+    })
     return res && res.status === 404
-}
+}, 400)
