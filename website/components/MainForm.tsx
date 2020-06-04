@@ -41,6 +41,7 @@ async function validate(
     const errors: Partial<MainFormData> = {}
     if (!data.name) {
         errors.name = 'name required'
+        return errors
     }
     if (!data.endpoint) {
         errors.endpoint = 'url required'
@@ -52,6 +53,10 @@ async function validate(
         !data?.endpoint?.startsWith('https://')
     ) {
         errors.endpoint = 'graphql endpoint should be an url'
+    }
+    const nameOk = await npmNameAvailable(data.name)
+    if (!nameOk) {
+        errors.name = 'npm name already taken'
     }
     return errors
 }
@@ -314,4 +319,14 @@ export const ValidationError = ({ name, ...rest }) => {
         )
     }
     return null
+}
+
+export async function npmNameAvailable(name) {
+    if (typeof name !== 'string') {
+        return Promise.reject(new Error('Name must be a string'))
+    }
+
+    const url = `https://unpkg.com/${name.toLowerCase()}`
+    const res = await fetch(url).catch(e => {console.log('catched fetch err')})
+    return res && res.status === 404
 }

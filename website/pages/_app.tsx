@@ -1,10 +1,10 @@
 import NextLink from 'next/link'
 import React, { useEffect } from 'react'
 import Cookies from 'js-cookie'
-import { Link, Stack, Box, useColorMode } from '@chakra-ui/core'
-import { DokzProvider } from 'dokz'
+import { Stack, Box, useColorMode } from '@chakra-ui/core'
+import { DokzProvider, GithubLink, ColorModeSwitch } from 'dokz'
 import { AuthProvider, useAuthData } from 'firebase-react-components'
-import { LandingProvider, NavBar, Footer } from 'landing-blocks'
+import { LandingProvider, NavBar, Footer, Link } from 'landing-blocks'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import { useRouter } from 'next/router'
@@ -41,7 +41,23 @@ export default function App(props) {
     // console.log({ pathname })
     if (pathname.startsWith('/docs')) {
         return (
-            <DokzProvider docsRootPath='pages/docs' headerLogo={<Logo />}>
+            <DokzProvider
+                headerItems={
+                    <Stack direction='row' spacing='30px' align='center'>
+                        <Link href='/'>Website</Link>,
+                        <Link
+                            isExternal
+                            href='https://github.com/remorses/genql'
+                        >
+                            Github
+                        </Link>
+                        ,
+                        <ColorModeSwitch />,
+                    </Stack>
+                }
+                docsRootPath='pages/docs'
+                headerLogo={<Logo />}
+            >
                 <Component {...pageProps} />
             </DokzProvider>
         )

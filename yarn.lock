@@ -5141,10 +5141,10 @@ directory-tree@^2.2.4:
   resolved "https://registry.yarnpkg.com/directory-tree/-/directory-tree-2.2.4.tgz#6d5bd7d82e48378e256a1e87b678a43c50076e2e"
   integrity sha512-2N43msQptKbi3WMfIs+U09yi6bfyKL+MWyj5VMj8t1F/Tx04bt1cn/EEIU3o1JBltlJk7NQnzOEuTNa/KQvbWA==
 
-dokz@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/dokz/-/dokz-1.0.14.tgz#adb05038ab3a7d8fb36afa8befb722df58cf9619"
-  integrity sha512-jRzVq2rcNHQy0FGzQWXF2wb9E6D6jDOIdMnK2ILv6XAIhw6m8YzixTHCY7HqYotvTRK6+qvl/X+tENKgyfPJ+Q==
+dokz@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/dokz/-/dokz-1.0.15.tgz#9a29ffcbde66c4123c9b1f00d6fdcc5a4017ab55"
+  integrity sha512-MItf3sVPIi5Au0H2eGyHQAxitjS6+ah8/5nh0LkissBf0ICPsD/eGQKSsK/aOhYg6q7tAghQj6AXhS7HnRo4/w==
   dependencies:
     "@emotion/styled" "^10.0.27"
     "@mdx-js/loader" "^1.5.8"
@@ -8280,6 +8280,26 @@ landing-blocks@^1.0.29:
   version "1.0.29"
   resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.29.tgz#c8b687211b899f2a357e1900fdc91b03cb991d2c"
   integrity sha512-av+RNZ/OXmONrlENA7CCxenoh5k37ve+PDrapiFWkjZ5f68ATAozTTYNeYx33KobNVortO8R7nj55Nuk6tazcQ==
+  dependencies:
+    "@emotion/styled" "^10.0.27"
+    baby-i-am-faded "^0.0.12"
+    color-js "^1.0.5"
+    emotion-theming "^10.0.27"
+    intersection-observer "^0.7.0"
+    lodash.get "^4.4.2"
+    lodash.merge "^4.6.2"
+    prism-react-renderer "^1.1.0"
+    react-icons "^3.9.0"
+    react-mailchimp-subscribe "^2.1.0"
+    react-script-hook "^1.0.17"
+    react-twitter-embed "^3.0.3"
+    react-typical "^0.1.3"
+    react-typist "^2.0.5"
+
+landing-blocks@^1.0.30:
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.30.tgz#46022916f743125e6b26a835bc268018d0296e53"
+  integrity sha512-R6zdAkb23aBcrK4F/zoVno+C0jJpT69F08KS68Jz8NLZFIrWgWcdN2ZCsER8pwsAc0/m9c/QyN9Wi+3JaQHB3A==
   dependencies:
     "@emotion/styled" "^10.0.27"
     baby-i-am-faded "^0.0.12"

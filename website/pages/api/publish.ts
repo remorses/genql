@@ -14,6 +14,7 @@ import { getFirebaseDecodedToken } from '../../support/server'
 import admin from 'firebase-admin'
 import { generateQueries } from '../../support/generateQueries'
 
+
 function generatePackageJson({ name }) {
     return {
         // TODO add a README with a quickstart
