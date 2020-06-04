@@ -48,7 +48,6 @@ async function validate(
         errors.endpoint = 'url required'
         return errors
     }
-    console.log(data.endpoint)
     if (
         !data?.endpoint?.startsWith('http://') &&
         !data?.endpoint?.startsWith('https://')
