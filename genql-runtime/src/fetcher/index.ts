@@ -23,6 +23,7 @@ export const createFetcher = ({
         if (typeof headers == 'function') {
             headers = headers()
         }
+        headers = headers || {}
         const res = await fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
