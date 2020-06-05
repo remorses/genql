@@ -1,20 +1,29 @@
 {
-  "compilerOptions": {
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    // "noImplicitAny": false,
-    "strict": false,
-    "declaration": true,
-    "target": "ES5",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "allowJs": true,
-    "sourceMap": true,
-    "lib": ["dom", "es2017", "esnext.asynciterable"],
-    "skipLibCheck": true
-  },
-  "exclude": ["node_modules", "**/*.case.ts", "tests", "example", "dist", "**/__tests__", "esm"]
+    "compilerOptions": {
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        // "noImplicitAny": false,
+        "importHelpers": true,
+        "strict": false,
+        "declaration": true,
+        "target": "ES5",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "allowJs": true,
+        "sourceMap": true,
+        "lib": ["dom", "es2017", "esnext.asynciterable"],
+        "skipLibCheck": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.case.ts",
+        "tests",
+        "example",
+        "dist",
+        "**/__tests__",
+        "esm"
+    ]
 }
