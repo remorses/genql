@@ -6,6 +6,7 @@
     <br/>
     <h3>Graphql queries as code</h3>
     <h4>with type validation and auto completion</h4>
+    <sub>original image from @adelsz</sub>
     <br/>
     <br/>
 </div>
