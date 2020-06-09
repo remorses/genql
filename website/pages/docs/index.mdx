@@ -2,6 +2,8 @@
 name: Quick Start
 ---
 
+import { RunKit } from '../../components/RunKit'
+
 # Quick Start
 
 Genql translate typed code into graphql queries, enabling you to get auto completion and validation for your graphql queries.
@@ -39,16 +41,14 @@ genql --endpoint https://countries.trevorblades.com --out ./generated
 
 The generated files expose a function `createClient`, this creates a client you can use to send requests
 
-```ts
-import { createClient } from './generated'
-
+<RunKit>{`
+const { createClient } = require('@shitty-scope-name/__xxx__x__')
 const client = createClient({
     url: 'https://countries.trevorblades.com',
     headers: {
         'Some-Header': 'hello',
     },
-})
-
+})\n
 client
     .query({
         countries: {
@@ -56,7 +56,26 @@ client
             code: true,
         },
     })
-    .then((x) => console.log(JSON.stringify(x)))
-```
+    .then(console.log)
+`}</RunKit>
 
 Read more about the graphql client methods in the documentation
+
+
+<RunKit>{`
+const { createClient } = require('@shitty-scope-name/__xxx__x__')
+const client = createClient({
+    url: 'https://countries.trevorblades.com',
+    headers: {
+        'Some-Header': 'hello',
+    },
+})\n
+client
+    .query({
+        countries: {
+            name: true,
+            code: true,
+        },
+    })
+    .then(console.log)
+`}</RunKit>
