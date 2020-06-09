@@ -1,7 +1,7 @@
 {
     "name": "genql-cli",
     "_": "[bump if genql-cli]",
-    "version": "1.0.22",
+    "version": "1.0.23",
     "description": "",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
