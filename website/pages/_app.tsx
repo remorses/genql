@@ -9,7 +9,12 @@ import Head from 'next/head'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import { DOCS_LINK, firebaseConfig, FIREBASE_ID_TOKEN_COOKIE, GITHUB_LINK } from '../constants'
+import {
+    DOCS_LINK,
+    firebaseConfig,
+    FIREBASE_ID_TOKEN_COOKIE,
+    GITHUB_LINK,
+} from '../constants'
 
 export const BG = '#2d3748'
 // 'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
@@ -42,19 +47,16 @@ export default function App(props) {
                     <script src='https://embed.runkit.com'></script>
                 </Head>
                 <DokzProvider
-                    headerItems={
-                        <Stack direction='row' spacing='30px' align='center'>
-                            <Link href='/'>Website</Link>,
-                            <Link
-                                isExternal
-                                href='https://github.com/remorses/genql'
-                            >
-                                Github
-                            </Link>
-                            ,
-                            <ColorModeSwitch />,
-                        </Stack>
-                    }
+                    headerItems={[
+                        <Link href='/'>Website</Link>,
+                        <Link
+                            isExternal
+                            href='https://github.com/remorses/genql'
+                        >
+                            Github
+                        </Link>,
+                        <ColorModeSwitch />,
+                    ]}
                     docsRootPath='pages/docs'
                     headerLogo={<Logo />}
                 >
