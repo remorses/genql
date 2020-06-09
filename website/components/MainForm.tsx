@@ -273,7 +273,7 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error, ...rest }
                     position='relative'
                     spacing='10px'
                 >
-                    <Label>Your Graphql api endpoint</Label>
+                    <Label>Your Graphql api endpoint, for example <Box as='pre' fontSize='0.8em'>https://countries.trevorblades.com</Box></Label>
                     <Field
                         name='endpoint'
                         render={({ input, meta }) => (

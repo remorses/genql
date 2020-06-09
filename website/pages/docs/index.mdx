@@ -8,7 +8,7 @@ import { RunKit } from '../../components/RunKit'
 
 Genql translate typed code into graphql queries, enabling you to get auto completion and validation for your graphql queries.
 
-To first use genql you need to generate a sdk client this can be don in 2 ways:
+To use genql you first need to generate a sdk client, this can be done in 2 ways:
 
 -   using the genql website to generate a client npm package for a public graphql api
 -   using the `genql-cli` package to generate code locally
@@ -21,7 +21,7 @@ Go to [genql.now.sh](https://genql.now.sh) and compile the form
 
 First install the required package from npm
 
-```
+```bash
 npm init -y
 npm i --save-dev genql-cli
 npm i genql-runtime
@@ -42,7 +42,9 @@ genql --endpoint https://countries.trevorblades.com --out ./generated
 The generated files expose a function `createClient`, this creates a client you can use to send requests
 
 <RunKit>{`
+// example client generated with genql
 const { createClient } = require('@shitty-scope-name/__xxx__x__')
+\n
 const client = createClient({
     url: 'https://countries.trevorblades.com',
     headers: {
@@ -59,23 +61,4 @@ client
     .then(console.log)
 `}</RunKit>
 
-Read more about the graphql client methods in the documentation
-
-
-<RunKit>{`
-const { createClient } = require('@shitty-scope-name/__xxx__x__')
-const client = createClient({
-    url: 'https://countries.trevorblades.com',
-    headers: {
-        'Some-Header': 'hello',
-    },
-})\n
-client
-    .query({
-        countries: {
-            name: true,
-            code: true,
-        },
-    })
-    .then(console.log)
-`}</RunKit>
+Read more about the graphql client methods in the usage section
