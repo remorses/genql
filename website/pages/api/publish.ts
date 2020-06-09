@@ -1,18 +1,18 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-
-import path from 'path'
-import os from 'os'
-import packageNameAvailable from 'npm-name'
+import { exec } from 'child_process'
+import admin from 'firebase-admin'
 import { promises as fs } from 'fs'
 import { generateProject } from 'genql-cli/src/main'
-import tmp from 'tmp-promise'
 import { buildSchema } from 'graphql'
-
-import { exec } from 'child_process'
+import { NextApiRequest, NextApiResponse } from 'next'
+import packageNameAvailable from 'npm-name'
+import os from 'os'
+import path from 'path'
+import tmp from 'tmp-promise'
 import { NPM_SCOPE, NPM_TOKEN } from '../../constants'
-import { getFirebaseDecodedToken } from '../../support/server'
-import admin from 'firebase-admin'
 import { generateQueries } from '../../support/generateQueries'
+import { getFirebaseDecodedToken } from '../../support/server'
+
+
 
 
 function generatePackageJson({ name }) {

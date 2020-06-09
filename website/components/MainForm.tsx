@@ -1,33 +1,15 @@
-import {
-    Box,
-    Input,
-    InputGroup,
-    InputLeftAddon,
-    Spinner,
-} from '@chakra-ui/core'
-import { useStorageState } from 'react-storage-hooks'
-import debounce from 'p-debounce'
-import { Stack, StackProps } from 'layout-kit-react'
-import {
-    AuthProvider,
-    GoogleButton,
-    GithubButton,
-    useAuthData,
-} from 'firebase-react-components'
-import { Button, PageContainer } from 'landing-blocks'
-import Router from 'next/router'
-import React, { useState } from 'react'
-import { Field, Form, useField, useForm, useFormState } from 'react-final-form'
-import {
-    NPM_SCOPE,
-    firebaseConfig,
-    SESSION_STORAGE_CONFIG_KEY,
-    FIREBASE_ID_TOKEN_COOKIE,
-} from '../constants'
-import fetch from 'isomorphic-unfetch'
-import firebase from 'firebase/app'
+import { Box, Input, InputGroup, InputLeftAddon, Spinner } from '@chakra-ui/core'
+import { AuthProvider, GithubButton, useAuthData } from 'firebase-react-components'
 import 'firebase/auth'
-import Cookies from 'js-cookie'
+import fetch from 'isomorphic-unfetch'
+import { Button, PageContainer } from 'landing-blocks'
+import { Stack, StackProps } from 'layout-kit-react'
+import Router from 'next/router'
+import debounce from 'p-debounce'
+import React, { useState } from 'react'
+import { Field, Form, useField, useFormState } from 'react-final-form'
+import { useStorageState } from 'react-storage-hooks'
+import { NPM_SCOPE, SESSION_STORAGE_CONFIG_KEY } from '../constants'
 
 export type MainFormData = {
     name: string

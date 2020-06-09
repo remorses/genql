@@ -1,12 +1,6 @@
 import { Box, Stack } from '@chakra-ui/core'
+import { Link, PageContainer, SectionTitle } from 'landing-blocks'
 import { useRouter } from 'next/router'
-import {
-    LandingProvider,
-    Link,
-    SectionTitle,
-    Button,
-    PageContainer,
-} from 'landing-blocks'
 import React, { Fragment } from 'react'
 
 const BG =

@@ -1,35 +1,13 @@
 import { Box, Image, Stack } from '@chakra-ui/core'
-import { Faded } from 'baby-i-am-faded'
-import NextLink from 'next/link'
 // @jsx jsx
-import { jsx, css } from '@emotion/core'
-import {
-    Banner,
-    Button,
-    CodeSnippet,
-    Divider,
-    Feature,
-    Footer,
-    Heading,
-    Hero,
-    LandingProvider,
-    NavBar,
-    PageContainer,
-    PatternBackground,
-    Section,
-    SectionTitle,
-    TestimonialsLogos,
-} from 'landing-blocks'
+import { css, jsx } from '@emotion/core'
+import { Faded } from 'baby-i-am-faded'
+import { Banner, Button, CodeSnippet, Divider, Feature, Heading, Hero, PageContainer, PatternBackground, Section, SectionTitle, TestimonialsLogos } from 'landing-blocks'
 import React, { Fragment } from 'react'
-import {
-    FaAngular as AngularIcon,
-    FaArrowRight as ArrowRight,
-    FaNode as NodeIcon,
-    FaReact as ReactIcon,
-} from 'react-icons/fa'
-import { Frame, Keyframes } from 'react-keyframes'
+import { FaAngular as AngularIcon, FaArrowRight as ArrowRight, FaNode as NodeIcon, FaReact as ReactIcon } from 'react-icons/fa'
 import { MainForm } from '../components/MainForm'
 import { BG } from './_app'
+jsx
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -80,37 +58,17 @@ const Page = () => (
                         color='gray.200'
                         scatter={20}
                     >
-                        <Keyframes>
-                            <Frame duration={2000}>
-                                <Faded>
-                                    <CodeSnippet
-                                        key='1'
-                                        dark
-                                        bg='gray.700'
-                                        w='auto'
-                                        overflow='hidden'
-                                        minWidth='200px'
-                                        shadow='xl'
-                                        language='bash'
-                                        isTyping
-                                        code='npm i @genql/my-package'
-                                    />
-                                </Faded>
-                            </Frame>
-                            <Frame duration={500}>
-                                <Faded>
-                                    <CodeSnippet
-                                        key='2'
-                                        overflow='hidden'
-                                        w='auto'
-                                        minWidth='300px'
-                                        language='javascript'
-                                        isTyping
-                                        code={jsQueryCode}
-                                    />
-                                </Faded>
-                            </Frame>
-                        </Keyframes>
+                        <Faded>
+                            <CodeSnippet
+                                key='2'
+                                overflow='hidden'
+                                w='auto'
+                                minWidth='300px'
+                                language='javascript'
+                                // isTyping
+                                code={jsQueryCode}
+                            />
+                        </Faded>
                     </PatternBackground>
                 </Box>
             }

@@ -1,7 +1,6 @@
-import nextCookies from 'next-cookies'
-import { FIREBASE_ID_TOKEN_COOKIE, FIREBASE_ADMIN_CONFIG } from '../constants'
-import { NextApiRequest } from 'next'
 import admin from 'firebase-admin'
+import nextCookies from 'next-cookies'
+import { FIREBASE_ADMIN_CONFIG, FIREBASE_ID_TOKEN_COOKIE } from '../constants'
 
 export async function getFirebaseDecodedToken(req: {
     headers: { cookie?: string }

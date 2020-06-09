@@ -1,14 +1,8 @@
-import { Box, Image, Stack } from '@chakra-ui/core'
+import { Box, Stack } from '@chakra-ui/core'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import admin from 'firebase-admin'
-import {
-    Banner,
-    Button,
-    Link,
-    PageContainer,
-    SectionTitle,
-} from 'landing-blocks'
+import { Banner, Button, Link, PageContainer, SectionTitle } from 'landing-blocks'
 import { GetServerSidePropsContext } from 'next'
 import React from 'react'
 import { MainForm } from '../components/MainForm'
