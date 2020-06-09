@@ -29,7 +29,7 @@ First generate your client filling the form at [**genql.now.sh**](https://genql.
 Then you can use your client as follow
 
 ```js
-import { createClient } from '@genql/my-package'
+import { createClient, everything } from '@genql/my-package'
 const client = createClient()
 
 client
@@ -37,6 +37,9 @@ client
         countries: {
             name: true,
             code: true,
+            nestedField: {
+                ...everything,
+            },
         },
     })
     .then(console.log)
