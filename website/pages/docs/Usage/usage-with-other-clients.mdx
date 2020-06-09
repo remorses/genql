@@ -9,7 +9,9 @@ Genql exposes a `generateQueryOp` and `generateMutationOp` that let you use quer
 `generateQueryOp` returns an object with a `query` and `variables` fields, you can pass them to any client
 
 ```js
+import { generateQueryOp, generateMutationOp } from './generated'
 const { query, variables } = generateQueryOp({
+    // your query
     countries: {
         name: true,
         code: true,
