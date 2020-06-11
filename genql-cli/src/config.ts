@@ -13,7 +13,7 @@ export interface Options {
 
 export interface Config {
     endpoint?: string
-    post?: boolean
+    useGet?: boolean
     schema?: string
     output?: string
     fetcher?: string | SchemaFetcher

@@ -10,9 +10,9 @@ export const schemaTask = (config: Config): ListrTask => {
     const endpoint = config.endpoint
 
     return {
-      title: `fetching schema using ${config.post ? 'POST' : 'GET'} ${endpoint}`,
+      title: `fetching schema using ${config.useGet ? 'GET' : 'POST'} ${endpoint}`,
       task: async ctx => {
-        ctx.schema = await fetchSchema(endpoint, config.post)
+        ctx.schema = await fetchSchema(endpoint, !config.useGet)
       },
     }
   } else if (config.fetcher) {
