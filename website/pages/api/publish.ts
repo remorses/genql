@@ -164,7 +164,8 @@ export default async function Api(req: NextApiRequest, res: NextApiResponse) {
         const r = await admin
             .firestore()
             .collection('packages')
-            .add({
+            .doc(scopedName.replace('/', '').replace('@', ''))
+            .set({
                 user_uid: uid,
                 name: packageJson.name,
                 graphql_endpoint: endpoint,

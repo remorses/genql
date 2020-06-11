@@ -2,7 +2,13 @@ import { Box, Stack } from '@chakra-ui/core'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import admin from 'firebase-admin'
-import { Banner, Button, Link, PageContainer, SectionTitle } from 'landing-blocks'
+import {
+    Banner,
+    Button,
+    Link,
+    PageContainer,
+    SectionTitle,
+} from 'landing-blocks'
 import { GetServerSidePropsContext } from 'next'
 import React from 'react'
 import { MainForm } from '../components/MainForm'
@@ -56,10 +62,7 @@ const Page = (props: Props) => (
                     // opacity={0.8}
                     dark
                     subheading={
-                        <>
-                            Generate a typed sdk client for your graphql
-                            api.
-                        </>
+                        <>Generate a typed sdk client for your graphql api.</>
                     }
                 />
                 <MainForm alignSelf='center' />
@@ -83,7 +86,11 @@ const Page = (props: Props) => (
             bullet='LEARN MORE'
             bg='transparent'
             // image={<Image ml='-60px' width='200px' src='/banner.jpg' />}
-            cta={<a href='/docs'><Button>Read the docs</Button></a>}
+            cta={
+                <a href='/docs'>
+                    <Button>Read the docs</Button>
+                </a>
+            }
         />
     </Stack>
 )
@@ -108,9 +115,9 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
             </Stack>
             {/* <Divider /> */}
             <Stack spacing='40px'>
-                {packages.map((p) => (
+                {packages.map((p, i) => (
                     <Stack
-                        key={p.url}
+                        key={p.url + i}
                         flexDir={['column', null, 'row']}
                         justify='stretch'
                         fontWeight='normal'
@@ -121,9 +128,15 @@ const PackagesTable = ({ packages, ...rest }: Props) => {
                         borderWidth='1px'
                     >
                         <Box flex='1'>
-                            <Link href={p.url} isExternal fontSize='inherit'>
-                                {p.name}
-                            </Link>
+                            <Box maxW='360px' isTruncated>
+                                <Link
+                                    href={p.url}
+                                    isExternal
+                                    fontSize='inherit'
+                                >
+                                    {p.name}
+                                </Link>
+                            </Box>
                         </Box>
                         <Box flex='1'>
                             <Box isTruncated maxWidth='300px'>

@@ -1,5 +1,15 @@
-import { Box, Input, InputGroup, InputLeftAddon, Spinner } from '@chakra-ui/core'
-import { AuthProvider, GithubButton, useAuthData } from 'firebase-react-components'
+import {
+    Box,
+    Input,
+    InputGroup,
+    InputLeftAddon,
+    Spinner,
+} from '@chakra-ui/core'
+import {
+    AuthProvider,
+    GithubButton,
+    useAuthData,
+} from 'firebase-react-components'
 import 'firebase/auth'
 import fetch from 'isomorphic-unfetch'
 import { Button, PageContainer } from 'landing-blocks'
@@ -7,9 +17,16 @@ import { Stack, StackProps } from 'layout-kit-react'
 import Router from 'next/router'
 import debounce from 'p-debounce'
 import React, { useState } from 'react'
-import { Field, Form, useField, useFormState } from 'react-final-form'
+import {
+    Field,
+    Form,
+    useField,
+    useFormState,
+    FormRenderProps,
+} from 'react-final-form'
 import { useStorageState } from 'react-storage-hooks'
 import { NPM_SCOPE, SESSION_STORAGE_CONFIG_KEY } from '../constants'
+import { FormApi } from 'final-form'
 
 export type MainFormData = {
     name: string
@@ -91,7 +108,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
             initialValues={initialValues}
             validate={validate}
             onSubmit={onSubmit}
-            render={({ handleSubmit, submitting }) => {
+            render={(formProps) => {
                 return (
                     <PageContainer spacing='0px'>
                         <Stack
@@ -107,7 +124,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
                             {...rest}
                         >
                             <Stack
-                                onSubmit={handleSubmit}
+                                onSubmit={formProps.handleSubmit}
                                 align='center'
                                 w='100%'
                                 as='form'
@@ -131,11 +148,11 @@ export const MainForm = ({ ...rest }: StackProps) => {
                                     }}
                                 >
                                     <MainFormContent
-                                    w='100%'
+                                        w='100%'
                                         shouldLogin={shouldLogin}
                                         error={error}
                                         resetError={() => setError('')}
-                                        submitting={submitting}
+                                        {...formProps}
                                     />
                                 </AuthProvider>
                             </Stack>
@@ -147,7 +164,14 @@ export const MainForm = ({ ...rest }: StackProps) => {
     )
 }
 
-const MainFormContent = ({ submitting, shouldLogin, resetError, error, ...rest }) => {
+const MainFormContent = ({
+    submitting,
+    shouldLogin,
+    resetError,
+    error,
+    handleSubmit,
+    ...rest
+}: FormRenderProps & { shouldLogin; resetError }) => {
     const { loading, user } = useAuthData()
     const { valid } = useFormState()
     if (submitting || loading) {
@@ -227,7 +251,7 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error, ...rest }
                 justify={['space-between', null, 'center']}
                 align={['center', null, 'flex-end']}
             >
-                <Stack flex='1'  position='relative' spacing='10px'>
+                <Stack flex='1' position='relative' spacing='10px'>
                     <Label>Npm package name</Label>
                     <Field
                         name='name'
@@ -255,7 +279,12 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error, ...rest }
                     position='relative'
                     spacing='10px'
                 >
-                    <Label>Your Graphql api endpoint, for example <Box as='pre' fontSize='0.8em'>https://countries.trevorblades.com</Box></Label>
+                    <Label>
+                        Your Graphql api endpoint, for example{' '}
+                        <Box as='pre' fontSize='0.8em'>
+                            https://countries.trevorblades.com
+                        </Box>
+                    </Label>
                     <Field
                         name='endpoint'
                         render={({ input, meta }) => (
@@ -273,7 +302,10 @@ const MainFormContent = ({ submitting, shouldLogin, resetError, error, ...rest }
                 </Stack>
                 <Button
                     type='submit'
-                    // onClick={() => setShouldLogin(true)}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        handleSubmit()
+                    }}
                     animate
                     w={['100%', null, null, 'auto']}
                     shadow='md'
