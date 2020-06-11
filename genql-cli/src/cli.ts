@@ -10,7 +10,7 @@ import { requireModuleFromPath } from './helpers/files'
 program
     .option('-o, --output <./myClient>', 'output directory')
     .option('-e, --endpoint <http://example.com/graphql>', 'GraphQL endpoint')
-    .option('-p, --post', 'use POST for introspection query')
+    .option('-g, --get', 'use GET for introspection query')
     .option(
         '-s, --schema <./mySchema.graphql>',
         'path to GraphQL schema definition file',
@@ -27,7 +27,7 @@ const config: Config = program.config
     ? <Config>requireModuleFromPath([program.config])
     : {
           endpoint: program.endpoint,
-          post: program.post,
+          useGet: program.get,
           schema: program.schema,
           output: program.output,
           fetcher: program.fetcher,

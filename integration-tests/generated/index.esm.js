@@ -24,12 +24,6 @@ export var createSubscriptionClient = function(options) {
   options.subscriptionRoot = typeMap.Subscription
   return createSubscriptionClientOriginal(options)
 }
-export var createSubscriptionClient = function(options) {
-  options = options || {}
-  options.url = options.url || 'undefined'
-  options.subscriptionRoot = typeMap.Subscription
-  return createSubscriptionClientOriginal(options)
-}
 export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }

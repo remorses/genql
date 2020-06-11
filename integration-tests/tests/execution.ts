@@ -7,8 +7,6 @@ import { DeepPartial } from 'tsdef'
 import { createClient } from '../generated'
 import { SearchResultItemConnection } from '../generated'
 
-
-
 const PORT = 8010
 const URL = `http://localhost:` + PORT
 
@@ -25,11 +23,60 @@ async function server({ resolvers, port = PORT }) {
     return () => server.stop()
 }
 
-describe('execute queries with chain', () => {
+describe('execute queries with normal syntax', async function() {
     const client = createClient({
         url: URL,
     })
-    it('simple', async () => {
+    const x: DeepPartial<SearchResultItemConnection> = {
+        nodes: [
+            {
+                __typename: 'Issue',
+                author: {
+                    __typename: 'User',
+                    avatarUrl: [''],
+                    login: '',
+                    resourcePath: [''],
+                    url: [''],
+                },
+            },
+        ],
+    }
+
+    const stop = await server({
+        resolvers: {
+            Query: {
+                search: (): DeepPartial<SearchResultItemConnection> => {
+                    return x
+                },
+            },
+        },
+    })
+    afterAll(() => stop())
+    it('simple ', async () => {
+        const res = await client.query({
+            search: [
+                { query: '', type: 'USER' },
+                {
+                    nodes: {
+                        on_Issue: {
+                            __typename: true,
+                            author: {
+                                __typename: true,
+                                avatarUrl: true,
+                                login: true,
+                                url: true,
+                                resourcePath: true,
+                            },
+                        },
+                    },
+                },
+            ],
+        })
+
+        console.log(JSON.stringify(res, null, 2))
+        assert(deepEq(res, x.nodes))
+    })
+    it('simple chain syntax', async () => {
         const x: DeepPartial<SearchResultItemConnection> = {
             nodes: [
                 {
@@ -68,9 +115,14 @@ describe('execute queries with chain', () => {
                     },
                 },
             })
-        console.log('dsf')
         console.log(JSON.stringify(res, null, 2))
         assert(deepEq(res, x.nodes))
-        await stop()
+    })
+    
+})
+
+describe('execute queries with chain', () => {
+    const client = createClient({
+        url: URL,
     })
 })

@@ -20,10 +20,7 @@ export const generateProject = (config: Config, verbose = true) => {
         { renderer: verbose ? 'verbose' : 'default' },
     )
         .run()
-        .catch((e: any) => {
-            console.error(e)
-            process.exit(1)
-        })
+        
 }
 
 

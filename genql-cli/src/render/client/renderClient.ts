@@ -8,7 +8,6 @@ const createClientCode = (ctx: RenderContext) => {
         : 'undefined'
     return `
 function(options) {
-    
     options = options || {}
     var fetcherOpts = { url: ${url} }
     for (var attrname in options) { 
@@ -70,7 +69,6 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
   } from '${RUNTIME_LIB_NAME}'
   var typeMap = linkTypeMap(require('./types.json'))
   export var createClient = ${createClientCode(ctx)}
-  export var createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
   export var createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
   export var generateQueryOp = function(fields) {
     return generateGraphqlOperation('query', typeMap.Query, fields)

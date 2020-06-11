@@ -14,6 +14,8 @@
     "esModuleInterop": true,
     "allowJs": true,
     "skipLibCheck": true,
+    "noImplicitThis": false,
+    
     "lib": ["dom", "es2017", "esnext.asynciterable"],
   },
   "exclude": ["node_modules", "**/*.case.ts", "example", "dist",]

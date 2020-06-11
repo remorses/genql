@@ -12,15 +12,12 @@ import { NPM_SCOPE, NPM_TOKEN } from '../../constants'
 import { generateQueries } from '../../support/generateQueries'
 import { getFirebaseDecodedToken } from '../../support/server'
 
-
-
-
-function generatePackageJson({ name }) {
+function generatePackageJson({ name, version }) {
     return {
         // TODO add a README with a quickstart
-        name: `${NPM_SCOPE}/${name}`,
+        name,
         description: 'Graphql client',
-        version: '1.0.0',
+        version: `1.${version}.0`,
         main: './index.js',
         module: './index.esm.js',
         sideEffects: false,
@@ -72,16 +69,14 @@ export async function createPackage({
     // TODO move pkg gen logic in cli,
     endpoint,
     name,
+    version,
     callback,
-}: GenerateApiParams & { callback }) {
+}: GenerateApiParams & { callback; version }) {
     const { path: tmpPath, cleanup } = await tmp.dir({
         unsafeCleanup: true,
     })
     try {
-        const packageJson = generatePackageJson({ name })
-        if (!(await packageNameAvailable(packageJson.name))) {
-            throw new Error('package name already exists')
-        }
+        const packageJson = generatePackageJson({ name, version })
         await generateProject({
             endpoint,
             output: tmpPath,
@@ -119,16 +114,34 @@ export interface Package {
     user_uid: string
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function Api(req: NextApiRequest, res: NextApiResponse) {
     try {
         const { name, endpoint } = await req.body
         const { uid } = await getFirebaseDecodedToken(req)
         if (!uid) {
             throw new Error('you must be authenticated')
         }
+        const scopedName = `${NPM_SCOPE}/${name}`
+        let version = 0
+        const aval = await packageNameAvailable(scopedName)
+        if (!aval) {
+            const r = await admin
+                .firestore()
+                .collection('packages')
+                .where('user_uid', '==', uid)
+                .where('name', '==', scopedName)
+            const existing = await r.get()
+            if (existing.empty) {
+                throw new Error('package name already exists')
+            } else {
+                const doc = existing.docs[0].data()
+                version = (doc.version || 0) + 1
+            }
+        }
         const packageJson = await createPackage({
             endpoint,
-            name,
+            version,
+            name: scopedName,
             callback: async ({ name, cwd }) => {
                 // await npmLoginPromise(username, password, email)
 
@@ -140,13 +153,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     cmd: `npm publish --access public --prefix='${os.tmpdir()}'`,
                     cwd,
                 })
-                await runCommand({
-                    cmd: `npm unpublish ${name} --force --prefix='${os.tmpdir()}'`,
-                    cwd,
-                })
+                // await runCommand({
+                //     cmd: `npm unpublish ${name} --force --prefix='${os.tmpdir()}'`,
+                //     cwd,
+                // })
                 // TODO add the generated package name to the user in database
             },
         })
+
         const r = await admin
             .firestore()
             .collection('packages')
@@ -156,6 +170,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 graphql_endpoint: endpoint,
                 created_at: new Date().toUTCString(),
                 timestamp: new Date().getTime() / 1000,
+                version,
             } as Package)
 
         console.log('generated package files')

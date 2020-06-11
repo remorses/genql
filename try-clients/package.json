@@ -1,0 +1,26 @@
+{
+    "name": "play",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha",
+        "gen-hasura": "yarn --cwd .. play -e https://hasura-2334534.herokuapp.com/v1/graphql -o try-clients/generated"
+    },
+    "mocha": {
+        "require": "sucrase/register",
+        "spec": "tests/**.ts",
+        "timeout": 9999999999
+    },
+    "keywords": [],
+    "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "@shitty-scope-name/dsfxxxxxaxaxa": "1.1.0"
+    },
+    "devDependencies": {
+        "mocha": "^8.0.1",
+        "sucrase": "^3.15.0",
+        "ts-node": "^8.10.2"
+    }
+}
