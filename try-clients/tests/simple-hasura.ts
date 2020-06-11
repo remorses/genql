@@ -1,4 +1,4 @@
-import { createClient, everything } from '@shitty-scope-name/dsfxxxxxaxaxa'
+import { createClient, everything } from '@shitty-scope-name/hasura-testing-client-example-for-tests'
 
 describe('hasura', () => {
     const client = createClient({})

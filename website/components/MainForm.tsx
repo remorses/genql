@@ -51,10 +51,10 @@ async function validate(
     ) {
         errors.endpoint = 'graphql endpoint should be an url'
     }
-    const nameOk = await npmNameAvailable(data.name)
-    if (!nameOk) {
-        errors.name = 'npm name already taken'
-    }
+    // const nameOk = await npmNameAvailable(data.name)
+    // if (!nameOk) {
+    //     errors.name = 'npm name already taken'
+    // }
     return errors
 }
 

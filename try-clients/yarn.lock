@@ -9,6 +9,13 @@
   dependencies:
     genql-runtime latest
 
+"@shitty-scope-name/hasura-testing-client-example-for-tests@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@shitty-scope-name/hasura-testing-client-example-for-tests/-/hasura-testing-client-example-for-tests-1.3.0.tgz#1c45300d8598f0a8f8ba51b430823afa97d82a19"
+  integrity sha512-rc8y+AL63qSB71yxFPDPw2jm7qpXNI3xH2sFgYiDgOwHygJUcY6K2g0vdvbfQvHBCtBs3pUafPo6Qhvt42YQ4w==
+  dependencies:
+    genql-runtime latest
+
 "@types/graphql@^14.5.0":
   version "14.5.0"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-14.5.0.tgz#a545fb3bc8013a3547cf2f07f5e13a33642b75d6"
