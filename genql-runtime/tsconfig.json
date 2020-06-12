@@ -23,7 +23,7 @@
         "tests",
         "example",
         "dist",
-        "**/__tests__",
+        // "**/__tests__",
         "esm"
     ]
 }

@@ -1,4 +1,7 @@
-import { createClient, everything } from '@shitty-scope-name/hasura-testing-client-example-for-tests'
+import {
+    createClient,
+    everything,
+} from '@shitty-scope-name/hasura-testing-client-example-for-tests'
 
 describe('hasura', () => {
     const client = createClient({})
@@ -14,7 +17,7 @@ describe('hasura', () => {
                     },
                 ],
             })
-            .get({ ...everything })
+            .get({ ...everything, returning: { ...everything } })
         console.log(res1)
         var res2 = await client.query({
             user: {

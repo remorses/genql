@@ -5,6 +5,14 @@ type SRC = {
         a: boolean
         b: boolean
         c: boolean
+        nested1: {
+            a: string
+            b: string
+        }
+        nested2: {
+            a: string
+            b: string
+        }
     }
     order: {
         customer: {
@@ -26,6 +34,9 @@ type SRC = {
 type DST = {
     category: {
         __scalar: boolean
+        nested1: {
+            a: 1
+        }
     }
     order: {
         customer: {
@@ -41,6 +52,14 @@ const x: SRC = {
         a: true,
         b: true,
         c: true,
+        nested1: {
+            a: '',
+            b: '',
+        },
+        nested2: {
+            a: '',
+            b: '',
+        },
     },
     order: {
         customer: {
@@ -65,7 +84,14 @@ z.category
 z.category.a
 z.category.b
 z.category.c
-z.order
+z.category.nested1.a
+z.category.nested1.a
+// @ts-expect-error
+z.category.nested1.b
+// @ts-expect-error
+z.category.nested1.c
+// @ts-expect-error
+z.category.nested2
 z.order.customer.address.city
 
 test('ts does not complain', () => {})
