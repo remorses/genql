@@ -1,4 +1,4 @@
-const withTM = require('next-transpile-modules')(['genql-cli'])
+const withTM = require('next-transpile-modules')(['genql-cli', 'landing-blocks'])
 const {withDokz} = require('dokz/dist/plugin')
 // Tell webpack to compile the "bar" package
 // https://www.npmjs.com/package/next-transpile-modules

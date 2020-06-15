@@ -1,12 +1,31 @@
-import { Box, Image, Stack } from '@chakra-ui/core'
+import { Box, Image } from '@chakra-ui/core'
 // @jsx jsx
 import { css, jsx } from '@emotion/core'
 import { Faded } from 'baby-i-am-faded'
-import { Banner, Button, CodeSnippet, Divider, Feature, Heading, Hero, PageContainer, PatternBackground, Section, SectionTitle, TestimonialsLogos } from 'landing-blocks'
+import {
+    Banner,
+    Button,
+    CodeSnippet,
+    Divider,
+    Feature,
+    Heading,
+    Hero,
+    PageContainer,
+    PatternBackground,
+    Section,
+    SectionTitle,
+    TestimonialsLogos,
+    Stack,
+} from 'landing-blocks/src'
 import React, { Fragment } from 'react'
-import { FaAngular as AngularIcon, FaArrowRight as ArrowRight, FaNode as NodeIcon, FaReact as ReactIcon } from 'react-icons/fa'
+import {
+    FaAngular as AngularIcon,
+    FaArrowRight as ArrowRight,
+    FaNode as NodeIcon,
+    FaReact as ReactIcon,
+} from 'react-icons/fa'
 import { MainForm } from '../components/MainForm'
-import { BG } from './_app'
+import { BG } from '../constants'
 jsx
 
 const jsQueryCode = `
@@ -35,7 +54,7 @@ query {
 }`
 
 const Page = () => (
-    <Stack spacing='40px'>
+    <Stack align='stretch' spacing='40px'>
         <Hero
             bullet='Introducing Genql 1.0'
             dark
@@ -75,7 +94,7 @@ const Page = () => (
             // cta={<Button>Try Genql in 5 minutes</Button>}
             // fingerprint='Already using Genql? Sign in'
         />
-        <Divider dark heading='works everywhere' />
+        <Divider dark heading='works in browser and node' />
         <TestimonialsLogos
             dark
             animate

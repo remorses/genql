@@ -4,6 +4,7 @@ import {
     InputGroup,
     InputLeftAddon,
     Spinner,
+    useColorMode,
 } from '@chakra-ui/core'
 import {
     AuthProvider,
@@ -318,7 +319,13 @@ const MainFormContent = ({
 }
 
 const Label = (props) => {
-    return <Box opacity={0.5} {...props} />
+    const { colorMode } = useColorMode()
+    return (
+        <Box
+            color={{ light: 'gray.500', dark: 'gray.200' }[colorMode]}
+            {...props}
+        />
+    )
 }
 
 export const ValidationError = ({ name, ...rest }) => {

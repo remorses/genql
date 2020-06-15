@@ -2,9 +2,9 @@ import { FieldsSelection } from '../typeSelection'
 
 type SRC = {
     category: {
-        a: boolean
-        b: boolean
-        c: boolean
+        a: any
+        b: any
+        c: any
         nested1: {
             a: string
             b: string

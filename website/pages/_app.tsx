@@ -3,15 +3,22 @@ import { AuthProvider, useAuthData } from 'firebase-react-components'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import Cookies from 'js-cookie'
-import { Footer, LandingProvider, Link, NavBar } from 'landing-blocks'
+import { Footer, LandingProvider, Link, NavBar } from 'landing-blocks/src'
 import { Box, Stack } from 'layout-kit-react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import { DOCS_LINK, firebaseConfig, FIREBASE_ID_TOKEN_COOKIE, GITHUB_LINK } from '../constants'
+import {
+    DOCS_LINK,
+    firebaseConfig,
+    FIREBASE_ID_TOKEN_COOKIE,
+    GITHUB_LINK,
+    BG,
+} from '../constants'
+import { Global } from '@emotion/core'
 
-export const BG = '#2d3748'
+
 // 'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
 
 if (!firebase.apps.length) {
@@ -78,6 +85,7 @@ export default function App(props) {
                 background={BG}
                 black='#333'
                 primary='#48BB79'
+                color='#444'
             >
                 <MyNavbar />
                 <Stack h='100%' minH='100vh'>

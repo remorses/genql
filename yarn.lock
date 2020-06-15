@@ -5150,10 +5150,10 @@ directory-tree@^2.2.4:
   resolved "https://registry.yarnpkg.com/directory-tree/-/directory-tree-2.2.4.tgz#6d5bd7d82e48378e256a1e87b678a43c50076e2e"
   integrity sha512-2N43msQptKbi3WMfIs+U09yi6bfyKL+MWyj5VMj8t1F/Tx04bt1cn/EEIU3o1JBltlJk7NQnzOEuTNa/KQvbWA==
 
-dokz@^1.0.29:
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/dokz/-/dokz-1.0.29.tgz#5fc9f7198bd569e4405e58f05a3f0ee8ddae08e7"
-  integrity sha512-u3fDbE3KLy+vJDgq1z2G8NqJo3bLqKo7cvifP0c0Ggtzl9K0/UqgB2dxVqRxK0ApOVGahjmFkHxltX1W9dYpMw==
+dokz@^1.0.32:
+  version "1.0.32"
+  resolved "https://registry.yarnpkg.com/dokz/-/dokz-1.0.32.tgz#7a08a9813ddba5fb8d1afe3d6170232f2db7bad8"
+  integrity sha512-ve6cHvNZXLxWXe8uZSVsYzYnIWYlElNPikkVRDZe921uobyr5Qw4wzrnbp9+Z3ONH+V6oUZ1Mg/9M3AsZShvJg==
   dependencies:
     "@babel/generator" "^7.10.2"
     "@babel/parser" "^7.10.2"
@@ -8326,17 +8326,17 @@ landing-blocks@^1.0.29:
     react-typical "^0.1.3"
     react-typist "^2.0.5"
 
-landing-blocks@^1.0.36:
-  version "1.0.36"
-  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.36.tgz#e9bfde5722862115fc4568b46e43791591e06d6c"
-  integrity sha512-/CEnktfBxhQNB+LiHopoUmF0SYmQ2tZIANHohI1CiZupICE8Ca2Tq4aNgHVG6ew6P5ura/L78Ul+Jwhjd1coNQ==
+landing-blocks@^1.0.48:
+  version "1.0.48"
+  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.48.tgz#70be95fe014b8ef61e994d521f28940465d59893"
+  integrity sha512-UqUuT0YR3a5mxtqIAKfgpnmp/iyIxvhwpZhwpymaZojPOrHhXGlqh0MW/dpCVmwA/ezwe5F8JHR2s2o+gcOQZA==
   dependencies:
     "@emotion/styled" "^10.0.27"
     baby-i-am-faded "^0.0.12"
     color-js "^1.0.5"
     emotion-theming "^10.0.27"
     intersection-observer "^0.7.0"
-    layout-kit-react "^0.1.1"
+    layout-kit-react "^0.1.8"
     lodash.get "^4.4.2"
     lodash.merge "^4.6.2"
     prism-react-renderer "^1.1.0"
@@ -8351,6 +8351,18 @@ layout-kit-react@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/layout-kit-react/-/layout-kit-react-0.1.1.tgz#6663471c37c65e855e7da2190fcdcb4252684c60"
   integrity sha512-dZD7jTl+PDaKSJuYzfPiUF1EgBcjh+JTFrrbfhjEGPPi/48qgeZ349hYAWRpsTvVFgJM7pgYAHKMAExE52HN/g==
+  dependencies:
+    "@emotion/styled" "^10.0.27"
+    "@styled-system/css" "^5.1.5"
+    "@styled-system/should-forward-prop" "^5.1.5"
+    "@types/react" "^16.9.35"
+    "@types/styled-system" "^5.1.9"
+    styled-system "^5.1.5"
+
+layout-kit-react@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/layout-kit-react/-/layout-kit-react-0.1.8.tgz#04853f3629a3d53f437edaec8a065fca197dad3b"
+  integrity sha512-EobfXeaWyrichpmC/JFL2kn3fc8yZWpUDgchfxoKUxxsUBVmaBcgA2XBYcpozcK5nhDQ1smMPggjSXKc/p/lfg==
   dependencies:
     "@emotion/styled" "^10.0.27"
     "@styled-system/css" "^5.1.5"
