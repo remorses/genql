@@ -14,3 +14,6 @@ export {
 export { linkTypeMap } from './client/linkTypeMap'
 export { Observable } from 'subscriptions-transport-ws'
 export { createFetcher, ClientError } from './fetcher'
+export const everything = {
+    __scalar: true,
+}
