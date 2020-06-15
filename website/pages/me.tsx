@@ -8,7 +8,7 @@ import {
     Link,
     PageContainer,
     SectionTitle,
-} from 'landing-blocks'
+} from 'landing-blocks/src'
 import { GetServerSidePropsContext } from 'next'
 import React from 'react'
 import { MainForm } from '../components/MainForm'

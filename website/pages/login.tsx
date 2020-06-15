@@ -1,6 +1,6 @@
 import { Stack } from '@chakra-ui/core'
 import { AuthProvider, GithubButton } from 'firebase-react-components'
-import { PageContainer, SectionTitle } from 'landing-blocks'
+import { PageContainer, SectionTitle } from 'landing-blocks/src'
 import Router, { useRouter } from 'next/router'
 import React from 'react'
 

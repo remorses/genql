@@ -2,7 +2,7 @@ import { Box, Stack } from '@chakra-ui/core'
 import { print } from 'genql-cli/src/printer'
 import { buildSchema } from 'graphql'
 import { generateRandomQuery } from 'graphql-query-generator'
-import { PageContainer, SectionTitle } from 'landing-blocks'
+import { PageContainer, SectionTitle } from 'landing-blocks/src'
 import React from 'react'
 
 const schema = buildSchema(`
