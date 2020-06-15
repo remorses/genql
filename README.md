@@ -4,8 +4,8 @@
     <img src='https://genql.now.sh/banner.jpg' width='420px'>
     <br/>
     <br/>
-    <h3>Graphql queries as code</h3>
-    <h4>with type validation and auto completion</h4>
+    <h3>Type safe Graphql query builder</h3>
+    <h4>Write Graphql queries with type validation and auto completion</h4>
     <br/>
     <br/>
 </div>
