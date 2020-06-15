@@ -126,8 +126,8 @@ export function MyFooter({ ...rest }) {
 export function MyNavbar({ ...rest }) {
     const { user, loading } = useAuthData()
     const navs = [
-        <MyLink href={GITHUB_LINK}>Github</MyLink>,
-        <MyLink href={DOCS_LINK}>Docs</MyLink>,
+        <MyLink isExternal href={GITHUB_LINK}>Github</MyLink>,
+        <MyLink isExternal href={DOCS_LINK}>Docs</MyLink>,
         user ? (
             <MyLink href='/me'>Dashboard</MyLink>
         ) : (
@@ -162,8 +162,8 @@ const Logo = () => (
     </NextLink>
 )
 
-export function MyLink({ href = '#', ...rest }) {
-    const isExternal = href.startsWith('http')
+export function MyLink({ isExternal=false, href = '#', ...rest }) {
+    isExternal = isExternal || href.startsWith('http')
     if (isExternal) {
         return (
             <Link
