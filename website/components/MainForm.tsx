@@ -59,17 +59,19 @@ async function validate(
     return errors
 }
 
-function useInitialValues(): [MainFormData, Function] {
+function useInitialValues(
+    defaultValue: MainFormData,
+): [MainFormData, Function] {
     const [initialValues, setInitialValues] = useStorageState(
         typeof window === 'undefined' ? null : localStorage,
         SESSION_STORAGE_CONFIG_KEY,
-        '{}',
+        JSON.stringify(defaultValue),
     )
     let data: any
     try {
         data = JSON.parse(initialValues)
     } catch {
-        data = {}
+        data = defaultValue
     }
     return [data, (x) => setInitialValues(JSON.stringify(x))]
 }
@@ -78,7 +80,10 @@ export const MainForm = ({ ...rest }: StackProps) => {
     const [error, setError] = useState('')
     const [shouldLogin, setShouldLogin] = useState(false)
     const { user, loading } = useAuthData()
-    const [initialValues, setInitialValues] = useInitialValues()
+    const [initialValues, setInitialValues] = useInitialValues({
+        endpoint: 'https://countries.trevorblades.com',
+        name: 'my-package-' + (Math.random()*1000).toFixed(0),
+    })
     async function onSubmit(values: MainFormData) {
         console.log('onSubmit')
         setInitialValues(values)
@@ -172,7 +177,7 @@ const MainFormContent = ({
     error,
     handleSubmit,
     ...rest
-}: FormRenderProps & { shouldLogin; resetError }) => {
+}: FormRenderProps & { shouldLogin; resetError } & StackProps) => {
     const { loading, user } = useAuthData()
     const { valid } = useFormState()
     if (submitting || loading) {
@@ -281,10 +286,10 @@ const MainFormContent = ({
                     spacing='10px'
                 >
                     <Label>
-                        Your Graphql api endpoint, for example{' '}
-                        <Box as='pre' fontSize='0.8em'>
+                        Your Graphql api endpoint
+                        {/* <Box as='pre' fontSize='0.8em'>
                             https://countries.trevorblades.com
-                        </Box>
+                        </Box> */}
                     </Label>
                     <Field
                         name='endpoint'
