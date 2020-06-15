@@ -10,7 +10,7 @@
     <br/>
 </div>
 
-Generate your client package at [**genql.now.sh**](https://genql.now.sh) or read the [quick start guide](https://genql.now.sh/dokz) to generate a client locally instead
+Generate your client package at [**genql.now.sh**](https://genql.now.sh) or read the [quick start guide](https://genql.now.sh/docs) to generate a client locally instead
 
 🔥 **Features**
 
