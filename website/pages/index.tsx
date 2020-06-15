@@ -60,13 +60,14 @@ const Page = () => (
             dark
             heading={
                 <Heading maxW='600px' fontSize='50px'>
-                    Graphql queries <br /> as code
+                    Type safe Graphql <br />
+                    query builder
                 </Heading>
             }
             subheading={
                 <Fragment>
                     Genql generates a typed graphql client
-                    <br /> for your graphql api.
+                    <br /> for your graphql api to use in browser or node.
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
@@ -188,6 +189,7 @@ const Page = () => (
                         loop
                         autoPlay
                         muted
+                        // @ts-ignore
                         css={css`
                             min-width: 800px;
                             mix-blend-mode: lighten;
@@ -208,6 +210,7 @@ const Page = () => (
                         loop
                         autoPlay
                         muted
+                        // @ts-ignore
                         css={css`
                             min-width: 800px;
                             mix-blend-mode: lighten;
@@ -222,9 +225,9 @@ const Page = () => (
         <Section degree={0} zIndex={1} bg='white'>
             <Banner
                 // dark
-                heading='Genql is well documented'
-                bullet='everything you need to know'
-                subheading='You can see examples and explanations in the documentation'
+                heading='Want to use the cli instead?' 
+                bullet='cli is cool too'
+                subheading='You can generate the client locally based on an endpoint or a local graphql schema.'
                 bg='transparent'
                 image={
                     <Image
