@@ -11,9 +11,6 @@
         "spec": "tests/**.ts",
         "timeout": 9999999999
     },
-    "bin": {
-        "generate-graphql-client": "./dist/cli.js"
-    },
     "files": [
         "/dist/*",
         "/esm/*",
