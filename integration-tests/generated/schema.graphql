@@ -12,6 +12,7 @@ type ForkEdge {
 }
 
 type Query {
+  """Some description"""
   repository(name: String!, owner: String): Repository
   user: User
 }
@@ -26,5 +27,6 @@ type Subscription {
 }
 
 type User {
+  """Some description"""
   name: String
 }
