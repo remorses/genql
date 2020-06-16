@@ -4,6 +4,7 @@
         "module": "CommonJS",
         "sourceMap": true,
         "noEmit": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "skipLibCheck": true
     }
 }

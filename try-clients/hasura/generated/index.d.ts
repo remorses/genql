@@ -1,4 +1,4 @@
-import { FieldsSelection, GraphqlOperation, ClientOptions, SubscriptionClientOptions, Observable } from 'genql-runtime'
+import { FieldsSelection, GraphqlOperation, ClientOptions, Observable } from 'genql-runtime'
 export * from './schema'
 import {
   query_rootRequest,
@@ -15,11 +15,11 @@ export declare const createClient: (options?: ClientOptions) => Client
 export declare const everything: { __scalar: boolean }
 
 export interface Client {
-  query(request: query_rootRequest): Promise<FieldsSelection<query_root, R>>
+  query<R extends query_rootRequest>(request: R): Promise<FieldsSelection<query_root, R>>
 
-  mutation(request: mutation_rootRequest): Promise<FieldsSelection<mutation_root, R>>
+  mutation<R extends mutation_rootRequest>(request: R): Promise<FieldsSelection<mutation_root, R>>
 
-  subscription(request: subscription_rootRequest): Observable<FieldsSelection<subscription_root, R>>
+  subscription<R extends subscription_rootRequest>(request: R): Observable<FieldsSelection<subscription_root, R>>
 
   chain: {
     query: query_rootPromiseChain

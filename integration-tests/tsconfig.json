@@ -15,7 +15,6 @@
     "allowJs": true,
     "skipLibCheck": true,
     "noImplicitThis": false,
-
     
     "lib": ["dom", "es2017", "esnext.asynciterable"],
   },

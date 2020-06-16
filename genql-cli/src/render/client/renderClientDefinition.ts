@@ -13,7 +13,7 @@ export const renderClientDefinition = (
     const subscriptionType = schema.getSubscriptionType()
 
     ctx.addCodeBlock(`
-    import { FieldsSelection, GraphqlOperation, ClientOptions, SubscriptionClientOptions, Observable } from '${RUNTIME_LIB_NAME}'
+    import { FieldsSelection, GraphqlOperation, ClientOptions, Observable } from '${RUNTIME_LIB_NAME}'
     export * from './schema'
     ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
     export declare const createClient:(options?: ClientOptions)=>Client
@@ -75,8 +75,8 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
 
     if (queryType) {
         interfaceContent += `
-        query(
-            request: ${requestTypeName(queryType)},
+        query<R extends ${requestTypeName(queryType)}>(
+            request: R,
         ): Promise<FieldsSelection<${queryType.name}, R>>
         `
         chainTypeContent += `
@@ -86,8 +86,8 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
 
     if (mutationType) {
         interfaceContent += `
-        mutation(
-            request: ${requestTypeName(mutationType)},
+        mutation<R extends ${requestTypeName(mutationType)}>(
+            request: R,
         ): Promise<FieldsSelection<${mutationType.name}, R>>
         `
         chainTypeContent += `
@@ -97,8 +97,8 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
 
     if (subscriptionType) {
         interfaceContent += `
-        subscription(
-            request: ${requestTypeName(subscriptionType)},
+        subscription<R extends ${requestTypeName(subscriptionType)}>(
+            request: R,
         ): Observable<FieldsSelection<${subscriptionType.name}, R>>
         `
         chainTypeContent += `

@@ -12,9 +12,9 @@ export declare const createClient: (options?: ClientOptions) => Client
 export declare const everything: { __scalar: boolean }
 
 export interface Client {
-  query(request: QueryRequest): Promise<FieldsSelection<Query, R>>
+  query<R extends QueryRequest>(request: R): Promise<FieldsSelection<Query, R>>
 
-  subscription(request: SubscriptionRequest): Observable<FieldsSelection<Subscription, R>>
+  subscription<R extends SubscriptionRequest>(request: R): Observable<FieldsSelection<Subscription, R>>
 
   chain: {
     query: QueryPromiseChain

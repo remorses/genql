@@ -67,6 +67,20 @@ describe('execute queries', async function() {
         assert(deepEq(res.user, x))
         await stop()
     })
+    it('required field ', async () => {
+        const stop = await makeServer()
+
+        // await client.query({
+        //     // @ts-expect-error because name is required
+        //     repository: [{}, { __scalar: true }],
+        // }).catch()
+
+        const res = await client.query({
+            repository: [{ name: 'xxx' }, { __scalar: true }],
+        })
+        console.log(JSON.stringify(res, null, 2))
+        await stop()
+    })
     it('chain syntax ', async () => {
         const stop = await makeServer()
         const res = await client.chain.query.user.get({
