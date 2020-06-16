@@ -2,7 +2,7 @@ import { ExecutionResult } from 'graphql'
 import get from 'lodash.get'
 import {
     ClientOptions as SubscriptionOptions,
-    SubscriptionClient as wsSubscriptionClient,
+    SubscriptionClient as WsSubscriptionClient,
 } from 'subscriptions-transport-ws'
 import ws from 'ws'
 import { Observable } from 'zen-observable-ts'
@@ -29,7 +29,17 @@ export const createClient = ({
     subscriptionRoot?: LinkedType
 }) => {
     const fetcher = createFetcher(options)
-    const client: any = {}
+    const client: {
+        wsClient?: WsSubscriptionClient
+        query?: Function
+        mutation?: Function
+        subscription?: Function
+        chain?: {
+            query?: Function
+            mutation?: Function
+            subscription?: Function
+        }
+    } = {}
 
     if (queryRoot) {
         client.query = (request) => {
@@ -66,8 +76,10 @@ export const createClient = ({
                 subscriptionRoot,
                 request,
             )
-            const subClient = getSubscriptionClient(options)
-            return Observable.from(subClient.request(op) as any).map(
+            if (!client.wsClient) {
+                client.wsClient = getSubscriptionClient(options)
+            }
+            return Observable.from(client.wsClient.request(op) as any).map(
                 (val: ExecutionResult<any>): any => {
                     if (val?.errors?.length > 0) {
                         throw new ClientError(val?.errors)
@@ -107,7 +119,7 @@ const mapResponse = (path: string[], defaultValue: any = undefined) => (
     return result
 }
 
-function getSubscriptionClient(opts: ClientOptions = {}): wsSubscriptionClient {
+function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
     let { url, headers = {} } = opts.subscription || {}
     // by default use the top level url
     if (!url) {
@@ -119,7 +131,7 @@ function getSubscriptionClient(opts: ClientOptions = {}): wsSubscriptionClient {
     if (typeof headers == 'function') {
         headers = headers()
     }
-    const subClient = new wsSubscriptionClient(
+    return new WsSubscriptionClient(
         opts?.url,
         {
             lazy: true,
@@ -132,5 +144,4 @@ function getSubscriptionClient(opts: ClientOptions = {}): wsSubscriptionClient {
         },
         ws,
     )
-    return subClient
 }
