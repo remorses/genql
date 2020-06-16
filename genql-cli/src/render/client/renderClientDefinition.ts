@@ -13,10 +13,10 @@ export const renderClientDefinition = (
     const subscriptionType = schema.getSubscriptionType()
 
     ctx.addCodeBlock(`
-    import { FieldsSelection, GraphqlOperation, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
+    import { FieldsSelection, GraphqlOperation, ClientOptions, SubscriptionClientOptions, Observable } from '${RUNTIME_LIB_NAME}'
     export * from './schema'
     ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
-    export declare const createClient:(options?:ClientOptions)=>Client
+    export declare const createClient:(options?: ClientOptions)=>Client
     export declare const everything: { __scalar: boolean }
   `)
 

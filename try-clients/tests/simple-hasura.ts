@@ -3,21 +3,21 @@ import { createClient, everything } from '../generated'
 describe('hasura', () => {
     const client = createClient({})
     it('simple normal syntax', async () => {
-        // console.log('x')
-        var res4 = await client
+        var res4 = client
             .subscription({
                 user: {
                     __scalar: true,
                 },
             })
             .subscribe({
-                next: (x) => console.log('next', x),
+                next: (x) => console.log('next1', x),
                 error: console.log,
             })
-        var res5 = await client.chain.subscription
-            .user({})
+
+        var res5 = client.chain.subscription
+            .user({ limit: 4 })
             .get({ ...everything })
-            .subscribe({ next: (x) => console.log('next', x) })
+            .subscribe({ next: (x) => console.log('next2', x) })
 
         var res1 = await client.chain.mutation
             .insert_user({
@@ -32,7 +32,6 @@ describe('hasura', () => {
             .get({ ...everything, returning: { ...everything } })
         console.log(res1)
 
-        // console.log(res4)
         var res2 = await client.query({
             user: {
                 ...everything,

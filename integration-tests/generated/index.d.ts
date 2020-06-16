@@ -1,10 +1,4 @@
-import {
-  FieldsSelection,
-  GraphqlOperation,
-  SubscriptionClient,
-  ClientOptions,
-  SubscriptionClientOptions,
-} from 'genql-runtime'
+import { FieldsSelection, GraphqlOperation, ClientOptions, SubscriptionClientOptions, Observable } from 'genql-runtime'
 export * from './schema'
 import {
   QueryRequest,
