@@ -1,11 +1,4 @@
-export {
-    createClient,
-    Client,
-    ClientOptions,
-    createSubscriptionClient,
-    SubscriptionClient,
-    SubscriptionClientOptions,
-} from './client/createClient'
+export { createClient, ClientOptions } from './client/createClient'
 export { FieldsSelection } from './client/typeSelection'
 export {
     generateGraphqlOperation,
@@ -13,7 +6,8 @@ export {
 } from './client/generateGraphqlOperation'
 export { linkTypeMap } from './client/linkTypeMap'
 export { Observable } from 'subscriptions-transport-ws'
-export { createFetcher, ClientError } from './fetcher'
+export { createFetcher } from './fetcher'
+export { ClientError } from './error'
 export const everything = {
     __scalar: true,
 }

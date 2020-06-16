@@ -1,29 +1,20 @@
-import {
-  linkTypeMap,
-  createClient as createClientOriginal,
-  createSubscriptionClient as createSubscriptionClientOriginal,
-  createFetcher,
-  generateGraphqlOperation,
-} from 'genql-runtime'
+import { linkTypeMap, createClient as createClientOriginal, generateGraphqlOperation } from 'genql-runtime'
 var typeMap = linkTypeMap(require('./types.json'))
+
 export var createClient = function(options) {
   options = options || {}
-  var fetcherOpts = { url: 'https://hasura-2334534.herokuapp.com/v1/graphql' }
-  for (var attrname in options) {
-    fetcherOpts[attrname] = options[attrname]
-  }
-  return createClientOriginal({
-    fetcher: createFetcher(fetcherOpts),
+  var optionsCopy = {
+    url: 'https://hasura-2334534.herokuapp.com/v1/graphql',
     queryRoot: typeMap.Query,
     mutationRoot: typeMap.Mutation,
-  })
+    subscriptionRoot: typeMap.Subscription,
+  }
+  for (var name in options) {
+    optionsCopy[name] = options[name]
+  }
+  return createClientOriginal(optionsCopy)
 }
-export var createSubscriptionClient = function(options) {
-  options = options || {}
-  options.url = options.url || 'https://hasura-2334534.herokuapp.com/v1/graphql'
-  options.subscriptionRoot = typeMap.Subscription
-  return createSubscriptionClientOriginal(options)
-}
+
 export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }

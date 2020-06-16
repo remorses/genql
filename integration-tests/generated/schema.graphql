@@ -12,7 +12,7 @@ type ForkEdge {
 }
 
 type Query {
-  repository(name: String, owner: String): Repository
+  repository(name: String!, owner: String): Repository
   user: User
 }
 

@@ -1,68 +1,48 @@
+import { ExecutionResult } from 'graphql'
 import get from 'lodash.get'
-import ws from 'ws'
-
-import { Fetcher, ClientError } from '../fetcher'
-import { chain } from './chain'
-import { LinkedType } from './linkTypeMap'
-import { Fields, generateGraphqlOperation } from './generateGraphqlOperation'
-import { FieldsSelection } from './typeSelection'
-import { Observable } from 'zen-observable-ts'
 import {
     ClientOptions as SubscriptionOptions,
-    SubscriptionClient as wsSubscriptionClient,
+    SubscriptionClient as WsSubscriptionClient,
 } from 'subscriptions-transport-ws'
-import { ExecutionResult } from 'graphql'
+import ws from 'ws'
+import { Observable } from 'zen-observable-ts'
+import { createFetcher, Headers } from '../fetcher'
+import { ClientError } from '../error'
+import { chain } from './chain'
+import { generateGraphqlOperation } from './generateGraphqlOperation'
+import { LinkedType } from './linkTypeMap'
 
-export interface Client<QR, QC, Q, MR, MC, M> {
-    query<R extends QR>(
-        request: { [P in keyof R]?: R[P] },
-    ): Promise<FieldsSelection<Q, R>>
-    mutation<R extends MR>(
-        request: { [P in keyof R]?: R[P] },
-    ): Promise<FieldsSelection<M, R>>
-    chain: {
-        query: QC
-        mutation: MC
-    }
-}
-
-export interface SubscriptionClient<SR, SC, S> {
-    subscription<R extends SR>(
-        request: { [P in keyof R]?: R[P] },
-    ): Observable<FieldsSelection<S, R>>
-    chain: {
-        subscription: SC
-    }
-}
-
-export interface BaseClientOptions {
+export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string
-    headers?: RequestInit['headers'] | (() => RequestInit['headers'])
+    headers?: Headers
+    subscription?: { url?: string; headers?: Headers } & SubscriptionOptions
 }
 
-export type ClientOptions = BaseClientOptions &
-    Omit<RequestInit, 'body' | 'headers'>
-
-export type SubscriptionClientOptions = BaseClientOptions & SubscriptionOptions
-
-export const createClient = <
-    QR extends Fields,
-    QC,
-    Q,
-    MR extends Fields,
-    MC,
-    M
->({
-    fetcher,
+export const createClient = ({
     queryRoot,
     mutationRoot,
+    subscriptionRoot,
+    ...options
 }: ClientOptions & {
-    fetcher: Fetcher
     queryRoot?: LinkedType
     mutationRoot?: LinkedType
-}): Client<QR, QC, Q, MR, MC, M> => {
-    const funcs = {
-        query: (request) => {
+    subscriptionRoot?: LinkedType
+}) => {
+    const fetcher = createFetcher(options)
+    const client: {
+        wsClient?: WsSubscriptionClient
+        query?: Function
+        mutation?: Function
+        subscription?: Function
+        chain?: {
+            query?: Function
+            mutation?: Function
+            subscription?: Function
+        }
+    } = {}
+
+    if (queryRoot) {
+        client.query = (request) => {
             if (!fetcher) throw new Error('fetcher argument is missing')
             if (!queryRoot) throw new Error('queryRoot argument is missing')
 
@@ -71,8 +51,10 @@ export const createClient = <
             )
 
             return resultPromise
-        },
-        mutation: (request) => {
+        }
+    }
+    if (mutationRoot) {
+        client.mutation = (request) => {
             if (!fetcher) throw new Error('fetcher argument is missing')
             if (!mutationRoot)
                 throw new Error('mutationRoot argument is missing')
@@ -82,36 +64,10 @@ export const createClient = <
             )
 
             return resultPromise
-        },
+        }
     }
-    return {
-        ...funcs,
-        chain: {
-            query: <any>(
-                chain((path, request, defaultValue) =>
-                    funcs.query(request).then(mapResponse(path, defaultValue)),
-                )
-            ),
-            mutation: <any>(
-                chain((path, request, defaultValue) =>
-                    funcs
-                        .mutation(request)
-                        .then(mapResponse(path, defaultValue)),
-                )
-            ),
-        },
-    }
-}
-
-export const createSubscriptionClient = <SR extends Fields, SC, S>({
-    subscriptionRoot,
-    ...options
-}: SubscriptionClientOptions & {
-    subscriptionRoot?: LinkedType
-}): SubscriptionClient<SR, SC, S> => {
-    const subClient = getSubscriptionClient(options)
-    const funcs = {
-        subscription: (request) => {
+    if (subscriptionRoot) {
+        client.subscription = (request) => {
             if (!subscriptionRoot) {
                 throw new Error('subscriptionRoot argument is missing')
             }
@@ -120,7 +76,10 @@ export const createSubscriptionClient = <SR extends Fields, SC, S>({
                 subscriptionRoot,
                 request,
             )
-            return Observable.from(subClient.request(op) as any).map(
+            if (!client.wsClient) {
+                client.wsClient = getSubscriptionClient(options)
+            }
+            return Observable.from(client.wsClient.request(op) as any).map(
                 (val: ExecutionResult<any>): any => {
                     if (val?.errors?.length > 0) {
                         throw new ClientError(val?.errors)
@@ -128,13 +87,19 @@ export const createSubscriptionClient = <SR extends Fields, SC, S>({
                     return val?.data
                 },
             )
-        },
+        }
     }
     return {
-        ...funcs,
+        ...client,
         chain: {
-            subscription: <any>chain((path, request, defaultValue) => {
-                const obs = funcs.subscription(request)
+            query: chain((path, request, defaultValue) =>
+                client.query(request).then(mapResponse(path, defaultValue)),
+            ),
+            mutation: chain((path, request, defaultValue) =>
+                client.mutation(request).then(mapResponse(path, defaultValue)),
+            ),
+            subscription: chain((path, request, defaultValue) => {
+                const obs = client.subscription(request)
                 const mapper = mapResponse(path, defaultValue)
                 return Observable.from(obs).map(mapper)
             }),
@@ -154,31 +119,29 @@ const mapResponse = (path: string[], defaultValue: any = undefined) => (
     return result
 }
 
-function getSubscriptionClient(
-    opts?: SubscriptionClientOptions,
-): wsSubscriptionClient {
-    if (!opts?.url) {
+function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
+    let { url, headers = {} } = opts.subscription || {}
+    // by default use the top level url
+    if (!url) {
+        url = opts?.url
+    }
+    if (!url) {
         throw new Error('Subscription client error: missing url parameter')
     }
-    const subClient = new wsSubscriptionClient(
+    if (typeof headers == 'function') {
+        headers = headers()
+    }
+    return new WsSubscriptionClient(
         opts?.url,
         {
             lazy: true,
             reconnect: true,
             reconnectionAttempts: 3,
-            // connectionCallback: (err, res) => {
-            //     console.log('connection', err, res)
-            //     return true
-            // },
             connectionParams: {
-                headers:
-                    typeof opts.headers == 'function'
-                        ? opts.headers()
-                        : opts.headers,
+                headers,
             },
             ...opts,
         },
         ws,
     )
-    return subClient
 }

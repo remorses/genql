@@ -1,21 +1,23 @@
-import { GraphqlOperation } from '../client/generateGraphqlOperation'
+import { GraphqlOperation } from './client/generateGraphqlOperation'
 import { ClientError } from './error'
 import fetch from 'isomorphic-unfetch'
+import { HeadersInit } from 'node-fetch'
 
-export { ClientError }
 
 export interface Fetcher {
     (gql: GraphqlOperation): Promise<any>
 }
+
+export type Headers = HeadersInit | (() => HeadersInit)
 
 export const createFetcher = ({
     url,
     headers = {},
     ...rest
 }: {
-    url: string
-    headers
-} & RequestInit): Fetcher => {
+    url?: string
+    headers?: Headers
+} & Omit<RequestInit, 'headers'>): Fetcher => {
     if (!url) {
         throw new Error('url is required')
     }

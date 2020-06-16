@@ -9,15 +9,16 @@ Genql has a built in subscription client that returns an observable
 Additional options are passed down to `subscriptions-transport-ws`
 
 ```js
-import { createSubscriptionClient, everything } from './generated'
-const subscriptionClient = createSubscriptionClient({
-    url: 'my-url',
+import { createClient, everything } from './generated'
+
+const client = createClient({
+    url: 'ws://my-url',
     headers: {
         Authorization: 'Bearer ...',
     },
 })
 
-const { unsubscribe } = await subscriptionClient
+const { unsubscribe } = await client
     .subscription({
         user: {
             ...everything,
@@ -29,7 +30,7 @@ const { unsubscribe } = await subscriptionClient
     })
 
 // using chain syntax
-const { unsubscribe } = await subscriptionClient.chain.subscription
+const { unsubscribe } = await client.chain.subscription
     .user({ where: { name: { _eq: 'John' } } })
     .get({ ...everything })
     .subscribe({
