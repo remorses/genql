@@ -2,7 +2,7 @@
 
 Sometimes you will want to declare the field types separately or use the result type of a query in another function, this can be sone in genql importing some additional types
 
-## The query fields type
+## The query fields type `QueryRequest`
 
 To declare the fields object separately from the client invocation you can use the `QueryRequest`, `MutationRequest` and `SubscriptionRequest` types
 
@@ -22,7 +22,7 @@ const fields: QueryRequest = {
 const result = await client.query(fields)
 ```
 
-## The query result type
+## The query result type `QueryResult`
 
 If you want to reuse the result type of a query in another function you can use the `QueryResult`, `MutationResult` and `SubscriptionResult` generic types.
 These types take a query object as argument and give the associated result type as result.
