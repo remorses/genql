@@ -1,11 +1,6 @@
-import {
-  linkTypeMap,
-  createClient as createClientOriginal,
-  createSubscriptionClient as createSubscriptionClientOriginal,
-  createFetcher,
-  generateGraphqlOperation,
-} from 'genql-runtime'
+import { linkTypeMap, createClient as createClientOriginal, generateGraphqlOperation } from 'genql-runtime'
 var typeMap = linkTypeMap(require('./types.json'))
+
 export var createClient = function(options) {
   options = options || {}
   var optionsCopy = {
@@ -19,6 +14,7 @@ export var createClient = function(options) {
   }
   return createClientOriginal(optionsCopy)
 }
+
 export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }

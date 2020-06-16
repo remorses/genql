@@ -1,11 +1,6 @@
-const {
-  linkTypeMap,
-  createClient: createClientOriginal,
-  createSubscriptionClient: createSubscriptionClientOriginal,
-  createFetcher,
-  generateGraphqlOperation,
-} = require('genql-runtime')
+const { linkTypeMap, createClient: createClientOriginal, generateGraphqlOperation } = require('genql-runtime')
 var typeMap = linkTypeMap(require('./types.json'))
+
 module.exports.createClient = function(options) {
   options = options || {}
   var optionsCopy = {
@@ -19,6 +14,7 @@ module.exports.createClient = function(options) {
   }
   return createClientOriginal(optionsCopy)
 }
+
 module.exports.generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }
