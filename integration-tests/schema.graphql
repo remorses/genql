@@ -1,4 +1,8 @@
+# Some comment
 type Query {
+    """
+    Some description
+    """
     repository(name: String!, owner: String): Repository
     user: User
 }
@@ -22,6 +26,9 @@ type Fork {
 }
 
 type User {
+    """
+    Some description
+    """
     name: String
 }
 
