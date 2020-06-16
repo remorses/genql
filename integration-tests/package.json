@@ -12,14 +12,16 @@
     },
     "dependencies": {
         "apollo-server": "^2.14.1",
+        "await-sleep": "^0.0.1",
         "deep-equal": "^2.0.3",
         "genql-cli": "*",
         "genql-runtime": "*",
-        "graphql": "^15.0.0",
+        "graphql": "^14.5.8",
         "graphql-easy-mocks": "^1.1.1",
         "tsdef": "^0.0.13"
     },
     "mocha": {
+        "require": "sucrase/register",
         "spec": "tests/**.ts",
         "timeout": 9999999999
     },

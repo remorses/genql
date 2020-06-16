@@ -1,128 +1,131 @@
-import { ApolloServer } from 'apollo-server'
+import { ApolloServer, PubSub } from 'apollo-server'
+import sleep from 'await-sleep'
 import assert from 'assert'
 import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
 import { DeepPartial } from 'tsdef'
-import { createClient } from '../generated'
-import { SearchResultItemConnection } from '../generated'
+import { createClient, User, createSubscriptionClient } from '../generated'
 
-const PORT = 8010
+const PORT = 8099
 const URL = `http://localhost:` + PORT
+const SUB_URL = `ws://localhost:` + PORT + '/graphql'
 
 async function server({ resolvers, port = PORT }) {
     const typeDefs = fs
         .readFileSync(path.join(__dirname, '..', 'schema.graphql'))
         .toString()
-    const server = new ApolloServer({ typeDefs, resolvers })
+    const server = new ApolloServer({
+        typeDefs,
+        resolvers,
+        subscriptions: {
+            onConnect: async (connectionParams, webSocket, context) => {
+                console.log(
+                    `Subscription client connected using Apollo server's built-in SubscriptionServer.`,
+                )
+            },
+            onDisconnect: async (webSocket, context) => {
+                console.log(`Subscription client disconnected.`)
+            },
+        },
+    })
 
     // The `listen` method launches a web server.
-    await server.listen(port).then(({ url }) => {
-        console.log(`🚀  Server ready at ${url}`)
+    await server.listen(port).then(({ url, subscriptionsUrl }) => {
+        console.log(`🚀  Server ready at ${url} and ${subscriptionsUrl}`)
     })
     return () => server.stop()
 }
 
-describe('execute queries with normal syntax', async function() {
-    const client = createClient({
-        url: URL,
-    })
-    const x: DeepPartial<SearchResultItemConnection> = {
-        nodes: [
-            {
-                __typename: 'Issue',
-                author: {
-                    __typename: 'User',
-                    avatarUrl: [''],
-                    login: '',
-                    resourcePath: [''],
-                    url: [''],
-                },
-            },
-        ],
+describe('execute queries', async function() {
+    const x: DeepPartial<User> = {
+        name: 'John',
     }
 
-    const stop = await server({
-        resolvers: {
-            Query: {
-                search: (): DeepPartial<SearchResultItemConnection> => {
-                    return x
-                },
-            },
-        },
-    })
-    afterAll(() => stop())
-    it('simple ', async () => {
-        const res = await client.query({
-            search: [
-                { query: '', type: 'USER' },
-                {
-                    nodes: {
-                        on_Issue: {
-                            __typename: true,
-                            author: {
-                                __typename: true,
-                                avatarUrl: true,
-                                login: true,
-                                url: true,
-                                resourcePath: true,
-                            },
-                        },
-                    },
-                },
-            ],
-        })
-
-        console.log(JSON.stringify(res, null, 2))
-        assert(deepEq(res, x.nodes))
-    })
-    it('simple chain syntax', async () => {
-        const x: DeepPartial<SearchResultItemConnection> = {
-            nodes: [
-                {
-                    __typename: 'Issue',
-                    author: {
-                        __typename: 'User',
-                        avatarUrl: [''],
-                        login: '',
-                        resourcePath: [''],
-                        url: [''],
-                    },
-                },
-            ],
-        }
-
-        const stop = await server({
+    const makeServer = () =>
+        server({
             resolvers: {
                 Query: {
-                    search: (): DeepPartial<SearchResultItemConnection> => {
+                    user: () => {
                         return x
                     },
                 },
             },
         })
-        const res = await client.chain.query
-            .search({ query: '', type: 'USER' })
-            .nodes.get({
-                on_Issue: {
-                    __typename: true,
-                    author: {
-                        __typename: true,
-                        avatarUrl: true,
-                        login: true,
-                        url: true,
-                        resourcePath: true,
-                    },
-                },
-            })
-        console.log(JSON.stringify(res, null, 2))
-        assert(deepEq(res, x.nodes))
-    })
-    
-})
 
-describe('execute queries with chain', () => {
     const client = createClient({
         url: URL,
+    })
+    it('simple ', async () => {
+        const stop = await makeServer()
+        const res = await client.query({
+            user: {
+                name: true,
+            },
+        })
+        console.log(JSON.stringify(res, null, 2))
+        assert(deepEq(res.user, x))
+        await stop()
+    })
+    it('chain syntax ', async () => {
+        const stop = await makeServer()
+        const res = await client.chain.query.user.get({
+            __scalar: true,
+        })
+        console.log(JSON.stringify(res, null, 2))
+        assert(deepEq(res, x))
+        await stop()
+    })
+})
+
+describe('execute subscriptions', async function() {
+    const x: DeepPartial<User> = {
+        name: 'John',
+    }
+    const pubsub = new PubSub()
+    const USER_EVENT = 'userxxx'
+
+    const makeServer = () =>
+        server({
+            resolvers: {
+                Subscription: {
+                    user: {
+                        subscribe: () => {
+                            return pubsub.asyncIterator([USER_EVENT])
+                        },
+                    },
+                },
+            },
+        })
+    const client = createSubscriptionClient({
+        url: SUB_URL,
+    })
+
+    it('simple ', async () => {
+        const stop = await makeServer()
+        // await pubsub.publish(USER_EVENT, { user: x })
+        await sleep(100)
+        const sub = await client
+            .subscription({
+                user: {
+                    name: true,
+                    __typename: true,
+                },
+            })
+            .subscribe({
+                next: (x) => {
+                    console.log('next')
+                    console.log(x)
+                },
+                complete: () => console.log('complete'),
+                error: console.error,
+            })
+
+        // await sleep(1000)
+        await pubsub.publish(USER_EVENT, { user: x })
+        // console.log(JSON.stringify(res, null, 2))
+        sub.unsubscribe()
+        await stop()
+        // assert(deepEq(res.user, x))
     })
 })

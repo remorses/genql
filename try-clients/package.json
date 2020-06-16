@@ -1,11 +1,11 @@
 {
-    "name": "play",
+    "name": "try-clients",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "mocha",
-        "gen-hasura": "yarn --cwd .. play -e https://hasura-2334534.herokuapp.com/v1/graphql -o try-clients/generated"
+        "gen": "yarn --cwd .. play -e https://hasura-2334534.herokuapp.com/v1/graphql -o try-clients/generated"
     },
     "mocha": {
         "require": "sucrase/register",

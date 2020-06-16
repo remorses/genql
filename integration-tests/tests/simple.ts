@@ -1,14 +1,10 @@
-import {
-    generateQueryOp,
-    createClient,
-    everything,
-} from '../generated'
+import { generateQueryOp, createClient, everything } from '../generated'
 import { prettify } from 'genql-cli/dist/helpers/prettify'
 import { parse } from 'graphql'
-import { SearchType } from '../generated'
+import { generateSubscriptionOp } from '../generated'
 
 describe('generate queries', () => {
-    it('simple', () => {
+    it('query', () => {
         const { query } = generateQueryOp({
             repository: [
                 {
@@ -18,15 +14,21 @@ describe('generate queries', () => {
                 {
                     createdAt: true,
                     forks: {
-                        edges: {
-                            cursor: true,
-                            node: {
-                                ...everything,
-                            },
+                        cursor: true,
+                        node: {
+                            ...everything,
                         },
                     },
                 },
             ],
+        })
+        console.log(prettify(query, 'graphql'))
+    })
+    it('subscriptions', () => {
+        const { query } = generateSubscriptionOp({
+            user: {
+                __scalar: true,
+            },
         })
         console.log(prettify(query, 'graphql'))
     })
@@ -40,27 +42,17 @@ describe('generate queries', () => {
                 {
                     createdAt: true,
                     forks: {
-                        edges: {
-                            cursor: true,
-                            node: {
-                                ...everything,
-                            },
+                        cursor: true,
+                        node: {
+                            ...everything,
                         },
                     },
                 },
             ],
-            enterprise: [
-                { slug: 'dsf', invitationToken: '' },
-                {
-                    ...everything,
-                    organizations: {
-                        ...everything,
-                    },
-                },
-            ],
+            user: {
+                ...everything,
+            },
         })
         console.log(prettify(query, 'graphql'))
     })
 })
-
-

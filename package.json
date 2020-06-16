@@ -6,6 +6,7 @@
         "website",
         "genql-runtime",
         "example-usage",
+        "try-clients",
         "integration-tests"
     ],
     "scripts": {

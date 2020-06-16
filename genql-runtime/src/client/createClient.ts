@@ -14,8 +14,12 @@ import {
 import { ExecutionResult } from 'graphql'
 
 export interface Client<QR, QC, Q, MR, MC, M> {
-    query<R extends QR>(request: {[P in keyof R]?: R[P]}): Promise<FieldsSelection<Q, R>>
-    mutation<R extends MR>(request: {[P in keyof R]?: R[P]}): Promise<FieldsSelection<M, R>>
+    query<R extends QR>(
+        request: { [P in keyof R]?: R[P] },
+    ): Promise<FieldsSelection<Q, R>>
+    mutation<R extends MR>(
+        request: { [P in keyof R]?: R[P] },
+    ): Promise<FieldsSelection<M, R>>
     chain: {
         query: QC
         mutation: MC
@@ -23,7 +27,9 @@ export interface Client<QR, QC, Q, MR, MC, M> {
 }
 
 export interface SubscriptionClient<SR, SC, S> {
-    subscription<R extends SR>(request: {[P in keyof R]?: R[P]}): Observable<FieldsSelection<S, R>>
+    subscription<R extends SR>(
+        request: { [P in keyof R]?: R[P] },
+    ): Observable<FieldsSelection<S, R>>
     chain: {
         subscription: SC
     }
@@ -34,7 +40,8 @@ export interface BaseClientOptions {
     headers?: RequestInit['headers'] | (() => RequestInit['headers'])
 }
 
-export type ClientOptions = BaseClientOptions & Omit<RequestInit, 'body' | 'headers'>
+export type ClientOptions = BaseClientOptions &
+    Omit<RequestInit, 'body' | 'headers'>
 
 export type SubscriptionClientOptions = BaseClientOptions & SubscriptionOptions
 
@@ -105,16 +112,20 @@ export const createSubscriptionClient = <SR extends Fields, SC, S>({
     const subClient = getSubscriptionClient(options)
     const funcs = {
         subscription: (request) => {
-            if (!subscriptionRoot)
+            if (!subscriptionRoot) {
                 throw new Error('subscriptionRoot argument is missing')
-
-            const op = generateGraphqlOperation('subscription', subscriptionRoot, request)
+            }
+            const op = generateGraphqlOperation(
+                'subscription',
+                subscriptionRoot,
+                request,
+            )
             return Observable.from(subClient.request(op) as any).map(
                 (val: ExecutionResult<any>): any => {
                     if (val?.errors?.length > 0) {
                         throw new ClientError(val?.errors)
                     }
-                    return val
+                    return val?.data
                 },
             )
         },
@@ -143,7 +154,6 @@ const mapResponse = (path: string[], defaultValue: any = undefined) => (
     return result
 }
 
-
 function getSubscriptionClient(
     opts?: SubscriptionClientOptions,
 ): wsSubscriptionClient {
@@ -156,10 +166,10 @@ function getSubscriptionClient(
             lazy: true,
             reconnect: true,
             reconnectionAttempts: 3,
-            connectionCallback: (err, res) => {
-                console.log('connection', err, res)
-                return true
-            },
+            // connectionCallback: (err, res) => {
+            //     console.log('connection', err, res)
+            //     return true
+            // },
             connectionParams: {
                 headers:
                     typeof opts.headers == 'function'
