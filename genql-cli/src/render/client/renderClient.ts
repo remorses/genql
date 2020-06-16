@@ -2,7 +2,7 @@ import { GraphQLSchema } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
 
-const createClientCode = (ctx: RenderContext) => {
+const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
     return `
 function(options) {
@@ -25,12 +25,12 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
   const { 
       linkTypeMap, 
       createClient: createClientOriginal, 
-      createSubscriptionClient: createSubscriptionClientOriginal, 
-      createFetcher,
       generateGraphqlOperation
   } = require('${RUNTIME_LIB_NAME}')
   var typeMap = linkTypeMap(require('./types.json'))
-  module.exports.createClient = ${createClientCode(ctx)}
+
+  module.exports.createClient = ${renderClientCode(ctx)}
+
   module.exports.generateQueryOp = function(fields) {
     return generateGraphqlOperation('query', typeMap.Query, fields)
   }
@@ -52,12 +52,12 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
   import { 
       linkTypeMap, 
       createClient as createClientOriginal, 
-      createSubscriptionClient as createSubscriptionClientOriginal, 
-      createFetcher,
       generateGraphqlOperation,
   } from '${RUNTIME_LIB_NAME}'
   var typeMap = linkTypeMap(require('./types.json'))
-  export var createClient = ${createClientCode(ctx)}
+
+  export var createClient = ${renderClientCode(ctx)}
+
   export var generateQueryOp = function(fields) {
     return generateGraphqlOperation('query', typeMap.Query, fields)
   }
