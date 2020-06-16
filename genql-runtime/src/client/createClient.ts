@@ -45,14 +45,7 @@ export type ClientOptions = BaseClientOptions &
 
 export type SubscriptionClientOptions = BaseClientOptions & SubscriptionOptions
 
-export const createClient = <
-    QR extends Fields,
-    QC,
-    Q,
-    MR extends Fields,
-    MC,
-    M
->({
+export const createClient = ({
     fetcher,
     queryRoot,
     mutationRoot,
@@ -60,8 +53,8 @@ export const createClient = <
     fetcher: Fetcher
     queryRoot?: LinkedType
     mutationRoot?: LinkedType
-}): Client<QR, QC, Q, MR, MC, M> => {
-    const funcs = {
+}) => {
+    const functions = {
         query: (request) => {
             if (!fetcher) throw new Error('fetcher argument is missing')
             if (!queryRoot) throw new Error('queryRoot argument is missing')
@@ -85,16 +78,16 @@ export const createClient = <
         },
     }
     return {
-        ...funcs,
+        ...functions,
         chain: {
             query: <any>(
                 chain((path, request, defaultValue) =>
-                    funcs.query(request).then(mapResponse(path, defaultValue)),
+                    functions.query(request).then(mapResponse(path, defaultValue)),
                 )
             ),
             mutation: <any>(
                 chain((path, request, defaultValue) =>
-                    funcs
+                    functions
                         .mutation(request)
                         .then(mapResponse(path, defaultValue)),
                 )

@@ -22,7 +22,7 @@ export type Boolean=boolean
 
 export interface ForkConnection{edges:((ForkEdge|null)[]|null),__typename:'ForkConnection'}
 
-export interface QueryRequest{repository?:[{name?:(String|null),owner?:(String|null)},RepositoryRequest]|RepositoryRequest,user?:UserRequest,__typename?:boolean|number,__scalar?:boolean|number}
+export interface QueryRequest{repository?:[{name:String,owner?:(String|null)},RepositoryRequest],user?:UserRequest,__typename?:boolean|number,__scalar?:boolean|number}
 
 export interface RepositoryRequest{createdAt?:boolean|number,forks?:ForkEdgeRequest,__typename?:boolean|number,__scalar?:boolean|number}
 
@@ -92,9 +92,9 @@ export interface ForkConnectionRequest{edges?:ForkEdgeRequest,__typename?:boolea
   }
 
 
-export interface QueryPromiseChain{repository:((args?:{name?:(String|null),owner?:(String|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Promise<(FieldsSelection<Repository, R>|null)>})&(RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Promise<(FieldsSelection<Repository, R>|null)>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>})}
+export interface QueryPromiseChain{repository:((args:{name:String,owner?:(String|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Promise<(FieldsSelection<Repository, R>|null)>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>})}
 
-export interface QueryObservableChain{repository:((args?:{name?:(String|null),owner?:(String|null)})=>RepositoryObservableChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Observable<(FieldsSelection<Repository, R>|null)>})&(RepositoryObservableChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Observable<(FieldsSelection<Repository, R>|null)>}),user:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>})}
+export interface QueryObservableChain{repository:((args:{name:String,owner?:(String|null)})=>RepositoryObservableChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Observable<(FieldsSelection<Repository, R>|null)>}),user:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>})}
 
 export interface RepositoryPromiseChain{createdAt:({get:(request?:boolean|number,defaultValue?:(String|null))=>Promise<(String|null)>}),forks:(ForkEdgePromiseChain & {get:<R extends ForkEdgeRequest>(request: R, defaultValue?:(FieldsSelection<ForkEdge, R>|null))=>Promise<(FieldsSelection<ForkEdge, R>|null)>})}
 

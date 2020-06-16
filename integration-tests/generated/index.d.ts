@@ -1,5 +1,4 @@
 import {
-  Client,
   FieldsSelection,
   GraphqlOperation,
   SubscriptionClient,
@@ -7,12 +6,28 @@ import {
   SubscriptionClientOptions,
 } from 'genql-runtime'
 export * from './schema'
-import { QueryRequest, QueryPromiseChain, Query } from './schema'
-export declare const createClient: (
-  options?: ClientOptions,
-) => Client<QueryRequest, QueryPromiseChain, Query, never, never, never>
-
+import {
+  QueryRequest,
+  QueryPromiseChain,
+  Query,
+  SubscriptionRequest,
+  SubscriptionPromiseChain,
+  Subscription,
+} from './schema'
+export declare const createClient: (options?: ClientOptions) => Client
 export declare const everything: { __scalar: boolean }
+
+export interface Client {
+  query(request: QueryRequest): Promise<FieldsSelection<Query, R>>
+
+  subscription(request: SubscriptionRequest): Promise<FieldsSelection<Subscription, R>>
+
+  chain: {
+    query: QueryPromiseChain
+
+    subscription: SubscriptionPromiseChain
+  }
+}
 
 export type QueryResult<fields extends QueryRequest> = FieldsSelection<Query, fields>
 

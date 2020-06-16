@@ -8,53 +8,21 @@ export const renderClientDefinition = (
     schema: GraphQLSchema,
     ctx: RenderContext,
 ) => {
-    const types: string[] = []
-    const imports: string[] = []
-
     const queryType = schema.getQueryType()
     const mutationType = schema.getMutationType()
     const subscriptionType = schema.getSubscriptionType()
 
-    if (queryType) {
-        types.push(
-            requestTypeName(queryType),
-            chainTypeName(queryType, 'Promise'),
-            queryType.name,
-        )
-        imports.push(
-            requestTypeName(queryType),
-            chainTypeName(queryType, 'Promise'),
-            queryType.name,
-        )
-    } else {
-        types.push('never', 'never', 'never')
-    }
-
-    if (mutationType) {
-        types.push(
-            requestTypeName(mutationType),
-            chainTypeName(mutationType, 'Promise'),
-            mutationType.name,
-        )
-        imports.push(
-            requestTypeName(mutationType),
-            chainTypeName(mutationType, 'Promise'),
-            mutationType.name,
-        )
-    } else {
-        types.push('never', 'never', 'never')
-    }
-
     ctx.addCodeBlock(`
-    import { Client, FieldsSelection, GraphqlOperation, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
+    import { FieldsSelection, GraphqlOperation, SubscriptionClient, ClientOptions, SubscriptionClientOptions } from '${RUNTIME_LIB_NAME}'
     export * from './schema'
-    ${imports.length > 0 ? `import {${imports.join(',')}} from './schema'` : ''}
-    export declare const createClient:(options?:ClientOptions)=>Client<${types.join(
-        ',',
-    )}>
-    
+    ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
+    export declare const createClient:(options?:ClientOptions)=>Client
     export declare const everything: { __scalar: boolean }
   `)
+
+    ctx.addCodeBlock(
+        renderClientType({ mutationType, queryType, subscriptionType }),
+    )
 
     if (queryType) {
         ctx.addCodeBlock(`
@@ -106,4 +74,85 @@ export const renderClientDefinition = (
             ',',
         )}>`)
     }
+}
+
+function renderClientTypesImports({
+    queryType,
+    mutationType,
+    subscriptionType,
+}) {
+    const imports: string[] = []
+    if (queryType) {
+        imports.push(
+            requestTypeName(queryType),
+            chainTypeName(queryType, 'Promise'),
+            queryType.name,
+        )
+    }
+
+    if (mutationType) {
+        imports.push(
+            requestTypeName(mutationType),
+            chainTypeName(mutationType, 'Promise'),
+            mutationType.name,
+        )
+    }
+    if (subscriptionType) {
+        imports.push(
+            requestTypeName(subscriptionType),
+            chainTypeName(subscriptionType, 'Promise'),
+            subscriptionType.name,
+        )
+    }
+    if (imports.length > 0) {
+        return `import {${imports.join(',')}} from './schema'`
+    }
+    return ''
+}
+
+function renderClientType({ queryType, mutationType, subscriptionType }) {
+    let interfaceContent = ''
+    let chainTypeContent = ''
+
+    if (queryType) {
+        interfaceContent += `
+        query(
+            request: ${requestTypeName(queryType)},
+        ): Promise<FieldsSelection<${queryType.name}, R>>
+        `
+        chainTypeContent += `
+        query: ${chainTypeName(queryType, 'Promise')}
+        `
+    }
+
+    if (mutationType) {
+        interfaceContent += `
+        mutation(
+            request: ${requestTypeName(mutationType)},
+        ): Promise<FieldsSelection<${mutationType.name}, R>>
+        `
+        chainTypeContent += `
+        mutation: ${chainTypeName(mutationType, 'Promise')}
+        `
+    }
+
+    if (subscriptionType) {
+        interfaceContent += `
+        subscription(
+            request: ${requestTypeName(subscriptionType)},
+        ): Promise<FieldsSelection<${subscriptionType.name}, R>>
+        `
+        chainTypeContent += `
+        subscription: ${chainTypeName(subscriptionType, 'Promise')}
+        `
+    }
+
+    return `
+    export interface Client {
+        ${interfaceContent}
+        chain: {
+            ${chainTypeContent}
+        }
+    }
+    `
 }
