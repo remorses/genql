@@ -20,21 +20,30 @@ export const objectType = (
         ? [type.name]
         : ctx.schema.getPossibleTypes(type).map((t) => t.name)
 
-    const fieldStrings = fields
-        .map((f) =>
-            `${fieldComment(f)}${f.name}${renderTyping(f.type, false, false)}`
-                .split('\n')
-                .filter(Boolean)
-                .map((l) => INDENTATION + l)
-                .join('\n'),
+    let fieldStrings = fields
+        .map(
+            (f) =>
+                `${fieldComment(f)}${f.name}${renderTyping(
+                    f.type,
+                    false,
+                    false,
+                )}`,
         )
         .concat([
-            `${INDENTATION}__typename: ${
+            `__typename: ${
                 typeNames.length > 0
                     ? typeNames.map((t) => `'${t}'`).join('|')
                     : 'String'
             }`,
         ])
+    // add indentation
+    fieldStrings = fieldStrings.map((x) =>
+        x
+            .split('\n')
+            .filter(Boolean)
+            .map((l) => INDENTATION + l)
+            .join('\n'),
+    )
 
     const interfaceNames = isObjectType(type)
         ? type.getInterfaces().map((i) => i.name)

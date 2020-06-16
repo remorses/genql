@@ -11,12 +11,14 @@ import { RenderContext } from '../common/RenderContext'
 import { toArgsString } from '../common/toArgsString'
 import { requestTypeName } from './requestTypeName'
 
+const INDENTATION = '    '
+
 export const objectType = (
     type: GraphQLObjectType | GraphQLInterfaceType,
     ctx: RenderContext,
 ) => {
     const fields = type.getFields()
-    const fieldStrings = Object.keys(fields).map((fieldName) => {
+    let fieldStrings = Object.keys(fields).map((fieldName) => {
         const field = fields[fieldName]
 
         const types: string[] = []
@@ -44,22 +46,32 @@ export const objectType = (
             }
         }
 
-        return `${fieldComment(field)}${field.name}?:${types.join('|')}`
+        return `${fieldComment(field)}${field.name}?: ${types.join('|')}`
     })
 
     if (isInterfaceType(type) && ctx.schema) {
-        ctx.schema
-            .getPossibleTypes(type)
-            .map((t) => `on_${t.name}?:${requestTypeName(t)}`)
-            .forEach((s) => fieldStrings.push(s))
+        fieldStrings = fieldStrings.concat(
+            ctx.schema
+                .getPossibleTypes(type)
+                .map((t) => `on_${t.name}?: ${requestTypeName(t)}`),
+        )
     }
 
-    fieldStrings.push('__typename?:boolean|number')
-    fieldStrings.push('__scalar?:boolean|number')
+    fieldStrings.push('__typename?: boolean|number')
+    fieldStrings.push('__scalar?: boolean|number')
+
+    // add indentation
+    fieldStrings = fieldStrings.map((x) =>
+        x
+            .split('\n')
+            .filter(Boolean)
+            .map((l) => INDENTATION + l)
+            .join('\n'),
+    )
 
     ctx.addCodeBlock(
         `${typeComment(type)}export interface ${requestTypeName(
             type,
-        )}{${fieldStrings.join(',')}}`,
+        )}{\n${fieldStrings.join('\n')}\n}`,
     )
 }

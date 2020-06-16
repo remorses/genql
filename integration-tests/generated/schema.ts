@@ -49,22 +49,51 @@ export interface ForkConnection{
 }
 
 export interface QueryRequest{
-/** Some description */
-repository?:[{name: String,owner?:(String|null)},RepositoryRequest],user?:UserRequest,__typename?:boolean|number,__scalar?:boolean|number}
+    /** Some description */
+    repository?: [{name: String,owner?:(String|null)},RepositoryRequest]
+    user?: UserRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
-export interface RepositoryRequest{createdAt?:boolean|number,forks?:ForkEdgeRequest,__typename?:boolean|number,__scalar?:boolean|number}
+export interface RepositoryRequest{
+    createdAt?: boolean|number
+    forks?: ForkEdgeRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
-export interface ForkEdgeRequest{cursor?:boolean|number,node?:ForkRequest,__typename?:boolean|number,__scalar?:boolean|number}
+export interface ForkEdgeRequest{
+    cursor?: boolean|number
+    node?: ForkRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
-export interface ForkRequest{name?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface ForkRequest{
+    name?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 export interface UserRequest{
-/** Some description */
-name?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+    /** Some description */
+    name?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
-export interface SubscriptionRequest{user?:UserRequest,__typename?:boolean|number,__scalar?:boolean|number}
+export interface SubscriptionRequest{
+    user?: UserRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
-export interface ForkConnectionRequest{edges?:ForkEdgeRequest,__typename?:boolean|number,__scalar?:boolean|number}
+export interface ForkConnectionRequest{
+    edges?: ForkEdgeRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 const Query_possibleTypes = ['Query']

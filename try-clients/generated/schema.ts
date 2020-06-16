@@ -199,32 +199,35 @@ export type ID=string
 
 /** query root */
 export interface query_rootRequest{
-/** fetch data from the table: "user" */
-user?:[{
-/** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
-/** limit the number of rows returned */
-limit?:(Int|null),
-/** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
-/** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
-/** filter the rows returned */
-where?:(user_bool_exp|null)},userRequest]|userRequest,
-/** fetch aggregated fields from the table: "user" */
-user_aggregate?:[{
-/** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
-/** limit the number of rows returned */
-limit?:(Int|null),
-/** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
-/** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
-/** filter the rows returned */
-where?:(user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest,
-/** fetch data from the table: "user" using primary key columns */
-user_by_pk?:[{id: String},userRequest],__typename?:boolean|number,__scalar?:boolean|number}
+    /** fetch data from the table: "user" */
+    user?: [{
+    /** distinct select on columns */
+    distinct_on?:(user_select_column[]|null),
+    /** limit the number of rows returned */
+    limit?:(Int|null),
+    /** skip the first n rows. Use only with order_by */
+    offset?:(Int|null),
+    /** sort the rows by one or more columns */
+    order_by?:(user_order_by[]|null),
+    /** filter the rows returned */
+    where?:(user_bool_exp|null)},userRequest]|userRequest
+    /** fetch aggregated fields from the table: "user" */
+    user_aggregate?: [{
+    /** distinct select on columns */
+    distinct_on?:(user_select_column[]|null),
+    /** limit the number of rows returned */
+    limit?:(Int|null),
+    /** skip the first n rows. Use only with order_by */
+    offset?:(Int|null),
+    /** sort the rows by one or more columns */
+    order_by?:(user_order_by[]|null),
+    /** filter the rows returned */
+    where?:(user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
+    /** fetch data from the table: "user" using primary key columns */
+    user_by_pk?: [{id: String},userRequest]
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** ordering options when selecting data from "user" */
@@ -244,99 +247,174 @@ export interface String_comparison_exp{_eq?:(String|null),_gt?:(String|null),_gt
 
 
 /** columns and relationships of "user" */
-export interface userRequest{age?:boolean|number,id?:boolean|number,name?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface userRequest{
+    age?: boolean|number
+    id?: boolean|number
+    name?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregated selection of "user" */
-export interface user_aggregateRequest{aggregate?:user_aggregate_fieldsRequest,nodes?:userRequest,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_aggregateRequest{
+    aggregate?: user_aggregate_fieldsRequest
+    nodes?: userRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fieldsRequest{avg?:user_avg_fieldsRequest,count?:[{columns?:(user_select_column[]|null),distinct?:(Boolean|null)}]|boolean|number,max?:user_max_fieldsRequest,min?:user_min_fieldsRequest,stddev?:user_stddev_fieldsRequest,stddev_pop?:user_stddev_pop_fieldsRequest,stddev_samp?:user_stddev_samp_fieldsRequest,sum?:user_sum_fieldsRequest,var_pop?:user_var_pop_fieldsRequest,var_samp?:user_var_samp_fieldsRequest,variance?:user_variance_fieldsRequest,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_aggregate_fieldsRequest{
+    avg?: user_avg_fieldsRequest
+    count?: [{columns?:(user_select_column[]|null),distinct?:(Boolean|null)}]|boolean|number
+    max?: user_max_fieldsRequest
+    min?: user_min_fieldsRequest
+    stddev?: user_stddev_fieldsRequest
+    stddev_pop?: user_stddev_pop_fieldsRequest
+    stddev_samp?: user_stddev_samp_fieldsRequest
+    sum?: user_sum_fieldsRequest
+    var_pop?: user_var_pop_fieldsRequest
+    var_samp?: user_var_samp_fieldsRequest
+    variance?: user_variance_fieldsRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate avg on columns */
-export interface user_avg_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_avg_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate max on columns */
-export interface user_max_fieldsRequest{age?:boolean|number,id?:boolean|number,name?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_max_fieldsRequest{
+    age?: boolean|number
+    id?: boolean|number
+    name?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate min on columns */
-export interface user_min_fieldsRequest{age?:boolean|number,id?:boolean|number,name?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_min_fieldsRequest{
+    age?: boolean|number
+    id?: boolean|number
+    name?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate stddev on columns */
-export interface user_stddev_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_stddev_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate stddev_pop on columns */
-export interface user_stddev_pop_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_stddev_pop_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate stddev_samp on columns */
-export interface user_stddev_samp_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_stddev_samp_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate sum on columns */
-export interface user_sum_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_sum_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate var_pop on columns */
-export interface user_var_pop_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_var_pop_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate var_samp on columns */
-export interface user_var_samp_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_var_samp_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** aggregate variance on columns */
-export interface user_variance_fieldsRequest{age?:boolean|number,__typename?:boolean|number,__scalar?:boolean|number}
+export interface user_variance_fieldsRequest{
+    age?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** mutation root */
 export interface mutation_rootRequest{
-/** delete data from the table: "user" */
-delete_user?:[{
-/** filter the rows which have to be deleted */
-where: user_bool_exp},user_mutation_responseRequest],
-/** delete single row from the table: "user" */
-delete_user_by_pk?:[{id: String},userRequest],
-/** insert data into the table: "user" */
-insert_user?:[{
-/** the rows to be inserted */
-objects: user_insert_input[],
-/** on conflict condition */
-on_conflict?:(user_on_conflict|null)},user_mutation_responseRequest],
-/** insert a single row into the table: "user" */
-insert_user_one?:[{
-/** the row to be inserted */
-object: user_insert_input,
-/** on conflict condition */
-on_conflict?:(user_on_conflict|null)},userRequest],
-/** update data of the table: "user" */
-update_user?:[{
-/** increments the integer columns with given value of the filtered values */
-_inc?:(user_inc_input|null),
-/** sets the columns of the filtered rows to the given values */
-_set?:(user_set_input|null),
-/** filter the rows which have to be updated */
-where: user_bool_exp},user_mutation_responseRequest],
-/** update single row of the table: "user" */
-update_user_by_pk?:[{
-/** increments the integer columns with given value of the filtered values */
-_inc?:(user_inc_input|null),
-/** sets the columns of the filtered rows to the given values */
-_set?:(user_set_input|null),pk_columns: user_pk_columns_input},userRequest],__typename?:boolean|number,__scalar?:boolean|number}
+    /** delete data from the table: "user" */
+    delete_user?: [{
+    /** filter the rows which have to be deleted */
+    where: user_bool_exp},user_mutation_responseRequest]
+    /** delete single row from the table: "user" */
+    delete_user_by_pk?: [{id: String},userRequest]
+    /** insert data into the table: "user" */
+    insert_user?: [{
+    /** the rows to be inserted */
+    objects: user_insert_input[],
+    /** on conflict condition */
+    on_conflict?:(user_on_conflict|null)},user_mutation_responseRequest]
+    /** insert a single row into the table: "user" */
+    insert_user_one?: [{
+    /** the row to be inserted */
+    object: user_insert_input,
+    /** on conflict condition */
+    on_conflict?:(user_on_conflict|null)},userRequest]
+    /** update data of the table: "user" */
+    update_user?: [{
+    /** increments the integer columns with given value of the filtered values */
+    _inc?:(user_inc_input|null),
+    /** sets the columns of the filtered rows to the given values */
+    _set?:(user_set_input|null),
+    /** filter the rows which have to be updated */
+    where: user_bool_exp},user_mutation_responseRequest]
+    /** update single row of the table: "user" */
+    update_user_by_pk?: [{
+    /** increments the integer columns with given value of the filtered values */
+    _inc?:(user_inc_input|null),
+    /** sets the columns of the filtered rows to the given values */
+    _set?:(user_set_input|null),pk_columns: user_pk_columns_input},userRequest]
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** response of any mutation on the table "user" */
 export interface user_mutation_responseRequest{
-/** number of affected rows by the mutation */
-affected_rows?:boolean|number,
-/** data of the affected rows by the mutation */
-returning?:userRequest,__typename?:boolean|number,__scalar?:boolean|number}
+    /** number of affected rows by the mutation */
+    affected_rows?: boolean|number
+    /** data of the affected rows by the mutation */
+    returning?: userRequest
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** input type for inserting data into table "user" */
@@ -361,32 +439,35 @@ export interface user_pk_columns_input{id: String}
 
 /** subscription root */
 export interface subscription_rootRequest{
-/** fetch data from the table: "user" */
-user?:[{
-/** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
-/** limit the number of rows returned */
-limit?:(Int|null),
-/** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
-/** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
-/** filter the rows returned */
-where?:(user_bool_exp|null)},userRequest]|userRequest,
-/** fetch aggregated fields from the table: "user" */
-user_aggregate?:[{
-/** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
-/** limit the number of rows returned */
-limit?:(Int|null),
-/** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
-/** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
-/** filter the rows returned */
-where?:(user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest,
-/** fetch data from the table: "user" using primary key columns */
-user_by_pk?:[{id: String},userRequest],__typename?:boolean|number,__scalar?:boolean|number}
+    /** fetch data from the table: "user" */
+    user?: [{
+    /** distinct select on columns */
+    distinct_on?:(user_select_column[]|null),
+    /** limit the number of rows returned */
+    limit?:(Int|null),
+    /** skip the first n rows. Use only with order_by */
+    offset?:(Int|null),
+    /** sort the rows by one or more columns */
+    order_by?:(user_order_by[]|null),
+    /** filter the rows returned */
+    where?:(user_bool_exp|null)},userRequest]|userRequest
+    /** fetch aggregated fields from the table: "user" */
+    user_aggregate?: [{
+    /** distinct select on columns */
+    distinct_on?:(user_select_column[]|null),
+    /** limit the number of rows returned */
+    limit?:(Int|null),
+    /** skip the first n rows. Use only with order_by */
+    offset?:(Int|null),
+    /** sort the rows by one or more columns */
+    order_by?:(user_order_by[]|null),
+    /** filter the rows returned */
+    where?:(user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
+    /** fetch data from the table: "user" using primary key columns */
+    user_by_pk?: [{id: String},userRequest]
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
 
 
 /** order by aggregate values of table "user" */
