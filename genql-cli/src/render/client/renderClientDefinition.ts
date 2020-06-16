@@ -20,41 +20,21 @@ export const renderClientDefinition = (
     export declare const everything: { __scalar: boolean }
   `)
 
+    // Client interface
     ctx.addCodeBlock(
         renderClientType({ mutationType, queryType, subscriptionType }),
     )
 
-    if (queryType) {
-        ctx.addCodeBlock(`
-        export type QueryResult<fields extends ${requestTypeName(
-            queryType,
-        )}> = FieldsSelection<${queryType.name}, fields>
-
-        export declare const generateQueryOp: (fields: ${requestTypeName(
-            queryType,
-        )}) => GraphqlOperation`)
-    }
-    if (mutationType) {
-        ctx.addCodeBlock(`
-        export type MutationResult<fields extends ${requestTypeName(
+    // generateQueryOp and QueryResult types
+    ctx.addCodeBlock(
+        renderSupportFunctionsTypes({
             mutationType,
-        )}> = FieldsSelection<${mutationType.name}, fields>
-
-        export declare const generateMutationOp: (fields: ${requestTypeName(
-            mutationType,
-        )}) => GraphqlOperation`)
-    }
-    if (subscriptionType) {
-        ctx.addCodeBlock(`
-        export type SubscriptionResult<fields extends ${requestTypeName(
+            queryType,
             subscriptionType,
-        )}> = FieldsSelection<${subscriptionType.name}, fields>
+        }),
+    )
 
-        export declare const generateSubscriptionOp: (fields: ${requestTypeName(
-            subscriptionType,
-        )}) => GraphqlOperation`)
-    }
-
+    // TODO remove different subscription client
     if (subscriptionType) {
         const subscriptionImports = [
             requestTypeName(subscriptionType),
@@ -155,4 +135,44 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
         }
     }
     `
+}
+
+function renderSupportFunctionsTypes({
+    queryType,
+    mutationType,
+    subscriptionType,
+}) {
+    let code = ''
+    if (queryType) {
+        code += `
+        export type QueryResult<fields extends ${requestTypeName(
+            queryType,
+        )}> = FieldsSelection<${queryType.name}, fields>
+
+        export declare const generateQueryOp: (fields: ${requestTypeName(
+            queryType,
+        )}) => GraphqlOperation`
+    }
+    if (mutationType) {
+        code += `
+        export type MutationResult<fields extends ${requestTypeName(
+            mutationType,
+        )}> = FieldsSelection<${mutationType.name}, fields>
+
+        export declare const generateMutationOp: (fields: ${requestTypeName(
+            mutationType,
+        )}) => GraphqlOperation`
+    }
+    if (subscriptionType) {
+        code += `
+        export type SubscriptionResult<fields extends ${requestTypeName(
+            subscriptionType,
+        )}> = FieldsSelection<${subscriptionType.name}, fields>
+
+        export declare const generateSubscriptionOp: (fields: ${requestTypeName(
+            subscriptionType,
+        )}) => GraphqlOperation`
+    }
+
+    return code
 }
