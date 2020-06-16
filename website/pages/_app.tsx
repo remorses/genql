@@ -18,7 +18,6 @@ import {
 } from '../constants'
 import { Global } from '@emotion/core'
 
-
 // 'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
 
 if (!firebase.apps.length) {
@@ -59,6 +58,18 @@ export default function App(props) {
                         </Link>,
                         <ColorModeSwitch />,
                     ]}
+                    sidebarOrdering={{
+                        docs: {
+                            usage: {
+                                'selecting-fields': true,
+                                'using-chain-syntax': true,
+                                'usage-with-other-clients': true,
+                                'usage-in-react': true,
+                                subscriptions: true,
+                                'advanced-typings': true,
+                            },
+                        },
+                    }}
                     docsRootPath='pages/docs'
                     headerLogo={<Logo />}
                 >
@@ -126,8 +137,12 @@ export function MyFooter({ ...rest }) {
 export function MyNavbar({ ...rest }) {
     const { user, loading } = useAuthData()
     const navs = [
-        <MyLink isExternal href={GITHUB_LINK}>Github</MyLink>,
-        <MyLink isExternal href={DOCS_LINK}>Docs</MyLink>,
+        <MyLink isExternal href={GITHUB_LINK}>
+            Github
+        </MyLink>,
+        <MyLink isExternal href={DOCS_LINK}>
+            Docs
+        </MyLink>,
         user ? (
             <MyLink href='/me'>Dashboard</MyLink>
         ) : (
@@ -162,7 +177,7 @@ const Logo = () => (
     </NextLink>
 )
 
-export function MyLink({ isExternal=false, href = '#', ...rest }) {
+export function MyLink({ isExternal = false, href = '#', ...rest }) {
     isExternal = isExternal || href.startsWith('http')
     if (isExternal) {
         return (

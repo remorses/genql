@@ -75,4 +75,18 @@ client
     .then((x) => console.log(JSON.stringify(x)))
 ```
 
-> `everything` queries only the leaf types, it does not work for nested types
+> `everything` queries only the leaf types, you have to manually query object types
+
+# Using the chain syntax
+
+Genql has an alternative way of executing queries called `chain` mode.
+
+The chain mode let you access fields using dot notation instead of an object:
+
+```js
+import { createClient } from './generated'
+
+const client = createClient()
+
+const name = await client.chain.mutation.createUser({ name: 'john' }).name.get()
+```

@@ -19,6 +19,10 @@ describe('hasura', () => {
                 next: (x) => console.log('next', x),
                 error: console.log,
             })
+        var res5 = await subCLient.chain.subscription
+            .user({})
+            .get({ ...everything })
+            .subscribe({ next: (x) => console.log('next', x) })
         var res1 = await client.chain.mutation
             .insert_user({
                 objects: [

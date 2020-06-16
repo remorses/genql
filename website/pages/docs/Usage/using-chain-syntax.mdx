@@ -8,6 +8,8 @@ Genql has an alternative way of executing queries called `chain` mode.
 
 The chain mode let you access fields using dot notation instead of an object:
 
+If a field has arguments you pass them as you would do with a function, then you can access the fields with dot notation and finally call the .get method to fetch the field.
+
 ```js
 import { createClient } from './generated'
 const client = createClient()
@@ -25,6 +27,7 @@ You can still use the `everything` shortcut
 import { createClient, everything } from './generated'
 const client = createClient()
 
-const res = await client.chain.mutation.createUser({ name: 'john' }).get({ ...everything })
+const res = await client.chain.mutation
+    .createUser({ name: 'john' })
+    .get({ ...everything })
 ```
-

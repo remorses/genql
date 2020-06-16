@@ -4,10 +4,10 @@ import ApolloClient from 'apollo-boost'
 import gql from 'graphql-tag'
 import { Hero, PageContainer, SectionTitle } from 'landing-blocks'
 import React from 'react'
-import { generateQueryOp, QueryResult } from '../generated/'
+import { generateQueryOp, QueryResult, QueryRequest } from '../generated/'
 
 const Page = () => {
-    const q = {
+    const q: QueryRequest = {
         countries: {
             name: 1,
             code: 1,
