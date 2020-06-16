@@ -1,8 +1,8 @@
 <div align='center'>
     <br/>
-    <!-- <br/> -->
-    <!-- <img src='https://genql.now.sh/banner.jpg' width='420px'> -->
-    <!-- <br/> -->
+    <br/>
+    <img src='https://genql.now.sh/banner.jpg' width='420px'>
+    <br/>
     <br/>
     <h3>Type safe Graphql query builder</h3>
     <h4>Write Graphql queries with type validation and auto completion</h4>
