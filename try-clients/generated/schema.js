@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+exports.issubscription_root = exports.isuser_mutation_response = exports.ismutation_root = exports.isuser_variance_fields = exports.isuser_var_samp_fields = exports.isuser_var_pop_fields = exports.isuser_sum_fields = exports.isuser_stddev_samp_fields = exports.isuser_stddev_pop_fields = exports.isuser_stddev_fields = exports.isuser_min_fields = exports.isuser_max_fields = exports.isuser_avg_fields = exports.isuser_aggregate_fields = exports.isuser_aggregate = exports.isuser = exports.isquery_root = void 0;
 var query_root_possibleTypes = ['query_root'];
 exports.isquery_root = function (obj) {
     if (!obj.__typename)
@@ -102,3 +103,4 @@ exports.issubscription_root = function (obj) {
         throw new Error('__typename is missing');
     return subscription_root_possibleTypes.includes(obj.__typename);
 };
+//# sourceMappingURL=schema.js.map

@@ -3,32 +3,22 @@ import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
 
 const createClientCode = (ctx: RenderContext) => {
-    const url = ctx.config?.endpoint
-        ? '"' + ctx.config?.endpoint + '"'
-        : 'undefined'
+    const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
     return `
 function(options) {
     options = options || {}
-    var fetcherOpts = { url: ${url} }
-    for (var attrname in options) { 
-        fetcherOpts[attrname] = options[attrname];
+    var optionsCopy = { 
+      url: ${url}, 
+      queryRoot: typeMap.Query,
+      mutationRoot: typeMap.Mutation,
+      subscriptionRoot: typeMap.Subscription,
     }
-    return createClientOriginal({
-        fetcher: createFetcher(fetcherOpts),
-        queryRoot: typeMap.Query,
-        mutationRoot: typeMap.Mutation,
-    })
+    for (var name in options) { 
+      optionsCopy[name] = options[name];
+    }
+    return createClientOriginal(optionsCopy)
 }`
 }
-
-const createSubscriptionClientCode = (ctx: RenderContext) => `
-function(options) {
-    
-    options = options || {}
-    options.url = options.url || "${ctx.config?.endpoint}"
-    options.subscriptionRoot = typeMap.Subscription
-    return createSubscriptionClientOriginal(options)
-}`
 
 export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
@@ -41,7 +31,6 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
   } = require('${RUNTIME_LIB_NAME}')
   var typeMap = linkTypeMap(require('./types.json'))
   module.exports.createClient = ${createClientCode(ctx)}
-  module.exports.createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
   module.exports.generateQueryOp = function(fields) {
     return generateGraphqlOperation('query', typeMap.Query, fields)
   }
@@ -69,7 +58,6 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
   } from '${RUNTIME_LIB_NAME}'
   var typeMap = linkTypeMap(require('./types.json'))
   export var createClient = ${createClientCode(ctx)}
-  export var createSubscriptionClient = ${createSubscriptionClientCode(ctx)}
   export var generateQueryOp = function(fields) {
     return generateGraphqlOperation('query', typeMap.Query, fields)
   }

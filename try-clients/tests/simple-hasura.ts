@@ -1,15 +1,10 @@
-import {
-    createClient,
-    createSubscriptionClient,
-    everything,
-} from '../generated'
+import { createClient, everything } from '../generated'
 
 describe('hasura', () => {
     const client = createClient({})
-    const subCLient = createSubscriptionClient({})
     it('simple normal syntax', async () => {
         // console.log('x')
-        var res4 = await subCLient
+        var res4 = await client
             .subscription({
                 user: {
                     __scalar: true,
@@ -19,10 +14,11 @@ describe('hasura', () => {
                 next: (x) => console.log('next', x),
                 error: console.log,
             })
-        var res5 = await subCLient.chain.subscription
+        var res5 = await client.chain.subscription
             .user({})
             .get({ ...everything })
             .subscribe({ next: (x) => console.log('next', x) })
+
         var res1 = await client.chain.mutation
             .insert_user({
                 objects: [
@@ -52,5 +48,6 @@ describe('hasura', () => {
         console.log(res3)
 
         res4.unsubscribe()
+        res5.unsubscribe()
     })
 })

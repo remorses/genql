@@ -7,9 +7,9 @@ import React from 'react'
 import { generateQueryOp, QueryResult, QueryRequest } from '../generated/'
 
 const Page = () => {
-    const q: QueryRequest = {
+    const q = {
         countries: {
-            name: 1,
+            name: true,
             code: 1,
         },
     }

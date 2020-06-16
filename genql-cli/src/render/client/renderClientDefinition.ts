@@ -33,27 +33,6 @@ export const renderClientDefinition = (
             subscriptionType,
         }),
     )
-
-    // TODO remove different subscription client
-    if (subscriptionType) {
-        const subscriptionImports = [
-            requestTypeName(subscriptionType),
-            chainTypeName(subscriptionType, 'Observable'),
-            subscriptionType.name,
-        ]
-        ctx.addCodeBlock(
-            `import {${subscriptionImports.join(',')}} from './schema'`,
-        )
-        const subscriptionTypes = [
-            requestTypeName(subscriptionType),
-            chainTypeName(subscriptionType, 'Observable'),
-            subscriptionType.name,
-        ]
-        ctx.addCodeBlock(`
-        export declare const createSubscriptionClient:(options?:SubscriptionClientOptions)=>SubscriptionClient<${subscriptionTypes.join(
-            ',',
-        )}>`)
-    }
 }
 
 function renderClientTypesImports({
@@ -80,7 +59,7 @@ function renderClientTypesImports({
     if (subscriptionType) {
         imports.push(
             requestTypeName(subscriptionType),
-            chainTypeName(subscriptionType, 'Promise'),
+            chainTypeName(subscriptionType, 'Observable'),
             subscriptionType.name,
         )
     }
@@ -120,10 +99,10 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
         interfaceContent += `
         subscription(
             request: ${requestTypeName(subscriptionType)},
-        ): Promise<FieldsSelection<${subscriptionType.name}, R>>
+        ): Observable<FieldsSelection<${subscriptionType.name}, R>>
         `
         chainTypeContent += `
-        subscription: ${chainTypeName(subscriptionType, 'Promise')}
+        subscription: ${chainTypeName(subscriptionType, 'Observable')}
         `
     }
 

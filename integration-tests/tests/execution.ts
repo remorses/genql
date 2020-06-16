@@ -5,7 +5,7 @@ import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
 import { DeepPartial } from 'tsdef'
-import { createClient, User, createSubscriptionClient } from '../generated'
+import { createClient, User } from '../generated'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
@@ -97,7 +97,7 @@ describe('execute subscriptions', async function() {
                 },
             },
         })
-    const client = createSubscriptionClient({
+    const client = createClient({
         url: SUB_URL,
     })
 

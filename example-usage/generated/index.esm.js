@@ -8,21 +8,16 @@ import {
 var typeMap = linkTypeMap(require('./types.json'))
 export var createClient = function(options) {
   options = options || {}
-  var fetcherOpts = { url: 'https://countries.trevorblades.com' }
-  for (var attrname in options) {
-    fetcherOpts[attrname] = options[attrname]
-  }
-  return createClientOriginal({
-    fetcher: createFetcher(fetcherOpts),
+  var optionsCopy = {
+    url: 'https://countries.trevorblades.com',
     queryRoot: typeMap.Query,
     mutationRoot: typeMap.Mutation,
-  })
-}
-export var createSubscriptionClient = function(options) {
-  options = options || {}
-  options.url = options.url || 'https://countries.trevorblades.com'
-  options.subscriptionRoot = typeMap.Subscription
-  return createSubscriptionClientOriginal(options)
+    subscriptionRoot: typeMap.Subscription,
+  }
+  for (var name in options) {
+    optionsCopy[name] = options[name]
+  }
+  return createClientOriginal(optionsCopy)
 }
 export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
