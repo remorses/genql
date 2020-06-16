@@ -1,7 +1,7 @@
 {
     "name": "genql-runtime",
     "_": "[bump if genql-runtime]",
-    "version": "1.0.39",
+    "version": "1.0.40",
     "description": "",
     "main": "dist/index.js",
     "module": "esm/index.js",
