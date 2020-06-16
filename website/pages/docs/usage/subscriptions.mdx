@@ -1,0 +1,41 @@
+---
+name: Using Subscriptions
+---
+
+# Using Subscriptions
+
+Genql has a built in subscription client that returns an observable
+
+Additional options are passed down to `subscriptions-transport-ws`
+
+```js
+import { createSubscriptionClient, everything } from './generated'
+const subscriptionClient = createSubscriptionClient({
+    url: 'my-url',
+    headers: {
+        Authorization: 'Bearer ...',
+    },
+})
+
+const { unsubscribe } = await subscriptionClient
+    .subscription({
+        user: {
+            ...everything,
+        },
+    })
+    .subscribe({
+        next: (x) => console.log('next', x),
+        error: console.error,
+    })
+
+// using chain syntax
+const { unsubscribe } = await subscriptionClient.chain.subscription
+    .user({ where: { name: { _eq: 'John' } } })
+    .get({ ...everything })
+    .subscribe({
+        next: (x) => console.log('next', x),
+        error: console.error,
+    })
+
+unsubscribe()
+```

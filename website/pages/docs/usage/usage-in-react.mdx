@@ -1,0 +1,63 @@
+---
+name: Usage in React
+---
+
+# Usage in React
+
+Genql methods are just functions that return promises, to use genql in a react application you need a query manager like `swr` or `react-query`
+
+## Example with swr
+
+First install the packages if missing
+
+```
+npm i swr genql-runtime
+```
+
+```jsx
+import React, { useState } from 'react'
+import useSWR from 'swr'
+import { createClient, everything } from './generated'
+const client = createClient()
+
+const Page = () => {
+    const [filter, setFilter] = useState('.*')
+    const { data, error } = useSWR([filter], (filter) =>
+        client.query({
+            countries: [
+                { filter: { continent: { regex: filter } } },
+                { name: 1, code: 1, languages: { ...everything } },
+            ],
+        }),
+    )
+    return <div>{JSON.stringify(data)}</div>
+}
+```
+
+## Example with react-query
+
+First install the packages if missing
+
+```
+npm i react-query genql-runtime
+```
+
+```jsx
+import React, { useState } from 'react'
+import useSWR from 'swr'
+import { createClient, everything } from './generated'
+const client = createClient()
+
+const Page = () => {
+    const [regex, setRegex] = useState('.*')
+    const { data, error } = useQuery(['countries-key', regex], (_, regex) =>
+        client.query({
+            countries: [
+                { filter: { continent: { regex: regex } } },
+                { name: 1, code: 1 },
+            ],
+        }),
+    )
+    return <div>{JSON.stringify(data)}</div>
+}
+```
