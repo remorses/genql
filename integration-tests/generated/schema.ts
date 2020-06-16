@@ -67,59 +67,59 @@ export interface SubscriptionRequest{user?:UserRequest,__typename?:boolean|numbe
 export interface ForkConnectionRequest{edges?:ForkEdgeRequest,__typename?:boolean|number,__scalar?:boolean|number}
 
 
-  const Query_possibleTypes = ['Query']
-  export const isQuery = (obj: { __typename: String }): obj is Query => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return Query_possibleTypes.includes(obj.__typename)
-  }
+const Query_possibleTypes = ['Query']
+export const isQuery = (obj: { __typename: String }): obj is Query => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return Query_possibleTypes.includes(obj.__typename)
+}
 
 
 
-  const Repository_possibleTypes = ['Repository']
-  export const isRepository = (obj: { __typename: String }): obj is Repository => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return Repository_possibleTypes.includes(obj.__typename)
-  }
+const Repository_possibleTypes = ['Repository']
+export const isRepository = (obj: { __typename: String }): obj is Repository => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return Repository_possibleTypes.includes(obj.__typename)
+}
 
 
 
-  const ForkEdge_possibleTypes = ['ForkEdge']
-  export const isForkEdge = (obj: { __typename: String }): obj is ForkEdge => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return ForkEdge_possibleTypes.includes(obj.__typename)
-  }
+const ForkEdge_possibleTypes = ['ForkEdge']
+export const isForkEdge = (obj: { __typename: String }): obj is ForkEdge => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return ForkEdge_possibleTypes.includes(obj.__typename)
+}
 
 
 
-  const Fork_possibleTypes = ['Fork']
-  export const isFork = (obj: { __typename: String }): obj is Fork => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return Fork_possibleTypes.includes(obj.__typename)
-  }
+const Fork_possibleTypes = ['Fork']
+export const isFork = (obj: { __typename: String }): obj is Fork => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return Fork_possibleTypes.includes(obj.__typename)
+}
 
 
 
-  const User_possibleTypes = ['User']
-  export const isUser = (obj: { __typename: String }): obj is User => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return User_possibleTypes.includes(obj.__typename)
-  }
+const User_possibleTypes = ['User']
+export const isUser = (obj: { __typename: String }): obj is User => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return User_possibleTypes.includes(obj.__typename)
+}
 
 
 
-  const Subscription_possibleTypes = ['Subscription']
-  export const isSubscription = (obj: { __typename: String }): obj is Subscription => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return Subscription_possibleTypes.includes(obj.__typename)
-  }
+const Subscription_possibleTypes = ['Subscription']
+export const isSubscription = (obj: { __typename: String }): obj is Subscription => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return Subscription_possibleTypes.includes(obj.__typename)
+}
 
 
 
-  const ForkConnection_possibleTypes = ['ForkConnection']
-  export const isForkConnection = (obj: { __typename: String }): obj is ForkConnection => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return ForkConnection_possibleTypes.includes(obj.__typename)
-  }
+const ForkConnection_possibleTypes = ['ForkConnection']
+export const isForkConnection = (obj: { __typename: String }): obj is ForkConnection => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return ForkConnection_possibleTypes.includes(obj.__typename)
+}
 
 
 export interface QueryPromiseChain{

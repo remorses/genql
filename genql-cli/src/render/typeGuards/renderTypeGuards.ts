@@ -3,11 +3,11 @@ import { excludedTypes } from '../common/excludedTypes'
 import { RenderContext } from '../common/RenderContext'
 
 const renderTypeGuard = (target: string, possible: string[]) => `
-  const ${target}_possibleTypes = [${possible.map(t => `'${t}'`).join(',')}]
-  export const is${target} = (obj: { __typename: String }): obj is ${target} => {
-    if (!obj.__typename) throw new Error('__typename is missing')
-    return ${target}_possibleTypes.includes(obj.__typename)
-  }
+const ${target}_possibleTypes = [${possible.map(t => `'${t}'`).join(',')}]
+export const is${target} = (obj: { __typename: String }): obj is ${target} => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return ${target}_possibleTypes.includes(obj.__typename)
+}
 `
 
 export const renderTypeGuards = (schema: GraphQLSchema, ctx: RenderContext) => {
