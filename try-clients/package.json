@@ -5,11 +5,12 @@
     "main": "index.js",
     "scripts": {
         "test": "mocha",
-        "gen": "yarn hasura",
-        "hasura": "yarn --cwd .. play -e https://hasura-2334534.herokuapp.com/v1/graphql -o try-clients/hasura/generated"
+        "gen": "yarn hasura && yarn github",
+        "hasura": "yarn --cwd .. play -e https://hasura-2334534.herokuapp.com/v1/graphql -o try-clients/hasura/generated",
+        "github": "yarn --cwd .. play --schema try-clients/github.graphql -o try-clients/github/generated"
     },
     "mocha": {
-        "require": "sucrase/register",
+        "require": "tests/init",
         "spec": "tests/**.ts",
         "timeout": 9999999999
     },
@@ -18,7 +19,8 @@
     "license": "ISC",
     "dependencies": {
         "@shitty-scope-name/dsfxxxxxaxaxa": "1.1.0",
-        "@shitty-scope-name/hasura-testing-client-example-for-tests": "^1.3.0"
+        "@shitty-scope-name/hasura-testing-client-example-for-tests": "^1.3.0",
+        "dotenv": "^8.2.0"
     },
     "devDependencies": {
         "mocha": "^8.0.1",

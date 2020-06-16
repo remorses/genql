@@ -10,6 +10,7 @@ dist/*
 esm
 node_modules
 
+*.env
 # Runtime data
 pids
 *.pid
