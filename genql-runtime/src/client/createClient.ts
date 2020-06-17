@@ -142,6 +142,6 @@ function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
             },
             ...opts,
         },
-        ws,
+        typeof window == 'undefined' ? ws : undefined,
     )
 }
