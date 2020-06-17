@@ -43,7 +43,7 @@
         "pretty-quick": "^1.10.0",
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
-        "typescript": "^3.9.2"
+        "typescript": "^3.9.5"
     },
     "dependencies": {
         "@types/graphql": "^14.5.0",

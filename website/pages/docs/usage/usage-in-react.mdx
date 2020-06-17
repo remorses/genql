@@ -22,17 +22,20 @@ const client = createClient()
 
 const Page = () => {
     const [filter, setFilter] = useState('.*')
-    const { data, error } = useSWR([filter], (filter) =>
+    // IMPORTANT: you must declare the fetcher function separately or typescript completion will not work, it looks like that typescript has a a bug
+    const fetcher = (filter) =>
         client.query({
             countries: [
                 { filter: { continent: { regex: filter } } },
                 { name: 1, code: 1, languages: { ...everything } },
             ],
-        }),
-    )
+        })
+    const { data, error } = useSWR([filter], fetcher)
     return <div>{JSON.stringify(data)}</div>
 }
 ```
+
+> you must declare the fetcher function separately or typescript completion will not work, it looks like that typescript has a a bug
 
 ## Example with react-query
 
@@ -50,14 +53,17 @@ const client = createClient()
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')
-    const { data, error } = useQuery(['countries-key', regex], (_, regex) =>
+    // IMPORTANT: you must declare the fetcher function separately or typescript completion will not work, it looks like that typescript has a a bug
+    const fetcher = (_, regex) =>
         client.query({
             countries: [
                 { filter: { continent: { regex: regex } } },
                 { name: 1, code: 1 },
             ],
-        }),
-    )
+        })
+    const { data, error } = useQuery(['countries-key', regex], fetcher)
     return <div>{JSON.stringify(data)}</div>
 }
 ```
+
+> you must declare the fetcher function separately or typescript completion will not work, it looks like that typescript has a a bug

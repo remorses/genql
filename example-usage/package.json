@@ -45,6 +45,6 @@
         "mocha": "^7.1.2",
         "next-transpile-modules": "^3.3.0",
         "sucrase": "^3.14.0",
-        "typescript": "^3.9.2"
+        "typescript": "^3.9.5"
     }
 }

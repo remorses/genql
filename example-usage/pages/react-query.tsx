@@ -8,14 +8,14 @@ import { everything } from '../generated/'
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')
-    const { data, error } = useQuery(['countries', regex], (_, regex) =>
+    const func = (_, regex) =>
         client.query({
             countries: [
                 { filter: { continent: { regex: regex } } },
                 { name: 1, code: 1 },
             ],
-        }),
-    )
+        })
+    const { data, error } = useQuery(['countries', regex], func)
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero

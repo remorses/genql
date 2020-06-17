@@ -7,14 +7,14 @@ import { everything } from '../generated'
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')
-    const { data, error } = useSWR([regex], (regex) =>
+    const f = (regex) =>
         client.query({
             countries: [
-                { filter: { continent: { regex: regex } }, },
-                { name: 1, code: 1,  },
+                { filter: { continent: { regex: regex } } },
+                { name: 1, code: 1 },
             ],
-        }),
-    )
+        })
+    const { data, error } = useSWR([regex], f)
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero
