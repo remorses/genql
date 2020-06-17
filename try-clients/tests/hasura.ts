@@ -3,6 +3,12 @@ import { createClient, everything } from '../hasura/generated'
 describe('hasura', () => {
     const client = createClient({})
     it('simple normal syntax', async () => {
+        var res3 = await client.chain.mutation
+            .delete_user({
+                where: { id: { _eq: '3' } },
+            })
+            .get({ ...everything })
+        console.log(res3)
         var res4 = client
             .subscription({
                 user: {
@@ -38,13 +44,6 @@ describe('hasura', () => {
             },
         })
         console.log(res2)
-
-        var res3 = await client.chain.mutation
-            .delete_user({
-                where: { id: { _eq: '3' } },
-            })
-            .get({ ...everything })
-        console.log(res3)
 
         res4.unsubscribe()
         res5.unsubscribe()

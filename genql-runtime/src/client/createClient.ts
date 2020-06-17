@@ -120,10 +120,10 @@ const mapResponse = (path: string[], defaultValue: any = undefined) => (
 }
 
 function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
-    let { url, headers = {} } = opts.subscription || {}
+    let { url, headers = {} } = opts || {}
     // by default use the top level url
     if (!url) {
-        url = opts?.url
+        url = opts?.subscription?.url
     }
     if (!url) {
         throw new Error('Subscription client error: missing url parameter')

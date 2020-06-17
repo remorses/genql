@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "gen": "cd .. && yarn play -o example-usage/generated -e https://countries.trevorblades.com"
+        "gen": "cd .. && yarn play -o example-usage/generated -e https://countries.trevorblades.com",
+        "hasura": "cd .. && yarn play -o example-usage/hasura -e https://hasura-2334534.herokuapp.com/v1/graphql"
     },
     "mocha": {
         "require": "tests/init.js",
@@ -28,9 +29,10 @@
         "genql-cli": "*",
         "genql-runtime": "*",
         "graphql-tag": "^2.10.3",
-        "landing-blocks": "^1.0.29",
+        "landing-blocks": "^1.0.51",
         "react": "16.13.1",
         "react-dom": "16.13.1",
+        "react-extra-hooks": "^2.3.4",
         "react-icons": "^3.10.0",
         "react-query": "^1.5.3",
         "react-storage-hooks": "^4.0.1",

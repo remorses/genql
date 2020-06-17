@@ -8406,35 +8406,41 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
+kind-of@~5.0.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-5.0.2.tgz#f57bec933d9a2209ffa96c5c08343607b7035fda"
+  integrity sha512-ru8+TQHbN8956c7ZlkgK5Imjx0GMat3jN45GNIthpPeb+SzLrqSg/NG7llQtIqUTbrdu5Oi0lSnIoJmDTwwSzw==
+
 kleur@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-2.0.2.tgz#b704f4944d95e255d038f0cb05fb8a602c55a300"
   integrity sha512-77XF9iTllATmG9lSlIv0qdQ2BQ/h9t0bJllHlbvsQ0zUWfU7Yi0S8L5JXzPZgkefIiajLmBJJ4BsMJmqcf7oxQ==
 
-landing-blocks@^1.0.29:
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.29.tgz#c8b687211b899f2a357e1900fdc91b03cb991d2c"
-  integrity sha512-av+RNZ/OXmONrlENA7CCxenoh5k37ve+PDrapiFWkjZ5f68ATAozTTYNeYx33KobNVortO8R7nj55Nuk6tazcQ==
+landing-blocks@^1.0.49:
+  version "1.0.49"
+  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.49.tgz#b3719c1417ce58449030cf0bb11da1b090e935b1"
+  integrity sha512-e/sRUbCGCSVcNSR7JIEnSbm3DiFKgf+Qqfn0J+FNMHzcecVVRfG5BDfLyz6z9tqPmsD0U6NdtDNMC95MtPexDA==
   dependencies:
     "@emotion/styled" "^10.0.27"
     baby-i-am-faded "^0.0.12"
     color-js "^1.0.5"
     emotion-theming "^10.0.27"
     intersection-observer "^0.7.0"
+    layout-kit-react "^0.1.8"
     lodash.get "^4.4.2"
     lodash.merge "^4.6.2"
     prism-react-renderer "^1.1.0"
-    react-icons "^3.9.0"
     react-mailchimp-subscribe "^2.1.0"
-    react-script-hook "^1.0.17"
+    react-script-hook "^1.1.1"
     react-twitter-embed "^3.0.3"
     react-typical "^0.1.3"
     react-typist "^2.0.5"
+    utility-types "^3.10.0"
 
-landing-blocks@^1.0.49:
-  version "1.0.49"
-  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.49.tgz#b3719c1417ce58449030cf0bb11da1b090e935b1"
-  integrity sha512-e/sRUbCGCSVcNSR7JIEnSbm3DiFKgf+Qqfn0J+FNMHzcecVVRfG5BDfLyz6z9tqPmsD0U6NdtDNMC95MtPexDA==
+landing-blocks@^1.0.51:
+  version "1.0.51"
+  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.51.tgz#b096249593975ef56af8dd35b34ce0fd46f65c05"
+  integrity sha512-WGk1DWi99ElXUucEotCyrcwqfdPwTgmzuYae6L2f/+gqUy04xyuHhcVflMBFEhxp6w6sDTsceNO97GOp/OI71A==
   dependencies:
     "@emotion/styled" "^10.0.27"
     baby-i-am-faded "^0.0.12"
@@ -10899,6 +10905,19 @@ react-dom@16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-extra-hooks@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/react-extra-hooks/-/react-extra-hooks-2.3.4.tgz#1f666f9f7d5232489e2c2fd01d657feee9e0b299"
+  integrity sha512-PZeLJEZF8iVFNuSiaCZGh1JYBV/qiRRnkYo5lJhThgjMzQFFOl0IypNVew35Azz0BQqPnRE8sytpv6AB3vKc0w==
+  dependencies:
+    react-fast-compare "^3.1.1"
+    sort-keys-recursive "^2.0.1"
+
+react-fast-compare@^3.1.1:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
 react-final-form@^6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/react-final-form/-/react-final-form-6.4.0.tgz#7f9064c10a8bee6a02cd3e9b8aff06fa07f9c908"
@@ -10994,7 +11013,7 @@ react-runkit@^0.9.0:
   resolved "https://registry.yarnpkg.com/react-runkit/-/react-runkit-0.9.0.tgz#8a97aec60c2fcf9da17b0af2bb91a877e4336b05"
   integrity sha1-ipeuxgwvz52hewryu5God+QzawU=
 
-react-script-hook@^1.0.17, react-script-hook@^1.1.1:
+react-script-hook@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-script-hook/-/react-script-hook-1.1.1.tgz#63e06ee04188f04ae411e6dd70b9b1434152d4f1"
   integrity sha512-numo44ztaQXKBWdJFiSeBsn0tnpZh7BND3PENwlzk0ya5atMQofjSmNvbfIy4pLmS488PFM5mH6kW3Ruj3aWDg==
@@ -11895,10 +11914,25 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
+sort-keys-recursive@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/sort-keys-recursive/-/sort-keys-recursive-2.0.1.tgz#c13609c1dcf8d314839e132f03c38e1982892b7e"
+  integrity sha512-Uv5S24RrFDg0sesRe6IwquH7JVNA2h+d3PEUx0rtK7nbbhmmYlXGmkhcYsfTVpcp/skEJBPNHqzf3GVmmFk3zA==
+  dependencies:
+    kind-of "~5.0.0"
+    sort-keys "~2.0.0"
+
 sort-keys@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
   integrity sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
+  dependencies:
+    is-plain-obj "^1.0.0"
+
+sort-keys@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-2.0.0.tgz#658535584861ec97d730d6cf41822e1f56684128"
+  integrity sha1-ZYU1WEhh7JfXMNbPQYIuH1ZoQSg=
   dependencies:
     is-plain-obj "^1.0.0"
 
