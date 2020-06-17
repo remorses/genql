@@ -1,4 +1,4 @@
-name: genql-cli-cli Npm Package
+name: genql-cli Npm Package
 
 on:
   push:
