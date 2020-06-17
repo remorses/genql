@@ -2,10 +2,12 @@ import { createClient, everything } from '../hasura/generated'
 
 describe('hasura', () => {
     const client = createClient({})
+    const name = 'John'
+    const id = '4'
     it('simple normal syntax', async () => {
         var res3 = await client.chain.mutation
             .delete_user({
-                where: { id: { _eq: '3' } },
+                where: { id: { _eq: id } },
             })
             .get({ ...everything })
         console.log(res3)
@@ -30,8 +32,8 @@ describe('hasura', () => {
                 objects: [
                     {
                         age: 1,
-                        id: '3',
-                        name: 'xxxx',
+                        id,
+                        name,
                     },
                 ],
             })

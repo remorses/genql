@@ -132,7 +132,7 @@ function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
         headers = headers()
     }
     return new WsSubscriptionClient(
-        opts?.url,
+        url,
         {
             lazy: true,
             reconnect: true,
