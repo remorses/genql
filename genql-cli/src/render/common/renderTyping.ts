@@ -17,7 +17,7 @@ const render = (
         return `: ${render(type.ofType, true, false, undefinableValues, undefinableFields)}`
       } else {
         const rendered = render(type, true, false, undefinableValues, undefinableFields)
-        return undefinableValues ? `?:${rendered}` : `?:(${rendered}|null)`
+        return undefinableValues ? `?: ${rendered}` : `?: (${rendered}|null)`
       }
     } else {
       return `: ${render(type, false, false, undefinableValues, undefinableFields)}`
