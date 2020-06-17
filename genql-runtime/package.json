@@ -1,7 +1,7 @@
 {
     "name": "genql-runtime",
     "_": "[bump if genql-runtime]",
-    "version": "1.0.42",
+    "version": "1.0.43",
     "description": "Genql runtime client",
     "repository": {
         "url": "https://github.com/remorses/genql"
