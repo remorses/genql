@@ -1,4 +1,4 @@
-Inspiration of this library are existing projects like
+Inspirations of this library are existing projects like
 
 -   [Graphql Zeus](https://github.com/graphql-editor/graphql-zeus)
 -   [Graphql typed client](https://github.com/helios1138/graphql-typed-client)
