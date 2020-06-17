@@ -202,27 +202,27 @@ export interface query_rootRequest{
     /** fetch data from the table: "user" */
     user?: [{
     /** distinct select on columns */
-    distinct_on?:(user_select_column[]|null),
+    distinct_on?: (user_select_column[]|null),
     /** limit the number of rows returned */
-    limit?:(Int|null),
+    limit?: (Int|null),
     /** skip the first n rows. Use only with order_by */
-    offset?:(Int|null),
+    offset?: (Int|null),
     /** sort the rows by one or more columns */
-    order_by?:(user_order_by[]|null),
+    order_by?: (user_order_by[]|null),
     /** filter the rows returned */
-    where?:(user_bool_exp|null)},userRequest]|userRequest
+    where?: (user_bool_exp|null)},userRequest]|userRequest
     /** fetch aggregated fields from the table: "user" */
     user_aggregate?: [{
     /** distinct select on columns */
-    distinct_on?:(user_select_column[]|null),
+    distinct_on?: (user_select_column[]|null),
     /** limit the number of rows returned */
-    limit?:(Int|null),
+    limit?: (Int|null),
     /** skip the first n rows. Use only with order_by */
-    offset?:(Int|null),
+    offset?: (Int|null),
     /** sort the rows by one or more columns */
-    order_by?:(user_order_by[]|null),
+    order_by?: (user_order_by[]|null),
     /** filter the rows returned */
-    where?:(user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
+    where?: (user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
     /** fetch data from the table: "user" using primary key columns */
     user_by_pk?: [{id: String},userRequest]
     __typename?: boolean|number
@@ -231,19 +231,19 @@ export interface query_rootRequest{
 
 
 /** ordering options when selecting data from "user" */
-export interface user_order_by{age?:(order_by|null),id?:(order_by|null),name?:(order_by|null)}
+export interface user_order_by{age?: (order_by|null),id?: (order_by|null),name?: (order_by|null)}
 
 
 /** Boolean expression to filter rows from the table "user". All fields are combined with a logical 'AND'. */
-export interface user_bool_exp{_and?:((user_bool_exp|null)[]|null),_not?:(user_bool_exp|null),_or?:((user_bool_exp|null)[]|null),age?:(Int_comparison_exp|null),id?:(String_comparison_exp|null),name?:(String_comparison_exp|null)}
+export interface user_bool_exp{_and?: ((user_bool_exp|null)[]|null),_not?: (user_bool_exp|null),_or?: ((user_bool_exp|null)[]|null),age?: (Int_comparison_exp|null),id?: (String_comparison_exp|null),name?: (String_comparison_exp|null)}
 
 
 /** expression to compare columns of type Int. All fields are combined with logical 'AND'. */
-export interface Int_comparison_exp{_eq?:(Int|null),_gt?:(Int|null),_gte?:(Int|null),_in?:(Int[]|null),_is_null?:(Boolean|null),_lt?:(Int|null),_lte?:(Int|null),_neq?:(Int|null),_nin?:(Int[]|null)}
+export interface Int_comparison_exp{_eq?: (Int|null),_gt?: (Int|null),_gte?: (Int|null),_in?: (Int[]|null),_is_null?: (Boolean|null),_lt?: (Int|null),_lte?: (Int|null),_neq?: (Int|null),_nin?: (Int[]|null)}
 
 
 /** expression to compare columns of type String. All fields are combined with logical 'AND'. */
-export interface String_comparison_exp{_eq?:(String|null),_gt?:(String|null),_gte?:(String|null),_ilike?:(String|null),_in?:(String[]|null),_is_null?:(Boolean|null),_like?:(String|null),_lt?:(String|null),_lte?:(String|null),_neq?:(String|null),_nilike?:(String|null),_nin?:(String[]|null),_nlike?:(String|null),_nsimilar?:(String|null),_similar?:(String|null)}
+export interface String_comparison_exp{_eq?: (String|null),_gt?: (String|null),_gte?: (String|null),_ilike?: (String|null),_in?: (String[]|null),_is_null?: (Boolean|null),_like?: (String|null),_lt?: (String|null),_lte?: (String|null),_neq?: (String|null),_nilike?: (String|null),_nin?: (String[]|null),_nlike?: (String|null),_nsimilar?: (String|null),_similar?: (String|null)}
 
 
 /** columns and relationships of "user" */
@@ -268,7 +268,7 @@ export interface user_aggregateRequest{
 /** aggregate fields of "user" */
 export interface user_aggregate_fieldsRequest{
     avg?: user_avg_fieldsRequest
-    count?: [{columns?:(user_select_column[]|null),distinct?:(Boolean|null)}]|boolean|number
+    count?: [{columns?: (user_select_column[]|null),distinct?: (Boolean|null)}]|boolean|number
     max?: user_max_fieldsRequest
     min?: user_min_fieldsRequest
     stddev?: user_stddev_fieldsRequest
@@ -380,27 +380,27 @@ export interface mutation_rootRequest{
     /** the rows to be inserted */
     objects: user_insert_input[],
     /** on conflict condition */
-    on_conflict?:(user_on_conflict|null)},user_mutation_responseRequest]
+    on_conflict?: (user_on_conflict|null)},user_mutation_responseRequest]
     /** insert a single row into the table: "user" */
     insert_user_one?: [{
     /** the row to be inserted */
     object: user_insert_input,
     /** on conflict condition */
-    on_conflict?:(user_on_conflict|null)},userRequest]
+    on_conflict?: (user_on_conflict|null)},userRequest]
     /** update data of the table: "user" */
     update_user?: [{
     /** increments the integer columns with given value of the filtered values */
-    _inc?:(user_inc_input|null),
+    _inc?: (user_inc_input|null),
     /** sets the columns of the filtered rows to the given values */
-    _set?:(user_set_input|null),
+    _set?: (user_set_input|null),
     /** filter the rows which have to be updated */
     where: user_bool_exp},user_mutation_responseRequest]
     /** update single row of the table: "user" */
     update_user_by_pk?: [{
     /** increments the integer columns with given value of the filtered values */
-    _inc?:(user_inc_input|null),
+    _inc?: (user_inc_input|null),
     /** sets the columns of the filtered rows to the given values */
-    _set?:(user_set_input|null),pk_columns: user_pk_columns_input},userRequest]
+    _set?: (user_set_input|null),pk_columns: user_pk_columns_input},userRequest]
     __typename?: boolean|number
     __scalar?: boolean|number
 }
@@ -418,19 +418,19 @@ export interface user_mutation_responseRequest{
 
 
 /** input type for inserting data into table "user" */
-export interface user_insert_input{age?:(Int|null),id?:(String|null),name?:(String|null)}
+export interface user_insert_input{age?: (Int|null),id?: (String|null),name?: (String|null)}
 
 
 /** on conflict condition type for table "user" */
-export interface user_on_conflict{constraint: user_constraint,update_columns: user_update_column[],where?:(user_bool_exp|null)}
+export interface user_on_conflict{constraint: user_constraint,update_columns: user_update_column[],where?: (user_bool_exp|null)}
 
 
 /** input type for incrementing integer column in table "user" */
-export interface user_inc_input{age?:(Int|null)}
+export interface user_inc_input{age?: (Int|null)}
 
 
 /** input type for updating data in table "user" */
-export interface user_set_input{age?:(Int|null),id?:(String|null),name?:(String|null)}
+export interface user_set_input{age?: (Int|null),id?: (String|null),name?: (String|null)}
 
 
 /** primary key columns input for table: "user" */
@@ -442,27 +442,27 @@ export interface subscription_rootRequest{
     /** fetch data from the table: "user" */
     user?: [{
     /** distinct select on columns */
-    distinct_on?:(user_select_column[]|null),
+    distinct_on?: (user_select_column[]|null),
     /** limit the number of rows returned */
-    limit?:(Int|null),
+    limit?: (Int|null),
     /** skip the first n rows. Use only with order_by */
-    offset?:(Int|null),
+    offset?: (Int|null),
     /** sort the rows by one or more columns */
-    order_by?:(user_order_by[]|null),
+    order_by?: (user_order_by[]|null),
     /** filter the rows returned */
-    where?:(user_bool_exp|null)},userRequest]|userRequest
+    where?: (user_bool_exp|null)},userRequest]|userRequest
     /** fetch aggregated fields from the table: "user" */
     user_aggregate?: [{
     /** distinct select on columns */
-    distinct_on?:(user_select_column[]|null),
+    distinct_on?: (user_select_column[]|null),
     /** limit the number of rows returned */
-    limit?:(Int|null),
+    limit?: (Int|null),
     /** skip the first n rows. Use only with order_by */
-    offset?:(Int|null),
+    offset?: (Int|null),
     /** sort the rows by one or more columns */
-    order_by?:(user_order_by[]|null),
+    order_by?: (user_order_by[]|null),
     /** filter the rows returned */
-    where?:(user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
+    where?: (user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
     /** fetch data from the table: "user" using primary key columns */
     user_by_pk?: [{id: String},userRequest]
     __typename?: boolean|number
@@ -471,55 +471,55 @@ export interface subscription_rootRequest{
 
 
 /** order by aggregate values of table "user" */
-export interface user_aggregate_order_by{avg?:(user_avg_order_by|null),count?:(order_by|null),max?:(user_max_order_by|null),min?:(user_min_order_by|null),stddev?:(user_stddev_order_by|null),stddev_pop?:(user_stddev_pop_order_by|null),stddev_samp?:(user_stddev_samp_order_by|null),sum?:(user_sum_order_by|null),var_pop?:(user_var_pop_order_by|null),var_samp?:(user_var_samp_order_by|null),variance?:(user_variance_order_by|null)}
+export interface user_aggregate_order_by{avg?: (user_avg_order_by|null),count?: (order_by|null),max?: (user_max_order_by|null),min?: (user_min_order_by|null),stddev?: (user_stddev_order_by|null),stddev_pop?: (user_stddev_pop_order_by|null),stddev_samp?: (user_stddev_samp_order_by|null),sum?: (user_sum_order_by|null),var_pop?: (user_var_pop_order_by|null),var_samp?: (user_var_samp_order_by|null),variance?: (user_variance_order_by|null)}
 
 
 /** order by avg() on columns of table "user" */
-export interface user_avg_order_by{age?:(order_by|null)}
+export interface user_avg_order_by{age?: (order_by|null)}
 
 
 /** order by max() on columns of table "user" */
-export interface user_max_order_by{age?:(order_by|null),id?:(order_by|null),name?:(order_by|null)}
+export interface user_max_order_by{age?: (order_by|null),id?: (order_by|null),name?: (order_by|null)}
 
 
 /** order by min() on columns of table "user" */
-export interface user_min_order_by{age?:(order_by|null),id?:(order_by|null),name?:(order_by|null)}
+export interface user_min_order_by{age?: (order_by|null),id?: (order_by|null),name?: (order_by|null)}
 
 
 /** order by stddev() on columns of table "user" */
-export interface user_stddev_order_by{age?:(order_by|null)}
+export interface user_stddev_order_by{age?: (order_by|null)}
 
 
 /** order by stddev_pop() on columns of table "user" */
-export interface user_stddev_pop_order_by{age?:(order_by|null)}
+export interface user_stddev_pop_order_by{age?: (order_by|null)}
 
 
 /** order by stddev_samp() on columns of table "user" */
-export interface user_stddev_samp_order_by{age?:(order_by|null)}
+export interface user_stddev_samp_order_by{age?: (order_by|null)}
 
 
 /** order by sum() on columns of table "user" */
-export interface user_sum_order_by{age?:(order_by|null)}
+export interface user_sum_order_by{age?: (order_by|null)}
 
 
 /** order by var_pop() on columns of table "user" */
-export interface user_var_pop_order_by{age?:(order_by|null)}
+export interface user_var_pop_order_by{age?: (order_by|null)}
 
 
 /** order by var_samp() on columns of table "user" */
-export interface user_var_samp_order_by{age?:(order_by|null)}
+export interface user_var_samp_order_by{age?: (order_by|null)}
 
 
 /** order by variance() on columns of table "user" */
-export interface user_variance_order_by{age?:(order_by|null)}
+export interface user_variance_order_by{age?: (order_by|null)}
 
 
 /** input type for inserting array relation for remote table "user" */
-export interface user_arr_rel_insert_input{data: user_insert_input[],on_conflict?:(user_on_conflict|null)}
+export interface user_arr_rel_insert_input{data: user_insert_input[],on_conflict?: (user_on_conflict|null)}
 
 
 /** input type for inserting object relation for remote table "user" */
-export interface user_obj_rel_insert_input{data: user_insert_input,on_conflict?:(user_on_conflict|null)}
+export interface user_obj_rel_insert_input{data: user_insert_input,on_conflict?: (user_on_conflict|null)}
 
 
 const query_root_possibleTypes = ['query_root']
@@ -663,27 +663,27 @@ export interface query_rootPromiseChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>}),
+where?: (user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
+where?: (user_bool_exp|null)})=>user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
 user_by_pk:((args:{id: String})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>})}
 
@@ -693,27 +693,27 @@ export interface query_rootObservableChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>}),
+where?: (user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
+where?: (user_bool_exp|null)})=>user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
 user_by_pk:((args:{id: String})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>})}
 
@@ -735,11 +735,11 @@ export interface user_aggregateObservableChain{aggregate:(user_aggregate_fieldsO
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fieldsPromiseChain{avg:(user_avg_fieldsPromiseChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_avg_fields, R>|null))=>Promise<(FieldsSelection<user_avg_fields, R>|null)>}),count:((args?:{columns?:(user_select_column[]|null),distinct?:(Boolean|null)})=>{get:(request?:boolean|number,defaultValue?:(Int|null))=>Promise<(Int|null)>})&({get:(request?:boolean|number,defaultValue?:(Int|null))=>Promise<(Int|null)>}),max:(user_max_fieldsPromiseChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_max_fields, R>|null))=>Promise<(FieldsSelection<user_max_fields, R>|null)>}),min:(user_min_fieldsPromiseChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_min_fields, R>|null))=>Promise<(FieldsSelection<user_min_fields, R>|null)>}),stddev:(user_stddev_fieldsPromiseChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_fields, R>|null)>}),stddev_pop:(user_stddev_pop_fieldsPromiseChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_pop_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_pop_fields, R>|null)>}),stddev_samp:(user_stddev_samp_fieldsPromiseChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_samp_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_samp_fields, R>|null)>}),sum:(user_sum_fieldsPromiseChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_sum_fields, R>|null))=>Promise<(FieldsSelection<user_sum_fields, R>|null)>}),var_pop:(user_var_pop_fieldsPromiseChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_pop_fields, R>|null))=>Promise<(FieldsSelection<user_var_pop_fields, R>|null)>}),var_samp:(user_var_samp_fieldsPromiseChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_samp_fields, R>|null))=>Promise<(FieldsSelection<user_var_samp_fields, R>|null)>}),variance:(user_variance_fieldsPromiseChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_variance_fields, R>|null))=>Promise<(FieldsSelection<user_variance_fields, R>|null)>})}
+export interface user_aggregate_fieldsPromiseChain{avg:(user_avg_fieldsPromiseChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_avg_fields, R>|null))=>Promise<(FieldsSelection<user_avg_fields, R>|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Boolean|null)})=>{get:(request?:boolean|number,defaultValue?:(Int|null))=>Promise<(Int|null)>})&({get:(request?:boolean|number,defaultValue?:(Int|null))=>Promise<(Int|null)>}),max:(user_max_fieldsPromiseChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_max_fields, R>|null))=>Promise<(FieldsSelection<user_max_fields, R>|null)>}),min:(user_min_fieldsPromiseChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_min_fields, R>|null))=>Promise<(FieldsSelection<user_min_fields, R>|null)>}),stddev:(user_stddev_fieldsPromiseChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_fields, R>|null)>}),stddev_pop:(user_stddev_pop_fieldsPromiseChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_pop_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_pop_fields, R>|null)>}),stddev_samp:(user_stddev_samp_fieldsPromiseChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_samp_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_samp_fields, R>|null)>}),sum:(user_sum_fieldsPromiseChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_sum_fields, R>|null))=>Promise<(FieldsSelection<user_sum_fields, R>|null)>}),var_pop:(user_var_pop_fieldsPromiseChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_pop_fields, R>|null))=>Promise<(FieldsSelection<user_var_pop_fields, R>|null)>}),var_samp:(user_var_samp_fieldsPromiseChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_samp_fields, R>|null))=>Promise<(FieldsSelection<user_var_samp_fields, R>|null)>}),variance:(user_variance_fieldsPromiseChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_variance_fields, R>|null))=>Promise<(FieldsSelection<user_variance_fields, R>|null)>})}
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fieldsObservableChain{avg:(user_avg_fieldsObservableChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_avg_fields, R>|null))=>Observable<(FieldsSelection<user_avg_fields, R>|null)>}),count:((args?:{columns?:(user_select_column[]|null),distinct?:(Boolean|null)})=>{get:(request?:boolean|number,defaultValue?:(Int|null))=>Observable<(Int|null)>})&({get:(request?:boolean|number,defaultValue?:(Int|null))=>Observable<(Int|null)>}),max:(user_max_fieldsObservableChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_max_fields, R>|null))=>Observable<(FieldsSelection<user_max_fields, R>|null)>}),min:(user_min_fieldsObservableChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_min_fields, R>|null))=>Observable<(FieldsSelection<user_min_fields, R>|null)>}),stddev:(user_stddev_fieldsObservableChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_fields, R>|null)>}),stddev_pop:(user_stddev_pop_fieldsObservableChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_pop_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_pop_fields, R>|null)>}),stddev_samp:(user_stddev_samp_fieldsObservableChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_samp_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_samp_fields, R>|null)>}),sum:(user_sum_fieldsObservableChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_sum_fields, R>|null))=>Observable<(FieldsSelection<user_sum_fields, R>|null)>}),var_pop:(user_var_pop_fieldsObservableChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_pop_fields, R>|null))=>Observable<(FieldsSelection<user_var_pop_fields, R>|null)>}),var_samp:(user_var_samp_fieldsObservableChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_samp_fields, R>|null))=>Observable<(FieldsSelection<user_var_samp_fields, R>|null)>}),variance:(user_variance_fieldsObservableChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_variance_fields, R>|null))=>Observable<(FieldsSelection<user_variance_fields, R>|null)>})}
+export interface user_aggregate_fieldsObservableChain{avg:(user_avg_fieldsObservableChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_avg_fields, R>|null))=>Observable<(FieldsSelection<user_avg_fields, R>|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Boolean|null)})=>{get:(request?:boolean|number,defaultValue?:(Int|null))=>Observable<(Int|null)>})&({get:(request?:boolean|number,defaultValue?:(Int|null))=>Observable<(Int|null)>}),max:(user_max_fieldsObservableChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_max_fields, R>|null))=>Observable<(FieldsSelection<user_max_fields, R>|null)>}),min:(user_min_fieldsObservableChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_min_fields, R>|null))=>Observable<(FieldsSelection<user_min_fields, R>|null)>}),stddev:(user_stddev_fieldsObservableChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_fields, R>|null)>}),stddev_pop:(user_stddev_pop_fieldsObservableChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_pop_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_pop_fields, R>|null)>}),stddev_samp:(user_stddev_samp_fieldsObservableChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_samp_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_samp_fields, R>|null)>}),sum:(user_sum_fieldsObservableChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_sum_fields, R>|null))=>Observable<(FieldsSelection<user_sum_fields, R>|null)>}),var_pop:(user_var_pop_fieldsObservableChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_pop_fields, R>|null))=>Observable<(FieldsSelection<user_var_pop_fields, R>|null)>}),var_samp:(user_var_samp_fieldsObservableChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_samp_fields, R>|null))=>Observable<(FieldsSelection<user_var_samp_fields, R>|null)>}),variance:(user_variance_fieldsObservableChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_variance_fields, R>|null))=>Observable<(FieldsSelection<user_variance_fields, R>|null)>})}
 
 
 /** aggregate avg on columns */
@@ -835,27 +835,27 @@ insert_user:((args:{
 /** the rows to be inserted */
 objects: user_insert_input[],
 /** on conflict condition */
-on_conflict?:(user_on_conflict|null)})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Promise<(FieldsSelection<user_mutation_response, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Promise<(FieldsSelection<user_mutation_response, R>|null)>}),
 /** insert a single row into the table: "user" */
 insert_user_one:((args:{
 /** the row to be inserted */
 object: user_insert_input,
 /** on conflict condition */
-on_conflict?:(user_on_conflict|null)})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>}),
 /** update data of the table: "user" */
 update_user:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?:(user_inc_input|null),
+_inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
-_set?:(user_set_input|null),
+_set?: (user_set_input|null),
 /** filter the rows which have to be updated */
 where: user_bool_exp})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Promise<(FieldsSelection<user_mutation_response, R>|null)>}),
 /** update single row of the table: "user" */
 update_user_by_pk:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?:(user_inc_input|null),
+_inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
-_set?:(user_set_input|null),pk_columns: user_pk_columns_input})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>})}
+_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>})}
 
 
 /** mutation root */
@@ -871,27 +871,27 @@ insert_user:((args:{
 /** the rows to be inserted */
 objects: user_insert_input[],
 /** on conflict condition */
-on_conflict?:(user_on_conflict|null)})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Observable<(FieldsSelection<user_mutation_response, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Observable<(FieldsSelection<user_mutation_response, R>|null)>}),
 /** insert a single row into the table: "user" */
 insert_user_one:((args:{
 /** the row to be inserted */
 object: user_insert_input,
 /** on conflict condition */
-on_conflict?:(user_on_conflict|null)})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>}),
 /** update data of the table: "user" */
 update_user:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?:(user_inc_input|null),
+_inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
-_set?:(user_set_input|null),
+_set?: (user_set_input|null),
 /** filter the rows which have to be updated */
 where: user_bool_exp})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Observable<(FieldsSelection<user_mutation_response, R>|null)>}),
 /** update single row of the table: "user" */
 update_user_by_pk:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?:(user_inc_input|null),
+_inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
-_set?:(user_set_input|null),pk_columns: user_pk_columns_input})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>})}
+_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>})}
 
 
 /** response of any mutation on the table "user" */
@@ -915,27 +915,27 @@ export interface subscription_rootPromiseChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>}),
+where?: (user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
+where?: (user_bool_exp|null)})=>user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
 user_by_pk:((args:{id: String})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>})}
 
@@ -945,26 +945,26 @@ export interface subscription_rootObservableChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>}),
+where?: (user_bool_exp|null)})=>{get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>})&({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?:(user_select_column[]|null),
+distinct_on?: (user_select_column[]|null),
 /** limit the number of rows returned */
-limit?:(Int|null),
+limit?: (Int|null),
 /** skip the first n rows. Use only with order_by */
-offset?:(Int|null),
+offset?: (Int|null),
 /** sort the rows by one or more columns */
-order_by?:(user_order_by[]|null),
+order_by?: (user_order_by[]|null),
 /** filter the rows returned */
-where?:(user_bool_exp|null)})=>user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
+where?: (user_bool_exp|null)})=>user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
 user_by_pk:((args:{id: String})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>})}
