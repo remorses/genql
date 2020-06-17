@@ -8,7 +8,7 @@ import { useObservable } from 'react-extra-hooks'
 
 const client = createClient({
     subscription: {
-        url: 'ws://hasura-2334534.herokuapp.com/v1/graphql',
+        url: 'wss://hasura-2334534.herokuapp.com/v1/graphql',
     },
 })
 
