@@ -3,7 +3,7 @@ Inspirations of this library are existing projects like
 -   [Graphql Zeus](https://github.com/graphql-editor/graphql-zeus)
 -   [Graphql typed client](https://github.com/helios1138/graphql-typed-client)
 
-I looked for a library that took the best of all existing ones and more
+I wanted to build a library that had all the existing features and more:
 
 -   Result type fields inferred
 -   Fields auto completion and required fields validation
