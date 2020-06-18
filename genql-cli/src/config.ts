@@ -16,7 +16,7 @@ export interface Config {
     useGet?: boolean
     schema?: string
     output?: string
-    fetcher?: string | SchemaFetcher
     options?: Options
+    headers?: Record<string, string>
     scalarTypes?: { [k: string]: string }
 }

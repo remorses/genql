@@ -14,28 +14,31 @@ export interface SchemaFetcher {
     >
 }
 
-export const get = <T>(uri: string, query: { [arg: string]: any }) =>
-    fetch(`${uri}?${qs.stringify(query)}`)
-
-export const post = <T>(uri: string, body: { [arg: string]: any }) =>
-    fetch(uri, {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: { 'Content-Type': 'application/json' },
-    })
-
-export const fetchSchema = async (
-    endpoint: string,
+export const fetchSchema = async ({
+    endpoint,
     usePost = false,
-    options?: GraphQLSchemaValidationOptions,
-) => {
-    const response = usePost
-        ? await post<ExecutionResult<IntrospectionQuery>>(endpoint, {
-              query: getIntrospectionQuery(),
-          })
-        : await get<ExecutionResult<IntrospectionQuery>>(endpoint, {
-              query: getIntrospectionQuery(),
-          })
+    headers,
+    options,
+}: {
+    endpoint: string
+    usePost: boolean
+    headers?: Record<string, string>
+    options?: GraphQLSchemaValidationOptions
+}) => {
+    const response = await fetch(
+        usePost
+            ? endpoint
+            : `${endpoint}?${qs.stringify({ query: getIntrospectionQuery() })}`,
+        usePost
+            ? {
+                  method: usePost ? 'POST' : 'GET',
+                  body: JSON.stringify({ query: getIntrospectionQuery() }),
+                  headers: { ...headers, 'Content-Type': 'application/json' },
+              }
+            : {
+                  headers,
+              },
+    )
     if (!response.ok) {
         throw new Error(
             'introspection query was not successful, ' + response.statusText,

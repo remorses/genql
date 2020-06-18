@@ -49,6 +49,7 @@
         "@types/graphql": "^14.5.0",
         "@types/node": "*",
         "@types/prettier": "^1.19.0",
+        "@types/yargs": "^15.0.5",
         "chalk": "^2.4.2",
         "commander": "^2.19.0",
         "graphql": "^14.5.8",
@@ -58,7 +59,8 @@
         "mkdirp": "^0.5.1",
         "prettier": "^1.19.1",
         "qs": "^6.9.1",
-        "rimraf": "^2.6.3"
+        "rimraf": "^2.6.3",
+        "yargs": "^15.3.1"
     },
     "jest": {
         "transform": {
