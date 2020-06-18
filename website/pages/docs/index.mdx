@@ -34,7 +34,7 @@ Then run the genql command to generate the client inside a directory
 ```bash
 genql --schema ./schema.graphql --out ./generated
 # or using a graphql api url
-genql --endpoint https://countries.trevorblades.com --out ./generated --header 'Autorization: Bearer myToken'
+genql --endpoint https://countries.trevorblades.com --out ./generated -H 'Autorization: Bearer myToken'
 ```
 
 ## Using the client
