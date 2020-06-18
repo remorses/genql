@@ -55,3 +55,13 @@ query {
     }
 }
 ```
+
+---
+
+## Sponsors
+
+[![Vercel](https://genql.now.sh/vercel-logo.svg)](https://vercel.com?utm_source=genql)
+
+---
+
+[Licensed under MIT]().
