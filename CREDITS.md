@@ -10,5 +10,6 @@ I wanted to build a library that had all the existing features and more:
 -   Fragments creation
 -   Use variables instead of string interpolation
 -   Subscription support
+-   Chain syntax using proxy objects
 -   Generate queries without using the client
 -   use the everything object to query all scalar fields
