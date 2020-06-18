@@ -54,7 +54,7 @@ query {
 }`
 
 const Page = () => (
-    <Stack align='stretch' spacing='40px'>
+    <Stack w='100%' align='stretch' spacing='40px'>
         <Hero
             bullet='Introducing Genql 1.0'
             dark
@@ -82,8 +82,8 @@ const Page = () => (
                             <CodeSnippet
                                 key='2'
                                 overflow='hidden'
-                                w='auto'
-                                minWidth='300px'
+                                // w='auto'
+                                // w='300px'
                                 language='javascript'
                                 // isTyping
                                 code={jsQueryCode}
@@ -145,8 +145,7 @@ const Page = () => (
                     fontSize={['sm', null, 'md']}
                     spacing='40px'
                     justify='center'
-                    flexDir={['column', null, 'row']}
-                    direction='row'
+                    direction={['column', null, 'row']}
                     align='center'
                 >
                     <CodeSnippet
@@ -155,7 +154,7 @@ const Page = () => (
                         lineNumbers
                         // w='500px'
                         w='auto'
-                        minWidth='300px'
+                        // minWidth='300px'
                         code={jsQueryCode}
                         language='javascript'
                     />
@@ -170,7 +169,7 @@ const Page = () => (
                         shadow='xl'
                         lineNumbers
                         w='auto'
-                        minWidth='300px'
+                        // minWidth='300px'
                         code={gqlQueryCode}
                         language='graphql'
                     />
@@ -225,7 +224,7 @@ const Page = () => (
         <Section degree={0} zIndex={1} bg='white'>
             <Banner
                 // dark
-                heading='Want to use the cli instead?' 
+                heading='Want to use the cli instead?'
                 bullet='cli is cool too'
                 subheading='You can generate the client locally based on an endpoint or a local graphql schema.'
                 bg='transparent'

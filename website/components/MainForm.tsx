@@ -124,7 +124,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
                         <Stack
                             // justify='center'
                             // align='space-between'
-                            minW='100%'
+                            // minW='100%'
                             p='60px'
                             borderRadius='10px'
                             shadow='xl'
@@ -187,6 +187,7 @@ const MainFormContent = ({
     if (submitting || loading) {
         return (
             <Stack
+                mx='20px'
                 // color='primary'
                 align='center'
                 justify='center'
@@ -255,11 +256,11 @@ const MainFormContent = ({
         return (
             <Stack
                 // flexDir={['column', null, null, 'row']}
-                spacing={['50px', null, '30px']}
-                direction={['column', null, 'row']}
+                spacing={['50px', null, null, '30px']}
+                direction={['column', null, null, 'row']}
                 // shouldWrapChildren
-                justify={['space-between', null, 'center']}
-                align={['center', null, 'flex-end']}
+                justify={['space-between', null, null, 'center']}
+                align={['center', null, null, 'flex-end']}
             >
                 <Stack flex='1' position='relative' spacing='10px'>
                     <Label>Npm package name</Label>
