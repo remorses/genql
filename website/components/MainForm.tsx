@@ -82,7 +82,7 @@ export const MainForm = ({ ...rest }: StackProps) => {
     const { user, loading } = useAuthData()
     const [initialValues, setInitialValues] = useInitialValues({
         endpoint: 'https://countries.trevorblades.com',
-        name: 'my-package-' + (Math.random()*1000).toFixed(0),
+        name: 'my-package-' + (Math.random() * 1000).toFixed(0),
     })
     async function onSubmit(values: MainFormData) {
         console.log('onSubmit')
@@ -101,6 +101,10 @@ export const MainForm = ({ ...rest }: StackProps) => {
             },
             method: 'POST',
         })
+        if (!res.ok) {
+            setError(res.statusText)
+            return
+        }
         const json = await res.json()
         if (!json.ok) {
             setError(json.error)
