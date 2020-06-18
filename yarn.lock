@@ -8447,10 +8447,10 @@ kleur@^2.0.1:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-2.0.2.tgz#b704f4944d95e255d038f0cb05fb8a602c55a300"
   integrity sha512-77XF9iTllATmG9lSlIv0qdQ2BQ/h9t0bJllHlbvsQ0zUWfU7Yi0S8L5JXzPZgkefIiajLmBJJ4BsMJmqcf7oxQ==
 
-landing-blocks@^1.0.49:
-  version "1.0.49"
-  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.49.tgz#b3719c1417ce58449030cf0bb11da1b090e935b1"
-  integrity sha512-e/sRUbCGCSVcNSR7JIEnSbm3DiFKgf+Qqfn0J+FNMHzcecVVRfG5BDfLyz6z9tqPmsD0U6NdtDNMC95MtPexDA==
+landing-blocks@^1.0.51:
+  version "1.0.51"
+  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.51.tgz#b096249593975ef56af8dd35b34ce0fd46f65c05"
+  integrity sha512-WGk1DWi99ElXUucEotCyrcwqfdPwTgmzuYae6L2f/+gqUy04xyuHhcVflMBFEhxp6w6sDTsceNO97GOp/OI71A==
   dependencies:
     "@emotion/styled" "^10.0.27"
     baby-i-am-faded "^0.0.12"
@@ -8468,10 +8468,10 @@ landing-blocks@^1.0.49:
     react-typist "^2.0.5"
     utility-types "^3.10.0"
 
-landing-blocks@^1.0.51:
-  version "1.0.51"
-  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.51.tgz#b096249593975ef56af8dd35b34ce0fd46f65c05"
-  integrity sha512-WGk1DWi99ElXUucEotCyrcwqfdPwTgmzuYae6L2f/+gqUy04xyuHhcVflMBFEhxp6w6sDTsceNO97GOp/OI71A==
+landing-blocks@^1.0.52:
+  version "1.0.52"
+  resolved "https://registry.yarnpkg.com/landing-blocks/-/landing-blocks-1.0.52.tgz#6af9acc472b04c9598e5df67c8b052d8a1a40e79"
+  integrity sha512-irzknW78Qpa8MyvOzJ4ZxpZXNsgvsE06zixr+8ZvDmBsCm+5J7414kByZsHniTfvveTVKYHFTqEYQoXNcHI4+Q==
   dependencies:
     "@emotion/styled" "^10.0.27"
     baby-i-am-faded "^0.0.12"
