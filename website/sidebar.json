@@ -30,6 +30,12 @@
                             "url": "/docs/usage/advanced-typings"
                         },
                         {
+                            "path": "pages/docs/usage/batching-queries.mdx",
+                            "name": "batching-queries.mdx",
+                            "title": "",
+                            "url": "/docs/usage/batching-queries"
+                        },
+                        {
                             "path": "pages/docs/usage/selecting-fields.mdx",
                             "name": "selecting-fields.mdx",
                             "title": "Selecting fields",

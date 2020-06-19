@@ -1,0 +1,55 @@
+# Batching queries
+
+You can minimize network requests and server load fetching queries that are near in time using batching.
+
+You can batch queries in genql using an external library like [`graphql-query-batcher`]() and a custom `fetcher`.
+
+> Remember that to use batching you need a graphql server that supports it, for example Apollo and Hasura
+
+```js
+import { createClient } from './generated'
+import QueryBatcher from 'graphql-query-batcher'
+
+const batcher = new QueryBatcher(
+    (batchedQuery) => {
+        console.log(batchedQuery) // [{ query: 'query{user{age}}', variables: {} }, ...]
+        return fetch(URL, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(batchedQuery),
+        }).then((response) => response.json())
+    },
+    {
+        maxBatchSize: 10,
+        batchInterval: 100,
+    },
+)
+
+const client = createClient({
+    fetcher: ({ query, variables }) => {
+        return batcher.fetch(query, variables)
+    },
+})
+
+// these queries will trigger only one network request
+await Promise.all([
+    client.query({
+        user: {
+            age: true,
+        },
+    }),
+    client.query({
+        user: {
+            id: true,
+        },
+    }),
+    client.query({
+        user: {
+            name: true,
+        },
+    }),
+])
+```

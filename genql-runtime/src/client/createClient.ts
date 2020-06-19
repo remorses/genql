@@ -9,11 +9,15 @@ import { Observable } from 'zen-observable-ts'
 import { createFetcher, Headers } from '../fetcher'
 import { ClientError } from '../error'
 import { chain } from './chain'
-import { generateGraphqlOperation } from './generateGraphqlOperation'
+import {
+    generateGraphqlOperation,
+    GraphqlOperation,
+} from './generateGraphqlOperation'
 import { LinkedType } from './linkTypeMap'
 
 export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string
+    fetcher?: (x: GraphqlOperation) => Promise<ExecutionResult>
     headers?: Headers
     subscription?: { url?: string; headers?: Headers } & SubscriptionOptions
 }
@@ -43,7 +47,6 @@ export const createClient = ({
 
     if (queryRoot) {
         client.query = (request) => {
-            if (!fetcher) throw new Error('fetcher argument is missing')
             if (!queryRoot) throw new Error('queryRoot argument is missing')
 
             const resultPromise = fetcher(
@@ -55,7 +58,6 @@ export const createClient = ({
     }
     if (mutationRoot) {
         client.mutation = (request) => {
-            if (!fetcher) throw new Error('fetcher argument is missing')
             if (!mutationRoot)
                 throw new Error('mutationRoot argument is missing')
 
