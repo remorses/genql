@@ -1,4 +1,4 @@
-import { GraphQLInputType, GraphQLNonNull, GraphQLOutputType, isListType, isNamedType, isNonNullType } from 'graphql'
+import { GraphQLInputType, GraphQLNonNull, GraphQLOutputType, isListType, isNamedType, isNonNullType, isScalarType } from 'graphql'
 
 
 // TODO add tests for the wrap function
@@ -25,7 +25,14 @@ const render = (
   }
 
   if (isNamedType(type)) {
-    const typing = wrap(type.name)
+    let typeName = type.name
+
+    // if is a scalar use the scalar interface to not expose reserved words
+    if (isScalarType(type)) {
+      typeName = `Scalars["${typeName}"]`
+    }
+
+    const typing = wrap(typeName)
 
     if (undefinableValues) {
       return nonNull ? typing : `(${typing}|undefined)`

@@ -11,7 +11,7 @@ export const unionType = (type: GraphQLUnionType, _: RenderContext) => {
     }, {}),
   }
 
-  typeObj.fields.__typename = { type: 'String' }
+  typeObj.fields.__typename = { type: 'string' }
 
   return typeObj
 }

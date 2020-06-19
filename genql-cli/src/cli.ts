@@ -39,6 +39,13 @@ const program = yargs
         // string: true,
         description: 'header to use in introspection query',
     })
+    .option('scalar', {
+        alias: 'S',
+        type: 'array',
+        // string: true,
+        description:
+            'map a scalar to a type, for example `-S DateTime:string` ',
+    })
     .option('verbose', { alias: 'v', type: 'boolean' })
     .example(
         '$0 --output ./generated --endpoint http://localhost:3000  -H "Authorization: Bearer xxx"',
@@ -70,7 +77,8 @@ const config: Config = {
     useGet: program.get,
     schema: program.schema,
     output: program.output,
-    headers: parseHeaders(program.header || []),
+    headers: parseColonSeparatedStrings(program.header || []),
+    scalarTypes: parseColonSeparatedStrings(program.scalar || []),
 }
 
 if (!validateConfigs([config])) {
@@ -82,18 +90,20 @@ generateProject(config).catch((e: any) => {
     process.exit(1)
 })
 
-function parseHeaders(headersArray) {
+function parseColonSeparatedStrings(headersArray) {
     // console.log(headersArray)
-    let headerObject = {}
+    let obj = {}
     if (headersArray) {
         for (let h of headersArray) {
             const parts = h.split(':')
             if (parts.length !== 2) {
-                console.error(`cannot parse header '${h}' (multiple ':')`)
+                console.error(
+                    `cannot parse string '${h}' (multiple or no ':')`,
+                )
                 process.exit(1)
             }
-            headerObject[parts[0].trim()] = parts[1].trim()
+            obj[parts[0].trim()] = parts[1].trim()
         }
     }
-    return headerObject
+    return obj
 }
