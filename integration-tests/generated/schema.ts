@@ -13,25 +13,25 @@ export interface Query{
 }
 
 export interface Repository{
-    createdAt: (Scalars["String"]|null)
+    createdAt: (Scalars['String']|null)
     forks: (ForkEdge|null)
     __typename: 'Repository'
 }
 
 export interface ForkEdge{
-    cursor: (Scalars["String"]|null)
+    cursor: (Scalars['String']|null)
     node: (Fork|null)
     __typename: 'ForkEdge'
 }
 
 export interface Fork{
-    name: (Scalars["String"]|null)
+    name: (Scalars['String']|null)
     __typename: 'Fork'
 }
 
 export interface User{
     /** Some description */
-    name: (Scalars["String"]|null)
+    name: (Scalars['String']|null)
     __typename: 'User'
 }
 
@@ -47,7 +47,7 @@ export interface ForkConnection{
 
 export interface QueryRequest{
     /** Some description */
-    repository?: [{name: Scalars["String"],owner?: (Scalars["String"]|null)},RepositoryRequest]
+    repository?: [{name: Scalars['String'],owner?: (Scalars['String']|null)},RepositoryRequest]
     user?: UserRequest
     __typename?: boolean|number
     __scalar?: boolean|number
@@ -150,31 +150,31 @@ export const isForkConnection = (obj: { __typename: string }): obj is ForkConnec
 
 export interface QueryPromiseChain{
 /** Some description */
-repository:((args:{name: Scalars["String"],owner?: (Scalars["String"]|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Promise<(FieldsSelection<Repository, R>|null)>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>})}
+repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Promise<(FieldsSelection<Repository, R>|null)>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>})}
 
 export interface QueryObservableChain{
 /** Some description */
-repository:((args:{name: Scalars["String"],owner?: (Scalars["String"]|null)})=>RepositoryObservableChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Observable<(FieldsSelection<Repository, R>|null)>}),user:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>})}
+repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryObservableChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:(FieldsSelection<Repository, R>|null))=>Observable<(FieldsSelection<Repository, R>|null)>}),user:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>})}
 
-export interface RepositoryPromiseChain{createdAt:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>}),forks:(ForkEdgePromiseChain & {get:<R extends ForkEdgeRequest>(request: R, defaultValue?:(FieldsSelection<ForkEdge, R>|null))=>Promise<(FieldsSelection<ForkEdge, R>|null)>})}
+export interface RepositoryPromiseChain{createdAt:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),forks:(ForkEdgePromiseChain & {get:<R extends ForkEdgeRequest>(request: R, defaultValue?:(FieldsSelection<ForkEdge, R>|null))=>Promise<(FieldsSelection<ForkEdge, R>|null)>})}
 
-export interface RepositoryObservableChain{createdAt:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>}),forks:(ForkEdgeObservableChain & {get:<R extends ForkEdgeRequest>(request: R, defaultValue?:(FieldsSelection<ForkEdge, R>|null))=>Observable<(FieldsSelection<ForkEdge, R>|null)>})}
+export interface RepositoryObservableChain{createdAt:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),forks:(ForkEdgeObservableChain & {get:<R extends ForkEdgeRequest>(request: R, defaultValue?:(FieldsSelection<ForkEdge, R>|null))=>Observable<(FieldsSelection<ForkEdge, R>|null)>})}
 
-export interface ForkEdgePromiseChain{cursor:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>}),node:(ForkPromiseChain & {get:<R extends ForkRequest>(request: R, defaultValue?:(FieldsSelection<Fork, R>|null))=>Promise<(FieldsSelection<Fork, R>|null)>})}
+export interface ForkEdgePromiseChain{cursor:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),node:(ForkPromiseChain & {get:<R extends ForkRequest>(request: R, defaultValue?:(FieldsSelection<Fork, R>|null))=>Promise<(FieldsSelection<Fork, R>|null)>})}
 
-export interface ForkEdgeObservableChain{cursor:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>}),node:(ForkObservableChain & {get:<R extends ForkRequest>(request: R, defaultValue?:(FieldsSelection<Fork, R>|null))=>Observable<(FieldsSelection<Fork, R>|null)>})}
+export interface ForkEdgeObservableChain{cursor:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),node:(ForkObservableChain & {get:<R extends ForkRequest>(request: R, defaultValue?:(FieldsSelection<Fork, R>|null))=>Observable<(FieldsSelection<Fork, R>|null)>})}
 
-export interface ForkPromiseChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>})}
+export interface ForkPromiseChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
 
-export interface ForkObservableChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>})}
+export interface ForkObservableChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
 
 export interface UserPromiseChain{
 /** Some description */
-name:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>})}
+name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
 
 export interface UserObservableChain{
 /** Some description */
-name:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>})}
+name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
 
 export interface SubscriptionPromiseChain{user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>})}
 

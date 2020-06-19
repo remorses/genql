@@ -19,38 +19,38 @@ export interface Query{
 }
 
 export interface Continent{
-    code: Scalars["ID"]
-    name: Scalars["String"]
+    code: Scalars['ID']
+    name: Scalars['String']
     countries: Country[]
     __typename: 'Continent'
 }
 
 export interface Country{
-    code: Scalars["ID"]
-    name: Scalars["String"]
-    native: Scalars["String"]
-    phone: Scalars["String"]
+    code: Scalars['ID']
+    name: Scalars['String']
+    native: Scalars['String']
+    phone: Scalars['String']
     continent: Continent
-    capital: (Scalars["String"]|null)
-    currency: (Scalars["String"]|null)
+    capital: (Scalars['String']|null)
+    currency: (Scalars['String']|null)
     languages: Language[]
-    emoji: Scalars["String"]
-    emojiU: Scalars["String"]
+    emoji: Scalars['String']
+    emojiU: Scalars['String']
     states: State[]
     __typename: 'Country'
 }
 
 export interface Language{
-    code: Scalars["ID"]
-    name: (Scalars["String"]|null)
-    native: (Scalars["String"]|null)
-    rtl: Scalars["Boolean"]
+    code: Scalars['ID']
+    name: (Scalars['String']|null)
+    native: (Scalars['String']|null)
+    rtl: Scalars['Boolean']
     __typename: 'Language'
 }
 
 export interface State{
-    code: (Scalars["String"]|null)
-    name: Scalars["String"]
+    code: (Scalars['String']|null)
+    name: Scalars['String']
     country: Country
     __typename: 'State'
 }
@@ -59,18 +59,18 @@ export type CacheControlScope = 'PUBLIC' | 'PRIVATE'
 
 export interface QueryRequest{
     continents?: [{filter?: (ContinentFilterInput|null)},ContinentRequest]|ContinentRequest
-    continent?: [{code: Scalars["ID"]},ContinentRequest]
+    continent?: [{code: Scalars['ID']},ContinentRequest]
     countries?: [{filter?: (CountryFilterInput|null)},CountryRequest]|CountryRequest
-    country?: [{code: Scalars["ID"]},CountryRequest]
+    country?: [{code: Scalars['ID']},CountryRequest]
     languages?: [{filter?: (LanguageFilterInput|null)},LanguageRequest]|LanguageRequest
-    language?: [{code: Scalars["ID"]},LanguageRequest]
+    language?: [{code: Scalars['ID']},LanguageRequest]
     __typename?: boolean|number
     __scalar?: boolean|number
 }
 
 export interface ContinentFilterInput{code?: (StringQueryOperatorInput|null)}
 
-export interface StringQueryOperatorInput{eq?: (Scalars["String"]|null),ne?: (Scalars["String"]|null),in?: ((Scalars["String"]|null)[]|null),nin?: ((Scalars["String"]|null)[]|null),regex?: (Scalars["String"]|null),glob?: (Scalars["String"]|null)}
+export interface StringQueryOperatorInput{eq?: (Scalars['String']|null),ne?: (Scalars['String']|null),in?: ((Scalars['String']|null)[]|null),nin?: ((Scalars['String']|null)[]|null),regex?: (Scalars['String']|null),glob?: (Scalars['String']|null)}
 
 export interface ContinentRequest{
     code?: boolean|number
@@ -157,22 +157,22 @@ export const isState = (obj: { __typename: string }): obj is State => {
 }
 
 
-export interface QueryPromiseChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>}),continent:((args:{code: Scalars["ID"]})=>ContinentPromiseChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(FieldsSelection<Continent, R>|null))=>Promise<(FieldsSelection<Continent, R>|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>}),country:((args:{code: Scalars["ID"]})=>CountryPromiseChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(FieldsSelection<Country, R>|null))=>Promise<(FieldsSelection<Country, R>|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>}),language:((args:{code: Scalars["ID"]})=>LanguagePromiseChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(FieldsSelection<Language, R>|null))=>Promise<(FieldsSelection<Language, R>|null)>})}
+export interface QueryPromiseChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>}),continent:((args:{code: Scalars['ID']})=>ContinentPromiseChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(FieldsSelection<Continent, R>|null))=>Promise<(FieldsSelection<Continent, R>|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>}),country:((args:{code: Scalars['ID']})=>CountryPromiseChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(FieldsSelection<Country, R>|null))=>Promise<(FieldsSelection<Country, R>|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>}),language:((args:{code: Scalars['ID']})=>LanguagePromiseChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(FieldsSelection<Language, R>|null))=>Promise<(FieldsSelection<Language, R>|null)>})}
 
-export interface QueryObservableChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>}),continent:((args:{code: Scalars["ID"]})=>ContinentObservableChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(FieldsSelection<Continent, R>|null))=>Observable<(FieldsSelection<Continent, R>|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>}),country:((args:{code: Scalars["ID"]})=>CountryObservableChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(FieldsSelection<Country, R>|null))=>Observable<(FieldsSelection<Country, R>|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>}),language:((args:{code: Scalars["ID"]})=>LanguageObservableChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(FieldsSelection<Language, R>|null))=>Observable<(FieldsSelection<Language, R>|null)>})}
+export interface QueryObservableChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>}),continent:((args:{code: Scalars['ID']})=>ContinentObservableChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(FieldsSelection<Continent, R>|null))=>Observable<(FieldsSelection<Continent, R>|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>}),country:((args:{code: Scalars['ID']})=>CountryObservableChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(FieldsSelection<Country, R>|null))=>Observable<(FieldsSelection<Country, R>|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>}),language:((args:{code: Scalars['ID']})=>LanguageObservableChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(FieldsSelection<Language, R>|null))=>Observable<(FieldsSelection<Language, R>|null)>})}
 
-export interface ContinentPromiseChain{code:({get:(request?:boolean|number,defaultValue?:Scalars["ID"])=>Promise<Scalars["ID"]>}),name:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Promise<Scalars["String"]>}),countries:({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>})}
+export interface ContinentPromiseChain{code:({get:(request?:boolean|number,defaultValue?:Scalars['ID'])=>Promise<Scalars['ID']>}),name:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),countries:({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>})}
 
-export interface ContinentObservableChain{code:({get:(request?:boolean|number,defaultValue?:Scalars["ID"])=>Observable<Scalars["ID"]>}),name:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Observable<Scalars["String"]>}),countries:({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>})}
+export interface ContinentObservableChain{code:({get:(request?:boolean|number,defaultValue?:Scalars['ID'])=>Observable<Scalars['ID']>}),name:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),countries:({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>})}
 
-export interface CountryPromiseChain{code:({get:(request?:boolean|number,defaultValue?:Scalars["ID"])=>Promise<Scalars["ID"]>}),name:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Promise<Scalars["String"]>}),native:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Promise<Scalars["String"]>}),phone:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Promise<Scalars["String"]>}),continent:(ContinentPromiseChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:Continent)=>Promise<Continent>}),capital:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>}),currency:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>}),languages:({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>}),emoji:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Promise<Scalars["String"]>}),emojiU:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Promise<Scalars["String"]>}),states:({get:<R extends StateRequest>(request: R, defaultValue?:State[])=>Promise<State[]>})}
+export interface CountryPromiseChain{code:({get:(request?:boolean|number,defaultValue?:Scalars['ID'])=>Promise<Scalars['ID']>}),name:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),native:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),phone:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),continent:(ContinentPromiseChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:Continent)=>Promise<Continent>}),capital:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),currency:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),languages:({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>}),emoji:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),emojiU:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),states:({get:<R extends StateRequest>(request: R, defaultValue?:State[])=>Promise<State[]>})}
 
-export interface CountryObservableChain{code:({get:(request?:boolean|number,defaultValue?:Scalars["ID"])=>Observable<Scalars["ID"]>}),name:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Observable<Scalars["String"]>}),native:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Observable<Scalars["String"]>}),phone:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Observable<Scalars["String"]>}),continent:(ContinentObservableChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:Continent)=>Observable<Continent>}),capital:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>}),currency:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>}),languages:({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>}),emoji:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Observable<Scalars["String"]>}),emojiU:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Observable<Scalars["String"]>}),states:({get:<R extends StateRequest>(request: R, defaultValue?:State[])=>Observable<State[]>})}
+export interface CountryObservableChain{code:({get:(request?:boolean|number,defaultValue?:Scalars['ID'])=>Observable<Scalars['ID']>}),name:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),native:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),phone:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),continent:(ContinentObservableChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:Continent)=>Observable<Continent>}),capital:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),currency:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),languages:({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>}),emoji:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),emojiU:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),states:({get:<R extends StateRequest>(request: R, defaultValue?:State[])=>Observable<State[]>})}
 
-export interface LanguagePromiseChain{code:({get:(request?:boolean|number,defaultValue?:Scalars["ID"])=>Promise<Scalars["ID"]>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>}),native:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>}),rtl:({get:(request?:boolean|number,defaultValue?:Scalars["Boolean"])=>Promise<Scalars["Boolean"]>})}
+export interface LanguagePromiseChain{code:({get:(request?:boolean|number,defaultValue?:Scalars['ID'])=>Promise<Scalars['ID']>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),native:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),rtl:({get:(request?:boolean|number,defaultValue?:Scalars['Boolean'])=>Promise<Scalars['Boolean']>})}
 
-export interface LanguageObservableChain{code:({get:(request?:boolean|number,defaultValue?:Scalars["ID"])=>Observable<Scalars["ID"]>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>}),native:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>}),rtl:({get:(request?:boolean|number,defaultValue?:Scalars["Boolean"])=>Observable<Scalars["Boolean"]>})}
+export interface LanguageObservableChain{code:({get:(request?:boolean|number,defaultValue?:Scalars['ID'])=>Observable<Scalars['ID']>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),native:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),rtl:({get:(request?:boolean|number,defaultValue?:Scalars['Boolean'])=>Observable<Scalars['Boolean']>})}
 
-export interface StatePromiseChain{code:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Promise<(Scalars["String"]|null)>}),name:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Promise<Scalars["String"]>}),country:(CountryPromiseChain & {get:<R extends CountryRequest>(request: R, defaultValue?:Country)=>Promise<Country>})}
+export interface StatePromiseChain{code:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),name:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),country:(CountryPromiseChain & {get:<R extends CountryRequest>(request: R, defaultValue?:Country)=>Promise<Country>})}
 
-export interface StateObservableChain{code:({get:(request?:boolean|number,defaultValue?:(Scalars["String"]|null))=>Observable<(Scalars["String"]|null)>}),name:({get:(request?:boolean|number,defaultValue?:Scalars["String"])=>Observable<Scalars["String"]>}),country:(CountryObservableChain & {get:<R extends CountryRequest>(request: R, defaultValue?:Country)=>Observable<Country>})}
+export interface StateObservableChain{code:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),name:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),country:(CountryObservableChain & {get:<R extends CountryRequest>(request: R, defaultValue?:Country)=>Observable<Country>})}
