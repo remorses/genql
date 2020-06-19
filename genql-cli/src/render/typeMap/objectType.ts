@@ -42,7 +42,7 @@ export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | Grap
     })
   }
 
-  typeObj.fields.__typename = { type: 'string' }
+  typeObj.fields.__typename = { type: 'String' }
 
   const scalar = Object.keys(type.getFields())
     .map(f => type.getFields()[f])

@@ -8,17 +8,6 @@ test('enumType', () => typeRenderTestCase(__dirname, 'enumType', <TypeRenderer>e
 
 test('unionType', () => typeRenderTestCase(__dirname, 'unionType', <TypeRenderer>unionType, ['Union', 'UnionD', 'UnionMD']))
 
-// test('scalarType', () =>
-//   typeRenderTestCase(__dirname, 'scalarType', <TypeRenderer>scalarType, [
-//     'Int',
-//     'Float',
-//     'String',
-//     'Boolean',
-//     'ID',
-//     'Custom',
-//     'CustomD',
-//     'CustomMD',
-//   ]))
 
 test('objectType', () =>
   typeRenderTestCase(__dirname, 'objectType', <TypeRenderer>objectType, [

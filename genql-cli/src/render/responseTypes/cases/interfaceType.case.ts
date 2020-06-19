@@ -1,34 +1,34 @@
 export interface InterfaceF {
-  value: Int
-  maybeValue: Int | null
-  valueList: Int[]
-  maybeValueList: (Int | null)[]
-  valueMaybeList: Int[] | null
-  maybeValueMaybeList: (Int | null)[] | null
-  nested: Int[][][]
-  maybeNested: (((Int | null)[] | null)[] | null)[] | null
-  __typename: String
+  value: Scalars['Int']
+  maybeValue: Scalars['Int'] | null
+  valueList: Scalars['Int'][]
+  maybeValueList: (Scalars['Int'] | null)[]
+  valueMaybeList: Scalars['Int'][] | null
+  maybeValueMaybeList: (Scalars['Int'] | null)[] | null
+  nested: Scalars['Int'][][][]
+  maybeNested: (((Scalars['Int'] | null)[] | null)[] | null)[] | null
+  __typename: string
 }
 
 export interface Interface {
-  some: Int | null
-  other: Int | null
-  another: Int | null
-  __typename: String
+  some: Scalars['Int'] | null
+  other: Scalars['Int'] | null
+  another: Scalars['Int'] | null
+  __typename: string
 }
 
 /** single line description */
 export interface InterfaceD {
   /** @deprecated No longer supported */
-  some: Int | null
+  some: Scalars['Int'] | null
   /** single line description */
-  other: Int | null
+  other: Scalars['Int'] | null
   /**
    * @deprecated No longer supported
    * single line description
    */
-  another: Int | null
-  __typename: String
+  another: Scalars['Int'] | null
+  __typename: string
 }
 
 /**
@@ -40,12 +40,12 @@ export interface InterfaceMD {
    * multiline
    * description
    */
-  some: Int | null
+  some: Scalars['Int'] | null
   /**
    * @deprecated No longer supported
    * multiline
    * description
    */
-  other: Int | null
-  __typename: String
+  other: Scalars['Int'] | null
+  __typename: string
 }

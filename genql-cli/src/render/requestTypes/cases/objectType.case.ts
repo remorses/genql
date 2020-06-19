@@ -18,14 +18,14 @@ export interface ObjectRequest {
    */
   noArgs?: boolean | number
   other?: boolean | number
-  optionalArg?: [{ optional?: String | null }] | boolean | number
+  optionalArg?: [{ optional?: Scalars['String'] | null }] | boolean | number
   requiredArg?: [
     {
       /** single line description */
-      required: String
+      required: Scalars['String']
     },
   ]
-  optionalArgObj?: [{ optional?: String | null }, InterfaceRequest] | InterfaceRequest
+  optionalArgObj?: [{ optional?: Scalars['String'] | null }, InterfaceRequest] | InterfaceRequest
   requiredArgObj?: [
     {
       /** single line description */
@@ -39,15 +39,15 @@ export interface ObjectRequest {
        * multiline
        * description
        */
-      value: Int
+      value: Scalars['Int']
       /** single line description */
-      maybeValue?: Int | null
-      valueList: Int[]
-      maybeValueList: (Int | null)[]
-      valueMaybeList?: Int[] | null
-      maybeValueMaybeList?: (Int | null)[] | null
-      nested: Int[][][]
-      maybeNested?: (((Int | null)[] | null)[] | null)[] | null
+      maybeValue?: Scalars['Int'] | null
+      valueList: Scalars['Int'][]
+      maybeValueList: (Scalars['Int'] | null)[]
+      valueMaybeList?: Scalars['Int'][] | null
+      maybeValueMaybeList?: (Scalars['Int'] | null)[] | null
+      nested: Scalars['Int'][][][]
+      maybeNested?: (((Scalars['Int'] | null)[] | null)[] | null)[] | null
     },
   ]
   __typename?: boolean | number
