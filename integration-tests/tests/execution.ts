@@ -5,7 +5,7 @@ import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
 import { DeepPartial } from 'tsdef'
-import { createClient, User } from '../generated'
+import { createClient, User, everything } from '../generated'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
@@ -49,6 +49,11 @@ describe('execute queries', async function() {
                     user: () => {
                         return x
                     },
+                    repository: () => {
+                        return {
+                            createdAt: 'dfgdf'
+                        }
+                    },
                 },
             },
         })
@@ -77,7 +82,10 @@ describe('execute queries', async function() {
         // }).catch()
 
         const res = await client.query({
-            repository: [{ name: 'xxx' }, { __scalar: true }],
+            repository: [
+                { name: 'genql', owner: 'remorses' },
+                { ...everything },
+            ],
         })
         console.log(JSON.stringify(res, null, 2))
         await stop()

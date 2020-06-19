@@ -4,12 +4,17 @@ After generating the client using the cli or the form at [genql.now.sh](https://
 
 ```js
 import { createClient } from './generated_dir'
+import { createClient, everything } from './generated_dir'
 
 const client = createClient({
     url: 'http://your-api',
     headers: {
         Authorization: 'Bearer xxx',
     },
+})
+
+await client.query({
+    repository: [{ name: 'genql', owner: 'remorses' }, { ...everything }],
 })
 ```
 
