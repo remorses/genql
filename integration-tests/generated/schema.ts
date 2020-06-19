@@ -1,5 +1,10 @@
 import {FieldsSelection,Observable} from 'genql-runtime'
 
+export type Scalars = {
+    String: string,
+    Boolean: boolean,
+}
+
 export interface Query{
     /** Some description */
     repository: (Repository|null)
@@ -38,11 +43,6 @@ export interface Subscription{
 export interface ForkConnection{
     edges: ((ForkEdge|null)[]|null)
     __typename: 'ForkConnection'
-}
-
-export type Scalars = {
-    String: string,
-    Boolean: boolean,
 }
 
 export interface QueryRequest{

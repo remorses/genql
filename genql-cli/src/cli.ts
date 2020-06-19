@@ -95,7 +95,7 @@ function parseColonSeparatedStrings(headersArray) {
     let obj = {}
     if (headersArray) {
         for (let h of headersArray) {
-            const parts = h.split(':')
+            const parts = String(h).split(':')
             if (parts.length !== 2) {
                 console.error(
                     `cannot parse string '${h}' (multiple or no ':')`,

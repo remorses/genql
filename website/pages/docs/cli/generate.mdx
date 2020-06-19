@@ -1,0 +1,35 @@
+# Generate the client
+
+## From http endpoint
+
+```bash
+genql --endpoint https://countries.trevorblades.com --output ./generated
+```
+
+You can fetch using get passing the `--get` flag
+
+```bash
+genql --get --endpoint https://countries.trevorblades.com --output ./generated
+```
+
+## From local schema
+
+```bash
+genql --schema ./schema.graphql --output ./generated
+```
+
+## Passing headers
+
+```bash
+genql -H 'Authorization: Bearer myToken' -e https://countries.trevorblades.com -o ./generated
+```
+
+## Changing scalar type
+
+This is useful if you want to map from a custom scalar to a type like string, number, etc.
+
+By default custom scalars have type `any`
+
+```bash
+genql -S MyScalar:string -S AnotherScalar:number -e https://countries.trevorblades.com -o ./generated
+```

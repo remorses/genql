@@ -3,7 +3,7 @@ import {FieldsSelection,Observable} from 'genql-runtime'
 export type Scalars = {
     String: string,
     ID: string,
-    URI: any,
+    URI: string,
     Int: number,
     Float: number,
     DateTime: any,
