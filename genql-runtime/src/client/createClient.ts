@@ -17,7 +17,7 @@ import { LinkedType } from './linkTypeMap'
 
 export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string
-    fetcher?: (x: GraphqlOperation) => Promise<ExecutionResult>
+    fetcher?: (operation: GraphqlOperation) => Promise<ExecutionResult>
     headers?: Headers
     subscription?: { url?: string; headers?: Headers } & SubscriptionOptions
 }

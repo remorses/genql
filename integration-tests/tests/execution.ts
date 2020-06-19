@@ -55,6 +55,7 @@ describe('execute queries', async function() {
 
     const client = createClient({
         url: URL,
+        headers: () => ({ Auth: 'xxx' }),
     })
     it('simple ', async () => {
         const stop = await makeServer()

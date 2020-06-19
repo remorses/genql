@@ -61,6 +61,7 @@ export default function App(props) {
                     sidebarOrdering={{
                         docs: {
                             usage: {
+                                'create-the-client': true,
                                 'selecting-fields': true,
                                 'using-chain-syntax': true,
                                 'usage-with-other-clients': true,

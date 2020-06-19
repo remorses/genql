@@ -36,6 +36,12 @@
                             "url": "/docs/usage/batching-queries"
                         },
                         {
+                            "path": "pages/docs/usage/create-the-client.mdx",
+                            "name": "create-the-client.mdx",
+                            "title": "",
+                            "url": "/docs/usage/create-the-client"
+                        },
+                        {
                             "path": "pages/docs/usage/selecting-fields.mdx",
                             "name": "selecting-fields.mdx",
                             "title": "Selecting fields",

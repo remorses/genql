@@ -1,0 +1,49 @@
+# Create the client
+
+After generating the client using the cli or the form at [genql.now.sh](https://genql.now.sh) you can initialize it passing your options
+
+```js
+import { createClient } from './generated_dir'
+
+const client = createClient({
+    url: 'http://your-api',
+    headers: {
+        Authorization: 'Bearer xxx',
+    },
+})
+```
+
+## Change headers at runtime
+
+You can pass a function to the headers field to pull the headers at query time, this way you can for example take the auth token from localStorage
+
+```js
+import { createClient } from './generated_dir'
+
+const client = createClient({
+    url: 'http://your-api',
+    headers: () => ({
+        Authorization: localStorage.get('authToken'),
+    }),
+})
+```
+
+## Using a custom fetcher
+
+You can use your own http fetcher function, must be of type `(operation: {query, variables}) => Promise<{data, errors}>`
+
+```js
+import { createClient } from './generated_dir'
+const client = createClient({
+    fetcher: (operation) => {
+        return fetch('http://your-api', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(operation),
+        }).then((response) => response.json())
+    },
+})
+```
