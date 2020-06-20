@@ -1,43 +1,43 @@
 export interface ObjectI extends A, B {
-  a1: Int
-  a2: Int
-  b1: Int
-  b2: Int
-  c1: Int
-  c2: Int
+  a1: Scalars['Int']
+  a2: Scalars['Int']
+  b1: Scalars['Int']
+  b2: Scalars['Int']
+  c1: Scalars['Int']
+  c2: Scalars['Int']
   __typename: 'ObjectI'
 }
 
 export interface ObjectF {
-  value: Int
-  maybeValue: Int | null
-  valueList: Int[]
-  maybeValueList: (Int | null)[]
-  valueMaybeList: Int[] | null
-  maybeValueMaybeList: (Int | null)[] | null
-  nested: Int[][][]
-  maybeNested: (((Int | null)[] | null)[] | null)[] | null
+  value: Scalars['Int']
+  maybeValue: Scalars['Int'] | null
+  valueList: Scalars['Int'][]
+  maybeValueList: (Scalars['Int'] | null)[]
+  valueMaybeList: Scalars['Int'][] | null
+  maybeValueMaybeList: (Scalars['Int'] | null)[] | null
+  nested: Scalars['Int'][][][]
+  maybeNested: (((Scalars['Int'] | null)[] | null)[] | null)[] | null
   __typename: 'ObjectF'
 }
 
 export interface Object {
-  some: Int | null
-  other: Int | null
-  another: Int | null
+  some: Scalars['Int'] | null
+  other: Scalars['Int'] | null
+  another: Scalars['Int'] | null
   __typename: 'Object'
 }
 
 /** single line description */
 export interface ObjectD {
   /** @deprecated No longer supported */
-  some: Int | null
+  some: Scalars['Int'] | null
   /** single line description */
-  other: Int | null
+  other: Scalars['Int'] | null
   /**
    * @deprecated No longer supported
    * single line description
    */
-  another: Int | null
+  another: Scalars['Int'] | null
   __typename: 'ObjectD'
 }
 
@@ -50,12 +50,12 @@ export interface ObjectMD {
    * multiline
    * description
    */
-  some: Int | null
+  some: Scalars['Int'] | null
   /**
    * @deprecated No longer supported
    * multiline
    * description
    */
-  other: Int | null
+  other: Scalars['Int'] | null
   __typename: 'ObjectMD'
 }

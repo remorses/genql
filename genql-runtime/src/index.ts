@@ -5,7 +5,7 @@ export {
     GraphqlOperation,
 } from './client/generateGraphqlOperation'
 export { linkTypeMap } from './client/linkTypeMap'
-export { Observable } from 'subscriptions-transport-ws'
+export { Observable } from 'zen-observable-ts'
 export { createFetcher } from './fetcher'
 export { ClientError } from './error'
 export const everything = {

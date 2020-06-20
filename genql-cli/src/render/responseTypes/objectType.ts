@@ -33,7 +33,7 @@ export const objectType = (
             `__typename: ${
                 typeNames.length > 0
                     ? typeNames.map((t) => `'${t}'`).join('|')
-                    : 'String'
+                    : 'string'
             }`,
         ])
     // add indentation

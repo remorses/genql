@@ -51,7 +51,7 @@ describe('execute queries', async function() {
                     },
                     repository: () => {
                         return {
-                            createdAt: 'dfgdf'
+                            createdAt: 'dfgdf',
                         }
                     },
                 },

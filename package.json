@@ -14,6 +14,7 @@
         "build": "yarn --cwd website build",
         "start": "yarn --cwd website start",
         "genall": "yarn --cwd example-usage gen && yarn --cwd try-clients gen && yarn --cwd integration-tests gen",
+        "tscall": "yarn --cwd example-usage tsc && yarn --cwd try-clients tsc && yarn --cwd integration-tests tsc",
         "play": "node -r sucrase/register genql-cli/src/cli.ts",
         "buildall": "yarn --cwd genql-cli build && yarn --cwd genql-runtime build",
         "compile": "cd genql-cli && yarn compile && cd ../genql-runtime && yarn compile",

@@ -4525,6 +4525,11 @@ compose-function@3.0.3:
   dependencies:
     arity-n "^1.0.4"
 
+compressed-json@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/compressed-json/-/compressed-json-1.0.15.tgz#0bb5b39e728ef44b7fc28beb0fa59d423938c008"
+  integrity sha512-6dbRW+ztvErpbdRUVKYw6S19pKLg4cPioVTEaYTKNpzAMMGtk4nT1uhBw7issYDKPoaxxaFd1zEs5D5jbV7IAQ==
+
 compressible@^2.0.12:
   version "2.0.18"
   resolved "https://registry.yarnpkg.com/compressible/-/compressible-2.0.18.tgz#af53cca6b070d4c3c0750fbd77286a6d7cc46fba"

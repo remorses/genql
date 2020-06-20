@@ -20,12 +20,17 @@ describe('hasura', () => {
             .subscribe({
                 next: (x) => console.log('next1', x),
                 error: console.log,
+                complete: () => console.log('complete1'),
             })
 
         var res5 = client.chain.subscription
             .user({ limit: 4 })
             .get({ ...everything })
-            .subscribe({ next: (x) => console.log('next2', x) })
+            .subscribe({
+                next: (x) => console.log('next2', x),
+                error: console.log,
+                complete: () => console.log('complete2'),
+            })
 
         var res1 = await client.chain.mutation
             .insert_user({
@@ -49,5 +54,7 @@ describe('hasura', () => {
 
         res4.unsubscribe()
         res5.unsubscribe()
+        client.wsClient.close()
+        console.log(client.wsClient.operations)
     })
 })

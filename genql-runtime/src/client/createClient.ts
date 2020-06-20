@@ -81,32 +81,42 @@ export const createClient = ({
             if (!client.wsClient) {
                 client.wsClient = getSubscriptionClient(options)
             }
-            return Observable.from(client.wsClient.request(op) as any).map(
-                (val: ExecutionResult<any>): any => {
-                    if (val?.errors?.length > 0) {
-                        throw new ClientError(val?.errors)
-                    }
-                    return val?.data
-                },
-            )
+            return new Observable((observer) => {
+                client.wsClient.request(op).subscribe({
+                    next: (x) => {
+                        // if (observer.closed) return
+                        observer.next(x)
+                    },
+                    error: (x) => {
+                        // if (observer.closed) return
+                        observer.error(x)
+                    },
+                    complete: () => {
+                        observer.complete()
+                    },
+                })
+            }).map((val: ExecutionResult<any>): any => {
+                if (val?.errors?.length > 0) {
+                    throw new ClientError(val?.errors)
+                }
+                return val?.data
+            })
         }
     }
-    return {
-        ...client,
-        chain: {
-            query: chain((path, request, defaultValue) =>
-                client.query(request).then(mapResponse(path, defaultValue)),
-            ),
-            mutation: chain((path, request, defaultValue) =>
-                client.mutation(request).then(mapResponse(path, defaultValue)),
-            ),
-            subscription: chain((path, request, defaultValue) => {
-                const obs = client.subscription(request)
-                const mapper = mapResponse(path, defaultValue)
-                return Observable.from(obs).map(mapper)
-            }),
-        },
+    client.chain = {
+        query: chain((path, request, defaultValue) =>
+            client.query(request).then(mapResponse(path, defaultValue)),
+        ),
+        mutation: chain((path, request, defaultValue) =>
+            client.mutation(request).then(mapResponse(path, defaultValue)),
+        ),
+        subscription: chain((path, request, defaultValue) => {
+            const obs = client.subscription(request)
+            const mapper = mapResponse(path, defaultValue)
+            return Observable.from(obs).map(mapper)
+        }),
     }
+    return client
 }
 
 const mapResponse = (path: string[], defaultValue: any = undefined) => (
