@@ -1,4 +1,5 @@
 import { FieldsSelection, GraphqlOperation, ClientOptions, Observable } from 'genql-runtime'
+import { SubscriptionClient } from 'subscriptions-transport-ws'
 export * from './schema'
 import {
   query_rootRequest,
@@ -15,6 +16,8 @@ export declare const createClient: (options?: ClientOptions) => Client
 export declare const everything: { __scalar: boolean }
 
 export interface Client {
+  wsClient: SubscriptionClient
+
   query<R extends query_rootRequest>(request: R): Promise<FieldsSelection<query_root, R>>
 
   mutation<R extends mutation_rootRequest>(request: R): Promise<FieldsSelection<mutation_root, R>>

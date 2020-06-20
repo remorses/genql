@@ -14,6 +14,7 @@ export const renderClientDefinition = (
 
     ctx.addCodeBlock(`
     import { FieldsSelection, GraphqlOperation, ClientOptions, Observable } from '${RUNTIME_LIB_NAME}'
+    import { SubscriptionClient } from 'subscriptions-transport-ws'
     export * from './schema'
     ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
     export declare const createClient:(options?: ClientOptions)=>Client
@@ -108,6 +109,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
 
     return `
     export interface Client {
+        wsClient: SubscriptionClient
         ${interfaceContent}
         chain: {
             ${chainTypeContent}
