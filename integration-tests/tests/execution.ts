@@ -215,7 +215,6 @@ describe('execute queries', async function() {
                 coordinates: {
                     on_Bank: {
                         __typename: 1,
-                        // TODO interface fields on_... are unknown
                         address: 1,
                         x: 1,
                     },

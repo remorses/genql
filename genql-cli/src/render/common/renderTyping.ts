@@ -1,7 +1,6 @@
 import { GraphQLInputType, GraphQLNonNull, GraphQLOutputType, isListType, isNamedType, isNonNullType, isScalarType } from 'graphql'
 
 
-// TODO add tests for the wrap function
 const render = (
   type: GraphQLOutputType | GraphQLInputType,
   nonNull: boolean,
@@ -11,7 +10,7 @@ const render = (
   wrap: (x: string) => string = x => x
 ): string => {
     
-  if (root) { // TODO this is used for args to add a : prefix, is it really necessary?
+  if (root) {
     if (undefinableFields) {
       if (isNonNullType(type)) {
         return `: ${render(type.ofType, true, false, undefinableValues, undefinableFields)}`

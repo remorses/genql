@@ -47,7 +47,7 @@ const parseRequest = (request: Request | undefined, ctx: Context, path: string[]
       ctx.varCounter++
       const varName = `v${ctx.varCounter}`
 
-      const typing = field.args && field.args[argName] // TODO typeMap used here, .args
+      const typing = field.args && field.args[argName] // typeMap used here, .args
 
       if (!typing) {
         throw new Error(`no typing defined for argument \`${argName}\` in path \`${path.join('.')}\``)

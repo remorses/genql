@@ -56,7 +56,7 @@ export const objectType = (
         //     defaultValue?: CreateOneOrderPayload | null,
         //   ) => Promise<FieldsSelection<CreateOneOrderPayload, R>  | null>
 
-        // TODO refactor this function, test
+        
         const getFnType = `{get:<R extends ${requestTypeName(
             resolvedType,
         )}>(request: R, defaultValue?:${executeReturnTypeWithTypeMap})=>${wrapper}<${executeReturnTypeWithTypeMap}>}`

@@ -63,7 +63,7 @@ export type MapInterface<SRC, DST> = SRC extends {
     : never
 
 export type ValueToUnion<T> = T extends {
-    __typename?: infer R // TODO maybe this __typename should be optional
+    __typename?: infer R
 }
     ? {
           [P in keyof Omit<T, '__typename'>]: T[P] & {

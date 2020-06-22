@@ -60,7 +60,6 @@ export const clientTasks = (config: Config): ListrTask[] => {
 
                                 renderResponseTypes(ctx.schema, renderCtx)
                                 renderRequestTypes(ctx.schema, renderCtx)
-                                // TODO render js type guards in another js file and export from that
                                 renderTypeGuards(ctx.schema, renderCtx)
                                 renderChainTypes(ctx.schema, renderCtx)
 

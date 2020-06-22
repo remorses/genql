@@ -2,7 +2,7 @@ import { GraphQLUnionType, GraphQLInterfaceType } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { typeComment } from '../common/comment'
 
-// TODO interface should produce an object like
+// interface should produce an object like
 // export type Nameable = {
 // 	__interface:{
 // 			name:string

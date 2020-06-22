@@ -53,7 +53,7 @@ export const objectType = (
     const interfaceNames = isObjectType(type)
         ? type.getInterfaces().map((i) => i.name)
         : []
-    // TODO there is no need to add extensions as in graphql the implemented type must explicitly add the fields
+    // there is no need to add extensions as in graphql the implemented type must explicitly add the fields
     let extensions =
         interfaceNames.length > 0 ? ` extends ${interfaceNames.join(',')}` : ''
     ctx.addCodeBlock(
