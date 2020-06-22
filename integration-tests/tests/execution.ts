@@ -141,6 +141,8 @@ describe('execute queries', async function() {
         'union types only 1 on_ normal syntax',
         withServer(async () => {
             const { account } = await client.query({
+                // @ts-expect-error
+                shouldNotBeHere: 1,
                 account: {
                     on_User: {
                         name: 1,
