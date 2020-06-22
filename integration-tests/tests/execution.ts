@@ -181,17 +181,20 @@ describe('execute queries', async function() {
     it(
         'interface types normal syntax',
         withServer(async () => {
-            const { coordinates } = await client.query({
+            const res = await client.query({
                 coordinates: {
                     on_Bank: {
-                        // TODO interface fields on_... are unknown
+                        __typename: 1,
+                        // TODO interface fields on_... are unknown because Bank has type undefined | Bank
                         address: 1,
                         x: 1,
                     },
                 },
             })
-            assert(coordinates?.address)
+            let coordinates = res.coordinates
+            assert(coordinates?.address?.split?.(''))
             assert(coordinates?.x)
+            
         }),
     )
     it(
@@ -199,10 +202,10 @@ describe('execute queries', async function() {
         withServer(async () => {
             const coordinates = await client.chain.query.coordinates.get({
                 // x: 1,
-                // x: 1,
+                x: 1,
                 on_Bank: { address: 1, x: 1 },
             })
-            assert(coordinates?.address)
+            assert(coordinates?.address?.split?.(''))
             assert(coordinates?.x)
         }),
     )

@@ -32,11 +32,16 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     : 4]
 
 // creates a sunset of the SRC type with only the DST selection fields
-export type ObjectFieldsSelection<SRC extends Anify<DST>, DST> = {
-    [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
-        ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
-        : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
-}
+export type ObjectFieldsSelection<
+    SRC extends Anify<DST>,
+    DST
+> = SRC extends undefined
+    ? never // TODO this is to make SRC[k] work or  ObjectFieldsSelection<T | undefined> won't work, but doing so the field is no more optional
+    : {
+          [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
+              ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
+              : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
+      }
 
 export type MapInterface<SRC, DST> = SRC extends {
     __interface: infer INTERFACE
@@ -49,27 +54,7 @@ export type MapInterface<SRC, DST> = SRC extends {
                       DST,
                       keyof INTERFACE | '__typename'
                   >]: Key extends keyof IMPLEMENTORS
-                      ? FieldsSelection<IMPLEMENTORS[Key], DST[Key]> &
-                            Omit<
-                                {
-                                    [Key in keyof Omit<
-                                        DST,
-                                        keyof IMPLEMENTORS | '__typename'
-                                    >]: Key extends keyof INTERFACE
-                                        ? LastFieldsSelectionSRCResolver<
-                                              INTERFACE[Key],
-                                              DST[Key]
-                                          >
-                                        : never
-                                },
-                                keyof IMPLEMENTORS
-                            > &
-                            (DST extends { __typename?: any }
-                                ? FieldsSelection<
-                                      IMPLEMENTORS[Key],
-                                      { __typename: true }
-                                  >
-                                : {})
+                      ? FieldsSelection<IMPLEMENTORS[Key], DST[Key]>
                       : never
               },
               keyof INTERFACE | '__typename'
