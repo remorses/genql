@@ -6,7 +6,7 @@ type ScalarFields<T> = PickByValue<
 >
 
 // SRC is the concrete type (for example Query), DST is the field selection, with shape { field: 1 | true, ... }
-export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends true | 1 // if the field is true or 1 then return its type
+export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends boolean | number // if the field is true or 1 then return its type
     ? SRC
     : DST extends {
           __scalar: any
@@ -62,7 +62,7 @@ export type MapInterface<SRC, DST> = SRC extends {
     : never
 
 export type ValueToUnion<T> = T extends {
-    __typename: infer R // TODO maybe this __typename should be optional
+    __typename?: infer R // TODO maybe this __typename should be optional
 }
     ? {
           [P in keyof Omit<T, '__typename'>]: T[P] & {

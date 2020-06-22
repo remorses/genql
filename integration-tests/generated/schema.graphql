@@ -1,13 +1,13 @@
 type Query {
   """Some description"""
-  repository(name: String!, owner: String): Repository
+  repository(name: String!, owner: String): Repository!
   user: User
   account: Account
 }
 
 type Repository {
   createdAt: String!
-  forks: ForkEdge
+  forks: ForkConnection
 }
 
 type ForkConnection {

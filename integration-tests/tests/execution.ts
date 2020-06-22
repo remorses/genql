@@ -90,11 +90,14 @@ describe('execute queries', async function() {
         const res = await client.query({
             repository: [
                 { name: 'genql', owner: 'remorses' },
-                { __scalar: 1 },
+                { ...everything, forks: { edges: { node: { name: 1 } } } },
             ],
         })
         console.log(JSON.stringify(res, null, 2))
-        assert(res.repository?.createdAt)
+        // no optional chaining because repository is non null
+        res.repository.createdAt
+        res.repository.__typename
+        res.repository?.forks?.edges?.map((x) => x?.node?.name)
         await stop()
     })
     it('chain syntax ', async () => {
@@ -103,6 +106,7 @@ describe('execute queries', async function() {
             __scalar: true,
         })
         console.log(JSON.stringify(res, null, 2))
+        res?.name
         assert(deepEq(res, x))
         await stop()
     })
@@ -125,6 +129,7 @@ describe('execute queries', async function() {
         const account = await client.chain.query.account.get({
             on_User: { name: 1, __typename: 1 },
         })
+        // TODO union types fields have unknown types
         assert(account?.on_User.name)
     })
 })

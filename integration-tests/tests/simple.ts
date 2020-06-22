@@ -14,9 +14,11 @@ describe('generate queries', () => {
                 {
                     createdAt: true,
                     forks: {
-                        cursor: true,
-                        node: {
-                            ...everything,
+                        edges: {
+                            cursor: true,
+                            node: {
+                                ...everything,
+                            },
                         },
                     },
                 },
@@ -42,9 +44,11 @@ describe('generate queries', () => {
                 {
                     createdAt: true,
                     forks: {
-                        cursor: true,
-                        node: {
-                            ...everything,
+                        edges: {
+                            cursor: true,
+                            node: {
+                                ...everything,
+                            },
                         },
                     },
                 },

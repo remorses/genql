@@ -28,10 +28,9 @@ export const objectType = (
 
     let fieldStrings = fields
         .map((f) => {
-            
             return `${fieldComment(f)}${f.name}${renderTyping(
                 f.type,
-                false,
+                true,
                 true,
             )}`
         })
