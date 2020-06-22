@@ -5,7 +5,7 @@ import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
 import { DeepPartial } from 'tsdef'
-import { createClient, User, everything } from '../generated'
+import { createClient, User, everything, isHouse, isBank } from '../generated/index.js'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
@@ -176,7 +176,6 @@ describe('execute queries', async function() {
         withServer(async () => {
             const { coordinates } = await client.query({
                 coordinates: {
-                    x: 1,
                     on_Bank: {
                         // TODO interface fields on_... are unknown
                         address: 1,
@@ -184,7 +183,41 @@ describe('execute queries', async function() {
                     },
                 },
             })
+            assert(coordinates?.address)
             assert(coordinates?.x)
+        }),
+    )
+    it(
+        'multiple interfaces types normal syntax',
+        withServer(async () => {
+            const { coordinates } = await client.query({
+                coordinates: {
+                    on_Bank: {
+                        __typename: 1,
+                        // TODO interface fields on_... are unknown
+                        address: 1,
+                        x: 1,
+                    },
+                    on_House: {
+                        __typename: 1,
+                        y: 1,
+                        x: 1,
+                        owner: {
+                            name: 1,
+                        },
+                    },
+                },
+            })
+            console.log(coordinates)
+            assert(coordinates?.x)
+            if (isBank(coordinates)) {
+                coordinates?.address
+                coordinates?.x
+            } else if (isHouse(coordinates)) {
+                coordinates?.owner
+                coordinates?.x
+                coordinates?.y
+            }
         }),
     )
 })

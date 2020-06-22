@@ -62,24 +62,28 @@ export interface Guest{
     __typename?: 'Guest'
 }
 
-export interface House extends Point{
+export interface House{
     owner?: User
     x?: Scalars['String']
     y?: Scalars['String']
     __typename?: 'House'
 }
 
-export interface Bank extends Point{
+export interface Bank{
     address?: Scalars['String']
     x?: Scalars['String']
     y?: Scalars['String']
     __typename?: 'Bank'
 }
 
-export interface Point{
-    x?: Scalars['String']
-    y?: Scalars['String']
-    __typename?: 'House'|'Bank'
+export type Point={
+  __interface: 
+    House|Bank
+  __resolve: {
+    on_House?: House
+    on_Bank?: Bank
+  }
+  __typename?: string
 }
 
 export interface QueryRequest{
@@ -166,103 +170,103 @@ export interface PointRequest{
 
 
 const Query_possibleTypes = ['Query']
-export const isQuery = (obj: { __typename?: string }): obj is Query => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isQuery = (obj?: { __typename?: any }): obj is Query => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
   return Query_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const Repository_possibleTypes = ['Repository']
-export const isRepository = (obj: { __typename?: string }): obj is Repository => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isRepository = (obj?: { __typename?: any }): obj is Repository => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRepository"')
   return Repository_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const ForkConnection_possibleTypes = ['ForkConnection']
-export const isForkConnection = (obj: { __typename?: string }): obj is ForkConnection => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isForkConnection = (obj?: { __typename?: any }): obj is ForkConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isForkConnection"')
   return ForkConnection_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const ForkEdge_possibleTypes = ['ForkEdge']
-export const isForkEdge = (obj: { __typename?: string }): obj is ForkEdge => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isForkEdge = (obj?: { __typename?: any }): obj is ForkEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isForkEdge"')
   return ForkEdge_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const Fork_possibleTypes = ['Fork']
-export const isFork = (obj: { __typename?: string }): obj is Fork => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isFork = (obj?: { __typename?: any }): obj is Fork => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isFork"')
   return Fork_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const User_possibleTypes = ['User']
-export const isUser = (obj: { __typename?: string }): obj is User => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isUser = (obj?: { __typename?: any }): obj is User => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUser"')
   return User_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const Subscription_possibleTypes = ['Subscription']
-export const isSubscription = (obj: { __typename?: string }): obj is Subscription => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isSubscription = (obj?: { __typename?: any }): obj is Subscription => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isSubscription"')
   return Subscription_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const Account_possibleTypes = ['User','Guest']
-export const isAccount = (obj: { __typename?: string }): obj is Account => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isAccount = (obj?: { __typename?: any }): obj is Account => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isAccount"')
   return Account_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const Guest_possibleTypes = ['Guest']
-export const isGuest = (obj: { __typename?: string }): obj is Guest => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isGuest = (obj?: { __typename?: any }): obj is Guest => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isGuest"')
   return Guest_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const House_possibleTypes = ['House']
-export const isHouse = (obj: { __typename?: string }): obj is House => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isHouse = (obj?: { __typename?: any }): obj is House => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isHouse"')
   return House_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const Bank_possibleTypes = ['Bank']
-export const isBank = (obj: { __typename?: string }): obj is Bank => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isBank = (obj?: { __typename?: any }): obj is Bank => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isBank"')
   return Bank_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const Point_possibleTypes = ['House','Bank']
-export const isPoint = (obj: { __typename?: string }): obj is Point => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isPoint = (obj?: { __typename?: any }): obj is Point => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPoint"')
   return Point_possibleTypes.includes(obj.__typename)
 }
 
 
 export interface QueryPromiseChain{
 /** Some description */
-repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:Repository)=>Promise<Repository>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>}),account:({get:<R extends AccountRequest>(request: R, defaultValue?:(FieldsSelection<Account, R>|null))=>Promise<(FieldsSelection<Account, R>)>}),coordinates:(PointPromiseChain & {get:<R extends PointRequest>(request: R, defaultValue?:(FieldsSelection<Point, R>|null))=>Promise<(FieldsSelection<Point, R>|null)>})}
+repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:Repository)=>Promise<Repository>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>}),account:({get:<R extends AccountRequest>(request: R, defaultValue?:(FieldsSelection<Account, R>|null))=>Promise<(FieldsSelection<Account, R>|null)>}),coordinates:(PointPromiseChain & {get:<R extends PointRequest>(request: R, defaultValue?:(FieldsSelection<Point, R>|null))=>Promise<(FieldsSelection<Point, R>|null)>})}
 
 export interface QueryObservableChain{
 /** Some description */

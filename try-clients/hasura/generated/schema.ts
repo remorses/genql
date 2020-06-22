@@ -12,17 +12,17 @@ export type Scalars = {
 /** mutation root */
 export interface mutation_root{
     /** delete data from the table: "user" */
-    delete_user?: (user_mutation_response|null)
+    delete_user?: user_mutation_response
     /** delete single row from the table: "user" */
-    delete_user_by_pk?: (user|null)
+    delete_user_by_pk?: user
     /** insert data into the table: "user" */
-    insert_user?: (user_mutation_response|null)
+    insert_user?: user_mutation_response
     /** insert a single row into the table: "user" */
-    insert_user_one?: (user|null)
+    insert_user_one?: user
     /** update data of the table: "user" */
-    update_user?: (user_mutation_response|null)
+    update_user?: user_mutation_response
     /** update single row of the table: "user" */
-    update_user_by_pk?: (user|null)
+    update_user_by_pk?: user
     __typename?: 'mutation_root'
 }
 
@@ -38,7 +38,7 @@ export interface query_root{
     /** fetch aggregated fields from the table: "user" */
     user_aggregate: user_aggregate
     /** fetch data from the table: "user" using primary key columns */
-    user_by_pk?: (user|null)
+    user_by_pk?: user
     __typename?: 'query_root'
 }
 
@@ -50,7 +50,7 @@ export interface subscription_root{
     /** fetch aggregated fields from the table: "user" */
     user_aggregate: user_aggregate
     /** fetch data from the table: "user" using primary key columns */
-    user_by_pk?: (user|null)
+    user_by_pk?: user
     __typename?: 'subscription_root'
 }
 
@@ -66,7 +66,7 @@ export interface user{
 
 /** aggregated selection of "user" */
 export interface user_aggregate{
-    aggregate?: (user_aggregate_fields|null)
+    aggregate?: user_aggregate_fields
     nodes: user[]
     __typename?: 'user_aggregate'
 }
@@ -74,24 +74,24 @@ export interface user_aggregate{
 
 /** aggregate fields of "user" */
 export interface user_aggregate_fields{
-    avg?: (user_avg_fields|null)
-    count?: (Scalars['Int']|null)
-    max?: (user_max_fields|null)
-    min?: (user_min_fields|null)
-    stddev?: (user_stddev_fields|null)
-    stddev_pop?: (user_stddev_pop_fields|null)
-    stddev_samp?: (user_stddev_samp_fields|null)
-    sum?: (user_sum_fields|null)
-    var_pop?: (user_var_pop_fields|null)
-    var_samp?: (user_var_samp_fields|null)
-    variance?: (user_variance_fields|null)
+    avg?: user_avg_fields
+    count?: Scalars['Int']
+    max?: user_max_fields
+    min?: user_min_fields
+    stddev?: user_stddev_fields
+    stddev_pop?: user_stddev_pop_fields
+    stddev_samp?: user_stddev_samp_fields
+    sum?: user_sum_fields
+    var_pop?: user_var_pop_fields
+    var_samp?: user_var_samp_fields
+    variance?: user_variance_fields
     __typename?: 'user_aggregate_fields'
 }
 
 
 /** aggregate avg on columns */
 export interface user_avg_fields{
-    age?: (Scalars['Float']|null)
+    age?: Scalars['Float']
     __typename?: 'user_avg_fields'
 }
 
@@ -102,18 +102,18 @@ export type user_constraint = 'user_pkey'
 
 /** aggregate max on columns */
 export interface user_max_fields{
-    age?: (Scalars['Int']|null)
-    id?: (Scalars['String']|null)
-    name?: (Scalars['String']|null)
+    age?: Scalars['Int']
+    id?: Scalars['String']
+    name?: Scalars['String']
     __typename?: 'user_max_fields'
 }
 
 
 /** aggregate min on columns */
 export interface user_min_fields{
-    age?: (Scalars['Int']|null)
-    id?: (Scalars['String']|null)
-    name?: (Scalars['String']|null)
+    age?: Scalars['Int']
+    id?: Scalars['String']
+    name?: Scalars['String']
     __typename?: 'user_min_fields'
 }
 
@@ -134,28 +134,28 @@ export type user_select_column = 'age' | 'id' | 'name'
 
 /** aggregate stddev on columns */
 export interface user_stddev_fields{
-    age?: (Scalars['Float']|null)
+    age?: Scalars['Float']
     __typename?: 'user_stddev_fields'
 }
 
 
 /** aggregate stddev_pop on columns */
 export interface user_stddev_pop_fields{
-    age?: (Scalars['Float']|null)
+    age?: Scalars['Float']
     __typename?: 'user_stddev_pop_fields'
 }
 
 
 /** aggregate stddev_samp on columns */
 export interface user_stddev_samp_fields{
-    age?: (Scalars['Float']|null)
+    age?: Scalars['Float']
     __typename?: 'user_stddev_samp_fields'
 }
 
 
 /** aggregate sum on columns */
 export interface user_sum_fields{
-    age?: (Scalars['Int']|null)
+    age?: Scalars['Int']
     __typename?: 'user_sum_fields'
 }
 
@@ -166,21 +166,21 @@ export type user_update_column = 'age' | 'id' | 'name'
 
 /** aggregate var_pop on columns */
 export interface user_var_pop_fields{
-    age?: (Scalars['Float']|null)
+    age?: Scalars['Float']
     __typename?: 'user_var_pop_fields'
 }
 
 
 /** aggregate var_samp on columns */
 export interface user_var_samp_fields{
-    age?: (Scalars['Float']|null)
+    age?: Scalars['Float']
     __typename?: 'user_var_samp_fields'
 }
 
 
 /** aggregate variance on columns */
 export interface user_variance_fields{
-    age?: (Scalars['Float']|null)
+    age?: Scalars['Float']
     __typename?: 'user_variance_fields'
 }
 
@@ -511,136 +511,136 @@ export interface user_variance_order_by{age?: (order_by|null)}
 
 
 const mutation_root_possibleTypes = ['mutation_root']
-export const ismutation_root = (obj: { __typename?: string }): obj is mutation_root => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const ismutation_root = (obj?: { __typename?: any }): obj is mutation_root => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "ismutation_root"')
   return mutation_root_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const query_root_possibleTypes = ['query_root']
-export const isquery_root = (obj: { __typename?: string }): obj is query_root => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isquery_root = (obj?: { __typename?: any }): obj is query_root => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isquery_root"')
   return query_root_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const subscription_root_possibleTypes = ['subscription_root']
-export const issubscription_root = (obj: { __typename?: string }): obj is subscription_root => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const issubscription_root = (obj?: { __typename?: any }): obj is subscription_root => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "issubscription_root"')
   return subscription_root_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_possibleTypes = ['user']
-export const isuser = (obj: { __typename?: string }): obj is user => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser = (obj?: { __typename?: any }): obj is user => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser"')
   return user_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_aggregate_possibleTypes = ['user_aggregate']
-export const isuser_aggregate = (obj: { __typename?: string }): obj is user_aggregate => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_aggregate = (obj?: { __typename?: any }): obj is user_aggregate => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_aggregate"')
   return user_aggregate_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_aggregate_fields_possibleTypes = ['user_aggregate_fields']
-export const isuser_aggregate_fields = (obj: { __typename?: string }): obj is user_aggregate_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_aggregate_fields = (obj?: { __typename?: any }): obj is user_aggregate_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_aggregate_fields"')
   return user_aggregate_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_avg_fields_possibleTypes = ['user_avg_fields']
-export const isuser_avg_fields = (obj: { __typename?: string }): obj is user_avg_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_avg_fields = (obj?: { __typename?: any }): obj is user_avg_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_avg_fields"')
   return user_avg_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_max_fields_possibleTypes = ['user_max_fields']
-export const isuser_max_fields = (obj: { __typename?: string }): obj is user_max_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_max_fields = (obj?: { __typename?: any }): obj is user_max_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_max_fields"')
   return user_max_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_min_fields_possibleTypes = ['user_min_fields']
-export const isuser_min_fields = (obj: { __typename?: string }): obj is user_min_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_min_fields = (obj?: { __typename?: any }): obj is user_min_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_min_fields"')
   return user_min_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_mutation_response_possibleTypes = ['user_mutation_response']
-export const isuser_mutation_response = (obj: { __typename?: string }): obj is user_mutation_response => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_mutation_response = (obj?: { __typename?: any }): obj is user_mutation_response => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_mutation_response"')
   return user_mutation_response_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_stddev_fields_possibleTypes = ['user_stddev_fields']
-export const isuser_stddev_fields = (obj: { __typename?: string }): obj is user_stddev_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_stddev_fields = (obj?: { __typename?: any }): obj is user_stddev_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_fields"')
   return user_stddev_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_stddev_pop_fields_possibleTypes = ['user_stddev_pop_fields']
-export const isuser_stddev_pop_fields = (obj: { __typename?: string }): obj is user_stddev_pop_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_stddev_pop_fields = (obj?: { __typename?: any }): obj is user_stddev_pop_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_pop_fields"')
   return user_stddev_pop_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_stddev_samp_fields_possibleTypes = ['user_stddev_samp_fields']
-export const isuser_stddev_samp_fields = (obj: { __typename?: string }): obj is user_stddev_samp_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_stddev_samp_fields = (obj?: { __typename?: any }): obj is user_stddev_samp_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_samp_fields"')
   return user_stddev_samp_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_sum_fields_possibleTypes = ['user_sum_fields']
-export const isuser_sum_fields = (obj: { __typename?: string }): obj is user_sum_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_sum_fields = (obj?: { __typename?: any }): obj is user_sum_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_sum_fields"')
   return user_sum_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_var_pop_fields_possibleTypes = ['user_var_pop_fields']
-export const isuser_var_pop_fields = (obj: { __typename?: string }): obj is user_var_pop_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_var_pop_fields = (obj?: { __typename?: any }): obj is user_var_pop_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_var_pop_fields"')
   return user_var_pop_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_var_samp_fields_possibleTypes = ['user_var_samp_fields']
-export const isuser_var_samp_fields = (obj: { __typename?: string }): obj is user_var_samp_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_var_samp_fields = (obj?: { __typename?: any }): obj is user_var_samp_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_var_samp_fields"')
   return user_var_samp_fields_possibleTypes.includes(obj.__typename)
 }
 
 
 
 const user_variance_fields_possibleTypes = ['user_variance_fields']
-export const isuser_variance_fields = (obj: { __typename?: string }): obj is user_variance_fields => {
-  if (!obj.__typename) throw new Error('__typename is missing')
+export const isuser_variance_fields = (obj?: { __typename?: any }): obj is user_variance_fields => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isuser_variance_fields"')
   return user_variance_fields_possibleTypes.includes(obj.__typename)
 }
 

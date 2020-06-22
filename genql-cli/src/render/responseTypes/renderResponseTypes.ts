@@ -13,6 +13,7 @@ import { enumType } from './enumType'
 import { objectType } from './objectType'
 import { renderScalarTypes } from './scalarType'
 import { unionType } from './unionType'
+import { interfaceType } from './interfaceType'
 
 export const renderResponseTypes = (
     schema: GraphQLSchema,
@@ -34,17 +35,7 @@ export const renderResponseTypes = (
 
         if (isEnumType(type)) enumType(type, ctx)
         if (isUnionType(type)) unionType(type, ctx)
-        if (isObjectType(type) || isInterfaceType(type)) objectType(type, ctx)
+        if (isObjectType(type)) objectType(type, ctx)
+        if (isInterfaceType(type)) interfaceType(type, ctx)
     }
 }
-
-// TODO interface should produce an object like
-// export type Nameable = {
-// 	__interface:{
-// 			name:string
-// 	};
-// 	__resolve:{
-// 		['on_Card']: Card;
-// 		['on_CardStack']: CardStack;
-// 	}
-// }

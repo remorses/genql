@@ -6,7 +6,7 @@
     "author": "remorses",
     "license": "MIT",
     "scripts": {
-        "test": "mocha -r sucrase/register",
+        "test": "mocha -r ts-node/register",
         "gen": "node -r sucrase/register generate.ts",
         "genprof": "node -r sucrase/register --prof generate.ts",
         "flame": "node --prof-process --preprocess -j isolate*.log | flamebearer && open flamegraph.html"
