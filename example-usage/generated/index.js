@@ -27,3 +27,12 @@ module.exports.generateSubscriptionOp = function(fields) {
 module.exports.everything = {
   __scalar: true,
 }
+
+try {
+  const schemaExports = require('./schema')
+  for (var k in schemaExports) {
+    module.exports[k] = schemaExports[k]
+  }
+} catch (e) {
+  console.log('cannot export from ./schema.ts')
+}

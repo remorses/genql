@@ -13,6 +13,8 @@ import { renderTypeMap } from '../render/typeMap/renderTypeMap'
 
 const schemaGqlFile = 'schema.graphql'
 const schemaTypesFile = 'schema.ts'
+const guardsFileCjs = 'guards.cjs.js'
+const guardsFileEsm = 'guards.esm.js'
 const typeMapFile = 'types.json'
 const clientFileCjs = 'index.js'
 const clientFileEsm = 'index.esm.js'
@@ -58,12 +60,45 @@ export const clientTasks = (config: Config): ListrTask[] => {
 
                                 renderResponseTypes(ctx.schema, renderCtx)
                                 renderRequestTypes(ctx.schema, renderCtx)
+                                // TODO render js type guards in another js file and export from that
                                 renderTypeGuards(ctx.schema, renderCtx)
                                 renderChainTypes(ctx.schema, renderCtx)
 
                                 await writeFileToPath(
                                     [output, schemaTypesFile],
                                     renderCtx.toCode('typescript'),
+                                )
+                            },
+                        },
+                        {
+                            title: `writing ${guardsFileEsm}`,
+                            task: async (ctx) => {
+                                const renderCtx = new RenderContext(
+                                    ctx.schema,
+                                    config,
+                                )
+
+                                renderTypeGuards(ctx.schema, renderCtx, 'esm')
+
+                                await writeFileToPath(
+                                    [output, guardsFileEsm],
+                                    renderCtx.toCode('babel'),
+                                )
+                            },
+                        },
+                        {
+                            title: `writing ${guardsFileCjs}`,
+                            task: async (ctx) => {
+                                const renderCtx = new RenderContext(
+                                    ctx.schema,
+                                    config,
+                                )
+
+                                renderTypeGuards(ctx.schema, renderCtx, 'cjs')
+
+                                await writeFileToPath(
+                                    [output, guardsFileCjs],
+                                    renderCtx.toCode('babel'),
                                 )
                             },
                         },
@@ -96,7 +131,6 @@ export const clientTasks = (config: Config): ListrTask[] => {
                                     [output, clientFileCjs],
                                     renderCtx.toCode('babel', true),
                                 )
-                                
                             },
                         },
                         {

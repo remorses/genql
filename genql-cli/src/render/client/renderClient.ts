@@ -43,7 +43,11 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
   module.exports.everything = {
     __scalar: true
   }
-  
+
+  var schemaExports = require('./guards.cjs')
+  for (var k in schemaExports) { 
+    module.exports[k] = schemaExports[k];
+  }
   `)
 }
 
@@ -55,7 +59,7 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
       generateGraphqlOperation,
   } from '${RUNTIME_LIB_NAME}'
   var typeMap = linkTypeMap(require('./types.json'))
-
+  export * from './guards.esm'
   export var createClient = ${renderClientCode(ctx)}
 
   export var generateQueryOp = function(fields) {
