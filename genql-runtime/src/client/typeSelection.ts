@@ -1,41 +1,40 @@
 import { PickByValue } from 'utility-types'
 
-type ScalarFields<T> = PickByValue<
-    T,
-    string | number | Date | boolean | null | undefined
->
+type Scalar = string | number | Date | boolean | null | undefined
+
+type ScalarFields<T> = PickByValue<T, Scalar>
 
 // SRC is the concrete type (for example Query), DST is the field selection, with shape { field: 1 | true, ... }
-export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends
-    | boolean
-    | number // if the field is true or 1 then return its type
-    ? SRC
-    : DST extends {
-          __scalar: any
-      }
-    ? Omit<ScalarFields<SRC>, '__scalar'> &
-          Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
-    : Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
-
-// creates a sunset of the SRC type with only the DST selection fields
-type ObjectFieldsSelection<SRC extends Anify<DST>, DST> = {
-    0: SRC extends {
+export type FieldsSelection<SRC extends Anify<DST>, DST> = {
+    0: SRC
+    1: Omit<ScalarFields<SRC>, '__scalar'> &
+        Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
+    2: SRC extends {
         __union: any
         __resolve: infer RESOLVE
     }
         ? ObjectToUnion<FieldsSelection<RESOLVE, ValueToUnion<DST>>>
-        : 7
-    1: {
-        [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
-            ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
-            : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
-    }
-}[SRC extends {
-    __union: any
-    __resolve: any
-}
+        : never
+    3: Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
+}[DST extends boolean | number // if the field is true or 1 then return its type
     ? 0
-    : 1]
+    : DST extends {
+          __scalar: any
+      }
+    ? 1
+    : SRC extends {
+          __union: any
+          __resolve: any
+      }
+    ? 2
+    : 3]
+
+// creates a sunset of the SRC type with only the DST selection fields
+export type ObjectFieldsSelection<SRC extends Anify<DST>, DST> = {
+    [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
+        ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
+        : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
+}
 
 export type MapInterface<SRC, DST> = SRC extends {
     __interface: infer INTERFACE

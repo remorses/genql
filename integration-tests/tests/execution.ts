@@ -156,11 +156,19 @@ describe('execute queries', async function() {
         'union types chain syntax',
         withServer(async () => {
             const account = await client.chain.query.account.get({
-                on_User: { name: 1,  },
-                
+                on_User: { name: 1 },
             })
-            // TODO remove the on_.. from the result and replace with the corresponding type
-            account.name
+            account?.name
+        }),
+    )
+    it(
+        'union types with ...everything',
+        withServer(async () => {
+            const account = await client.chain.query.account.get({
+                on_User: { ...everything },
+            })
+            account?.name
+            account?.__typename
         }),
     )
     it(
