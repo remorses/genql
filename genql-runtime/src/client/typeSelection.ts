@@ -10,12 +10,12 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     1: Omit<ScalarFields<SRC>, '__scalar'> &
         Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
     2: SRC extends {
-        __union: any
         __resolve: infer RESOLVE
     }
         ? ObjectToUnion<FieldsSelection<RESOLVE, ValueToUnion<DST>>>
         : never
-    3: Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
+    3: MapInterface<SRC, DST>
+    4: Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
 }[DST extends boolean | number // if the field is true or 1 then return its type
     ? 0
     : DST extends {
@@ -27,7 +27,9 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
           __resolve: any
       }
     ? 2
-    : 3]
+    : SRC extends { __interface: any; __resolve: any }
+    ? 3
+    : 4]
 
 // creates a sunset of the SRC type with only the DST selection fields
 export type ObjectFieldsSelection<SRC extends Anify<DST>, DST> = {
@@ -62,7 +64,7 @@ export type MapInterface<SRC, DST> = SRC extends {
                                 },
                                 keyof IMPLEMENTORS
                             > &
-                            (DST extends { __typename: any }
+                            (DST extends { __typename?: any }
                                 ? FieldsSelection<
                                       IMPLEMENTORS[Key],
                                       { __typename: true }

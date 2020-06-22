@@ -5,7 +5,13 @@ import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
 import { DeepPartial } from 'tsdef'
-import { createClient, User, everything, isHouse, isBank } from '../generated/index.js'
+import {
+    createClient,
+    User,
+    everything,
+    isHouse,
+    isBank,
+} from '../generated/index.js'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
@@ -141,8 +147,6 @@ describe('execute queries', async function() {
         'union types only 1 on_ normal syntax',
         withServer(async () => {
             const { account } = await client.query({
-                // @ts-expect-error
-                shouldNotBeHere: 1,
                 account: {
                     on_User: {
                         name: 1,
@@ -167,6 +171,7 @@ describe('execute queries', async function() {
         'union types with ...everything',
         withServer(async () => {
             const account = await client.chain.query.account.get({
+                __typename: 1,
                 on_User: { ...everything },
             })
             account?.name
@@ -184,6 +189,18 @@ describe('execute queries', async function() {
                         x: 1,
                     },
                 },
+            })
+            assert(coordinates?.address)
+            assert(coordinates?.x)
+        }),
+    )
+    it(
+        'interface types chain syntax',
+        withServer(async () => {
+            const coordinates = await client.chain.query.coordinates.get({
+                // x: 1,
+                // x: 1,
+                on_Bank: { address: 1, x: 1 },
             })
             assert(coordinates?.address)
             assert(coordinates?.x)
