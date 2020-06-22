@@ -49,3 +49,26 @@ union Account = User | Guest
 type Guest {
     anonymous: Boolean
 }
+
+##################
+
+extend type Query {
+    coordinates: Point
+}
+
+type House implements Point {
+    owner: User
+    x: String
+    y: String
+}
+
+type Bank implements Point {
+    address: String
+    x: String
+    y: String
+}
+
+interface Point {
+    x: String
+    y: String
+}

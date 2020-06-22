@@ -6,7 +6,9 @@ type ScalarFields<T> = PickByValue<
 >
 
 // SRC is the concrete type (for example Query), DST is the field selection, with shape { field: 1 | true, ... }
-export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends boolean | number // if the field is true or 1 then return its type
+export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends
+    | boolean
+    | number // if the field is true or 1 then return its type
     ? SRC
     : DST extends {
           __scalar: any
@@ -17,10 +19,23 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends boolean |
 
 // creates a sunset of the SRC type with only the DST selection fields
 type ObjectFieldsSelection<SRC extends Anify<DST>, DST> = {
-    [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
-        ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
-        : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
+    0: SRC extends {
+        __union: any
+        __resolve: infer RESOLVE
+    }
+        ? ObjectToUnion<FieldsSelection<RESOLVE, ValueToUnion<DST>>>
+        : 7
+    1: {
+        [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
+            ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
+            : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
+    }
+}[SRC extends {
+    __union: any
+    __resolve: any
 }
+    ? 0
+    : 1]
 
 export type MapInterface<SRC, DST> = SRC extends {
     __interface: infer INTERFACE

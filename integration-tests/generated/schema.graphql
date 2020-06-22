@@ -3,6 +3,7 @@ type Query {
   repository(name: String!, owner: String): Repository!
   user: User
   account: Account
+  coordinates: Point
 }
 
 type Repository {
@@ -36,4 +37,21 @@ union Account = User | Guest
 
 type Guest {
   anonymous: Boolean
+}
+
+type House implements Point {
+  owner: User
+  x: String
+  y: String
+}
+
+type Bank implements Point {
+  address: String
+  x: String
+  y: String
+}
+
+interface Point {
+  x: String
+  y: String
 }

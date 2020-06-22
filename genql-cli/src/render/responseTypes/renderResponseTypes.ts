@@ -37,3 +37,14 @@ export const renderResponseTypes = (
         if (isObjectType(type) || isInterfaceType(type)) objectType(type, ctx)
     }
 }
+
+// TODO interface should produce an object like
+// export type Nameable = {
+// 	__interface:{
+// 			name:string
+// 	};
+// 	__resolve:{
+// 		['on_Card']: Card;
+// 		['on_CardStack']: CardStack;
+// 	}
+// }

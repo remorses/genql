@@ -95,3 +95,57 @@ z.category.nested2
 z.order.customer.address.city
 
 test('ts does not complain', () => {})
+
+///////////////////////////////////// unions
+
+{
+    type One = { one: string; __typename: string }
+    type Two = { two: string; __typename: string }
+    type SRC = {
+        union?: {
+            __union: One | Two
+            __resolve: {
+                on_One: One
+                on_Two: Two
+            }
+            __typename: 'One' | 'Two'
+        }
+    }
+    type DST = {
+        union?: {
+            on_One: {
+                one: true
+            }
+            // on_Two: {
+            //     two: 1
+            // }
+        }
+    }
+    const z: FieldsSelection<SRC, DST> = {} as any
+    z.union.one
+}
+
+{
+    // without top level object
+    type One = { one?: string; __typename?: string }
+    type Two = { two?: string; __typename?: string }
+    type SRC = {
+        __union: One | Two
+        __resolve: {
+            on_One?: One
+            on_Two?: Two
+        }
+        __typename?: 'One' | 'Two'
+    }
+    type DST = {
+        on_One?: {
+            one?: true
+        }
+        __typename?: 1
+        // on_Two: {
+        //     two: 1
+        // }
+    }
+    const z: FieldsSelection<SRC, DST> = {} as any
+    z.one
+}

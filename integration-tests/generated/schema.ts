@@ -10,6 +10,7 @@ export interface Query{
     repository: Repository
     user?: User
     account?: Account
+    coordinates?: Point
     __typename?: 'Query'
 }
 
@@ -46,11 +47,39 @@ export interface Subscription{
     __typename?: 'Subscription'
 }
 
-export type Account=User|Guest
+export type Account={
+  __union: 
+    User|Guest
+  __resolve: {
+    on_User?: User
+    on_Guest?: Guest
+  }
+  __typename?: string
+}
 
 export interface Guest{
     anonymous?: Scalars['Boolean']
     __typename?: 'Guest'
+}
+
+export interface House extends Point{
+    owner?: User
+    x?: Scalars['String']
+    y?: Scalars['String']
+    __typename?: 'House'
+}
+
+export interface Bank extends Point{
+    address?: Scalars['String']
+    x?: Scalars['String']
+    y?: Scalars['String']
+    __typename?: 'Bank'
+}
+
+export interface Point{
+    x?: Scalars['String']
+    y?: Scalars['String']
+    __typename?: 'House'|'Bank'
 }
 
 export interface QueryRequest{
@@ -58,6 +87,7 @@ export interface QueryRequest{
     repository?: [{name: Scalars['String'],owner?: (Scalars['String']|null)},RepositoryRequest]
     user?: UserRequest
     account?: AccountRequest
+    coordinates?: PointRequest
     __typename?: boolean|number
     __scalar?: boolean|number
 }
@@ -105,6 +135,31 @@ export interface AccountRequest{on_User?:UserRequest,on_Guest?:GuestRequest,__ty
 
 export interface GuestRequest{
     anonymous?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
+
+export interface HouseRequest{
+    owner?: UserRequest
+    x?: boolean|number
+    y?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
+
+export interface BankRequest{
+    address?: boolean|number
+    x?: boolean|number
+    y?: boolean|number
+    __typename?: boolean|number
+    __scalar?: boolean|number
+}
+
+export interface PointRequest{
+    x?: boolean|number
+    y?: boolean|number
+    on_House?: HouseRequest
+    on_Bank?: BankRequest
     __typename?: boolean|number
     __scalar?: boolean|number
 }
@@ -181,13 +236,37 @@ export const isGuest = (obj: { __typename?: string }): obj is Guest => {
 }
 
 
+
+const House_possibleTypes = ['House']
+export const isHouse = (obj: { __typename?: string }): obj is House => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return House_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Bank_possibleTypes = ['Bank']
+export const isBank = (obj: { __typename?: string }): obj is Bank => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return Bank_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Point_possibleTypes = ['House','Bank']
+export const isPoint = (obj: { __typename?: string }): obj is Point => {
+  if (!obj.__typename) throw new Error('__typename is missing')
+  return Point_possibleTypes.includes(obj.__typename)
+}
+
+
 export interface QueryPromiseChain{
 /** Some description */
-repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:Repository)=>Promise<Repository>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>}),account:({get:<R extends AccountRequest>(request: R, defaultValue?:(FieldsSelection<Account, R>|null))=>Promise<(FieldsSelection<Account, R>|null)>})}
+repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryPromiseChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:Repository)=>Promise<Repository>}),user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>}),account:({get:<R extends AccountRequest>(request: R, defaultValue?:(FieldsSelection<Account, R>|null))=>Promise<(FieldsSelection<Account, R>)>}),coordinates:(PointPromiseChain & {get:<R extends PointRequest>(request: R, defaultValue?:(FieldsSelection<Point, R>|null))=>Promise<(FieldsSelection<Point, R>|null)>})}
 
 export interface QueryObservableChain{
 /** Some description */
-repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryObservableChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:Repository)=>Observable<Repository>}),user:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>}),account:({get:<R extends AccountRequest>(request: R, defaultValue?:(FieldsSelection<Account, R>|null))=>Observable<(FieldsSelection<Account, R>|null)>})}
+repository:((args:{name: Scalars['String'],owner?: (Scalars['String']|null)})=>RepositoryObservableChain & {get:<R extends RepositoryRequest>(request: R, defaultValue?:Repository)=>Observable<Repository>}),user:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>}),account:({get:<R extends AccountRequest>(request: R, defaultValue?:(FieldsSelection<Account, R>|null))=>Observable<(FieldsSelection<Account, R>|null)>}),coordinates:(PointObservableChain & {get:<R extends PointRequest>(request: R, defaultValue?:(FieldsSelection<Point, R>|null))=>Observable<(FieldsSelection<Point, R>|null)>})}
 
 export interface RepositoryPromiseChain{createdAt:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),forks:(ForkConnectionPromiseChain & {get:<R extends ForkConnectionRequest>(request: R, defaultValue?:(FieldsSelection<ForkConnection, R>|null))=>Promise<(FieldsSelection<ForkConnection, R>|null)>})}
 
@@ -220,3 +299,15 @@ export interface SubscriptionObservableChain{user:(UserObservableChain & {get:<R
 export interface GuestPromiseChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean']|null))=>Promise<(Scalars['Boolean']|null)>})}
 
 export interface GuestObservableChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean']|null))=>Observable<(Scalars['Boolean']|null)>})}
+
+export interface HousePromiseChain{owner:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
+
+export interface HouseObservableChain{owner:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
+
+export interface BankPromiseChain{address:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
+
+export interface BankObservableChain{address:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
+
+export interface PointPromiseChain{x:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
+
+export interface PointObservableChain{x:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
