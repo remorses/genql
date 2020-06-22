@@ -8,7 +8,7 @@ import { everything } from '../generated/'
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')
-    const func = (_, regex) =>
+    const func = (_: any, regex: string) =>
         client.query({
             countries: [
                 { filter: { continent: { regex: regex } } },
@@ -28,7 +28,7 @@ const Page = () => {
                 <Input
                     variant='filled'
                     value={regex}
-                    onChange={(e) => setRegex(e.target.value)}
+                    onChange={(e: any) => setRegex(e.target.value)}
                     placeholder='.*'
                 />
             </PageContainer>

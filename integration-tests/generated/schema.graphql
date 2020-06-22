@@ -1,5 +1,13 @@
-type Fork {
-  name: String
+type Query {
+  """Some description"""
+  repository(name: String!, owner: String): Repository
+  user: User
+  account: Account
+}
+
+type Repository {
+  createdAt: String!
+  forks: ForkEdge
 }
 
 type ForkConnection {
@@ -11,22 +19,21 @@ type ForkEdge {
   node: Fork
 }
 
-type Query {
-  """Some description"""
-  repository(name: String!, owner: String): Repository
-  user: User
+type Fork {
+  name: String
 }
 
-type Repository {
-  createdAt: String
-  forks: ForkEdge
+type User {
+  """Some description"""
+  name: String
 }
 
 type Subscription {
   user: User
 }
 
-type User {
-  """Some description"""
-  name: String
+union Account = User | Guest
+
+type Guest {
+  anonymous: Boolean
 }

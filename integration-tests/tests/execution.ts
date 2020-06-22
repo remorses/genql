@@ -51,7 +51,13 @@ describe('execute queries', async function() {
                     },
                     repository: () => {
                         return {
-                            createdAt: 'dfgdf',
+                            createdAt: 'now',
+                        }
+                    },
+                    account: () => {
+                        return {
+                            __typename: 'User',
+                            ...x,
                         }
                     },
                 },
@@ -84,10 +90,11 @@ describe('execute queries', async function() {
         const res = await client.query({
             repository: [
                 { name: 'genql', owner: 'remorses' },
-                { ...everything },
+                { __scalar: 1 },
             ],
         })
         console.log(JSON.stringify(res, null, 2))
+        assert(res.repository?.createdAt)
         await stop()
     })
     it('chain syntax ', async () => {
@@ -98,6 +105,27 @@ describe('execute queries', async function() {
         console.log(JSON.stringify(res, null, 2))
         assert(deepEq(res, x))
         await stop()
+    })
+
+    test('union types normal syntax', async () => {
+        const { account } = await client.query({
+            account: {
+                on_Guest: {
+                    anonymous: 1,
+                },
+                on_User: {
+                    name: 1,
+                },
+            },
+        })
+        assert(account?.on_User.name)
+    })
+
+    test('union types chain syntax', async () => {
+        const account = await client.chain.query.account.get({
+            on_User: { name: 1, __typename: 1 },
+        })
+        assert(account?.on_User.name)
     })
 })
 

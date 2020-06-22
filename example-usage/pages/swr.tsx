@@ -1,13 +1,13 @@
 import { Stack, Box, Spinner, Input } from '@chakra-ui/core'
 import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
-import React, { useState } from 'react'
+import React, { useState, FormEvent } from 'react'
 import useSWR from 'swr'
 import { client } from './_app'
 import { everything } from '../generated'
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')
-    const f = (regex) =>
+    const f = (regex: string) =>
         client.query({
             countries: [
                 { filter: { continent: { regex: regex } } },
@@ -15,6 +15,7 @@ const Page = () => {
             ],
         })
     const { data, error } = useSWR([regex], f)
+
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero
@@ -27,7 +28,7 @@ const Page = () => {
                 <Input
                     variant='filled'
                     value={regex}
-                    onChange={(e) => setRegex(e.target.value)}
+                    onChange={(e: any) => setRegex(e.target.value)}
                     placeholder='.*'
                 />
             </PageContainer>

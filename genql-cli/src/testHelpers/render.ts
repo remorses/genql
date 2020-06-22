@@ -23,7 +23,7 @@ export interface SchemaRenderer {
 export const toClientSchema = async (schemaGql: string) => {
     const schema = buildSchema(schemaGql)
 
-    const introspectionResponse = await graphql<IntrospectionQuery>(
+    const introspectionResponse = await graphql(
         schema,
         getIntrospectionQuery(),
     )
@@ -32,7 +32,7 @@ export const toClientSchema = async (schemaGql: string) => {
         throw new Error(JSON.stringify(introspectionResponse.errors))
     }
 
-    return buildClientSchema(introspectionResponse.data)
+    return buildClientSchema(introspectionResponse.data as any)
 }
 
 export const schemaRenderTest = async (

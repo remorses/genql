@@ -10,19 +10,19 @@ export type Scalars = {
 
 export interface Query{
     continents: Continent[]
-    continent: (Continent|null)
+    continent?: (Continent|null)
     countries: Country[]
-    country: (Country|null)
+    country?: (Country|null)
     languages: Language[]
-    language: (Language|null)
-    __typename: 'Query'
+    language?: (Language|null)
+    __typename?: 'Query'
 }
 
 export interface Continent{
     code: Scalars['ID']
     name: Scalars['String']
     countries: Country[]
-    __typename: 'Continent'
+    __typename?: 'Continent'
 }
 
 export interface Country{
@@ -31,28 +31,28 @@ export interface Country{
     native: Scalars['String']
     phone: Scalars['String']
     continent: Continent
-    capital: (Scalars['String']|null)
-    currency: (Scalars['String']|null)
+    capital?: (Scalars['String']|null)
+    currency?: (Scalars['String']|null)
     languages: Language[]
     emoji: Scalars['String']
     emojiU: Scalars['String']
     states: State[]
-    __typename: 'Country'
+    __typename?: 'Country'
 }
 
 export interface Language{
     code: Scalars['ID']
-    name: (Scalars['String']|null)
-    native: (Scalars['String']|null)
+    name?: (Scalars['String']|null)
+    native?: (Scalars['String']|null)
     rtl: Scalars['Boolean']
-    __typename: 'Language'
+    __typename?: 'Language'
 }
 
 export interface State{
-    code: (Scalars['String']|null)
+    code?: (Scalars['String']|null)
     name: Scalars['String']
     country: Country
-    __typename: 'State'
+    __typename?: 'State'
 }
 
 export type CacheControlScope = 'PUBLIC' | 'PRIVATE'
@@ -119,7 +119,7 @@ export interface LanguageFilterInput{code?: (StringQueryOperatorInput|null)}
 
 
 const Query_possibleTypes = ['Query']
-export const isQuery = (obj: { __typename: string }): obj is Query => {
+export const isQuery = (obj: { __typename?: string }): obj is Query => {
   if (!obj.__typename) throw new Error('__typename is missing')
   return Query_possibleTypes.includes(obj.__typename)
 }
@@ -127,7 +127,7 @@ export const isQuery = (obj: { __typename: string }): obj is Query => {
 
 
 const Continent_possibleTypes = ['Continent']
-export const isContinent = (obj: { __typename: string }): obj is Continent => {
+export const isContinent = (obj: { __typename?: string }): obj is Continent => {
   if (!obj.__typename) throw new Error('__typename is missing')
   return Continent_possibleTypes.includes(obj.__typename)
 }
@@ -135,7 +135,7 @@ export const isContinent = (obj: { __typename: string }): obj is Continent => {
 
 
 const Country_possibleTypes = ['Country']
-export const isCountry = (obj: { __typename: string }): obj is Country => {
+export const isCountry = (obj: { __typename?: string }): obj is Country => {
   if (!obj.__typename) throw new Error('__typename is missing')
   return Country_possibleTypes.includes(obj.__typename)
 }
@@ -143,7 +143,7 @@ export const isCountry = (obj: { __typename: string }): obj is Country => {
 
 
 const Language_possibleTypes = ['Language']
-export const isLanguage = (obj: { __typename: string }): obj is Language => {
+export const isLanguage = (obj: { __typename?: string }): obj is Language => {
   if (!obj.__typename) throw new Error('__typename is missing')
   return Language_possibleTypes.includes(obj.__typename)
 }
@@ -151,7 +151,7 @@ export const isLanguage = (obj: { __typename: string }): obj is Language => {
 
 
 const State_possibleTypes = ['State']
-export const isState = (obj: { __typename: string }): obj is State => {
+export const isState = (obj: { __typename?: string }): obj is State => {
   if (!obj.__typename) throw new Error('__typename is missing')
   return State_possibleTypes.includes(obj.__typename)
 }

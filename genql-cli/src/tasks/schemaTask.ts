@@ -2,12 +2,14 @@ import { buildASTSchema, assertValidSchema, GraphQLSchema } from 'graphql'
 import { ListrTask } from 'listr'
 import { Config } from '../config'
 import { requireModuleFromPath } from '../helpers/files'
+import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
+
 import {
     customFetchSchema,
     fetchSchema,
     SchemaFetcher,
 } from '../schema/fetchSchema'
-import { loadSchema } from 'graphql-toolkit'
+import { loadSchema } from '@graphql-tools/load'
 
 export const schemaTask = (config: Config): ListrTask => {
     if (config.endpoint) {
@@ -31,7 +33,9 @@ export const schemaTask = (config: Config): ListrTask => {
             title: 'loading schema',
             task: async (ctx) => {
                 const options = config.options && config.options.schemaBuild
-                const document = await loadSchema(schema)
+                const document = await loadSchema(schema, {
+                    loaders: [new GraphQLFileLoader()],
+                })
                 ctx.schema =
                     document instanceof GraphQLSchema
                         ? document

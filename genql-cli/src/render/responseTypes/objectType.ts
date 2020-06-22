@@ -1,4 +1,10 @@
-import { GraphQLInterfaceType, GraphQLObjectType, isObjectType } from 'graphql'
+import {
+    GraphQLInterfaceType,
+    GraphQLObjectType,
+    isObjectType,
+    isRequiredInputField,
+    isNonNullType,
+} from 'graphql'
 import { fieldComment, typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
 import { renderTyping } from '../common/renderTyping'
@@ -21,16 +27,16 @@ export const objectType = (
         : ctx.schema.getPossibleTypes(type).map((t) => t.name)
 
     let fieldStrings = fields
-        .map(
-            (f) =>
-                `${fieldComment(f)}${f.name}${renderTyping(
-                    f.type,
-                    false,
-                    false,
-                )}`,
-        )
+        .map((f) => {
+            
+            return `${fieldComment(f)}${f.name}${renderTyping(
+                f.type,
+                false,
+                true,
+            )}`
+        })
         .concat([
-            `__typename: ${
+            `__typename?: ${
                 typeNames.length > 0
                     ? typeNames.map((t) => `'${t}'`).join('|')
                     : 'string'

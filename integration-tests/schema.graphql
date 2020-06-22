@@ -8,7 +8,7 @@ type Query {
 }
 
 type Repository {
-    createdAt: String
+    createdAt: String!
     forks: ForkEdge
 }
 
@@ -36,4 +36,16 @@ type User {
 
 type Subscription {
     user: User
+}
+
+##################
+
+extend type Query {
+    account: Account
+}
+
+union Account = User | Guest
+
+type Guest {
+    anonymous: Boolean
 }

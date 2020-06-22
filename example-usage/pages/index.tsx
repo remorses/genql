@@ -6,7 +6,7 @@ import useSWR from 'swr'
 import { client } from './_app'
 import { everything } from '../generated'
 
-const paths = {
+const paths: Record<any, any> = {
     'react-query': '/react-query',
     swr: '/swr',
     apollo: '/apollo',
