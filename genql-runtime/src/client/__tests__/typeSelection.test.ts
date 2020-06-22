@@ -123,7 +123,7 @@ test('ts does not complain', () => {})
         }
     }
     const z: FieldsSelection<SRC, DST> = {} as any
-    z.union.one
+    z.union?.one
 }
 
 {
