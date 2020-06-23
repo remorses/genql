@@ -6951,12 +6951,6 @@ graphql-query-batcher@^1.0.1:
   resolved "https://registry.yarnpkg.com/graphql-query-batcher/-/graphql-query-batcher-1.0.1.tgz#23a5c68218df16c3a77ed63028acc09eee7485a5"
   integrity sha512-NGntvsC2R6c+yqOiMfKXZL3/PpQUIpy70RgroPXRcuDJ1wxJJFesJAEu3Wv5gLbOpr/xPqXCMw2yTGHbqs8uqQ==
 
-"graphql-query-generator@https://github.com/IBM/graphql-query-generator":
-  version "0.4.0"
-  resolved "https://github.com/IBM/graphql-query-generator#646909280e77229cf0551963eaa94620a7002c5b"
-  dependencies:
-    seedrandom "^3.0.5"
-
 graphql-subscriptions@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/graphql-subscriptions/-/graphql-subscriptions-1.1.0.tgz#5f2fa4233eda44cf7570526adfcf3c16937aef11"
@@ -7392,6 +7386,13 @@ husky@^1.3.1:
     read-pkg "^4.0.1"
     run-node "^1.0.0"
     slash "^2.0.0"
+
+ibm-graphql-query-generator@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/ibm-graphql-query-generator/-/ibm-graphql-query-generator-1.0.5.tgz#e55c36e56387d513f39e9e9deaa332929fc85fbd"
+  integrity sha512-ZgopDeCT3wU+4ZpwgMyCaFXPwDI04O2uBzG5qW+5TH1TyZrynGcYYkNqWMUl+YOf6x+UVeukJgyOjYqTYhbKuA==
+  dependencies:
+    seedrandom "^3.0.5"
 
 iconv-lite@0.4.24, iconv-lite@~0.4.13:
   version "0.4.24"

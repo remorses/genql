@@ -1,6 +1,6 @@
 import { print } from 'genql-cli/src/printer'
 import { GraphQLSchema } from 'graphql'
-import { generateRandomQuery } from 'graphql-query-generator'
+import { generateRandomQuery } from 'ibm-graphql-query-generator'
 
 export function generateQueries(p: {
     packageName: string
