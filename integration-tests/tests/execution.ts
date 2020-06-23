@@ -4,7 +4,9 @@ import assert from 'assert'
 import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
-import { DeepPartial } from 'tsdef'
+import { expectType } from 'tsd'
+
+import { DeepPartial, MaybeUndefined } from 'tsdef'
 import {
     createClient,
     User,
@@ -16,6 +18,7 @@ import {
 const PORT = 8099
 const URL = `http://localhost:` + PORT
 const SUB_URL = `ws://localhost:` + PORT + '/graphql'
+type Maybe<T> = MaybeUndefined<T>
 
 async function server({ resolvers, port = PORT }) {
     const typeDefs = fs
@@ -110,6 +113,7 @@ describe('execute queries', async function() {
             assert(deepEq(res.user, x))
         }),
     )
+
     it(
         'required field and nested fields',
         withServer(async () => {
@@ -129,9 +133,11 @@ describe('execute queries', async function() {
             })
             console.log(JSON.stringify(res, null, 2))
             // no optional chaining because repository is non null
-            res.repository.createdAt
-            res.repository.__typename
-            res.repository?.forks?.edges?.map((x) => x?.node?.name?.split?.(''))
+            expectType<string>(res.repository.createdAt)
+            expectType<Maybe<string>>(res.repository.__typename)
+            expectType<Maybe<Maybe<string>[]>>(
+                res.repository?.forks?.edges?.map((x) => x?.node?.name),
+            )
         }),
     )
     it(
@@ -141,10 +147,9 @@ describe('execute queries', async function() {
                 __scalar: true,
             })
             console.log(JSON.stringify(res, null, 2))
-            res?.name?.split?.('')
-            res?.common?.split?.('')
-            res?.__typename?.split?.('')
-            assert(deepEq(res, x))
+            expectType<Maybe<string>>(res?.name)
+            expectType<Maybe<string>>(res?.common)
+            expectType<Maybe<string>>(res?.__typename)
         }),
     )
 
@@ -158,7 +163,7 @@ describe('execute queries', async function() {
                     },
                 },
             })
-            account?.name
+            expectType<Maybe<string>>(account?.name)
             console.log(account)
         }),
     )
@@ -169,7 +174,7 @@ describe('execute queries', async function() {
             const account = await client.chain.query.account.get({
                 on_User: { name: 1 },
             })
-            account?.name
+            expectType<Maybe<string>>(account?.name)
         }),
     )
     it(
@@ -179,8 +184,8 @@ describe('execute queries', async function() {
                 // __typename: 1,
                 on_User: { ...everything },
             })
-            account?.name
-            account?.__typename
+            expectType<Maybe<string>>(account?.name)
+            expectType<Maybe<string>>(account?.__typename)
         }),
     )
     it(
@@ -191,8 +196,8 @@ describe('execute queries', async function() {
                 on_User: { ...everything },
                 on_Guest: { ...everything },
             })
-            account?.__typename
-            account?.common
+            expectType<Maybe<string>>(account?.__typename)
+            expectType<Maybe<string>>(account?.common)
             if (account && 'anonymous' in account) {
                 account?.anonymous
             }
@@ -213,7 +218,9 @@ describe('execute queries', async function() {
                 },
             })
             let coordinates = res.coordinates
-            assert(coordinates?.address?.split?.(''))
+            expectType<Maybe<string>>(coordinates?.address)
+            expectType<Maybe<string>>(coordinates?.x)
+            assert(coordinates?.address)
             assert(coordinates?.x)
             assert(coordinates?.__typename)
         }),
@@ -224,9 +231,11 @@ describe('execute queries', async function() {
             const coordinates = await client.chain.query.coordinates.get({
                 // x: 1,
                 x: 1,
-                on_Bank: { address: 1, x: 1 },
+                on_Bank: { address: 1 },
             })
-            assert(coordinates?.address?.split?.(''))
+            expectType<Maybe<string>>(coordinates?.address)
+            expectType<Maybe<string>>(coordinates?.x)
+            assert(coordinates?.address)
             assert(coordinates?.x)
         }),
     )
@@ -250,8 +259,10 @@ describe('execute queries', async function() {
                 },
             })
             console.log(coordinates)
+            expectType<Maybe<string>>(coordinates?.x)
+            expectType<Maybe<string>>(coordinates?.__typename)
             assert(coordinates?.x)
-            assert(coordinates?.__typename?.split?.(''))
+            assert(coordinates?.__typename)
             if ('address' in coordinates) {
                 coordinates?.address
                 coordinates?.x
@@ -295,12 +306,15 @@ describe('execute subscriptions', async function() {
             .subscription({
                 user: {
                     name: true,
+                    common: 1,
                     __typename: true,
                 },
             })
             .subscribe({
                 next: (x) => {
-                    console.log('next')
+                    expectType<Maybe<string>>(x.user?.name)
+                    expectType<Maybe<string>>(x.user?.__typename)
+                    expectType<Maybe<string>>(x.user?.common)
                     console.log(x)
                 },
                 complete: () => console.log('complete'),

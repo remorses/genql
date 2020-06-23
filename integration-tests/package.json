@@ -19,6 +19,7 @@
         "genql-runtime": "*",
         "graphql": "^15.1.0",
         "graphql-easy-mocks": "^1.1.1",
+        "tsd": "^0.11.0",
         "tsdef": "^0.0.13"
     },
     "mocha": {
