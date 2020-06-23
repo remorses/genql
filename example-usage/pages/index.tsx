@@ -10,6 +10,7 @@ const paths: Record<any, any> = {
     'react-query': '/react-query',
     swr: '/swr',
     apollo: '/apollo',
+    client: '/client',
 }
 
 const Page = () => {
