@@ -109,7 +109,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
 
     return `
     export interface Client {
-        wsClient: SubscriptionClient
+        wsClient?: SubscriptionClient
         ${interfaceContent}
         chain: {
             ${chainTypeContent}
