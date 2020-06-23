@@ -111,7 +111,7 @@ describe('execute queries', async function() {
         }),
     )
     it(
-        'required field ',
+        'required field and nested fields',
         withServer(async () => {
             // await client.query({
             //     // @ts-expect-error because name is required
@@ -121,14 +121,17 @@ describe('execute queries', async function() {
             const res = await client.query({
                 repository: [
                     { name: 'genql', owner: 'remorses' },
-                    { ...everything, forks: { edges: { node: { name: 1 } } } },
+                    {
+                        ...everything,
+                        forks: { edges: { node: { ...everything } } },
+                    },
                 ],
             })
             console.log(JSON.stringify(res, null, 2))
             // no optional chaining because repository is non null
             res.repository.createdAt
             res.repository.__typename
-            res.repository?.forks?.edges?.map((x) => x?.node?.name)
+            res.repository?.forks?.edges?.map((x) => x?.node?.name?.split?.(''))
         }),
     )
     it(
@@ -138,7 +141,9 @@ describe('execute queries', async function() {
                 __scalar: true,
             })
             console.log(JSON.stringify(res, null, 2))
-            res?.name
+            res?.name?.split?.('')
+            res?.common?.split?.('')
+            res?.__typename?.split?.('')
             assert(deepEq(res, x))
         }),
     )
