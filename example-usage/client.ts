@@ -1,7 +1,13 @@
 import useSWR, { responseInterface } from 'swr'
+import { useLazyPromise } from 'react-extra-hooks'
 
-import { createClient, QueryRequest, Query } from './generated'
 import { FieldsSelection, ClientError } from 'genql-runtime'
+import {
+    mutation_rootRequest as MutationRequest,
+    createClient,
+    query_rootRequest as QueryRequest,
+    query_root as Query,
+} from './hasura'
 
 const client = createClient()
 
@@ -14,3 +20,10 @@ export const useQuery = <R extends QueryRequest>(
         ...options,
     })
 }
+
+export const useMutation = <R extends MutationRequest>(q: R, options = {}) => {
+    const [execute, res] = useLazyPromise((q) => client.mutation(q), {})
+    return [() => execute(q), res]
+}
+
+

@@ -9,9 +9,17 @@ import { useQuery } from '../client'
 const Page = () => {
     const [regex, setRegex] = useState('.*')
     const { data, isValidating, error } = useQuery({
-        countries: [
-            { filter: { continent: { regex: regex } } },
-            { name: 1, code: 1 },
+        user: [
+            {
+                where: {
+                    name: {
+                        _similar: regex,
+                    },
+                },
+            },
+            {
+                ...everything,
+            },
         ],
     })
 
@@ -40,7 +48,7 @@ const Page = () => {
                 )}
                 {data && (
                     <Stack spacing='20px'>
-                        {data?.countries?.map((x) => (
+                        {data?.user?.map((x) => (
                             <Box borderRadius='10px' p='20px' borderWidth='1px'>
                                 {x.name}
                             </Box>
