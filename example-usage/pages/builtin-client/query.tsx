@@ -2,9 +2,9 @@ import { Stack, Box, Spinner, Input } from '@chakra-ui/core'
 import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
 import React, { useState, FormEvent } from 'react'
 import useSWR from 'swr'
-import { client } from './_app'
-import { everything } from '../generated'
-import { useQuery } from '../client'
+import { client } from '../_app'
+import { everything } from '../../generated'
+import { useQuery } from '../../client'
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')

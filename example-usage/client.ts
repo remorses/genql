@@ -17,7 +17,11 @@ import {
 } from './hasura'
 import { UseObservableOutput } from 'react-extra-hooks/dist/useLazyObservable'
 
-const client = createClient()
+const client = createClient({
+    subscription: {
+        url: 'wss://hasura-2334534.herokuapp.com/v1/graphql',
+    },
+})
 
 export const useQuery = <R extends QueryRequest>(
     q: R,
@@ -36,7 +40,7 @@ export const useMutation = <R extends MutationRequest>(
         (q) => q && client.mutation(q),
         {},
     )
-    return [() => execute(q), res, bo]
+    return [() => execute(q), res, bo] // TODO change result to data
 }
 
 export const useSubscription = <
@@ -47,10 +51,12 @@ export const useSubscription = <
     reducer: (
         acc: ReducedType,
         x: FieldsSelection<R, Subscription>,
-    ) => ReducedType,
+    ) => ReducedType = (a, b) => b as any,
+    accumulator?: ReducedType,
 ): UseObservableOutput<ReducedType> => {
     return useObservable<any>((q) => client.subscription(q), {
         args: [q],
         reducer,
-    })
+        // TODO pass the accumulator
+    }) // TODO change result to data
 }
