@@ -1,5 +1,6 @@
 import { createClient, everything } from '../hasura/generated'
 
+
 describe('hasura', () => {
     const client = createClient({})
     const name = 'John'

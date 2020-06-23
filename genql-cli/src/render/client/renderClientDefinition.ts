@@ -116,7 +116,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
         }
     }
     `
-}
+}// TODO add the close method that closes the ws client
 
 function renderSupportFunctionsTypes({
     queryType,
