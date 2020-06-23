@@ -60,3 +60,5 @@ describe('generate queries', () => {
         console.log(prettify(query, 'graphql'))
     })
 })
+
+
