@@ -8,6 +8,7 @@ import { useQuery, useMutation } from '../../client'
 
 const Page = () => {
     const [name, setName] = useState('')
+    const [id] = useState(Math.floor(Math.random() * 10000).toFixed(0))
     const [execute, { loading, error, result: data }] = useMutation(
         async (name: string) => {
             if (name.split(' ').length > 1) {
@@ -19,9 +20,7 @@ const Page = () => {
                         objects: [
                             {
                                 name,
-                                id: Math.floor(Math.random() * 10000).toFixed(
-                                    0,
-                                ),
+                                id,
                             },
                         ],
                     },
