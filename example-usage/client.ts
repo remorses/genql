@@ -29,18 +29,23 @@ export const useQuery = <R extends QueryRequest>(
 ): responseInterface<FieldsSelection<Query, R>, ClientError> => {
     return useSWR<any>(JSON.stringify(q), {
         fetcher: (q) => q && client.query(JSON.parse(q)),
+
         ...options,
     })
 }
 
-export const useMutation = <R extends MutationRequest>(
-    q: R,
-): useLazyPromiseOutput<any, FieldsSelection<R, Mutation>> => {
+export const useMutation = <
+    R extends MutationRequest,
+    ARG extends any[] = never[] // by default don't let pass any argument
+>(
+    q: R | ((...arg: ARG) => Promise<R>), // TODO the useQuery callback can be a non promise
+): useLazyPromiseOutput<ARG, FieldsSelection<R, Mutation>> => {
     const [execute, res, bo] = useLazyPromise<any>(
-        (q) => q && client.mutation(q),
+        typeof q == 'function' ? q : (q) => q && client.mutation(q),
         {},
     )
-    return [() => execute(q), res, bo] // TODO change result to data
+    return [typeof q == 'function' ? execute : () => execute(q), res, bo] // TODO change result to data
+    // TODO execute should not throw an error by default, too risky the dev will forget to handle it, just add an option to throw
 }
 
 export const useSubscription = <
@@ -57,6 +62,6 @@ export const useSubscription = <
     return useObservable<any>((q) => client.subscription(q), {
         args: [q],
         reducer,
-        // TODO pass the accumulator
+        // TODO pass the accumulator to useObservable
     }) // TODO change result to data
 }

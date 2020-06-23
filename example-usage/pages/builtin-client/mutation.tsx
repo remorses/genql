@@ -8,19 +8,28 @@ import { useQuery, useMutation } from '../../client'
 
 const Page = () => {
     const [name, setName] = useState('')
-    const [execute, { loading, error, result: data }] = useMutation({
-        insert_user: [
-            {
-                objects: [
+    const [execute, { loading, error, result: data }] = useMutation(
+        async (name: string) => {
+            if (name.split(' ').length > 1) {
+                throw new Error('cannot contain spaces')
+            }
+            return {
+                insert_user: [
                     {
-                        name,
-                        id: Math.floor(Math.random() * 10000).toFixed(0),
+                        objects: [
+                            {
+                                name,
+                                id: Math.floor(Math.random() * 10000).toFixed(
+                                    0,
+                                ),
+                            },
+                        ],
                     },
+                    { returning: { ...everything }, ...everything },
                 ],
-            },
-            { returning: { ...everything }, ...everything },
-        ],
-    })
+            }
+        },
+    )
     const toast = useToast()
     return (
         <Stack align='center' spacing='40px' mt='40px'>
@@ -34,18 +43,7 @@ const Page = () => {
                 <Button
                     isLoading={loading}
                     onClick={() => {
-                        // TODO validation happens before calling execute, you can wrap execute in your own function
-                        // but there is no clear way on how to handle errors, better pass a function to useMutation
-                        if (name.split(' ').length > 1) {
-                            toast({
-                                status: 'error',
-                                position: 'top',
-                                description: '\n',
-                                title: 'cannot contain spaces',
-                            })
-                            return
-                        }
-                        execute()
+                        execute(name).catch()
                     }}
                 >
                     Insert User
