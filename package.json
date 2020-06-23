@@ -10,6 +10,7 @@
         "integration-tests"
     ],
     "scripts": {
+        "test": "yarn --cwd genql-cli test && yarn --cwd ./genql-runtime test && yarn --cwd ./integration-tests test",
         "dev": "yarn --cwd website dev",
         "build": "yarn --cwd website build",
         "start": "yarn --cwd website start",
@@ -18,7 +19,7 @@
         "play": "node -r sucrase/register genql-cli/src/cli.ts",
         "buildall": "yarn --cwd genql-cli build && yarn --cwd genql-runtime build",
         "compile": "cd genql-cli && yarn compile && cd ../genql-runtime && yarn compile",
-        "test": "cd genql-cli && yarn test && cd ../genql-runtime && yarn test",
+        
         "integration": "cd integration-tests && yarn gen && tsc && yarn test",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
         "runexample": "node -r sucrase/register example/example.ts"

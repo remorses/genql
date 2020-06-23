@@ -19,6 +19,27 @@ input Int_comparison_exp {
   _nin: [Int!]
 }
 
+"""
+expression to compare columns of type String. All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
 """mutation root"""
 type mutation_root {
   """
@@ -148,27 +169,6 @@ type query_root {
 
   """fetch data from the table: "user" using primary key columns"""
   user_by_pk(id: String!): user
-}
-
-"""
-expression to compare columns of type String. All fields are combined with logical 'AND'.
-"""
-input String_comparison_exp {
-  _eq: String
-  _gt: String
-  _gte: String
-  _ilike: String
-  _in: [String!]
-  _is_null: Boolean
-  _like: String
-  _lt: String
-  _lte: String
-  _neq: String
-  _nilike: String
-  _nin: [String!]
-  _nlike: String
-  _nsimilar: String
-  _similar: String
 }
 
 """subscription root"""

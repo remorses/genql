@@ -6,7 +6,7 @@ import { createClient } from '../generated'
 
 export const client = createClient()
 
-export default function App(props) {
+export default function App(props: any) {
     const { Component, pageProps } = props
     return (
         <DarkMode>

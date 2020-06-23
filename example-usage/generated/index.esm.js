@@ -1,6 +1,6 @@
 import { linkTypeMap, createClient as createClientOriginal, generateGraphqlOperation } from 'genql-runtime'
 var typeMap = linkTypeMap(require('./types.json'))
-
+export * from './guards.esm'
 export var createClient = function(options) {
   options = options || {}
   var optionsCopy = {

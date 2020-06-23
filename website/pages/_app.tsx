@@ -28,7 +28,6 @@ export default function App(props) {
     const { Component, pageProps } = props
     const { pathname } = useRouter()
     useEffect(() => {
-        // TODO this could be a npm package
         return firebase.auth().onIdTokenChanged(async (user) => {
             if (!user) {
                 // Cookies.remove(FIREBASE_ID_TOKEN_COOKIE)

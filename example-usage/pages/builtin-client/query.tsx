@@ -1,21 +1,28 @@
-import { Box, Spinner, Input } from '@chakra-ui/core'
+import { Stack, Box, Spinner, Input } from '@chakra-ui/core'
 import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
-import { Stack } from 'layout-kit-react'
-import React, { useState } from 'react'
-import { useQuery } from 'react-query'
-import { client } from './_app'
-import { everything } from '../generated/'
+import React, { useState, FormEvent } from 'react'
+import useSWR from 'swr'
+import { client } from '../_app'
+import { everything } from '../../generated'
+import { useQuery } from '../../client'
 
 const Page = () => {
     const [regex, setRegex] = useState('.*')
-    const func = (_: any, regex: string) =>
-        client.query({
-            countries: [
-                { filter: { continent: { regex: regex } } },
-                { name: 1, code: 1 },
-            ],
-        })
-    const { data, error } = useQuery(['countries', regex], func)
+    const { data, isValidating, error } = useQuery({
+        user: [
+            {
+                where: {
+                    name: {
+                        _similar: regex,
+                    },
+                },
+            },
+            {
+                ...everything,
+            },
+        ],
+    })
+
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero
@@ -34,14 +41,14 @@ const Page = () => {
             </PageContainer>
             <PageContainer>
                 <SectionTitle heading='Countries' />
-                {!data && (
+                {isValidating && (
                     <Stack justify='center' align='center'>
                         <Spinner />
                     </Stack>
                 )}
                 {data && (
                     <Stack spacing='20px'>
-                        {data?.countries?.map((x) => (
+                        {data?.user?.map((x) => (
                             <Box borderRadius='10px' p='20px' borderWidth='1px'>
                                 {x.name}
                             </Box>

@@ -1,23 +1,38 @@
-import { ApolloServer, PubSub } from 'apollo-server'
+import { ApolloServer, PubSub, makeExecutableSchema } from 'apollo-server'
 import sleep from 'await-sleep'
 import assert from 'assert'
 import deepEq from 'deep-equal'
 import fs from 'fs'
 import path from 'path'
-import { DeepPartial } from 'tsdef'
-import { createClient, User, everything } from '../generated'
+import { expectType } from 'tsd'
+
+import { DeepPartial, MaybeUndefined } from 'tsdef'
+import {
+    createClient,
+    User,
+    everything,
+    isHouse,
+    isBank,
+} from '../generated/index.js'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
 const SUB_URL = `ws://localhost:` + PORT + '/graphql'
+type Maybe<T> = MaybeUndefined<T>
 
 async function server({ resolvers, port = PORT }) {
     const typeDefs = fs
         .readFileSync(path.join(__dirname, '..', 'schema.graphql'))
         .toString()
     const server = new ApolloServer({
-        typeDefs,
-        resolvers,
+        schema: makeExecutableSchema({
+            typeDefs,
+            resolvers,
+            resolverValidationOptions: {
+                requireResolversForResolveType: false,
+            },
+        }),
+
         subscriptions: {
             onConnect: async (connectionParams, webSocket, context) => {
                 console.log(
@@ -51,54 +66,213 @@ describe('execute queries', async function() {
                     },
                     repository: () => {
                         return {
-                            createdAt: 'dfgdf',
+                            createdAt: 'now',
+                        }
+                    },
+                    account: () => {
+                        return {
+                            __typename: 'User',
+                            ...x,
+                        }
+                    },
+                    coordinates: () => {
+                        return {
+                            __typename: 'Bank',
+                            x: '1',
+                            y: '2',
+                            address: '3',
                         }
                     },
                 },
             },
         })
+    const withServer = (func: any) => async () => {
+        const stop = await makeServer()
+        try {
+            await func()
+        } catch (e) {
+            throw e
+        } finally {
+            await stop()
+        }
+    }
 
     const client = createClient({
         url: URL,
         headers: () => ({ Auth: 'xxx' }),
     })
-    it('simple ', async () => {
-        const stop = await makeServer()
-        const res = await client.query({
-            user: {
-                name: true,
-            },
-        })
-        console.log(JSON.stringify(res, null, 2))
-        assert(deepEq(res.user, x))
-        await stop()
-    })
-    it('required field ', async () => {
-        const stop = await makeServer()
+    it(
+        'simple ',
+        withServer(async () => {
+            const res = await client.query({
+                user: {
+                    name: true,
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            assert(deepEq(res.user, x))
+        }),
+    )
 
-        // await client.query({
-        //     // @ts-expect-error because name is required
-        //     repository: [{}, { __scalar: true }],
-        // }).catch()
+    it(
+        'required field and nested fields',
+        withServer(async () => {
+            // await client.query({
+            //     // @ts-expect-error because name is required
+            //     repository: [{}, { __scalar: true }],
+            // }).catch()
 
-        const res = await client.query({
-            repository: [
-                { name: 'genql', owner: 'remorses' },
-                { ...everything },
-            ],
-        })
-        console.log(JSON.stringify(res, null, 2))
-        await stop()
-    })
-    it('chain syntax ', async () => {
-        const stop = await makeServer()
-        const res = await client.chain.query.user.get({
-            __scalar: true,
-        })
-        console.log(JSON.stringify(res, null, 2))
-        assert(deepEq(res, x))
-        await stop()
-    })
+            const res = await client.query({
+                repository: [
+                    { name: 'genql', owner: 'remorses' },
+                    {
+                        ...everything,
+                        forks: { edges: { node: { ...everything } } },
+                    },
+                ],
+            })
+            console.log(JSON.stringify(res, null, 2))
+            // no optional chaining because repository is non null
+            expectType<string>(res.repository.createdAt)
+            expectType<Maybe<string>>(res.repository.__typename)
+            expectType<Maybe<Maybe<string>[]>>(
+                res.repository?.forks?.edges?.map((x) => x?.node?.name),
+            )
+        }),
+    )
+    it(
+        'chain syntax ',
+        withServer(async () => {
+            const res = await client.chain.query.user.get({
+                __scalar: true,
+            })
+            console.log(JSON.stringify(res, null, 2))
+            expectType<Maybe<string>>(res?.name)
+            expectType<Maybe<number>>(res?.common)
+            expectType<Maybe<string>>(res?.__typename)
+        }),
+    )
+
+    it(
+        'union types only 1 on_ normal syntax',
+        withServer(async () => {
+            const { account } = await client.query({
+                account: {
+                    on_User: {
+                        name: 1,
+                    },
+                },
+            })
+            expectType<Maybe<string>>(account?.name)
+            console.log(account)
+        }),
+    )
+
+    it(
+        'union types chain syntax',
+        withServer(async () => {
+            const account = await client.chain.query.account.get({
+                on_User: { name: 1 },
+            })
+            expectType<Maybe<string>>(account?.name)
+        }),
+    )
+    it(
+        'union types with chain and ...everything',
+        withServer(async () => {
+            const account = await client.chain.query.account.get({
+                // __typename: 1,
+                on_User: { ...everything },
+            })
+            expectType<Maybe<string>>(account?.name)
+            expectType<Maybe<string>>(account?.__typename)
+        }),
+    )
+    it(
+        'many union types',
+        withServer(async () => {
+            const account = await client.chain.query.account.get({
+                // __typename: 1,
+                on_User: { ...everything },
+                on_Guest: { ...everything },
+            })
+            expectType<Maybe<string>>(account?.__typename)
+            expectType<Maybe<number>>(account?.common)
+            if (account && 'anonymous' in account) {
+                account?.anonymous
+            }
+        }),
+    )
+    it(
+        'interface types normal syntax',
+        withServer(async () => {
+            const res = await client.query({
+                coordinates: {
+                    x: 1,
+                    __typename: 1,
+                    on_Bank: {
+                        // __typename: 1,
+                        address: 1,
+                        // x: 1,
+                    },
+                },
+            })
+            let coordinates = res.coordinates
+            expectType<Maybe<string>>(coordinates?.address)
+            expectType<Maybe<string>>(coordinates?.x)
+            assert(coordinates?.address)
+            assert(coordinates?.x)
+            assert(coordinates?.__typename)
+        }),
+    )
+    it(
+        'interface types chain syntax',
+        withServer(async () => {
+            const coordinates = await client.chain.query.coordinates.get({
+                // x: 1,
+                x: 1,
+                on_Bank: { address: 1 },
+            })
+            expectType<Maybe<string>>(coordinates?.address)
+            expectType<Maybe<string>>(coordinates?.x)
+            assert(coordinates?.address)
+            assert(coordinates?.x)
+        }),
+    )
+    it(
+        'multiple interfaces types normal syntax',
+        withServer(async () => {
+            const { coordinates } = await client.query({
+                coordinates: {
+                    __typename: 1,
+                    on_Bank: {
+                        address: 1,
+                        x: 1,
+                    },
+                    on_House: {
+                        y: 1,
+                        x: 1,
+                        owner: {
+                            name: 1,
+                        },
+                    },
+                },
+            })
+            console.log(coordinates)
+            expectType<Maybe<string>>(coordinates?.x)
+            expectType<Maybe<string>>(coordinates?.__typename)
+            assert(coordinates?.x)
+            assert(coordinates?.__typename)
+            if ('address' in coordinates) {
+                coordinates?.address
+                coordinates?.x
+            } else if (isHouse(coordinates)) {
+                coordinates?.owner
+                coordinates?.x
+                coordinates?.y
+            }
+        }),
+    )
 })
 
 describe('execute subscriptions', async function() {
@@ -132,12 +306,15 @@ describe('execute subscriptions', async function() {
             .subscription({
                 user: {
                     name: true,
+                    common: 1,
                     __typename: true,
                 },
             })
             .subscribe({
                 next: (x) => {
-                    console.log('next')
+                    expectType<Maybe<string>>(x.user?.name)
+                    expectType<Maybe<string>>(x.user?.__typename)
+                    expectType<Maybe<number>>(x.user?.common)
                     console.log(x)
                 },
                 complete: () => console.log('complete'),
@@ -148,6 +325,7 @@ describe('execute subscriptions', async function() {
         await pubsub.publish(USER_EVENT, { user: x })
         // console.log(JSON.stringify(res, null, 2))
         sub.unsubscribe()
+        client.wsClient.close()
         await stop()
         // assert(deepEq(res.user, x))
     })

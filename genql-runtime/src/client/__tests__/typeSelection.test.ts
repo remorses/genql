@@ -1,4 +1,4 @@
-import { FieldsSelection } from '../typeSelection'
+import { FieldsSelection, ObjectFieldsSelection } from '../typeSelection'
 
 type SRC = {
     category: {
@@ -95,3 +95,92 @@ z.category.nested2
 z.order.customer.address.city
 
 test('ts does not complain', () => {})
+
+///////////////////////////////////// unions
+
+{
+    // only one union
+    type One = { one: string; __typename: string }
+    type Two = { two: string; __typename: string }
+    type SRC = {
+        union?: {
+            __union: One | Two
+            __resolve: {
+                on_One: One
+                on_Two: Two
+            }
+            __typename: 'One' | 'Two'
+        }
+    }
+    type DST = {
+        union?: {
+            on_One: {
+                one: true
+            }
+            // on_Two: {
+            //     two: 1
+            // }
+        }
+    }
+    const z: FieldsSelection<SRC, DST> = {} as any
+    z.union?.one
+}
+
+{
+    // 2 unions together
+    type One = { one: string; __typename: string }
+    type Two = { two: string; __typename: string }
+    type SRC = {
+        union?: {
+            __union: One | Two
+            __resolve: {
+                on_One: One
+                on_Two: Two
+            }
+            __typename: 'One' | 'Two'
+        }
+    }
+    type DST = {
+        union?: {
+            on_One?: {
+                one?: true
+            }
+            on_Two?: {
+                two?: true
+            }
+        }
+    }
+    const z: FieldsSelection<SRC, DST> = {} as any
+    z.union // this is a union type, it cannot be directly be accessed without a guard
+}
+
+{
+    // without top level object
+    type One = { one?: string; __typename?: string }
+    type Two = { two?: string; __typename?: string }
+    type SRC = {
+        __union: One | Two
+        __resolve: {
+            on_One?: One
+            on_Two?: Two
+        }
+        __typename?: 'One' | 'Two'
+    }
+    type DST = {
+        on_One?: {
+            one?: true
+        }
+        __typename?: 1
+        // on_Two: {
+        //     two: 1
+        // }
+    }
+    const z: FieldsSelection<SRC, DST> = {} as any
+    z.one
+}
+
+{
+    type One = { one: string; __typename: string }
+    const x: ObjectFieldsSelection<One, { one?: true }> = {} as any
+    x.one
+}

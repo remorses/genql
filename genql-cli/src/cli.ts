@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+import chalk from 'chalk'
 import yargs from 'yargs'
 import { generateProject } from './main'
 import { validateConfigs } from './tasks/validateConfigs'
@@ -46,7 +46,7 @@ const program = yargs
         description:
             'map a scalar to a type, for example `-S DateTime:string` ',
     })
-    .option('verbose', { alias: 'v', type: 'boolean' })
+    .option('verbose', { alias: 'v', type: 'boolean', default: false })
     .example(
         '$0 --output ./generated --endpoint http://localhost:3000  -H "Authorization: Bearer xxx"',
         'generate the client from an endpoint',
@@ -85,10 +85,18 @@ if (!validateConfigs([config])) {
     process.exit(1)
 }
 
-generateProject(config).catch((e: any) => {
-    console.error(e)
-    process.exit(1)
-})
+generateProject(config)
+    .catch((e: any) => {
+        console.error(e)
+        process.exit(1)
+    })
+    .then(() => {
+        printHelp({
+            dirPath: program.output,
+            useYarn: false,
+            dependencies: ['genql-runtime'],
+        })
+    })
 
 function parseColonSeparatedStrings(headersArray) {
     // console.log(headersArray)
@@ -97,13 +105,29 @@ function parseColonSeparatedStrings(headersArray) {
         for (let h of headersArray) {
             const parts = String(h).split(':')
             if (parts.length !== 2) {
-                console.error(
-                    `cannot parse string '${h}' (multiple or no ':')`,
-                )
+                console.error(`cannot parse string '${h}' (multiple or no ':')`)
                 process.exit(1)
             }
             obj[parts[0].trim()] = parts[1].trim()
         }
     }
     return obj
+}
+
+export function printHelp({ useYarn, dirPath, dependencies }) {
+    console.log()
+    console.log(
+        `${chalk.green('Success!')} Generated client code at '${dirPath}'`,
+    )
+    console.log()
+    console.log(
+        chalk.bold('Remember to install the necessary runtime packages with:'),
+    )
+    console.log()
+    console.log(
+        `  ${chalk.cyan(
+            `${useYarn ? 'yarn add' : 'npm install'} ${dependencies.join(' ')}`,
+        )}`,
+    )
+    console.log()
 }

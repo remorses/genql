@@ -1,21 +1,29 @@
-import { Box, Spinner, Input } from '@chakra-ui/core'
+import { Stack, Box, Spinner, Input } from '@chakra-ui/core'
 import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
-import { Stack } from 'layout-kit-react'
 import React, { useState } from 'react'
-import { useQuery } from 'react-query'
-import { client } from './_app'
-import { everything } from '../generated/'
+import useSWR from 'swr'
+import { createClient } from '../../hasura/index.js'
+import { everything } from '../../generated'
+import { useObservable } from 'react-extra-hooks'
+import { useSubscription } from '../../client'
+
+const client = createClient({
+    subscription: {
+        url: 'wss://hasura-2334534.herokuapp.com/v1/graphql',
+    },
+})
+
+console.log('client', client)
 
 const Page = () => {
-    const [regex, setRegex] = useState('.*')
-    const func = (_: any, regex: string) =>
-        client.query({
-            countries: [
-                { filter: { continent: { regex: regex } } },
-                { name: 1, code: 1 },
-            ],
-        })
-    const { data, error } = useQuery(['countries', regex], func)
+    const { result: data, loading, error } = useSubscription(
+        {
+            user: {
+                name: true,
+            },
+        },
+        // (a: any[], b) => [...a, b],
+    )
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero
@@ -23,15 +31,6 @@ const Page = () => {
                 heading='Example use of Genql'
                 subheading='Search for countries via https://countries.trevorblades.com'
             />
-            <PageContainer>
-                <Box>Search a continent</Box>
-                <Input
-                    variant='filled'
-                    value={regex}
-                    onChange={(e: any) => setRegex(e.target.value)}
-                    placeholder='.*'
-                />
-            </PageContainer>
             <PageContainer>
                 <SectionTitle heading='Countries' />
                 {!data && (
@@ -41,7 +40,7 @@ const Page = () => {
                 )}
                 {data && (
                     <Stack spacing='20px'>
-                        {data?.countries?.map((x) => (
+                        {data?.user?.map((x) => (
                             <Box borderRadius='10px' p='20px' borderWidth='1px'>
                                 {x.name}
                             </Box>

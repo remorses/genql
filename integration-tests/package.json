@@ -6,7 +6,7 @@
     "author": "remorses",
     "license": "MIT",
     "scripts": {
-        "test": "mocha -r sucrase/register",
+        "test": "mocha -r ts-node/register",
         "gen": "node -r sucrase/register generate.ts",
         "genprof": "node -r sucrase/register --prof generate.ts",
         "flame": "node --prof-process --preprocess -j isolate*.log | flamebearer && open flamegraph.html"
@@ -17,8 +17,9 @@
         "deep-equal": "^2.0.3",
         "genql-cli": "*",
         "genql-runtime": "*",
-        "graphql": "^14.5.8",
+        "graphql": "^15.1.0",
         "graphql-easy-mocks": "^1.1.1",
+        "tsd": "^0.11.0",
         "tsdef": "^0.0.13"
     },
     "mocha": {

@@ -1,7 +1,7 @@
 import { BuildSchemaOptions, ParseOptions } from 'graphql'
 import { GraphQLSchemaValidationOptions } from 'graphql/type/schema'
 import { SchemaFetcher } from './schema/fetchSchema'
-import { Options as SchemaPrintOptions } from 'graphql/utilities/schemaPrinter'
+import { Options as SchemaPrintOptions } from 'graphql/utilities/printSchema'
 
 export const RUNTIME_LIB_NAME = 'genql-runtime'
 

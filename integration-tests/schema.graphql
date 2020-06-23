@@ -3,13 +3,13 @@ type Query {
     """
     Some description
     """
-    repository(name: String!, owner: String): Repository
+    repository(name: String!, owner: String): Repository!
     user: User
 }
 
 type Repository {
-    createdAt: String
-    forks: ForkEdge
+    createdAt: String!
+    forks: ForkConnection
 }
 
 type ForkConnection {
@@ -30,10 +30,47 @@ type User {
     Some description
     """
     name: String
+    common: Int
 }
 
 # ---
 
 type Subscription {
     user: User
+}
+
+##################
+
+extend type Query {
+    account: Account
+}
+
+union Account = User | Guest
+
+type Guest {
+    anonymous: Boolean
+    common: Int
+}
+
+##################
+
+extend type Query {
+    coordinates: Point
+}
+
+type House implements Point {
+    owner: User
+    x: String
+    y: String
+}
+
+type Bank implements Point {
+    address: String
+    x: String
+    y: String
+}
+
+interface Point {
+    x: String
+    y: String
 }

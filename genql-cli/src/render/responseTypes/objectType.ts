@@ -1,4 +1,10 @@
-import { GraphQLInterfaceType, GraphQLObjectType, isObjectType } from 'graphql'
+import {
+    GraphQLInterfaceType,
+    GraphQLObjectType,
+    isObjectType,
+    isRequiredInputField,
+    isNonNullType,
+} from 'graphql'
 import { fieldComment, typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
 import { renderTyping } from '../common/renderTyping'
@@ -21,16 +27,15 @@ export const objectType = (
         : ctx.schema.getPossibleTypes(type).map((t) => t.name)
 
     let fieldStrings = fields
-        .map(
-            (f) =>
-                `${fieldComment(f)}${f.name}${renderTyping(
-                    f.type,
-                    false,
-                    false,
-                )}`,
-        )
+        .map((f) => {
+            return `${fieldComment(f)}${f.name}${renderTyping(
+                f.type,
+                true,
+                true,
+            )}`
+        })
         .concat([
-            `__typename: ${
+            `__typename?: ${
                 typeNames.length > 0
                     ? typeNames.map((t) => `'${t}'`).join('|')
                     : 'string'
@@ -48,12 +53,12 @@ export const objectType = (
     const interfaceNames = isObjectType(type)
         ? type.getInterfaces().map((i) => i.name)
         : []
-
+    // there is no need to add extensions as in graphql the implemented type must explicitly add the fields
+    let extensions =
+        interfaceNames.length > 0 ? ` extends ${interfaceNames.join(',')}` : ''
     ctx.addCodeBlock(
-        `${typeComment(type)}export interface ${type.name}${
-            interfaceNames.length > 0
-                ? ` extends ${interfaceNames.join(',')}`
-                : ''
+        `${typeComment(type)}export interface ${
+            type.name
         }{\n${fieldStrings.join('\n')}\n}`,
     )
 }

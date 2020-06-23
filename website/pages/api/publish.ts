@@ -14,7 +14,6 @@ import { getFirebaseDecodedToken } from '../../support/server'
 
 function generatePackageJson({ name, version }) {
     return {
-        // TODO add a README with a quickstart
         name,
         description: 'Graphql client',
         version: `1.${version}.0`,
@@ -157,7 +156,7 @@ export default async function Api(req: NextApiRequest, res: NextApiResponse) {
                 //     cmd: `npm unpublish ${name} --force --prefix='${os.tmpdir()}'`,
                 //     cwd,
                 // })
-                // TODO add the generated package name to the user in database
+                
             },
         })
 

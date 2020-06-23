@@ -1,7 +1,7 @@
 import { GraphQLArgument, GraphQLEnumValue, GraphQLField, GraphQLInputField, GraphQLNamedType } from 'graphql'
-import Maybe from 'graphql/tsutils/Maybe'
 
-export const comment = (comment: { text?: Maybe<string>; deprecated?: Maybe<string> }) => {
+
+export const comment = (comment: { text?: string | null; deprecated?: string | null }) => {
   const lines: string[] = []
 
   if (comment.deprecated) {

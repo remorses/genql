@@ -7,6 +7,7 @@ it('createPackage', async () => {
         version: 0,
         callback: async ({ cwd }) => {
             console.log(await runCommand({ cmd: `ls -l`, cwd }))
+            console.log(await runCommand({ cmd: `cat README.md`, cwd }))
             console.log(await runCommand({ cmd: `cat package.json`, cwd }))
         },
     })

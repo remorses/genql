@@ -27,3 +27,8 @@ module.exports.generateSubscriptionOp = function(fields) {
 module.exports.everything = {
   __scalar: true,
 }
+
+var schemaExports = require('./guards.cjs')
+for (var k in schemaExports) {
+  module.exports[k] = schemaExports[k]
+}
