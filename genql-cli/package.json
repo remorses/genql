@@ -52,7 +52,7 @@
         "@types/node": "*",
         "@types/prettier": "^1.19.0",
         "@types/yargs": "^15.0.5",
-        "chalk": "^2.4.2",
+        "chalk": "^4.1.0",
         "commander": "^2.19.0",
         "graphql": "^15.1.0",
         "graphql-toolkit": "^0.7.5",

@@ -17,16 +17,6 @@ export const generateProject = (config: Config, verbose = true) => {
                     new Listr([schemaTask(config), ...clientTasks(config)]),
             },
         ],
-        { renderer: verbose ? 'verbose' : 'default' },
-    )
-        .run()
-        
+        { renderer: verbose ? 'verbose' : 'silent', exitOnError: false },
+    ).run()
 }
-
-
-
-
-
-
-
-
