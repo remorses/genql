@@ -172,7 +172,7 @@ describe('execute queries', async function() {
         withServer(async () => {
             const account = await client.chain.query.account.get({
                 __typename: 1,
-                on_User: { ...everything },
+                on_User: { name: 1 },
             })
             account?.name
             account?.__typename
@@ -183,17 +183,19 @@ describe('execute queries', async function() {
         withServer(async () => {
             const res = await client.query({
                 coordinates: {
+                    x: 1,
+                    __typename: 1,
                     on_Bank: {
-                        __typename: 1,
+                        // __typename: 1,
                         address: 1,
-                        x: 1,
+                        // x: 1,
                     },
                 },
             })
             let coordinates = res.coordinates
             assert(coordinates?.address?.split?.(''))
             assert(coordinates?.x)
-            
+            assert(coordinates?.__typename)
         }),
     )
     it(
@@ -213,13 +215,12 @@ describe('execute queries', async function() {
         withServer(async () => {
             const { coordinates } = await client.query({
                 coordinates: {
+                    __typename: 1,
                     on_Bank: {
-                        __typename: 1,
                         address: 1,
                         x: 1,
                     },
                     on_House: {
-                        __typename: 1,
                         y: 1,
                         x: 1,
                         owner: {
@@ -230,7 +231,8 @@ describe('execute queries', async function() {
             })
             console.log(coordinates)
             assert(coordinates?.x)
-            if (isBank(coordinates)) {
+            assert(coordinates?.__typename?.split?.(''))
+            if ('address' in coordinates) {
                 coordinates?.address
                 coordinates?.x
             } else if (isHouse(coordinates)) {

@@ -54,7 +54,30 @@ export type MapInterface<SRC, DST> = SRC extends {
                       DST,
                       keyof INTERFACE | '__typename'
                   >]: Key extends keyof IMPLEMENTORS
-                      ? FieldsSelection<IMPLEMENTORS[Key], DST[Key]>
+                      // add the on_ fields types fo every interface used
+                      ? FieldsSelection<IMPLEMENTORS[Key], DST[Key]> &
+                            // add the other fields outside the on_
+                            Omit<
+                                {
+                                    [Key in keyof Omit<
+                                        DST,
+                                        keyof IMPLEMENTORS | '__typename'
+                                    >]: Key extends keyof INTERFACE
+                                        ? LastFieldsSelectionSRCResolver<
+                                              INTERFACE[Key],
+                                              DST[Key]
+                                          >
+                                        : never
+                                },
+                                keyof IMPLEMENTORS
+                            > &
+                            // add the __typename field
+                            (DST extends { __typename: any }
+                                ? FieldsSelection<
+                                      IMPLEMENTORS[Key],
+                                      { __typename: true }
+                                  >
+                                : {})
                       : never
               },
               keyof INTERFACE | '__typename'
