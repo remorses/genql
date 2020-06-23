@@ -42,7 +42,7 @@ const Page = () => {
                 <Button
                     isLoading={loading}
                     onClick={() => {
-                        execute(name).catch()
+                        execute(name).catch(console.error)
                     }}
                 >
                     Insert User
