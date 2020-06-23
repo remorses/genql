@@ -148,7 +148,7 @@ describe('execute queries', async function() {
             })
             console.log(JSON.stringify(res, null, 2))
             expectType<Maybe<string>>(res?.name)
-            expectType<Maybe<string>>(res?.common)
+            expectType<Maybe<number>>(res?.common)
             expectType<Maybe<string>>(res?.__typename)
         }),
     )
@@ -197,7 +197,7 @@ describe('execute queries', async function() {
                 on_Guest: { ...everything },
             })
             expectType<Maybe<string>>(account?.__typename)
-            expectType<Maybe<string>>(account?.common)
+            expectType<Maybe<number>>(account?.common)
             if (account && 'anonymous' in account) {
                 account?.anonymous
             }
@@ -314,7 +314,7 @@ describe('execute subscriptions', async function() {
                 next: (x) => {
                     expectType<Maybe<string>>(x.user?.name)
                     expectType<Maybe<string>>(x.user?.__typename)
-                    expectType<Maybe<string>>(x.user?.common)
+                    expectType<Maybe<number>>(x.user?.common)
                     console.log(x)
                 },
                 complete: () => console.log('complete'),

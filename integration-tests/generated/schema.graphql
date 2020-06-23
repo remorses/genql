@@ -27,7 +27,7 @@ type Fork {
 type User {
   """Some description"""
   name: String
-  common: String
+  common: Int
 }
 
 type Subscription {
@@ -38,7 +38,7 @@ union Account = User | Guest
 
 type Guest {
   anonymous: Boolean
-  common: String
+  common: Int
 }
 
 type House implements Point {
