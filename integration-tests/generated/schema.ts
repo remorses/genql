@@ -39,6 +39,7 @@ export interface Fork{
 export interface User{
     /** Some description */
     name?: Scalars['String']
+    common?: Scalars['String']
     __typename?: 'User'
 }
 
@@ -59,6 +60,7 @@ export type Account={
 
 export interface Guest{
     anonymous?: Scalars['Boolean']
+    common?: Scalars['String']
     __typename?: 'Guest'
 }
 
@@ -125,6 +127,7 @@ export interface ForkRequest{
 export interface UserRequest{
     /** Some description */
     name?: boolean|number
+    common?: boolean|number
     __typename?: boolean|number
     __scalar?: boolean|number
 }
@@ -139,6 +142,7 @@ export interface AccountRequest{on_User?:UserRequest,on_Guest?:GuestRequest,__ty
 
 export interface GuestRequest{
     anonymous?: boolean|number
+    common?: boolean|number
     __typename?: boolean|number
     __scalar?: boolean|number
 }
@@ -290,19 +294,19 @@ export interface ForkObservableChain{name:({get:(request?:boolean|number,default
 
 export interface UserPromiseChain{
 /** Some description */
-name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
+name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
 
 export interface UserObservableChain{
 /** Some description */
-name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
+name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
 
 export interface SubscriptionPromiseChain{user:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>})}
 
 export interface SubscriptionObservableChain{user:(UserObservableChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Observable<(FieldsSelection<User, R>|null)>})}
 
-export interface GuestPromiseChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean']|null))=>Promise<(Scalars['Boolean']|null)>})}
+export interface GuestPromiseChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean']|null))=>Promise<(Scalars['Boolean']|null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
 
-export interface GuestObservableChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean']|null))=>Observable<(Scalars['Boolean']|null)>})}
+export interface GuestObservableChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean']|null))=>Observable<(Scalars['Boolean']|null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
 
 export interface HousePromiseChain{owner:(UserPromiseChain & {get:<R extends UserRequest>(request: R, defaultValue?:(FieldsSelection<User, R>|null))=>Promise<(FieldsSelection<User, R>|null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
 

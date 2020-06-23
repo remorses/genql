@@ -168,14 +168,29 @@ describe('execute queries', async function() {
         }),
     )
     it(
-        'union types with ...everything',
+        'union types with chain and ...everything',
         withServer(async () => {
             const account = await client.chain.query.account.get({
-                __typename: 1,
-                on_User: { name: 1 },
+                // __typename: 1,
+                on_User: { ...everything },
             })
             account?.name
             account?.__typename
+        }),
+    )
+    it(
+        'many union types',
+        withServer(async () => {
+            const account = await client.chain.query.account.get({
+                // __typename: 1,
+                on_User: { ...everything },
+                on_Guest: { ...everything },
+            })
+            account?.__typename
+            account?.common
+            if (account && 'anonymous' in account) {
+                account?.anonymous
+            }
         }),
     )
     it(

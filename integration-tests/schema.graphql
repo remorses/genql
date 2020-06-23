@@ -30,6 +30,7 @@ type User {
     Some description
     """
     name: String
+    common: String
 }
 
 # ---
@@ -48,6 +49,7 @@ union Account = User | Guest
 
 type Guest {
     anonymous: Boolean
+    common: String
 }
 
 ##################
