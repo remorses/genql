@@ -183,6 +183,7 @@ describe('execute queries', async function() {
         withServer(async () => {
             const { account } = await client.query({
                 account: {
+                    __typename: 1,
                     on_User: {
                         name: 1,
                     },
@@ -190,6 +191,7 @@ describe('execute queries', async function() {
             })
             // @ts-expect-error because on_User should be removed
             account?.on_User
+            assert(account?.__typename)
             expectType<Maybe<Account>>(account)
             console.log(account)
         }),
@@ -221,11 +223,12 @@ describe('execute queries', async function() {
         'many union types',
         withServer(async () => {
             const account = await client.chain.query.account.get({
-                // __typename: 1,
+                __typename: 1,
                 on_User: { ...everything },
                 on_Guest: { ...everything },
             })
             expectType<Maybe<string>>(account?.__typename)
+            // common props are on both types
             expectType<Maybe<number>>(account?.common)
             if (account && 'anonymous' in account) {
                 account?.anonymous
@@ -252,6 +255,7 @@ describe('execute queries', async function() {
                 expectType<Maybe<string>>(coordinates?.address)
                 assert(coordinates?.address)
             }
+            // common types are accessible without guards
             assert(coordinates?.x)
             assert(coordinates?.__typename)
         }),
