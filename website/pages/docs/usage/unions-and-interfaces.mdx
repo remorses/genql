@@ -1,0 +1,64 @@
+# Unions and interfaces
+
+To query some fields only on a certain type you can use graphql fragments
+
+In genql you can express the fragments for union and interface types using the `on_` prefixed fields in a query
+
+```ts
+import { createClient } from './generated'
+
+const client = createClient()
+
+const { account } = await client.query({
+    account: {
+        __typename: true,
+        commonProp: true,
+        on_User: {
+            id: true,
+            name: true,
+        },
+        on_Guest: {
+            surname: true,
+        },
+    },
+})
+
+// common prop will be available without type guards
+console.log(account?.commonProp)
+```
+
+## Type Guards
+
+Union and interfaces are translated to typescript using union types
+
+After you do a query on an union type, you can use the exported typescript guards to check the type of an object (remember to query the `__typename` field when you use type guards)
+
+```ts
+import { createClient, isUser, isGuest } from './generated'
+
+const client = createClient()
+
+const { account } = await client.query({
+    account: {
+        __typename: true,
+        on_User: {
+            id: true,
+            name: true,
+        },
+        on_Guest: {
+            surname: true,
+        },
+    },
+})
+
+if (isUser(account)) {
+    // now account has type User
+    console.log(account.name)
+    console.log(account.id)
+}
+
+if (isGuest(account)) {
+    // now account has type Guest
+    console.log(account.surname)
+}
+```
