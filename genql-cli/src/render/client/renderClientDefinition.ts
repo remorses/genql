@@ -75,7 +75,6 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
     let chainTypeContent = ''
 
     if (queryType) {
-        // TODO replace the extend with {[K in keyof R]: QueryRequest[K]}, this way additional properties are not allowed
         interfaceContent += `
         query<R extends ${requestTypeName(queryType)}>(
             request: R,

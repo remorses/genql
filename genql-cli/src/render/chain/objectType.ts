@@ -48,7 +48,7 @@ export const objectType = (
             false,
             false,
             false,
-            (x: string) => `FieldsSelection<${x}, R>`,
+            (x: string) => x, // `FieldsSelection<${x}, R>`,
         )
 
         // get: <R extends CreateOneOrderPayloadRequest>(

@@ -119,7 +119,7 @@ export interface LanguageFilterInput{code?: (StringQueryOperatorInput|null)}
 
 
 const Query_possibleTypes = ['Query']
-export const isQuery = (obj?: { __typename?: any }): obj is Query => {
+export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
   return Query_possibleTypes.includes(obj.__typename)
 }
@@ -127,7 +127,7 @@ export const isQuery = (obj?: { __typename?: any }): obj is Query => {
 
 
 const Continent_possibleTypes = ['Continent']
-export const isContinent = (obj?: { __typename?: any }): obj is Continent => {
+export const isContinent = (obj?: { __typename?: any } | null): obj is Continent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContinent"')
   return Continent_possibleTypes.includes(obj.__typename)
 }
@@ -135,7 +135,7 @@ export const isContinent = (obj?: { __typename?: any }): obj is Continent => {
 
 
 const Country_possibleTypes = ['Country']
-export const isCountry = (obj?: { __typename?: any }): obj is Country => {
+export const isCountry = (obj?: { __typename?: any } | null): obj is Country => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCountry"')
   return Country_possibleTypes.includes(obj.__typename)
 }
@@ -143,7 +143,7 @@ export const isCountry = (obj?: { __typename?: any }): obj is Country => {
 
 
 const Language_possibleTypes = ['Language']
-export const isLanguage = (obj?: { __typename?: any }): obj is Language => {
+export const isLanguage = (obj?: { __typename?: any } | null): obj is Language => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLanguage"')
   return Language_possibleTypes.includes(obj.__typename)
 }
@@ -151,15 +151,15 @@ export const isLanguage = (obj?: { __typename?: any }): obj is Language => {
 
 
 const State_possibleTypes = ['State']
-export const isState = (obj?: { __typename?: any }): obj is State => {
+export const isState = (obj?: { __typename?: any } | null): obj is State => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isState"')
   return State_possibleTypes.includes(obj.__typename)
 }
 
 
-export interface QueryPromiseChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>}),continent:((args:{code: Scalars['ID']})=>ContinentPromiseChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(FieldsSelection<Continent, R>|null))=>Promise<(FieldsSelection<Continent, R>|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>}),country:((args:{code: Scalars['ID']})=>CountryPromiseChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(FieldsSelection<Country, R>|null))=>Promise<(FieldsSelection<Country, R>|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>}),language:((args:{code: Scalars['ID']})=>LanguagePromiseChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(FieldsSelection<Language, R>|null))=>Promise<(FieldsSelection<Language, R>|null)>})}
+export interface QueryPromiseChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Promise<Continent[]>}),continent:((args:{code: Scalars['ID']})=>ContinentPromiseChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(Continent|null))=>Promise<(Continent|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>}),country:((args:{code: Scalars['ID']})=>CountryPromiseChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(Country|null))=>Promise<(Country|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Promise<Language[]>}),language:((args:{code: Scalars['ID']})=>LanguagePromiseChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(Language|null))=>Promise<(Language|null)>})}
 
-export interface QueryObservableChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>}),continent:((args:{code: Scalars['ID']})=>ContinentObservableChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(FieldsSelection<Continent, R>|null))=>Observable<(FieldsSelection<Continent, R>|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>}),country:((args:{code: Scalars['ID']})=>CountryObservableChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(FieldsSelection<Country, R>|null))=>Observable<(FieldsSelection<Country, R>|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>}),language:((args:{code: Scalars['ID']})=>LanguageObservableChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(FieldsSelection<Language, R>|null))=>Observable<(FieldsSelection<Language, R>|null)>})}
+export interface QueryObservableChain{continents:((args?:{filter?: (ContinentFilterInput|null)})=>{get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>})&({get:<R extends ContinentRequest>(request: R, defaultValue?:Continent[])=>Observable<Continent[]>}),continent:((args:{code: Scalars['ID']})=>ContinentObservableChain & {get:<R extends ContinentRequest>(request: R, defaultValue?:(Continent|null))=>Observable<(Continent|null)>}),countries:((args?:{filter?: (CountryFilterInput|null)})=>{get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>})&({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Observable<Country[]>}),country:((args:{code: Scalars['ID']})=>CountryObservableChain & {get:<R extends CountryRequest>(request: R, defaultValue?:(Country|null))=>Observable<(Country|null)>}),languages:((args?:{filter?: (LanguageFilterInput|null)})=>{get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>})&({get:<R extends LanguageRequest>(request: R, defaultValue?:Language[])=>Observable<Language[]>}),language:((args:{code: Scalars['ID']})=>LanguageObservableChain & {get:<R extends LanguageRequest>(request: R, defaultValue?:(Language|null))=>Observable<(Language|null)>})}
 
 export interface ContinentPromiseChain{code:({get:(request?:boolean|number,defaultValue?:Scalars['ID'])=>Promise<Scalars['ID']>}),name:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),countries:({get:<R extends CountryRequest>(request: R, defaultValue?:Country[])=>Promise<Country[]>})}
 

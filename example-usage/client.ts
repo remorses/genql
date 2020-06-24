@@ -39,7 +39,7 @@ export const useMutation = <
     ARG extends any[] = never[] // by default don't let pass any argument
 >(
     q: R | ((...arg: ARG) => Promise<R>), // TODO the useQuery callback can be a non promise
-): useLazyPromiseOutput<ARG, FieldsSelection<R, Mutation>> => {
+): useLazyPromiseOutput<ARG, FieldsSelection<Mutation, R>> => {
     const [execute, res, bo] = useLazyPromise<any>(
         typeof q == 'function' ? q : (q) => q && client.mutation(q),
         {},
@@ -50,12 +50,12 @@ export const useMutation = <
 
 export const useSubscription = <
     R extends SubscriptionRequest,
-    ReducedType = FieldsSelection<R, Subscription>
+    ReducedType = FieldsSelection<Subscription, R>
 >(
     q: R,
     reducer: (
         acc: ReducedType,
-        x: FieldsSelection<R, Subscription>,
+        x: FieldsSelection<Subscription, R>,
     ) => ReducedType = (a, b) => b as any,
     accumulator?: ReducedType,
 ): UseObservableOutput<ReducedType> => {

@@ -4,19 +4,29 @@ type Scalar = string | number | Date | boolean | null | undefined
 
 type ScalarFields<T> = PickByValue<T, Scalar>
 
+export type FieldsSelection<SRC extends Anify<DST>, DST> = DST extends never
+    ? never
+    : DST extends Scalar
+    ? SRC
+    : Anify<Omit<DST, '__typename'>> extends Anify<NonNullable<SRC>>
+    ? Pick<SRC, keyof DST>
+    : SRC
+
+//////////////////////////////////////////////////
+
 // SRC is the concrete type (for example Query), DST is the field selection, with shape { field: 1 | true, ... }
 // TODO this is too complex, apply a selection only on the top level fields and leave the rest, unions are just type unions, interfaces are just simple types
-export type FieldsSelection<SRC extends Anify<DST>, DST> = {
+export type _FieldsSelection<SRC extends Anify<DST>, DST> = {
     0: SRC
     1: Omit<ScalarFields<SRC>, '__scalar'> &
-        Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
+        Omit<Object_FieldsSelection<SRC, DST>, '__scalar'>
     2: SRC extends {
         __resolve: infer RESOLVE
     }
-        ? ObjectToUnion<FieldsSelection<RESOLVE, ValueToUnion<DST>>>
+        ? ObjectToUnion<_FieldsSelection<RESOLVE, ValueToUnion<DST>>>
         : never
     3: MapInterface<SRC, DST>
-    4: Omit<ObjectFieldsSelection<SRC, DST>, '__scalar'>
+    4: Omit<Object_FieldsSelection<SRC, DST>, '__scalar'>
 }[DST extends boolean | number // if the field is true or 1 then return its type
     ? 0
     : DST extends {
@@ -33,15 +43,15 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     : 4]
 
 // creates a sunset of the SRC type with only the DST selection fields
-export type ObjectFieldsSelection<
+export type Object_FieldsSelection<
     SRC extends Anify<DST>,
     DST
 > = SRC extends undefined
-    ? never // TODO this is to make SRC[k] work or  ObjectFieldsSelection<T | undefined> won't work, but doing so the field is no more optional
+    ? never // TODO this is to make SRC[k] work or  Object_FieldsSelection<T | undefined> won't work, but doing so the field is no more optional
     : {
           [Key in keyof DST]: DST[Key] extends [any, infer PAYLOAD]
-              ? LastFieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
-              : LastFieldsSelectionSRCResolver<SRC[Key], DST[Key]>
+              ? Last_FieldsSelectionSRCResolver<SRC[Key], PAYLOAD>
+              : Last_FieldsSelectionSRCResolver<SRC[Key], DST[Key]>
       }
 
 export type MapInterface<SRC, DST> = SRC extends {
@@ -54,9 +64,8 @@ export type MapInterface<SRC, DST> = SRC extends {
                   [Key in keyof Omit<
                       DST,
                       keyof INTERFACE | '__typename'
-                  >]: Key extends keyof IMPLEMENTORS
-                      // add the on_ fields types fo every interface used
-                      ? FieldsSelection<IMPLEMENTORS[Key], DST[Key]> &
+                  >]: Key extends keyof IMPLEMENTORS // add the on_ fields types fo every interface used
+                      ? _FieldsSelection<IMPLEMENTORS[Key], DST[Key]> &
                             // add the other fields outside the on_
                             Omit<
                                 {
@@ -64,7 +73,7 @@ export type MapInterface<SRC, DST> = SRC extends {
                                         DST,
                                         keyof IMPLEMENTORS | '__typename'
                                     >]: Key extends keyof INTERFACE
-                                        ? LastFieldsSelectionSRCResolver<
+                                        ? Last_FieldsSelectionSRCResolver<
                                               INTERFACE[Key],
                                               DST[Key]
                                           >
@@ -74,7 +83,7 @@ export type MapInterface<SRC, DST> = SRC extends {
                             > &
                             // add the __typename field
                             (DST extends { __typename: any }
-                                ? FieldsSelection<
+                                ? _FieldsSelection<
                                       IMPLEMENTORS[Key],
                                       { __typename: true }
                                   >
@@ -102,14 +111,14 @@ export type ObjectToUnion<T> = {
 
 type Anify<T> = { [P in keyof T]?: any }
 
-type LastFieldsSelectionSRCResolver<SRC, DST> = SRC extends undefined
+type Last_FieldsSelectionSRCResolver<SRC, DST> = SRC extends undefined
     ? undefined
     : SRC extends Array<infer AR>
-    ? LastFieldsSelectionSRCResolver<AR, DST>[]
+    ? Last_FieldsSelectionSRCResolver<AR, DST>[]
     : SRC extends { __interface: any; __resolve: any }
     ? MapInterface<SRC, DST>
     : SRC extends { __union: any; __resolve: infer RESOLVE }
-    ? ObjectToUnion<FieldsSelection<RESOLVE, ValueToUnion<DST>>>
+    ? ObjectToUnion<_FieldsSelection<RESOLVE, ValueToUnion<DST>>>
     : DST extends boolean
     ? SRC
-    : FieldsSelection<SRC, DST>
+    : _FieldsSelection<SRC, DST>

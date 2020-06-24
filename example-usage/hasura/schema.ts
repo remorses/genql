@@ -511,7 +511,7 @@ export interface user_variance_order_by{age?: (order_by|null)}
 
 
 const mutation_root_possibleTypes = ['mutation_root']
-export const ismutation_root = (obj?: { __typename?: any }): obj is mutation_root => {
+export const ismutation_root = (obj?: { __typename?: any } | null): obj is mutation_root => {
   if (!obj?.__typename) throw new Error('__typename is missing in "ismutation_root"')
   return mutation_root_possibleTypes.includes(obj.__typename)
 }
@@ -519,7 +519,7 @@ export const ismutation_root = (obj?: { __typename?: any }): obj is mutation_roo
 
 
 const query_root_possibleTypes = ['query_root']
-export const isquery_root = (obj?: { __typename?: any }): obj is query_root => {
+export const isquery_root = (obj?: { __typename?: any } | null): obj is query_root => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isquery_root"')
   return query_root_possibleTypes.includes(obj.__typename)
 }
@@ -527,7 +527,7 @@ export const isquery_root = (obj?: { __typename?: any }): obj is query_root => {
 
 
 const subscription_root_possibleTypes = ['subscription_root']
-export const issubscription_root = (obj?: { __typename?: any }): obj is subscription_root => {
+export const issubscription_root = (obj?: { __typename?: any } | null): obj is subscription_root => {
   if (!obj?.__typename) throw new Error('__typename is missing in "issubscription_root"')
   return subscription_root_possibleTypes.includes(obj.__typename)
 }
@@ -535,7 +535,7 @@ export const issubscription_root = (obj?: { __typename?: any }): obj is subscrip
 
 
 const user_possibleTypes = ['user']
-export const isuser = (obj?: { __typename?: any }): obj is user => {
+export const isuser = (obj?: { __typename?: any } | null): obj is user => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser"')
   return user_possibleTypes.includes(obj.__typename)
 }
@@ -543,7 +543,7 @@ export const isuser = (obj?: { __typename?: any }): obj is user => {
 
 
 const user_aggregate_possibleTypes = ['user_aggregate']
-export const isuser_aggregate = (obj?: { __typename?: any }): obj is user_aggregate => {
+export const isuser_aggregate = (obj?: { __typename?: any } | null): obj is user_aggregate => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_aggregate"')
   return user_aggregate_possibleTypes.includes(obj.__typename)
 }
@@ -551,7 +551,7 @@ export const isuser_aggregate = (obj?: { __typename?: any }): obj is user_aggreg
 
 
 const user_aggregate_fields_possibleTypes = ['user_aggregate_fields']
-export const isuser_aggregate_fields = (obj?: { __typename?: any }): obj is user_aggregate_fields => {
+export const isuser_aggregate_fields = (obj?: { __typename?: any } | null): obj is user_aggregate_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_aggregate_fields"')
   return user_aggregate_fields_possibleTypes.includes(obj.__typename)
 }
@@ -559,7 +559,7 @@ export const isuser_aggregate_fields = (obj?: { __typename?: any }): obj is user
 
 
 const user_avg_fields_possibleTypes = ['user_avg_fields']
-export const isuser_avg_fields = (obj?: { __typename?: any }): obj is user_avg_fields => {
+export const isuser_avg_fields = (obj?: { __typename?: any } | null): obj is user_avg_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_avg_fields"')
   return user_avg_fields_possibleTypes.includes(obj.__typename)
 }
@@ -567,7 +567,7 @@ export const isuser_avg_fields = (obj?: { __typename?: any }): obj is user_avg_f
 
 
 const user_max_fields_possibleTypes = ['user_max_fields']
-export const isuser_max_fields = (obj?: { __typename?: any }): obj is user_max_fields => {
+export const isuser_max_fields = (obj?: { __typename?: any } | null): obj is user_max_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_max_fields"')
   return user_max_fields_possibleTypes.includes(obj.__typename)
 }
@@ -575,7 +575,7 @@ export const isuser_max_fields = (obj?: { __typename?: any }): obj is user_max_f
 
 
 const user_min_fields_possibleTypes = ['user_min_fields']
-export const isuser_min_fields = (obj?: { __typename?: any }): obj is user_min_fields => {
+export const isuser_min_fields = (obj?: { __typename?: any } | null): obj is user_min_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_min_fields"')
   return user_min_fields_possibleTypes.includes(obj.__typename)
 }
@@ -583,7 +583,7 @@ export const isuser_min_fields = (obj?: { __typename?: any }): obj is user_min_f
 
 
 const user_mutation_response_possibleTypes = ['user_mutation_response']
-export const isuser_mutation_response = (obj?: { __typename?: any }): obj is user_mutation_response => {
+export const isuser_mutation_response = (obj?: { __typename?: any } | null): obj is user_mutation_response => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_mutation_response"')
   return user_mutation_response_possibleTypes.includes(obj.__typename)
 }
@@ -591,7 +591,7 @@ export const isuser_mutation_response = (obj?: { __typename?: any }): obj is use
 
 
 const user_stddev_fields_possibleTypes = ['user_stddev_fields']
-export const isuser_stddev_fields = (obj?: { __typename?: any }): obj is user_stddev_fields => {
+export const isuser_stddev_fields = (obj?: { __typename?: any } | null): obj is user_stddev_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_fields"')
   return user_stddev_fields_possibleTypes.includes(obj.__typename)
 }
@@ -599,7 +599,7 @@ export const isuser_stddev_fields = (obj?: { __typename?: any }): obj is user_st
 
 
 const user_stddev_pop_fields_possibleTypes = ['user_stddev_pop_fields']
-export const isuser_stddev_pop_fields = (obj?: { __typename?: any }): obj is user_stddev_pop_fields => {
+export const isuser_stddev_pop_fields = (obj?: { __typename?: any } | null): obj is user_stddev_pop_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_pop_fields"')
   return user_stddev_pop_fields_possibleTypes.includes(obj.__typename)
 }
@@ -607,7 +607,7 @@ export const isuser_stddev_pop_fields = (obj?: { __typename?: any }): obj is use
 
 
 const user_stddev_samp_fields_possibleTypes = ['user_stddev_samp_fields']
-export const isuser_stddev_samp_fields = (obj?: { __typename?: any }): obj is user_stddev_samp_fields => {
+export const isuser_stddev_samp_fields = (obj?: { __typename?: any } | null): obj is user_stddev_samp_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_samp_fields"')
   return user_stddev_samp_fields_possibleTypes.includes(obj.__typename)
 }
@@ -615,7 +615,7 @@ export const isuser_stddev_samp_fields = (obj?: { __typename?: any }): obj is us
 
 
 const user_sum_fields_possibleTypes = ['user_sum_fields']
-export const isuser_sum_fields = (obj?: { __typename?: any }): obj is user_sum_fields => {
+export const isuser_sum_fields = (obj?: { __typename?: any } | null): obj is user_sum_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_sum_fields"')
   return user_sum_fields_possibleTypes.includes(obj.__typename)
 }
@@ -623,7 +623,7 @@ export const isuser_sum_fields = (obj?: { __typename?: any }): obj is user_sum_f
 
 
 const user_var_pop_fields_possibleTypes = ['user_var_pop_fields']
-export const isuser_var_pop_fields = (obj?: { __typename?: any }): obj is user_var_pop_fields => {
+export const isuser_var_pop_fields = (obj?: { __typename?: any } | null): obj is user_var_pop_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_var_pop_fields"')
   return user_var_pop_fields_possibleTypes.includes(obj.__typename)
 }
@@ -631,7 +631,7 @@ export const isuser_var_pop_fields = (obj?: { __typename?: any }): obj is user_v
 
 
 const user_var_samp_fields_possibleTypes = ['user_var_samp_fields']
-export const isuser_var_samp_fields = (obj?: { __typename?: any }): obj is user_var_samp_fields => {
+export const isuser_var_samp_fields = (obj?: { __typename?: any } | null): obj is user_var_samp_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_var_samp_fields"')
   return user_var_samp_fields_possibleTypes.includes(obj.__typename)
 }
@@ -639,7 +639,7 @@ export const isuser_var_samp_fields = (obj?: { __typename?: any }): obj is user_
 
 
 const user_variance_fields_possibleTypes = ['user_variance_fields']
-export const isuser_variance_fields = (obj?: { __typename?: any }): obj is user_variance_fields => {
+export const isuser_variance_fields = (obj?: { __typename?: any } | null): obj is user_variance_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_variance_fields"')
   return user_variance_fields_possibleTypes.includes(obj.__typename)
 }
@@ -651,21 +651,21 @@ export interface mutation_rootPromiseChain{
 /** delete data from the table: "user" */
 delete_user:((args:{
 /** filter the rows which have to be deleted */
-where: user_bool_exp})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Promise<(FieldsSelection<user_mutation_response, R>|null)>}),
+where: user_bool_exp})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(user_mutation_response|null))=>Promise<(user_mutation_response|null)>}),
 /** delete single row from the table: "user" */
-delete_user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>}),
+delete_user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Promise<(user|null)>}),
 /** insert data into the table: "user" */
 insert_user:((args:{
 /** the rows to be inserted */
 objects: user_insert_input[],
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Promise<(FieldsSelection<user_mutation_response, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(user_mutation_response|null))=>Promise<(user_mutation_response|null)>}),
 /** insert a single row into the table: "user" */
 insert_user_one:((args:{
 /** the row to be inserted */
 object: user_insert_input,
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Promise<(user|null)>}),
 /** update data of the table: "user" */
 update_user:((args:{
 /** increments the integer columns with given value of the filtered values */
@@ -673,13 +673,13 @@ _inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
 _set?: (user_set_input|null),
 /** filter the rows which have to be updated */
-where: user_bool_exp})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Promise<(FieldsSelection<user_mutation_response, R>|null)>}),
+where: user_bool_exp})=>user_mutation_responsePromiseChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(user_mutation_response|null))=>Promise<(user_mutation_response|null)>}),
 /** update single row of the table: "user" */
 update_user_by_pk:((args:{
 /** increments the integer columns with given value of the filtered values */
 _inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
-_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>})}
+_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Promise<(user|null)>})}
 
 
 /** mutation root */
@@ -687,21 +687,21 @@ export interface mutation_rootObservableChain{
 /** delete data from the table: "user" */
 delete_user:((args:{
 /** filter the rows which have to be deleted */
-where: user_bool_exp})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Observable<(FieldsSelection<user_mutation_response, R>|null)>}),
+where: user_bool_exp})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(user_mutation_response|null))=>Observable<(user_mutation_response|null)>}),
 /** delete single row from the table: "user" */
-delete_user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>}),
+delete_user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Observable<(user|null)>}),
 /** insert data into the table: "user" */
 insert_user:((args:{
 /** the rows to be inserted */
 objects: user_insert_input[],
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Observable<(FieldsSelection<user_mutation_response, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(user_mutation_response|null))=>Observable<(user_mutation_response|null)>}),
 /** insert a single row into the table: "user" */
 insert_user_one:((args:{
 /** the row to be inserted */
 object: user_insert_input,
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>}),
+on_conflict?: (user_on_conflict|null)})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Observable<(user|null)>}),
 /** update data of the table: "user" */
 update_user:((args:{
 /** increments the integer columns with given value of the filtered values */
@@ -709,13 +709,13 @@ _inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
 _set?: (user_set_input|null),
 /** filter the rows which have to be updated */
-where: user_bool_exp})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(FieldsSelection<user_mutation_response, R>|null))=>Observable<(FieldsSelection<user_mutation_response, R>|null)>}),
+where: user_bool_exp})=>user_mutation_responseObservableChain & {get:<R extends user_mutation_responseRequest>(request: R, defaultValue?:(user_mutation_response|null))=>Observable<(user_mutation_response|null)>}),
 /** update single row of the table: "user" */
 update_user_by_pk:((args:{
 /** increments the integer columns with given value of the filtered values */
 _inc?: (user_inc_input|null),
 /** sets the columns of the filtered rows to the given values */
-_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>})}
+_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Observable<(user|null)>})}
 
 
 /** query root */
@@ -745,7 +745,7 @@ order_by?: (user_order_by[]|null),
 /** filter the rows returned */
 where?: (user_bool_exp|null)})=>user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Promise<(user|null)>})}
 
 
 /** query root */
@@ -775,7 +775,7 @@ order_by?: (user_order_by[]|null),
 /** filter the rows returned */
 where?: (user_bool_exp|null)})=>user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Observable<(user|null)>})}
 
 
 /** subscription root */
@@ -805,7 +805,7 @@ order_by?: (user_order_by[]|null),
 /** filter the rows returned */
 where?: (user_bool_exp|null)})=>user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Promise<(FieldsSelection<user, R>|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Promise<(user|null)>})}
 
 
 /** subscription root */
@@ -835,7 +835,7 @@ order_by?: (user_order_by[]|null),
 /** filter the rows returned */
 where?: (user_bool_exp|null)})=>user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get:<R extends user_aggregateRequest>(request: R, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(FieldsSelection<user, R>|null))=>Observable<(FieldsSelection<user, R>|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get:<R extends userRequest>(request: R, defaultValue?:(user|null))=>Observable<(user|null)>})}
 
 
 /** columns and relationships of "user" */
@@ -847,19 +847,19 @@ export interface userObservableChain{age:({get:(request?:boolean|number,defaultV
 
 
 /** aggregated selection of "user" */
-export interface user_aggregatePromiseChain{aggregate:(user_aggregate_fieldsPromiseChain & {get:<R extends user_aggregate_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_aggregate_fields, R>|null))=>Promise<(FieldsSelection<user_aggregate_fields, R>|null)>}),nodes:({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>})}
+export interface user_aggregatePromiseChain{aggregate:(user_aggregate_fieldsPromiseChain & {get:<R extends user_aggregate_fieldsRequest>(request: R, defaultValue?:(user_aggregate_fields|null))=>Promise<(user_aggregate_fields|null)>}),nodes:({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Promise<user[]>})}
 
 
 /** aggregated selection of "user" */
-export interface user_aggregateObservableChain{aggregate:(user_aggregate_fieldsObservableChain & {get:<R extends user_aggregate_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_aggregate_fields, R>|null))=>Observable<(FieldsSelection<user_aggregate_fields, R>|null)>}),nodes:({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>})}
+export interface user_aggregateObservableChain{aggregate:(user_aggregate_fieldsObservableChain & {get:<R extends user_aggregate_fieldsRequest>(request: R, defaultValue?:(user_aggregate_fields|null))=>Observable<(user_aggregate_fields|null)>}),nodes:({get:<R extends userRequest>(request: R, defaultValue?:user[])=>Observable<user[]>})}
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fieldsPromiseChain{avg:(user_avg_fieldsPromiseChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_avg_fields, R>|null))=>Promise<(FieldsSelection<user_avg_fields, R>|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Scalars['Boolean']|null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>}),max:(user_max_fieldsPromiseChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_max_fields, R>|null))=>Promise<(FieldsSelection<user_max_fields, R>|null)>}),min:(user_min_fieldsPromiseChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_min_fields, R>|null))=>Promise<(FieldsSelection<user_min_fields, R>|null)>}),stddev:(user_stddev_fieldsPromiseChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_fields, R>|null)>}),stddev_pop:(user_stddev_pop_fieldsPromiseChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_pop_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_pop_fields, R>|null)>}),stddev_samp:(user_stddev_samp_fieldsPromiseChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_samp_fields, R>|null))=>Promise<(FieldsSelection<user_stddev_samp_fields, R>|null)>}),sum:(user_sum_fieldsPromiseChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_sum_fields, R>|null))=>Promise<(FieldsSelection<user_sum_fields, R>|null)>}),var_pop:(user_var_pop_fieldsPromiseChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_pop_fields, R>|null))=>Promise<(FieldsSelection<user_var_pop_fields, R>|null)>}),var_samp:(user_var_samp_fieldsPromiseChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_samp_fields, R>|null))=>Promise<(FieldsSelection<user_var_samp_fields, R>|null)>}),variance:(user_variance_fieldsPromiseChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_variance_fields, R>|null))=>Promise<(FieldsSelection<user_variance_fields, R>|null)>})}
+export interface user_aggregate_fieldsPromiseChain{avg:(user_avg_fieldsPromiseChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(user_avg_fields|null))=>Promise<(user_avg_fields|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Scalars['Boolean']|null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>}),max:(user_max_fieldsPromiseChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(user_max_fields|null))=>Promise<(user_max_fields|null)>}),min:(user_min_fieldsPromiseChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(user_min_fields|null))=>Promise<(user_min_fields|null)>}),stddev:(user_stddev_fieldsPromiseChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(user_stddev_fields|null))=>Promise<(user_stddev_fields|null)>}),stddev_pop:(user_stddev_pop_fieldsPromiseChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(user_stddev_pop_fields|null))=>Promise<(user_stddev_pop_fields|null)>}),stddev_samp:(user_stddev_samp_fieldsPromiseChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(user_stddev_samp_fields|null))=>Promise<(user_stddev_samp_fields|null)>}),sum:(user_sum_fieldsPromiseChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(user_sum_fields|null))=>Promise<(user_sum_fields|null)>}),var_pop:(user_var_pop_fieldsPromiseChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(user_var_pop_fields|null))=>Promise<(user_var_pop_fields|null)>}),var_samp:(user_var_samp_fieldsPromiseChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(user_var_samp_fields|null))=>Promise<(user_var_samp_fields|null)>}),variance:(user_variance_fieldsPromiseChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(user_variance_fields|null))=>Promise<(user_variance_fields|null)>})}
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fieldsObservableChain{avg:(user_avg_fieldsObservableChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_avg_fields, R>|null))=>Observable<(FieldsSelection<user_avg_fields, R>|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Scalars['Boolean']|null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>}),max:(user_max_fieldsObservableChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_max_fields, R>|null))=>Observable<(FieldsSelection<user_max_fields, R>|null)>}),min:(user_min_fieldsObservableChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_min_fields, R>|null))=>Observable<(FieldsSelection<user_min_fields, R>|null)>}),stddev:(user_stddev_fieldsObservableChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_fields, R>|null)>}),stddev_pop:(user_stddev_pop_fieldsObservableChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_pop_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_pop_fields, R>|null)>}),stddev_samp:(user_stddev_samp_fieldsObservableChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_stddev_samp_fields, R>|null))=>Observable<(FieldsSelection<user_stddev_samp_fields, R>|null)>}),sum:(user_sum_fieldsObservableChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_sum_fields, R>|null))=>Observable<(FieldsSelection<user_sum_fields, R>|null)>}),var_pop:(user_var_pop_fieldsObservableChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_pop_fields, R>|null))=>Observable<(FieldsSelection<user_var_pop_fields, R>|null)>}),var_samp:(user_var_samp_fieldsObservableChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_var_samp_fields, R>|null))=>Observable<(FieldsSelection<user_var_samp_fields, R>|null)>}),variance:(user_variance_fieldsObservableChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(FieldsSelection<user_variance_fields, R>|null))=>Observable<(FieldsSelection<user_variance_fields, R>|null)>})}
+export interface user_aggregate_fieldsObservableChain{avg:(user_avg_fieldsObservableChain & {get:<R extends user_avg_fieldsRequest>(request: R, defaultValue?:(user_avg_fields|null))=>Observable<(user_avg_fields|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Scalars['Boolean']|null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>}),max:(user_max_fieldsObservableChain & {get:<R extends user_max_fieldsRequest>(request: R, defaultValue?:(user_max_fields|null))=>Observable<(user_max_fields|null)>}),min:(user_min_fieldsObservableChain & {get:<R extends user_min_fieldsRequest>(request: R, defaultValue?:(user_min_fields|null))=>Observable<(user_min_fields|null)>}),stddev:(user_stddev_fieldsObservableChain & {get:<R extends user_stddev_fieldsRequest>(request: R, defaultValue?:(user_stddev_fields|null))=>Observable<(user_stddev_fields|null)>}),stddev_pop:(user_stddev_pop_fieldsObservableChain & {get:<R extends user_stddev_pop_fieldsRequest>(request: R, defaultValue?:(user_stddev_pop_fields|null))=>Observable<(user_stddev_pop_fields|null)>}),stddev_samp:(user_stddev_samp_fieldsObservableChain & {get:<R extends user_stddev_samp_fieldsRequest>(request: R, defaultValue?:(user_stddev_samp_fields|null))=>Observable<(user_stddev_samp_fields|null)>}),sum:(user_sum_fieldsObservableChain & {get:<R extends user_sum_fieldsRequest>(request: R, defaultValue?:(user_sum_fields|null))=>Observable<(user_sum_fields|null)>}),var_pop:(user_var_pop_fieldsObservableChain & {get:<R extends user_var_pop_fieldsRequest>(request: R, defaultValue?:(user_var_pop_fields|null))=>Observable<(user_var_pop_fields|null)>}),var_samp:(user_var_samp_fieldsObservableChain & {get:<R extends user_var_samp_fieldsRequest>(request: R, defaultValue?:(user_var_samp_fields|null))=>Observable<(user_var_samp_fields|null)>}),variance:(user_variance_fieldsObservableChain & {get:<R extends user_variance_fieldsRequest>(request: R, defaultValue?:(user_variance_fields|null))=>Observable<(user_variance_fields|null)>})}
 
 
 /** aggregate avg on columns */
