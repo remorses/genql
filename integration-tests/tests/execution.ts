@@ -123,6 +123,7 @@ describe('execute queries', async function() {
             // }).catch()
 
             const res = await client.query({
+                sdf: true,
                 repository: [
                     { name: 'genql', owner: 'remorses' },
                     {
@@ -330,7 +331,7 @@ describe('execute subscriptions', async function() {
         await pubsub.publish(USER_EVENT, { user: x })
         // console.log(JSON.stringify(res, null, 2))
         sub.unsubscribe()
-        client.wsClient.close()
+        client?.wsClient?.close?.()
         await stop()
         // assert(deepEq(res.user, x))
     })

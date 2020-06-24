@@ -75,6 +75,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
     let chainTypeContent = ''
 
     if (queryType) {
+        // TODO replace the extend with {[K in keyof R]: QueryRequest[K]}, this way additional properties are not allowed
         interfaceContent += `
         query<R extends ${requestTypeName(queryType)}>(
             request: R,
@@ -116,7 +117,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
         }
     }
     `
-}// TODO add the close method that closes the ws client
+} // TODO add the close method that closes the ws client
 
 function renderSupportFunctionsTypes({
     queryType,

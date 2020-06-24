@@ -5,6 +5,7 @@ type Scalar = string | number | Date | boolean | null | undefined
 type ScalarFields<T> = PickByValue<T, Scalar>
 
 // SRC is the concrete type (for example Query), DST is the field selection, with shape { field: 1 | true, ... }
+// TODO this is too complex, apply a selection only on the top level fields and leave the rest, unions are just type unions, interfaces are just simple types
 export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     0: SRC
     1: Omit<ScalarFields<SRC>, '__scalar'> &
