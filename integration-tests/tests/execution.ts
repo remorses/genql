@@ -121,23 +121,14 @@ describe('execute queries', async function() {
     it(
         'required field and nested fields',
         withServer(async () => {
-            await client
+            client
                 .query({
                     // @ts-expect-error because name is required
                     repository: [{}, { __scalar: true }],
                 })
                 .catch(id)
 
-            client
-                .query({
-                    // @ts-expect-error because sdf is not in QueryReques
-                    sdf: true,
-                })
-                .catch(() => null)
-
             const res = await client.query({
-                // TODO @ts-expect-error because sdf is not in QueryReques
-                sdf: true,
                 repository: [
                     {
                         name: 'genql',
@@ -168,6 +159,14 @@ describe('execute queries', async function() {
     it(
         'chain syntax ',
         withServer(async () => {
+            client.chain.query.user
+                .get({
+                    name: true,
+                    // @ts-expect-error because sdf is not in QueryRequest
+                    sdf: true,
+                    // sdf: true,
+                })
+                .catch(id)
             const res = await client.chain.query.user.get({
                 __scalar: true,
                 // sdf: true,
