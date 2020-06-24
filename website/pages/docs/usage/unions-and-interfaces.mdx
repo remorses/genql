@@ -33,6 +33,8 @@ Union and interfaces are translated to typescript using union types
 
 After you do a query on an union type, you can use the exported typescript guards to check the type of an object (remember to query the `__typename` field when you use type guards)
 
+> remember to query the `__typename` field when you use type guards or they will throw an error
+
 ```ts
 import { createClient, isUser, isGuest } from './generated'
 
