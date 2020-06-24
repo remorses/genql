@@ -23,6 +23,7 @@ type ForkEdge {
 
 type Fork {
     name: String
+    number: Int
 }
 
 type User {

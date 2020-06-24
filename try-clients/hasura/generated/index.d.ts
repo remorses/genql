@@ -16,7 +16,7 @@ export declare const createClient: (options?: ClientOptions) => Client
 export declare const everything: { __scalar: boolean }
 
 export interface Client {
-  wsClient: SubscriptionClient
+  wsClient?: SubscriptionClient
 
   query<R extends query_rootRequest>(request: R): Promise<FieldsSelection<query_root, R>>
 

@@ -34,6 +34,7 @@ export interface ForkEdge{
 
 export interface Fork{
     name?: Scalars['String']
+    number?: Scalars['Int']
     __typename?: 'Fork'
 }
 
@@ -121,6 +122,7 @@ export interface ForkEdgeRequest{
 
 export interface ForkRequest{
     name?: boolean|number
+    number?: boolean|number
     __typename?: boolean|number
     __scalar?: boolean|number
 }
@@ -289,9 +291,9 @@ export interface ForkEdgePromiseChain{cursor:({get:(request?:boolean|number,defa
 
 export interface ForkEdgeObservableChain{cursor:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),node:(ForkObservableChain & {get:<R extends ForkRequest>(request: R, defaultValue?:(FieldsSelection<Fork, R>|null))=>Observable<(FieldsSelection<Fork, R>|null)>})}
 
-export interface ForkPromiseChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
+export interface ForkPromiseChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),number:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>})}
 
-export interface ForkObservableChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
+export interface ForkObservableChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),number:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>})}
 
 export interface UserPromiseChain{
 /** Some description */

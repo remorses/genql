@@ -77,3 +77,4 @@ describe('batch queries', () => {
         ])
     })
 })
+

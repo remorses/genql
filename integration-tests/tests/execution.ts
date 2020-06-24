@@ -127,7 +127,9 @@ describe('execute queries', async function() {
                     { name: 'genql', owner: 'remorses' },
                     {
                         ...everything,
-                        forks: { edges: { node: { ...everything } } },
+                        forks: {
+                            edges: { node: { name: true, number: true } },
+                        },
                     },
                 ],
             })
@@ -137,6 +139,9 @@ describe('execute queries', async function() {
             expectType<Maybe<string>>(res.repository.__typename)
             expectType<Maybe<Maybe<string>[]>>(
                 res.repository?.forks?.edges?.map((x) => x?.node?.name),
+            )
+            expectType<Maybe<Maybe<number>[]>>(
+                res.repository?.forks?.edges?.map((x) => x?.node?.number),
             )
         }),
     )
