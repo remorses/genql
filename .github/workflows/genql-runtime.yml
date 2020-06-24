@@ -24,6 +24,6 @@ jobs:
           prefix: genql-runtime
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: cd genql-runtime && yarn publish
+      - run: cd genql-runtime && yarn publish || echo 'cannot publish'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
