@@ -6,19 +6,23 @@ import fs from 'fs'
 import path from 'path'
 import { expectType } from 'tsd'
 
+const id = () => null
 import { DeepPartial, MaybeUndefined } from 'tsdef'
 import {
     createClient,
     User,
     everything,
     isHouse,
+    Account,
     isBank,
-} from '../generated/index.js'
+    Point,
+    isUser,
+} from '../generated'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
 const SUB_URL = `ws://localhost:` + PORT + '/graphql'
-type Maybe<T> = MaybeUndefined<T>
+type Maybe<T> = T | undefined | null
 
 async function server({ resolvers, port = PORT }) {
     const typeDefs = fs
@@ -117,15 +121,19 @@ describe('execute queries', async function() {
     it(
         'required field and nested fields',
         withServer(async () => {
-            // await client.query({
-            //     // @ts-expect-error because name is required
-            //     repository: [{}, { __scalar: true }],
-            // }).catch()
+            client
+                .query({
+                    // @ts-expect-error because name is required
+                    repository: [{}, { __scalar: true }],
+                })
+                .catch(id)
 
             const res = await client.query({
-                sdf: true,
                 repository: [
-                    { name: 'genql', owner: 'remorses' },
+                    {
+                        name: 'genql',
+                        owner: 'remorses',
+                    },
                     {
                         ...everything,
                         forks: {
@@ -135,6 +143,8 @@ describe('execute queries', async function() {
                 ],
             })
             console.log(JSON.stringify(res, null, 2))
+            // @ts-expect-error because top level fields are filtered based on query
+            res?.account
             // no optional chaining because repository is non null
             expectType<string>(res.repository.createdAt)
             expectType<Maybe<string>>(res.repository.__typename)
@@ -149,8 +159,17 @@ describe('execute queries', async function() {
     it(
         'chain syntax ',
         withServer(async () => {
+            client.chain.query.user
+                .get({
+                    name: true,
+                    // @ts-expect-error because sdf is not in QueryRequest
+                    sdf: true,
+                    // sdf: true,
+                })
+                .catch(id)
             const res = await client.chain.query.user.get({
                 __scalar: true,
+                // sdf: true,
             })
             console.log(JSON.stringify(res, null, 2))
             expectType<Maybe<string>>(res?.name)
@@ -169,7 +188,9 @@ describe('execute queries', async function() {
                     },
                 },
             })
-            expectType<Maybe<string>>(account?.name)
+            // @ts-expect-error because on_User should be removed
+            account?.on_User
+            expectType<Maybe<Account>>(account)
             console.log(account)
         }),
     )
@@ -180,18 +201,20 @@ describe('execute queries', async function() {
             const account = await client.chain.query.account.get({
                 on_User: { name: 1 },
             })
-            expectType<Maybe<string>>(account?.name)
+            expectType<Maybe<Account>>(account)
         }),
     )
     it(
         'union types with chain and ...everything',
         withServer(async () => {
             const account = await client.chain.query.account.get({
-                // __typename: 1,
+                __typename: 1,
                 on_User: { ...everything },
             })
-            expectType<Maybe<string>>(account?.name)
             expectType<Maybe<string>>(account?.__typename)
+            if (isUser(account)) {
+                expectType<Maybe<string>>(account?.name)
+            }
         }),
     )
     it(
@@ -224,9 +247,11 @@ describe('execute queries', async function() {
                 },
             })
             let coordinates = res.coordinates
-            expectType<Maybe<string>>(coordinates?.address)
             expectType<Maybe<string>>(coordinates?.x)
-            assert(coordinates?.address)
+            if (coordinates && 'address' in coordinates) {
+                expectType<Maybe<string>>(coordinates?.address)
+                assert(coordinates?.address)
+            }
             assert(coordinates?.x)
             assert(coordinates?.__typename)
         }),
@@ -239,10 +264,12 @@ describe('execute queries', async function() {
                 x: 1,
                 on_Bank: { address: 1 },
             })
-            expectType<Maybe<string>>(coordinates?.address)
             expectType<Maybe<string>>(coordinates?.x)
-            assert(coordinates?.address)
-            assert(coordinates?.x)
+            if (coordinates && 'address' in coordinates) {
+                expectType<Maybe<string>>(coordinates?.address)
+                assert(coordinates?.address)
+                assert(coordinates?.x)
+            }
         }),
     )
     it(
@@ -265,7 +292,9 @@ describe('execute queries', async function() {
                 },
             })
             console.log(coordinates)
+
             expectType<Maybe<string>>(coordinates?.x)
+            expectType<Maybe<Point>>(coordinates)
             expectType<Maybe<string>>(coordinates?.__typename)
             assert(coordinates?.x)
             assert(coordinates?.__typename)

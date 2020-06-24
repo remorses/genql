@@ -15,7 +15,7 @@ export declare const everything: { __scalar: boolean }
 export interface Client {
   wsClient?: SubscriptionClient
 
-  query<R extends QueryRequest>(request: R ): Promise<FieldsSelection<Query, R>>
+  query<R extends QueryRequest>(request: R): Promise<FieldsSelection<Query, R>>
 
   subscription<R extends SubscriptionRequest>(request: R): Observable<FieldsSelection<Subscription, R>>
 

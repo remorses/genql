@@ -48,7 +48,7 @@ export const objectType = (
             false,
             false,
             false,
-            (x: string) => `FieldsSelection<${x}, R>`,
+            (x: string) => x, // `FieldsSelection<${x}, R>`,
         )
 
         // get: <R extends CreateOneOrderPayloadRequest>(
@@ -56,10 +56,9 @@ export const objectType = (
         //     defaultValue?: CreateOneOrderPayload | null,
         //   ) => Promise<FieldsSelection<CreateOneOrderPayload, R>  | null>
 
-        
-        const getFnType = `{get:<R extends ${requestTypeName(
+        const getFnType = `{get: (request: ${requestTypeName(
             resolvedType,
-        )}>(request: R, defaultValue?:${executeReturnTypeWithTypeMap})=>${wrapper}<${executeReturnTypeWithTypeMap}>}`
+        )}, defaultValue?:${executeReturnTypeWithTypeMap})=>${wrapper}<${executeReturnTypeWithTypeMap}>}`
         const fieldType = resolvable
             ? stopChain
                 ? getFnType

@@ -2,8 +2,8 @@ import { Stack, Box, Spinner, Input } from '@chakra-ui/core'
 import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
 import React, { useState } from 'react'
 import useSWR from 'swr'
-import { createClient } from '../../hasura/index.js'
-import { everything } from '../../generated'
+import { expectType } from 'tsd'
+import { createClient, user } from '../../hasura/index.js'
 import { useObservable } from 'react-extra-hooks'
 import { useSubscription } from '../../client'
 
@@ -24,6 +24,7 @@ const Page = () => {
         },
         // (a: any[], b) => [...a, b],
     )
+    expectType<user[] | undefined>(data?.user)
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero

@@ -11,7 +11,7 @@ const renderTypeGuard = (target: string, possible: string[], mode) =>
     mode == 'ts'
         ? `
 const ${target}_possibleTypes = [${possible.map((t) => `'${t}'`).join(',')}]
-export const is${target} = (obj?: { __typename?: any }): obj is ${target} => {
+export const is${target} = (obj?: { __typename?: any } | null): obj is ${target} => {
   if (!obj?.__typename) throw new Error('__typename is missing in "is${target}"')
   return ${target}_possibleTypes.includes(obj.__typename)
 }
