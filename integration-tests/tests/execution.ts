@@ -189,6 +189,8 @@ describe('execute queries', async function() {
                     },
                 },
             })
+            // @ts-expect-error because on_User should be removed
+            account?.on_User
             expectType<Maybe<Account>>(account)
             console.log(account)
         }),
