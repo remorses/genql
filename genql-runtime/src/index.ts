@@ -17,6 +17,6 @@ export const version = '1.1.7'
 
 export function assertSameVersion(generatedWithVersion) {
     if (generatedWithVersion && generatedWithVersion.trim() != version.trim()) {
-        console.error('genql client library has been generated with a different version of `genql-runtime`, update both packages to have the same version!')
+        console.error('[WARNING]: genql client library has been generated with a different version of `genql-runtime`, update both packages to have the same version!')
     }
 }
