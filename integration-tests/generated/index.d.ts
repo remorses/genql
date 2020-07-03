@@ -11,6 +11,7 @@ import {
 } from './schema'
 export declare const createClient: (options?: ClientOptions) => Client
 export declare const everything: { __scalar: boolean }
+export declare const version: string
 
 export interface Client {
   wsClient?: SubscriptionClient

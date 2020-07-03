@@ -1,5 +1,15 @@
-const { linkTypeMap, createClient: createClientOriginal, generateGraphqlOperation } = require('genql-runtime')
+const {
+  linkTypeMap,
+  createClient: createClientOriginal,
+  generateGraphqlOperation,
+  assertSameVersion,
+} = require('genql-runtime')
 var typeMap = linkTypeMap(require('./types.json'))
+
+var version = '1.1.7'
+assertSameVersion(version)
+
+module.exports.version = version
 
 module.exports.createClient = function(options) {
   options = options || {}
