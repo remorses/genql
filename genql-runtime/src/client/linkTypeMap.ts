@@ -1,8 +1,15 @@
 import { LinkedField, LinkedType, LinkedTypeMap, TypeMap } from '../types'
 
 export const linkTypeMap = (typeMap: TypeMap) => {
-    const linkedTypeMap = <LinkedTypeMap>JSON.parse(JSON.stringify(typeMap))
+    const res = resolveConcreteTypes(typeMap as any)
+    // TODO add Type.scalar types to every Type
+    // TODO add Type.type and Type.args
+    // TODO replace the type indexes with their typename
+    // TODO add the second array element in
+    return res
+}
 
+export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
     Object.keys(linkedTypeMap).forEach((typeNameFromKey) => {
         const type: LinkedType = linkedTypeMap[typeNameFromKey]
         type.name = typeNameFromKey
@@ -21,7 +28,7 @@ export const linkTypeMap = (typeMap: TypeMap) => {
                     const arg = args[key]
 
                     if (arg) {
-                        const [, typeName] = arg
+                        const [, typeName] = arg // TODO typename is now the first element
 
                         if (typeof typeName === 'string') {
                             if (!linkedTypeMap[typeName]) {

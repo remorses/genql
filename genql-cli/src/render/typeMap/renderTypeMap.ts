@@ -15,6 +15,10 @@ import { unionType } from './unionType'
 import { TypeMap } from 'genql-runtime/dist/types'
 
 export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
+    // remove fields key, 
+    // remove the Type.type and Type.args, replace with [type, args]
+    // reverse args.{name}
+    // Args type is deduced and added only when the concrete type is different from type name, remove the scalar field and replace with a top level scalars array field. 
     const result: TypeMap = {}
 
     Object.keys(schema.getTypeMap())
