@@ -80,53 +80,47 @@ export function replaceTypeNamesWithIndexes(
         {},
         ...Object.keys(typeMap.types || {}).map((k) => {
             const type: Type<string> = typeMap.types[k] || {}
-            const fields = type.fields || {}
+            const fieldsMap = type.fields || {}
             // processFields(fields, indexToName)
+            const fields = Object.assign(
+                {},
+                ...Object.keys(fieldsMap).map(
+                    (f): FieldMap<number> => {
+                        const content = fieldsMap[f]
+                        if (!content) {
+                            throw new Error('no content in field ' + f)
+                        }
+
+                        const res: Field<number> = {
+                            type: content?.type
+                                ? nameToIndex[content?.type]
+                                : -1,
+                        }
+                        if (content.args) {
+                            res.args = Object.assign(
+                                {},
+                                ...Object.keys(content.args || {}).map((k) => {
+                                    const arg = content?.args?.[k]
+                                    if (!arg) {
+                                        throw new Error('no arg for ' + k)
+                                    }
+                                    return {
+                                        [k]: [nameToIndex[arg[0]], arg[1]],
+                                    } as ArgMap<number>
+                                }),
+                            )
+                        }
+
+                        return {
+                            [f]: res,
+                        }
+                    },
+                ),
+            )
             return {
                 [k]: {
                     ...type,
-                    fields: Object.assign(
-                        {},
-                        ...Object.keys(fields).map(
-                            (f): FieldMap<number> => {
-                                const content = fields[f]
-                                if (!content) {
-                                    throw new Error('no content in field ' + f)
-                                }
-
-                                const res: Field<number> = {
-                                    type: content?.type
-                                        ? nameToIndex[content?.type]
-                                        : -1,
-                                }
-                                if (content.args) {
-                                    res.args = Object.assign(
-                                        {},
-                                        ...Object.keys(content.args || {}).map(
-                                            (k) => {
-                                                const arg = content?.args?.[k]
-                                                if (!arg) {
-                                                    throw new Error(
-                                                        'no arg for ' + k,
-                                                    )
-                                                }
-                                                return {
-                                                    [k]: [
-                                                        nameToIndex[arg[0]],
-                                                        arg[1],
-                                                    ],
-                                                } as ArgMap<number>
-                                            },
-                                        ),
-                                    )
-                                }
-
-                                return {
-                                    [f]: res,
-                                }
-                            },
-                        ),
-                    ),
+                    fields: fields,
                 },
             }
         }),
