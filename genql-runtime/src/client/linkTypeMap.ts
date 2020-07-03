@@ -1,26 +1,36 @@
-import { LinkedField, LinkedType, LinkedTypeMap, TypeMap } from '../types'
+import { LinkedField, LinkedType, LinkedTypeMap, TypeMap, Type } from '../types'
 
 export const linkTypeMap = (typeMap: TypeMap) => {
-    
     // TODO add Type.type and Type.args
     // TODO replace the type indexes with their typename
     // TODO add the second array element in
 
-    // TODO add Type.scalar types to every Type
-
+    // const scalars = typeMap.scalars
+    let intermediaryTypeMap: any = typeMap.types
 
     // add the name value
-    const intermediaryTypeMap = Object.assign(
+    intermediaryTypeMap = Object.assign(
         {},
-        ...Object.keys(typeMap).map((k) => {
+        ...Object.keys(typeMap.types || {}).map((k) => {
+            const type: Type = intermediaryTypeMap[k]
+            const fields = type.fields || {}
             return {
                 [k]: {
-                    ...typeMap[k],
+                    ...type,
+                    scalar: Object.keys(fields)
+                        .map((f) => {
+                            const { type } = fields[f] || {}
+                            return [f, type]
+                        })
+                        .filter(([_, type]) => typeMap.scalars.includes(type))
+                        .map(([key, _]) => key),
                     name: k,
                 },
             }
         }),
     )
+
+    // add Type.scalar types to every Type
 
     const res = resolveConcreteTypes(intermediaryTypeMap)
     return res
@@ -29,7 +39,7 @@ export const linkTypeMap = (typeMap: TypeMap) => {
 export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
     Object.keys(linkedTypeMap).forEach((typeNameFromKey) => {
         const type: LinkedType = linkedTypeMap[typeNameFromKey]
-        type.name = typeNameFromKey
+        // type.name = typeNameFromKey
         if (!type.fields) {
             return
         }

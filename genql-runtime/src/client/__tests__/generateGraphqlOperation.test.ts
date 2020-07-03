@@ -101,6 +101,7 @@ describe('requestToGql', () => {
                     fragment f1 on User {
                         name
                         age
+                        __typename
                     }
                     fragment f2 on User {
                         ...f1
@@ -161,13 +162,14 @@ describe('requestToGql', () => {
             ).toThrow('no typing defined for argument `unknown` in path `user`')
         })
 
-        test('when requesting __scalar on type that has no scalar fields', async () => {
-            const root = await getRoot()
-            expect(() =>
-                requestToGql('query', root, {
-                    livingThings: { __scalar: 1 },
-                }),
-            ).toThrow('type LivingThing has no scalar fields')
-        })
+        // no longer throws because returns __typename
+        // test('when requesting __scalar on type that has no scalar fields', async () => {
+        //     const root = await getRoot()
+        //     expect(() =>
+        //         requestToGql('query', root, {
+        //             livingThings: { __scalar: 1 },
+        //         }),
+        //     ).toThrow('type LivingThing has no scalar fields')
+        // })
     })
 })

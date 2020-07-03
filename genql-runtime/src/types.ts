@@ -14,13 +14,16 @@ export interface FieldMap {
     [field: string]: Field | undefined
 }
 
-export interface Type {
+export type Type = {
     fields?: FieldMap
     scalar?: string[]
 }
 
 export interface TypeMap {
-    [type: string]: Type | undefined
+    scalars: string[]
+    types: {
+        [type: string]: Type | undefined
+    }
 }
 
 // LINKED TYPE ////////////

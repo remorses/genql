@@ -104,7 +104,7 @@ test('objectType', () =>
           nestedArg: { type: 'Boolean', args: { a: ['[[[Int]]]', 'Int'], b: ['[[[Int!]!]!]!', 'Int'] } },
           __typename: { type: 'String' },
         },
-        scalar: ['scalar', 'optionalArgScalar', 'nestedArg'],
+        // scalar: ['scalar', 'optionalArgScalar', 'nestedArg'],
       },
       Interface: {
         fields: {
@@ -113,7 +113,7 @@ test('objectType', () =>
           on_ImplementorB: { type: 'ImplementorB' },
           __typename: { type: 'String' },
         },
-        scalar: ['some'],
+        // scalar: ['some'],
       },
       ObjectWithoutScalar: {
         fields: {
