@@ -100,48 +100,44 @@ test('objectType', () =>
         <Renderer>objectType,
         {
             Object: {
-                fields: {
-                    scalar: { type: 'Int' },
-                    object: { type: 'Object' },
-                    interface: { type: 'Interface' },
-                    optionalArgScalar: {
-                        type: 'Int',
-                        args: { arg: ['Int', 'Int'] },
-                    },
-                    optionalArgObject: {
-                        type: 'Object',
-                        args: { arg: ['Int', 'Int'] },
-                    },
-                    optionalArgInterface: {
-                        type: 'Interface',
-                        args: { arg: ['Int', 'Int'] },
-                    },
-                    nestedArg: {
-                        type: 'Boolean',
-                        args: {
-                            a: ['[[[Int]]]', 'Int'],
-                            b: ['[[[Int!]!]!]!', 'Int'],
-                        },
-                    },
-                    __typename: { type: 'String' },
+                scalar: { type: 'Int' },
+                object: { type: 'Object' },
+                interface: { type: 'Interface' },
+                optionalArgScalar: {
+                    type: 'Int',
+                    args: { arg: ['Int', 'Int'] },
                 },
+                optionalArgObject: {
+                    type: 'Object',
+                    args: { arg: ['Int', 'Int'] },
+                },
+                optionalArgInterface: {
+                    type: 'Interface',
+                    args: { arg: ['Int', 'Int'] },
+                },
+                nestedArg: {
+                    type: 'Boolean',
+                    args: {
+                        a: ['[[[Int]]]', 'Int'],
+                        b: ['[[[Int!]!]!]!', 'Int'],
+                    },
+                },
+                __typename: { type: 'String' },
+
                 // scalar: ['scalar', 'optionalArgScalar', 'nestedArg'],
             },
             Interface: {
-                fields: {
-                    some: { type: 'String' },
-                    on_ImplementorA: { type: 'ImplementorA' },
-                    on_ImplementorB: { type: 'ImplementorB' },
-                    __typename: { type: 'String' },
-                },
+                some: { type: 'String' },
+                on_ImplementorA: { type: 'ImplementorA' },
+                on_ImplementorB: { type: 'ImplementorB' },
+                __typename: { type: 'String' },
+
                 // scalar: ['some'],
             },
             ObjectWithoutScalar: {
-                fields: {
-                    __typename: { type: 'String' },
-                    interface: { type: 'Interface' },
-                    object: { type: 'Object' },
-                },
+                __typename: { type: 'String' },
+                interface: { type: 'Interface' },
+                object: { type: 'Object' },
             },
         },
         true,
@@ -171,12 +167,10 @@ test('unionType', () =>
         <Renderer>unionType,
         {
             Union: {
-                fields: {
-                    on_Some: { type: 'Some' },
-                    on_Other: { type: 'Other' },
-                    on_Another: { type: 'Another' },
-                    __typename: { type: 'String' },
-                },
+                on_Some: { type: 'Some' },
+                on_Other: { type: 'Other' },
+                on_Another: { type: 'Another' },
+                __typename: { type: 'String' },
             },
         },
         true,

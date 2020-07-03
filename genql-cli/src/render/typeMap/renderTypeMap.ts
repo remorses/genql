@@ -80,7 +80,7 @@ export function replaceTypeNamesWithIndexes(
         {},
         ...Object.keys(typeMap.types || {}).map((k) => {
             const type: Type<string> = typeMap.types[k] || {}
-            const fieldsMap = type.fields || {}
+            const fieldsMap = type || {}
             // processFields(fields, indexToName)
             const fields = Object.assign(
                 {},
@@ -119,8 +119,7 @@ export function replaceTypeNamesWithIndexes(
             )
             return {
                 [k]: {
-                    ...type,
-                    fields: fields,
+                    ...fields
                 },
             }
         }),

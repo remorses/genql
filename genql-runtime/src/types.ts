@@ -16,10 +16,7 @@ export interface FieldMap<keyType=number> {
     [field: string]: Field<keyType> | undefined
 }
 
-export type Type<keyType=number> = {
-    fields?: FieldMap<keyType>
-    scalar?: Array<keyType>
-}
+export type Type<keyType=number> = FieldMap<keyType>
 
 export interface TypeMap<keyType=number> {
     scalars: Array<keyType>

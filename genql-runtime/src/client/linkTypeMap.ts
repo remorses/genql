@@ -24,13 +24,12 @@ export const linkTypeMap = (typeMap: TypeMap<number>) => {
     // add the name value
     intermediaryTypeMap = Object.assign(
         {},
-        ...Object.keys(typeMap.types || {}).map((k) => {
+        ...Object.keys(typeMap.types || {}).map((k): Record<string, LinkedType> => {
             const type: Type = intermediaryTypeMap[k]
-            const fields = type.fields || {}
+            const fields = type || {}
             // processFields(fields, indexToName)
             return {
                 [k]: {
-                    ...type,
                     scalar: Object.keys(fields).filter((f) => {
                         const { type } = fields[f] || {}
                         return typeMap.scalars.includes(type)
