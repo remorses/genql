@@ -10,7 +10,7 @@ import {
   GraphQLField,
 } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
-import { ArgMap, Field, FieldMap, Type } from './renderTypeMap'
+import { ArgMap, Field, FieldMap, Type } from 'genql-runtime/dist/types'
 
 
 

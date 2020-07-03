@@ -12,29 +12,7 @@ import { RenderContext } from '../common/RenderContext'
 import { objectType } from './objectType'
 import { scalarType } from './scalarType'
 import { unionType } from './unionType'
-
-export interface ArgMap {
-    [arg: string]: [string, string] | undefined
-}
-
-export interface Field {
-    type: string
-    args?: ArgMap
-}
-
-export interface FieldMap {
-    [field: string]: Field | undefined
-}
-
-export interface Type {
-    name: string
-    fields?: FieldMap
-    scalar?: string[]
-}
-
-export interface TypeMap {
-    [type: string]: Type | undefined
-}
+import { TypeMap } from 'genql-runtime/dist/types'
 
 export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     const result: TypeMap = {}
@@ -49,7 +27,6 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
             else if (isScalarType(t) || isEnumType(t))
                 result[t.name] = scalarType(t, ctx)
         })
-
 
     // change names of query, mutation on schemas that chose different names (hasura)
     const q = schema.getQueryType()

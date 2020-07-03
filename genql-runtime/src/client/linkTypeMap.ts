@@ -1,28 +1,6 @@
+import { LinkedField, LinkedType, LinkedTypeMap, TypeMap } from '../types'
 
 
-export interface LinkedArgMap {
-    [arg: string]: [string, LinkedType] | undefined
-}
-export interface LinkedField {
-    type: LinkedType
-    args?: LinkedArgMap
-}
-
-export interface LinkedFieldMap {
-    [field: string]: LinkedField | undefined
-}
-
-export interface LinkedType {
-    name: string
-    fields?: LinkedFieldMap
-    scalar?: string[]
-}
-
-export interface LinkedTypeMap {
-    [type: string]: LinkedType | undefined
-}
-
-type TypeMap = any // TODO get typeMap type somehow
 
 export const linkTypeMap = (typeMap: TypeMap) => {
     const linkedTypeMap = <LinkedTypeMap>JSON.parse(JSON.stringify(typeMap))

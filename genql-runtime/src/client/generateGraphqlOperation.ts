@@ -1,6 +1,6 @@
 import { OperationTypeNode } from 'graphql'
 import { getFieldFromPath } from './getFieldFromPath'
-import { LinkedType } from './linkTypeMap'
+import { LinkedType } from '../types'
 
 export interface Args {
   [arg: string]: any | undefined
