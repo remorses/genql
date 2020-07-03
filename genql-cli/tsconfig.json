@@ -9,6 +9,7 @@
     "target": "ES2015",
     "module": "CommonJS",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "allowJs": true,

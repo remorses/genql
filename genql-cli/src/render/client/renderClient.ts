@@ -1,6 +1,7 @@
 import { GraphQLSchema } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
+import { version } from '../../../package.json'
 
 const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
@@ -20,14 +21,21 @@ function(options) {
 }`
 }
 
+
 export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
   const { 
       linkTypeMap, 
       createClient: createClientOriginal, 
-      generateGraphqlOperation
+      generateGraphqlOperation,
+      assertSameVersion,
   } = require('${RUNTIME_LIB_NAME}')
   var typeMap = linkTypeMap(require('./types.json'))
+
+  var version = '${version}'
+  assertSameVersion(version)
+
+  module.exports.version = version
 
   module.exports.createClient = ${renderClientCode(ctx)}
 
@@ -57,9 +65,14 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
       linkTypeMap, 
       createClient as createClientOriginal, 
       generateGraphqlOperation,
+      assertSameVersion,
   } from '${RUNTIME_LIB_NAME}'
   var typeMap = linkTypeMap(require('./types.json'))
   export * from './guards.esm'
+
+  export var version = '${version}'
+  assertSameVersion(version)
+
   export var createClient = ${renderClientCode(ctx)}
 
   export var generateQueryOp = function(fields) {

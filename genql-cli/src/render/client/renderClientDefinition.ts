@@ -19,6 +19,7 @@ export const renderClientDefinition = (
     ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
     export declare const createClient:(options?: ClientOptions)=>Client
     export declare const everything: { __scalar: boolean }
+    export declare const version: string
   `)
 
     // Client interface

@@ -40,20 +40,20 @@ describe('renderTyping', () => {
 
     test('nullable', () => {
         testCase('value', ': Scalars[\'Int\']', false, false)
-        testCase('maybeValue', ': (Scalars[\'Int\']|null)', false, false)
+        testCase('maybeValue', ': (Scalars[\'Int\'] | null)', false, false)
         testCase('valueList', ': Scalars[\'Int\'][]', false, false)
-        testCase('maybeValueList', ': (Scalars[\'Int\']|null)[]', false, false)
-        testCase('valueMaybeList', ': (Scalars[\'Int\'][]|null)', false, false)
+        testCase('maybeValueList', ': (Scalars[\'Int\'] | null)[]', false, false)
+        testCase('valueMaybeList', ': (Scalars[\'Int\'][] | null)', false, false)
         testCase(
             'maybeValueMaybeList',
-            ': ((Scalars[\'Int\']|null)[]|null)',
+            ': ((Scalars[\'Int\'] | null)[] | null)',
             false,
             false,
         )
         testCase('nested', ': Scalars[\'Int\'][][][]', false, false)
         testCase(
             'maybeNested',
-            ': ((((Scalars[\'Int\']|null)[]|null)[]|null)[]|null)',
+            ': ((((Scalars[\'Int\'] | null)[] | null)[] | null)[] | null)',
             false,
             false,
         )
@@ -61,30 +61,30 @@ describe('renderTyping', () => {
 
     test('undefinable values', () => {
         testCase('value', ': Scalars[\'Int\']', true, false)
-        testCase('maybeValue', ': (Scalars[\'Int\']|undefined)', true, false)
+        testCase('maybeValue', ': (Scalars[\'Int\'] | undefined)', true, false)
         testCase('valueList', ': Scalars[\'Int\'][]', true, false)
         testCase(
             'maybeValueList',
-            ': (Scalars[\'Int\']|undefined)[]',
+            ': (Scalars[\'Int\'] | undefined)[]',
             true,
             false,
         )
         testCase(
             'valueMaybeList',
-            ': (Scalars[\'Int\'][]|undefined)',
+            ': (Scalars[\'Int\'][] | undefined)',
             true,
             false,
         )
         testCase(
             'maybeValueMaybeList',
-            ': ((Scalars[\'Int\']|undefined)[]|undefined)',
+            ': ((Scalars[\'Int\'] | undefined)[] | undefined)',
             true,
             false,
         )
         testCase('nested', ': Scalars[\'Int\'][][][]', true, false)
         testCase(
             'maybeNested',
-            ': ((((Scalars[\'Int\']|undefined)[]|undefined)[]|undefined)[]|undefined)',
+            ': ((((Scalars[\'Int\'] | undefined)[] | undefined)[] | undefined)[] | undefined)',
             true,
             false,
         )
@@ -92,20 +92,20 @@ describe('renderTyping', () => {
 
     test('undefinable fields', () => {
         testCase('value', ': Scalars[\'Int\']', false, true)
-        testCase('maybeValue', '?: (Scalars[\'Int\']|null)', false, true)
+        testCase('maybeValue', '?: (Scalars[\'Int\'] | null)', false, true)
         testCase('valueList', ': Scalars[\'Int\'][]', false, true)
-        testCase('maybeValueList', ': (Scalars[\'Int\']|null)[]', false, true)
-        testCase('valueMaybeList', '?: (Scalars[\'Int\'][]|null)', false, true)
+        testCase('maybeValueList', ': (Scalars[\'Int\'] | null)[]', false, true)
+        testCase('valueMaybeList', '?: (Scalars[\'Int\'][] | null)', false, true)
         testCase(
             'maybeValueMaybeList',
-            '?: ((Scalars[\'Int\']|null)[]|null)',
+            '?: ((Scalars[\'Int\'] | null)[] | null)',
             false,
             true,
         )
         testCase('nested', ': Scalars[\'Int\'][][][]', false, true)
         testCase(
             'maybeNested',
-            '?: ((((Scalars[\'Int\']|null)[]|null)[]|null)[]|null)',
+            '?: ((((Scalars[\'Int\'] | null)[] | null)[] | null)[] | null)',
             false,
             true,
         )
@@ -115,18 +115,18 @@ describe('renderTyping', () => {
         testCase('value', ': Scalars[\'Int\']', true, true)
         testCase('maybeValue', '?: Scalars[\'Int\']', true, true)
         testCase('valueList', ': Scalars[\'Int\'][]', true, true)
-        testCase('maybeValueList', ': (Scalars[\'Int\']|undefined)[]', true, true)
+        testCase('maybeValueList', ': (Scalars[\'Int\'] | undefined)[]', true, true)
         testCase('valueMaybeList', '?: Scalars[\'Int\'][]', true, true)
         testCase(
             'maybeValueMaybeList',
-            '?: (Scalars[\'Int\']|undefined)[]',
+            '?: (Scalars[\'Int\'] | undefined)[]',
             true,
             true,
         )
         testCase('nested', ': Scalars[\'Int\'][][][]', true, true)
         testCase(
             'maybeNested',
-            '?: (((Scalars[\'Int\']|undefined)[]|undefined)[]|undefined)[]',
+            '?: (((Scalars[\'Int\'] | undefined)[] | undefined)[] | undefined)[]',
             true,
             true,
         )
