@@ -105,7 +105,10 @@ export function replaceTypeNamesWithIndexes(
                                         throw new Error('no arg for ' + k)
                                     }
                                     return {
-                                        [k]: [nameToIndex[arg[0]], arg[1]],
+                                        [k]: [
+                                            nameToIndex[arg[0]],
+                                            ...arg.slice(1),
+                                        ],
                                     } as ArgMap<number>
                                 }),
                             )
@@ -119,7 +122,7 @@ export function replaceTypeNamesWithIndexes(
             )
             return {
                 [k]: {
-                    ...fields
+                    ...fields,
                 },
             }
         }),
