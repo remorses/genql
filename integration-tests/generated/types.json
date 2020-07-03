@@ -7,92 +7,86 @@
                     "type": 2,
                     "args": { "name": [1, "String!"], "owner": [1, null] }
                 },
-                "user": { "type": 7, "args": {} },
-                "account": { "type": 9, "args": {} },
-                "coordinates": { "type": 14, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "user": { "type": 7 },
+                "account": { "type": 9 },
+                "coordinates": { "type": 14 },
+                "__typename": { "type": 1 }
             }
         },
         "String": { "fields": {} },
         "Repository": {
             "fields": {
-                "createdAt": { "type": 1, "args": {} },
-                "forks": { "type": 3, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "createdAt": { "type": 1 },
+                "forks": { "type": 3 },
+                "__typename": { "type": 1 }
             }
         },
         "ForkConnection": {
-            "fields": {
-                "edges": { "type": 4, "args": {} },
-                "__typename": { "type": 1, "args": {} }
-            }
+            "fields": { "edges": { "type": 4 }, "__typename": { "type": 1 } }
         },
         "ForkEdge": {
             "fields": {
-                "cursor": { "type": 1, "args": {} },
-                "node": { "type": 5, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "cursor": { "type": 1 },
+                "node": { "type": 5 },
+                "__typename": { "type": 1 }
             }
         },
         "Fork": {
             "fields": {
-                "name": { "type": 1, "args": {} },
-                "number": { "type": 6, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "name": { "type": 1 },
+                "number": { "type": 6 },
+                "__typename": { "type": 1 }
             }
         },
         "Int": { "fields": {} },
         "User": {
             "fields": {
-                "name": { "type": 1, "args": {} },
-                "common": { "type": 6, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "name": { "type": 1 },
+                "common": { "type": 6 },
+                "__typename": { "type": 1 }
             }
         },
         "Subscription": {
-            "fields": {
-                "user": { "type": 7, "args": {} },
-                "__typename": { "type": 1, "args": {} }
-            }
+            "fields": { "user": { "type": 7 }, "__typename": { "type": 1 } }
         },
         "Account": {
             "fields": {
-                "on_User": { "type": 7, "args": {} },
-                "on_Guest": { "type": 10, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "on_User": { "type": 7 },
+                "on_Guest": { "type": 10 },
+                "__typename": { "type": 1 }
             }
         },
         "Guest": {
             "fields": {
-                "anonymous": { "type": 11, "args": {} },
-                "common": { "type": 6, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "anonymous": { "type": 11 },
+                "common": { "type": 6 },
+                "__typename": { "type": 1 }
             }
         },
         "Boolean": { "fields": {} },
         "House": {
             "fields": {
-                "owner": { "type": 7, "args": {} },
-                "x": { "type": 1, "args": {} },
-                "y": { "type": 1, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "owner": { "type": 7 },
+                "x": { "type": 1 },
+                "y": { "type": 1 },
+                "__typename": { "type": 1 }
             }
         },
         "Bank": {
             "fields": {
-                "address": { "type": 1, "args": {} },
-                "x": { "type": 1, "args": {} },
-                "y": { "type": 1, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "address": { "type": 1 },
+                "x": { "type": 1 },
+                "y": { "type": 1 },
+                "__typename": { "type": 1 }
             }
         },
         "Point": {
             "fields": {
-                "x": { "type": 1, "args": {} },
-                "y": { "type": 1, "args": {} },
-                "on_House": { "type": 12, "args": {} },
-                "on_Bank": { "type": 13, "args": {} },
-                "__typename": { "type": 1, "args": {} }
+                "x": { "type": 1 },
+                "y": { "type": 1 },
+                "on_House": { "type": 12 },
+                "on_Bank": { "type": 13 },
+                "__typename": { "type": 1 }
             }
         }
     }

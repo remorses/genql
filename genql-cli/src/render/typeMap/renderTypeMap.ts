@@ -12,7 +12,13 @@ import { RenderContext } from '../common/RenderContext'
 import { objectType } from './objectType'
 import { scalarType } from './scalarType'
 import { unionType } from './unionType'
-import { TypeMap, Type, FieldMap, ArgMap } from 'genql-runtime/dist/types'
+import {
+    TypeMap,
+    Type,
+    FieldMap,
+    ArgMap,
+    Field,
+} from 'genql-runtime/dist/types'
 
 export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     // remove fields key,
@@ -62,12 +68,14 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(JSON.stringify(replaceTypeNamesWithIndexes(result)))
 }
 
-export function replaceTypeNamesWithIndexes(typeMap: TypeMap<string>): TypeMap<number> {
+export function replaceTypeNamesWithIndexes(
+    typeMap: TypeMap<string>,
+): TypeMap<number> {
     const nameToIndex: Record<string, number> = Object.assign(
         {},
         ...Object.keys(typeMap.types).map((k, i) => ({ [k]: i })),
     )
-    const scalars = typeMap.scalars.map(x => nameToIndex[x])
+    const scalars = typeMap.scalars.map((x) => nameToIndex[x])
     const types = Object.assign(
         {},
         ...Object.keys(typeMap.types || {}).map((k) => {
@@ -85,27 +93,36 @@ export function replaceTypeNamesWithIndexes(typeMap: TypeMap<string>): TypeMap<n
                                 if (!content) {
                                     throw new Error('no content in field ' + f)
                                 }
-                                return {
-                                    [f]: {
-                                        type: content?.type ? nameToIndex[content?.type] : -1,
-                                        args: Object.assign(
-                                            {},
-                                            ...Object.keys(
-                                                content.args || {},
-                                            ).map((k) => {
+
+                                const res: Field<number> = {
+                                    type: content?.type
+                                        ? nameToIndex[content?.type]
+                                        : -1,
+                                }
+                                if (content.args) {
+                                    res.args = Object.assign(
+                                        {},
+                                        ...Object.keys(content.args || {}).map(
+                                            (k) => {
                                                 const arg = content?.args?.[k]
                                                 if (!arg) {
-                                                    throw new Error('no arg for ' + k)
+                                                    throw new Error(
+                                                        'no arg for ' + k,
+                                                    )
                                                 }
                                                 return {
                                                     [k]: [
                                                         nameToIndex[arg[0]],
                                                         arg[1],
-                                                    ] ,
+                                                    ],
                                                 } as ArgMap<number>
-                                            }),
+                                            },
                                         ),
-                                    },
+                                    )
+                                }
+
+                                return {
+                                    [f]: res,
                                 }
                             },
                         ),
@@ -116,7 +133,7 @@ export function replaceTypeNamesWithIndexes(typeMap: TypeMap<string>): TypeMap<n
     )
     return {
         scalars,
-        types
+        types,
     }
     // TODO replace type names with indexes
 }

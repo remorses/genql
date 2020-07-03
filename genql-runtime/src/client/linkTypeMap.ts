@@ -110,7 +110,7 @@ export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
                     const arg = args[key]
 
                     if (arg) {
-                        const [typeName] = arg // TODO typename is now the first element
+                        const [typeName] = arg
 
                         if (typeof typeName === 'string') {
                             if (!linkedTypeMap[typeName]) {
