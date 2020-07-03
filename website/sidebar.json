@@ -20,7 +20,8 @@
                         {
                             "path": "pages/docs/cli/generate.mdx",
                             "name": "generate.mdx",
-                            "title": "",
+                            "meta": {},
+                            "title": "Generate",
                             "url": "/docs/cli/generate"
                         }
                     ],
@@ -30,6 +31,7 @@
                 {
                     "path": "pages/docs/index.mdx",
                     "name": "index.mdx",
+                    "meta": {},
                     "title": "Quick Start",
                     "url": "/docs"
                 },
@@ -40,48 +42,63 @@
                         {
                             "path": "pages/docs/usage/advanced-typings.mdx",
                             "name": "advanced-typings.mdx",
-                            "title": "",
+                            "meta": {},
+                            "title": "Advanced typings",
                             "url": "/docs/usage/advanced-typings"
                         },
                         {
                             "path": "pages/docs/usage/batching-queries.mdx",
                             "name": "batching-queries.mdx",
-                            "title": "",
+                            "meta": {},
+                            "title": "Batching queries",
                             "url": "/docs/usage/batching-queries"
                         },
                         {
                             "path": "pages/docs/usage/create-the-client.mdx",
                             "name": "create-the-client.mdx",
-                            "title": "",
+                            "meta": {},
+                            "title": "Create the client",
                             "url": "/docs/usage/create-the-client"
                         },
                         {
                             "path": "pages/docs/usage/selecting-fields.mdx",
                             "name": "selecting-fields.mdx",
+                            "meta": {},
                             "title": "Selecting fields",
                             "url": "/docs/usage/selecting-fields"
                         },
                         {
                             "path": "pages/docs/usage/subscriptions.mdx",
                             "name": "subscriptions.mdx",
+                            "meta": {},
                             "title": "Using Subscriptions",
                             "url": "/docs/usage/subscriptions"
                         },
                         {
+                            "path": "pages/docs/usage/unions-and-interfaces.mdx",
+                            "name": "unions-and-interfaces.mdx",
+                            "meta": {},
+                            "title": "Unions and interfaces",
+                            "url": "/docs/usage/unions-and-interfaces"
+                        },
+                        {
                             "path": "pages/docs/usage/usage-in-react.mdx",
                             "name": "usage-in-react.mdx",
+                            "meta": {},
                             "title": "Usage in React",
                             "url": "/docs/usage/usage-in-react"
                         },
                         {
                             "path": "pages/docs/usage/usage-with-other-clients.mdx",
                             "name": "usage-with-other-clients.mdx",
+                            "meta": {},
                             "title": "Usage with other clients",
                             "url": "/docs/usage/usage-with-other-clients"
                         },
                         {
                             "path": "pages/docs/usage/using-chain-syntax.mdx",
                             "name": "using-chain-syntax.mdx",
+                            "meta": {},
                             "title": "Using the chain syntax",
                             "url": "/docs/usage/using-chain-syntax"
                         }
