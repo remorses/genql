@@ -1,4 +1,11 @@
-import { LinkedField, LinkedType, LinkedTypeMap, TypeMap, Type } from '../types'
+import {
+    LinkedField,
+    LinkedType,
+    LinkedTypeMap,
+    TypeMap,
+    Type,
+    FieldMap,
+} from '../types'
 
 export const linkTypeMap = (typeMap: TypeMap) => {
     // TODO add Type.type and Type.args
@@ -14,6 +21,7 @@ export const linkTypeMap = (typeMap: TypeMap) => {
         ...Object.keys(typeMap.types || {}).map((k) => {
             const type: Type = intermediaryTypeMap[k]
             const fields = type.fields || {}
+            processFields(fields)
             return {
                 [k]: {
                     ...type,
@@ -36,6 +44,21 @@ export const linkTypeMap = (typeMap: TypeMap) => {
     return res
 }
 
+function processFields(fields: FieldMap) {
+    Object.keys(fields).forEach((f) => {
+        const field = fields[f]
+        if (field.args) {
+            const args = field.args
+            Object.keys(args).forEach((key) => {
+                const arg = args[key]
+                if (arg && arg.length === 1) {
+                    arg.push(arg[0])
+                }
+            })
+        }
+    })
+}
+
 export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
     Object.keys(linkedTypeMap).forEach((typeNameFromKey) => {
         const type: LinkedType = linkedTypeMap[typeNameFromKey]
@@ -55,7 +78,7 @@ export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
                     const arg = args[key]
 
                     if (arg) {
-                        const [, typeName] = arg // TODO typename is now the first element
+                        const [typeName] = arg // TODO typename is now the first element
 
                         if (typeof typeName === 'string') {
                             if (!linkedTypeMap[typeName]) {

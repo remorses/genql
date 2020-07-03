@@ -18,8 +18,9 @@ test('linkTypeMap', () => {
                     withArgs: {
                         type: 'String',
                         args: {
-                            some: ['String!', 'String'],
-                            other: ['Some!', 'Some'],
+                            some: [ 'String', 'String!',],
+                            other: [ 'Some', 'Some!',],
+                            singleVal: [ 'Some', ],
                         },
                     },
                 },
@@ -38,4 +39,5 @@ test('linkTypeMap', () => {
     )
     expect(typeMap.Other.fields.withArgs.args.some[1]).toBe(typeMap.String)
     expect(typeMap.Other.fields.withArgs.args.other[1]).toBe(typeMap.Some)
+    expect(typeMap.Other.fields.withArgs.args.singleVal[1]).toBe(typeMap.Some)
 })

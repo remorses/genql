@@ -27,7 +27,12 @@ export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | Grap
 
       if (args.length > 0) {
         fieldObj.args = args.reduce<ArgMap>((r, a) => {
-          r[a.name] = [a.type.toString(), getNamedType(a.type).name]
+          const concreteType = a.type.toString()
+          const typename = getNamedType(a.type).name
+          r[a.name] = [typename, ]
+          if (typename !== concreteType) {
+            r[a.name]?.push(concreteType)
+          }
           return r
         }, {})
       }
@@ -44,10 +49,10 @@ export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | Grap
 
   typeObj.fields.__typename = { type: 'String' }
 
-  const scalar = Object.keys(type.getFields())
-    .map(f => type.getFields()[f])
-    .filter(f => isScalarType(getNamedType(f.type)) || isEnumType(getNamedType(f.type)))
-    .map(f => f.name)
+  // const scalar = Object.keys(type.getFields())
+  //   .map(f => type.getFields()[f])
+  //   .filter(f => isScalarType(getNamedType(f.type)) || isEnumType(getNamedType(f.type)))
+  //   .map(f => f.name)
 
   // if (scalar.length > 0) typeObj.scalar = scalar
 

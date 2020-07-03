@@ -2,7 +2,7 @@
 // the type of types.json object
 
 export interface ArgMap {
-    [arg: string]: [string, string] | undefined
+    [arg: string]: [string, string] | [string] | undefined
 }
 
 export interface Field {
