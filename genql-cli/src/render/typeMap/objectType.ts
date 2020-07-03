@@ -16,7 +16,7 @@ import { ArgMap, Field, FieldMap, Type } from 'genql-runtime/dist/types'
 
 export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | GraphQLInputObjectType, ctx: RenderContext) => {
   const typeObj: Type & { fields: FieldMap } = {
-    name: type.name,
+    // name: type.name,
     fields: Object.keys(type.getFields()).reduce<FieldMap>((r, f) => {
       const field = type.getFields()[f]
       const namedType = getNamedType(field.type)

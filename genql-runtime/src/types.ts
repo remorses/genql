@@ -1,7 +1,6 @@
 // TYPE MAP ////////////
 // the type of types.json object
 
-
 export interface ArgMap {
     [arg: string]: [string, string] | undefined
 }
@@ -16,7 +15,6 @@ export interface FieldMap {
 }
 
 export interface Type {
-    name: string
     fields?: FieldMap
     scalar?: string[]
 }
@@ -48,4 +46,3 @@ export interface LinkedType {
 export interface LinkedTypeMap {
     [type: string]: LinkedType | undefined
 }
-

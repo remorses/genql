@@ -5,14 +5,13 @@ describe('getFieldFromPath', () => {
   test('gets nested field definition', () => {
     const typeMap = <any>linkTypeMap({
       Some: {
-        name: 'Some',
         fields: {
           other: { type: 'Other' },
           unknown: { type: 'Unknown' },
         },
       },
       Other: {
-        name: 'Other',
+        
         fields: {
           some: { type: 'Some' },
           scalar: { type: 'Scalar' },
@@ -21,13 +20,11 @@ describe('getFieldFromPath', () => {
         },
       },
       Union: {
-        name: 'Union',
         fields: {
           on_Some: { type: 'Some' },
         },
       },
       Scalar: {
-        name: 'Scalar',
       },
     })
 
@@ -48,7 +45,6 @@ describe('getFieldFromPath', () => {
       expect(() => {
         const typeMap = <any>linkTypeMap({
           Root: {
-            name: 'Root',
             fields: {
               some: { type: 'Some' },
             },

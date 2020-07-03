@@ -51,9 +51,9 @@ test('scalarType', () =>
     `,
     <Renderer>scalarType,
     {
-      String: { name: 'String' },
-      Scalar: { name: 'Scalar' },
-      Enum: { name: 'Enum' },
+      String: { },
+      Scalar: {  },
+      Enum: {  },
     },
   ))
 
@@ -94,7 +94,6 @@ test('objectType', () =>
     <Renderer>objectType,
     {
       Object: {
-        name: 'Object',
         fields: {
           scalar: { type: 'Int' },
           object: { type: 'Object' },
@@ -108,7 +107,6 @@ test('objectType', () =>
         scalar: ['scalar', 'optionalArgScalar', 'nestedArg'],
       },
       Interface: {
-        name: 'Interface',
         fields: {
           some: { type: 'String' },
           on_ImplementorA: { type: 'ImplementorA' },
@@ -118,7 +116,6 @@ test('objectType', () =>
         scalar: ['some'],
       },
       ObjectWithoutScalar: {
-        name: 'ObjectWithoutScalar',
         fields: {
           __typename: { type: 'String' },
           interface: { type: 'Interface' },
@@ -152,7 +149,6 @@ test('unionType', () =>
     <Renderer>unionType,
     {
       Union: {
-        name: 'Union',
         fields: {
           on_Some: { type: 'Some' },
           on_Other: { type: 'Other' },

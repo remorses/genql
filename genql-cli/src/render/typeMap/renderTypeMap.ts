@@ -33,21 +33,21 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     if (q?.name && q?.name !== 'Query') {
         delete result[q.name]
         result.Query = objectType(q, ctx)
-        result.Query.name = 'Query'
+        // result.Query.name = 'Query'
     }
 
     const m = schema.getMutationType()
     if (m?.name && m.name !== 'Mutation') {
         delete result[m.name]
         result.Mutation = objectType(m, ctx)
-        result.Mutation.name = 'Mutation'
+        // result.Mutation.name = 'Mutation'
     }
 
     const s = schema.getSubscriptionType()
     if (s?.name && s.name !== 'Subscription') {
         delete result[s.name]
         result.Subscription = objectType(s, ctx)
-        result.Subscription.name = 'Subscription'
+        // result.Subscription.name = 'Subscription'
     }
 
     ctx.addCodeBlock(JSON.stringify(result))

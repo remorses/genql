@@ -3,14 +3,12 @@ import { linkTypeMap } from '../linkTypeMap'
 test('linkTypeMap', () => {
   const typeMap = <any>linkTypeMap({
     Some: {
-      name: 'Some',
       fields: {
         other: { type: 'Other' },
         unknown: { type: 'Unknown' },
       },
     },
     Other: {
-      name: 'Other',
       fields: {
         some: { type: 'Some' },
         scalar: { type: 'Scalar' },
@@ -19,7 +17,6 @@ test('linkTypeMap', () => {
       },
     },
     Scalar: {
-      name: 'Scalar',
     },
   })
 
