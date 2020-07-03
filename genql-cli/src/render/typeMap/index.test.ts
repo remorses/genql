@@ -7,13 +7,13 @@ import { scalarType } from './scalarType'
 import { unionType } from './unionType'
 
 interface Renderer {
-    (type: GraphQLNamedType, ctx: RenderContext): Type
+    (type: GraphQLNamedType, ctx: RenderContext): Type<string>
 }
 
 const testCase = async (
     schemaGql: string,
     renderer: Renderer,
-    cases: { [type: string]: Type },
+    cases: { [type: string]: Type<string> },
     output = false,
 ) => {
     const schema = await toClientSchema(schemaGql)

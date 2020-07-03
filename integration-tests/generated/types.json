@@ -1,1 +1,99 @@
-{"scalars":["String","Int","Boolean"],"types":{"Query":{"fields":{"repository":{"type":"Repository","args":{"name":["String!","String"],"owner":["String","String"]}},"user":{"type":"User"},"account":{"type":"Account"},"coordinates":{"type":"Point"},"__typename":{"type":"String"}}},"String":{},"Repository":{"fields":{"createdAt":{"type":"String"},"forks":{"type":"ForkConnection"},"__typename":{"type":"String"}},"scalar":["createdAt"]},"ForkConnection":{"fields":{"edges":{"type":"ForkEdge"},"__typename":{"type":"String"}}},"ForkEdge":{"fields":{"cursor":{"type":"String"},"node":{"type":"Fork"},"__typename":{"type":"String"}},"scalar":["cursor"]},"Fork":{"fields":{"name":{"type":"String"},"number":{"type":"Int"},"__typename":{"type":"String"}},"scalar":["name","number"]},"Int":{},"User":{"fields":{"name":{"type":"String"},"common":{"type":"Int"},"__typename":{"type":"String"}},"scalar":["name","common"]},"Subscription":{"fields":{"user":{"type":"User"},"__typename":{"type":"String"}}},"Account":{"fields":{"on_User":{"type":"User"},"on_Guest":{"type":"Guest"},"__typename":{"type":"String"}}},"Guest":{"fields":{"anonymous":{"type":"Boolean"},"common":{"type":"Int"},"__typename":{"type":"String"}},"scalar":["anonymous","common"]},"Boolean":{},"House":{"fields":{"owner":{"type":"User"},"x":{"type":"String"},"y":{"type":"String"},"__typename":{"type":"String"}},"scalar":["x","y"]},"Bank":{"fields":{"address":{"type":"String"},"x":{"type":"String"},"y":{"type":"String"},"__typename":{"type":"String"}},"scalar":["address","x","y"]},"Point":{"fields":{"x":{"type":"String"},"y":{"type":"String"},"on_House":{"type":"House"},"on_Bank":{"type":"Bank"},"__typename":{"type":"String"}},"scalar":["x","y"]}}}
+{
+    "scalars": [1, 6, 11],
+    "types": {
+        "Query": {
+            "fields": {
+                "repository": {
+                    "type": 2,
+                    "args": { "name": [1, "String!"], "owner": [1, null] }
+                },
+                "user": { "type": 7, "args": {} },
+                "account": { "type": 9, "args": {} },
+                "coordinates": { "type": 14, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "String": { "fields": {} },
+        "Repository": {
+            "fields": {
+                "createdAt": { "type": 1, "args": {} },
+                "forks": { "type": 3, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "ForkConnection": {
+            "fields": {
+                "edges": { "type": 4, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "ForkEdge": {
+            "fields": {
+                "cursor": { "type": 1, "args": {} },
+                "node": { "type": 5, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Fork": {
+            "fields": {
+                "name": { "type": 1, "args": {} },
+                "number": { "type": 6, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Int": { "fields": {} },
+        "User": {
+            "fields": {
+                "name": { "type": 1, "args": {} },
+                "common": { "type": 6, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Subscription": {
+            "fields": {
+                "user": { "type": 7, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Account": {
+            "fields": {
+                "on_User": { "type": 7, "args": {} },
+                "on_Guest": { "type": 10, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Guest": {
+            "fields": {
+                "anonymous": { "type": 11, "args": {} },
+                "common": { "type": 6, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Boolean": { "fields": {} },
+        "House": {
+            "fields": {
+                "owner": { "type": 7, "args": {} },
+                "x": { "type": 1, "args": {} },
+                "y": { "type": 1, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Bank": {
+            "fields": {
+                "address": { "type": 1, "args": {} },
+                "x": { "type": 1, "args": {} },
+                "y": { "type": 1, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        },
+        "Point": {
+            "fields": {
+                "x": { "type": 1, "args": {} },
+                "y": { "type": 1, "args": {} },
+                "on_House": { "type": 12, "args": {} },
+                "on_Bank": { "type": 13, "args": {} },
+                "__typename": { "type": 1, "args": {} }
+            }
+        }
+    }
+}

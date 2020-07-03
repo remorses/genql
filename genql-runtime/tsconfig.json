@@ -15,14 +15,15 @@
         "allowJs": true,
         "sourceMap": true,
         "lib": ["dom", "es2017", "esnext.asynciterable"],
-        "skipLibCheck": true
+        "skipLibCheck": true,
     },
     "exclude": [
         "node_modules",
         "**/*.case.ts",
         "tests",
         "example",
-        "dist",
+        "./dist",
+        "dist/**",
         // "**/__tests__",
         "esm"
     ]

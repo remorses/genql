@@ -1,35 +1,37 @@
 // TYPE MAP ////////////
 // the type of types.json object
 
-export interface ArgMap {
-    [arg: string]: [string, string] | [string] | undefined
+export interface ArgMap<keyType=number> {
+    [arg: string]: [keyType, string] | [keyType] | undefined
 }
 
-export interface Field {
-    type: string
-    args?: ArgMap
+export interface Field<keyType=number> {
+    type: keyType
+    args?: ArgMap<keyType>
 }
 
-export interface FieldMap {
-    [field: string]: Field | undefined
+// export type Field = [string] | [string, ArgMap]
+
+export interface FieldMap<keyType=number> {
+    [field: string]: Field<keyType> | undefined
 }
 
-export type Type = {
-    fields?: FieldMap
-    scalar?: string[]
+export type Type<keyType=number> = {
+    fields?: FieldMap<keyType>
+    scalar?: Array<keyType>
 }
 
-export interface TypeMap {
-    scalars: string[]
+export interface TypeMap<keyType=number> {
+    scalars: Array<keyType>
     types: {
-        [type: string]: Type | undefined
+        [type: string]: Type<keyType> | undefined
     }
 }
 
 // LINKED TYPE ////////////
 
 export interface LinkedArgMap {
-    [arg: string]: [string, LinkedType] | undefined
+    [arg: string]: [LinkedType, string, ] | undefined
 }
 export interface LinkedField {
     type: LinkedType

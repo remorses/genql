@@ -1,33 +1,36 @@
 import { getFieldFromPath } from '../getFieldFromPath'
 import { linkTypeMap } from '../linkTypeMap'
+import { replaceTypeNamesWithIndexes } from 'genql-cli/dist/render/typeMap/renderTypeMap'
 
 describe('getFieldFromPath', () => {
     test('gets nested field definition', () => {
-        const typeMap = <any>linkTypeMap({
-            scalars: ['Scalar'],
-            types: {
-                Some: {
-                    fields: {
-                        other: { type: 'Other' },
-                        unknown: { type: 'Unknown' },
+        const typeMap = <any>linkTypeMap(
+            replaceTypeNamesWithIndexes({
+                scalars: ['Scalar'],
+                types: {
+                    Some: {
+                        fields: {
+                            other: { type: 'Other' },
+                            unknown: { type: 'Unknown' },
+                        },
                     },
-                },
-                Other: {
-                    fields: {
-                        some: { type: 'Some' },
-                        scalar: { type: 'Scalar' },
-                        unknown: { type: 'Unknown' },
-                        union: { type: 'Union' },
+                    Other: {
+                        fields: {
+                            some: { type: 'Some' },
+                            scalar: { type: 'Scalar' },
+                            unknown: { type: 'Unknown' },
+                            union: { type: 'Union' },
+                        },
                     },
-                },
-                Union: {
-                    fields: {
-                        on_Some: { type: 'Some' },
+                    Union: {
+                        fields: {
+                            on_Some: { type: 'Some' },
+                        },
                     },
+                    Scalar: {},
                 },
-                Scalar: {},
-            },
-        })
+            }),
+        )
 
         expect(
             getFieldFromPath(typeMap['Some'], [
@@ -60,16 +63,18 @@ describe('getFieldFromPath', () => {
 
         test("when requesting a field on a type that doesn't have it", () =>
             expect(() => {
-                const typeMap = <any>linkTypeMap({
-                    scalars: [],
-                    types: {
-                        Root: {
-                            fields: {
-                                some: { type: 'Some' },
+                const typeMap = <any>linkTypeMap(
+                    replaceTypeNamesWithIndexes({
+                        scalars: [],
+                        types: {
+                            Root: {
+                                fields: {
+                                    some: { type: 'Some' },
+                                },
                             },
                         },
-                    },
-                })
+                    }),
+                )
                 getFieldFromPath(typeMap.Root, ['other'])
             }).toThrow('type `Root` does not have a field `other`'))
     })

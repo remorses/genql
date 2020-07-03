@@ -3,9 +3,9 @@ import { RenderContext } from '../common/RenderContext'
 import { FieldMap, Type } from 'genql-runtime/dist/types'
 
 export const unionType = (type: GraphQLUnionType, _: RenderContext) => {
-  const typeObj: Type & { fields: FieldMap } = {
+  const typeObj: Type<string> & { fields: FieldMap<string> } = {
     // name: type.name,
-    fields: type.getTypes().reduce<FieldMap>((r, t) => {
+    fields: type.getTypes().reduce<FieldMap<string>>((r, t) => {
       r[`on_${t.name}`] = { type: t.name }
       return r
     }, {}),

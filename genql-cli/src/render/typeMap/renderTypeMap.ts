@@ -12,14 +12,14 @@ import { RenderContext } from '../common/RenderContext'
 import { objectType } from './objectType'
 import { scalarType } from './scalarType'
 import { unionType } from './unionType'
-import { TypeMap } from 'genql-runtime/dist/types'
+import { TypeMap, Type, FieldMap, ArgMap } from 'genql-runtime/dist/types'
 
 export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     // remove fields key,
     // remove the Type.type and Type.args, replace with [type, args]
     // reverse args.{name}
     // Args type is deduced and added only when the concrete type is different from type name, remove the scalar field and replace with a top level scalars array field.
-    const result: TypeMap = {
+    const result: TypeMap<string> = {
         scalars: [],
         types: {},
     }
@@ -33,7 +33,7 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
             else if (isUnionType(t)) result.types[t.name] = unionType(t, ctx)
             else if (isScalarType(t) || isEnumType(t)) {
                 result.scalars.push(t.name)
-                result.types[t.name] = scalarType(t, ctx)
+                result.types[t.name] = {}
             }
         })
 
@@ -59,5 +59,64 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
         // result.Subscription.name = 'Subscription'
     }
 
-    ctx.addCodeBlock(JSON.stringify(result))
+    ctx.addCodeBlock(JSON.stringify(replaceTypeNamesWithIndexes(result)))
+}
+
+export function replaceTypeNamesWithIndexes(typeMap: TypeMap<string>): TypeMap<number> {
+    const nameToIndex: Record<string, number> = Object.assign(
+        {},
+        ...Object.keys(typeMap.types).map((k, i) => ({ [k]: i })),
+    )
+    const scalars = typeMap.scalars.map(x => nameToIndex[x])
+    const types = Object.assign(
+        {},
+        ...Object.keys(typeMap.types || {}).map((k) => {
+            const type: Type<string> = typeMap.types[k] || {}
+            const fields = type.fields || {}
+            // processFields(fields, indexToName)
+            return {
+                [k]: {
+                    ...type,
+                    fields: Object.assign(
+                        {},
+                        ...Object.keys(fields).map(
+                            (f): FieldMap<number> => {
+                                const content = fields[f]
+                                if (!content) {
+                                    throw new Error('no content in field ' + f)
+                                }
+                                return {
+                                    [f]: {
+                                        type: content?.type ? nameToIndex[content?.type] : -1,
+                                        args: Object.assign(
+                                            {},
+                                            ...Object.keys(
+                                                content.args || {},
+                                            ).map((k) => {
+                                                const arg = content?.args?.[k]
+                                                if (!arg) {
+                                                    throw new Error('no arg for ' + k)
+                                                }
+                                                return {
+                                                    [k]: [
+                                                        nameToIndex[arg[0]],
+                                                        arg[1],
+                                                    ] ,
+                                                } as ArgMap<number>
+                                            }),
+                                        ),
+                                    },
+                                }
+                            },
+                        ),
+                    ),
+                },
+            }
+        }),
+    )
+    return {
+        scalars,
+        types
+    }
+    // TODO replace type names with indexes
 }

@@ -15,18 +15,18 @@ import { ArgMap, Field, FieldMap, Type } from 'genql-runtime/dist/types'
 
 
 export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | GraphQLInputObjectType, ctx: RenderContext) => {
-  const typeObj: Type & { fields: FieldMap } = {
+  const typeObj: Type<string>  = {
     // name: type.name,
-    fields: Object.keys(type.getFields()).reduce<FieldMap>((r, f) => {
+    fields: Object.keys(type.getFields()).reduce<FieldMap<string>>((r, f) => {
       const field = type.getFields()[f]
       const namedType = getNamedType(field.type)
-      const fieldObj: Field = { type: namedType.name }
+      const fieldObj: Field<string> = { type: namedType.name }
       r[f] = fieldObj
 
       const args: GraphQLArgument[] = (<GraphQLField<any, any>>field).args || []
 
       if (args.length > 0) {
-        fieldObj.args = args.reduce<ArgMap>((r, a) => {
+        fieldObj.args = args.reduce<ArgMap<string>>((r, a) => {
           const concreteType = a.type.toString()
           const typename = getNamedType(a.type).name
           r[a.name] = [typename, ]
@@ -43,11 +43,13 @@ export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | Grap
 
   if (isInterfaceType(type) && ctx.schema) {
     ctx.schema.getPossibleTypes(type).map(t => {
-      typeObj.fields[`on_${t.name}`] = { type: t.name }
+      if (typeObj.fields)
+        typeObj.fields[`on_${t.name}`] = { type: t.name }
     })
   }
 
-  typeObj.fields.__typename = { type: 'String' }
+  if (typeObj.fields)
+    typeObj.fields.__typename = { type: 'String' }
 
   // const scalar = Object.keys(type.getFields())
   //   .map(f => type.getFields()[f])
