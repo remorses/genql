@@ -1,11 +1,28 @@
 import { LinkedField, LinkedType, LinkedTypeMap, TypeMap } from '../types'
 
 export const linkTypeMap = (typeMap: TypeMap) => {
-    const res = resolveConcreteTypes(typeMap as any)
-    // TODO add Type.scalar types to every Type
+    
     // TODO add Type.type and Type.args
     // TODO replace the type indexes with their typename
     // TODO add the second array element in
+
+    // TODO add Type.scalar types to every Type
+
+
+    // add the name value
+    const intermediaryTypeMap = Object.assign(
+        {},
+        ...Object.keys(typeMap).map((k) => {
+            return {
+                [k]: {
+                    ...typeMap[k],
+                    name: k,
+                },
+            }
+        }),
+    )
+
+    const res = resolveConcreteTypes(intermediaryTypeMap)
     return res
 }
 
