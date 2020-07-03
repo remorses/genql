@@ -42,11 +42,11 @@ export const objectType = (
             if (resolvable) {
                 types.push(`${requestTypeName(resolvedType)}`)
             } else {
-                types.push('boolean|number')
+                types.push('boolean | number')
             }
         }
 
-        return `${fieldComment(field)}${field.name}?: ${types.join('|')}`
+        return `${fieldComment(field)}${field.name}?: ${types.join(' | ')}`
     })
 
     if (isInterfaceType(type) && ctx.schema) {
@@ -57,8 +57,8 @@ export const objectType = (
         )
     }
 
-    fieldStrings.push('__typename?: boolean|number')
-    fieldStrings.push('__scalar?: boolean|number')
+    fieldStrings.push('__typename?: boolean | number')
+    fieldStrings.push('__scalar?: boolean | number')
 
     // add indentation
     fieldStrings = fieldStrings.map((x) =>

@@ -10,7 +10,7 @@ export type Scalars = {
 
 
 /** mutation root */
-export interface mutation_root{
+export interface mutation_root {
     /** delete data from the table: "user" */
     delete_user?: user_mutation_response
     /** delete single row from the table: "user" */
@@ -32,7 +32,7 @@ export type order_by = 'asc' | 'asc_nulls_first' | 'asc_nulls_last' | 'desc' | '
 
 
 /** query root */
-export interface query_root{
+export interface query_root {
     /** fetch data from the table: "user" */
     user: user[]
     /** fetch aggregated fields from the table: "user" */
@@ -44,7 +44,7 @@ export interface query_root{
 
 
 /** subscription root */
-export interface subscription_root{
+export interface subscription_root {
     /** fetch data from the table: "user" */
     user: user[]
     /** fetch aggregated fields from the table: "user" */
@@ -56,7 +56,7 @@ export interface subscription_root{
 
 
 /** columns and relationships of "user" */
-export interface user{
+export interface user {
     age: Scalars['Int']
     id: Scalars['String']
     name: Scalars['String']
@@ -65,7 +65,7 @@ export interface user{
 
 
 /** aggregated selection of "user" */
-export interface user_aggregate{
+export interface user_aggregate {
     aggregate?: user_aggregate_fields
     nodes: user[]
     __typename?: 'user_aggregate'
@@ -73,7 +73,7 @@ export interface user_aggregate{
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fields{
+export interface user_aggregate_fields {
     avg?: user_avg_fields
     count?: Scalars['Int']
     max?: user_max_fields
@@ -90,7 +90,7 @@ export interface user_aggregate_fields{
 
 
 /** aggregate avg on columns */
-export interface user_avg_fields{
+export interface user_avg_fields {
     age?: Scalars['Float']
     __typename?: 'user_avg_fields'
 }
@@ -101,7 +101,7 @@ export type user_constraint = 'user_pkey'
 
 
 /** aggregate max on columns */
-export interface user_max_fields{
+export interface user_max_fields {
     age?: Scalars['Int']
     id?: Scalars['String']
     name?: Scalars['String']
@@ -110,7 +110,7 @@ export interface user_max_fields{
 
 
 /** aggregate min on columns */
-export interface user_min_fields{
+export interface user_min_fields {
     age?: Scalars['Int']
     id?: Scalars['String']
     name?: Scalars['String']
@@ -119,7 +119,7 @@ export interface user_min_fields{
 
 
 /** response of any mutation on the table "user" */
-export interface user_mutation_response{
+export interface user_mutation_response {
     /** number of affected rows by the mutation */
     affected_rows: Scalars['Int']
     /** data of the affected rows by the mutation */
@@ -133,28 +133,28 @@ export type user_select_column = 'age' | 'id' | 'name'
 
 
 /** aggregate stddev on columns */
-export interface user_stddev_fields{
+export interface user_stddev_fields {
     age?: Scalars['Float']
     __typename?: 'user_stddev_fields'
 }
 
 
 /** aggregate stddev_pop on columns */
-export interface user_stddev_pop_fields{
+export interface user_stddev_pop_fields {
     age?: Scalars['Float']
     __typename?: 'user_stddev_pop_fields'
 }
 
 
 /** aggregate stddev_samp on columns */
-export interface user_stddev_samp_fields{
+export interface user_stddev_samp_fields {
     age?: Scalars['Float']
     __typename?: 'user_stddev_samp_fields'
 }
 
 
 /** aggregate sum on columns */
-export interface user_sum_fields{
+export interface user_sum_fields {
     age?: Scalars['Int']
     __typename?: 'user_sum_fields'
 }
@@ -165,32 +165,32 @@ export type user_update_column = 'age' | 'id' | 'name'
 
 
 /** aggregate var_pop on columns */
-export interface user_var_pop_fields{
+export interface user_var_pop_fields {
     age?: Scalars['Float']
     __typename?: 'user_var_pop_fields'
 }
 
 
 /** aggregate var_samp on columns */
-export interface user_var_samp_fields{
+export interface user_var_samp_fields {
     age?: Scalars['Float']
     __typename?: 'user_var_samp_fields'
 }
 
 
 /** aggregate variance on columns */
-export interface user_variance_fields{
+export interface user_variance_fields {
     age?: Scalars['Float']
     __typename?: 'user_variance_fields'
 }
 
 
 /** expression to compare columns of type Int. All fields are combined with logical 'AND'. */
-export interface Int_comparison_exp{_eq?: (Scalars['Int']|null),_gt?: (Scalars['Int']|null),_gte?: (Scalars['Int']|null),_in?: (Scalars['Int'][]|null),_is_null?: (Scalars['Boolean']|null),_lt?: (Scalars['Int']|null),_lte?: (Scalars['Int']|null),_neq?: (Scalars['Int']|null),_nin?: (Scalars['Int'][]|null)}
+export interface Int_comparison_exp {_eq?: (Scalars['Int'] | null),_gt?: (Scalars['Int'] | null),_gte?: (Scalars['Int'] | null),_in?: (Scalars['Int'][] | null),_is_null?: (Scalars['Boolean'] | null),_lt?: (Scalars['Int'] | null),_lte?: (Scalars['Int'] | null),_neq?: (Scalars['Int'] | null),_nin?: (Scalars['Int'][] | null)}
 
 
 /** expression to compare columns of type String. All fields are combined with logical 'AND'. */
-export interface String_comparison_exp{_eq?: (Scalars['String']|null),_gt?: (Scalars['String']|null),_gte?: (Scalars['String']|null),_ilike?: (Scalars['String']|null),_in?: (Scalars['String'][]|null),_is_null?: (Scalars['Boolean']|null),_like?: (Scalars['String']|null),_lt?: (Scalars['String']|null),_lte?: (Scalars['String']|null),_neq?: (Scalars['String']|null),_nilike?: (Scalars['String']|null),_nin?: (Scalars['String'][]|null),_nlike?: (Scalars['String']|null),_nsimilar?: (Scalars['String']|null),_similar?: (Scalars['String']|null)}
+export interface String_comparison_exp {_eq?: (Scalars['String'] | null),_gt?: (Scalars['String'] | null),_gte?: (Scalars['String'] | null),_ilike?: (Scalars['String'] | null),_in?: (Scalars['String'][] | null),_is_null?: (Scalars['Boolean'] | null),_like?: (Scalars['String'] | null),_lt?: (Scalars['String'] | null),_lte?: (Scalars['String'] | null),_neq?: (Scalars['String'] | null),_nilike?: (Scalars['String'] | null),_nin?: (Scalars['String'][] | null),_nlike?: (Scalars['String'] | null),_nsimilar?: (Scalars['String'] | null),_similar?: (Scalars['String'] | null)}
 
 
 /** mutation root */
@@ -206,29 +206,29 @@ export interface mutation_rootRequest{
     /** the rows to be inserted */
     objects: user_insert_input[],
     /** on conflict condition */
-    on_conflict?: (user_on_conflict|null)},user_mutation_responseRequest]
+    on_conflict?: (user_on_conflict | null)},user_mutation_responseRequest]
     /** insert a single row into the table: "user" */
     insert_user_one?: [{
     /** the row to be inserted */
     object: user_insert_input,
     /** on conflict condition */
-    on_conflict?: (user_on_conflict|null)},userRequest]
+    on_conflict?: (user_on_conflict | null)},userRequest]
     /** update data of the table: "user" */
     update_user?: [{
     /** increments the integer columns with given value of the filtered values */
-    _inc?: (user_inc_input|null),
+    _inc?: (user_inc_input | null),
     /** sets the columns of the filtered rows to the given values */
-    _set?: (user_set_input|null),
+    _set?: (user_set_input | null),
     /** filter the rows which have to be updated */
     where: user_bool_exp},user_mutation_responseRequest]
     /** update single row of the table: "user" */
     update_user_by_pk?: [{
     /** increments the integer columns with given value of the filtered values */
-    _inc?: (user_inc_input|null),
+    _inc?: (user_inc_input | null),
     /** sets the columns of the filtered rows to the given values */
-    _set?: (user_set_input|null),pk_columns: user_pk_columns_input},userRequest]
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    _set?: (user_set_input | null),pk_columns: user_pk_columns_input},userRequest]
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
@@ -237,31 +237,31 @@ export interface query_rootRequest{
     /** fetch data from the table: "user" */
     user?: [{
     /** distinct select on columns */
-    distinct_on?: (user_select_column[]|null),
+    distinct_on?: (user_select_column[] | null),
     /** limit the number of rows returned */
-    limit?: (Scalars['Int']|null),
+    limit?: (Scalars['Int'] | null),
     /** skip the first n rows. Use only with order_by */
-    offset?: (Scalars['Int']|null),
+    offset?: (Scalars['Int'] | null),
     /** sort the rows by one or more columns */
-    order_by?: (user_order_by[]|null),
+    order_by?: (user_order_by[] | null),
     /** filter the rows returned */
-    where?: (user_bool_exp|null)},userRequest]|userRequest
+    where?: (user_bool_exp | null)},userRequest] | userRequest
     /** fetch aggregated fields from the table: "user" */
     user_aggregate?: [{
     /** distinct select on columns */
-    distinct_on?: (user_select_column[]|null),
+    distinct_on?: (user_select_column[] | null),
     /** limit the number of rows returned */
-    limit?: (Scalars['Int']|null),
+    limit?: (Scalars['Int'] | null),
     /** skip the first n rows. Use only with order_by */
-    offset?: (Scalars['Int']|null),
+    offset?: (Scalars['Int'] | null),
     /** sort the rows by one or more columns */
-    order_by?: (user_order_by[]|null),
+    order_by?: (user_order_by[] | null),
     /** filter the rows returned */
-    where?: (user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
+    where?: (user_bool_exp | null)},user_aggregateRequest] | user_aggregateRequest
     /** fetch data from the table: "user" using primary key columns */
     user_by_pk?: [{id: Scalars['String']},userRequest]
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
@@ -270,41 +270,41 @@ export interface subscription_rootRequest{
     /** fetch data from the table: "user" */
     user?: [{
     /** distinct select on columns */
-    distinct_on?: (user_select_column[]|null),
+    distinct_on?: (user_select_column[] | null),
     /** limit the number of rows returned */
-    limit?: (Scalars['Int']|null),
+    limit?: (Scalars['Int'] | null),
     /** skip the first n rows. Use only with order_by */
-    offset?: (Scalars['Int']|null),
+    offset?: (Scalars['Int'] | null),
     /** sort the rows by one or more columns */
-    order_by?: (user_order_by[]|null),
+    order_by?: (user_order_by[] | null),
     /** filter the rows returned */
-    where?: (user_bool_exp|null)},userRequest]|userRequest
+    where?: (user_bool_exp | null)},userRequest] | userRequest
     /** fetch aggregated fields from the table: "user" */
     user_aggregate?: [{
     /** distinct select on columns */
-    distinct_on?: (user_select_column[]|null),
+    distinct_on?: (user_select_column[] | null),
     /** limit the number of rows returned */
-    limit?: (Scalars['Int']|null),
+    limit?: (Scalars['Int'] | null),
     /** skip the first n rows. Use only with order_by */
-    offset?: (Scalars['Int']|null),
+    offset?: (Scalars['Int'] | null),
     /** sort the rows by one or more columns */
-    order_by?: (user_order_by[]|null),
+    order_by?: (user_order_by[] | null),
     /** filter the rows returned */
-    where?: (user_bool_exp|null)},user_aggregateRequest]|user_aggregateRequest
+    where?: (user_bool_exp | null)},user_aggregateRequest] | user_aggregateRequest
     /** fetch data from the table: "user" using primary key columns */
     user_by_pk?: [{id: Scalars['String']},userRequest]
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** columns and relationships of "user" */
 export interface userRequest{
-    age?: boolean|number
-    id?: boolean|number
-    name?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    id?: boolean | number
+    name?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
@@ -312,15 +312,15 @@ export interface userRequest{
 export interface user_aggregateRequest{
     aggregate?: user_aggregate_fieldsRequest
     nodes?: userRequest
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** aggregate fields of "user" */
 export interface user_aggregate_fieldsRequest{
     avg?: user_avg_fieldsRequest
-    count?: [{columns?: (user_select_column[]|null),distinct?: (Scalars['Boolean']|null)}]|boolean|number
+    count?: [{columns?: (user_select_column[] | null),distinct?: (Scalars['Boolean'] | null)}] | boolean | number
     max?: user_max_fieldsRequest
     min?: user_min_fieldsRequest
     stddev?: user_stddev_fieldsRequest
@@ -330,184 +330,184 @@ export interface user_aggregate_fieldsRequest{
     var_pop?: user_var_pop_fieldsRequest
     var_samp?: user_var_samp_fieldsRequest
     variance?: user_variance_fieldsRequest
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by aggregate values of table "user" */
-export interface user_aggregate_order_by{avg?: (user_avg_order_by|null),count?: (order_by|null),max?: (user_max_order_by|null),min?: (user_min_order_by|null),stddev?: (user_stddev_order_by|null),stddev_pop?: (user_stddev_pop_order_by|null),stddev_samp?: (user_stddev_samp_order_by|null),sum?: (user_sum_order_by|null),var_pop?: (user_var_pop_order_by|null),var_samp?: (user_var_samp_order_by|null),variance?: (user_variance_order_by|null)}
+export interface user_aggregate_order_by {avg?: (user_avg_order_by | null),count?: (order_by | null),max?: (user_max_order_by | null),min?: (user_min_order_by | null),stddev?: (user_stddev_order_by | null),stddev_pop?: (user_stddev_pop_order_by | null),stddev_samp?: (user_stddev_samp_order_by | null),sum?: (user_sum_order_by | null),var_pop?: (user_var_pop_order_by | null),var_samp?: (user_var_samp_order_by | null),variance?: (user_variance_order_by | null)}
 
 
 /** input type for inserting array relation for remote table "user" */
-export interface user_arr_rel_insert_input{data: user_insert_input[],on_conflict?: (user_on_conflict|null)}
+export interface user_arr_rel_insert_input {data: user_insert_input[],on_conflict?: (user_on_conflict | null)}
 
 
 /** aggregate avg on columns */
 export interface user_avg_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by avg() on columns of table "user" */
-export interface user_avg_order_by{age?: (order_by|null)}
+export interface user_avg_order_by {age?: (order_by | null)}
 
 
 /** Boolean expression to filter rows from the table "user". All fields are combined with a logical 'AND'. */
-export interface user_bool_exp{_and?: ((user_bool_exp|null)[]|null),_not?: (user_bool_exp|null),_or?: ((user_bool_exp|null)[]|null),age?: (Int_comparison_exp|null),id?: (String_comparison_exp|null),name?: (String_comparison_exp|null)}
+export interface user_bool_exp {_and?: ((user_bool_exp | null)[] | null),_not?: (user_bool_exp | null),_or?: ((user_bool_exp | null)[] | null),age?: (Int_comparison_exp | null),id?: (String_comparison_exp | null),name?: (String_comparison_exp | null)}
 
 
 /** input type for incrementing integer column in table "user" */
-export interface user_inc_input{age?: (Scalars['Int']|null)}
+export interface user_inc_input {age?: (Scalars['Int'] | null)}
 
 
 /** input type for inserting data into table "user" */
-export interface user_insert_input{age?: (Scalars['Int']|null),id?: (Scalars['String']|null),name?: (Scalars['String']|null)}
+export interface user_insert_input {age?: (Scalars['Int'] | null),id?: (Scalars['String'] | null),name?: (Scalars['String'] | null)}
 
 
 /** aggregate max on columns */
 export interface user_max_fieldsRequest{
-    age?: boolean|number
-    id?: boolean|number
-    name?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    id?: boolean | number
+    name?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by max() on columns of table "user" */
-export interface user_max_order_by{age?: (order_by|null),id?: (order_by|null),name?: (order_by|null)}
+export interface user_max_order_by {age?: (order_by | null),id?: (order_by | null),name?: (order_by | null)}
 
 
 /** aggregate min on columns */
 export interface user_min_fieldsRequest{
-    age?: boolean|number
-    id?: boolean|number
-    name?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    id?: boolean | number
+    name?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by min() on columns of table "user" */
-export interface user_min_order_by{age?: (order_by|null),id?: (order_by|null),name?: (order_by|null)}
+export interface user_min_order_by {age?: (order_by | null),id?: (order_by | null),name?: (order_by | null)}
 
 
 /** response of any mutation on the table "user" */
 export interface user_mutation_responseRequest{
     /** number of affected rows by the mutation */
-    affected_rows?: boolean|number
+    affected_rows?: boolean | number
     /** data of the affected rows by the mutation */
     returning?: userRequest
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** input type for inserting object relation for remote table "user" */
-export interface user_obj_rel_insert_input{data: user_insert_input,on_conflict?: (user_on_conflict|null)}
+export interface user_obj_rel_insert_input {data: user_insert_input,on_conflict?: (user_on_conflict | null)}
 
 
 /** on conflict condition type for table "user" */
-export interface user_on_conflict{constraint: user_constraint,update_columns: user_update_column[],where?: (user_bool_exp|null)}
+export interface user_on_conflict {constraint: user_constraint,update_columns: user_update_column[],where?: (user_bool_exp | null)}
 
 
 /** ordering options when selecting data from "user" */
-export interface user_order_by{age?: (order_by|null),id?: (order_by|null),name?: (order_by|null)}
+export interface user_order_by {age?: (order_by | null),id?: (order_by | null),name?: (order_by | null)}
 
 
 /** primary key columns input for table: "user" */
-export interface user_pk_columns_input{id: Scalars['String']}
+export interface user_pk_columns_input {id: Scalars['String']}
 
 
 /** input type for updating data in table "user" */
-export interface user_set_input{age?: (Scalars['Int']|null),id?: (Scalars['String']|null),name?: (Scalars['String']|null)}
+export interface user_set_input {age?: (Scalars['Int'] | null),id?: (Scalars['String'] | null),name?: (Scalars['String'] | null)}
 
 
 /** aggregate stddev on columns */
 export interface user_stddev_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by stddev() on columns of table "user" */
-export interface user_stddev_order_by{age?: (order_by|null)}
+export interface user_stddev_order_by {age?: (order_by | null)}
 
 
 /** aggregate stddev_pop on columns */
 export interface user_stddev_pop_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by stddev_pop() on columns of table "user" */
-export interface user_stddev_pop_order_by{age?: (order_by|null)}
+export interface user_stddev_pop_order_by {age?: (order_by | null)}
 
 
 /** aggregate stddev_samp on columns */
 export interface user_stddev_samp_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by stddev_samp() on columns of table "user" */
-export interface user_stddev_samp_order_by{age?: (order_by|null)}
+export interface user_stddev_samp_order_by {age?: (order_by | null)}
 
 
 /** aggregate sum on columns */
 export interface user_sum_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by sum() on columns of table "user" */
-export interface user_sum_order_by{age?: (order_by|null)}
+export interface user_sum_order_by {age?: (order_by | null)}
 
 
 /** aggregate var_pop on columns */
 export interface user_var_pop_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by var_pop() on columns of table "user" */
-export interface user_var_pop_order_by{age?: (order_by|null)}
+export interface user_var_pop_order_by {age?: (order_by | null)}
 
 
 /** aggregate var_samp on columns */
 export interface user_var_samp_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by var_samp() on columns of table "user" */
-export interface user_var_samp_order_by{age?: (order_by|null)}
+export interface user_var_samp_order_by {age?: (order_by | null)}
 
 
 /** aggregate variance on columns */
 export interface user_variance_fieldsRequest{
-    age?: boolean|number
-    __typename?: boolean|number
-    __scalar?: boolean|number
+    age?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
 /** order by variance() on columns of table "user" */
-export interface user_variance_order_by{age?: (order_by|null)}
+export interface user_variance_order_by {age?: (order_by | null)}
 
 
 const mutation_root_possibleTypes = ['mutation_root']
@@ -651,35 +651,35 @@ export interface mutation_rootPromiseChain{
 /** delete data from the table: "user" */
 delete_user:((args:{
 /** filter the rows which have to be deleted */
-where: user_bool_exp})=>user_mutation_responsePromiseChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response|null))=>Promise<(user_mutation_response|null)>}),
+where: user_bool_exp})=>user_mutation_responsePromiseChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response | null))=>Promise<(user_mutation_response | null)>}),
 /** delete single row from the table: "user" */
-delete_user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user|null))=>Promise<(user|null)>}),
+delete_user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user | null))=>Promise<(user | null)>}),
 /** insert data into the table: "user" */
 insert_user:((args:{
 /** the rows to be inserted */
 objects: user_insert_input[],
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>user_mutation_responsePromiseChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response|null))=>Promise<(user_mutation_response|null)>}),
+on_conflict?: (user_on_conflict | null)})=>user_mutation_responsePromiseChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response | null))=>Promise<(user_mutation_response | null)>}),
 /** insert a single row into the table: "user" */
 insert_user_one:((args:{
 /** the row to be inserted */
 object: user_insert_input,
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user|null))=>Promise<(user|null)>}),
+on_conflict?: (user_on_conflict | null)})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user | null))=>Promise<(user | null)>}),
 /** update data of the table: "user" */
 update_user:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?: (user_inc_input|null),
+_inc?: (user_inc_input | null),
 /** sets the columns of the filtered rows to the given values */
-_set?: (user_set_input|null),
+_set?: (user_set_input | null),
 /** filter the rows which have to be updated */
-where: user_bool_exp})=>user_mutation_responsePromiseChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response|null))=>Promise<(user_mutation_response|null)>}),
+where: user_bool_exp})=>user_mutation_responsePromiseChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response | null))=>Promise<(user_mutation_response | null)>}),
 /** update single row of the table: "user" */
 update_user_by_pk:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?: (user_inc_input|null),
+_inc?: (user_inc_input | null),
 /** sets the columns of the filtered rows to the given values */
-_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user|null))=>Promise<(user|null)>})}
+_set?: (user_set_input | null),pk_columns: user_pk_columns_input})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user | null))=>Promise<(user | null)>})}
 
 
 /** mutation root */
@@ -687,35 +687,35 @@ export interface mutation_rootObservableChain{
 /** delete data from the table: "user" */
 delete_user:((args:{
 /** filter the rows which have to be deleted */
-where: user_bool_exp})=>user_mutation_responseObservableChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response|null))=>Observable<(user_mutation_response|null)>}),
+where: user_bool_exp})=>user_mutation_responseObservableChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response | null))=>Observable<(user_mutation_response | null)>}),
 /** delete single row from the table: "user" */
-delete_user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user|null))=>Observable<(user|null)>}),
+delete_user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user | null))=>Observable<(user | null)>}),
 /** insert data into the table: "user" */
 insert_user:((args:{
 /** the rows to be inserted */
 objects: user_insert_input[],
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>user_mutation_responseObservableChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response|null))=>Observable<(user_mutation_response|null)>}),
+on_conflict?: (user_on_conflict | null)})=>user_mutation_responseObservableChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response | null))=>Observable<(user_mutation_response | null)>}),
 /** insert a single row into the table: "user" */
 insert_user_one:((args:{
 /** the row to be inserted */
 object: user_insert_input,
 /** on conflict condition */
-on_conflict?: (user_on_conflict|null)})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user|null))=>Observable<(user|null)>}),
+on_conflict?: (user_on_conflict | null)})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user | null))=>Observable<(user | null)>}),
 /** update data of the table: "user" */
 update_user:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?: (user_inc_input|null),
+_inc?: (user_inc_input | null),
 /** sets the columns of the filtered rows to the given values */
-_set?: (user_set_input|null),
+_set?: (user_set_input | null),
 /** filter the rows which have to be updated */
-where: user_bool_exp})=>user_mutation_responseObservableChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response|null))=>Observable<(user_mutation_response|null)>}),
+where: user_bool_exp})=>user_mutation_responseObservableChain & {get: (request: user_mutation_responseRequest, defaultValue?:(user_mutation_response | null))=>Observable<(user_mutation_response | null)>}),
 /** update single row of the table: "user" */
 update_user_by_pk:((args:{
 /** increments the integer columns with given value of the filtered values */
-_inc?: (user_inc_input|null),
+_inc?: (user_inc_input | null),
 /** sets the columns of the filtered rows to the given values */
-_set?: (user_set_input|null),pk_columns: user_pk_columns_input})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user|null))=>Observable<(user|null)>})}
+_set?: (user_set_input | null),pk_columns: user_pk_columns_input})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user | null))=>Observable<(user | null)>})}
 
 
 /** query root */
@@ -723,29 +723,29 @@ export interface query_rootPromiseChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>{get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>}),
+where?: (user_bool_exp | null)})=>{get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
+where?: (user_bool_exp | null)})=>user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user|null))=>Promise<(user|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user | null))=>Promise<(user | null)>})}
 
 
 /** query root */
@@ -753,29 +753,29 @@ export interface query_rootObservableChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>{get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>}),
+where?: (user_bool_exp | null)})=>{get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
+where?: (user_bool_exp | null)})=>user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user|null))=>Observable<(user|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user | null))=>Observable<(user | null)>})}
 
 
 /** subscription root */
@@ -783,29 +783,29 @@ export interface subscription_rootPromiseChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>{get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>}),
+where?: (user_bool_exp | null)})=>{get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
+where?: (user_bool_exp | null)})=>user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>})&(user_aggregatePromiseChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Promise<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user|null))=>Promise<(user|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userPromiseChain & {get: (request: userRequest, defaultValue?:(user | null))=>Promise<(user | null)>})}
 
 
 /** subscription root */
@@ -813,29 +813,29 @@ export interface subscription_rootObservableChain{
 /** fetch data from the table: "user" */
 user:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>{get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>}),
+where?: (user_bool_exp | null)})=>{get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>})&({get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>}),
 /** fetch aggregated fields from the table: "user" */
 user_aggregate:((args?:{
 /** distinct select on columns */
-distinct_on?: (user_select_column[]|null),
+distinct_on?: (user_select_column[] | null),
 /** limit the number of rows returned */
-limit?: (Scalars['Int']|null),
+limit?: (Scalars['Int'] | null),
 /** skip the first n rows. Use only with order_by */
-offset?: (Scalars['Int']|null),
+offset?: (Scalars['Int'] | null),
 /** sort the rows by one or more columns */
-order_by?: (user_order_by[]|null),
+order_by?: (user_order_by[] | null),
 /** filter the rows returned */
-where?: (user_bool_exp|null)})=>user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
+where?: (user_bool_exp | null)})=>user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>})&(user_aggregateObservableChain & {get: (request: user_aggregateRequest, defaultValue?:user_aggregate)=>Observable<user_aggregate>}),
 /** fetch data from the table: "user" using primary key columns */
-user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user|null))=>Observable<(user|null)>})}
+user_by_pk:((args:{id: Scalars['String']})=>userObservableChain & {get: (request: userRequest, defaultValue?:(user | null))=>Observable<(user | null)>})}
 
 
 /** columns and relationships of "user" */
@@ -847,43 +847,43 @@ export interface userObservableChain{age:({get:(request?:boolean|number,defaultV
 
 
 /** aggregated selection of "user" */
-export interface user_aggregatePromiseChain{aggregate:(user_aggregate_fieldsPromiseChain & {get: (request: user_aggregate_fieldsRequest, defaultValue?:(user_aggregate_fields|null))=>Promise<(user_aggregate_fields|null)>}),nodes:({get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>})}
+export interface user_aggregatePromiseChain{aggregate:(user_aggregate_fieldsPromiseChain & {get: (request: user_aggregate_fieldsRequest, defaultValue?:(user_aggregate_fields | null))=>Promise<(user_aggregate_fields | null)>}),nodes:({get: (request: userRequest, defaultValue?:user[])=>Promise<user[]>})}
 
 
 /** aggregated selection of "user" */
-export interface user_aggregateObservableChain{aggregate:(user_aggregate_fieldsObservableChain & {get: (request: user_aggregate_fieldsRequest, defaultValue?:(user_aggregate_fields|null))=>Observable<(user_aggregate_fields|null)>}),nodes:({get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>})}
+export interface user_aggregateObservableChain{aggregate:(user_aggregate_fieldsObservableChain & {get: (request: user_aggregate_fieldsRequest, defaultValue?:(user_aggregate_fields | null))=>Observable<(user_aggregate_fields | null)>}),nodes:({get: (request: userRequest, defaultValue?:user[])=>Observable<user[]>})}
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fieldsPromiseChain{avg:(user_avg_fieldsPromiseChain & {get: (request: user_avg_fieldsRequest, defaultValue?:(user_avg_fields|null))=>Promise<(user_avg_fields|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Scalars['Boolean']|null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>}),max:(user_max_fieldsPromiseChain & {get: (request: user_max_fieldsRequest, defaultValue?:(user_max_fields|null))=>Promise<(user_max_fields|null)>}),min:(user_min_fieldsPromiseChain & {get: (request: user_min_fieldsRequest, defaultValue?:(user_min_fields|null))=>Promise<(user_min_fields|null)>}),stddev:(user_stddev_fieldsPromiseChain & {get: (request: user_stddev_fieldsRequest, defaultValue?:(user_stddev_fields|null))=>Promise<(user_stddev_fields|null)>}),stddev_pop:(user_stddev_pop_fieldsPromiseChain & {get: (request: user_stddev_pop_fieldsRequest, defaultValue?:(user_stddev_pop_fields|null))=>Promise<(user_stddev_pop_fields|null)>}),stddev_samp:(user_stddev_samp_fieldsPromiseChain & {get: (request: user_stddev_samp_fieldsRequest, defaultValue?:(user_stddev_samp_fields|null))=>Promise<(user_stddev_samp_fields|null)>}),sum:(user_sum_fieldsPromiseChain & {get: (request: user_sum_fieldsRequest, defaultValue?:(user_sum_fields|null))=>Promise<(user_sum_fields|null)>}),var_pop:(user_var_pop_fieldsPromiseChain & {get: (request: user_var_pop_fieldsRequest, defaultValue?:(user_var_pop_fields|null))=>Promise<(user_var_pop_fields|null)>}),var_samp:(user_var_samp_fieldsPromiseChain & {get: (request: user_var_samp_fieldsRequest, defaultValue?:(user_var_samp_fields|null))=>Promise<(user_var_samp_fields|null)>}),variance:(user_variance_fieldsPromiseChain & {get: (request: user_variance_fieldsRequest, defaultValue?:(user_variance_fields|null))=>Promise<(user_variance_fields|null)>})}
+export interface user_aggregate_fieldsPromiseChain{avg:(user_avg_fieldsPromiseChain & {get: (request: user_avg_fieldsRequest, defaultValue?:(user_avg_fields | null))=>Promise<(user_avg_fields | null)>}),count:((args?:{columns?: (user_select_column[] | null),distinct?: (Scalars['Boolean'] | null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>}),max:(user_max_fieldsPromiseChain & {get: (request: user_max_fieldsRequest, defaultValue?:(user_max_fields | null))=>Promise<(user_max_fields | null)>}),min:(user_min_fieldsPromiseChain & {get: (request: user_min_fieldsRequest, defaultValue?:(user_min_fields | null))=>Promise<(user_min_fields | null)>}),stddev:(user_stddev_fieldsPromiseChain & {get: (request: user_stddev_fieldsRequest, defaultValue?:(user_stddev_fields | null))=>Promise<(user_stddev_fields | null)>}),stddev_pop:(user_stddev_pop_fieldsPromiseChain & {get: (request: user_stddev_pop_fieldsRequest, defaultValue?:(user_stddev_pop_fields | null))=>Promise<(user_stddev_pop_fields | null)>}),stddev_samp:(user_stddev_samp_fieldsPromiseChain & {get: (request: user_stddev_samp_fieldsRequest, defaultValue?:(user_stddev_samp_fields | null))=>Promise<(user_stddev_samp_fields | null)>}),sum:(user_sum_fieldsPromiseChain & {get: (request: user_sum_fieldsRequest, defaultValue?:(user_sum_fields | null))=>Promise<(user_sum_fields | null)>}),var_pop:(user_var_pop_fieldsPromiseChain & {get: (request: user_var_pop_fieldsRequest, defaultValue?:(user_var_pop_fields | null))=>Promise<(user_var_pop_fields | null)>}),var_samp:(user_var_samp_fieldsPromiseChain & {get: (request: user_var_samp_fieldsRequest, defaultValue?:(user_var_samp_fields | null))=>Promise<(user_var_samp_fields | null)>}),variance:(user_variance_fieldsPromiseChain & {get: (request: user_variance_fieldsRequest, defaultValue?:(user_variance_fields | null))=>Promise<(user_variance_fields | null)>})}
 
 
 /** aggregate fields of "user" */
-export interface user_aggregate_fieldsObservableChain{avg:(user_avg_fieldsObservableChain & {get: (request: user_avg_fieldsRequest, defaultValue?:(user_avg_fields|null))=>Observable<(user_avg_fields|null)>}),count:((args?:{columns?: (user_select_column[]|null),distinct?: (Scalars['Boolean']|null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>}),max:(user_max_fieldsObservableChain & {get: (request: user_max_fieldsRequest, defaultValue?:(user_max_fields|null))=>Observable<(user_max_fields|null)>}),min:(user_min_fieldsObservableChain & {get: (request: user_min_fieldsRequest, defaultValue?:(user_min_fields|null))=>Observable<(user_min_fields|null)>}),stddev:(user_stddev_fieldsObservableChain & {get: (request: user_stddev_fieldsRequest, defaultValue?:(user_stddev_fields|null))=>Observable<(user_stddev_fields|null)>}),stddev_pop:(user_stddev_pop_fieldsObservableChain & {get: (request: user_stddev_pop_fieldsRequest, defaultValue?:(user_stddev_pop_fields|null))=>Observable<(user_stddev_pop_fields|null)>}),stddev_samp:(user_stddev_samp_fieldsObservableChain & {get: (request: user_stddev_samp_fieldsRequest, defaultValue?:(user_stddev_samp_fields|null))=>Observable<(user_stddev_samp_fields|null)>}),sum:(user_sum_fieldsObservableChain & {get: (request: user_sum_fieldsRequest, defaultValue?:(user_sum_fields|null))=>Observable<(user_sum_fields|null)>}),var_pop:(user_var_pop_fieldsObservableChain & {get: (request: user_var_pop_fieldsRequest, defaultValue?:(user_var_pop_fields|null))=>Observable<(user_var_pop_fields|null)>}),var_samp:(user_var_samp_fieldsObservableChain & {get: (request: user_var_samp_fieldsRequest, defaultValue?:(user_var_samp_fields|null))=>Observable<(user_var_samp_fields|null)>}),variance:(user_variance_fieldsObservableChain & {get: (request: user_variance_fieldsRequest, defaultValue?:(user_variance_fields|null))=>Observable<(user_variance_fields|null)>})}
+export interface user_aggregate_fieldsObservableChain{avg:(user_avg_fieldsObservableChain & {get: (request: user_avg_fieldsRequest, defaultValue?:(user_avg_fields | null))=>Observable<(user_avg_fields | null)>}),count:((args?:{columns?: (user_select_column[] | null),distinct?: (Scalars['Boolean'] | null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>}),max:(user_max_fieldsObservableChain & {get: (request: user_max_fieldsRequest, defaultValue?:(user_max_fields | null))=>Observable<(user_max_fields | null)>}),min:(user_min_fieldsObservableChain & {get: (request: user_min_fieldsRequest, defaultValue?:(user_min_fields | null))=>Observable<(user_min_fields | null)>}),stddev:(user_stddev_fieldsObservableChain & {get: (request: user_stddev_fieldsRequest, defaultValue?:(user_stddev_fields | null))=>Observable<(user_stddev_fields | null)>}),stddev_pop:(user_stddev_pop_fieldsObservableChain & {get: (request: user_stddev_pop_fieldsRequest, defaultValue?:(user_stddev_pop_fields | null))=>Observable<(user_stddev_pop_fields | null)>}),stddev_samp:(user_stddev_samp_fieldsObservableChain & {get: (request: user_stddev_samp_fieldsRequest, defaultValue?:(user_stddev_samp_fields | null))=>Observable<(user_stddev_samp_fields | null)>}),sum:(user_sum_fieldsObservableChain & {get: (request: user_sum_fieldsRequest, defaultValue?:(user_sum_fields | null))=>Observable<(user_sum_fields | null)>}),var_pop:(user_var_pop_fieldsObservableChain & {get: (request: user_var_pop_fieldsRequest, defaultValue?:(user_var_pop_fields | null))=>Observable<(user_var_pop_fields | null)>}),var_samp:(user_var_samp_fieldsObservableChain & {get: (request: user_var_samp_fieldsRequest, defaultValue?:(user_var_samp_fields | null))=>Observable<(user_var_samp_fields | null)>}),variance:(user_variance_fieldsObservableChain & {get: (request: user_variance_fieldsRequest, defaultValue?:(user_variance_fields | null))=>Observable<(user_variance_fields | null)>})}
 
 
 /** aggregate avg on columns */
-export interface user_avg_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Promise<(Scalars['Float']|null)>})}
+export interface user_avg_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Promise<(Scalars['Float'] | null)>})}
 
 
 /** aggregate avg on columns */
-export interface user_avg_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Observable<(Scalars['Float']|null)>})}
+export interface user_avg_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Observable<(Scalars['Float'] | null)>})}
 
 
 /** aggregate max on columns */
-export interface user_max_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
+export interface user_max_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})}
 
 
 /** aggregate max on columns */
-export interface user_max_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
+export interface user_max_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})}
 
 
 /** aggregate min on columns */
-export interface user_min_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Promise<(Scalars['String']|null)>})}
+export interface user_min_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})}
 
 
 /** aggregate min on columns */
-export interface user_min_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String']|null))=>Observable<(Scalars['String']|null)>})}
+export interface user_min_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})}
 
 
 /** response of any mutation on the table "user" */
@@ -903,56 +903,56 @@ returning:({get: (request: userRequest, defaultValue?:user[])=>Observable<user[]
 
 
 /** aggregate stddev on columns */
-export interface user_stddev_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Promise<(Scalars['Float']|null)>})}
+export interface user_stddev_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Promise<(Scalars['Float'] | null)>})}
 
 
 /** aggregate stddev on columns */
-export interface user_stddev_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Observable<(Scalars['Float']|null)>})}
+export interface user_stddev_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Observable<(Scalars['Float'] | null)>})}
 
 
 /** aggregate stddev_pop on columns */
-export interface user_stddev_pop_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Promise<(Scalars['Float']|null)>})}
+export interface user_stddev_pop_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Promise<(Scalars['Float'] | null)>})}
 
 
 /** aggregate stddev_pop on columns */
-export interface user_stddev_pop_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Observable<(Scalars['Float']|null)>})}
+export interface user_stddev_pop_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Observable<(Scalars['Float'] | null)>})}
 
 
 /** aggregate stddev_samp on columns */
-export interface user_stddev_samp_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Promise<(Scalars['Float']|null)>})}
+export interface user_stddev_samp_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Promise<(Scalars['Float'] | null)>})}
 
 
 /** aggregate stddev_samp on columns */
-export interface user_stddev_samp_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Observable<(Scalars['Float']|null)>})}
+export interface user_stddev_samp_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Observable<(Scalars['Float'] | null)>})}
 
 
 /** aggregate sum on columns */
-export interface user_sum_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Promise<(Scalars['Int']|null)>})}
+export interface user_sum_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>})}
 
 
 /** aggregate sum on columns */
-export interface user_sum_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int']|null))=>Observable<(Scalars['Int']|null)>})}
+export interface user_sum_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>})}
 
 
 /** aggregate var_pop on columns */
-export interface user_var_pop_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Promise<(Scalars['Float']|null)>})}
+export interface user_var_pop_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Promise<(Scalars['Float'] | null)>})}
 
 
 /** aggregate var_pop on columns */
-export interface user_var_pop_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Observable<(Scalars['Float']|null)>})}
+export interface user_var_pop_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Observable<(Scalars['Float'] | null)>})}
 
 
 /** aggregate var_samp on columns */
-export interface user_var_samp_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Promise<(Scalars['Float']|null)>})}
+export interface user_var_samp_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Promise<(Scalars['Float'] | null)>})}
 
 
 /** aggregate var_samp on columns */
-export interface user_var_samp_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Observable<(Scalars['Float']|null)>})}
+export interface user_var_samp_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Observable<(Scalars['Float'] | null)>})}
 
 
 /** aggregate variance on columns */
-export interface user_variance_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Promise<(Scalars['Float']|null)>})}
+export interface user_variance_fieldsPromiseChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Promise<(Scalars['Float'] | null)>})}
 
 
 /** aggregate variance on columns */
-export interface user_variance_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float']|null))=>Observable<(Scalars['Float']|null)>})}
+export interface user_variance_fieldsObservableChain{age:({get:(request?:boolean|number,defaultValue?:(Scalars['Float'] | null))=>Observable<(Scalars['Float'] | null)>})}

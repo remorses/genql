@@ -1,7 +1,7 @@
-const { linkTypeMap, createClient: createClientOriginal, generateGraphqlOperation } = require('genql-runtime')
+import { linkTypeMap, createClient as createClientOriginal, generateGraphqlOperation } from 'genql-runtime'
 var typeMap = linkTypeMap(require('./types.json'))
-
-module.exports.createClient = function(options) {
+export * from './guards.esm'
+export var createClient = function(options) {
   options = options || {}
   var optionsCopy = {
     url: 'https://hasura-2334534.herokuapp.com/v1/graphql',
@@ -15,20 +15,15 @@ module.exports.createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
-module.exports.generateQueryOp = function(fields) {
+export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }
-module.exports.generateMutationOp = function(fields) {
+export var generateMutationOp = function(fields) {
   return generateGraphqlOperation('mutation', typeMap.Mutation, fields)
 }
-module.exports.generateSubscriptionOp = function(fields) {
+export var generateSubscriptionOp = function(fields) {
   return generateGraphqlOperation('subscription', typeMap.Subscription, fields)
 }
-module.exports.everything = {
+export var everything = {
   __scalar: true,
-}
-
-var schemaExports = require('./guards.cjs')
-for (var k in schemaExports) {
-  module.exports[k] = schemaExports[k]
 }

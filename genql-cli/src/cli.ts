@@ -46,6 +46,12 @@ const program = yargs
         description:
             'map a scalar to a type, for example `-S DateTime:string` ',
     })
+    .option('esm', {
+        type: 'boolean',
+        default: false,
+        description:
+            'generate only ES modules code, ./generated/index.js will use esm exports and imports',
+    })
     .option('verbose', { alias: 'v', type: 'boolean', default: false })
     .example(
         '$0 --output ./generated --endpoint http://localhost:3000  -H "Authorization: Bearer xxx"',
@@ -79,6 +85,7 @@ const config: Config = {
     output: program.output,
     headers: parseColonSeparatedStrings(program.header || []),
     scalarTypes: parseColonSeparatedStrings(program.scalar || []),
+    onlyEsModules: program.esm,
 }
 
 if (!validateConfigs([config])) {

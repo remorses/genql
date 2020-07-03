@@ -19,4 +19,5 @@ export interface Config {
     options?: Options
     headers?: Record<string, string>
     scalarTypes?: { [k: string]: string }
+    onlyEsModules?: boolean
 }

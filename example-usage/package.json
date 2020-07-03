@@ -7,8 +7,8 @@
         "build": "next build",
         "start": "next start",
         "gen": "yarn countries && yarn hasura",
-        "countries": "cd .. && yarn play -o example-usage/generated -e https://countries.trevorblades.com",
-        "hasura": "cd .. && yarn play -o example-usage/hasura -e https://hasura-2334534.herokuapp.com/v1/graphql -H \"Authorization: Bearer xxx\"  -H \"Xxx: Bearer xxx\"  "
+        "countries": "cd .. && yarn play --esm -o example-usage/generated -e https://countries.trevorblades.com",
+        "hasura": "cd .. && yarn play --esm -o example-usage/hasura -e https://hasura-2334534.herokuapp.com/v1/graphql -H \"Authorization: Bearer xxx\"  -H \"Xxx: Bearer xxx\"  "
     },
     "mocha": {
         "require": "tests/init.js",
