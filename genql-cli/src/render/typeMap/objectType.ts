@@ -49,7 +49,7 @@ export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | Grap
     .filter(f => isScalarType(getNamedType(f.type)) || isEnumType(getNamedType(f.type)))
     .map(f => f.name)
 
-  if (scalar.length > 0) typeObj.scalar = scalar
+  // if (scalar.length > 0) typeObj.scalar = scalar
 
   return typeObj
 }

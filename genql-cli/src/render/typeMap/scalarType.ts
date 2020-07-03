@@ -5,4 +5,6 @@ import { Type } from 'genql-runtime/dist/types'
 export const scalarType = (
     type: GraphQLScalarType | GraphQLEnumType,
     _: RenderContext,
-): Type => ({})
+): Type => ({
+    __isAUsedScalarType: true
+})

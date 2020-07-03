@@ -1,8 +1,8 @@
 {
-    "Boolean": {},
-    "Float": {},
-    "ID": {},
-    "Int": {},
+    "Boolean": { "__isAUsedScalarType": true },
+    "Float": { "__isAUsedScalarType": true },
+    "ID": { "__isAUsedScalarType": true },
+    "Int": { "__isAUsedScalarType": true },
     "Int_comparison_exp": {
         "fields": {
             "_eq": { "type": "Int" },
@@ -15,20 +15,9 @@
             "_neq": { "type": "Int" },
             "_nin": { "type": "Int" },
             "__typename": { "type": "String" }
-        },
-        "scalar": [
-            "_eq",
-            "_gt",
-            "_gte",
-            "_in",
-            "_is_null",
-            "_lt",
-            "_lte",
-            "_neq",
-            "_nin"
-        ]
+        }
     },
-    "String": {},
+    "String": { "__isAUsedScalarType": true },
     "String_comparison_exp": {
         "fields": {
             "_eq": { "type": "String" },
@@ -47,34 +36,16 @@
             "_nsimilar": { "type": "String" },
             "_similar": { "type": "String" },
             "__typename": { "type": "String" }
-        },
-        "scalar": [
-            "_eq",
-            "_gt",
-            "_gte",
-            "_ilike",
-            "_in",
-            "_is_null",
-            "_like",
-            "_lt",
-            "_lte",
-            "_neq",
-            "_nilike",
-            "_nin",
-            "_nlike",
-            "_nsimilar",
-            "_similar"
-        ]
+        }
     },
-    "order_by": {},
+    "order_by": { "__isAUsedScalarType": true },
     "user": {
         "fields": {
             "age": { "type": "Int" },
             "id": { "type": "String" },
             "name": { "type": "String" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_aggregate": {
         "fields": {
@@ -103,8 +74,7 @@
             "var_samp": { "type": "user_var_samp_fields" },
             "variance": { "type": "user_variance_fields" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["count"]
+        }
     },
     "user_aggregate_order_by": {
         "fields": {
@@ -120,8 +90,7 @@
             "var_samp": { "type": "user_var_samp_order_by" },
             "variance": { "type": "user_variance_order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["count"]
+        }
     },
     "user_arr_rel_insert_input": {
         "fields": {
@@ -134,15 +103,13 @@
         "fields": {
             "age": { "type": "Float" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_avg_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_bool_exp": {
         "fields": {
@@ -155,13 +122,12 @@
             "__typename": { "type": "String" }
         }
     },
-    "user_constraint": {},
+    "user_constraint": { "__isAUsedScalarType": true },
     "user_inc_input": {
         "fields": {
             "age": { "type": "Int" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_insert_input": {
         "fields": {
@@ -169,8 +135,7 @@
             "id": { "type": "String" },
             "name": { "type": "String" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_max_fields": {
         "fields": {
@@ -178,8 +143,7 @@
             "id": { "type": "String" },
             "name": { "type": "String" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_max_order_by": {
         "fields": {
@@ -187,8 +151,7 @@
             "id": { "type": "order_by" },
             "name": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_min_fields": {
         "fields": {
@@ -196,8 +159,7 @@
             "id": { "type": "String" },
             "name": { "type": "String" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_min_order_by": {
         "fields": {
@@ -205,16 +167,14 @@
             "id": { "type": "order_by" },
             "name": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_mutation_response": {
         "fields": {
             "affected_rows": { "type": "Int" },
             "returning": { "type": "user" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["affected_rows"]
+        }
     },
     "user_obj_rel_insert_input": {
         "fields": {
@@ -229,8 +189,7 @@
             "update_columns": { "type": "user_update_column" },
             "where": { "type": "user_bool_exp" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["constraint", "update_columns"]
+        }
     },
     "user_order_by": {
         "fields": {
@@ -238,124 +197,107 @@
             "id": { "type": "order_by" },
             "name": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_pk_columns_input": {
         "fields": {
             "id": { "type": "String" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["id"]
+        }
     },
-    "user_select_column": {},
+    "user_select_column": { "__isAUsedScalarType": true },
     "user_set_input": {
         "fields": {
             "age": { "type": "Int" },
             "id": { "type": "String" },
             "name": { "type": "String" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age", "id", "name"]
+        }
     },
     "user_stddev_fields": {
         "fields": {
             "age": { "type": "Float" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_stddev_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_stddev_pop_fields": {
         "fields": {
             "age": { "type": "Float" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_stddev_pop_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_stddev_samp_fields": {
         "fields": {
             "age": { "type": "Float" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_stddev_samp_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_sum_fields": {
         "fields": {
             "age": { "type": "Int" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_sum_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
-    "user_update_column": {},
+    "user_update_column": { "__isAUsedScalarType": true },
     "user_var_pop_fields": {
         "fields": {
             "age": { "type": "Float" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_var_pop_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_var_samp_fields": {
         "fields": {
             "age": { "type": "Float" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_var_samp_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_variance_fields": {
         "fields": {
             "age": { "type": "Float" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "user_variance_order_by": {
         "fields": {
             "age": { "type": "order_by" },
             "__typename": { "type": "String" }
-        },
-        "scalar": ["age"]
+        }
     },
     "Query": {
         "fields": {

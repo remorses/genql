@@ -1,4 +1,6 @@
 import { linkTypeMap } from '../linkTypeMap'
+var print = require('pretty-print');
+
 
 test('linkTypeMap', () => {
   const typeMap = <any>linkTypeMap({
@@ -17,8 +19,11 @@ test('linkTypeMap', () => {
       },
     },
     Scalar: {
+      __isAUsedScalarType: true
     },
   })
+
+  print(typeMap)
 
   expect(typeMap.Some.fields.other.type).toBe(typeMap.Other)
   expect(typeMap.Other.fields.some.type).toBe(typeMap.Some)

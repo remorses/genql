@@ -14,9 +14,11 @@ export interface FieldMap {
     [field: string]: Field | undefined
 }
 
-export interface Type {
+// true when type is scalar
+export type Type = {
     fields?: FieldMap
-    scalar?: string[]
+    __isAUsedScalarType?: boolean
+    // scalar?: string[]
 }
 
 export interface TypeMap {
@@ -40,7 +42,7 @@ export interface LinkedFieldMap {
 export interface LinkedType {
     name: string
     fields?: LinkedFieldMap
-    scalar?: string[]
+    scalar?: string[] // TODO make this required
 }
 
 export interface LinkedTypeMap {
