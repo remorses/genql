@@ -7,6 +7,14 @@ export var isQuery = function(obj) {
 
 
 
+var RecursiveType_possibleTypes = ['RecursiveType']
+export var isRecursiveType = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRecursiveType"')
+  return RecursiveType_possibleTypes.includes(obj.__typename)
+}
+
+
+
 var Repository_possibleTypes = ['Repository']
 export var isRepository = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRepository"')

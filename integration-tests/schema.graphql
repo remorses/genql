@@ -5,6 +5,12 @@ type Query {
     """
     repository(name: String!, owner: String): Repository!
     user: User
+    recursiveType(requiredVal: [String!]): [RecursiveType]
+}
+
+type RecursiveType {
+    value: String
+    recurse: RecursiveType
 }
 
 type Repository {
