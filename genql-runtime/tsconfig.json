@@ -21,7 +21,7 @@
     "exclude": [
         "node_modules",
         "**/*.case.ts",
-        "**/*.test.ts",
+        "**/*.test.ts", // TODO tests are not type checked
         "tests",
         "example",
         "./dist",
