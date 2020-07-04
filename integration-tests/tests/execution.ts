@@ -177,6 +177,28 @@ describe('execute queries', async function() {
             expectType<Maybe<string>>(res?.__typename)
         }),
     )
+    it(
+        'recursive type chain syntax ',
+        withServer(async () => {
+            const res = await client.chain.query
+                .recursiveType()
+                .get({
+                    recurse: {
+                        recurse: {
+                            ...everything,
+                            recurse: {
+                                value: 1,
+                            },
+                        },
+                    },
+                })
+                .catch(id)
+            console.log(JSON.stringify(res, null, 2))
+            expectType<Maybe<string>>(res?.[0]?.value)
+            expectType<Maybe<string>>(res?.[0]?.recurse?.value)
+            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
+        }),
+    )
 
     it(
         'union types only 1 on_ normal syntax',

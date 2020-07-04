@@ -13,7 +13,7 @@
         "watch-cli": "yarn --cwd genql-cli tsc -w --preserveWatchOutput",
         "watch-runtime": "yarn --cwd genql-runtime tsc -w --preserveWatchOutput",
         "start": "concurrently npm:watch-*",
-        "test": "yarn --cwd genql-cli test && yarn --cwd ./genql-runtime test && yarn --cwd ./integration-tests test",
+        "test": "yarn --cwd genql-cli test && yarn --cwd ./genql-runtime test && yarn --cwd ./integration-tests test && yarn --cwd ./try-clients test",
         "dev": "yarn --cwd website dev",
         "build": "yarn --cwd website build",
         "genall": "yarn --cwd example-usage gen && yarn --cwd try-clients gen && yarn --cwd integration-tests gen",

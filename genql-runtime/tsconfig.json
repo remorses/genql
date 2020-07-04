@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "noImplicitReturns": true,
-        "noUnusedLocals": true,
+        // "noUnusedLocals": true,
         "noUnusedParameters": true,
         // "noImplicitAny": false,
         "importHelpers": true,
@@ -15,14 +15,17 @@
         "allowJs": true,
         "sourceMap": true,
         "lib": ["dom", "es2017", "esnext.asynciterable"],
-        "skipLibCheck": true
+        "skipLibCheck": true,
     },
+    "include": ["./src"],
     "exclude": [
         "node_modules",
         "**/*.case.ts",
+        "**/*.test.ts", // TODO tests are not type checked
         "tests",
         "example",
-        "dist",
+        "./dist",
+        "dist/**",
         // "**/__tests__",
         "esm"
     ]

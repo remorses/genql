@@ -13,7 +13,7 @@ import {
     generateGraphqlOperation,
     GraphqlOperation,
 } from './generateGraphqlOperation'
-import { LinkedType } from './linkTypeMap'
+import { LinkedType } from '../types'
 
 export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string

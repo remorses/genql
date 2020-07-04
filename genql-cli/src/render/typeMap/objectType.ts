@@ -1,55 +1,66 @@
 import {
-  getNamedType,
-  GraphQLInterfaceType,
-  GraphQLObjectType,
-  isEnumType,
-  isInterfaceType,
-  isScalarType,
-  GraphQLInputObjectType,
-  GraphQLArgument,
-  GraphQLField,
+    getNamedType,
+    GraphQLInterfaceType,
+    GraphQLObjectType,
+    isEnumType,
+    isInterfaceType,
+    isScalarType,
+    GraphQLInputObjectType,
+    GraphQLArgument,
+    GraphQLField,
 } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
-import { ArgMap, Field, FieldMap, Type } from './renderTypeMap'
+import { ArgMap, Field, FieldMap, Type } from 'genql-runtime/dist/types'
+import { isEmpty } from './support'
 
+export const objectType = (
+    type: GraphQLObjectType | GraphQLInterfaceType | GraphQLInputObjectType,
+    ctx: RenderContext,
+) => {
+    const typeObj: FieldMap<string> = Object.keys(type.getFields()).reduce<
+        FieldMap<string>
+    >((r, f) => {
+        const field = type.getFields()[f]
+        const namedType = getNamedType(field.type)
+        const fieldObj: Field<string> = { type: namedType.name }
+        r[f] = fieldObj
 
+        const args: GraphQLArgument[] =
+            (<GraphQLField<any, any>>field).args || []
 
-export const objectType = (type: GraphQLObjectType | GraphQLInterfaceType | GraphQLInputObjectType, ctx: RenderContext) => {
-  const typeObj: Type & { fields: FieldMap } = {
-    name: type.name,
-    fields: Object.keys(type.getFields()).reduce<FieldMap>((r, f) => {
-      const field = type.getFields()[f]
-      const namedType = getNamedType(field.type)
-      const fieldObj: Field = { type: namedType.name }
-      r[f] = fieldObj
+        if (args.length > 0) {
+            fieldObj.args = args.reduce<ArgMap<string>>((r, a) => {
+                const concreteType = a.type.toString()
+                const typename = getNamedType(a.type).name
+                r[a.name] = [typename]
+                if (typename !== concreteType) {
+                    r[a.name]?.push(concreteType)
+                }
+                return r
+            }, {})
+        }
 
-      const args: GraphQLArgument[] = (<GraphQLField<any, any>>field).args || []
+        return r
+    }, {})
 
-      if (args.length > 0) {
-        fieldObj.args = args.reduce<ArgMap>((r, a) => {
-          r[a.name] = [a.type.toString(), getNamedType(a.type).name]
-          return r
-        }, {})
-      }
+    if (isInterfaceType(type) && ctx.schema) {
+        ctx.schema.getPossibleTypes(type).map((t) => {
+            if (!isEmpty(typeObj)) {
+                typeObj[`on_${t.name}`] = { type: t.name }
+            }
+        })
+    }
 
-      return r
-    }, {}),
-  }
+    if (!isEmpty(typeObj)) {
+        typeObj.__typename = { type: 'String' }
+    }
 
-  if (isInterfaceType(type) && ctx.schema) {
-    ctx.schema.getPossibleTypes(type).map(t => {
-      typeObj.fields[`on_${t.name}`] = { type: t.name }
-    })
-  }
+    // const scalar = Object.keys(type.getFields())
+    //   .map(f => type.getFields()[f])
+    //   .filter(f => isScalarType(getNamedType(f.type)) || isEnumType(getNamedType(f.type)))
+    //   .map(f => f.name)
 
-  typeObj.fields.__typename = { type: 'String' }
+    // if (scalar.length > 0) typeObj.scalar = scalar
 
-  const scalar = Object.keys(type.getFields())
-    .map(f => type.getFields()[f])
-    .filter(f => isScalarType(getNamedType(f.type)) || isEnumType(getNamedType(f.type)))
-    .map(f => f.name)
-
-  if (scalar.length > 0) typeObj.scalar = scalar
-
-  return typeObj
+    return typeObj
 }

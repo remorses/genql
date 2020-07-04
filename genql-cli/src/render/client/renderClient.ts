@@ -1,7 +1,9 @@
 import { GraphQLSchema } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
-import { version } from '../../../package.json'
+
+// [bump if genql-cli]
+const version = '1.1.7'
 
 const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'

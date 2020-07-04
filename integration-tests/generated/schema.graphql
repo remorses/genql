@@ -2,8 +2,14 @@ type Query {
   """Some description"""
   repository(name: String!, owner: String): Repository!
   user: User
+  recursiveType(requiredVal: [String!]): [RecursiveType]
   account: Account
   coordinates: Point
+}
+
+type RecursiveType {
+  value: String
+  recurse: RecursiveType
 }
 
 type Repository {
