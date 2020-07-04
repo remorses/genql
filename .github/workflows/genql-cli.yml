@@ -16,9 +16,9 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: cd genql-cli && yarn
-      - run: cd genql-cli && yarn jest
       - run: cd genql-runtime && yarn build
       - run: cd genql-cli && yarn build
+      - run: cd genql-cli && yarn jest
       - run: echo 'branch is master, preparing release'
         if: github.ref == 'ref/head/master'
       # - name: Bump version
