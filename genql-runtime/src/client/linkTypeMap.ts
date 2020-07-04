@@ -8,7 +8,7 @@ import {
     FieldMap,
 } from '../types'
 
-export const linkTypeMap = (typeMap: TypeMap<number>) => {
+export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
     // TODO add Type.type and Type.args
     // TODO replace the type indexes with their typename
     // TODO add the second array element in

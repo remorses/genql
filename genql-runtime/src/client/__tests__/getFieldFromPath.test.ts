@@ -9,23 +9,17 @@ describe('getFieldFromPath', () => {
                 scalars: ['Scalar'],
                 types: {
                     Some: {
-                        fields: {
-                            other: { type: 'Other' },
-                            unknown: { type: 'Unknown' },
-                        },
+                        other: { type: 'Other' },
+                        unknown: { type: 'Unknown' },
                     },
                     Other: {
-                        fields: {
-                            some: { type: 'Some' },
-                            scalar: { type: 'Scalar' },
-                            unknown: { type: 'Unknown' },
-                            union: { type: 'Union' },
-                        },
+                        some: { type: 'Some' },
+                        scalar: { type: 'Scalar' },
+                        unknown: { type: 'Unknown' },
+                        union: { type: 'Union' },
                     },
                     Union: {
-                        fields: {
-                            on_Some: { type: 'Some' },
-                        },
+                        on_Some: { type: 'Some' },
                     },
                     Scalar: {},
                 },
@@ -68,9 +62,7 @@ describe('getFieldFromPath', () => {
                         scalars: [],
                         types: {
                             Root: {
-                                fields: {
-                                    some: { type: 'Some' },
-                                },
+                                some: { type: 'Some' },
                             },
                         },
                     }),

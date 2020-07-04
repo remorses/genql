@@ -2,28 +2,24 @@ import { linkTypeMap } from '../linkTypeMap'
 import { replaceTypeNamesWithIndexes } from 'genql-cli/dist/render/typeMap/renderTypeMap'
 
 test('linkTypeMap', () => {
-    const typeMap = <any>linkTypeMap(
+    const typeMap = linkTypeMap(
         replaceTypeNamesWithIndexes({
             scalars: ['Scalar'],
             types: {
                 Some: {
-                    fields: {
-                        other: { type: 'Other' },
-                        unknown: { type: 'Unknown' },
-                    },
+                    other: { type: 'Other' },
+                    unknown: { type: 'Unknown' },
                 },
                 Other: {
-                    fields: {
-                        some: { type: 'Some' },
-                        scalar: { type: 'Scalar' },
-                        unknown: { type: 'Unknown' },
-                        withArgs: {
-                            type: 'String',
-                            args: {
-                                some: ['String', 'String!'],
-                                other: ['Some', 'Some!'],
-                                singleVal: ['Some'],
-                            },
+                    some: { type: 'Some' },
+                    scalar: { type: 'Scalar' },
+                    unknown: { type: 'Unknown' },
+                    withArgs: {
+                        type: 'String',
+                        args: {
+                            some: ['String', 'String!'],
+                            other: ['Some', 'Some!'],
+                            singleVal: ['Some'],
                         },
                     },
                 },
