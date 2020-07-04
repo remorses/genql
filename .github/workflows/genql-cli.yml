@@ -2,8 +2,8 @@ name: genql-cli Npm Package
 
 on:
   push:
-    branches:
-      - master
+    # branches:
+    #   - master
 
 jobs:
   build:

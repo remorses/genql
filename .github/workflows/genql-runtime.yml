@@ -2,8 +2,8 @@ name: genql-runtime Npm Package
 
 on:
   push:
-    branches:
-      - master
+    # branches:
+    #   - master
 
 jobs:
   build:
