@@ -10,11 +10,6 @@ import {
 
 export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
     // TODO add Type.type and Type.args
-    // TODO replace the type indexes with their typename
-    // TODO add the second array element in
-
-    // const scalars = typeMap.scalars
-    let intermediaryTypeMap: any = typeMap.types
 
     const indexToName = Object.assign(
         {},
@@ -22,73 +17,60 @@ export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
     )
 
     // add the name value
-    intermediaryTypeMap = Object.assign(
+    let intermediaryTypeMap = Object.assign(
         {},
-        ...Object.keys(typeMap.types || {}).map((k): Record<string, LinkedType> => {
-            const type: Type = intermediaryTypeMap[k]
-            const fields = type || {}
-            // processFields(fields, indexToName)
-            return {
-                [k]: {
-                    scalar: Object.keys(fields).filter((f) => {
-                        const { type } = fields[f] || {}
-                        return typeMap.scalars.includes(type)
-                    }),
-                    fields: Object.assign(
-                        {},
-                        ...Object.keys(fields).map(
-                            (f): FieldMap<string> => {
-                                const content = fields[f]
-                                return {
-                                    [f]: {
-                                        type: indexToName[content.type],
-                                        args: Object.assign(
-                                            {},
-                                            ...Object.keys(
-                                                content.args || {},
-                                            ).map((k) => {
-                                                const arg = content.args[k]
-                                                return {
-                                                    [k]: [
-                                                        indexToName[arg[0]],
-                                                        arg[1] ||
+        ...Object.keys(typeMap.types || {}).map(
+            (k): Record<string, LinkedType> => {
+                const type: Type = typeMap.types[k]
+                const fields = type || {}
+                // processFields(fields, indexToName)
+                return {
+                    [k]: {
+                        name: k,
+                        // type scalar properties
+                        scalar: Object.keys(fields).filter((f) => {
+                            const { type } = fields[f] || {}
+                            return typeMap.scalars.includes(type)
+                        }),
+                        // fields with corresponding `type` and `args`
+                        fields: Object.assign(
+                            {},
+                            ...Object.keys(fields).map(
+                                (f): FieldMap<string> => {
+                                    const content = fields[f]
+                                    return {
+                                        [f]: {
+                                            type: indexToName[content.type],
+                                            args: Object.assign(
+                                                {},
+                                                ...Object.keys(
+                                                    content.args || {},
+                                                ).map((k) => {
+                                                    const arg = content.args[k]
+                                                    return {
+                                                        [k]: [
                                                             indexToName[arg[0]],
-                                                    ],
-                                                }
-                                            }),
-                                        ),
-                                    },
-                                }
-                            },
+                                                            arg[1] ||
+                                                                indexToName[
+                                                                    arg[0]
+                                                                ],
+                                                        ],
+                                                    }
+                                                }),
+                                            ),
+                                        },
+                                    }
+                                },
+                            ),
                         ),
-                    ),
-                    name: k,
-                },
-            }
-        }),
+                    },
+                }
+            },
+        ),
     )
-
-    // add Type.scalar types to every Type
-
     const res = resolveConcreteTypes(intermediaryTypeMap)
     return res
 }
-
-// function processFields(fields: FieldMap, indexToName) {
-//     Object.keys(fields).forEach((f) => {
-//         const field = fields[f]
-//         if (field.args) {
-//             const args = field.args
-//             Object.keys(args).forEach((key) => {
-//                 const arg = args[key]
-//                 arg[0] = indexToName[arg[0]]
-//                 if (arg && arg.length === 1) {
-//                     arg.push(arg[0])
-//                 }
-//             })
-//         }
-//     })
-// }
 
 export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
     Object.keys(linkedTypeMap).forEach((typeNameFromKey) => {

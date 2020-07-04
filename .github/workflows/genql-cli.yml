@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -17,14 +17,19 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: cd genql-cli && yarn
       - run: cd genql-cli && yarn jest
+      - run: cd genql-runtime && yarn build
       - run: cd genql-cli && yarn build
-      - name: Bump version
-        uses: remorses/bump-version@js
-        with:
-          version_file: genql-cli/VERSION
-          prefix: genql-cli
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: cd genql-cli && yarn publish || echo 'cannot publish'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - run: echo 'branch is master, preparing release'
+        if: github.ref == 'ref/head/master'
+      # - name: Bump version
+      #   if: github.ref == 'ref/head/master'
+      #   uses: remorses/bump-version@js
+      #   with:
+      #     version_file: genql-cli/VERSION
+      #     prefix: genql-cli
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - run: cd genql-cli && yarn publish || echo 'cannot publish'
+      #   if: github.ref == 'ref/head/master'
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
