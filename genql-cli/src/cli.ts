@@ -139,7 +139,7 @@ export function printHelp({ useYarn, dirPath, dependencies }) {
     )
     console.log()
     console.log(
-        ('Always remember that the genql-runtime should always have the same version as the cli!'),
+        ('PS: `genql-runtime` should always have the same version as the cli!'),
     )
     console.log()
 }
