@@ -13,7 +13,7 @@ export const everything = {
 }
 
 // [bump if genql-runtime]
-export const version = '1.1.7'
+export const version = '1.1.9'
 
 export function assertSameVersion(generatedWithVersion) {
     if (generatedWithVersion && generatedWithVersion.trim() != version.trim()) {
