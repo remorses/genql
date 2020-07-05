@@ -2470,6 +2470,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.9.tgz#79df4ae965fb76d31943b54a6419599307a21394"
   integrity sha512-EPZBIGed5gNnfWCiwEIwTE2Jdg4813odnG8iNPMQGrqVxrI+wL68SPtPeCX+ZxGBaA6pKAVc6jaKgP/Q0QzfdQ==
 
+"@types/node@^14.0.14":
+  version "14.0.14"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
+  integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
+
 "@types/node@^8.10.59":
   version "8.10.61"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.61.tgz#d299136ce54bcaf1abaa4a487f9e4bedf6b0d393"
@@ -3774,6 +3779,16 @@ baby-i-am-faded@^0.0.14:
   version "0.0.14"
   resolved "https://registry.yarnpkg.com/baby-i-am-faded/-/baby-i-am-faded-0.0.14.tgz#a2d28b1fb441eb866ba78184e54a8ec68874e34c"
   integrity sha512-zHr5dIioKwxU5Blkuxl/1ZBVuebM4+5LRZA77TJRW2Dzy34DFMHtyhiMu/MVmHDCyn4+6F2PuGpA5WtdAS+lLQ==
+  dependencies:
+    "@emotion/serialize" "^0.11.16"
+    "@emotion/styled" "^10.0.27"
+    react-intersection-observer "^8.26.1"
+    react-is "^16.13.1"
+
+baby-i-am-faded@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/baby-i-am-faded/-/baby-i-am-faded-1.0.2.tgz#051bc96acaf6d561ac1a806228e6649b6c47d35c"
+  integrity sha512-XpxLbGy/NVYQDk310W5rnK8YY+0Li7Q3BiFD4/hGCh+XUqcUavCEJcHRnlCVmazd+v+FkXh3Y000oUSy+9Su8Q==
   dependencies:
     "@emotion/serialize" "^0.11.16"
     "@emotion/styled" "^10.0.27"
@@ -12208,14 +12223,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@^6.3.3:
-  version "6.5.5"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
-  integrity sha512-WfQI+1gohdf0Dai/Bbmk5L5ItH5tYqm3ki2c5GdWhKjalzjg93N3avFjVStyZZz+A2Em+ZxKH5bNghw9UeylGQ==
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@^6.5.2:
+rxjs@^6.3.3, rxjs@^6.5.2:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.0.tgz#af2901eedf02e3a83ffa7f886240ff9018bbec84"
   integrity sha512-3HMA8z/Oz61DUHe+SdOiQyzIf4tOx5oQHmMir7IZEu6TMqCLHT4LRcmNaUS0NwOz8VLvmmBduMsoaUvMaIiqzg==

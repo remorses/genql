@@ -21,7 +21,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@types/js-cookie": "^2.2.6",
-    "baby-i-am-faded": "^0.0.14",
+    "baby-i-am-faded": "^1.0.2",
     "dayjs": "^1.8.27",
     "dokz": "^1.0.50",
     "emotion-theming": "^10.0.27",

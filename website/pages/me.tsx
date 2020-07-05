@@ -27,7 +27,7 @@ export async function getServerSideProps(
     ctx: GetServerSidePropsContext,
 ): Promise<{ props: Props }> {
     const { uid } = await getFirebaseDecodedToken(ctx.req)
-    console.log('uid', uid)
+    // console.log('uid', uid)
     if (!uid) {
         console.log('redirecting to /')
         ctx.res.writeHead(302, { Location: '/' }).end()
