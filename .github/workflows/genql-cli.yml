@@ -20,9 +20,9 @@ jobs:
       - run: cd genql-cli && yarn build
       - run: cd genql-cli && yarn jest
       - run: echo 'branch is master, preparing release'
-        if: github.ref == 'ref/head/master'
+        if: github.ref == 'ref/heads/master'
       - name: Bump version
-        if: github.ref == 'ref/head/master'
+        if: github.ref == 'ref/heads/master'
         uses: remorses/bump-version@js
         with:
           version_file: genql-cli/VERSION
@@ -30,6 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: cd genql-cli && yarn publish || echo 'cannot publish'
-        if: github.ref == 'ref/head/master'
+        if: github.ref == 'ref/heads/master'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}

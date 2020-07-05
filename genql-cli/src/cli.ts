@@ -4,6 +4,7 @@ import yargs from 'yargs'
 import { generateProject } from './main'
 import { validateConfigs } from './tasks/validateConfigs'
 import { Config } from './config'
+import { version } from './version'
 
 const program = yargs
     .option('output', {
@@ -101,7 +102,7 @@ generateProject(config)
         printHelp({
             dirPath: program.output,
             useYarn: false,
-            dependencies: ['genql-runtime'],
+            dependencies: [`genql-runtime@${version}`],
         })
     })
 
@@ -128,13 +129,17 @@ export function printHelp({ useYarn, dirPath, dependencies }) {
     )
     console.log()
     console.log(
-        chalk.bold('Remember to install the necessary runtime packages with:'),
+        chalk.bold('Remember to install the necessary runtime package with:'),
     )
     console.log()
     console.log(
         `  ${chalk.cyan(
             `${useYarn ? 'yarn add' : 'npm install'} ${dependencies.join(' ')}`,
         )}`,
+    )
+    console.log()
+    console.log(
+        ('Always remember that the genql-runtime should always have the same version as the cli!'),
     )
     console.log()
 }

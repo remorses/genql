@@ -1,9 +1,7 @@
 import { GraphQLSchema } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
-
-// [bump if genql-cli]
-const version = '1.1.7'
+import { version } from '../../version'
 
 const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
@@ -22,7 +20,6 @@ function(options) {
     return createClientOriginal(optionsCopy)
 }`
 }
-
 
 export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
