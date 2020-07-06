@@ -7,17 +7,18 @@ import {
     Field,
     FieldMap,
 } from '../types'
+import assign from 'lodash.assign'
 
 export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
     // TODO add Type.type and Type.args
 
-    const indexToName = Object.assign(
+    const indexToName = assign(
         {},
         ...Object.keys(typeMap.types).map((k, i) => ({ [i]: k })),
     )
 
     // add the name value
-    let intermediaryTypeMap = Object.assign(
+    let intermediaryTypeMap = assign(
         {},
         ...Object.keys(typeMap.types || {}).map(
             (k): Record<string, LinkedType> => {
@@ -33,7 +34,7 @@ export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
                             return typeMap.scalars.includes(type)
                         }),
                         // fields with corresponding `type` and `args`
-                        fields: Object.assign(
+                        fields: assign(
                             {},
                             ...Object.keys(fields).map(
                                 (f): FieldMap<string> => {
@@ -41,7 +42,7 @@ export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
                                     return {
                                         [f]: {
                                             type: indexToName[content.type],
-                                            args: Object.assign(
+                                            args: assign(
                                                 {},
                                                 ...Object.keys(
                                                     content.args || {},
