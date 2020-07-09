@@ -29,9 +29,6 @@ export const schemaTask = (config: Config): ListrTask => {
         }
     } else if (config.schema) {
         const schema = config.schema
-        if (!existsSync(schema)) {
-            throw new Error(`file '${schema}' does not exist`)
-        }
         return {
             title: 'loading schema',
             task: async (ctx) => {

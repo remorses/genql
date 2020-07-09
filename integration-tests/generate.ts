@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 
 generateProject({
-    schema: path.join(__dirname, 'schema.graphql'),
+    schema: fs.readFileSync(path.join(__dirname, 'schema.graphql')).toString(),
     output: path.join(__dirname, 'generated'),
     scalarTypes: {
         MongoID: 'string',

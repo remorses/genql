@@ -5,6 +5,7 @@ import { generateProject } from './main'
 import { validateConfigs } from './tasks/validateConfigs'
 import { Config } from './config'
 import { version } from './version'
+import { existsSync, readFileSync } from 'fs'
 
 const program = yargs
     .option('output', {
@@ -82,13 +83,14 @@ const program = yargs
 const config: Config = {
     endpoint: program.endpoint,
     useGet: program.get,
-    schema: program.schema,
+    schema: program.schema && readFile(program.schema),
     output: program.output,
     headers: parseColonSeparatedStrings(program.header || []),
     scalarTypes: parseColonSeparatedStrings(program.scalar || []),
     onlyEsModules: program.esm,
     verbose: program.verbose,
 }
+
 
 if (!validateConfigs([config])) {
     process.exit(1)
@@ -140,7 +142,16 @@ export function printHelp({ useYarn, dirPath, dependencies }) {
     )
     console.log()
     console.log(
-        ('PS: `genql-runtime` should always have the same version as the cli!'),
+        'PS: `genql-runtime` should always have the same version as the cli!',
     )
     console.log()
+}
+
+
+function readFile(p) {
+    if (!existsSync(p)) {
+        console.log(`file '${p}' does not exist`)
+        process.exit(1)
+    }
+    return readFileSync(p).toString()
 }
