@@ -1,2 +1,1 @@
-
-export * from './main'
+export { generate } from './main'

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import chalk from 'chalk'
 import yargs from 'yargs'
-import { generateProject } from './main'
+import { generate } from './main'
 import { validateConfigs } from './tasks/validateConfigs'
 import { Config } from './config'
 import { version } from './version'
@@ -96,7 +96,7 @@ if (!validateConfigs([config])) {
     process.exit(1)
 }
 
-generateProject(config)
+generate(config)
     .catch((e: any) => {
         console.error(chalk.red(e.message))
         process.exit(1)
