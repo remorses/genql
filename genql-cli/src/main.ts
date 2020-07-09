@@ -3,7 +3,7 @@ import Listr from 'listr'
 import { clientTasks } from './tasks/clientTasks'
 import { schemaTask } from './tasks/schemaTask'
 
-export const generateProject = (config: Config, verbose = true) => {
+export const generateProject = (config: Config,) => {
     if (!config.output)
         throw new Error('`output` must be defined in the config')
 
@@ -17,6 +17,6 @@ export const generateProject = (config: Config, verbose = true) => {
                     new Listr([schemaTask(config), ...clientTasks(config)]),
             },
         ],
-        { renderer: verbose ? 'verbose' : 'silent', exitOnError: false },
+        { renderer: config.verbose ? 'verbose' : 'silent', exitOnError: false,  },
     ).run()
 }

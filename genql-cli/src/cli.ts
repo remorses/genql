@@ -87,6 +87,7 @@ const config: Config = {
     headers: parseColonSeparatedStrings(program.header || []),
     scalarTypes: parseColonSeparatedStrings(program.scalar || []),
     onlyEsModules: program.esm,
+    verbose: program.verbose,
 }
 
 if (!validateConfigs([config])) {

@@ -12,6 +12,7 @@ export interface Options {
 }
 
 export interface Config {
+    verbose?: boolean
     endpoint?: string
     useGet?: boolean
     schema?: string
