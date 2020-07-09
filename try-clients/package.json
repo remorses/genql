@@ -6,7 +6,7 @@
     "scripts": {
         "test": "mocha",
         "gen": "yarn hasura && yarn github && yarn simple",
-        "simple": "yarn --cwd .. play --schema try-clients/github.graphqls -o try-clients/simple/generated",
+        "simple": "yarn --cwd .. play --schema try-clients/github.graphql -o try-clients/simple/generated",
         "hasura": "yarn --cwd .. play -e https://hasura-2334534.herokuapp.com/v1/graphql -o try-clients/hasura/generated",
         "github": "yarn --cwd .. play --schema try-clients/github.graphql -o try-clients/github/generated -S HTML:string -S URI:string "
     },
