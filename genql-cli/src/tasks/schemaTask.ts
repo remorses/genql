@@ -1,5 +1,6 @@
 import { buildASTSchema, assertValidSchema, GraphQLSchema } from 'graphql'
 import { ListrTask } from 'listr'
+import { existsSync } from 'fs-extra'
 import { Config } from '../config'
 import { requireModuleFromPath } from '../helpers/files'
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
@@ -28,7 +29,9 @@ export const schemaTask = (config: Config): ListrTask => {
         }
     } else if (config.schema) {
         const schema = config.schema
-
+        if (!existsSync(schema)) {
+            throw new Error(`file '${schema}' does not exist`)
+        }
         return {
             title: 'loading schema',
             task: async (ctx) => {

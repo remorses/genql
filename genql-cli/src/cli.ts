@@ -95,7 +95,7 @@ if (!validateConfigs([config])) {
 
 generateProject(config)
     .catch((e: any) => {
-        console.error(e)
+        console.error(chalk.red(e.message))
         process.exit(1)
     })
     .then(() => {

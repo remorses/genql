@@ -53,6 +53,7 @@
         "@types/prettier": "^1.19.0",
         "@types/yargs": "^15.0.5",
         "chalk": "^4.1.0",
+        "fs-extra": "^9.0.1",
         "graphql": "^15.1.0",
         "isomorphic-unfetch": "^3.0.0",
         "listr": "^0.14.3",
