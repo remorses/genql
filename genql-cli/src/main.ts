@@ -17,5 +17,10 @@ export const generate = (config: Config): Promise<void> => {
             },
         ],
         { renderer: config.verbose ? 'verbose' : 'silent', exitOnError: false },
-    ).run()
+    )
+        .run()
+        .catch((e) => {
+            // cconsole.log(e)
+            throw e?.errors?.[0]
+        })
 }

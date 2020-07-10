@@ -91,13 +91,13 @@ const config: Config = {
     verbose: program.verbose,
 }
 
-
 if (!validateConfigs([config])) {
     process.exit(1)
 }
 
 generate(config)
     .catch((e: any) => {
+        console.error(chalk.red(e.name))
         console.error(chalk.red(e.message))
         process.exit(1)
     })
@@ -146,7 +146,6 @@ export function printHelp({ useYarn, dirPath, dependencies }) {
     )
     console.log()
 }
-
 
 function readFile(p) {
     if (!existsSync(p)) {
