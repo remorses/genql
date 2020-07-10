@@ -128,7 +128,7 @@ function parseColonSeparatedStrings(headersArray) {
 export function printHelp({ useYarn, dirPath, dependencies }) {
     console.log()
     console.log(
-        `${chalk.green('Success!')} Generated client code at '${dirPath}'`,
+        `${chalk.green('Success!')} Generated client code inside '${dirPath}'`,
     )
     console.log()
     console.log(
