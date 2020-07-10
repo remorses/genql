@@ -27,6 +27,7 @@ jobs:
         with:
           version_file: genql-cli/VERSION
           prefix: genql-cli
+          ignore: generated, dist, esm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: cd genql-cli && yarn publish || echo 'cannot publish'
