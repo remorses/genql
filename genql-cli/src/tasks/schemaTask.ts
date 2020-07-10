@@ -32,14 +32,11 @@ export const schemaTask = (config: Config): ListrTask => {
         return {
             title: 'loading schema',
             task: async (ctx) => {
-                const options = config.options && config.options.schemaBuild
+                // const options = config.options && config.options.schemaBuild
                 const document = await loadSchema(schema, {
                     loaders: [new GraphQLFileLoader()],
                 })
-                ctx.schema =
-                    document instanceof GraphQLSchema
-                        ? document
-                        : buildASTSchema(document, options)
+                ctx.schema = document
 
                 try {
                     assertValidSchema(ctx.schema)
