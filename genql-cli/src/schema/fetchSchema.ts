@@ -10,7 +10,7 @@ import qs from 'qs'
 
 export interface SchemaFetcher {
     (query: string, fetchImpl: typeof fetch, qsImpl: typeof qs): Promise<
-        ExecutionResult<IntrospectionQuery>
+        ExecutionResult
     >
 }
 
@@ -73,5 +73,5 @@ export const customFetchSchema = async (
         )
     }
 
-    return buildClientSchema(result.data, options)
+    return buildClientSchema(result.data as any, options)
 }

@@ -1,1 +1,1 @@
-{"scalars":[2,3,4],"types":{"Query":{"users":{"type":1},"__typename":{"type":3}},"User":{"id":{"type":2},"name":{"type":3},"__typename":{"type":3}},"ID":{},"String":{},"Boolean":{}}}
+{"scalars":[0,1,4],"types":{"String":{},"Boolean":{},"Query":{"users":{"type":3},"__typename":{"type":0}},"User":{"id":{"type":4},"name":{"type":0},"__typename":{"type":0}},"ID":{}}}

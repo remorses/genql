@@ -2,8 +2,8 @@ import {FieldsSelection,Observable} from 'genql-runtime'
 
 export type Scalars = {
     String: string,
-    Int: number,
     Boolean: boolean,
+    Int: number,
 }
 
 export interface Query {

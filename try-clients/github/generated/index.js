@@ -6,7 +6,7 @@ const {
 } = require('genql-runtime')
 var typeMap = linkTypeMap(require('./types.json'))
 
-var version = '1.1.14'
+var version = '1.1.17'
 assertSameVersion(version)
 
 module.exports.version = version
