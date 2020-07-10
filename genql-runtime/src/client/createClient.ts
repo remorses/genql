@@ -1,4 +1,4 @@
-import { ExecutionResult } from 'graphql'
+
 import get from 'lodash.get'
 import {
     ClientOptions as SubscriptionOptions,
@@ -13,7 +13,7 @@ import {
     generateGraphqlOperation,
     GraphqlOperation,
 } from './generateGraphqlOperation'
-import { LinkedType } from '../types'
+import { LinkedType, ExecutionResult } from '../types'
 
 export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string

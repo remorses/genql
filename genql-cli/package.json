@@ -51,7 +51,6 @@
     "dependencies": {
         "@graphql-tools/graphql-file-loader": "^6.0.10",
         "@graphql-tools/load": "^6.0.10",
-        "@types/graphql": "^14.5.0",
         "@types/node": "*",
         "@types/prettier": "^1.19.0",
         "@types/yargs": "^15.0.5",

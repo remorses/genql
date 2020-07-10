@@ -1,7 +1,7 @@
-import { GraphQLError } from 'graphql'
+
 
 export class ClientError extends Error {
-    constructor(errors?: readonly GraphQLError[]) {
+    constructor(errors?: readonly Error[]) {
         const message = ClientError.extractMessage(errors)
         super(
             errors
@@ -15,7 +15,7 @@ export class ClientError extends Error {
         Object.setPrototypeOf(this, new.target.prototype)
         if (Error.captureStackTrace) Error.captureStackTrace(this, ClientError)
     }
-    private static extractMessage(errors: readonly GraphQLError[]): string {
+    private static extractMessage(errors: readonly Error[]): string {
         try {
             return errors![0].message
         } catch (e) {

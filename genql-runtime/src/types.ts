@@ -1,24 +1,30 @@
+export interface ExecutionResult<TData = { [key: string]: any }> {
+    errors?: ReadonlyArray<Error>
+    // TS_SPECIFIC: TData. Motivation: https://github.com/graphql/graphql-js/pull/2490#issuecomment-639154229
+    data?: TData | null
+}
+
 // TYPE MAP ////////////
 // the type of types.json object
 
-export interface ArgMap<keyType=number> {
+export interface ArgMap<keyType = number> {
     [arg: string]: [keyType, string] | [keyType] | undefined
 }
 
-export interface Field<keyType=number> {
+export interface Field<keyType = number> {
     type: keyType
     args?: ArgMap<keyType>
 }
 
 // export type Field = [string] | [string, ArgMap]
 
-export interface FieldMap<keyType=number> {
+export interface FieldMap<keyType = number> {
     [field: string]: Field<keyType> | undefined
 }
 
-export type Type<keyType=number> = FieldMap<keyType>
+export type Type<keyType = number> = FieldMap<keyType>
 
-export interface TypeMap<keyType=number> {
+export interface TypeMap<keyType = number> {
     scalars: Array<keyType>
     types: {
         [type: string]: Type<keyType> | undefined
@@ -28,7 +34,7 @@ export interface TypeMap<keyType=number> {
 // LINKED TYPE ////////////
 
 export interface LinkedArgMap {
-    [arg: string]: [LinkedType, string, ] | undefined
+    [arg: string]: [LinkedType, string] | undefined
 }
 export interface LinkedField {
     type: LinkedType

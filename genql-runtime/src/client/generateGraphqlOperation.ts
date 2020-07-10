@@ -1,4 +1,3 @@
-import { OperationTypeNode } from 'graphql'
 import { getFieldFromPath } from './getFieldFromPath'
 import { LinkedType } from '../types'
 
@@ -128,7 +127,7 @@ const parseRequest = (
 }
 
 export const generateGraphqlOperation = (
-    operation: OperationTypeNode,
+    operation: 'query' | 'mutation' | 'subscription',
     root: LinkedType,
     fields: Fields,
 ): GraphqlOperation => {
@@ -147,7 +146,7 @@ export const generateGraphqlOperation = (
         varNames.length > 0
             ? `(${varNames.map((v) => {
                   const variableType = ctx.variables[v].typing[1]
-                //   console.log('variableType', variableType)
+                  //   console.log('variableType', variableType)
                   return `$${v}:${variableType}`
               })})`
             : ''
