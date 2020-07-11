@@ -6,6 +6,8 @@ import {
     isScalarType,
     isUnionType,
     GraphQLScalarType,
+    GraphQLType,
+    GraphQLObjectType,
 } from 'graphql'
 import { excludedTypes } from '../common/excludedTypes'
 import { RenderContext } from '../common/RenderContext'
@@ -38,4 +40,27 @@ export const renderResponseTypes = (
         if (isObjectType(type)) objectType(type, ctx)
         if (isInterfaceType(type)) interfaceType(type, ctx)
     }
+
+    const aliases = [
+        { type: schema.getQueryType(), name: 'Query' },
+        { type: schema.getMutationType(), name: 'Mutation' },
+        { type: schema.getSubscriptionType(), name: 'Subscription' },
+    ]
+        .map(renderAlias)
+        .filter(Boolean)
+        .join('\n')
+    ctx.addCodeBlock(aliases)
+}
+
+function renderAlias({
+    type,
+    name,
+}: {
+    type?: GraphQLObjectType | null
+    name: string
+}) {
+    if (type && type.name !== name) {
+        return `export type ${name} = ${type.name}`
+    }
+    return ''
 }

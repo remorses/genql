@@ -184,6 +184,10 @@ export interface user_variance_fields {
     __typename?: 'user_variance_fields'
 }
 
+export type Query = query_root
+export type Mutation = mutation_root
+export type Subscription = subscription_root
+
 
 /** expression to compare columns of type Int. All fields are combined with logical 'AND'. */
 export interface Int_comparison_exp {_eq?: (Scalars['Int'] | null),_gt?: (Scalars['Int'] | null),_gte?: (Scalars['Int'] | null),_in?: (Scalars['Int'][] | null),_is_null?: (Scalars['Boolean'] | null),_lt?: (Scalars['Int'] | null),_lte?: (Scalars['Int'] | null),_neq?: (Scalars['Int'] | null),_nin?: (Scalars['Int'][] | null)}
@@ -508,6 +512,10 @@ export interface user_variance_fieldsRequest{
 
 /** order by variance() on columns of table "user" */
 export interface user_variance_order_by {age?: (order_by | null)}
+
+export type QueryRequest = query_rootRequest
+export type MutationRequest = mutation_rootRequest
+export type SubscriptionRequest = subscription_rootRequest
 
 
 const mutation_root_possibleTypes = ['mutation_root']
