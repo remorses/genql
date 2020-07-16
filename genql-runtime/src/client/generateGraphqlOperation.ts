@@ -82,7 +82,7 @@ const parseRequest = (
 
         let scalarFieldsFragment: string | undefined
 
-        if (~fieldNames.indexOf('__scalar')) {
+        if (fieldNames.indexOf('__scalar') !== -1) {
             if (!scalarFields?.length) {
                 throw new Error(`type ${type.name} has no scalar fields`)
             }
