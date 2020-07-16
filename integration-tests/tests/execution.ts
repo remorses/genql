@@ -117,6 +117,20 @@ describe('execute queries', async function() {
             assert(deepEq(res.user, x))
         }),
     )
+    it(
+        'falsy values are not fetched ',
+        withServer(async () => {
+            const res = await client.query({
+                coordinates: {
+                    x: false,
+                    y: true,
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            assert(res.coordinates?.x === undefined)
+            assert(res.coordinates?.y !== undefined)
+        }),
+    )
 
     it(
         'required field and nested fields',

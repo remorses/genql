@@ -69,9 +69,10 @@ const parseRequest = (
         })})${parseRequest(fields, ctx, path)}`
     } else if (typeof request === 'object') {
         const fields = request
-        const fieldNames = Object.keys(fields)
+        const fieldNames = Object.keys(fields).filter((k) => Boolean(fields[k]))
 
         if (fieldNames.length === 0) {
+            // TODO if fields are empty just return?
             throw new Error('field selection should not be empty')
         }
 
@@ -81,7 +82,7 @@ const parseRequest = (
 
         let scalarFieldsFragment: string | undefined
 
-        if (~fieldNames.indexOf('__scalar')) {
+        if (fieldNames.indexOf('__scalar') !== -1) {
             if (!scalarFields?.length) {
                 throw new Error(`type ${type.name} has no scalar fields`)
             }
