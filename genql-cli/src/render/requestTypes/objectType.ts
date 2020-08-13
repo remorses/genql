@@ -10,6 +10,7 @@ import { fieldComment, typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
 import { toArgsString } from '../common/toArgsString'
 import { requestTypeName } from './requestTypeName'
+import { sortKeys } from '../common/support'
 
 const INDENTATION = '    '
 
@@ -17,7 +18,13 @@ export const objectType = (
     type: GraphQLObjectType | GraphQLInterfaceType,
     ctx: RenderContext,
 ) => {
-    const fields = type.getFields()
+
+    let fields = type.getFields()
+
+    if (ctx.config?.sortProperties) {
+        fields = sortKeys(fields)
+    }
+
     let fieldStrings = Object.keys(fields).map((fieldName) => {
         const field = fields[fieldName]
 

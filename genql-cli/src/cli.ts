@@ -54,6 +54,12 @@ const program = yargs
         description:
             'generate only ES modules code, ./generated/index.js will use esm exports and imports',
     })
+    .option('sort', {
+        type: 'boolean',
+        default: false,
+        description:
+            'sort object properties to not create diffs after generations',
+    })
     .option('verbose', { alias: 'v', type: 'boolean', default: false })
     .example(
         '$0 --output ./generated --endpoint http://localhost:3000  -H "Authorization: Bearer xxx"',
@@ -89,6 +95,7 @@ const config: Config = {
     scalarTypes: parseColonSeparatedStrings(program.scalar || []),
     onlyEsModules: program.esm,
     verbose: program.verbose,
+    sortProperties: program.sort,
 }
 
 if (!validateConfigs([config])) {

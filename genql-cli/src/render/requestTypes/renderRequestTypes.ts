@@ -11,12 +11,18 @@ import { RenderContext } from '../common/RenderContext'
 import { inputObjectType } from './inputObjectType'
 import { objectType } from './objectType'
 import { unionType } from './unionType'
+import { sortKeys } from '../common/support'
 
 export const renderRequestTypes = (
     schema: GraphQLSchema,
     ctx: RenderContext,
 ) => {
-    const typeMap = schema.getTypeMap()
+    let typeMap = schema.getTypeMap()
+
+    if (ctx.config?.sortProperties) {
+        typeMap = sortKeys(typeMap)
+    }
+
     for (const name in typeMap) {
         if (excludedTypes.includes(name)) continue
 

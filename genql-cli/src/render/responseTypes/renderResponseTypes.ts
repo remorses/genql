@@ -11,17 +11,22 @@ import {
 } from 'graphql'
 import { excludedTypes } from '../common/excludedTypes'
 import { RenderContext } from '../common/RenderContext'
+import { sortBy } from 'lodash'
 import { enumType } from './enumType'
 import { objectType } from './objectType'
 import { renderScalarTypes } from './scalarType'
 import { unionType } from './unionType'
 import { interfaceType } from './interfaceType'
+import { sortKeys } from '../common/support'
 
 export const renderResponseTypes = (
     schema: GraphQLSchema,
     ctx: RenderContext,
 ) => {
-    const typeMap = schema.getTypeMap()
+    let typeMap = schema.getTypeMap()
+    if (ctx.config?.sortProperties) {
+        typeMap = sortKeys(typeMap)
+    }
     ctx.addCodeBlock(
         renderScalarTypes(
             ctx,

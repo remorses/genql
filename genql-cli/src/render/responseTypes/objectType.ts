@@ -8,6 +8,7 @@ import {
 import { fieldComment, typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
 import { renderTyping } from '../common/renderTyping'
+import { sortKeys } from '../common/support'
 
 const INDENTATION = '    '
 
@@ -15,7 +16,12 @@ export const objectType = (
     type: GraphQLObjectType | GraphQLInterfaceType,
     ctx: RenderContext,
 ) => {
-    const fieldsMap = type.getFields()
+    let fieldsMap = type.getFields()
+
+    if (ctx.config?.sortProperties) {
+        fieldsMap = sortKeys(fieldsMap)
+    }
+
     const fields = Object.keys(fieldsMap).map(
         (fieldName) => fieldsMap[fieldName],
     )
