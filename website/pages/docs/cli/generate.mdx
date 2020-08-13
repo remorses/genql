@@ -54,9 +54,9 @@ genql -S MyScalar:string -S AnotherScalar:number -e https://countries.trevorblad
 
 ## Sort properties
 
-The order of generated object properties is taken from the schema introspection, popular frameworks like apollo only change the order of the fields only when you change them in your graphql schema
-
 If you see a lot of diffs between one generation and another you can use the `--sort` flag to sort object properties
+
+The order of generated object properties is taken from the schema introspection by default, so you shouldn't need this flag if using popular frameworks like Apollo server
 
 ```bash
 genql --sort -e https://countries.trevorblades.com -o ./generated
