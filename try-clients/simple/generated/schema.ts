@@ -56,8 +56,8 @@ export interface QueryObservableChain{users:({get: (request: UserRequest, defaul
 
 
 /** foobar */
-export interface UserPromiseChain{id:({get:(request?:boolean|number,defaultValue?:(Scalars['ID'] | null))=>Promise<(Scalars['ID'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})}
+export interface UserPromiseChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['ID'] | null))=>Promise<(Scalars['ID'] | null)>})}
 
 
 /** foobar */
-export interface UserObservableChain{id:({get:(request?:boolean|number,defaultValue?:(Scalars['ID'] | null))=>Observable<(Scalars['ID'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})}
+export interface UserObservableChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),id:({get:(request?:boolean|number,defaultValue?:(Scalars['ID'] | null))=>Observable<(Scalars['ID'] | null)>})}

@@ -56,12 +56,12 @@ export const objectType = (
             .join('\n'),
     )
 
-    const interfaceNames = isObjectType(type)
-        ? type.getInterfaces().map((i) => i.name)
-        : []
     // there is no need to add extensions as in graphql the implemented type must explicitly add the fields
-    let extensions =
-        interfaceNames.length > 0 ? ` extends ${interfaceNames.join(',')}` : ''
+    // const interfaceNames = isObjectType(type)
+    //     ? type.getInterfaces().map((i) => i.name)
+    //     : []
+    // let extensions =
+    //     interfaceNames.length > 0 ? ` extends ${interfaceNames.join(',')}` : ''
     ctx.addCodeBlock(
         `${typeComment(type)}export interface ${
             type.name

@@ -18,7 +18,6 @@ export const objectType = (
     type: GraphQLObjectType | GraphQLInterfaceType,
     ctx: RenderContext,
 ) => {
-
     let fields = type.getFields()
 
     if (ctx.config?.sortProperties) {
@@ -57,11 +56,13 @@ export const objectType = (
     })
 
     if (isInterfaceType(type) && ctx.schema) {
-        fieldStrings = fieldStrings.concat(
-            ctx.schema
-                .getPossibleTypes(type)
-                .map((t) => `on_${t.name}?: ${requestTypeName(t)}`),
-        )
+        let interfaceProperties = ctx.schema
+            .getPossibleTypes(type)
+            .map((t) => `on_${t.name}?: ${requestTypeName(t)}`)
+        if (ctx.config?.sortProperties) {
+            interfaceProperties = interfaceProperties.sort()
+        }
+        fieldStrings = fieldStrings.concat(interfaceProperties)
     }
 
     fieldStrings.push('__typename?: boolean | number')

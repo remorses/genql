@@ -4,7 +4,11 @@ import { RenderContext } from '../common/RenderContext'
 import { requestTypeName } from './requestTypeName'
 
 export const unionType = (type: GraphQLUnionType, ctx: RenderContext) => {
-  const fieldStrings = type.getTypes().map(t => `on_${t.name}?:${requestTypeName(t)}`)
+  let types = type.getTypes()
+  if (ctx.config?.sortProperties) {
+    types = types.sort()
+  } 
+  const fieldStrings = types.map(t => `on_${t.name}?:${requestTypeName(t)}`)
 
   fieldStrings.push('__typename?:boolean | number')
 
