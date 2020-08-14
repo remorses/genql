@@ -4,6 +4,6 @@ type Query {
 
 """foobar"""
 type User {
-  name: String
   id: ID
+  name: String
 }

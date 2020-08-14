@@ -8,6 +8,7 @@ import {
     isNonNullType,
     isScalarType,
     isUnionType,
+    GraphQLFieldMap,
 } from 'graphql'
 import { fieldComment, typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
@@ -15,6 +16,7 @@ import { renderTyping } from '../common/renderTyping'
 import { toArgsString } from '../common/toArgsString'
 import { requestTypeName } from '../requestTypes/requestTypeName'
 import { RUNTIME_LIB_NAME } from '../../config'
+import { sortKeys } from '../common/support'
 
 export const chainTypeName = (
     type: GraphQLNamedType,
@@ -28,8 +30,13 @@ export const objectType = (
     ctx: RenderContext,
     wrapper: 'Promise' | 'Observable',
 ) => {
-    const fieldStrings = Object.keys(type.getFields()).map((fieldName) => {
-        const field = type.getFields()[fieldName]
+    // console.log(Object.keys(type.getFields()))
+    const fieldsMap: GraphQLFieldMap<any, any> = ctx.config?.sortProperties
+        ? sortKeys(type.getFields())
+        : type.getFields()
+
+    const fieldStrings = Object.keys(fieldsMap).map((fieldName) => {
+        const field = fieldsMap[fieldName]
         const resolvedType = getNamedType(field.type)
         const stopChain =
             isListType(field.type) ||
