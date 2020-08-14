@@ -131,5 +131,4 @@ export function replaceTypeNamesWithIndexes(
         scalars,
         types,
     }
-    // TODO replace type names with indexes
 }
