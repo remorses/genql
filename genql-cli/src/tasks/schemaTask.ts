@@ -22,6 +22,7 @@ export const schemaTask = (config: Config): ListrTask => {
             task: async (ctx) => {
                 ctx.schema = await fetchSchema({
                     endpoint,
+                    sort: config?.sortProperties,
                     usePost: !config.useGet,
                     headers: config.headers,
                 })
