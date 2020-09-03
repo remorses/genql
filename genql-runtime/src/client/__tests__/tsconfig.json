@@ -2,7 +2,9 @@
     "compilerOptions": {
         "esModuleInterop": true,
         "strict": false,
+        "strictNullChecks": true,
         "noEmit": true,
         "skipLibCheck": true
-    }
+    },
+    "include": ["typeSelection.test.ts"]
 }

@@ -61,6 +61,14 @@ type SRC = {
     yyy: {
         yyy: boolean
     }
+    argumentSyntax: {
+        a: string
+        optional?: string
+        nesting: {
+            x: number
+            y: number
+        }
+    }
 }
 
 describe('pick', () => {
@@ -72,6 +80,15 @@ describe('pick', () => {
                 a: 1,
             },
         },
+        argumentSyntax: [
+            { x: 3 },
+            {
+                a: 1,
+                nesting: {
+                    __scalar: 1,
+                },
+            },
+        ] as const,
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
     test(
@@ -99,6 +116,12 @@ describe('pick', () => {
             z.category.nested1.c
             // @ts-expect-error
             z.category.nested2
+        }),
+    )
+    test(
+        'argument syntax',
+        dontExecute(() => {
+            z.argumentSyntax.a.toLocaleLowerCase
         }),
     )
 })
@@ -205,6 +228,9 @@ describe('unions', () => {
                 onX: {
                     a: 1,
                 },
+                onY: {
+                    b: 1,
+                },
             },
         },
     }
@@ -214,7 +240,7 @@ describe('unions', () => {
         dontExecute(() => {
             z.union.a.toLocaleLowerCase
             z.union.a.toLocaleLowerCase
-            z.nesting.nestedUnion.a
+            z.nesting.nestedUnion.a.toLocaleLowerCase
         }),
     )
     test(
@@ -325,6 +351,6 @@ x.a // i can access x? shouldn't x be inaccessible?
 //     x.one
 // }
 
-function dontExecute(f) {
+function dontExecute(f: any) {
     return () => {}
 }

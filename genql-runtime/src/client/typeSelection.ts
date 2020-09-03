@@ -1,28 +1,37 @@
 //////////////////////////////////////////////////
 
-export type FieldsSelection<SRC extends Anify<DST>, DST> = Pick<
-    {
-        // using keyof SRC to maintain ?: relations of SRC type
-        [Key in keyof SRC]: Key extends keyof DST
-            ? DST[Key] extends [any, infer PAYLOAD]
-                ? HandleScalars<SRC[Key], PAYLOAD> // continue processing only on the selection field
-                : HandleScalars<SRC[Key], DST[Key]>
-            : never
-    },
-    keyof DST
->
-
-type HandleScalars<SRC, DST> = SRC extends undefined
-    ? never
-    : DST extends true | 1 // directly return scalar types
-    ? SRC
-    : SRC extends Scalar // directly return scalar types
-    ? SRC
-    : SRC extends { __isUnion?: any } // process types with __isUnion field
-    ? Handle__isUnion<SRC, DST>
-    : DST extends { __scalar?: any } // process types with __scalar field // TODO how to handle unions and __scalar together?
-    ? Handle__scalar<SRC, DST>
-    : FieldsSelection<SRC, DST> // process normal object types
+export type FieldsSelection<SRC extends Anify<DST>, DST> = {
+    tuple: DST extends readonly [any, infer PAYLOAD]
+        ? FieldsSelection<SRC, PAYLOAD>
+        : never
+    scalar: SRC
+    union: Handle__isUnion<SRC, DST>
+    object: Pick<
+        {
+            // using keyof SRC to maintain ?: relations of SRC type
+            [Key in keyof SRC]: Key extends keyof DST
+                ? FieldsSelection<SRC[Key], DST[Key]>
+                : never
+        },
+        keyof DST
+    >
+    __scalar: Handle__scalar<SRC, DST>
+    default: never
+}[DST extends undefined
+    ? 'default'
+    : DST extends readonly [any, any]
+    ? 'tuple'
+    : SRC extends Scalar
+    ? 'scalar'
+    : DST extends boolean | number
+    ? 'scalar'
+    : SRC extends { __isUnion?: any }
+    ? 'union'
+    : DST extends { __scalar?: any }
+    ? '__scalar'
+    : DST extends {}
+    ? 'object'
+    : 'default']
 
 type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
     ? never
@@ -31,7 +40,7 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
               // continue processing fields that are in DST, directly pass SRC type if not in DST
               {
                   [Key in keyof SRC]: Key extends keyof DST
-                      ? HandleScalars<SRC[Key], DST[Key]>
+                      ? FieldsSelection<SRC[Key], DST[Key]>
                       : SRC[Key]
               },
               // remove fields that are not scalars or are not in DST
