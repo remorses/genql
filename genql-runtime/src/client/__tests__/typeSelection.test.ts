@@ -1,5 +1,20 @@
 import { FieldsSelection } from '../typeSelection'
 
+// types requirements
+/*
+- no arguments, only request objects
+    - response type picks from request type 
+        - at first level
+        - at nested level
+    - response type has all fields if __scalar is present
+    - response type does not have __scalar field
+        - at first level
+        - at nested levels
+    - response type is union of the on_ fields values (after their selection)
+    - response type does not have on_ fields
+    - works with NoExtraProperties
+*/
+
 type SRC = {
     category: {
         a: any
@@ -8,11 +23,20 @@ type SRC = {
         nested1: {
             a: string
             b: string
+            c: string
         }
         nested2: {
             a: string
             b: string
         }
+        optionalFieldsNested?: {
+            a?: string
+            b?: number
+        }
+    }
+    optionalFields: {
+        a?: string
+        b?: number
     }
     order: {
         customer: {
@@ -31,70 +55,113 @@ type SRC = {
     }
 }
 
-type DST = {
-    category: {
-        __scalar: boolean
-        nested1: {
-            a: 1
-        }
-    }
-    order: {
-        customer: {
-            address: {
-                city: 1
-            }
-        }
-    }
-}
-
-const x: SRC = {
-    category: {
-        a: true,
-        b: true,
-        c: true,
-        nested1: {
-            a: '',
-            b: '',
-        },
-        nested2: {
-            a: '',
-            b: '',
-        },
-    },
-    order: {
-        customer: {
-            address: {
+describe('pick', () => {
+    const req = {
+        category: {
+            __scalar: 1,
+            nested1: {
                 a: 1,
-                b: 1,
-                city: 1,
             },
         },
-    },
-    xxx: {
-        xxx: true,
-    },
-    yyy: {
-        yyy: true,
-    },
-}
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'response type picks from request type',
+        dontExecute(() => {
+            z.category
+            z.category.a
+            z.category.b
+            z.category.c
+            z.category.nested1.a
+        }),
+    )
+    test(
+        'response type does not have additional properties',
+        dontExecute(() => {
+            // TODO i can access keys with value type equal never
+            // @ts-expect-error
+            z.order
+            // @ts-expect-error
+            z.category.nested1.b
+            // @ts-expect-error
+            z.category.nested1.c
+            // @ts-expect-error
+            z.category.nested2
+        }),
+    )
+})
 
-const z: FieldsSelection<SRC, DST> = x
+describe('__scalar', () => {
+    const req = {
+        category: {
+            __scalar: 1,
+            nested1: {
+                a: 1,
+            },
+        },
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'response type picks from request type',
+        dontExecute(() => {
+            z.category
+            z.category.a
+            z.category.b
+            z.category.c
+            z.category.nested1.a
+        }),
+    )
+    test(
+        'response type does not have additional properties',
+        dontExecute(() => {
+            // TODO i can access keys with value type equal never
+            // @ts-expect-error
+            z.order
+            // @ts-expect-error
+            z.category.nested1.b
+            // @ts-expect-error
+            z.category.nested1.c
+            // @ts-expect-error
+            z.category.nested2
+        }),
+    )
+    test(
+        '__scalar is not present',
+        dontExecute(() => {
+            // @ts-expect-error
+            z.category.__scalar
+        }),
+    )
+})
 
-z.category
-z.category.a
-z.category.b
-z.category.c
-z.category.nested1.a
-z.category.nested1.a
-// // @ts-expect-error
-z.category.nested1.b
-// @ts-expect-error
-z.category.nested1.c
-// // @ts-expect-error
-z.category.nested2
-z.order.customer.address.city
-
-test('ts does not complain', () => {})
+describe('optional fields', () => {
+    const req = {
+        optionalFields: {
+            a: 1,
+            b: 1,
+        },
+        category: {
+            optionalFieldsNested: {
+                a: 1,
+                b: 1,
+            },
+        },
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'optional fields are preserved',
+        dontExecute(() => {
+            // @ts-expect-error
+            z.optionalFields.a.toLocaleLowerCase
+            // @ts-expect-error
+            z.optionalFields.b.toLocaleLowerCase
+            // @ts-expect-error
+            z.category.optionalFieldsNested.a
+            // @ts-expect-error
+            z.category?.optionalFieldsNested.a
+        }),
+    )
+})
 
 ///////////////////////////////////// unions
 
@@ -184,3 +251,7 @@ test('ts does not complain', () => {})
 //     const x: ObjectFieldsSelection<One, { one?: true }> = {} as any
 //     x.one
 // }
+
+function dontExecute(f) {
+    return () => {}
+}

@@ -24,7 +24,8 @@
     "scripts": {
         "start": "tsdx watch",
         "build": "rm -rf dist esm || true && tsc && tsc -m ESNext --outDir esm",
-        "test": "cd ../genql-cli && tsc --incremental && cd ../genql-runtime && jest",
+        "typesTests": "tsc -p src/client/__tests__/tsconfig.json",
+        "test": "cd ../genql-cli && tsc --incremental && cd ../genql-runtime && yarn typesTests && jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"
     },
@@ -45,7 +46,7 @@
         "jest": ">=22 <24",
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
-        "typescript": "^3.9.5"
+        "typescript": "^4.0.2"
     },
     "dependencies": {
         "@types/lodash.assign": "^4.2.6",

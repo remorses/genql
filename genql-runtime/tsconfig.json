@@ -5,6 +5,7 @@
         "noUnusedParameters": true,
         // "noImplicitAny": false,
         "importHelpers": true,
+        "rootDir": "src",
         "strict": false,
         "declaration": true,
         "target": "ES5",
@@ -17,16 +18,14 @@
         "lib": ["dom", "esnext.asynciterable"],
         "skipLibCheck": true,
     },
-    "include": ["./src"],
+    "include": ["src"],
     "exclude": [
         "node_modules",
         "**/*.case.ts",
-        "**/*.test.ts", // TODO tests are not type checked
         "tests",
         "example",
-        "./dist",
-        "dist/**",
-        // "**/__tests__",
+        "dist",
+        "**/__tests__",
         "esm"
     ]
 }
