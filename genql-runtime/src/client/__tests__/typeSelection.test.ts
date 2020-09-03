@@ -17,9 +17,9 @@ import { FieldsSelection } from '../typeSelection'
 
 type SRC = {
     category: {
-        a: any
-        b: any
-        c: any
+        a: Date
+        b: Date
+        c: Date
         nested1: {
             a: string
             b: string
@@ -58,7 +58,8 @@ type SRC = {
 describe('pick', () => {
     const req = {
         category: {
-            __scalar: 1,
+            a: 1,
+            b: 1,
             nested1: {
                 a: 1,
             },
@@ -71,6 +72,7 @@ describe('pick', () => {
             z.category
             z.category.a
             z.category.b
+            // @ts-expect-error
             z.category.c
             z.category.nested1.a
         }),
@@ -107,10 +109,10 @@ describe('__scalar', () => {
         'response type picks from request type',
         dontExecute(() => {
             z.category
-            z.category.a
-            z.category.b
-            z.category.c
-            z.category.nested1.a
+            z.category.a.getDate
+            z.category.b.getDate
+            z.category.c.getDate
+            z.category.nested1.a.toLocaleUpperCase
         }),
     )
     test(
