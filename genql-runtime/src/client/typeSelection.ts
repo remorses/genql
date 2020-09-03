@@ -14,7 +14,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
                 : SRC[Key]
         },
         {
-            // remove falsy values
+            // only keep fields in DST and remove falsy values
             [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
         }[keyof DST]
     >
