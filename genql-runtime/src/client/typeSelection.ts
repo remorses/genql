@@ -11,7 +11,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
             // using keyof SRC to maintain ?: relations of SRC type
             [Key in keyof SRC]: Key extends keyof DST
                 ? FieldsSelection<SRC[Key], DST[Key]>
-                : never
+                : SRC[Key]
         },
         keyof DST
     >
