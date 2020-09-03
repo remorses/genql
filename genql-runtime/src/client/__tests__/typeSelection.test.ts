@@ -84,6 +84,8 @@ describe('pick', () => {
             // @ts-expect-error
             z.category.nested1.b
             // @ts-expect-error
+            z.category.nested1.b
+            // @ts-expect-error
             z.category.nested1.c
             // @ts-expect-error
             z.category.nested2
@@ -142,8 +144,7 @@ describe('optional fields', () => {
         },
         category: {
             optionalFieldsNested: {
-                a: 1,
-                b: 1,
+                __scalar: 1,
             },
         },
     }
@@ -153,12 +154,28 @@ describe('optional fields', () => {
         dontExecute(() => {
             // @ts-expect-error
             z.optionalFields.a.toLocaleLowerCase
+            z.optionalFields.a?.toLocaleLowerCase
             // @ts-expect-error
             z.optionalFields.b.toLocaleLowerCase
+            z.optionalFields.b?.toFixed
             // @ts-expect-error
             z.category.optionalFieldsNested.a
             // @ts-expect-error
             z.category?.optionalFieldsNested.a
+        }),
+    )
+    test(
+        'optional fields are preserved in __scalar',
+        dontExecute(() => {
+            // @ts-expect-error
+            z.optionalFields.a.toLocaleLowerCase
+            z.optionalFields.a?.toLocaleLowerCase
+            // @ts-expect-error
+            z.optionalFields.b.toLocaleLowerCase
+            z.optionalFields.b?.toFixed
+            // @ts-expect-error
+            z.category.optionalFieldsNested.a
+            z.category.optionalFieldsNested?.a?.toLocaleLowerCase
         }),
     )
 })

@@ -15,16 +15,15 @@ type Anify<T> = { [P in keyof T]?: any }
 
 //////////////////////////////////////////////////
 
-type requestType =
-    | Record<string, any>
-    | [Record<string, any>, Record<string, any>]
+// type requestType =
+//     | Record<string, any>
+//     | [Record<string, any>, Record<string, any>]
 
-// TODO handle scalar values, requests with on_, __scalar, literals unions,
-type ObjectSelection<SRC extends Anify<DST>, DST> = Anify<
-    Omit<DST, '__typename' | '__scalar'>
-> extends Anify<NonNullable<SRC>>
-    ? Pick<SRC, keyof DST>
-    : SRC
+// type ObjectSelection<SRC extends Anify<DST>, DST> = Anify<
+//     Omit<DST, '__typename' | '__scalar'>
+// > extends Anify<NonNullable<SRC>>
+//     ? Pick<SRC, keyof DST>
+//     : SRC
 
 type HandleScalars<SRC, DST> = DST extends true | 1
     ? SRC
@@ -32,17 +31,20 @@ type HandleScalars<SRC, DST> = DST extends true | 1
     ? Handle__scalar<SRC, DST>
     : FieldsSelection<SRC, DST>
 
-type Handle__scalar<SRC extends Anify<DST>, DST> = Omit<
-    {
-        [Key in keyof SRC]: Key extends keyof DST
-            ? HandleScalars<SRC[Key], DST[Key]>
-            : SRC[Key] extends Scalar
-            ? SRC[Key]
-            : never
-    },
-    '__scalar'
->
+type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
+    ? never
+    : Omit<
+          {
+              [Key in keyof SRC]: Key extends keyof DST
+                  ? HandleScalars<SRC[Key], DST[Key]>
+                  : SRC[Key] extends Scalar
+                  ? SRC[Key]
+                  : never
+          },
+          '__scalar'
+      >
 
+// TODO handle on_ keys
 export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     [Key in keyof SRC]: Key extends keyof DST
         ? DST[Key] extends [any, infer PAYLOAD]
