@@ -24,6 +24,13 @@ type SRC = {
         a: string
         optional?: string
     }[]
+    nested?: {
+        list?: {
+            edges?: {
+                x?: number
+            }[]
+        }[]
+    }
     category: {
         a: Date
         b: Date
@@ -344,6 +351,17 @@ describe('arrays', () => {
             x: 1,
             optional: 1,
         },
+        nested: [
+            { x: 1 },
+            {
+                __scalar: 1,
+                list: {
+                    edges: {
+                        x: 1,
+                    },
+                },
+            },
+        ] as const,
         argumentSyntax: {
             list: {
                 x: 1,
@@ -357,6 +375,12 @@ describe('arrays', () => {
         dontExecute(() => {
             z.list[0].a.charCodeAt
             z.list[0].x.toFixed
+        }),
+    )
+    test(
+        'nested',
+        dontExecute(() => {
+            z.nested?.list?.[0]?.edges?.[0].x?.toFixed
         }),
     )
     test(
@@ -414,13 +438,30 @@ describe('literals unions', () => {
     )
 })
 
-type X = {
-    a: never
+interface ForkConnection {
+    edges?: (ForkEdge | undefined)[]
+    __typename?: 'ForkConnection'
 }
 
-const x: X = {} as any
+interface ForkEdge {
+    cursor?: string
+    node?: { x: string }
+    __typename?: 'ForkEdge'
+}
 
-x.a // i can access x? shouldn't x be inaccessible?
+// issue
+type X = FieldsSelection<
+    ForkConnection | undefined,
+    {
+        edges: {
+            node: {
+                x: 1
+            }
+        }
+    }
+>
+declare const x: X
+x?.edges?.[0]?.node?.x
 
 ///////////////////////////////////// unions
 

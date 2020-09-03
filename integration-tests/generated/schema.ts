@@ -83,7 +83,7 @@ export type Point = (House | Bank) & { __isUnion?: true }
 
 export interface QueryRequest{
     /** Some description */
-    repository?: [{name: Scalars['String'],owner?: (Scalars['String'] | null)},RepositoryRequest]
+    repository?: readonly [{name: Scalars['String'],owner?: (Scalars['String'] | null)},RepositoryRequest]
     user?: UserRequest
     recursiveType?: [{requiredVal?: (Scalars['String'][] | null)},RecursiveTypeRequest] | RecursiveTypeRequest
     account?: AccountRequest

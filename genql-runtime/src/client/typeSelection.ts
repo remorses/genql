@@ -1,27 +1,36 @@
 //////////////////////////////////////////////////
 
-export type FieldsSelection<SRC extends Anify<DST>, DST> = {
+export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
     tuple: DST extends readonly [any, infer PAYLOAD]
         ? FieldsSelection<SRC, PAYLOAD>
         : never
     scalar: SRC
     union: Handle__isUnion<SRC, DST>
-    object: Pick<
-        {
-            // using keyof SRC to maintain ?: relations of SRC type
-            [Key in keyof SRC]: Key extends keyof DST
-                ? FieldsSelection<NonNullable<SRC[Key]>, DST[Key]>
-                : SRC[Key]
-        },
-        {
-            // only keep fields in DST and remove falsy values
-            [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
-        }[keyof DST]
-    >
-    array: SRC extends (infer T)[] ? Array<FieldsSelection<T, DST>> : never
+    object: SRC extends Nil
+        ? never
+        : Pick<
+              {
+                  // using keyof SRC to maintain ?: relations of SRC type
+                  [Key in keyof SRC]: Key extends keyof DST
+                      ? FieldsSelection<
+                            NonNullable<SRC[Key]>,
+                            NonNullable<DST[Key]>
+                        >
+                      : SRC[Key]
+              },
+              {
+                  // only keep fields in DST and remove falsy values
+                  [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
+              }[keyof DST]
+          >
+    array: SRC extends (infer T)[]
+        ? Array<FieldsSelection<NonNullable<T>, NonNullable<DST>>>
+        : never
     __scalar: Handle__scalar<SRC, DST>
     never: never
 }[DST extends Nil
+    ? 'never'
+    : SRC extends Nil
     ? 'never'
     : DST extends readonly [any, any]
     ? 'tuple'
@@ -29,7 +38,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     ? 'never'
     : SRC extends Scalar
     ? 'scalar'
-    : SRC extends any[]
+    : NonNullable<SRC> extends any[]
     ? 'array'
     : SRC extends { __isUnion?: any }
     ? 'union'
