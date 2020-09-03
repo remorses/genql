@@ -45,7 +45,9 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
               },
               // remove fields that are not scalars or are not in DST
               {
-                  [Key in keyof SRC]: SRC[Key] extends Scalar
+                  [Key in keyof SRC]: SRC[Key] extends undefined
+                      ? never
+                      : SRC[Key] extends Scalar
                       ? Key
                       : Key extends keyof DST
                       ? Key

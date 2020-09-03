@@ -68,6 +68,9 @@ type SRC = {
             x: number
             y: number
         }
+        union:
+            | { a: string; __isUnion?: true }
+            | { a: string; b: string; __isUnion?: true }
     }
 }
 
@@ -134,6 +137,12 @@ describe('__scalar', () => {
                 a: 1,
             },
         },
+        argumentSyntax: [
+            { a: 7 },
+            {
+                __scalar: 1,
+            },
+        ] as const,
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
     test(
@@ -169,6 +178,15 @@ describe('__scalar', () => {
             z.category.__scalar
         }),
     )
+    test(
+        'argument syntax',
+        dontExecute(() => {
+            z.argumentSyntax.a.toLocaleLowerCase
+            z.argumentSyntax.optional?.big
+            // @ts-expect-error
+            z.argumentSyntax.nesting.x
+        }),
+    )
 })
 
 describe('optional fields', () => {
@@ -182,6 +200,12 @@ describe('optional fields', () => {
                 __scalar: 1,
             },
         },
+        argumentSyntax: [
+            {},
+            {
+                optional: 1,
+            },
+        ] as const,
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
     test(
@@ -213,6 +237,14 @@ describe('optional fields', () => {
             z.category.optionalFieldsNested?.a?.toLocaleLowerCase
         }),
     )
+    test(
+        'argument syntax',
+        dontExecute(() => {
+            // @ts-expect-error optional
+            z.argumentSyntax.optional.toLocaleLowerCase
+            z.argumentSyntax.optional?.toLocaleLowerCase
+        }),
+    )
 })
 
 describe('unions', () => {
@@ -229,6 +261,14 @@ describe('unions', () => {
                     a: 1,
                 },
                 onY: {
+                    b: 1,
+                },
+            },
+        },
+        argumentSyntax: {
+            union: {
+                a: 1,
+                onX: {
                     b: 1,
                 },
             },
@@ -250,6 +290,14 @@ describe('unions', () => {
             z.union.__isUnion
             // @ts-expect-error
             z.nesting.nestedUnion.__isUnion
+        }),
+    )
+    test(
+        'argument syntax',
+        dontExecute(() => {
+            z.argumentSyntax.union.a
+            // @ts-expect-error
+            z.argumentSyntax.a
         }),
     )
 })
