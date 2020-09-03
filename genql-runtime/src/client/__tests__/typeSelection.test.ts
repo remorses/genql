@@ -16,6 +16,11 @@ import { FieldsSelection } from '../typeSelection'
 */
 
 type SRC = {
+    list: {
+        x: number
+        a: string
+        optional?: string
+    }[]
     category: {
         a: Date
         b: Date
@@ -71,6 +76,11 @@ type SRC = {
         union:
             | { a: string; __isUnion?: true }
             | { a: string; b: string; __isUnion?: true }
+        list: {
+            x: number
+            a: string
+            optional?: string
+        }[]
     }
 }
 
@@ -320,6 +330,47 @@ describe('hide fields in request', () => {
             z.category.b
             // @ts-expect-error inaccessible
             z.category.c
+        }),
+    )
+})
+
+describe('arrays', () => {
+    const req = {
+        list: {
+            a: 1,
+            x: 1,
+            optional: 1,
+        },
+        argumentSyntax: {
+            list: {
+                x: 1,
+                optional: 1,
+            },
+        },
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'list',
+        dontExecute(() => {
+            z.list[0].a.charCodeAt
+            z.list[0].x.toFixed
+        }),
+    )
+    test(
+        'maintain optionals',
+        dontExecute(() => {
+            // @ts-expect-error optional
+            z.list[0].optional.bold
+            z.list[0].optional?.bold
+        }),
+    )
+    test(
+        'args syntax',
+        dontExecute(() => {
+            z.argumentSyntax.list[0].x
+            z.argumentSyntax.list[0].optional?.blink
+            // @ts-expect-error optional
+            z.argumentSyntax.list[0].optional.blink
         }),
     )
 })

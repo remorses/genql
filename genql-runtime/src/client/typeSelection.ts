@@ -18,6 +18,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
             [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
         }[keyof DST]
     >
+    array: SRC extends (infer T)[] ? Array<FieldsSelection<T, DST>> : never
     __scalar: Handle__scalar<SRC, DST>
     never: never
 }[DST extends undefined
@@ -28,6 +29,8 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     ? 'never'
     : SRC extends Scalar
     ? 'scalar'
+    : SRC extends any[]
+    ? 'array'
     : SRC extends { __isUnion?: any }
     ? 'union'
     : DST extends { __scalar?: any }
