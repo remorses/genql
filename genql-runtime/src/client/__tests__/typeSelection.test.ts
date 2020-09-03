@@ -302,11 +302,12 @@ describe('unions', () => {
     )
 })
 
-describe('hide fields in requst', () => {
+describe('hide fields in request', () => {
+    const SKIP: false = false
     const req = {
         category: {
             a: 1,
-            b: 1,
+            b: SKIP,
             c: false as const,
         },
     }
@@ -315,6 +316,8 @@ describe('hide fields in requst', () => {
         'cannot access falsy fields',
         dontExecute(() => {
             z.category.a
+            // @ts-expect-error inaccessible
+            z.category.b
             // @ts-expect-error inaccessible
             z.category.c
         }),
