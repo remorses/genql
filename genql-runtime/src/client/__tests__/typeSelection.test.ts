@@ -117,6 +117,9 @@ describe('__scalar', () => {
         'response type picks from request type',
         dontExecute(() => {
             z.category
+            z.category.a
+            z.category.b
+            z.category.c
             z.category.nested1.a
             // @ts-expect-error
             z.category.a.getDate

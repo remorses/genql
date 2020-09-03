@@ -36,13 +36,20 @@ type HandleScalars<SRC, DST> = DST extends true | 1
 type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
     ? never
     : Omit<
-          {
-              [Key in keyof SRC]: Key extends keyof DST
-                  ? SRC[Key] extends Scalar
-                      ? SRC[Key]
-                      : HandleScalars<SRC[Key], DST[Key]>
-                  : never
-          },
+          Pick<
+              {
+                  [Key in keyof SRC]: Key extends keyof DST
+                      ? SRC[Key] extends undefined | null
+                          ? never
+                          : SRC[Key] extends Scalar
+                          ? SRC[Key]
+                          : HandleScalars<SRC[Key], DST[Key]>
+                      : never
+              },
+              {
+                  [Key in keyof SRC]: SRC[Key] extends Scalar ? Key : never
+              }[keyof SRC]
+          >,
           '__scalar'
       >
 
