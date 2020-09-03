@@ -38,9 +38,9 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
     : Omit<
           {
               [Key in keyof SRC]: Key extends keyof DST
-                  ? HandleScalars<SRC[Key], DST[Key]>
-                  : SRC[Key] extends Scalar
-                  ? SRC[Key]
+                  ? SRC[Key] extends Scalar
+                      ? SRC[Key]
+                      : HandleScalars<SRC[Key], DST[Key]>
                   : never
           },
           '__scalar'
@@ -53,10 +53,13 @@ type HandleUnions<SRC extends Anify<DST>, DST> = SRC extends undefined
     : Omit<SRC, '__isUnion'> // TODO apply a FieldsSelection inside every on_ and on the top level fields
 
 // TODO handle on_ keys
-export type FieldsSelection<SRC extends Anify<DST>, DST> = {
-    [Key in keyof SRC]: Key extends keyof DST
-        ? DST[Key] extends [any, infer PAYLOAD]
-            ? HandleScalars<SRC[Key], PAYLOAD>
-            : HandleScalars<SRC[Key], DST[Key]>
-        : never
-}
+export type FieldsSelection<SRC extends Anify<DST>, DST> = Pick<
+    {
+        [Key in keyof SRC]: Key extends keyof DST
+            ? DST[Key] extends [any, infer PAYLOAD]
+                ? HandleScalars<SRC[Key], PAYLOAD>
+                : HandleScalars<SRC[Key], DST[Key]>
+            : never
+    },
+    keyof DST
+>

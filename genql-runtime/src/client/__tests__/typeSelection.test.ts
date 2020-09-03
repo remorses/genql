@@ -117,10 +117,11 @@ describe('__scalar', () => {
         'response type picks from request type',
         dontExecute(() => {
             z.category
+            z.category.nested1.a
+            // @ts-expect-error
             z.category.a.getDate
+            // @ts-expect-error
             z.category.b.getDate
-            z.category.c.getDate
-            z.category.nested1.a.toLocaleUpperCase
         }),
     )
     test(
@@ -225,6 +226,14 @@ describe('unions', () => {
         }),
     )
 })
+
+type X = {
+    a: never
+}
+
+const x: X = {} as any
+
+x.a // i can access x? shouldn't x be inaccessible?
 
 ///////////////////////////////////// unions
 
