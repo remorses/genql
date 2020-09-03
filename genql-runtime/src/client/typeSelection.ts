@@ -25,7 +25,11 @@ type Anify<T> = { [P in keyof T]?: any }
 //     ? Pick<SRC, keyof DST>
 //     : SRC
 
-type HandleScalars<SRC, DST> = DST extends true | 1
+type HandleScalars<SRC, DST> = SRC extends undefined
+    ? never
+    : DST extends true | 1
+    ? SRC
+    : SRC extends Scalar
     ? SRC
     : DST extends { __scalar?: any }
     ? Handle__scalar<SRC, DST>
@@ -39,15 +43,15 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
           Pick<
               {
                   [Key in keyof SRC]: Key extends keyof DST
-                      ? SRC[Key] extends undefined | null
-                          ? never
-                          : SRC[Key] extends Scalar
-                          ? SRC[Key]
-                          : HandleScalars<SRC[Key], DST[Key]>
-                      : never
+                      ? HandleScalars<SRC[Key], DST[Key]>
+                      : SRC[Key]
               },
               {
-                  [Key in keyof SRC]: SRC[Key] extends Scalar ? Key : never
+                  [Key in keyof SRC]: NonNullable<SRC[Key]> extends Scalar
+                      ? Key
+                      : Key extends keyof DST
+                      ? Key
+                      : never
               }[keyof SRC]
           >,
           '__scalar'

@@ -121,9 +121,7 @@ describe('__scalar', () => {
             z.category.b
             z.category.c
             z.category.nested1.a
-            // @ts-expect-error
             z.category.a.getDate
-            // @ts-expect-error
             z.category.b.getDate
         }),
     )
