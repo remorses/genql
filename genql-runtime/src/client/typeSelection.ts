@@ -13,17 +13,20 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
                 ? FieldsSelection<SRC[Key], DST[Key]>
                 : SRC[Key]
         },
-        keyof DST
+        {
+            // remove falsy values
+            [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
+        }[keyof DST]
     >
     __scalar: Handle__scalar<SRC, DST>
-    default: never
+    never: never
 }[DST extends undefined
-    ? 'default'
+    ? 'never'
     : DST extends readonly [any, any]
     ? 'tuple'
+    : DST extends false | 0
+    ? 'never'
     : SRC extends Scalar
-    ? 'scalar'
-    : DST extends boolean | number
     ? 'scalar'
     : SRC extends { __isUnion?: any }
     ? 'union'
@@ -31,7 +34,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     ? '__scalar'
     : DST extends {}
     ? 'object'
-    : 'default']
+    : 'never']
 
 type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
     ? never

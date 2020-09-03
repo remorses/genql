@@ -295,9 +295,28 @@ describe('unions', () => {
     test(
         'argument syntax',
         dontExecute(() => {
-            z.argumentSyntax.union.a
+            z.argumentSyntax.union.a.charAt
             // @ts-expect-error
             z.argumentSyntax.a
+        }),
+    )
+})
+
+describe('hide fields in requst', () => {
+    const req = {
+        category: {
+            a: 1,
+            b: 1,
+            c: false as const,
+        },
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'cannot access falsy fields',
+        dontExecute(() => {
+            z.category.a
+            // @ts-expect-error inaccessible
+            z.category.c
         }),
     )
 })
