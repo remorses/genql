@@ -453,7 +453,7 @@ interface ForkEdge {
 type X = FieldsSelection<
     ForkConnection | undefined,
     {
-        edges: {
+        edges?: {
             node: {
                 x: 1
             }
