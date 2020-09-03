@@ -17,6 +17,7 @@ import { FieldsSelection } from '../typeSelection'
 
 type SRC = {
     literalsUnion: 'a' | 'b'
+    nullableField: null | { x: boolean; optional?: string }
     list: {
         x: number
         a: string
@@ -389,6 +390,25 @@ describe('literals unions', () => {
             z.literalsUnion === 'b'
             // @ts-expect-error
             z.literalsUnion === 'x'
+        }),
+    )
+})
+
+describe('literals unions', () => {
+    const req = {
+        nullableField: {
+            x: 1,
+            optional: 1,
+        },
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'accessible',
+        dontExecute(() => {
+            z.nullableField.x
+            z.nullableField.optional?.big
+            // @ts-expect-error optional
+            z.nullableField.optional.big
         }),
     )
 })

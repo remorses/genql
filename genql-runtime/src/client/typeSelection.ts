@@ -10,7 +10,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
         {
             // using keyof SRC to maintain ?: relations of SRC type
             [Key in keyof SRC]: Key extends keyof DST
-                ? FieldsSelection<SRC[Key], DST[Key]>
+                ? FieldsSelection<NonNullable<SRC[Key]>, DST[Key]>
                 : SRC[Key]
         },
         {
@@ -21,7 +21,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     array: SRC extends (infer T)[] ? Array<FieldsSelection<T, DST>> : never
     __scalar: Handle__scalar<SRC, DST>
     never: never
-}[DST extends undefined
+}[DST extends Nil
     ? 'never'
     : DST extends readonly [any, any]
     ? 'tuple'
@@ -39,7 +39,7 @@ export type FieldsSelection<SRC extends Anify<DST>, DST> = {
     ? 'object'
     : 'never']
 
-type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
+type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
     : Omit<
           Pick<
@@ -51,7 +51,7 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
               },
               // remove fields that are not scalars or are not in DST
               {
-                  [Key in keyof SRC]: SRC[Key] extends undefined
+                  [Key in keyof SRC]: SRC[Key] extends Nil
                       ? never
                       : SRC[Key] extends Scalar
                       ? Key
@@ -64,7 +64,7 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
       >
 
 // TODO response union types are very dumb
-type Handle__isUnion<SRC extends Anify<DST>, DST> = SRC extends undefined
+type Handle__isUnion<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
     : Omit<SRC, FieldsToRemove> // just return the union type
 
@@ -73,3 +73,5 @@ type Scalar = string | number | Date | boolean | null | undefined
 type Anify<T> = { [P in keyof T]?: any }
 
 type FieldsToRemove = '__isUnion' | '__scalar'
+
+type Nil = undefined | null
