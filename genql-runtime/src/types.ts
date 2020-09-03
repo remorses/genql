@@ -1,3 +1,19 @@
+
+
+
+type Impossible<K extends keyof any> = {
+    [P in K]: never
+}
+
+// The secret sauce! Provide it the type that contains only the properties you want,
+// and then a type that extends that type, based on what the caller provided
+// using generics.
+export type NoExtraProperties<T, U extends T = T> = U &
+    Impossible<Exclude<keyof U, keyof T>>
+
+
+/////////////////////////
+
 export interface ExecutionResult<TData = { [key: string]: any }> {
     errors?: ReadonlyArray<Error>
     // TS_SPECIFIC: TData. Motivation: https://github.com/graphql/graphql-js/pull/2490#issuecomment-639154229

@@ -1,5 +1,6 @@
 export { createClient, ClientOptions } from './client/createClient'
 export { FieldsSelection } from './client/typeSelection'
+export { NoExtraProperties } from './types'
 export {
     generateGraphqlOperation,
     GraphqlOperation,

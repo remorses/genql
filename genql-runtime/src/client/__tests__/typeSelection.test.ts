@@ -1,4 +1,5 @@
 import { FieldsSelection } from '../typeSelection'
+import { NoExtraProperties } from '../../'
 
 // types requirements
 /*
@@ -105,7 +106,7 @@ describe('pick', () => {
             },
         ] as const,
     }
-    const z: FieldsSelection<SRC, typeof req> = {} as any
+    const z: FieldsSelection<SRC, NoExtraProperties<typeof req>> = {} as any
     test(
         'response type picks from request type',
         dontExecute(() => {
