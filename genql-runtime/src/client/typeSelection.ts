@@ -29,6 +29,8 @@ type HandleScalars<SRC, DST> = DST extends true | 1
     ? SRC
     : DST extends { __scalar?: any }
     ? Handle__scalar<SRC, DST>
+    : SRC extends { __isUnion?: any }
+    ? HandleUnions<SRC, DST>
     : FieldsSelection<SRC, DST>
 
 type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
@@ -43,6 +45,12 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends undefined
           },
           '__scalar'
       >
+
+// unions are very dumb
+// TODO add the __isUnion key to every union type
+type HandleUnions<SRC extends Anify<DST>, DST> = SRC extends undefined
+    ? never
+    : Omit<SRC, '__isUnion'> // TODO apply a FieldsSelection inside every on_ and on the top level fields
 
 // TODO handle on_ keys
 export type FieldsSelection<SRC extends Anify<DST>, DST> = {

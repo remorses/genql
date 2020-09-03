@@ -7,13 +7,13 @@ export const interfaceType = (
     ctx: RenderContext,
 ) => {
     if (!ctx.schema) {
-        throw new Error('schema is req  required to render unionType ')
+        throw new Error('schema is required to render unionType')
     }
     const typeNames = ctx.schema.getPossibleTypes(type).map((t) => t.name)
     ctx.addCodeBlock(
-        `${typeComment(type)}export type ${type.name} = ${typeNames.join(
+        `${typeComment(type)}export type ${type.name} = (${typeNames.join(
             ' | ',
-        )}`,
+        )}) & { __isUnion?: true }`,
     )
 }
 

@@ -46,7 +46,7 @@ export type ActionExecutionCapabilitySetting = 'ALL_ACTIONS' | 'DISABLED' | 'LOC
 
 
 /** Represents an object which can take actions on GitHub. Typically a User or Bot. */
-export type Actor = Bot | EnterpriseUserAccount | Mannequin | Organization | User
+export type Actor = (Bot | EnterpriseUserAccount | Mannequin | Organization | User) & { __isUnion?: true }
 
 
 /** Location information for an actor */
@@ -234,7 +234,7 @@ export interface ArchiveRepositoryPayload {
 
 
 /** An object that can have users assigned to it. */
-export type Assignable = Issue | PullRequest
+export type Assignable = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Represents an 'assigned' event on any assignable object. */
@@ -258,15 +258,15 @@ export interface AssignedEvent {
 
 
 /** Types that can be assigned to issues. */
-export type Assignee = Bot | Mannequin | Organization | User
+export type Assignee = (Bot | Mannequin | Organization | User) & { __isUnion?: true }
 
 
 /** An entry in the audit log. */
-export type AuditEntry = MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry
+export type AuditEntry = (MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry) & { __isUnion?: true }
 
 
 /** Types that can initiate an audit log event. */
-export type AuditEntryActor = Bot | Organization | User
+export type AuditEntryActor = (Bot | Organization | User) & { __isUnion?: true }
 
 
 /** Properties by which Audit Log connections can be ordered. */
@@ -784,7 +784,7 @@ export interface CloneTemplateRepositoryPayload {
 
 
 /** An object that can be closed */
-export type Closable = Issue | Milestone | Project | PullRequest
+export type Closable = (Issue | Milestone | Project | PullRequest) & { __isUnion?: true }
 
 
 /** Autogenerated return type of CloseIssue */
@@ -827,7 +827,7 @@ export interface ClosedEvent {
 
 
 /** The object which triggered a `ClosedEvent`. */
-export type Closer = Commit | PullRequest
+export type Closer = (Commit | PullRequest) & { __isUnion?: true }
 
 
 /** The Code of Conduct for a repository */
@@ -852,7 +852,7 @@ export type CollaboratorAffiliation = 'ALL' | 'DIRECT' | 'OUTSIDE'
 
 
 /** Represents a comment. */
-export type Comment = CommitComment | GistComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment
+export type Comment = (CommitComment | GistComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment) & { __isUnion?: true }
 
 
 /** A comment author association with repository. */
@@ -1179,7 +1179,7 @@ export interface ContentReference {
 
 
 /** Represents a contribution a user made on GitHub, such as opening an issue. */
-export type Contribution = CreatedCommitContribution | CreatedIssueContribution | CreatedPullRequestContribution | CreatedPullRequestReviewContribution | CreatedRepositoryContribution | JoinedGitHubContribution | RestrictedContribution
+export type Contribution = (CreatedCommitContribution | CreatedIssueContribution | CreatedPullRequestContribution | CreatedPullRequestReviewContribution | CreatedRepositoryContribution | JoinedGitHubContribution | RestrictedContribution) & { __isUnion?: true }
 
 
 /** A calendar of contributions made on GitHub by a user. */
@@ -1666,7 +1666,7 @@ export interface CreatedIssueContributionEdge {
 
 
 /** Represents either a issue the viewer can access or a restricted contribution. */
-export type CreatedIssueOrRestrictedContribution = CreatedIssueContribution | RestrictedContribution
+export type CreatedIssueOrRestrictedContribution = (CreatedIssueContribution | RestrictedContribution) & { __isUnion?: true }
 
 
 /** Represents the contribution a user made on GitHub by opening a pull request. */
@@ -1716,7 +1716,7 @@ export interface CreatedPullRequestContributionEdge {
 
 
 /** Represents either a pull request the viewer can access or a restricted contribution. */
-export type CreatedPullRequestOrRestrictedContribution = CreatedPullRequestContribution | RestrictedContribution
+export type CreatedPullRequestOrRestrictedContribution = (CreatedPullRequestContribution | RestrictedContribution) & { __isUnion?: true }
 
 
 /** Represents the contribution a user made by leaving a review on a pull request. */
@@ -1816,7 +1816,7 @@ export interface CreatedRepositoryContributionEdge {
 
 
 /** Represents either a repository the viewer can access or a restricted contribution. */
-export type CreatedRepositoryOrRestrictedContribution = CreatedRepositoryContribution | RestrictedContribution
+export type CreatedRepositoryOrRestrictedContribution = (CreatedRepositoryContribution | RestrictedContribution) & { __isUnion?: true }
 
 
 /** Represents a mention made by one issue or pull request to another. */
@@ -1859,7 +1859,7 @@ export type DefaultRepositoryPermissionField = 'ADMIN' | 'NONE' | 'READ' | 'WRIT
 
 
 /** Entities that can be deleted. */
-export type Deletable = CommitComment | GistComment | IssueComment | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment
+export type Deletable = (CommitComment | GistComment | IssueComment | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment) & { __isUnion?: true }
 
 
 /** Autogenerated return type of DeleteBranchProtectionRule */
@@ -2453,7 +2453,7 @@ export type EnterpriseAdministratorRole = 'BILLING_MANAGER' | 'OWNER'
 
 
 /** Metadata for an audit entry containing enterprise account information. */
-export type EnterpriseAuditEntryData = MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OrgInviteToBusinessAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry
+export type EnterpriseAuditEntryData = (MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OrgInviteToBusinessAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry) & { __isUnion?: true }
 
 
 /** Enterprise billing information visible to enterprise billing managers and owners. */
@@ -2528,7 +2528,7 @@ export interface EnterpriseIdentityProvider {
 
 
 /** An object that is a member of an enterprise. */
-export type EnterpriseMember = EnterpriseUserAccount | User
+export type EnterpriseMember = (EnterpriseUserAccount | User) & { __isUnion?: true }
 
 
 /** The connection type for EnterpriseMember. */
@@ -3399,11 +3399,11 @@ export interface GitHubMetadata {
 
 
 /** Represents a Git object. */
-export type GitObject = Blob | Commit | Tag | Tree
+export type GitObject = (Blob | Commit | Tag | Tree) & { __isUnion?: true }
 
 
 /** Information about a signature (GPG or S/MIME) on a Commit or Tag. */
-export type GitSignature = GpgSignature | SmimeSignature | UnknownSignature
+export type GitSignature = (GpgSignature | SmimeSignature | UnknownSignature) & { __isUnion?: true }
 
 
 /** The state of a Git signature. */
@@ -3493,7 +3493,7 @@ export interface Hovercard {
 
 
 /** An individual line of a hovercard */
-export type HovercardContext = GenericHovercardContext | OrganizationTeamsHovercardContext | OrganizationsHovercardContext | ReviewStatusHovercardContext | ViewerHovercardContext
+export type HovercardContext = (GenericHovercardContext | OrganizationTeamsHovercardContext | OrganizationsHovercardContext | ReviewStatusHovercardContext | ViewerHovercardContext) & { __isUnion?: true }
 
 
 /** The possible states in which authentication can be configured with an identity provider. */
@@ -3572,7 +3572,7 @@ export type IpAllowListEntryOrderField = 'ALLOW_LIST_VALUE' | 'CREATED_AT'
 
 
 /** Types that can own an IP allow list. */
-export type IpAllowListOwner = Enterprise | Organization
+export type IpAllowListOwner = (Enterprise | Organization) & { __isUnion?: true }
 
 
 /** An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project. */
@@ -3794,7 +3794,7 @@ export interface IssueEdge {
 
 
 /** Used for return value of Repository.issueOrPullRequest. */
-export type IssueOrPullRequest = Issue | PullRequest
+export type IssueOrPullRequest = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Properties by which issue connections can be ordered. */
@@ -3820,7 +3820,7 @@ export interface IssueTimelineConnection {
 
 
 /** An item in an issue timeline */
-export type IssueTimelineItem = AssignedEvent | ClosedEvent | Commit | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MilestonedEvent | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+export type IssueTimelineItem = (AssignedEvent | ClosedEvent | Commit | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MilestonedEvent | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent) & { __isUnion?: true }
 
 
 /** An edge in a connection. */
@@ -3834,7 +3834,7 @@ export interface IssueTimelineItemEdge {
 
 
 /** An item in an issue timeline */
-export type IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+export type IssueTimelineItems = (AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent) & { __isUnion?: true }
 
 
 /** The connection type for IssueTimelineItems. */
@@ -3949,7 +3949,7 @@ export type LabelOrderField = 'CREATED_AT' | 'NAME'
 
 
 /** An object that can have labels assigned to it. */
-export type Labelable = Issue | PullRequest
+export type Labelable = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Represents a 'labeled' event on a given issue or pull request. */
@@ -4084,7 +4084,7 @@ export type LockReason = 'OFF_TOPIC' | 'RESOLVED' | 'SPAM' | 'TOO_HEATED'
 
 
 /** An object that can be locked. */
-export type Lockable = Issue | PullRequest
+export type Lockable = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Represents a 'locked' event on a given issue or pull request. */
@@ -4330,7 +4330,7 @@ export interface MarketplaceListingEdge {
 
 
 /** Entities that have members who can set status messages. */
-export type MemberStatusable = Organization | Team
+export type MemberStatusable = (Organization | Team) & { __isUnion?: true }
 
 
 /** Audit log entry for a members_can_delete_repos.clear event. */
@@ -4604,7 +4604,7 @@ export interface MilestoneEdge {
 
 
 /** Types that can be inside a Milestone. */
-export type MilestoneItem = Issue | PullRequest
+export type MilestoneItem = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Properties by which milestone connections can be ordered. */
@@ -4631,7 +4631,7 @@ export interface MilestonedEvent {
 
 
 /** Entities that can be minimized. */
-export type Minimizable = CommitComment | GistComment | IssueComment | PullRequestReviewComment
+export type Minimizable = (CommitComment | GistComment | IssueComment | PullRequestReviewComment) & { __isUnion?: true }
 
 
 /** Autogenerated return type of MinimizeComment */
@@ -4971,11 +4971,11 @@ export interface Mutation {
 
 
 /** An object with an ID. */
-export type Node = AddedToProjectEvent | App | AssignedEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | Blob | Bot | BranchProtectionRule | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DependencyGraphManifest | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentStatus | DisconnectedEvent | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | Label | LabeledEvent | Language | License | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergedEvent | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | Package | PackageFile | PackageTag | PackageVersion | PinnedEvent | PinnedIssue | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | Push | PushAllowance | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | RegistryPackage | RegistryPackageDependency | RegistryPackageFile | RegistryPackageTag | RegistryPackageVersion | Release | ReleaseAsset | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryInvitation | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsListing | SponsorsTier | Sponsorship | Status | StatusCheckRollup | StatusContext | SubscribedEvent | Tag | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamDiscussion | TeamDiscussionComment | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserStatus
+export type Node = (AddedToProjectEvent | App | AssignedEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | Blob | Bot | BranchProtectionRule | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DependencyGraphManifest | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentStatus | DisconnectedEvent | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | Label | LabeledEvent | Language | License | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergedEvent | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | Package | PackageFile | PackageTag | PackageVersion | PinnedEvent | PinnedIssue | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | Push | PushAllowance | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | RegistryPackage | RegistryPackageDependency | RegistryPackageFile | RegistryPackageTag | RegistryPackageVersion | Release | ReleaseAsset | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryInvitation | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsListing | SponsorsTier | Sponsorship | Status | StatusCheckRollup | StatusContext | SubscribedEvent | Tag | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamDiscussion | TeamDiscussionComment | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserStatus) & { __isUnion?: true }
 
 
 /** Metadata for an audit entry with action oauth_application.* */
-export type OauthApplicationAuditEntryData = OauthApplicationCreateAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry
+export type OauthApplicationAuditEntryData = (OauthApplicationCreateAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry) & { __isUnion?: true }
 
 
 /** Audit log entry for a oauth_application.create event. */
@@ -6017,7 +6017,7 @@ export interface OrgRestoreMemberAuditEntry {
 
 
 /** Types of memberships that can be restored for an Organization member. */
-export type OrgRestoreMemberAuditEntryMembership = OrgRestoreMemberMembershipOrganizationAuditEntryData | OrgRestoreMemberMembershipRepositoryAuditEntryData | OrgRestoreMemberMembershipTeamAuditEntryData
+export type OrgRestoreMemberAuditEntryMembership = (OrgRestoreMemberMembershipOrganizationAuditEntryData | OrgRestoreMemberMembershipRepositoryAuditEntryData | OrgRestoreMemberMembershipTeamAuditEntryData) & { __isUnion?: true }
 
 
 /** Metadata for an organization membership for org.restore_member actions */
@@ -6427,7 +6427,7 @@ export interface Organization {
 
 
 /** An audit entry in an organization audit log. */
-export type OrganizationAuditEntry = MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry
+export type OrganizationAuditEntry = (MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry) & { __isUnion?: true }
 
 
 /** The connection type for OrganizationAuditEntry. */
@@ -6445,7 +6445,7 @@ export interface OrganizationAuditEntryConnection {
 
 
 /** Metadata for an audit entry with action org.* */
-export type OrganizationAuditEntryData = MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgRestoreMemberMembershipOrganizationAuditEntryData | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry
+export type OrganizationAuditEntryData = (MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgRestoreMemberMembershipOrganizationAuditEntryData | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry) & { __isUnion?: true }
 
 
 /** An edge in a connection. */
@@ -6729,7 +6729,7 @@ export type PackageOrderField = 'CREATED_AT'
 
 
 /** Represents an owner of a package. */
-export type PackageOwner = Organization | Repository | User
+export type PackageOwner = (Organization | Repository | User) & { __isUnion?: true }
 
 
 /** Represents a object that contains package activity statistics such as downloads. */
@@ -6831,7 +6831,7 @@ export interface PageInfo {
 
 
 /** Types that can grant permissions on a repository to a user */
-export type PermissionGranter = Organization | Repository | Team
+export type PermissionGranter = (Organization | Repository | Team) & { __isUnion?: true }
 
 
 /** A level of permission and source for a user's access to a repository. */
@@ -6857,7 +6857,7 @@ export interface PinIssuePayload {
 
 
 /** Types that can be pinned to a profile page. */
-export type PinnableItem = Gist | Repository
+export type PinnableItem = (Gist | Repository) & { __isUnion?: true }
 
 
 /** The connection type for PinnableItem. */
@@ -7068,7 +7068,7 @@ export interface ProfileItemShowcase {
 
 
 /** Represents any entity on GitHub that has a profile page. */
-export type ProfileOwner = Organization | User
+export type ProfileOwner = (Organization | User) & { __isUnion?: true }
 
 
 /** Projects manage issues, pull requests and notes within a project owner. */
@@ -7177,7 +7177,7 @@ export interface ProjectCardEdge {
 
 
 /** Types that can be inside Project Cards. */
-export type ProjectCardItem = Issue | PullRequest
+export type ProjectCardItem = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Various content states of a ProjectCard */
@@ -7266,7 +7266,7 @@ export type ProjectOrderField = 'CREATED_AT' | 'NAME' | 'UPDATED_AT'
 
 
 /** Represents an owner of a Project. */
-export type ProjectOwner = Organization | Repository | User
+export type ProjectOwner = (Organization | Repository | User) & { __isUnion?: true }
 
 
 /** State of the project; either 'open' or 'closed' */
@@ -7946,7 +7946,7 @@ export interface PullRequestTimelineConnection {
 
 
 /** An item in an pull request timeline */
-export type PullRequestTimelineItem = AssignedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+export type PullRequestTimelineItem = (AssignedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent) & { __isUnion?: true }
 
 
 /** An edge in a connection. */
@@ -7960,7 +7960,7 @@ export interface PullRequestTimelineItemEdge {
 
 
 /** An item in a pull request timeline */
-export type PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+export type PullRequestTimelineItems = (AddedToProjectEvent | AssignedEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent) & { __isUnion?: true }
 
 
 /** The connection type for PullRequestTimelineItems. */
@@ -8030,7 +8030,7 @@ export interface PushAllowance {
 
 
 /** Types that can be an actor. */
-export type PushAllowanceActor = App | Team | User
+export type PushAllowanceActor = (App | Team | User) & { __isUnion?: true }
 
 
 /** The connection type for PushAllowance. */
@@ -8139,7 +8139,7 @@ export interface RateLimit {
 
 
 /** Represents a subject that can be reacted on. */
-export type Reactable = CommitComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment
+export type Reactable = (CommitComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment) & { __isUnion?: true }
 
 
 /** The connection type for User. */
@@ -8324,7 +8324,7 @@ export interface ReferencedEvent {
 
 
 /** Any referencable object */
-export type ReferencedSubject = Issue | PullRequest
+export type ReferencedSubject = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Autogenerated return type of RegenerateEnterpriseIdentityProviderRecoveryCodes */
@@ -8587,11 +8587,11 @@ export interface RegistryPackageFileEdge {
 
 
 /** Represents an owner of a registry package. */
-export type RegistryPackageOwner = Organization | Repository | User
+export type RegistryPackageOwner = (Organization | Repository | User) & { __isUnion?: true }
 
 
 /** Represents an interface to search packages on an object. */
-export type RegistryPackageSearch = Organization | Repository | User
+export type RegistryPackageSearch = (Organization | Repository | User) & { __isUnion?: true }
 
 
 /** Represents a object that contains package activity statistics such as downloads. */
@@ -9070,7 +9070,7 @@ export interface RenamedTitleEvent {
 
 
 /** An object which has a renamable title */
-export type RenamedTitleSubject = Issue | PullRequest
+export type RenamedTitleSubject = (Issue | PullRequest) & { __isUnion?: true }
 
 
 /** Autogenerated return type of ReopenIssue */
@@ -10290,7 +10290,7 @@ export type RepositoryAffiliation = 'COLLABORATOR' | 'ORGANIZATION_MEMBER' | 'OW
 
 
 /** Metadata for an audit entry with action repo.* */
-export type RepositoryAuditEntryData = OrgRestoreMemberMembershipRepositoryAuditEntryData | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | TeamAddRepositoryAuditEntry | TeamRemoveRepositoryAuditEntry
+export type RepositoryAuditEntryData = (OrgRestoreMemberMembershipRepositoryAuditEntryData | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | TeamAddRepositoryAuditEntry | TeamRemoveRepositoryAuditEntry) & { __isUnion?: true }
 
 
 /** The connection type for User. */
@@ -10357,7 +10357,7 @@ export interface RepositoryEdge {
 
 
 /** A subset of repository info. */
-export type RepositoryInfo = Repository
+export type RepositoryInfo = (Repository) & { __isUnion?: true }
 
 
 /** An invitation for a user to be added to a repository. */
@@ -10416,7 +10416,7 @@ export type RepositoryLockReason = 'BILLING' | 'MIGRATING' | 'MOVING' | 'RENAME'
 
 
 /** Represents a object that belongs to a repository. */
-export type RepositoryNode = CommitComment | CommitCommentThread | Issue | IssueComment | PullRequest | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | RepositoryVulnerabilityAlert
+export type RepositoryNode = (CommitComment | CommitCommentThread | Issue | IssueComment | PullRequest | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | RepositoryVulnerabilityAlert) & { __isUnion?: true }
 
 
 /** Properties by which repository connections can be ordered. */
@@ -10424,7 +10424,7 @@ export type RepositoryOrderField = 'CREATED_AT' | 'NAME' | 'PUSHED_AT' | 'STARGA
 
 
 /** Represents an owner of a Repository. */
-export type RepositoryOwner = Organization | User
+export type RepositoryOwner = (Organization | User) & { __isUnion?: true }
 
 
 /** The access level to a repository */
@@ -10640,7 +10640,7 @@ export type RequestableCheckStatusState = 'COMPLETED' | 'IN_PROGRESS' | 'QUEUED'
 
 
 /** Types that can be requested reviewers. */
-export type RequestedReviewer = Mannequin | Team | User
+export type RequestedReviewer = (Mannequin | Team | User) & { __isUnion?: true }
 
 
 /** Autogenerated return type of RerequestCheckSuite */
@@ -10695,7 +10695,7 @@ export interface ReviewDismissalAllowance {
 
 
 /** Types that can be an actor. */
-export type ReviewDismissalAllowanceActor = Team | User
+export type ReviewDismissalAllowanceActor = (Team | User) & { __isUnion?: true }
 
 
 /** The connection type for ReviewDismissalAllowance. */
@@ -10887,7 +10887,7 @@ export type SavedReplyOrderField = 'UPDATED_AT'
 
 
 /** The results of a search. */
-export type SearchResultItem = App | Issue | MarketplaceListing | Organization | PullRequest | Repository | User
+export type SearchResultItem = (App | Issue | MarketplaceListing | Organization | PullRequest | Repository | User) & { __isUnion?: true }
 
 
 /** A list of results that matched against a search query. */
@@ -11125,11 +11125,11 @@ export interface SmimeSignature {
 
 
 /** Entites that can sponsor others via GitHub Sponsors */
-export type Sponsor = Organization | User
+export type Sponsor = (Organization | User) & { __isUnion?: true }
 
 
 /** Entities that can be sponsored through GitHub Sponsors */
-export type Sponsorable = Organization | User
+export type Sponsorable = (Organization | User) & { __isUnion?: true }
 
 
 /** A GitHub Sponsors listing. */
@@ -11303,7 +11303,7 @@ export interface StargazerEdge {
 
 
 /** Things that can be starred. */
-export type Starrable = Gist | Repository | Topic
+export type Starrable = (Gist | Repository | Topic) & { __isUnion?: true }
 
 
 /** The connection type for Repository. */
@@ -11362,7 +11362,7 @@ export interface StatusCheckRollup {
 
 
 /** Types that can be inside a StatusCheckRollup context. */
-export type StatusCheckRollupContext = CheckRun | StatusContext
+export type StatusCheckRollupContext = (CheckRun | StatusContext) & { __isUnion?: true }
 
 
 /** The connection type for StatusCheckRollupContext. */
@@ -11467,7 +11467,7 @@ export interface SubmoduleEdge {
 
 
 /** Entities that can be subscribed to for web and email notifications. */
-export type Subscribable = Commit | Issue | PullRequest | Repository | Team | TeamDiscussion
+export type Subscribable = (Commit | Issue | PullRequest | Repository | Team | TeamDiscussion) & { __isUnion?: true }
 
 
 /** Represents a 'subscribed' event on a given `Subscribable`. */
@@ -11720,7 +11720,7 @@ export interface TeamAddRepositoryAuditEntry {
 
 
 /** Metadata for an audit entry with action team.* */
-export type TeamAuditEntryData = OrgRestoreMemberMembershipTeamAuditEntryData | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry
+export type TeamAuditEntryData = (OrgRestoreMemberMembershipTeamAuditEntryData | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry) & { __isUnion?: true }
 
 
 /** Audit log entry for a team.change_parent_team event. */
@@ -12251,7 +12251,7 @@ export interface Topic {
 
 
 /** Metadata for an audit entry with a topic. */
-export type TopicAuditEntryData = RepoAddTopicAuditEntry | RepoRemoveTopicAuditEntry
+export type TopicAuditEntryData = (RepoAddTopicAuditEntry | RepoRemoveTopicAuditEntry) & { __isUnion?: true }
 
 
 /** The connection type for Topic. */
@@ -12387,7 +12387,7 @@ export interface UnfollowUserPayload {
 
 
 /** Represents a type that can be retrieved by a URL. */
-export type UniformResourceLocatable = Bot | CheckRun | ClosedEvent | Commit | ConvertToDraftEvent | CrossReferencedEvent | Gist | Issue | Mannequin | MergedEvent | Milestone | Organization | PullRequest | PullRequestCommit | ReadyForReviewEvent | Release | Repository | RepositoryTopic | ReviewDismissedEvent | TeamDiscussion | TeamDiscussionComment | User
+export type UniformResourceLocatable = (Bot | CheckRun | ClosedEvent | Commit | ConvertToDraftEvent | CrossReferencedEvent | Gist | Issue | Mannequin | MergedEvent | Milestone | Organization | PullRequest | PullRequestCommit | ReadyForReviewEvent | Release | Repository | RepositoryTopic | ReviewDismissedEvent | TeamDiscussion | TeamDiscussionComment | User) & { __isUnion?: true }
 
 
 /** Represents an unknown signature on a Commit or Tag. */
@@ -12543,11 +12543,11 @@ export interface UnsubscribedEvent {
 
 
 /** Entities that can be updated. */
-export type Updatable = CommitComment | GistComment | Issue | IssueComment | Project | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment
+export type Updatable = (CommitComment | GistComment | Issue | IssueComment | Project | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment) & { __isUnion?: true }
 
 
 /** Comments that can be updated. */
-export type UpdatableComment = CommitComment | GistComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment
+export type UpdatableComment = (CommitComment | GistComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | TeamDiscussion | TeamDiscussionComment) & { __isUnion?: true }
 
 
 /** Autogenerated return type of UpdateBranchProtectionRule */

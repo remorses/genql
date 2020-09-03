@@ -57,7 +57,7 @@ export interface Subscription {
     __typename?: 'Subscription'
 }
 
-export type Account = User | Guest
+export type Account = (User | Guest) & { __isUnion?: true }
 
 export interface Guest {
     anonymous?: Scalars['Boolean']
@@ -79,7 +79,7 @@ export interface Bank {
     __typename?: 'Bank'
 }
 
-export type Point = House | Bank
+export type Point = (House | Bank) & { __isUnion?: true }
 
 export interface QueryRequest{
     /** Some description */

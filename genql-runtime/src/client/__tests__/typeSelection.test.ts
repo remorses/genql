@@ -47,6 +47,14 @@ type SRC = {
             }
         }
     }
+    union:
+        | { a: string; __isUnion?: true }
+        | { a: string; b: string; __isUnion?: true }
+    nesting: {
+        nestedUnion:
+            | { a: string; __isUnion?: true }
+            | { a: string; b: string; __isUnion?: true }
+    }
     xxx: {
         xxx: boolean
     }
@@ -178,6 +186,42 @@ describe('optional fields', () => {
             // @ts-expect-error
             z.category.optionalFieldsNested.a
             z.category.optionalFieldsNested?.a?.toLocaleLowerCase
+        }),
+    )
+})
+
+describe('unions', () => {
+    const req = {
+        union: {
+            onX: {
+                a: 1,
+                __scalar: 1,
+            },
+        },
+        nesting: {
+            nestedUnion: {
+                onX: {
+                    a: 1,
+                },
+            },
+        },
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'pick union fields',
+        dontExecute(() => {
+            z.union.a.toLocaleLowerCase
+            z.union.a.toLocaleLowerCase
+            z.nesting.nestedUnion.a
+        }),
+    )
+    test(
+        'does not have __isUnion',
+        dontExecute(() => {
+            // @ts-expect-error
+            z.union.__isUnion
+            // @ts-expect-error
+            z.nesting.nestedUnion.__isUnion
         }),
     )
 })
