@@ -16,6 +16,7 @@ import { FieldsSelection } from '../typeSelection'
 */
 
 type SRC = {
+    literalsUnion: 'a' | 'b'
     list: {
         x: number
         a: string
@@ -371,6 +372,23 @@ describe('arrays', () => {
             z.argumentSyntax.list[0].optional?.blink
             // @ts-expect-error optional
             z.argumentSyntax.list[0].optional.blink
+        }),
+    )
+})
+
+describe('literals unions', () => {
+    const req = {
+        literalsUnion: 1,
+    }
+    const z: FieldsSelection<SRC, typeof req> = {} as any
+    test(
+        'literals',
+        dontExecute(() => {
+            z.literalsUnion.blink
+            z.literalsUnion === 'a'
+            z.literalsUnion === 'b'
+            // @ts-expect-error
+            z.literalsUnion === 'x'
         }),
     )
 })
