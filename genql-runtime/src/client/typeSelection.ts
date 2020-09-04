@@ -6,23 +6,7 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
         : never
     scalar: SRC
     union: Handle__isUnion<SRC, DST>
-    object: SRC extends Nil
-        ? never
-        : Pick<
-              {
-                  // using keyof SRC to maintain ?: relations of SRC type
-                  [Key in keyof SRC]: Key extends keyof DST
-                      ? FieldsSelection<
-                            NonNullable<SRC[Key]>,
-                            NonNullable<DST[Key]>
-                        >
-                      : SRC[Key]
-              },
-              {
-                  // only keep fields in DST and remove falsy values
-                  [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
-              }[keyof DST]
-          >
+    object: HandleObject<SRC, DST>
     array: SRC extends (infer T)[]
         ? Array<FieldsSelection<NonNullable<T>, NonNullable<DST>>>
         : never
@@ -47,6 +31,25 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
     : DST extends {}
     ? 'object'
     : 'never']
+
+type HandleObject<SRC extends Anify<DST> | undefined, DST> = SRC extends Nil
+    ? never
+    : Pick<
+          {
+              // using keyof SRC to maintain ?: relations of SRC type
+              [Key in keyof SRC]: Key extends keyof DST
+                  ? FieldsSelection<
+                        NonNullable<SRC[Key]>,
+                        NonNullable<DST[Key]>
+                    >
+                  : SRC[Key]
+          },
+          keyof DST
+          //   {
+          //       // remove falsy values
+          //       [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
+          //   }[keyof DST]
+      >
 
 type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never

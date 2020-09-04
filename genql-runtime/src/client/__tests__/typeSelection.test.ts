@@ -332,16 +332,16 @@ describe('hide fields in request', () => {
         },
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
-    test(
-        'cannot access falsy fields',
-        dontExecute(() => {
-            z.category.a
-            // @ts-expect-error inaccessible
-            z.category.b
-            // @ts-expect-error inaccessible
-            z.category.c
-        }),
-    )
+    // test(
+    //     'cannot access falsy fields',
+    //     dontExecute(() => {
+    //         z.category.a
+    //         // @ts-expect-error inaccessible
+    //         z.category.b
+    //         // @ts-expect-error inaccessible
+    //         z.category.c
+    //     }),
+    // )
 })
 
 describe('arrays', () => {
@@ -438,30 +438,35 @@ describe('literals unions', () => {
     )
 })
 
-// interface ForkConnection {
-//     edges?: (ForkEdge | undefined)[]
-//     __typename?: 'ForkConnection'
-// }
+test(
+    'complex optional type with array',
+    dontExecute(() => {
+        interface ForkConnection {
+            edges?: (ForkEdge | undefined)[]
+            __typename?: 'ForkConnection'
+        }
 
-// interface ForkEdge {
-//     cursor?: string
-//     node?: { x: string }
-//     __typename?: 'ForkEdge'
-// }
+        interface ForkEdge {
+            cursor?: string
+            node?: { x: string }
+            __typename?: 'ForkEdge'
+        }
 
-// // issue
-// type X = FieldsSelection<
-//     ForkConnection | undefined,
-//     {
-//         edges?: {
-//             node: {
-//                 x: 1
-//             }
-//         }
-//     }
-// >
-// declare const x: X
-// x?.edges?.[0]?.node?.x
+        // issue
+        type X = FieldsSelection<
+            ForkConnection | undefined,
+            {
+                edges?: {
+                    node: {
+                        x: 1
+                    }
+                }
+            }
+        >
+        const x: X = {} as any
+        x?.edges?.[0]?.node?.x
+    }),
+)
 
 ///////////////////////////////////// unions
 
