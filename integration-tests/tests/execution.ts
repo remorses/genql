@@ -109,16 +109,12 @@ describe('execute queries', async function() {
         'simple ',
         withServer(async () => {
             const res = await client.query({
-                // @ts-expect-error should not be here
-                shouldNotBeHere: 1,
                 user: {
-                    
-                    common: 1,
                     name: true,
                 },
             })
             console.log(JSON.stringify(res, null, 2))
-            assert(deepEq(res.user, x))
+            assert.deepStrictEqual(res.user, x)
         }),
     )
     it(

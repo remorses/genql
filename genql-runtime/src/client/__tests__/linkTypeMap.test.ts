@@ -1,5 +1,5 @@
 import { linkTypeMap } from '../linkTypeMap'
-import { replaceTypeNamesWithIndexes } from 'genql-cli/dist/render/typeMap/renderTypeMap'
+import { replaceTypeNamesWithIndexes } from 'genql-cli/src/render/typeMap/renderTypeMap'
 
 test('linkTypeMap', () => {
     const typeMap = linkTypeMap(

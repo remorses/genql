@@ -4,7 +4,7 @@ const {
   generateGraphqlOperation,
   assertSameVersion,
 } = require('genql-runtime')
-var typeMap = linkTypeMap(require('./types.json'))
+var typeMap = linkTypeMap(require('./types.cjs'))
 
 var version = '1.1.27'
 assertSameVersion(version)

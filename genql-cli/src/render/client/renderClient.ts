@@ -29,7 +29,7 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
       generateGraphqlOperation,
       assertSameVersion,
   } = require('${RUNTIME_LIB_NAME}')
-  var typeMap = linkTypeMap(require('./types.json'))
+  var typeMap = linkTypeMap(require('./types.cjs'))
 
   var version = '${version}'
   assertSameVersion(version)
@@ -66,7 +66,8 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
       generateGraphqlOperation,
       assertSameVersion,
   } from '${RUNTIME_LIB_NAME}'
-  var typeMap = linkTypeMap(require('./types.json'))
+  import types from './types.esm'
+  var typeMap = linkTypeMap(types)
   export * from './guards.esm'
 
   export var version = '${version}'

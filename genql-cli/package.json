@@ -23,7 +23,7 @@
     ],
     "scripts": {
         "start": "tsdx watch",
-        "build": "rm -rf dist esm || true && tsc",
+        "build": "true && tsc",
         "test": "jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"
@@ -46,6 +46,7 @@
         "pretty-quick": "^1.10.0",
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
+        "genql-runtime": "*",
         "typescript": "^4.0.2"
     },
     "dependencies": {

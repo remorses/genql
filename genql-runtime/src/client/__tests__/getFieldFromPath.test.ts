@@ -1,6 +1,6 @@
 import { getFieldFromPath } from '../getFieldFromPath'
 import { linkTypeMap } from '../linkTypeMap'
-import { replaceTypeNamesWithIndexes } from 'genql-cli/dist/render/typeMap/renderTypeMap'
+import { replaceTypeNamesWithIndexes } from 'genql-cli/src/render/typeMap/renderTypeMap'
 
 describe('getFieldFromPath', () => {
     test('gets nested field definition', () => {

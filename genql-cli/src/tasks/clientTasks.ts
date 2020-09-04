@@ -15,7 +15,8 @@ const schemaGqlFile = 'schema.graphql'
 const schemaTypesFile = 'schema.ts'
 const guardsFileCjs = 'guards.cjs.js'
 const guardsFileEsm = 'guards.esm.js'
-const typeMapFile = 'types.json'
+const typeMapFileCjs = 'types.cjs.js'
+const typeMapFileEsm = 'types.esm.js'
 const clientFileCjs = 'index.js'
 const clientTypesFile = 'index.d.ts'
 
@@ -82,13 +83,22 @@ export const clientTasks = (config: Config): ListrTask[] => {
             },
         },
         {
-            title: `writing ${typeMapFile}`,
+            title: `writing types`,
             task: async (ctx) => {
                 const renderCtx = new RenderContext(ctx.schema, config)
 
                 renderTypeMap(ctx.schema, renderCtx)
 
-                await writeFileToPath([output, typeMapFile], renderCtx.toCode())
+                if (!config.onlyEsModules) {
+                    await writeFileToPath(
+                        [output, typeMapFileCjs],
+                        `module.exports = ${renderCtx.toCode()}`,
+                    )
+                }
+                await writeFileToPath(
+                    [output, typeMapFileEsm],
+                    `export default ${renderCtx.toCode()}`,
+                )
             },
         },
         !config.onlyEsModules && {
