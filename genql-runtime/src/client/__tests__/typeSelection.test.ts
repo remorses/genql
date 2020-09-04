@@ -1,5 +1,5 @@
-import { FieldsSelection } from '../typeSelection'
-import { NoExtraProperties } from '../../'
+import { FieldsSelection } from 'genql-runtime/dist/client/typeSelection'
+import { NoExtraProperties } from 'genql-runtime'
 
 // types requirements
 /*
@@ -438,30 +438,30 @@ describe('literals unions', () => {
     )
 })
 
-interface ForkConnection {
-    edges?: (ForkEdge | undefined)[]
-    __typename?: 'ForkConnection'
-}
+// interface ForkConnection {
+//     edges?: (ForkEdge | undefined)[]
+//     __typename?: 'ForkConnection'
+// }
 
-interface ForkEdge {
-    cursor?: string
-    node?: { x: string }
-    __typename?: 'ForkEdge'
-}
+// interface ForkEdge {
+//     cursor?: string
+//     node?: { x: string }
+//     __typename?: 'ForkEdge'
+// }
 
-// issue
-type X = FieldsSelection<
-    ForkConnection | undefined,
-    {
-        edges?: {
-            node: {
-                x: 1
-            }
-        }
-    }
->
-declare const x: X
-x?.edges?.[0]?.node?.x
+// // issue
+// type X = FieldsSelection<
+//     ForkConnection | undefined,
+//     {
+//         edges?: {
+//             node: {
+//                 x: 1
+//             }
+//         }
+//     }
+// >
+// declare const x: X
+// x?.edges?.[0]?.node?.x
 
 ///////////////////////////////////// unions
 

@@ -1,4 +1,3 @@
-
 import get from 'lodash.get'
 import {
     ClientOptions as SubscriptionOptions,
@@ -96,7 +95,7 @@ export const createClient = ({
                     },
                 })
             }).map((val: ExecutionResult<any>): any => {
-                if (val?.errors?.length > 0) {
+                if (val?.errors?.length) {
                     throw new ClientError(val?.errors)
                 }
                 return val?.data
