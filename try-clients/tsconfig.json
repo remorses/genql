@@ -5,6 +5,8 @@
         "sourceMap": true,
         "noEmit": true,
         "resolveJsonModule": true,
-        "skipLibCheck": true
-    }
+        "skipLibCheck": true,
+        "composite": true
+    },
+    "references": []
 }

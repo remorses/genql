@@ -10,6 +10,7 @@
         "integration-tests"
     ],
     "scripts": {
+        "setupts": "setup-typescript-monorepo --addComposite  --indentation 4",
         "watch-cli": "yarn --cwd genql-cli tsc -w --preserveWatchOutput",
         "watch-runtime": "yarn --cwd genql-runtime tsc -w --preserveWatchOutput",
         "start": "concurrently npm:watch-*",

@@ -1,9 +1,7 @@
 {
     "compilerOptions": {
         "noImplicitReturns": true,
-        // "noUnusedLocals": true,
         "noUnusedParameters": true,
-        // "noImplicitAny": false,
         "importHelpers": true,
         "rootDir": "src",
         "strict": false,
@@ -15,10 +13,16 @@
         "esModuleInterop": true,
         "allowJs": true,
         "sourceMap": true,
-        "lib": ["dom", "esnext.asynciterable"],
+        "lib": [
+            "dom",
+            "esnext.asynciterable"
+        ],
         "skipLibCheck": true,
+        "composite": true
     },
-    "include": ["src"],
+    "include": [
+        "src"
+    ],
     "exclude": [
         "node_modules",
         "**/*.case.ts",
@@ -27,5 +31,10 @@
         "dist",
         "**/__tests__",
         "esm"
+    ],
+    "references": [
+        {
+            "path": "../genql-cli"
+        }
     ]
 }
