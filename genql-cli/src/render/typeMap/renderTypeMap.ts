@@ -18,6 +18,11 @@ import {
     FieldMap,
     ArgMap,
     Field,
+    LinkedType,
+    LinkedField,
+    CompressedField,
+    CompressedTypeMap,
+    CompressedFieldMap,
 } from 'genql-runtime/dist/types'
 
 export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
@@ -65,12 +70,14 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
         // result.Subscription.name = 'Subscription'
     }
 
-    ctx.addCodeBlock(JSON.stringify(replaceTypeNamesWithIndexes(result), null, 4))
+    ctx.addCodeBlock(
+        JSON.stringify(replaceTypeNamesWithIndexes(result), null, 4),
+    )
 }
 
 export function replaceTypeNamesWithIndexes(
     typeMap: TypeMap<string>,
-): TypeMap<number> {
+): CompressedTypeMap<number> {
     const nameToIndex: Record<string, number> = Object.assign(
         {},
         ...Object.keys(typeMap.types).map((k, i) => ({ [k]: i })),
@@ -79,30 +86,31 @@ export function replaceTypeNamesWithIndexes(
     const types = Object.assign(
         {},
         ...Object.keys(typeMap.types || {}).map((k) => {
-            const type: Type<string> = typeMap.types[k] || {}
+            const type = typeMap.types[k]
             const fieldsMap = type || {}
             // processFields(fields, indexToName)
             const fields = Object.assign(
                 {},
                 ...Object.keys(fieldsMap).map(
-                    (f): FieldMap<number> => {
-                        const content = fieldsMap[f]
+                    (f): CompressedFieldMap<number> => {
+                        const content = fieldsMap[f] as any
                         if (!content) {
                             throw new Error('no content in field ' + f)
                         }
-
-                        const res: Field<number> = {
-                            type: content?.type
-                                ? nameToIndex[content?.type]
-                                : -1,
-                        }
-                        if (content.args) {
-                            res.args = Object.assign(
+                        const [typeName, args] = [content.type, content.args]
+                        const res: CompressedField<number> = [
+                            typeName ? nameToIndex[typeName] : -1,
+                        ]
+                        if (args) {
+                            res[1] = Object.assign(
                                 {},
-                                ...Object.keys(content.args || {}).map((k) => {
-                                    const arg = content?.args?.[k]
+                                ...Object.keys(args || {}).map((k) => {
+                                    const arg = args?.[k]
                                     if (!arg) {
-                                        throw new Error('no arg for ' + k)
+                                        throw new Error(
+                                            'replaceTypeNamesWithIndexes: no arg for ' +
+                                                k,
+                                        )
                                     }
                                     return {
                                         [k]: [

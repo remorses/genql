@@ -2,17 +2,24 @@ import {
     LinkedField,
     LinkedType,
     LinkedTypeMap,
-    TypeMap,
-    Type,
-    Field,
-    FieldMap,
+    CompressedTypeMap,
+    CompressedType,
+    CompressedField,
+    CompressedFieldMap,
+    LinkedFieldMap,
+    LinkedArgMap,
 } from '../types'
 import assign from 'lodash.assign'
 
-export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
-    // TODO add Type.type and Type.args
+export interface PartialLinkedFieldMap {
+    [field: string]: {
+        type: string
+        args?: LinkedArgMap
+    }
+}
 
-    const indexToName = assign(
+export const linkTypeMap = (typeMap: CompressedTypeMap<number>): LinkedTypeMap => {
+    const indexToName: Record<number, string> = assign(
         {},
         ...Object.keys(typeMap.types).map((k, i) => ({ [i]: k })),
     )
@@ -22,7 +29,7 @@ export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
         {},
         ...Object.keys(typeMap.types || {}).map(
             (k): Record<string, LinkedType> => {
-                const type: Type = typeMap.types[k]
+                const type: CompressedType = typeMap.types[k]
                 const fields = type || {}
                 // processFields(fields, indexToName)
                 return {
@@ -30,34 +37,41 @@ export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
                         name: k,
                         // type scalar properties
                         scalar: Object.keys(fields).filter((f) => {
-                            const { type } = fields[f] || {}
+                            const [type] = fields[f] || []
                             return typeMap.scalars.includes(type)
                         }),
                         // fields with corresponding `type` and `args`
                         fields: assign(
                             {},
                             ...Object.keys(fields).map(
-                                (f): FieldMap<string> => {
-                                    const content = fields[f]
+                                (f): PartialLinkedFieldMap => {
+                                    const [typeIndex, args] = fields[f] || []
                                     return {
                                         [f]: {
-                                            type: indexToName[content.type],
+                                            // replace index with type name
+                                            type: indexToName[typeIndex],
                                             args: assign(
                                                 {},
-                                                ...Object.keys(
-                                                    content.args || {},
-                                                ).map((k) => {
-                                                    const arg = content.args[k]
-                                                    return {
-                                                        [k]: [
-                                                            indexToName[arg[0]],
-                                                            arg[1] ||
+                                                ...Object.keys(args || {}).map(
+                                                    (k) => {
+                                                        // if argTypeString == argTypeName, argTypeString is missing, need to readd it
+                                                        const [
+                                                            argTypeName,
+                                                            argTypeString,
+                                                        ] = args[k]
+                                                        return {
+                                                            [k]: [
                                                                 indexToName[
-                                                                    arg[0]
+                                                                    argTypeName
                                                                 ],
-                                                        ],
-                                                    }
-                                                }),
+                                                                argTypeString ||
+                                                                    indexToName[
+                                                                        argTypeName
+                                                                    ],
+                                                            ],
+                                                        }
+                                                    },
+                                                ),
                                             ),
                                         },
                                     }
@@ -73,6 +87,7 @@ export const linkTypeMap = (typeMap: TypeMap<number>): LinkedTypeMap => {
     return res
 }
 
+// replace typename with concrete type
 export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
     Object.keys(linkedTypeMap).forEach((typeNameFromKey) => {
         const type: LinkedType = linkedTypeMap[typeNameFromKey]

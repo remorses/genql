@@ -27,12 +27,32 @@ export interface ArgMap<keyType = number> {
     [arg: string]: [keyType, string] | [keyType] | undefined
 }
 
-export interface Field<keyType = number> {
-    type: keyType
+export type CompressedField<keyType = number> = [
+    type: keyType,
     args?: ArgMap<keyType>
-}
+]
+
 
 // export type Field = [string] | [string, ArgMap]
+
+export interface CompressedFieldMap<keyType = number> {
+    [field: string]: CompressedField<keyType> | undefined
+}
+
+export type CompressedType<keyType = number> = CompressedFieldMap<keyType>
+
+export interface CompressedTypeMap<keyType = number> {
+    scalars: Array<keyType>
+    types: {
+        [type: string]: CompressedType<keyType> | undefined
+    }
+}
+
+// normal types
+export type Field<keyType = number> = {
+    type: keyType,
+    args?: ArgMap<keyType>
+}
 
 export interface FieldMap<keyType = number> {
     [field: string]: Field<keyType> | undefined
@@ -56,6 +76,7 @@ export interface LinkedField {
     type: LinkedType
     args?: LinkedArgMap
 }
+
 
 export interface LinkedFieldMap {
     [field: string]: LinkedField | undefined
