@@ -1,14 +1,18 @@
 //////////////////////////////////////////////////
 
 export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
-    tuple: DST extends readonly [any, infer PAYLOAD]
+    tuple: DST extends Nil
+        ? never
+        : DST extends readonly [any, infer PAYLOAD]
         ? FieldsSelection<SRC, PAYLOAD>
         : never
     scalar: SRC
     union: Handle__isUnion<SRC, DST>
     object: HandleObject<SRC, DST>
-    array: SRC extends (infer T)[]
-        ? Array<FieldsSelection<NonNullable<T>, NonNullable<DST>>>
+    array: SRC extends Nil
+        ? never
+        : SRC extends (infer T)[]
+        ? Array<FieldsSelection<T, DST>>
         : never
     __scalar: Handle__scalar<SRC, DST>
     never: never
@@ -22,7 +26,7 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
     ? 'never'
     : SRC extends Scalar
     ? 'scalar'
-    : NonNullable<SRC> extends any[]
+    : SRC extends any[]
     ? 'array'
     : SRC extends { __isUnion?: any }
     ? 'union'

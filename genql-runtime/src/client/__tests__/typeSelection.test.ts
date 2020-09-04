@@ -1,4 +1,4 @@
-import { FieldsSelection } from 'genql-runtime/dist/client/typeSelection'
+import { FieldsSelection } from 'genql-runtime/src/client/typeSelection'
 import { NoExtraProperties } from 'genql-runtime'
 
 // types requirements
@@ -449,6 +449,7 @@ test(
         interface ForkEdge {
             cursor?: string
             node?: { x: string }
+            nodes?: { x: string }[]
             __typename?: 'ForkEdge'
         }
 
@@ -460,11 +461,15 @@ test(
                     node: {
                         x: 1
                     }
+                    nodes: {
+                        __scalar: 1
+                    }
                 }
             }
         >
         const x: X = {} as any
         x?.edges?.[0]?.node?.x
+        x?.edges?.[0]?.nodes?.[0].x
     }),
 )
 
