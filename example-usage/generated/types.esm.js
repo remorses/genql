@@ -9,199 +9,199 @@ export default {
     ],
     "types": {
         "Query": {
-            "continents": {
-                "type": 4,
-                "args": {
+            "continents": [
+                4,
+                {
                     "filter": [
                         1
                     ]
                 }
-            },
-            "continent": {
-                "type": 4,
-                "args": {
+            ],
+            "continent": [
+                4,
+                {
                     "code": [
                         5,
                         "ID!"
                     ]
                 }
-            },
-            "countries": {
-                "type": 6,
-                "args": {
+            ],
+            "countries": [
+                6,
+                {
                     "filter": [
                         10
                     ]
                 }
-            },
-            "country": {
-                "type": 6,
-                "args": {
+            ],
+            "country": [
+                6,
+                {
                     "code": [
                         5,
                         "ID!"
                     ]
                 }
-            },
-            "languages": {
-                "type": 7,
-                "args": {
+            ],
+            "languages": [
+                7,
+                {
                     "filter": [
                         11
                     ]
                 }
-            },
-            "language": {
-                "type": 7,
-                "args": {
+            ],
+            "language": [
+                7,
+                {
                     "code": [
                         5,
                         "ID!"
                     ]
                 }
-            },
-            "__typename": {
-                "type": 3
-            }
+            ],
+            "__typename": [
+                3
+            ]
         },
         "ContinentFilterInput": {
-            "code": {
-                "type": 2
-            },
-            "__typename": {
-                "type": 3
-            }
+            "code": [
+                2
+            ],
+            "__typename": [
+                3
+            ]
         },
         "StringQueryOperatorInput": {
-            "eq": {
-                "type": 3
-            },
-            "ne": {
-                "type": 3
-            },
-            "in": {
-                "type": 3
-            },
-            "nin": {
-                "type": 3
-            },
-            "regex": {
-                "type": 3
-            },
-            "glob": {
-                "type": 3
-            },
-            "__typename": {
-                "type": 3
-            }
+            "eq": [
+                3
+            ],
+            "ne": [
+                3
+            ],
+            "in": [
+                3
+            ],
+            "nin": [
+                3
+            ],
+            "regex": [
+                3
+            ],
+            "glob": [
+                3
+            ],
+            "__typename": [
+                3
+            ]
         },
         "String": {},
         "Continent": {
-            "code": {
-                "type": 5
-            },
-            "name": {
-                "type": 3
-            },
-            "countries": {
-                "type": 6
-            },
-            "__typename": {
-                "type": 3
-            }
+            "code": [
+                5
+            ],
+            "name": [
+                3
+            ],
+            "countries": [
+                6
+            ],
+            "__typename": [
+                3
+            ]
         },
         "ID": {},
         "Country": {
-            "code": {
-                "type": 5
-            },
-            "name": {
-                "type": 3
-            },
-            "native": {
-                "type": 3
-            },
-            "phone": {
-                "type": 3
-            },
-            "continent": {
-                "type": 4
-            },
-            "capital": {
-                "type": 3
-            },
-            "currency": {
-                "type": 3
-            },
-            "languages": {
-                "type": 7
-            },
-            "emoji": {
-                "type": 3
-            },
-            "emojiU": {
-                "type": 3
-            },
-            "states": {
-                "type": 9
-            },
-            "__typename": {
-                "type": 3
-            }
+            "code": [
+                5
+            ],
+            "name": [
+                3
+            ],
+            "native": [
+                3
+            ],
+            "phone": [
+                3
+            ],
+            "continent": [
+                4
+            ],
+            "capital": [
+                3
+            ],
+            "currency": [
+                3
+            ],
+            "languages": [
+                7
+            ],
+            "emoji": [
+                3
+            ],
+            "emojiU": [
+                3
+            ],
+            "states": [
+                9
+            ],
+            "__typename": [
+                3
+            ]
         },
         "Language": {
-            "code": {
-                "type": 5
-            },
-            "name": {
-                "type": 3
-            },
-            "native": {
-                "type": 3
-            },
-            "rtl": {
-                "type": 8
-            },
-            "__typename": {
-                "type": 3
-            }
+            "code": [
+                5
+            ],
+            "name": [
+                3
+            ],
+            "native": [
+                3
+            ],
+            "rtl": [
+                8
+            ],
+            "__typename": [
+                3
+            ]
         },
         "Boolean": {},
         "State": {
-            "code": {
-                "type": 3
-            },
-            "name": {
-                "type": 3
-            },
-            "country": {
-                "type": 6
-            },
-            "__typename": {
-                "type": 3
-            }
+            "code": [
+                3
+            ],
+            "name": [
+                3
+            ],
+            "country": [
+                6
+            ],
+            "__typename": [
+                3
+            ]
         },
         "CountryFilterInput": {
-            "code": {
-                "type": 2
-            },
-            "currency": {
-                "type": 2
-            },
-            "continent": {
-                "type": 2
-            },
-            "__typename": {
-                "type": 3
-            }
+            "code": [
+                2
+            ],
+            "currency": [
+                2
+            ],
+            "continent": [
+                2
+            ],
+            "__typename": [
+                3
+            ]
         },
         "LanguageFilterInput": {
-            "code": {
-                "type": 2
-            },
-            "__typename": {
-                "type": 3
-            }
+            "code": [
+                2
+            ],
+            "__typename": [
+                3
+            ]
         },
         "CacheControlScope": {},
         "Upload": {},

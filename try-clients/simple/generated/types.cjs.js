@@ -6,23 +6,23 @@ module.exports = {
     ],
     "types": {
         "Query": {
-            "users": {
-                "type": 1
-            },
-            "__typename": {
-                "type": 3
-            }
+            "users": [
+                1
+            ],
+            "__typename": [
+                3
+            ]
         },
         "User": {
-            "id": {
-                "type": 2
-            },
-            "name": {
-                "type": 3
-            },
-            "__typename": {
-                "type": 3
-            }
+            "id": [
+                2
+            ],
+            "name": [
+                3
+            ],
+            "__typename": [
+                3
+            ]
         },
         "ID": {},
         "String": {},
