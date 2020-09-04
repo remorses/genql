@@ -448,8 +448,8 @@ test(
 
         interface ForkEdge {
             cursor?: string
-            node?: { x: string }
-            nodes?: { x: string }[]
+            node?: { x: string; y: string }
+            nodes?: { x: string; y: string }[]
             __typename?: 'ForkEdge'
         }
 

@@ -1,5 +1,10 @@
 //////////////////////////////////////////////////
 
+// SOME THINGS TO KNOW BEFORE DIVING IN
+/*
+1. The FieldsSelection uses an object because currently is impossible to 
+*/
+
 export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
     tuple: DST extends Nil
         ? never
@@ -57,26 +62,25 @@ type HandleObject<SRC extends Anify<DST> | undefined, DST> = SRC extends Nil
 
 type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
-    : Omit<
-          Pick<
-              // continue processing fields that are in DST, directly pass SRC type if not in DST
-              {
-                  [Key in keyof SRC]: Key extends keyof DST
-                      ? FieldsSelection<SRC[Key], DST[Key]>
-                      : SRC[Key]
-              },
-              // remove fields that are not scalars or are not in DST
-              {
-                  [Key in keyof SRC]: SRC[Key] extends Nil
-                      ? never
-                      : SRC[Key] extends Scalar
-                      ? Key
-                      : Key extends keyof DST
-                      ? Key
-                      : never
-              }[keyof SRC]
-          >,
-          FieldsToRemove
+    : Pick<
+          // continue processing fields that are in DST, directly pass SRC type if not in DST
+          {
+              [Key in keyof SRC]: Key extends keyof DST
+                  ? FieldsSelection<SRC[Key], DST[Key]>
+                  : SRC[Key]
+          },
+          // remove fields that are not scalars or are not in DST
+          {
+              [Key in keyof SRC]: SRC[Key] extends Nil
+                  ? never
+                  : Key extends FieldsToRemove
+                  ? never
+                  : SRC[Key] extends Scalar
+                  ? Key
+                  : Key extends keyof DST
+                  ? Key
+                  : never
+          }[keyof SRC]
       >
 
 // TODO response union types are very dumb
