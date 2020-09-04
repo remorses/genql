@@ -449,7 +449,7 @@ test(
         interface ForkEdge {
             cursor?: string
             node?: { x: string; y: string }
-            nodes?: { x: string; y: string }[]
+            nodes?: { x?: string; y?: string }[]
             __typename?: 'ForkEdge'
         }
 
@@ -468,8 +468,11 @@ test(
             }
         >
         const x: X = {} as any
-        x?.edges?.[0]?.node?.x
-        x?.edges?.[0]?.nodes?.[0].x
+        x?.edges?.[0]?.node?.x?.toLocaleLowerCase
+        // @ts-expect-error not present
+        x?.edges?.[0]?.node?.y?.toLocaleLowerCase
+        x?.edges?.[0]?.nodes?.[0].x?.toLocaleLowerCase
+        x?.edges?.[0]?.nodes?.[0].y?.toLocaleLowerCase
     }),
 )
 
