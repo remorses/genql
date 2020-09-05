@@ -13,7 +13,7 @@ export const renderClientDefinition = (
     const subscriptionType = schema.getSubscriptionType()
 
     ctx.addCodeBlock(`
-    import { FieldsSelection, GraphqlOperation, ClientOptions, Observable, NoExtraProperties } from '${RUNTIME_LIB_NAME}'
+    import { FieldsSelection, GraphqlOperation, ClientOptions, Observable } from '${RUNTIME_LIB_NAME}'
     import { SubscriptionClient } from 'subscriptions-transport-ws'
     export * from './schema'
     ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
@@ -78,7 +78,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
     if (queryType) {
         interfaceContent += `
         query<R extends ${requestTypeName(queryType)}>(
-            request: NoExtraProperties<${requestTypeName(queryType)}, R>,
+            request: R,
         ): Promise<FieldsSelection<${queryType.name}, R>>
         `
         chainTypeContent += `
