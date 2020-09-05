@@ -76,10 +76,14 @@ query {
         name
         id
         address {
-            city
-            code
-            state
+            ...addressFragment
         }
     }
+}
+
+fragment addressFragment on Character {
+    city
+    code
+    state
 }
 `
