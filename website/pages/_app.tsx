@@ -90,6 +90,9 @@ export default function App(props) {
             }}
             onError={(e) => alert(e.message)}
         >
+            <Head>
+                <title>Genql - SDK client for any GraphQL API</title>
+            </Head>
             <LandingProvider
                 minH='100%'
                 h='100%'
