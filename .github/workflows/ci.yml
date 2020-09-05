@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - run: npm i -g npm@latest
       - run: yarn
       - run: yarn buildall
       - run: yarn test
@@ -29,7 +30,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn buildall
-      - run: |
+      - name: Publish
+        run: |
           cd genql-cli && npm publish --access public --tag beta
           cd ../genql-runtime && npm publish --access public --tag beta
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
