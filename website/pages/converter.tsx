@@ -20,28 +20,34 @@ function Page({}) {
     }, [code])
     return (
         <Stack align='stretch'>
-            <SectionTitle dark heading='Convert graphql to genql' />
+            <SectionTitle
+                dark
+                heading='Convert graphql to genql'
+                subheading='Easily migrate from graphql strings to type safe genql queries'
+                mb='40px'
+            />
             <Stack p='10' align='stretch'>
                 <Stack
                     spacing='20'
                     justify='stretch'
                     width='100%'
-                    direction='row'
+                    align='center'
+                    direction={['column', null, null, 'row']}
                 >
-                    <Stack align='stretch' flex='1'>
+                    <Stack minWidth='0' align='stretch' flex='1'>
                         {invalid && (
-                            <Stack px='20px' zIndex={1000} mb='-40px' color='red.500'>
+                            <Stack
+                                px='20px'
+                                zIndex={1000}
+                                mb='-40px'
+                                color='red.500'
+                            >
                                 {invalid}
                             </Stack>
                         )}
                         <Code value={code} onChange={setCode} />
                     </Stack>
-                    <Code
-                        minHeight='100%'
-                        flex='1'
-                        readOnly
-                        value={genqlTranslation}
-                    />
+                    <Code hideLinesNumbers flex='1' readOnly value={genqlTranslation} />
                 </Stack>
             </Stack>
         </Stack>
@@ -52,7 +58,7 @@ export default Page
 
 const DEFAULT_QUERY = `
 query {
-    getUser(where: { name: { eq: "John" }}) {
+    getUser(where: { name: { eq: "Tommy" }}) {
         name
         id
         address {

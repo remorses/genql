@@ -143,6 +143,7 @@ export function MyFooter({ ...rest }) {
 export function MyNavbar({ ...rest }) {
     const { user, loading } = useAuthData()
     const navs = [
+        <MyLink href='/converter'>Converter</MyLink>,
         <MyLink isExternal href={GITHUB_LINK}>
             Github
         </MyLink>,

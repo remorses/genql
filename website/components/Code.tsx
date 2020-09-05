@@ -1,7 +1,7 @@
 // @jsx jsx
 import { Box, Stack, Flex } from 'layout-kit-react'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
-import prismTheme from 'prism-react-renderer/themes/nightOwlLight'
+import prismTheme from 'prism-react-renderer/themes/duotoneLight'
 import React, { useCallback } from 'react'
 import Editor from 'react-simple-code-editor'
 import { css, jsx } from '@emotion/core'
@@ -12,6 +12,7 @@ const CODE_FONT = `'Fira code','Fira Mono',monospace`
 
 export const Code = ({
     value = '',
+    hideLinesNumbers = false,
     onChange = (x) => x,
     style = {},
     readOnly = false,
@@ -59,18 +60,20 @@ export const Code = ({
                                     key={i}
                                     {...getLineProps({ line, key: i })}
                                 >
-                                    <Box
-                                        d='inline-block'
-                                        position='absolute'
-                                        left='0px'
-                                        textAlign='right'
-                                        minW='40px'
-                                        opacity={0.4}
-                                        pr='40px'
-                                        pl='20px'
-                                    >
-                                        {i + 1}
-                                    </Box>
+                                    {!hideLinesNumbers && (
+                                        <Box
+                                            d='inline-block'
+                                            position='absolute'
+                                            left='0px'
+                                            textAlign='right'
+                                            minW='40px'
+                                            opacity={0.4}
+                                            pr='40px'
+                                            pl='20px'
+                                        >
+                                            {i + 1}
+                                        </Box>
+                                    )}
                                     {line.map((token, key) => (
                                         <span
                                             key={key}
@@ -90,7 +93,6 @@ export const Code = ({
     return (
         <Flex
             shadow='sm'
-
             overflowX='auto'
             overflowY='visible'
             height='auto'
