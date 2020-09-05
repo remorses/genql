@@ -102,7 +102,7 @@ export default function App(props) {
                 color='#444'
             >
                 <MyNavbar />
-                <Stack h='100%' minH='100vh'>
+                <Stack align='stretch' h='100%' minH='100vh'>
                     <Component {...pageProps} />
                 </Stack>
                 <MyFooter dark />

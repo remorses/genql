@@ -7,7 +7,6 @@ import { prettify } from './helpers/prettify'
  * formatting rules.
  */
 
-
 export type PrintOptions = {
     clientVarName?: string
     transformVariableName?: (x: string) => string
@@ -43,7 +42,7 @@ const printDocASTReducer = ({
         if (thenCode) {
             code += `.then(${thenCode})`
         }
-        return prettify(code, "babel")
+        return prettify(code, 'typescript')
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
@@ -63,13 +62,43 @@ const printDocASTReducer = ({
     },
     // join(directives, ' '),
 
-    Argument: ({ name, value }) =>
-        name + ': ' + transformVariableName(value.replace('$', '')),
-
+    Argument: ({ name, value = '' }) => {
+        console.log(JSON.stringify(value, null, 4))
+        return name + ': ' + printArgument(value)
+    },
     // Fragments
 
     // Directive
 })
+
+function printArgument(value, transformVariableName = (x) => x) {
+    if (typeof value === 'string') {
+        return transformVariableName(value.replace('$', ''))
+    }
+    const kind = value?.kind
+    if (kind === 'ObjectValue') {
+        return `{ ${value.fields.map((x) => printArgument(x)).join('\n')} }`
+    }
+    if (kind === 'ObjectField') {
+        return `${value.name}: ${printArgument(value.value)},`
+    }
+    if (kind == 'StringValue' || kind == 'EnumValue') {
+        return `"${value.value}"`
+    }
+    if (kind == 'IntValue') {
+        return `${value.value}`
+    }
+    if (kind == 'NullValue') {
+        return `null`
+    }
+    if (kind == 'BooleanValue') {
+        return `${value.value ? 'true' : 'false'}`
+    }
+    if (kind == 'ListValue') {
+        return `[${value.values.map(printArgument).join(', ')}]`
+    }
+    console.error(`unhandled type ${kind}`)
+}
 
 /**
  * Given maybeArray, print an empty string if it is null or empty, otherwise

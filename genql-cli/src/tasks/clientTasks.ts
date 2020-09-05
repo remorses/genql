@@ -65,7 +65,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
 
                 await writeFileToPath(
                     [output, guardsFileEsm],
-                    renderCtx.toCode('babel'),
+                    renderCtx.toCode('typescript'),
                 )
             },
         },
@@ -78,7 +78,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
 
                 await writeFileToPath(
                     [output, guardsFileCjs],
-                    renderCtx.toCode('babel'),
+                    renderCtx.toCode('typescript'),
                 )
             },
         },
@@ -109,7 +109,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
                 renderClientCjs(ctx.schema, renderCtx)
                 await writeFileToPath(
                     [output, clientFileCjs],
-                    renderCtx.toCode('babel', true),
+                    renderCtx.toCode('typescript', true),
                 )
             },
         },
@@ -120,7 +120,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
                 renderClientEsm(ctx.schema, renderCtx)
                 await writeFileToPath(
                     [output, clientFileEsm],
-                    renderCtx.toCode('babel', true),
+                    renderCtx.toCode('typescript', true),
                 )
             },
         },
