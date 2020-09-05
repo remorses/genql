@@ -18,6 +18,8 @@ jobs:
       - run: yarn
       - run: yarn buildall
       - run: yarn test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Bump version
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
         uses: remorses/bump-version@js
