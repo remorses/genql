@@ -24,7 +24,9 @@ const printDocASTReducer = ({
 }: PrintOptions): any => ({
     Name: (node) => node.value,
     Variable: (node) => transformVariableName(node.name),
-
+    NamedType: ({ name }) => name,
+    ListType: ({ type }) => '[' + type + ']',
+    NonNullType: ({ type }) => type,
     // Document
 
     Document: (node) => join(node.definitions, '\n\n') + '\n',
@@ -67,6 +69,28 @@ const printDocASTReducer = ({
     },
     // Fragments
 
+    FragmentSpread: ({ name, directives }) => {
+        // TODO FragmentSpread
+        return '...' + name + ','
+    },
+
+    InlineFragment: ({ typeCondition, directives, selectionSet }) => {
+        console.log({ selectionSet, directives, typeCondition })
+        return join(['', wrap('on_', typeCondition), ':', selectionSet], ' ')
+    },
+
+    FragmentDefinition: ({
+        name,
+        typeCondition,
+        variableDefinitions,
+        directives,
+        selectionSet,
+    }) => {
+        // TODO FragmentDefinition
+        // Note: fragment variable definitions are experimental and may be changed
+        // or removed in the future.
+        return `const ${name} = ` + selectionSet
+    },
     // Directive
 })
 

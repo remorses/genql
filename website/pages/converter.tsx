@@ -13,8 +13,10 @@ function Page({}) {
         setInvalid('')
         try {
             const query = gql(code)
+            console.log('parsed')
             setGenqlTranslation('\n' + print(query, {}))
         } catch (e) {
+            console.error(e)
             setInvalid(e.message)
         }
     }, 400)
@@ -43,6 +45,7 @@ function Page({}) {
                     <Stack minWidth='0' align='stretch' flex='1'>
                         {invalid && (
                             <Stack
+                                as='pre'
                                 px='20px'
                                 zIndex={1000}
                                 mb='-40px'
