@@ -4,7 +4,7 @@ import { existsSync } from 'fs-extra'
 import { Config } from '../config'
 import { requireModuleFromPath } from '../helpers/files'
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
-
+import { lexicographicSortSchema } from 'graphql'
 import {
     customFetchSchema,
     fetchSchema,
@@ -13,6 +13,13 @@ import {
 import { loadSchema } from '@graphql-tools/load'
 
 export const schemaTask = (config: Config): ListrTask => {
+    const processSchema = (schema) => {
+        if (config.sortProperties) {
+            return lexicographicSortSchema(schema)
+        }
+        return schema
+    }
+
     if (config.endpoint) {
         const endpoint = config.endpoint
         return {
@@ -20,12 +27,13 @@ export const schemaTask = (config: Config): ListrTask => {
                 config.useGet ? 'GET' : 'POST'
             } ${endpoint} and headers ${JSON.stringify(config.headers)}`,
             task: async (ctx) => {
-                ctx.schema = await fetchSchema({
-                    endpoint,
-                    sort: config?.sortProperties,
-                    usePost: !config.useGet,
-                    headers: config.headers,
-                })
+                ctx.schema = processSchema(
+                    await fetchSchema({
+                        endpoint,
+                        usePost: !config.useGet,
+                        headers: config.headers,
+                    }),
+                )
             },
         }
     } else if (config.schema) {
@@ -37,7 +45,7 @@ export const schemaTask = (config: Config): ListrTask => {
                 const document = await loadSchema(schema, {
                     loaders: [new GraphQLFileLoader()],
                 })
-                ctx.schema = document
+                ctx.schema = processSchema(document)
 
                 try {
                     assertValidSchema(ctx.schema)

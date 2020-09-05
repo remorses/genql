@@ -19,12 +19,10 @@ export const fetchSchema = async ({
     endpoint,
     usePost = false,
     headers,
-    sort,
     options,
 }: {
     endpoint: string
     usePost: boolean
-    sort?: boolean
     headers?: Record<string, string>
     options?: GraphQLSchemaValidationOptions
 }) => {
@@ -64,41 +62,7 @@ export const fetchSchema = async ({
     // console.log(result.data)
     // console.log(JSON.stringify(result.data, null, 4))
 
-    return buildClientSchema(
-        sort ? sortIntrospectionSchema(result.data) : result.data,
-        options,
-    )
-}
-
-function sortIntrospectionSchema(data: any) {
-    let types = data?.__schema?.types
-    if (!types) {
-        return data
-    }
-    types = sortBy(types, (x) => x?.name)
-    types = types.map((x) => {
-        x.fields = sortByName(x.fields)
-        x.inputFields = sortByName(x.inputFields)
-        x.enumValues = sortByName(x.enumValues)
-        x.interfaces = sortByName(x.interfaces)
-        x.possibleTypes = sortByName(x.possibleTypes)
-        return x
-    })
-
-    return {
-        ...data,
-        __schema: {
-            ...data.__schema,
-            types,
-        },
-    }
-}
-
-function sortByName(array) {
-    if (!array) {
-        return array
-    }
-    return sortBy(array, (x) => x.name)
+    return buildClientSchema(result.data, options)
 }
 
 export const customFetchSchema = async (
