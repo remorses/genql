@@ -25,7 +25,9 @@ export interface ObjectRequest {
       required: Scalars['String']
     },
   ]
-  optionalArgObj?: [{ optional?: Scalars['String'] | null }, InterfaceRequest] | InterfaceRequest
+  optionalArgObj?:
+    | [{ optional?: Scalars['String'] | null }, InterfaceRequest]
+    | InterfaceRequest
   requiredArgObj?: [
     {
       /** single line description */
