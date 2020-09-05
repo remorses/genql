@@ -20,7 +20,6 @@
             "esnext.asynciterable"
         ],
         "skipLibCheck": true,
-        "composite": true
     },
     "include": [
         "src"
@@ -33,5 +32,4 @@
         "dist",
         "**/__tests__"
     ],
-    "references": []
 }

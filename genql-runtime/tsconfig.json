@@ -15,7 +15,6 @@
         "sourceMap": true,
         "lib": ["dom", "esnext.asynciterable"],
         "skipLibCheck": true,
-        "composite": true
     },
     "include": ["src"],
     "exclude": [
