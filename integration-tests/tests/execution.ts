@@ -18,6 +18,7 @@ import {
     Point,
     isUser,
 } from '../generated'
+import { GraphqlOperation } from 'genql-runtime'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
@@ -346,6 +347,44 @@ describe('execute queries', async function() {
                 coordinates?.x
                 coordinates?.y
             }
+        }),
+    )
+    it(
+        'batches requests',
+        withServer(async () => {
+            let batchedQueryLength = -1
+            const client = createClient({
+                url: URL,
+                batch: true,
+                fetcher: async (body) => {
+                    console.log(body)
+                    batchedQueryLength = Array.isArray(body) ? body.length : -1
+                    const res = await fetch(URL, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        method: 'POST',
+                        body: JSON.stringify(body),
+                    })
+                    return res.json()
+                },
+            })
+            const res = await Promise.all([
+                client.query({
+                    coordinates: {
+                        __typename: 1,
+                        x: 1,
+                    },
+                }),
+                client.query({
+                    coordinates: {
+                        __typename: 1,
+                        y: 1,
+                    },
+                }),
+            ])
+            assert.strictEqual(res.length, 2)
+            assert.strictEqual(batchedQueryLength, 2)
         }),
     )
 })

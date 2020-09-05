@@ -1,57 +1,90 @@
+import QueryBatcher from 'graphql-query-batcher'
+import fetch from 'isomorphic-unfetch'
+import { ClientOptions } from './client/createClient'
 import { GraphqlOperation } from './client/generateGraphqlOperation'
 import { ClientError } from './error'
-import fetch from 'isomorphic-unfetch'
-import { HeadersInit } from 'node-fetch'
-import { ClientOptions } from './client/createClient'
 
 export interface Fetcher {
     (gql: GraphqlOperation): Promise<any>
 }
 
-export type Headers = HeadersInit | (() => HeadersInit)
+export type BatchOptions = {
+    maxBatchSize: number
+    batchInterval: number // milliseconds
+}
+
+const DEFAULT_BATCH_OPTIONS = {
+    maxBatchSize: 10,
+    batchInterval: 100,
+}
 
 export const createFetcher = ({
     url,
     headers = {},
     fetcher,
+    batch = false,
     ...rest
 }: ClientOptions): Fetcher => {
     if (!url && !fetcher) {
         throw new Error('url or fetcher is required')
     }
-    return async ({ query, variables }) => {
-        if (fetcher) {
-            const result = await fetcher({ query, variables })
-            if (result?.errors?.length) {
-                throw new ClientError(result.errors)
+    if (!fetcher) {
+        fetcher = async (body) => {
+            if (typeof headers == 'function') {
+                headers = headers()
             }
-            if (result?.data) {
-                return result.data
+            headers = headers || {}
+            const res = await fetch(url, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...headers,
+                },
+                method: 'POST',
+                body: JSON.stringify(body),
+                ...rest,
+            })
+            if (!res.ok) {
+                throw new Error(`${res.statusText}: ${await res.text()}`)
+            }
+            const json = await res.json()
+            return json
+        }
+    }
+
+    if (!batch) {
+        return async (body) => {
+            const json = await fetcher(body)
+            if (json?.errors?.length) {
+                throw new ClientError(json.errors)
+            }
+            if (json?.data) {
+                return json.data
             }
             throw new Error(
-                'fetcher returned unexpected result ' + JSON.stringify(result),
+                'fetcher returned unexpected result ' + JSON.stringify(json),
             )
         }
-        if (typeof headers == 'function') {
-            headers = headers()
-        }
-        headers = headers || {}
-        const res = await fetch(url, {
-            headers: {
-                'Content-Type': 'application/json',
-                ...headers,
-            },
-            method: 'POST',
-            body: JSON.stringify({ query, variables }),
-            ...rest,
-        })
-        if (!res.ok) {
-            throw new Error(`${res.statusText}: ${await res.text()}`)
-        }
-        const json = await res.json()
+    }
+
+    const batcher = new QueryBatcher(
+        async (batchedQuery: GraphqlOperation[]) => {
+            // console.log(batchedQuery) // [{ query: 'query{user{age}}', variables: {} }, ...]
+            const json = await fetcher(batchedQuery)
+            return json
+        },
+        batch === true ? DEFAULT_BATCH_OPTIONS : batch,
+    )
+
+    return async ({ query, variables }) => {
+        const json = await batcher.fetch(query, variables)
         if (json?.errors?.length) {
             throw new ClientError(json.errors)
         }
-        return json.data
+        if (json?.data) {
+            return json.data
+        }
+        throw new Error(
+            'fetcher returned unexpected result ' + JSON.stringify(json),
+        )
     }
 }

@@ -5,18 +5,25 @@ import {
 } from 'subscriptions-transport-ws'
 import ws from 'ws'
 import { Observable } from 'zen-observable-ts'
-import { createFetcher, Headers } from '../fetcher'
 import { ClientError } from '../error'
+import { BatchOptions, createFetcher } from '../fetcher'
+import { ExecutionResult, LinkedType } from '../types'
 import { chain } from './chain'
 import {
     generateGraphqlOperation,
     GraphqlOperation,
 } from './generateGraphqlOperation'
-import { LinkedType, ExecutionResult } from '../types'
+
+export type Headers = HeadersInit | (() => HeadersInit)
+
+export type BaseFetcher = (
+    operation: GraphqlOperation | GraphqlOperation[],
+) => Promise<ExecutionResult>
 
 export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string
-    fetcher?: (operation: GraphqlOperation) => Promise<ExecutionResult>
+    batch?: BatchOptions | boolean
+    fetcher?: BaseFetcher
     headers?: Headers
     subscription?: { url?: string; headers?: Headers } & SubscriptionOptions
 }

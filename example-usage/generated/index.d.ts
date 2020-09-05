@@ -19,3 +19,5 @@ export interface Client {
 export type QueryResult<fields extends QueryRequest> = FieldsSelection<Query, fields>
 
 export declare const generateQueryOp: (fields: QueryRequest) => GraphqlOperation
+
+
