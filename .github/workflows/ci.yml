@@ -1,0 +1,35 @@
+name: Npm Packages
+
+on:
+  push:
+    # branches:
+    #   - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: yarn
+      - run: yarn buildall
+      - run: yarn test
+      - name: Bump version
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
+        uses: remorses/bump-version@js
+        with:
+          version_file: VERSION
+          prerelease_tag: beta
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn buildall
+      - run: |
+          cd genql-cli && npm publish --access public --tag beta
+          cd ../genql-runtime && npm publish --access public --tag beta
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
