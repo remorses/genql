@@ -23,7 +23,7 @@
     ],
     "scripts": {
         "start": "tsdx watch",
-        "build": "true && tsc",
+        "build": "tsc",
         "test": "jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "dev": "yarn compile && node dist"

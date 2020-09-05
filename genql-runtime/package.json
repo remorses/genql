@@ -23,7 +23,7 @@
     ],
     "scripts": {
         "start": "tsdx watch",
-        "build": "true && tsc && tsc -m ESNext --outDir esm",
+        "build": "tsc && tsc -m ESNext --outDir esm",
         "typesTests": "tsc -b src/client/__tests__/tsconfig.json",
         "test": "cd ../genql-cli && tsc --incremental && cd ../genql-runtime && yarn typesTests && jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",

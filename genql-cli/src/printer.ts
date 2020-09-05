@@ -81,6 +81,10 @@ const printDocASTReducer = ({
         if (typeof value === 'string') {
             return name + ': ' + transformVariableName(value.replace('$', ''))
         }
+        console.error(
+            `unhandled type, received ${JSON.stringify(value)} as Argument`,
+        )
+        return ''
     },
     // Fragments
 
