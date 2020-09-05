@@ -26,35 +26,40 @@ const SUB_URL = `ws://localhost:` + PORT + '/graphql'
 type Maybe<T> = T | undefined | null
 
 async function server({ resolvers, port = PORT }) {
-    const typeDefs = fs
-        .readFileSync(path.join(__dirname, '..', 'schema.graphql'))
-        .toString()
-    const server = new ApolloServer({
-        schema: makeExecutableSchema({
-            typeDefs,
-            resolvers,
-            resolverValidationOptions: {
-                requireResolversForResolveType: false,
-            },
-        }),
+    try {
+        const typeDefs = fs
+            .readFileSync(path.join(__dirname, '..', 'schema.graphql'))
+            .toString()
+        const server = new ApolloServer({
+            schema: makeExecutableSchema({
+                typeDefs,
+                resolvers,
+                resolverValidationOptions: {
+                    requireResolversForResolveType: false,
+                },
+            }),
 
-        subscriptions: {
-            onConnect: async (connectionParams, webSocket, context) => {
-                console.log(
-                    `Subscription client connected using Apollo server's built-in SubscriptionServer.`,
-                )
+            subscriptions: {
+                onConnect: async (connectionParams, webSocket, context) => {
+                    console.log(
+                        `Subscription client connected using Apollo server's built-in SubscriptionServer.`,
+                    )
+                },
+                onDisconnect: async (webSocket, context) => {
+                    console.log(`Subscription client disconnected.`)
+                },
             },
-            onDisconnect: async (webSocket, context) => {
-                console.log(`Subscription client disconnected.`)
-            },
-        },
-    })
+        })
 
-    // The `listen` method launches a web server.
-    await server.listen(port).then(({ url, subscriptionsUrl }) => {
-        console.log(`🚀  Server ready at ${url} and ${subscriptionsUrl}`)
-    })
-    return () => server.stop()
+        // The `listen` method launches a web server.
+        await server.listen(port).then(({ url, subscriptionsUrl }) => {
+            console.log(`🚀  Server ready at ${url} and ${subscriptionsUrl}`)
+        })
+        return () => server.stop()
+    } catch (e) {
+        console.error('server had an error: ' + e)
+        return () => null
+    }
 }
 
 describe('execute queries', async function() {
@@ -96,6 +101,7 @@ describe('execute queries', async function() {
         try {
             await func()
         } catch (e) {
+            console.log('catch')
             throw e
         } finally {
             await stop()
@@ -366,7 +372,7 @@ describe('execute queries', async function() {
                         method: 'POST',
                         body: JSON.stringify(body),
                     })
-                    return res.json()
+                    return await res.json()
                 },
             })
             const res = await Promise.all([
