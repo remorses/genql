@@ -47,7 +47,8 @@
     "react-keyframes": "^0.2.3",
     "react-runkit": "^0.9.0",
     "react-storage-hooks": "^4.0.1",
-    "tmp-promise": "^3.0.2"
+    "tmp-promise": "^3.0.2",
+    "use-debounce": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.1",

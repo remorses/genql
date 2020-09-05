@@ -13808,6 +13808,11 @@ use-dark-mode@2.3.1:
     "@use-it/event-listener" "^0.1.2"
     use-persisted-state "^0.3.0"
 
+use-debounce@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-4.0.0.tgz#8e8303494c1b4ced9a10427f3b8191f097ab2647"
+  integrity sha512-ZdOEjLNwdCn99dx1D+umZe1Dolki7m7QYmkprugKfpOjXGHQsI6AUkFdolHfp+rm3QX8cQSiA5r0eDrXClv5wA==
+
 use-persisted-state@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/use-persisted-state/-/use-persisted-state-0.3.0.tgz#f8e3d2fd8eee67e0c86fd596c3ea3e8121c07402"

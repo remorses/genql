@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { Code } from '../components/Code'
 import gql from 'graphql-tag'
 import { print } from 'genql-cli/dist/printer'
+import { useDebouncedCallback } from 'use-debounce'
+
 import { SectionTitle } from 'landing-blocks/src'
 
 function Page({}) {
     const [code, setCode] = useState(DEFAULT_QUERY)
-    const [genqlTranslation, setGenqlTranslation] = useState('')
-    const [invalid, setInvalid] = useState('')
-    useEffect(() => {
+    const [onCodeChange] = useDebouncedCallback(() => {
         setInvalid('')
         try {
             const query = gql(code)
@@ -17,7 +17,13 @@ function Page({}) {
         } catch (e) {
             setInvalid(e.message)
         }
+    }, 400)
+    useEffect(() => {
+        onCodeChange()
+        return
     }, [code])
+    const [genqlTranslation, setGenqlTranslation] = useState('')
+    const [invalid, setInvalid] = useState('')
     return (
         <Stack align='stretch'>
             <SectionTitle
@@ -31,7 +37,7 @@ function Page({}) {
                     spacing='20'
                     justify='stretch'
                     width='100%'
-                    align='center'
+                    align={['center', null, null, 'flex-start']}
                     direction={['column', null, null, 'row']}
                 >
                     <Stack minWidth='0' align='stretch' flex='1'>
@@ -47,7 +53,12 @@ function Page({}) {
                         )}
                         <Code value={code} onChange={setCode} />
                     </Stack>
-                    <Code hideLinesNumbers flex='1' readOnly value={genqlTranslation} />
+                    <Code
+                        hideLinesNumbers
+                        flex='1'
+                        readOnly
+                        value={genqlTranslation}
+                    />
                 </Stack>
             </Stack>
         </Stack>
