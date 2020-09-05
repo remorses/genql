@@ -63,7 +63,6 @@ const printDocASTReducer = ({
     // join(directives, ' '),
 
     Argument: ({ name, value = '' }) => {
-        console.log(JSON.stringify(value, null, 4))
         return name + ': ' + printArgument(value)
     },
     // Fragments
@@ -98,6 +97,7 @@ function printArgument(value, transformVariableName = (x) => x) {
         return `[${value.values.map(printArgument).join(', ')}]`
     }
     console.error(`unhandled type ${kind}`)
+    console.log(JSON.stringify(value, null, 4))
 }
 
 /**

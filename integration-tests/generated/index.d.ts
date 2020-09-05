@@ -1,4 +1,9 @@
-import { FieldsSelection, GraphqlOperation, ClientOptions, Observable, NoExtraProperties } from 'genql-runtime'
+import {
+  FieldsSelection,
+  GraphqlOperation,
+  ClientOptions,
+  Observable,
+} from 'genql-runtime'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 export * from './schema'
 import {
@@ -16,9 +21,11 @@ export declare const version: string
 export interface Client {
   wsClient?: SubscriptionClient
 
-  query<R extends QueryRequest>(request: NoExtraProperties<QueryRequest, R>): Promise<FieldsSelection<Query, R>>
+  query<R extends QueryRequest>(request: R): Promise<FieldsSelection<Query, R>>
 
-  subscription<R extends SubscriptionRequest>(request: R): Observable<FieldsSelection<Subscription, R>>
+  subscription<R extends SubscriptionRequest>(
+    request: R,
+  ): Observable<FieldsSelection<Subscription, R>>
 
   chain: {
     query: QueryPromiseChain
@@ -27,9 +34,16 @@ export interface Client {
   }
 }
 
-export type QueryResult<fields extends QueryRequest> = FieldsSelection<Query, fields>
+export type QueryResult<fields extends QueryRequest> = FieldsSelection<
+  Query,
+  fields
+>
 
 export declare const generateQueryOp: (fields: QueryRequest) => GraphqlOperation
-export type SubscriptionResult<fields extends SubscriptionRequest> = FieldsSelection<Subscription, fields>
+export type SubscriptionResult<
+  fields extends SubscriptionRequest
+> = FieldsSelection<Subscription, fields>
 
-export declare const generateSubscriptionOp: (fields: SubscriptionRequest) => GraphqlOperation
+export declare const generateSubscriptionOp: (
+  fields: SubscriptionRequest,
+) => GraphqlOperation

@@ -1,4 +1,9 @@
-import { FieldsSelection, GraphqlOperation, ClientOptions, Observable, NoExtraProperties } from 'genql-runtime'
+import {
+  FieldsSelection,
+  GraphqlOperation,
+  ClientOptions,
+  Observable,
+} from 'genql-runtime'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 export * from './schema'
 import {
@@ -20,12 +25,16 @@ export interface Client {
   wsClient?: SubscriptionClient
 
   query<R extends query_rootRequest>(
-    request: NoExtraProperties<query_rootRequest, R>,
+    request: R,
   ): Promise<FieldsSelection<query_root, R>>
 
-  mutation<R extends mutation_rootRequest>(request: R): Promise<FieldsSelection<mutation_root, R>>
+  mutation<R extends mutation_rootRequest>(
+    request: R,
+  ): Promise<FieldsSelection<mutation_root, R>>
 
-  subscription<R extends subscription_rootRequest>(request: R): Observable<FieldsSelection<subscription_root, R>>
+  subscription<R extends subscription_rootRequest>(
+    request: R,
+  ): Observable<FieldsSelection<subscription_root, R>>
 
   chain: {
     query: query_rootPromiseChain
@@ -36,12 +45,25 @@ export interface Client {
   }
 }
 
-export type QueryResult<fields extends query_rootRequest> = FieldsSelection<query_root, fields>
+export type QueryResult<fields extends query_rootRequest> = FieldsSelection<
+  query_root,
+  fields
+>
 
-export declare const generateQueryOp: (fields: query_rootRequest) => GraphqlOperation
-export type MutationResult<fields extends mutation_rootRequest> = FieldsSelection<mutation_root, fields>
+export declare const generateQueryOp: (
+  fields: query_rootRequest,
+) => GraphqlOperation
+export type MutationResult<
+  fields extends mutation_rootRequest
+> = FieldsSelection<mutation_root, fields>
 
-export declare const generateMutationOp: (fields: mutation_rootRequest) => GraphqlOperation
-export type SubscriptionResult<fields extends subscription_rootRequest> = FieldsSelection<subscription_root, fields>
+export declare const generateMutationOp: (
+  fields: mutation_rootRequest,
+) => GraphqlOperation
+export type SubscriptionResult<
+  fields extends subscription_rootRequest
+> = FieldsSelection<subscription_root, fields>
 
-export declare const generateSubscriptionOp: (fields: subscription_rootRequest) => GraphqlOperation
+export declare const generateSubscriptionOp: (
+  fields: subscription_rootRequest,
+) => GraphqlOperation

@@ -16,7 +16,6 @@ function Page({}) {
             setGenqlTranslation('\n' + print(query, {}))
         } catch (e) {
             setInvalid(e.message)
-            console.error(e)
         }
     }, [code])
     return (
