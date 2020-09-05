@@ -9,13 +9,13 @@ export interface Fetcher {
 }
 
 export type BatchOptions = {
-    maxBatchSize: number
-    batchInterval: number // milliseconds
+    batchInterval?: number // ms
+    maxBatchSize?: number
 }
 
 const DEFAULT_BATCH_OPTIONS = {
     maxBatchSize: 10,
-    batchInterval: 100,
+    batchInterval: 40,
 }
 
 export const createFetcher = ({
