@@ -14,7 +14,7 @@ export const everything = {
 }
 
 // [bump]
-export const version = '1.1.27'
+export const version = '2.0.1-beta.0'
 
 export function assertSameVersion(generatedWithVersion) {
     if (generatedWithVersion && generatedWithVersion.trim() != version.trim()) {
