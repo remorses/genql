@@ -27,6 +27,19 @@ const printDocASTReducer = ({
     NamedType: ({ name }) => name,
     ListType: ({ type }) => '[' + type + ']',
     NonNullType: ({ type }) => type,
+    Directive: ({ name, arguments: args }) => '',
+
+    IntValue: ({ value }) => value,
+    FloatValue: ({ value }) => value,
+    StringValue: ({ value, block: isBlockString }, key) =>
+        JSON.stringify(value),
+    BooleanValue: ({ value }) => (value ? 'true' : 'false'),
+    NullValue: () => 'null',
+    EnumValue: ({ value }) => `'${value}'`,
+    ListValue: ({ values }) => '[' + join(values, ', ') + ']',
+    ObjectValue: ({ fields }) => '{' + join(fields, ', ') + '}',
+    ObjectField: ({ name, value }) => name + ': ' + value,
+
     // Document
 
     Document: (node) => join(node.definitions, '\n\n') + '\n',
@@ -65,7 +78,9 @@ const printDocASTReducer = ({
     // join(directives, ' '),
 
     Argument: ({ name, value = '' }) => {
-        return name + ': ' + printArgument(value)
+        if (typeof value === 'string') {
+            return name + ': ' + transformVariableName(value.replace('$', ''))
+        }
     },
     // Fragments
 
@@ -93,36 +108,6 @@ const printDocASTReducer = ({
     },
     // Directive
 })
-
-function printArgument(value, transformVariableName = (x) => x) {
-    if (typeof value === 'string') {
-        return transformVariableName(value.replace('$', ''))
-    }
-    const kind = value?.kind
-    if (kind === 'ObjectValue') {
-        return `{ ${value.fields.map((x) => printArgument(x)).join('\n')} }`
-    }
-    if (kind === 'ObjectField') {
-        return `${value.name}: ${printArgument(value.value)},`
-    }
-    if (kind == 'StringValue' || kind == 'EnumValue') {
-        return `"${value.value}"`
-    }
-    if (kind == 'IntValue') {
-        return `${value.value}`
-    }
-    if (kind == 'NullValue') {
-        return `null`
-    }
-    if (kind == 'BooleanValue') {
-        return `${value.value ? 'true' : 'false'}`
-    }
-    if (kind == 'ListValue') {
-        return `[${value.values.map(printArgument).join(', ')}]`
-    }
-    console.error(`unhandled type ${kind}`)
-    console.log(JSON.stringify(value, null, 4))
-}
 
 /**
  * Given maybeArray, print an empty string if it is null or empty, otherwise
