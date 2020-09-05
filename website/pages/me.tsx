@@ -55,7 +55,14 @@ export async function getServerSideProps(
 }
 
 const Page = (props: Props) => (
-    <Stack flex='1' minH='100%' h='100%' spacing='40px'>
+    <Stack
+        flex='1'
+        width='100%'
+        minH='100%'
+        h='100%'
+        align='stretch'
+        spacing='40px'
+    >
         <Box>
             <Stack spacing='40px' mb='-100px'>
                 <SectionTitle
