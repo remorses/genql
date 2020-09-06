@@ -1,7 +1,7 @@
 import { exec } from 'child_process'
 import admin from 'firebase-admin'
 import { promises as fs } from 'fs'
-import { generate } from 'genql-cli/src/main'
+import { generate } from '@genql/cli/src/main'
 import { buildSchema } from 'graphql'
 import { NextApiRequest, NextApiResponse } from 'next'
 import packageNameAvailable from 'npm-name'

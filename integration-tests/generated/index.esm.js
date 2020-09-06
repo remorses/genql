@@ -3,7 +3,7 @@ import {
   createClient as createClientOriginal,
   generateGraphqlOperation,
   assertSameVersion,
-} from 'genql-runtime'
+} from '@genql/runtime'
 import types from './types.esm'
 var typeMap = linkTypeMap(types)
 export * from './guards.esm'

@@ -2,7 +2,7 @@ import { Stack } from 'layout-kit-react'
 import React, { useEffect, useState } from 'react'
 import { Code } from '../components/Code'
 import gql from 'graphql-tag'
-import { print } from 'genql-cli/dist/printer'
+import { print } from '@genql/cli/dist/printer'
 import { useDebouncedCallback } from 'use-debounce'
 
 import { SectionTitle } from 'landing-blocks/src'

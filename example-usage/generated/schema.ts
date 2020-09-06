@@ -1,4 +1,4 @@
-import {FieldsSelection,Observable} from 'genql-runtime'
+import {FieldsSelection,Observable} from '@genql/runtime'
 
 export type Scalars = {
     String: string,

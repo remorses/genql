@@ -1,5 +1,5 @@
 import { Box, Stack } from '@chakra-ui/core'
-import { print } from 'genql-cli/src/printer'
+import { print } from '@genql/cli/src/printer'
 import { buildSchema } from 'graphql'
 import { generateRandomQuery } from 'ibm-graphql-query-generator'
 import { PageContainer, SectionTitle } from 'landing-blocks/src'

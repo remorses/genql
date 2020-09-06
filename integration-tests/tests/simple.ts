@@ -1,5 +1,5 @@
 import { generateQueryOp, createClient, everything } from '../generated'
-import { prettify } from 'genql-cli/dist/helpers/prettify'
+import { prettify } from '@genql/cli/dist/helpers/prettify'
 import { parse } from 'graphql'
 import { generateSubscriptionOp } from '../generated'
 

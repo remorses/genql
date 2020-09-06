@@ -4,7 +4,7 @@ import {
     CompressedFieldMap,
     CompressedTypeMap,
     TypeMap,
-} from 'genql-runtime/dist/types'
+} from '@genql/runtime/dist/types'
 import {
     GraphQLSchema,
     isEnumType,

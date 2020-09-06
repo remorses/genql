@@ -1,4 +1,4 @@
-import { print } from 'genql-cli/src/printer'
+import { print } from '@genql/cli/src/printer'
 import { GraphQLSchema } from 'graphql'
 import { generateRandomQuery } from 'ibm-graphql-query-generator'
 

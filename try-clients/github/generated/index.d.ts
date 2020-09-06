@@ -3,7 +3,7 @@ import {
   GraphqlOperation,
   ClientOptions,
   Observable,
-} from 'genql-runtime'
+} from '@genql/runtime'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 export * from './schema'
 import {

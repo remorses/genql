@@ -18,7 +18,7 @@ import {
     Point,
     isUser,
 } from '../generated'
-import { GraphqlOperation } from 'genql-runtime'
+import { GraphqlOperation } from '@genql/runtime'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT

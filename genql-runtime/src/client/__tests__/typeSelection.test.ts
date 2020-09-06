@@ -1,5 +1,5 @@
-import { FieldsSelection } from 'genql-runtime/src/client/typeSelection'
-import { NoExtraProperties } from 'genql-runtime'
+import { FieldsSelection } from '@genql/runtime/src/client/typeSelection'
+import { NoExtraProperties } from '@genql/runtime'
 
 // types requirements
 /*
