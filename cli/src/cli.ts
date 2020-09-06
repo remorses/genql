@@ -69,7 +69,8 @@ const program = yargs
         '$0 --output ./generated --schema ./schema.graphql',
         'generate the client from a schema',
     )
-    .help('help').argv
+    .help('help')
+    .help('h').argv
 
 // .option('-o, --output <./myClient>', 'output directory')
 // .option('-e, --endpoint <http://example.com/graphql>', 'GraphQL endpoint')
