@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.0",
+  "version": "2.0.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -20,6 +20,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@genql/cli": "^2.0.4",
     "@types/js-cookie": "^2.2.6",
     "baby-i-am-faded": "^1.0.2",
     "dayjs": "^1.8.27",
@@ -29,7 +30,6 @@
     "firebase": "^7.14.5",
     "firebase-admin": "^8.12.1",
     "firebase-react-components": "^1.1.21",
-    "@genql/cli": "*",
     "graphql-tag": "^2.11.0",
     "ibm-graphql-query-generator": "^1.0.5",
     "isomorphic-unfetch": "^3.0.0",
