@@ -30,7 +30,7 @@
     ],
     "references": [
         {
-            "path": "../genql-cli"
+            "path": "../cli"
         }
     ]
 }

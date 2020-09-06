@@ -112,7 +112,7 @@ generate(config)
         printHelp({
             dirPath: program.output,
             useYarn: false,
-            dependencies: [`genql-runtime@${version}`],
+            dependencies: [`@genql/runtime@${version}`],
         })
     })
 
@@ -149,7 +149,7 @@ export function printHelp({ useYarn, dirPath, dependencies }) {
     )
     console.log()
     console.log(
-        'PS: `genql-runtime` should always have the same version as the cli!',
+        'PS: `@genql/runtime` should always have the same version as the cli!',
     )
     console.log()
 }

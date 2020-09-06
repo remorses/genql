@@ -1,21 +1,24 @@
 export default {
     "scalars": [
-        2,
-        3,
-        4
+        0,
+        1,
+        3
     ],
     "types": {
+        "Boolean": {},
+        "ID": {},
         "Query": {
             "users": [
-                1
+                4
             ],
             "__typename": [
                 3
             ]
         },
+        "String": {},
         "User": {
             "id": [
-                2
+                1
             ],
             "name": [
                 3
@@ -23,9 +26,6 @@ export default {
             "__typename": [
                 3
             ]
-        },
-        "ID": {},
-        "String": {},
-        "Boolean": {}
+        }
     }
 }

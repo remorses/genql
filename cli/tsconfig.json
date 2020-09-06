@@ -23,7 +23,7 @@
         "composite": true
         
     },
-    "references": [{"path": "../genql-runtime"}],
+    "references": [{"path": "../runtime"}],
     "include": [
         "src"
     ],

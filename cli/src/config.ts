@@ -1,5 +1,5 @@
 
-export const RUNTIME_LIB_NAME = 'genql-runtime'
+export const RUNTIME_LIB_NAME = '@genql/runtime'
 
 
 export interface Config {

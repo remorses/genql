@@ -3,10 +3,10 @@ const {
   createClient: createClientOriginal,
   generateGraphqlOperation,
   assertSameVersion,
-} = require('genql-runtime')
+} = require('@genql/runtime')
 var typeMap = linkTypeMap(require('./types.cjs'))
 
-var version = '1.1.27'
+var version = 'undefined'
 assertSameVersion(version)
 
 module.exports.version = version
