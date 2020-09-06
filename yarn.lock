@@ -7917,47 +7917,6 @@ genfun@^5.0.0:
   resolved "https://registry.yarnpkg.com/genfun/-/genfun-5.0.0.tgz#9dd9710a06900a5c4a5bf57aca5da4e52fe76537"
   integrity sha512-KGDOARWVga7+rnB3z9Sd2Letx515owfk0hSxHGuqjANb1M+x2bGZGqHLiozPsYMdM2OubeMni/Hpwmjq6qIUhA==
 
-genql-cli@*:
-  version "1.1.27"
-  resolved "https://registry.yarnpkg.com/genql-cli/-/genql-cli-1.1.27.tgz#305c36f63e3cb2b669e1926ecc618041da63f29d"
-  integrity sha512-dEp8hxRrZpn8txHCipJktQZlRO2iil24VgBfpiajvE+l+FGLR/C69WfD0jG4xT295uXW7hQSr1bCGYBZRJhp6w==
-  dependencies:
-    "@graphql-tools/graphql-file-loader" "^6.0.10"
-    "@graphql-tools/load" "^6.0.10"
-    "@types/node" "^14.0.14"
-    "@types/prettier" "^1.19.0"
-    "@types/yargs" "^15.0.5"
-    chalk "^4.1.0"
-    fs-extra "^9.0.1"
-    graphql "*"
-    isomorphic-unfetch "^3.0.0"
-    listr "^0.14.3"
-    mkdirp "^0.5.1"
-    prettier "^1.19.1"
-    qs "^6.9.1"
-    rimraf "^2.6.3"
-    yargs "^15.3.1"
-
-genql-runtime@*:
-  version "1.1.27"
-  resolved "https://registry.yarnpkg.com/genql-runtime/-/genql-runtime-1.1.27.tgz#f3c7cd28feaa72d2951eba5380c6c5f8f7974c13"
-  integrity sha512-t6cbAEfnIU11PNk6NnUwUvTH0ws14eEeaEdH7yhv9l57zwuTL+NvambL4fpBymD0E2Z0iwXnrpDF8l216MqGXw==
-  dependencies:
-    "@types/lodash.assign" "^4.2.6"
-    "@types/lodash.get" "^4.4.6"
-    "@types/lodash.startswith" "^4.2.6"
-    "@types/qs" "^6.9.0"
-    "@types/ws" "^6.0.1"
-    isomorphic-unfetch "^3.0.0"
-    lodash.assign "^4.2.0"
-    lodash.get "^4.4.2"
-    lodash.startswith "^4.2.1"
-    subscriptions-transport-ws "^0.9.16"
-    tslib "^2.0.0"
-    utility-types "^3.10.0"
-    ws "^6.1.4"
-    zen-observable-ts "^0.8.21"
-
 genql-runtime@latest:
   version "1.1.22"
   resolved "https://registry.yarnpkg.com/genql-runtime/-/genql-runtime-1.1.22.tgz#4f4a95fc55f610b09a1ba0988fbc76b26cb2fb2e"

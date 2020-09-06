@@ -26,7 +26,6 @@ jobs:
         uses: remorses/bump-version@js
         with:
           version_file: VERSION
-          prerelease_tag: beta
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn buildall
