@@ -21,20 +21,20 @@ jobs:
       - run: yarn test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Bump version
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
-        uses: remorses/bump-version@js
-        with:
-          version_file: VERSION
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn buildall
-      - name: Publish
-        run: |
-          cd genql-cli && npm publish --verbose --access public --tag beta
-          cd ../genql-runtime && npm publish --verbose --access public --tag beta
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      # - name: Bump version
+      #   if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
+      #   uses: remorses/bump-version@js
+      #   with:
+      #     version_file: VERSION
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - run: yarn buildall
+      # - name: Publish
+      #   run: |
+      #     cd genql-cli && npm publish --verbose --access public --tag beta
+      #     cd ../genql-runtime && npm publish --verbose --access public --tag beta
+      #   if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
 
           
