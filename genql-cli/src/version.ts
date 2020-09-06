@@ -1,2 +1,3 @@
-// [bump]
-export const version = '2.0.3'
+const { version } = require('../package.json')
+
+export { version }

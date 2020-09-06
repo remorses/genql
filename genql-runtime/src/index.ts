@@ -1,3 +1,4 @@
+const { version } = require('../package.json')
 export { createClient, ClientOptions } from './client/createClient'
 export { FieldsSelection } from './client/typeSelection'
 export { NoExtraProperties } from './types'
@@ -13,8 +14,7 @@ export const everything = {
     __scalar: true,
 }
 
-// [bump]
-export const version = '2.0.3'
+export { version }
 
 export function assertSameVersion(generatedWithVersion) {
     if (generatedWithVersion && generatedWithVersion.trim() != version.trim()) {
