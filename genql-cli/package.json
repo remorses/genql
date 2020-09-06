@@ -46,10 +46,10 @@
         "pretty-quick": "^1.10.0",
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5",
-        "genql-runtime": "*",
         "typescript": "^4.0.2"
     },
     "dependencies": {
+        "genql-runtime": "*",
         "@graphql-tools/graphql-file-loader": "^6.0.10",
         "@graphql-tools/load": "^6.0.10",
         "@types/node": "*",

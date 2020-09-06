@@ -1,29 +1,23 @@
 import {
+    ArgMap,
+    CompressedField,
+    CompressedFieldMap,
+    CompressedTypeMap,
+    TypeMap,
+} from 'genql-runtime/dist/types'
+import {
     GraphQLSchema,
     isEnumType,
+    isInputObjectType,
     isInterfaceType,
     isObjectType,
     isScalarType,
     isUnionType,
-    isInputObjectType,
 } from 'graphql'
 import { excludedTypes } from '../common/excludedTypes'
 import { RenderContext } from '../common/RenderContext'
 import { objectType } from './objectType'
-import { scalarType } from './scalarType'
 import { unionType } from './unionType'
-import {
-    TypeMap,
-    Type,
-    FieldMap,
-    ArgMap,
-    Field,
-    LinkedType,
-    LinkedField,
-    CompressedField,
-    CompressedTypeMap,
-    CompressedFieldMap,
-} from 'genql-runtime/dist/types'
 
 export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     // remove fields key,

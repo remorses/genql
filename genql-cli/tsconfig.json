@@ -20,7 +20,10 @@
             "esnext.asynciterable"
         ],
         "skipLibCheck": true,
+        "composite": true
+        
     },
+    "references": [{"path": "../genql-runtime"}],
     "include": [
         "src"
     ],
