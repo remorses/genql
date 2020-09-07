@@ -105,8 +105,8 @@ if (!validateConfigs([config])) {
 
 generate(config)
     .catch((e: any) => {
-        console.error(chalk.red(e.name))
-        console.error(chalk.red(e.message))
+        console.error(chalk.red('Cannot generate, got an error:'))
+        console.error(e)
         process.exit(1)
     })
     .then(() => {
