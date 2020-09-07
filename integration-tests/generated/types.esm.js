@@ -1,13 +1,14 @@
 export default {
     "scalars": [
         1,
-        7,
-        12
+        2,
+        8,
+        13
     ],
     "types": {
         "Query": {
             "repository": [
-                3,
+                4,
                 {
                     "name": [
                         1,
@@ -19,10 +20,18 @@ export default {
                 }
             ],
             "user": [
-                8
+                9
+            ],
+            "someScalarValue": [
+                1,
+                {
+                    "x": [
+                        2
+                    ]
+                }
             ],
             "recursiveType": [
-                2,
+                3,
                 {
                     "requiredVal": [
                         1,
@@ -31,22 +40,23 @@ export default {
                 }
             ],
             "account": [
-                10
+                11
             ],
             "coordinates": [
-                15
+                16
             ],
             "__typename": [
                 1
             ]
         },
         "String": {},
+        "Float": {},
         "RecursiveType": {
             "value": [
                 1
             ],
             "recurse": [
-                2
+                3
             ],
             "__typename": [
                 1
@@ -57,7 +67,7 @@ export default {
                 1
             ],
             "forks": [
-                4
+                5
             ],
             "__typename": [
                 1
@@ -65,7 +75,7 @@ export default {
         },
         "ForkConnection": {
             "edges": [
-                5
+                6
             ],
             "__typename": [
                 1
@@ -76,7 +86,7 @@ export default {
                 1
             ],
             "node": [
-                6
+                7
             ],
             "__typename": [
                 1
@@ -87,7 +97,7 @@ export default {
                 1
             ],
             "number": [
-                7
+                8
             ],
             "__typename": [
                 1
@@ -99,7 +109,7 @@ export default {
                 1
             ],
             "common": [
-                7
+                8
             ],
             "__typename": [
                 1
@@ -107,7 +117,7 @@ export default {
         },
         "Subscription": {
             "user": [
-                8
+                9
             ],
             "__typename": [
                 1
@@ -115,10 +125,10 @@ export default {
         },
         "Account": {
             "on_User": [
-                8
+                9
             ],
             "on_Guest": [
-                11
+                12
             ],
             "__typename": [
                 1
@@ -126,10 +136,10 @@ export default {
         },
         "Guest": {
             "anonymous": [
-                12
+                13
             ],
             "common": [
-                7
+                8
             ],
             "__typename": [
                 1
@@ -138,7 +148,7 @@ export default {
         "Boolean": {},
         "House": {
             "owner": [
-                8
+                9
             ],
             "x": [
                 1
@@ -172,10 +182,10 @@ export default {
                 1
             ],
             "on_House": [
-                13
+                14
             ],
             "on_Bank": [
-                14
+                15
             ],
             "__typename": [
                 1

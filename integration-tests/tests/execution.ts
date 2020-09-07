@@ -74,6 +74,7 @@ describe('execute queries', async function() {
                     user: () => {
                         return x
                     },
+                    someScalarValue: () => 'someScalarValue',
                     repository: () => {
                         return {
                             createdAt: 'now',
@@ -122,6 +123,19 @@ describe('execute queries', async function() {
             })
             console.log(JSON.stringify(res, null, 2))
             assert.deepStrictEqual(res.user, x)
+        }),
+    )
+    it(
+        'scalar value with argument ',
+        withServer(async () => {
+            var res = await client.query({
+                someScalarValue: true,
+            })
+            assert(res.someScalarValue?.toLocaleLowerCase)
+            var res = await client.query({
+                someScalarValue: [{ x: 3 }],
+            })
+            assert(res.someScalarValue?.toLocaleLowerCase)
         }),
     )
     it(

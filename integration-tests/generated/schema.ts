@@ -2,6 +2,7 @@ import {FieldsSelection,Observable} from '@genql/runtime'
 
 export type Scalars = {
     String: string,
+    Float: number,
     Int: number,
     Boolean: boolean,
 }
@@ -10,6 +11,7 @@ export interface Query {
     /** Some description */
     repository: Repository
     user?: User
+    someScalarValue?: Scalars['String']
     recursiveType?: (RecursiveType | undefined)[]
     account?: Account
     coordinates?: Point
@@ -85,6 +87,7 @@ export interface QueryRequest{
     /** Some description */
     repository?: [{name: Scalars['String'],owner?: (Scalars['String'] | null)},RepositoryRequest]
     user?: UserRequest
+    someScalarValue?: [{x?: (Scalars['Float'] | null)}] | boolean | number
     recursiveType?: [{requiredVal?: (Scalars['String'][] | null)},RecursiveTypeRequest] | RecursiveTypeRequest
     account?: AccountRequest
     coordinates?: PointRequest
@@ -280,11 +283,11 @@ export const isPoint = (obj?: { __typename?: any } | null): obj is Point => {
 
 export interface QueryPromiseChain{
 /** Some description */
-repository:((args:{name: Scalars['String'],owner?: (Scalars['String'] | null)})=>RepositoryPromiseChain & {get: (request: RepositoryRequest, defaultValue?:Repository)=>Promise<Repository>}),user:(UserPromiseChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Promise<(User | null)>}),recursiveType:((args?:{requiredVal?: (Scalars['String'][] | null)})=>{get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Promise<((RecursiveType | null)[] | null)>})&({get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Promise<((RecursiveType | null)[] | null)>}),account:({get: (request: AccountRequest, defaultValue?:(Account | null))=>Promise<(Account | null)>}),coordinates:(PointPromiseChain & {get: (request: PointRequest, defaultValue?:(Point | null))=>Promise<(Point | null)>})}
+repository:((args:{name: Scalars['String'],owner?: (Scalars['String'] | null)})=>RepositoryPromiseChain & {get: (request: RepositoryRequest, defaultValue?:Repository)=>Promise<Repository>}),user:(UserPromiseChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Promise<(User | null)>}),someScalarValue:((args?:{x?: (Scalars['Float'] | null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),recursiveType:((args?:{requiredVal?: (Scalars['String'][] | null)})=>{get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Promise<((RecursiveType | null)[] | null)>})&({get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Promise<((RecursiveType | null)[] | null)>}),account:({get: (request: AccountRequest, defaultValue?:(Account | null))=>Promise<(Account | null)>}),coordinates:(PointPromiseChain & {get: (request: PointRequest, defaultValue?:(Point | null))=>Promise<(Point | null)>})}
 
 export interface QueryObservableChain{
 /** Some description */
-repository:((args:{name: Scalars['String'],owner?: (Scalars['String'] | null)})=>RepositoryObservableChain & {get: (request: RepositoryRequest, defaultValue?:Repository)=>Observable<Repository>}),user:(UserObservableChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Observable<(User | null)>}),recursiveType:((args?:{requiredVal?: (Scalars['String'][] | null)})=>{get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Observable<((RecursiveType | null)[] | null)>})&({get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Observable<((RecursiveType | null)[] | null)>}),account:({get: (request: AccountRequest, defaultValue?:(Account | null))=>Observable<(Account | null)>}),coordinates:(PointObservableChain & {get: (request: PointRequest, defaultValue?:(Point | null))=>Observable<(Point | null)>})}
+repository:((args:{name: Scalars['String'],owner?: (Scalars['String'] | null)})=>RepositoryObservableChain & {get: (request: RepositoryRequest, defaultValue?:Repository)=>Observable<Repository>}),user:(UserObservableChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Observable<(User | null)>}),someScalarValue:((args?:{x?: (Scalars['Float'] | null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),recursiveType:((args?:{requiredVal?: (Scalars['String'][] | null)})=>{get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Observable<((RecursiveType | null)[] | null)>})&({get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Observable<((RecursiveType | null)[] | null)>}),account:({get: (request: AccountRequest, defaultValue?:(Account | null))=>Observable<(Account | null)>}),coordinates:(PointObservableChain & {get: (request: PointRequest, defaultValue?:(Point | null))=>Observable<(Point | null)>})}
 
 export interface RecursiveTypePromiseChain{value:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),recurse:(RecursiveTypePromiseChain & {get: (request: RecursiveTypeRequest, defaultValue?:(RecursiveType | null))=>Promise<(RecursiveType | null)>})}
 
