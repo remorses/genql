@@ -19,11 +19,6 @@ const program = yargs
         description: 'Graphql endpoint',
         type: 'string',
     })
-    .option('endpoint', {
-        alias: 'e',
-        description: 'Graphql endpoint',
-        type: 'string',
-    })
     .option('get', {
         alias: 'g',
         description: 'use GET for introspection query',
