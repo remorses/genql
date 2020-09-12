@@ -53,7 +53,7 @@ describe('batch queries', () => {
         batchInterval: 100,
     })
     const client = createClient({
-        fetcher: ({ query, variables }) => {
+        fetcher: ({ query, variables }: any) => {
             return batcher.fetch(query, variables)
         },
     })

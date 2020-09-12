@@ -113,6 +113,7 @@ describe('execute queries', async function() {
         url: URL,
         headers: () => ({ Auth: 'xxx' }),
     })
+
     it(
         'simple ',
         withServer(async () => {
@@ -197,8 +198,6 @@ describe('execute queries', async function() {
             client.chain.query.user
                 .get({
                     name: true,
-                    // @ts-expect-error because sdf is not in QueryRequest
-                    sdf: true,
                     // sdf: true,
                 })
                 .catch(id)
@@ -229,8 +228,8 @@ describe('execute queries', async function() {
                 })
                 .catch(id)
             console.log(JSON.stringify(res, null, 2))
-            expectType<Maybe<string>>(res?.[0]?.value)
-            expectType<Maybe<string>>(res?.[0]?.recurse?.value)
+            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
+            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.recurse?.value)
             expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
         }),
     )
@@ -261,6 +260,17 @@ describe('execute queries', async function() {
                 on_User: { name: 1 },
             })
             expectType<Maybe<Account>>(account)
+        }),
+    )
+    it(
+        'chain syntax result type only has requested fields',
+        withServer(async () => {
+            const res = await client.chain.query
+                .repository({ name: '' })
+                .get({ createdAt: 1 })
+            expectType<string>(res.createdAt)
+            // @ts-expect-error
+            res?.forks
         }),
     )
     it(

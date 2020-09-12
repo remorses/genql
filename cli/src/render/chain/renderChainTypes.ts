@@ -14,6 +14,7 @@ export const renderChainTypes = (schema: GraphQLSchema, ctx: RenderContext) => {
 
     const type = typeMap[name]
 
+    // TODO handle unions
     if (isObjectType(type) || isInterfaceType(type)) {
       objectType(type, ctx, 'Promise')
       objectType(type, ctx, 'Observable')

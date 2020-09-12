@@ -13,13 +13,13 @@ const render = (
   if (root) {
     if (undefinableFields) {
       if (isNonNullType(type)) {
-        return `: ${render(type.ofType, true, false, undefinableValues, undefinableFields)}`
+        return `: ${render(type.ofType, true, false, undefinableValues, undefinableFields, wrap)}`
       } else {
-        const rendered = render(type, true, false, undefinableValues, undefinableFields)
+        const rendered = render(type, true, false, undefinableValues, undefinableFields, wrap)
         return undefinableValues ? `?: ${rendered}` : `?: (${rendered} | null)`
       }
     } else {
-      return `: ${render(type, false, false, undefinableValues, undefinableFields)}`
+      return `: ${render(type, false, false, undefinableValues, undefinableFields, wrap)}`
     }
   }
 
@@ -50,7 +50,7 @@ const render = (
     }
   }
 
-  return render((<GraphQLNonNull<any>>type).ofType, true, false, undefinableValues, undefinableFields)
+  return render((<GraphQLNonNull<any>>type).ofType, true, false, undefinableValues, undefinableFields, wrap)
 }
 
 export const renderTyping = (

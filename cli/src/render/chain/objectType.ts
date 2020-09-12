@@ -38,10 +38,12 @@ export const objectType = (
     const fieldStrings = Object.keys(fieldsMap).map((fieldName) => {
         const field = fieldsMap[fieldName]
         const resolvedType = getNamedType(field.type)
+        // leaf type, obly has.get() method
         const stopChain =
             isListType(field.type) ||
             (isNonNullType(field.type) && isListType(field.type.ofType)) ||
             isUnionType(resolvedType)
+        // non leaf type, has .get method
         const resolvable = !(
             isEnumType(resolvedType) || isScalarType(resolvedType)
         )
@@ -49,28 +51,29 @@ export const objectType = (
         const argsOptional = !field.args.find((a) => isNonNullType(a.type))
         const argsString = toArgsString(field)
 
-        const executeReturnType = renderTyping(field.type, false, false, false)
+        const executeReturnType = renderTyping(field.type, true, false, false)
         const executeReturnTypeWithTypeMap = renderTyping(
             field.type,
+            true,
             false,
             false,
-            false,
-            (x: string) => x, // `FieldsSelection<${x}, R>`,
+            (x: string) => `FieldsSelection<${x}, R>`,
         )
 
-        // get: <R extends CreateOneOrderPayloadRequest>(
-        //     request: R,
-        //     defaultValue?: CreateOneOrderPayload | null,
-        //   ) => Promise<FieldsSelection<CreateOneOrderPayload, R>  | null>
+        //     get: <R extends RepositoryRequest>(
+        //         request: R,
+        //         defaultValue?: Repository,
+        //     ) => Promise<FieldsSelection<Repository, R>>
+        // }
 
-        const getFnType = `{get: (request: ${requestTypeName(
+        const getFnType = `{get: <R extends ${requestTypeName(
             resolvedType,
-        )}, defaultValue?:${executeReturnTypeWithTypeMap})=>${wrapper}<${executeReturnTypeWithTypeMap}>}`
+        )}>(request: R, defaultValue?: ${executeReturnTypeWithTypeMap}) => ${wrapper}<${executeReturnTypeWithTypeMap}>}`
         const fieldType = resolvable
             ? stopChain
                 ? getFnType
                 : `${chainTypeName(resolvedType, wrapper)} & ${getFnType}`
-            : `{get:(request?:boolean|number,defaultValue?:${executeReturnType})=>${wrapper}<${executeReturnType}>}`
+            : `{get: (request?: boolean|number, defaultValue?: ${executeReturnType}) => ${wrapper}<${executeReturnType}>}`
 
         const result: string[] = []
 
@@ -78,7 +81,7 @@ export const objectType = (
             result.push(
                 `((args${
                     argsOptional ? '?' : ''
-                }:${argsString})=>${fieldType})`,
+                }: ${argsString}) => ${fieldType})`,
             )
         }
 
@@ -86,7 +89,7 @@ export const objectType = (
             result.push(`(${fieldType})`)
         }
 
-        return `${fieldComment(field)}${field.name}:${result.join('&')}`
+        return `${fieldComment(field)}${field.name}: ${result.join('&')}`
     })
 
     ctx.addImport(RUNTIME_LIB_NAME, false, 'FieldsSelection', true, true)
@@ -99,6 +102,6 @@ export const objectType = (
         `${typeComment(type)}export interface ${chainTypeName(
             type,
             wrapper,
-        )}{${fieldStrings.join(',')}}`,
+        )}{\n    ${fieldStrings.join(',\n    ')}\n}`,
     )
 }

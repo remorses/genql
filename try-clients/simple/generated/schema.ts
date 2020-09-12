@@ -50,14 +50,24 @@ export const isUser = (obj?: { __typename?: any } | null): obj is User => {
 }
 
 
-export interface QueryPromiseChain{users:({get: (request: UserRequest, defaultValue?:(User[] | null))=>Promise<(User[] | null)>})}
+export interface QueryPromiseChain{
+    users: ({get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R>[] | undefined)) => Promise<(FieldsSelection<User, R>[] | undefined)>})
+}
 
-export interface QueryObservableChain{users:({get: (request: UserRequest, defaultValue?:(User[] | null))=>Observable<(User[] | null)>})}
+export interface QueryObservableChain{
+    users: ({get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R>[] | undefined)) => Observable<(FieldsSelection<User, R>[] | undefined)>})
+}
 
 
 /** foobar */
-export interface UserPromiseChain{id:({get:(request?:boolean|number,defaultValue?:(Scalars['ID'] | null))=>Promise<(Scalars['ID'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})}
+export interface UserPromiseChain{
+    id: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Promise<(Scalars['ID'] | undefined)>}),
+    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
 
 
 /** foobar */
-export interface UserObservableChain{id:({get:(request?:boolean|number,defaultValue?:(Scalars['ID'] | null))=>Observable<(Scalars['ID'] | null)>}),name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})}
+export interface UserObservableChain{
+    id: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>}),
+    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}

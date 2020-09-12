@@ -282,57 +282,137 @@ export const isPoint = (obj?: { __typename?: any } | null): obj is Point => {
 
 
 export interface QueryPromiseChain{
+    
 /** Some description */
-repository:((args:{name: Scalars['String'],owner?: (Scalars['String'] | null)})=>RepositoryPromiseChain & {get: (request: RepositoryRequest, defaultValue?:Repository)=>Promise<Repository>}),user:(UserPromiseChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Promise<(User | null)>}),someScalarValue:((args?:{x?: (Scalars['Float'] | null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),recursiveType:((args?:{requiredVal?: (Scalars['String'][] | null)})=>{get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Promise<((RecursiveType | null)[] | null)>})&({get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Promise<((RecursiveType | null)[] | null)>}),account:({get: (request: AccountRequest, defaultValue?:(Account | null))=>Promise<(Account | null)>}),coordinates:(PointPromiseChain & {get: (request: PointRequest, defaultValue?:(Point | null))=>Promise<(Point | null)>})}
+repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}) => RepositoryPromiseChain & {get: <R extends RepositoryRequest>(request: R, defaultValue?: FieldsSelection<Repository, R>) => Promise<FieldsSelection<Repository, R>>}),
+    user: (UserPromiseChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Promise<(FieldsSelection<User, R> | undefined)>}),
+    someScalarValue: ((args?: {x?: (Scalars['Float'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
+    account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Promise<(FieldsSelection<Account, R> | undefined)>}),
+    coordinates: (PointPromiseChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Promise<(FieldsSelection<Point, R> | undefined)>})
+}
 
 export interface QueryObservableChain{
+    
 /** Some description */
-repository:((args:{name: Scalars['String'],owner?: (Scalars['String'] | null)})=>RepositoryObservableChain & {get: (request: RepositoryRequest, defaultValue?:Repository)=>Observable<Repository>}),user:(UserObservableChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Observable<(User | null)>}),someScalarValue:((args?:{x?: (Scalars['Float'] | null)})=>{get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})&({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),recursiveType:((args?:{requiredVal?: (Scalars['String'][] | null)})=>{get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Observable<((RecursiveType | null)[] | null)>})&({get: (request: RecursiveTypeRequest, defaultValue?:((RecursiveType | null)[] | null))=>Observable<((RecursiveType | null)[] | null)>}),account:({get: (request: AccountRequest, defaultValue?:(Account | null))=>Observable<(Account | null)>}),coordinates:(PointObservableChain & {get: (request: PointRequest, defaultValue?:(Point | null))=>Observable<(Point | null)>})}
+repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}) => RepositoryObservableChain & {get: <R extends RepositoryRequest>(request: R, defaultValue?: FieldsSelection<Repository, R>) => Observable<FieldsSelection<Repository, R>>}),
+    user: (UserObservableChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Observable<(FieldsSelection<User, R> | undefined)>}),
+    someScalarValue: ((args?: {x?: (Scalars['Float'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
+    account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Observable<(FieldsSelection<Account, R> | undefined)>}),
+    coordinates: (PointObservableChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Observable<(FieldsSelection<Point, R> | undefined)>})
+}
 
-export interface RecursiveTypePromiseChain{value:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),recurse:(RecursiveTypePromiseChain & {get: (request: RecursiveTypeRequest, defaultValue?:(RecursiveType | null))=>Promise<(RecursiveType | null)>})}
+export interface RecursiveTypePromiseChain{
+    value: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    recurse: (RecursiveTypePromiseChain & {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: (FieldsSelection<RecursiveType, R> | undefined)) => Promise<(FieldsSelection<RecursiveType, R> | undefined)>})
+}
 
-export interface RecursiveTypeObservableChain{value:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),recurse:(RecursiveTypeObservableChain & {get: (request: RecursiveTypeRequest, defaultValue?:(RecursiveType | null))=>Observable<(RecursiveType | null)>})}
+export interface RecursiveTypeObservableChain{
+    value: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    recurse: (RecursiveTypeObservableChain & {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: (FieldsSelection<RecursiveType, R> | undefined)) => Observable<(FieldsSelection<RecursiveType, R> | undefined)>})
+}
 
-export interface RepositoryPromiseChain{createdAt:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Promise<Scalars['String']>}),forks:(ForkConnectionPromiseChain & {get: (request: ForkConnectionRequest, defaultValue?:(ForkConnection | null))=>Promise<(ForkConnection | null)>})}
+export interface RepositoryPromiseChain{
+    createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
+    forks: (ForkConnectionPromiseChain & {get: <R extends ForkConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ForkConnection, R> | undefined)) => Promise<(FieldsSelection<ForkConnection, R> | undefined)>})
+}
 
-export interface RepositoryObservableChain{createdAt:({get:(request?:boolean|number,defaultValue?:Scalars['String'])=>Observable<Scalars['String']>}),forks:(ForkConnectionObservableChain & {get: (request: ForkConnectionRequest, defaultValue?:(ForkConnection | null))=>Observable<(ForkConnection | null)>})}
+export interface RepositoryObservableChain{
+    createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
+    forks: (ForkConnectionObservableChain & {get: <R extends ForkConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ForkConnection, R> | undefined)) => Observable<(FieldsSelection<ForkConnection, R> | undefined)>})
+}
 
-export interface ForkConnectionPromiseChain{edges:({get: (request: ForkEdgeRequest, defaultValue?:((ForkEdge | null)[] | null))=>Promise<((ForkEdge | null)[] | null)>})}
+export interface ForkConnectionPromiseChain{
+    edges: ({get: <R extends ForkEdgeRequest>(request: R, defaultValue?: ((FieldsSelection<ForkEdge, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<ForkEdge, R> | undefined)[] | undefined)>})
+}
 
-export interface ForkConnectionObservableChain{edges:({get: (request: ForkEdgeRequest, defaultValue?:((ForkEdge | null)[] | null))=>Observable<((ForkEdge | null)[] | null)>})}
+export interface ForkConnectionObservableChain{
+    edges: ({get: <R extends ForkEdgeRequest>(request: R, defaultValue?: ((FieldsSelection<ForkEdge, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<ForkEdge, R> | undefined)[] | undefined)>})
+}
 
-export interface ForkEdgePromiseChain{cursor:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),node:(ForkPromiseChain & {get: (request: ForkRequest, defaultValue?:(Fork | null))=>Promise<(Fork | null)>})}
+export interface ForkEdgePromiseChain{
+    cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    node: (ForkPromiseChain & {get: <R extends ForkRequest>(request: R, defaultValue?: (FieldsSelection<Fork, R> | undefined)) => Promise<(FieldsSelection<Fork, R> | undefined)>})
+}
 
-export interface ForkEdgeObservableChain{cursor:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),node:(ForkObservableChain & {get: (request: ForkRequest, defaultValue?:(Fork | null))=>Observable<(Fork | null)>})}
+export interface ForkEdgeObservableChain{
+    cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    node: (ForkObservableChain & {get: <R extends ForkRequest>(request: R, defaultValue?: (FieldsSelection<Fork, R> | undefined)) => Observable<(FieldsSelection<Fork, R> | undefined)>})
+}
 
-export interface ForkPromiseChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),number:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>})}
+export interface ForkPromiseChain{
+    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    number: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>})
+}
 
-export interface ForkObservableChain{name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),number:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>})}
+export interface ForkObservableChain{
+    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    number: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>})
+}
 
 export interface UserPromiseChain{
+    
 /** Some description */
-name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>})}
+name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    common: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>})
+}
 
 export interface UserObservableChain{
+    
 /** Some description */
-name:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>})}
+name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    common: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>})
+}
 
-export interface SubscriptionPromiseChain{user:(UserPromiseChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Promise<(User | null)>})}
+export interface SubscriptionPromiseChain{
+    user: (UserPromiseChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Promise<(FieldsSelection<User, R> | undefined)>})
+}
 
-export interface SubscriptionObservableChain{user:(UserObservableChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Observable<(User | null)>})}
+export interface SubscriptionObservableChain{
+    user: (UserObservableChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Observable<(FieldsSelection<User, R> | undefined)>})
+}
 
-export interface GuestPromiseChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean'] | null))=>Promise<(Scalars['Boolean'] | null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Promise<(Scalars['Int'] | null)>})}
+export interface GuestPromiseChain{
+    anonymous: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Promise<(Scalars['Boolean'] | undefined)>}),
+    common: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>})
+}
 
-export interface GuestObservableChain{anonymous:({get:(request?:boolean|number,defaultValue?:(Scalars['Boolean'] | null))=>Observable<(Scalars['Boolean'] | null)>}),common:({get:(request?:boolean|number,defaultValue?:(Scalars['Int'] | null))=>Observable<(Scalars['Int'] | null)>})}
+export interface GuestObservableChain{
+    anonymous: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>}),
+    common: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>})
+}
 
-export interface HousePromiseChain{owner:(UserPromiseChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Promise<(User | null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})}
+export interface HousePromiseChain{
+    owner: (UserPromiseChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Promise<(FieldsSelection<User, R> | undefined)>}),
+    x: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    y: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
 
-export interface HouseObservableChain{owner:(UserObservableChain & {get: (request: UserRequest, defaultValue?:(User | null))=>Observable<(User | null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})}
+export interface HouseObservableChain{
+    owner: (UserObservableChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Observable<(FieldsSelection<User, R> | undefined)>}),
+    x: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    y: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
 
-export interface BankPromiseChain{address:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})}
+export interface BankPromiseChain{
+    address: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    x: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    y: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
 
-export interface BankObservableChain{address:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),x:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})}
+export interface BankObservableChain{
+    address: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    x: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    y: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
 
-export interface PointPromiseChain{x:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Promise<(Scalars['String'] | null)>})}
+export interface PointPromiseChain{
+    x: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    y: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
 
-export interface PointObservableChain{x:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>}),y:({get:(request?:boolean|number,defaultValue?:(Scalars['String'] | null))=>Observable<(Scalars['String'] | null)>})}
+export interface PointObservableChain{
+    x: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    y: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
