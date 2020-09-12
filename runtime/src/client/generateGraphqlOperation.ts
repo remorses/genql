@@ -82,8 +82,9 @@ const parseRequest = (
 
         let scalarFieldsFragment: string | undefined
 
-        if (fieldNames.indexOf('__scalar') !== -1) {
+        if (fieldNames.includes('__scalar')) {
             if (!scalarFields?.length) {
+                // TODO using __scalar on type without scalar fields just return
                 throw new Error(`type ${type.name} has no scalar fields`)
             }
 
@@ -98,7 +99,7 @@ const parseRequest = (
         }
 
         return `{${fieldNames
-            .filter((f) => f !== '__scalar')
+            .filter((f) => !['__scalar', '__name'].includes(f))
             .map((f) => {
                 const parsed = parseRequest(fields[f], ctx, [...path, f])
 
@@ -152,10 +153,13 @@ export const generateGraphqlOperation = (
               })})`
             : ''
 
+    const operationName = fields?.__name || ''
+
     return {
-        query: [`${operation}${varsString}${result}`, ...ctx.fragments].join(
-            ',',
-        ),
+        query: [
+            `${operation} ${operationName}${varsString}${result}`,
+            ...ctx.fragments,
+        ].join(','),
         variables: Object.keys(ctx.variables).reduce<{ [name: string]: any }>(
             (r, v) => {
                 r[v] = ctx.variables[v].value

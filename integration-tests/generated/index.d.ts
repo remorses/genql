@@ -21,10 +21,12 @@ export declare const version: string
 export interface Client {
   wsClient?: SubscriptionClient
 
-  query<R extends QueryRequest>(request: R): Promise<FieldsSelection<Query, R>>
+  query<R extends QueryRequest>(
+    request: R & { __name?: string },
+  ): Promise<FieldsSelection<Query, R>>
 
   subscription<R extends SubscriptionRequest>(
-    request: R,
+    request: R & { __name?: string },
   ): Observable<FieldsSelection<Subscription, R>>
 
   chain: {
@@ -39,11 +41,13 @@ export type QueryResult<fields extends QueryRequest> = FieldsSelection<
   fields
 >
 
-export declare const generateQueryOp: (fields: QueryRequest) => GraphqlOperation
+export declare const generateQueryOp: (
+  fields: QueryRequest & { __name?: string },
+) => GraphqlOperation
 export type SubscriptionResult<
   fields extends SubscriptionRequest
 > = FieldsSelection<Subscription, fields>
 
 export declare const generateSubscriptionOp: (
-  fields: SubscriptionRequest,
+  fields: SubscriptionRequest & { __name?: string },
 ) => GraphqlOperation

@@ -4,7 +4,7 @@
 -   `genql-runtime` becomes `@genql/runtime`
 -   added built in batching (see https://genql.now.sh/docs/usage/batching-queries)
 -   response types only include queries fields
--   `--watch` flag
+-   add an operation name to a query using `__name`
 -   `--sort` flag
 -   response types only include queries fields
 -   generated `types.json` now is `types.js`

@@ -1,7 +1,8 @@
 import { generateQueryOp, createClient, everything } from '../generated'
 import { prettify } from '@genql/cli/dist/helpers/prettify'
-import { parse } from 'graphql'
+import { buildASTSchema, OperationDefinitionNode, parse } from 'graphql'
 import { generateSubscriptionOp } from '../generated'
+import assert from 'assert'
 
 describe('generate queries', () => {
     it('query', () => {
@@ -69,7 +70,18 @@ describe('generate queries', () => {
         })
         console.log(prettify(query, 'graphql'))
     })
-    
+
+    it('use __name operation name', () => {
+        const NAME = 'SomeName'
+        const { query } = generateSubscriptionOp({
+            __name: NAME,
+            user: {
+                __scalar: true,
+            },
+        })
+        // assert.strictEqual(op.name, NAME)
+        console.log(prettify(query, 'graphql'))
+    })
     it('subscriptions', () => {
         const { query } = generateSubscriptionOp({
             user: {

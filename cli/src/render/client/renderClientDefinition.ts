@@ -78,7 +78,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
     if (queryType) {
         interfaceContent += `
         query<R extends ${requestTypeName(queryType)}>(
-            request: R,
+            request: R & { __name?: string },
         ): Promise<FieldsSelection<${queryType.name}, R>>
         `
         chainTypeContent += `
@@ -89,7 +89,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
     if (mutationType) {
         interfaceContent += `
         mutation<R extends ${requestTypeName(mutationType)}>(
-            request: R,
+            request: R & { __name?: string },
         ): Promise<FieldsSelection<${mutationType.name}, R>>
         `
         chainTypeContent += `
@@ -100,7 +100,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
     if (subscriptionType) {
         interfaceContent += `
         subscription<R extends ${requestTypeName(subscriptionType)}>(
-            request: R,
+            request: R & { __name?: string },
         ): Observable<FieldsSelection<${subscriptionType.name}, R>>
         `
         chainTypeContent += `
@@ -133,7 +133,7 @@ function renderSupportFunctionsTypes({
 
         export declare const generateQueryOp: (fields: ${requestTypeName(
             queryType,
-        )}) => GraphqlOperation`
+        )} & { __name?: string }) => GraphqlOperation`
     }
     if (mutationType) {
         code += `
@@ -143,7 +143,7 @@ function renderSupportFunctionsTypes({
 
         export declare const generateMutationOp: (fields: ${requestTypeName(
             mutationType,
-        )}) => GraphqlOperation`
+        )} & { __name?: string }) => GraphqlOperation`
     }
     if (subscriptionType) {
         code += `
@@ -153,7 +153,7 @@ function renderSupportFunctionsTypes({
 
         export declare const generateSubscriptionOp: (fields: ${requestTypeName(
             subscriptionType,
-        )}) => GraphqlOperation`
+        )} & { __name?: string }) => GraphqlOperation`
     }
 
     return code

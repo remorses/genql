@@ -14,7 +14,9 @@ export declare const version: string
 export interface Client {
   wsClient?: SubscriptionClient
 
-  query<R extends QueryRequest>(request: R): Promise<FieldsSelection<Query, R>>
+  query<R extends QueryRequest>(
+    request: R & { __name?: string },
+  ): Promise<FieldsSelection<Query, R>>
 
   chain: {
     query: QueryPromiseChain
@@ -26,4 +28,6 @@ export type QueryResult<fields extends QueryRequest> = FieldsSelection<
   fields
 >
 
-export declare const generateQueryOp: (fields: QueryRequest) => GraphqlOperation
+export declare const generateQueryOp: (
+  fields: QueryRequest & { __name?: string },
+) => GraphqlOperation
