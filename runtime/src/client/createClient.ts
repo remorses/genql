@@ -87,8 +87,9 @@ export const createClient = ({
             if (!client.wsClient) {
                 client.wsClient = getSubscriptionClient(options)
             }
-            return new Observable((observer) => {
-                client.wsClient.request(op).subscribe({
+            const obs = new Observable((observer) => {
+                // TODO check that unsubscribing wrapper obs calls unsubscribe on the wrapped one
+                const obs = client.wsClient.request(op).subscribe({
                     next: (x) => {
                         // if (observer.closed) return
                         observer.next(x)
@@ -101,12 +102,16 @@ export const createClient = ({
                         observer.complete()
                     },
                 })
+                return () => {
+                    obs.unsubscribe()
+                }
             }).map((val: ExecutionResult<any>): any => {
                 if (val?.errors?.length) {
                     throw new ClientError(val?.errors)
                 }
                 return val?.data
             })
+            return obs
         }
     }
     client.chain = {
