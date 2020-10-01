@@ -1,4 +1,5 @@
-const { version } = require('../package.json')
+// @ts-ignore
+import { version } from '../package.json'
 export { createClient, ClientOptions } from './client/createClient'
 export { FieldsSelection } from './client/typeSelection'
 export { NoExtraProperties } from './types'

@@ -1,3 +1,4 @@
-const { version } = require('../package.json')
+// @ts-ignore
+import { version } from '../package.json'
 
 export { version }
