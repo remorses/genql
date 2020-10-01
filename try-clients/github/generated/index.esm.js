@@ -8,7 +8,7 @@ import types from './types.esm'
 var typeMap = linkTypeMap(types)
 export * from './guards.esm'
 
-export var version = 'undefined'
+export var version = '2.1.0'
 assertSameVersion(version)
 
 export var createClient = function(options) {
