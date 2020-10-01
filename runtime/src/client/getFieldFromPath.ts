@@ -1,5 +1,5 @@
 import { LinkedField, LinkedType } from '../types'
-import startsWith from 'lodash.startswith'
+import startsWith from 'lodash/startswith'
 
 export const getFieldFromPath = ( // types.json is only needed for getFieldFormPath, can be removed? uses .fields and .type
     root: LinkedType | undefined,

@@ -9,7 +9,7 @@ import {
     LinkedFieldMap,
     LinkedArgMap,
 } from '../types'
-import assign from 'lodash.assign'
+import assign from 'lodash/assign'
 
 export interface PartialLinkedFieldMap {
     [field: string]: {
