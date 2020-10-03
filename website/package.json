@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -20,7 +20,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@genql/cli": "^2.2.3",
+    "@genql/cli": "^2.2.4",
     "@types/js-cookie": "^2.2.6",
     "baby-i-am-faded": "^1.0.2",
     "dayjs": "^1.8.27",

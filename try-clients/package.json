@@ -1,6 +1,6 @@
 {
     "name": "try-clients",
-    "version": "2.2.0",
+    "version": "2.2.4",
     "private": true,
     "description": "",
     "main": "index.js",
