@@ -1,4 +1,5 @@
 {
+    "name": "genql",
     "private": true,
     "version": "2.0.0",
     "workspaces": [
@@ -30,6 +31,5 @@
     },
     "devDependencies": {
         "lerna": "^3.22.1"
-    },
-    "name": "genql"
+    }
 }
