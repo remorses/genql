@@ -13,12 +13,12 @@
         "esModuleInterop": true,
         "allowJs": true,
         "sourceMap": true,
+        "resolveJsonModule": true,
         "lib": ["dom", "esnext.asynciterable"],
         "skipLibCheck": true,
         "composite": true
     },
-    
-    "include": ["src"],
+    "include": ["src", "src/package.json"],
     "exclude": [
         "node_modules",
         "**/*.case.ts",
