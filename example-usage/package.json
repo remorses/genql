@@ -1,6 +1,6 @@
 {
     "name": "example-usage",
-    "version": "2.2.2",
+    "version": "2.2.3",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -23,8 +23,8 @@
         "@chakra-ui/core": "^0.8.0",
         "@emotion/core": "^10.0.28",
         "@emotion/styled": "^10.0.27",
-        "@genql/cli": "^2.2.2",
-        "@genql/runtime": "^2.2.2",
+        "@genql/cli": "^2.2.3",
+        "@genql/runtime": "^2.2.3",
         "@types/js-cookie": "^2.2.6",
         "apollo-boost": "^0.4.9",
         "baby-i-am-faded": "^0.0.14",
