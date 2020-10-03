@@ -18,7 +18,7 @@
         "skipLibCheck": true,
         "composite": true
     },
-    "include": ["src", "src/package.json"],
+    "include": ["src", "src/version.json"],
     "exclude": [
         "node_modules",
         "**/*.case.ts",
