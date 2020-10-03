@@ -1,4 +1,4 @@
-import { version } from './version.json'
+const { version } = require('../package.json')
 export { createClient, ClientOptions } from './client/createClient'
 export { FieldsSelection } from './client/typeSelection'
 export { NoExtraProperties } from './types'

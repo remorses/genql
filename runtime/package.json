@@ -23,7 +23,7 @@
     ],
     "scripts": {
         "start": "tsdx watch",
-        "build": "rm -rf dist esm *.tsbuildinfo && cp ./package.json src/version.json && tsc && tsc -m ESNext --outDir esm",
+        "build": "rm -rf dist esm *.tsbuildinfo && tsc && tsc -m ESNext --outDir esm",
         "typesTests": "tsc -b src/client/__tests__/tsconfig.json",
         "test": "yarn typesTests && jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
