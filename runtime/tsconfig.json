@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "noImplicitReturns": true,
+        "noUnusedParameters": true,
+        "importHelpers": true,
+        "rootDir": "src",
+        "strict": false,
+        "declaration": true,
+        "target": "ES5",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "allowJs": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "lib": ["dom", "esnext.asynciterable"],
+        "skipLibCheck": true,
+        "composite": true
+    },
+    "include": ["src", "src/package.json"],
+    "exclude": [
+        "node_modules",
+        "**/*.case.ts",
+        "tests",
+        "example",
+        "dist",
+        "**/__tests__",
+        "esm"
+    ]
+}

@@ -53,10 +53,13 @@ import { generateQueryOp, QueryResult } from '../generated/'
 
 const Page = () => {
     const q = {
-        countries: {
-            name: 1,
-            code: 1,
-        },
+        countries: [
+            { argument: 'exampleArgument' },
+            {
+                name: 1,
+                code: 1,
+            },
+        ] as const, // tell typescript this is a tuple and not an array
     }
     const { query, variables } = generateQueryOp(q)
     const { data, error } = useQuery<QueryResult<typeof q>>(gql(query), {

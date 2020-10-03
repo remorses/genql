@@ -5,7 +5,7 @@ import {
     useLazyPromiseOutput,
 } from 'react-extra-hooks'
 
-import { FieldsSelection, ClientError } from 'genql-runtime'
+import { FieldsSelection, ClientError } from '@genql/runtime'
 import {
     mutation_rootRequest as MutationRequest,
     createClient,

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "strict": false,
+        "strictNullChecks": true,
+        "noEmit": true,
+        "composite": true,
+        "skipLibCheck": true
+    },
+    "include": ["typeSelection.test.ts"],
+    "exclude": ["../!tests"],
+    "references": [{ "path": "../../../" }]
+}

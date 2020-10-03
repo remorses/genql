@@ -2,6 +2,7 @@
 import { Box, Image } from '@chakra-ui/core'
 import { css, jsx } from '@emotion/core'
 import { Faded } from 'baby-i-am-faded'
+
 import {
     Banner,
     Button,

@@ -3,11 +3,12 @@ import {
   createClient as createClientOriginal,
   generateGraphqlOperation,
   assertSameVersion,
-} from 'genql-runtime'
-var typeMap = linkTypeMap(require('./types.json'))
+} from '@genql/runtime'
+import types from './types.esm'
+var typeMap = linkTypeMap(types)
 export * from './guards.esm'
 
-export var version = '1.1.22'
+export var version = '2.1.0'
 assertSameVersion(version)
 
 export var createClient = function(options) {

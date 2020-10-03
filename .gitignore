@@ -9,7 +9,7 @@ play*
 dist/*
 esm
 node_modules
-
+*.tsbuildinfo
 *.env
 # Runtime data
 pids

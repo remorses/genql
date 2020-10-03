@@ -90,6 +90,9 @@ export default function App(props) {
             }}
             onError={(e) => alert(e.message)}
         >
+            <Head>
+                <title>Genql - SDK client for any GraphQL API</title>
+            </Head>
             <LandingProvider
                 minH='100%'
                 h='100%'
@@ -99,7 +102,7 @@ export default function App(props) {
                 color='#444'
             >
                 <MyNavbar />
-                <Stack h='100%' minH='100vh'>
+                <Stack align='stretch' h='100%' minH='100vh'>
                     <Component {...pageProps} />
                 </Stack>
                 <MyFooter dark />
@@ -140,6 +143,7 @@ export function MyFooter({ ...rest }) {
 export function MyNavbar({ ...rest }) {
     const { user, loading } = useAuthData()
     const navs = [
+        <MyLink href='/converter'>Converter</MyLink>,
         <MyLink isExternal href={GITHUB_LINK}>
             Github
         </MyLink>,

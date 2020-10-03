@@ -24,7 +24,7 @@ const Page = () => {
         },
         // (a: any[], b) => [...a, b],
     )
-    expectType<user[] | undefined>(data?.user)
+    expectType<Partial<user>[] | undefined>(data?.user)
     return (
         <Stack spacing='40px' mt='40px'>
             <Hero

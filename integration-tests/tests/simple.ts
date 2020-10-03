@@ -1,7 +1,9 @@
 import { generateQueryOp, createClient, everything } from '../generated'
-import { prettify } from 'genql-cli/dist/helpers/prettify'
-import { parse } from 'graphql'
+import { prettify } from '@genql/cli/dist/helpers/prettify'
+import { buildASTSchema, OperationDefinitionNode, parse } from 'graphql'
 import { generateSubscriptionOp } from '../generated'
+import assert from 'assert'
+import snapshot from 'snap-shot-it'
 
 describe('generate queries', () => {
     it('query', () => {
@@ -24,7 +26,7 @@ describe('generate queries', () => {
                 },
             ],
         })
-        console.log(prettify(query, 'graphql'))
+        snapshot(prettify(query, 'graphql'))
     })
     it('recursive type', () => {
         const { query } = generateQueryOp({
@@ -44,7 +46,7 @@ describe('generate queries', () => {
                 },
             },
         })
-        console.log(prettify(query, 'graphql'))
+        snapshot(prettify(query, 'graphql'))
     })
     it('recursive type with args', () => {
         const { query } = generateQueryOp({
@@ -67,16 +69,27 @@ describe('generate queries', () => {
                 },
             ],
         })
-        console.log(prettify(query, 'graphql'))
+        snapshot(prettify(query, 'graphql'))
     })
-    
+
+    it('use __name operation name', () => {
+        const NAME = 'SomeName'
+        const { query } = generateSubscriptionOp({
+            __name: NAME,
+            user: {
+                __scalar: true,
+            },
+        })
+        // assert.strictEqual(op.name, NAME)
+        snapshot(prettify(query, 'graphql'))
+    })
     it('subscriptions', () => {
         const { query } = generateSubscriptionOp({
             user: {
                 __scalar: true,
             },
         })
-        console.log(prettify(query, 'graphql'))
+        snapshot(prettify(query, 'graphql'))
     })
     it('many', () => {
         const { query } = generateQueryOp({
@@ -101,6 +114,6 @@ describe('generate queries', () => {
                 ...everything,
             },
         })
-        console.log(prettify(query, 'graphql'))
+        snapshot(prettify(query, 'graphql'))
     })
 })

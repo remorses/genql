@@ -1,10 +1,10 @@
-import { prettify } from 'genql-cli/dist/helpers/prettify'
+import { prettify } from '@genql/cli/dist/helpers/prettify'
 import { parse } from 'graphql'
 import assert from 'assert'
 import { createClient } from '../hasura/generated'
 import fetch from 'isomorphic-unfetch'
 import QueryBatcher from 'graphql-query-batcher'
-import { everything } from 'genql-runtime'
+import { everything } from '@genql/runtime'
 
 const URL = 'https://hasura-2334534.herokuapp.com/v1/graphql'
 
@@ -53,7 +53,7 @@ describe('batch queries', () => {
         batchInterval: 100,
     })
     const client = createClient({
-        fetcher: ({ query, variables }) => {
+        fetcher: ({ query, variables }: any) => {
             return batcher.fetch(query, variables)
         },
     })

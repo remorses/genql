@@ -6,7 +6,7 @@ Sometimes you will want to declare the field types separately or use the result 
 
 To declare the fields object separately from the client invocation you can use the `QueryRequest`, `MutationRequest` and `SubscriptionRequest` types
 
-```js
+```tsx
 import { createClient, QueryRequest } from './generated'
 
 const client = createClient()
@@ -27,14 +27,19 @@ const result = await client.query(fields)
 If you want to reuse the result type of a query in another function you can use the `QueryResult`, `MutationResult` and `SubscriptionResult` generic types.
 These types take a query object as argument and give the associated result type as result.
 
-```js
+> Always use `as const` after a tuple to tell typescript to use tuple semantics
+
+```tsx
 import { QueryResult } from './generated'
 
 const fields = {
-    countries: {
-        name: true,
-        code: true,
-    },
+    countries: [
+        { argument: 'exampleArgument' },
+        {
+            name: 1,
+            code: 1,
+        },
+    ] as const, // tell typescript this is a tuple and not an array
 }
 
 // you can use this type in other places

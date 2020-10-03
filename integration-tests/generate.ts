@@ -1,4 +1,4 @@
-import { generate } from 'genql-cli/src/main'
+import { generate } from '@genql/cli/src/main'
 import fs from 'fs'
 import path from 'path'
 

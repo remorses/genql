@@ -18,6 +18,7 @@ import {
     Point,
     isUser,
 } from '../generated'
+import { GraphqlOperation } from '@genql/runtime'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
@@ -25,35 +26,40 @@ const SUB_URL = `ws://localhost:` + PORT + '/graphql'
 type Maybe<T> = T | undefined | null
 
 async function server({ resolvers, port = PORT }) {
-    const typeDefs = fs
-        .readFileSync(path.join(__dirname, '..', 'schema.graphql'))
-        .toString()
-    const server = new ApolloServer({
-        schema: makeExecutableSchema({
-            typeDefs,
-            resolvers,
-            resolverValidationOptions: {
-                requireResolversForResolveType: false,
-            },
-        }),
+    try {
+        const typeDefs = fs
+            .readFileSync(path.join(__dirname, '..', 'schema.graphql'))
+            .toString()
+        const server = new ApolloServer({
+            schema: makeExecutableSchema({
+                typeDefs,
+                resolvers,
+                resolverValidationOptions: {
+                    requireResolversForResolveType: false,
+                },
+            }),
 
-        subscriptions: {
-            onConnect: async (connectionParams, webSocket, context) => {
-                console.log(
-                    `Subscription client connected using Apollo server's built-in SubscriptionServer.`,
-                )
+            subscriptions: {
+                onConnect: async (connectionParams, webSocket, context) => {
+                    console.log(
+                        `Subscription client connected using Apollo server's built-in SubscriptionServer.`,
+                    )
+                },
+                onDisconnect: async (webSocket, context) => {
+                    console.log(`Subscription client disconnected.`)
+                },
             },
-            onDisconnect: async (webSocket, context) => {
-                console.log(`Subscription client disconnected.`)
-            },
-        },
-    })
+        })
 
-    // The `listen` method launches a web server.
-    await server.listen(port).then(({ url, subscriptionsUrl }) => {
-        console.log(`🚀  Server ready at ${url} and ${subscriptionsUrl}`)
-    })
-    return () => server.stop()
+        // The `listen` method launches a web server.
+        await server.listen(port).then(({ url, subscriptionsUrl }) => {
+            console.log(`🚀  Server ready at ${url} and ${subscriptionsUrl}`)
+        })
+        return () => server.stop()
+    } catch (e) {
+        console.error('server had an error: ' + e)
+        return () => null
+    }
 }
 
 describe('execute queries', async function() {
@@ -68,6 +74,7 @@ describe('execute queries', async function() {
                     user: () => {
                         return x
                     },
+                    someScalarValue: () => 'someScalarValue',
                     repository: () => {
                         return {
                             createdAt: 'now',
@@ -95,6 +102,7 @@ describe('execute queries', async function() {
         try {
             await func()
         } catch (e) {
+            console.log('catch')
             throw e
         } finally {
             await stop()
@@ -105,6 +113,7 @@ describe('execute queries', async function() {
         url: URL,
         headers: () => ({ Auth: 'xxx' }),
     })
+
     it(
         'simple ',
         withServer(async () => {
@@ -114,7 +123,20 @@ describe('execute queries', async function() {
                 },
             })
             console.log(JSON.stringify(res, null, 2))
-            assert(deepEq(res.user, x))
+            assert.deepStrictEqual(res.user, x)
+        }),
+    )
+    it(
+        'scalar value with argument ',
+        withServer(async () => {
+            var res = await client.query({
+                someScalarValue: true,
+            })
+            assert(res.someScalarValue?.toLocaleLowerCase)
+            var res = await client.query({
+                someScalarValue: [{ x: 3 }],
+            })
+            assert(res.someScalarValue?.toLocaleLowerCase)
         }),
     )
     it(
@@ -176,8 +198,6 @@ describe('execute queries', async function() {
             client.chain.query.user
                 .get({
                     name: true,
-                    // @ts-expect-error because sdf is not in QueryRequest
-                    sdf: true,
                     // sdf: true,
                 })
                 .catch(id)
@@ -208,8 +228,8 @@ describe('execute queries', async function() {
                 })
                 .catch(id)
             console.log(JSON.stringify(res, null, 2))
-            expectType<Maybe<string>>(res?.[0]?.value)
-            expectType<Maybe<string>>(res?.[0]?.recurse?.value)
+            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
+            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.recurse?.value)
             expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
         }),
     )
@@ -240,6 +260,17 @@ describe('execute queries', async function() {
                 on_User: { name: 1 },
             })
             expectType<Maybe<Account>>(account)
+        }),
+    )
+    it(
+        'chain syntax result type only has requested fields',
+        withServer(async () => {
+            const res = await client.chain.query
+                .repository({ name: '' })
+                .get({ createdAt: 1 })
+            expectType<string>(res.createdAt)
+            // @ts-expect-error
+            res?.forks
         }),
     )
     it(
@@ -346,6 +377,44 @@ describe('execute queries', async function() {
                 coordinates?.x
                 coordinates?.y
             }
+        }),
+    )
+    it(
+        'batches requests',
+        withServer(async () => {
+            let batchedQueryLength = -1
+            const client = createClient({
+                url: URL,
+                batch: true,
+                fetcher: async (body) => {
+                    console.log(body)
+                    batchedQueryLength = Array.isArray(body) ? body.length : -1
+                    const res = await fetch(URL, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        method: 'POST',
+                        body: JSON.stringify(body),
+                    })
+                    return await res.json()
+                },
+            })
+            const res = await Promise.all([
+                client.query({
+                    coordinates: {
+                        __typename: 1,
+                        x: 1,
+                    },
+                }),
+                client.query({
+                    coordinates: {
+                        __typename: 1,
+                        y: 1,
+                    },
+                }),
+            ])
+            assert.strictEqual(res.length, 2)
+            assert.strictEqual(batchedQueryLength, 2)
         }),
     )
 })

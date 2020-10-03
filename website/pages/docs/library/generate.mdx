@@ -1,0 +1,38 @@
+# Generate the client
+
+You can generate a client from code using the client package
+
+```ts
+import { generate } from '@genql/cli'
+import fs from 'fs'
+import path from 'path'
+
+generate({
+    schema: fs.readFileSync(path.join(__dirname, 'schema.graphql')).toString(),
+    output: path.join(__dirname, 'generated'),
+    scalarTypes: {
+        MongoID: 'string',
+    },
+}).catch(console.error)
+```
+
+The generate function has the following signature
+
+```ts
+(config: {
+    endpoint?: string
+    // use get to introspect the schema
+    useGet?: boolean
+    // the schema string
+    schema?: string
+    // the output dir
+    output?: string
+    headers?: Record<string, string>
+    // map graphql scalars to typescript types
+    scalarTypes?: { [k: string]: string }
+    onlyEsModules?: boolean
+    onlyCJSModules?: boolean
+    sortProperties?: boolean
+    verbose?: boolean
+}) => Promise<void>
+```
