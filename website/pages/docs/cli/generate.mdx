@@ -38,8 +38,14 @@ Using ES modules has the advantage of smaller bundle size via tree shaking.
 genql --esm --schema ./schema.graphql --output ./generated
 ```
 
-```bash
-genql -H 'Authorization: Bearer myToken' -e https://countries.trevorblades.com -o ./generated
+## Generate both commonjs and ESM with `--esm-and-cjs`
+
+If you publish a package with genql code you probably want to include both ESM and CJS code for users using browser and nodes respectively
+
+To do that pass the `--esm-and-cjs` flag
+
+```sh
+genql --esm-and-cjs --schema ./schema.graphql --output ./generated
 ```
 
 ## Changing scalar types with `-S`
@@ -52,7 +58,7 @@ By default custom scalars have type `any`
 genql -S MyScalar:string -S AnotherScalar:number -e https://countries.trevorblades.com -o ./generated
 ```
 
-## Sort properties
+## Sort generated code with `--sort`
 
 If you see a lot of diffs between one generation and another you can use the `--sort` flag to sort object properties
 
