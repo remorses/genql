@@ -23,7 +23,7 @@
         "play": "node -r sucrase/register cli/src/cli.ts",
         "integration": "cd integration-tests && yarn gen && tsc && yarn test",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
-        "publ": "lerna publish minor",
+        "publ": "lerna publish patch",
         "runexample": "node -r sucrase/register example/example.ts"
     },
     "dependencies": {
