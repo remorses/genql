@@ -65,5 +65,3 @@ query {
 ---
 
 [Licensed under MIT]().
-
-
