@@ -1,4 +1,4 @@
-import { version } from './version'
+import { version } from './version.json'
 export { createClient, ClientOptions } from './client/createClient'
 export { FieldsSelection } from './client/typeSelection'
 export { NoExtraProperties } from './types'

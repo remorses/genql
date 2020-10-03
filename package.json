@@ -1,7 +1,7 @@
 {
     "name": "genql",
     "private": true,
-    "version": "2.2.8",
+    "version": "2.0.0",
     "workspaces": [
         "cli",
         "runtime",
@@ -23,15 +23,13 @@
         "play": "node -r sucrase/register cli/src/cli.ts",
         "integration": "cd integration-tests && yarn gen && tsc && yarn test",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
-        "version": "lerna version --no-git-tag-version patch && yarn buildall ",
+        "publ": "yarn buildall && lerna publish patch",
         "runexample": "node -r sucrase/register example/example.ts"
     },
     "dependencies": {
         "concurrently": "^5.2.0"
     },
     "devDependencies": {
-        "@changesets/cli": "^2.10.3",
-        "genversion": "^2.2.1",
         "lerna": "^3.22.1"
     }
 }
