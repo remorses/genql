@@ -100,6 +100,6 @@ type Scalar = string | number | Date | boolean | null | undefined
 
 type Anify<T> = { [P in keyof T]?: any }
 
-type FieldsToRemove = '__isUnion' | '__scalar'
+type FieldsToRemove = '__isUnion' | '__scalar' | '__name'
 
 type Nil = undefined | null
