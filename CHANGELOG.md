@@ -1,9 +1,7 @@
-## 2.1.0
-
--   add an operation name to a query using `__name`
-
 ## 2.0.0
 
+-   add an operation name to a query using `__name`
+-   only generate commonjs code by default (using require and module.exports) to prevent people from importing from `index.esm`, use the `--esm` flag if you want to use esm
 -   `genql-cli` becomes `@genql/cli`
 -   `genql-runtime` becomes `@genql/runtime`
 -   response types only include requested fields
