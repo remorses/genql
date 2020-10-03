@@ -56,7 +56,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
                 )
             },
         },
-        {
+        !config.onlyCJSModules && {
             title: `writing ${guardsFileEsm}`,
             task: async (ctx) => {
                 const renderCtx = new RenderContext(ctx.schema, config)
@@ -95,10 +95,12 @@ export const clientTasks = (config: Config): ListrTask[] => {
                         `module.exports = ${renderCtx.toCode()}`,
                     )
                 }
-                await writeFileToPath(
-                    [output, typeMapFileEsm],
-                    `export default ${renderCtx.toCode()}`,
-                )
+                if (!config.onlyCJSModules) {
+                    await writeFileToPath(
+                        [output, typeMapFileEsm],
+                        `export default ${renderCtx.toCode()}`,
+                    )
+                }
             },
         },
         !config.onlyEsModules && {
@@ -113,7 +115,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
                 )
             },
         },
-        {
+        !config.onlyCJSModules && {
             title: `writing ${clientFileEsm}`,
             task: async (ctx) => {
                 const renderCtx = new RenderContext(ctx.schema, config)

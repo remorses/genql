@@ -49,6 +49,12 @@ const program = yargs
         description:
             'generate only ES modules code, ./generated/index.js will use esm exports and imports',
     })
+    .option('esm-and-cjs', {
+        type: 'boolean',
+        default: false,
+        description:
+            'generate both ES modules code and CJS code, useful when publishing a package, ./generated/index.js will use CJS require',
+    })
     .option('sort', {
         type: 'boolean',
         default: false,
@@ -90,6 +96,7 @@ const config: Config = {
     headers: parseColonSeparatedStrings(program.header || []),
     scalarTypes: parseColonSeparatedStrings(program.scalar || []),
     onlyEsModules: program.esm,
+    onlyCJSModules: !program['esm-and-cjs'] && !program.esm,
     verbose: program.verbose,
     sortProperties: program.sort,
 }

@@ -14,6 +14,7 @@ export interface Config {
     headers?: Record<string, string>
     scalarTypes?: { [k: string]: string }
     onlyEsModules?: boolean
+    onlyCJSModules?: boolean
     sortProperties?: boolean
 }
 
