@@ -151,6 +151,7 @@ describe('pick', () => {
 
 describe('__scalar', () => {
     const req = {
+        __name: 'name',
         category: {
             __scalar: 1,
             nested1: {
@@ -196,6 +197,13 @@ describe('__scalar', () => {
         dontExecute(() => {
             // @ts-expect-error
             z.category.__scalar
+        }),
+    )
+    test(
+        '__name is not present',
+        dontExecute(() => {
+            // @ts-expect-error __name
+            z.__name
         }),
     )
     test(
