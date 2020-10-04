@@ -31,7 +31,7 @@ export const createFetcher = ({
     if (!fetcher) {
         fetcher = async (body) => {
             let headersObject =
-                typeof headers == 'function' ? headers() : headers
+                typeof headers == 'function' ? await headers() : headers
             headersObject = headersObject || {}
             const res = await fetch(url, {
                 headers: {

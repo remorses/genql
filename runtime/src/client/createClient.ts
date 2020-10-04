@@ -14,7 +14,10 @@ import {
     GraphqlOperation,
 } from './generateGraphqlOperation'
 
-export type Headers = HeadersInit | (() => HeadersInit)
+export type Headers =
+    | HeadersInit
+    | (() => HeadersInit)
+    | (() => Promise<HeadersInit>)
 
 export type BaseFetcher = (
     operation: GraphqlOperation | GraphqlOperation[],
@@ -151,20 +154,23 @@ function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
     if (!url) {
         throw new Error('Subscription client error: missing url parameter')
     }
-    if (typeof headers == 'function') {
-        headers = headers()
-    }
+
     return new WsSubscriptionClient(
         url,
         {
             lazy: true,
             reconnect: true,
             reconnectionAttempts: 3,
-            connectionParams: {
-                headers,
+            connectionParams: async () => {
+                let headersObject =
+                    typeof headers == 'function' ? await headers() : headers
+                headersObject = headersObject || {}
+                return {
+                    headers: headersObject,
+                }
             },
             ...opts,
         },
-        typeof window == 'undefined' ? ws : undefined,
+        typeof window === 'undefined' ? ws : undefined,
     )
 }

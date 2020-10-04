@@ -448,6 +448,34 @@ describe('execute queries', async function() {
             assert.strictEqual(headersCalledNTimes, 2)
         }),
     )
+    it(
+        'async headers function gets called every time',
+        withServer(async () => {
+            let headersCalledNTimes = 0
+            const client = createClient({
+                url: URL,
+                headers: async () => {
+                    headersCalledNTimes++
+                    return {}
+                },
+            })
+
+            await client.query({
+                coordinates: {
+                    __typename: 1,
+                    x: 1,
+                },
+            })
+            await client.query({
+                coordinates: {
+                    __typename: 1,
+                    y: 1,
+                },
+            })
+
+            assert.strictEqual(headersCalledNTimes, 2)
+        }),
+    )
 })
 
 describe('execute subscriptions', async function() {
@@ -469,11 +497,12 @@ describe('execute subscriptions', async function() {
                 },
             },
         })
-    const client = createClient({
-        url: SUB_URL,
-    })
 
     it('simple ', async () => {
+        const client = createClient({
+            url: SUB_URL,
+        })
+
         const stop = await makeServer()
         // await pubsub.publish(USER_EVENT, { user: x })
         await sleep(100)
@@ -503,5 +532,53 @@ describe('execute subscriptions', async function() {
         client?.wsClient?.close?.()
         await stop()
         // assert(deepEq(res.user, x))
+    })
+
+    it('headers function gets called', async () => {
+        let headersCalledNTimes = 0
+
+        const client = createClient({
+            url: SUB_URL,
+            subscription: {
+                headers: async () => {
+                    headersCalledNTimes++
+                    return {}
+                },
+            },
+        })
+        const stop = await makeServer()
+        // await pubsub.publish(USER_EVENT, { user: x })
+        await sleep(100)
+        let subscribeCalledNTimes = 0
+        const sub = client
+            .subscription({
+                user: {
+                    name: true,
+                    common: 1,
+                    __typename: true,
+                },
+            })
+            .subscribe({
+                next: (x) => {
+                    expectType<Maybe<string>>(x.user?.name)
+                    expectType<Maybe<string>>(x.user?.__typename)
+                    expectType<Maybe<number>>(x.user?.common)
+                    console.log(x)
+                    subscribeCalledNTimes++
+                },
+                complete: () => console.log('complete'),
+                error: console.error,
+            })
+
+        await sleep(100)
+        await pubsub.publish(USER_EVENT, { user: x })
+        await pubsub.publish(USER_EVENT, { user: x })
+        await sleep(100)
+        assert.strictEqual(subscribeCalledNTimes, 2, 'subscribeCalledNTimes')
+        // console.log(JSON.stringify(res, null, 2))
+        sub.unsubscribe()
+        client.wsClient!.close()
+        await stop()
+        assert.strictEqual(headersCalledNTimes, 1)
     })
 })

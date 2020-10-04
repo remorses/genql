@@ -2,6 +2,7 @@
 
 -   `genql-cli` package becomes `@genql/cli`
 -   `genql-runtime` package becomes `@genql/runtime`
+-   headers can be an async function
 -   you can now add an operation name to a query using `__name`
 -   only generate commonjs code by default (using require and module.exports) to prevent people from importing from `index.esm`, use the `--esm` flag if you want to use esm
 -   response types only include requested fields
