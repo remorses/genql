@@ -1,4 +1,4 @@
-## 2.0.0
+## 2.3.3
 
 -   `genql-cli` package becomes `@genql/cli`
 -   `genql-runtime` package becomes `@genql/runtime`
