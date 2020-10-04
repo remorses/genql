@@ -109,7 +109,7 @@ describe('execute queries', async function() {
         }
     }
 
-    const client = createClient({
+    let client = createClient({
         url: URL,
         headers: () => ({ Auth: 'xxx' }),
     })
@@ -126,6 +126,7 @@ describe('execute queries', async function() {
             assert.deepStrictEqual(res.user, x)
         }),
     )
+
     it(
         'scalar value with argument ',
         withServer(async () => {
@@ -229,7 +230,9 @@ describe('execute queries', async function() {
                 .catch(id)
             console.log(JSON.stringify(res, null, 2))
             expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
-            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.recurse?.value)
+            expectType<Maybe<string>>(
+                res?.[0]?.recurse?.recurse?.recurse?.value,
+            )
             expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
         }),
     )
@@ -415,6 +418,34 @@ describe('execute queries', async function() {
             ])
             assert.strictEqual(res.length, 2)
             assert.strictEqual(batchedQueryLength, 2)
+        }),
+    )
+    it(
+        'headers function gets called every time',
+        withServer(async () => {
+            let headersCalledNTimes = 0
+            const client = createClient({
+                url: URL,
+                headers: () => {
+                    headersCalledNTimes++
+                    return {}
+                },
+            })
+
+            await client.query({
+                coordinates: {
+                    __typename: 1,
+                    x: 1,
+                },
+            })
+            await client.query({
+                coordinates: {
+                    __typename: 1,
+                    y: 1,
+                },
+            })
+
+            assert.strictEqual(headersCalledNTimes, 2)
         }),
     )
 })

@@ -30,14 +30,13 @@ export const createFetcher = ({
     }
     if (!fetcher) {
         fetcher = async (body) => {
-            if (typeof headers == 'function') {
-                headers = headers()
-            }
-            headers = headers || {}
+            let headersObject =
+                typeof headers == 'function' ? headers() : headers
+            headersObject = headersObject || {}
             const res = await fetch(url, {
                 headers: {
                     'Content-Type': 'application/json',
-                    ...headers,
+                    ...headersObject,
                 },
                 method: 'POST',
                 body: JSON.stringify(body),
