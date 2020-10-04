@@ -202,7 +202,6 @@ const MainFormContent = ({
                     {loading ? 'logging in' : 'Generating the sdk package'}
                 </Box>
                 <Spinner />
-                {/* <Code>npm install @genql/package-name</Code> */}
             </Stack>
         )
     }
@@ -248,7 +247,6 @@ const MainFormContent = ({
                 >
                     Retry
                 </Button>
-                {/* <Code>npm install @genql/package-name</Code> */}
             </Stack>
         )
     }

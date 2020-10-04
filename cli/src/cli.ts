@@ -115,7 +115,7 @@ generate(config)
         printHelp({
             dirPath: program.output,
             useYarn: false,
-            dependencies: [`@genql/runtime@${version}`],
+            dependencies: [`@genql/runtime@${version}`, 'graphql'],
         })
     })
 
