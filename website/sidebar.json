@@ -36,6 +36,21 @@
                     "url": "/docs/"
                 },
                 {
+                    "path": "pages/docs/library",
+                    "name": "library",
+                    "children": [
+                        {
+                            "path": "pages/docs/library/generate.mdx",
+                            "name": "generate.mdx",
+                            "meta": {},
+                            "title": "Generate",
+                            "url": "/docs/library/generate"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
+                },
+                {
                     "path": "pages/docs/usage",
                     "name": "usage",
                     "children": [
@@ -57,7 +72,7 @@
                             "path": "pages/docs/usage/create-the-client.mdx",
                             "name": "create-the-client.mdx",
                             "meta": {},
-                            "title": "Create the client",
+                            "title": "Instantiate the client",
                             "url": "/docs/usage/create-the-client"
                         },
                         {
