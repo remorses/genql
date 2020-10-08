@@ -14,13 +14,18 @@ export const everything = {
 }
 
 export function assertSameVersion(generatedWithVersion) {
-    if (typeof require === 'undefined') {
-        return
-    }
-    const { version } = require('../package.json')
-    if (generatedWithVersion && generatedWithVersion.trim() != version.trim()) {
-        console.error(
-            '[WARNING]: genql client library has been generated with a different version of `@genql/runtime`, update both packages to have the same version!',
-        )
-    }
+    try {
+        if (typeof require === 'undefined') {
+            return
+        }
+        const { version } = require('../package.json')
+        if (
+            generatedWithVersion &&
+            generatedWithVersion.trim() != version.trim()
+        ) {
+            console.error(
+                '[WARNING]: genql client library has been generated with a different version of `@genql/runtime`, update both packages to have the same version!',
+            )
+        }
+    } catch {}
 }
