@@ -24,12 +24,18 @@ Generate your client package at [**genql.now.sh**](https://genql.now.sh) or read
 
 ## Example
 
-First generate your client filling the form at [**genql.now.sh**](https://genql.now.sh)
+First generate your client filling the form at [**genql.now.sh**](https://genql.now.sh) or executing
+
+```sh
+npm i -D @genql/cli # cli to generate the client code
+npm i @genql/runtime graphql # runtime dependencies
+genql --schema ./schema.graphql --output ./generated
+```
 
 Then you can use your client as follow
 
 ```js
-import { createClient, everything } from '@genql/my-package'
+import { createClient, everything } from './generated'
 const client = createClient()
 
 client
@@ -38,7 +44,7 @@ client
             name: true,
             code: true,
             nestedField: {
-                ...everything,
+                ...everything, // same as __scalar: true
             },
         },
     })
@@ -52,6 +58,10 @@ query {
     countries {
         name
         code
+        nestedField {
+            scalarField1
+            scalarField2
+        }
     }
 }
 ```
