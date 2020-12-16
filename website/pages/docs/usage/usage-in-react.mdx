@@ -47,7 +47,7 @@ npm i react-query @genql/runtime
 
 ```jsx
 import React, { useState } from 'react'
-import useSWR from 'swr'
+import { useQuery } from 'react-query'
 import { createClient, everything } from './generated'
 const client = createClient()
 
