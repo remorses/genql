@@ -64,15 +64,13 @@ const Page = (props: Props) => (
         spacing='40px'
     >
         <Box>
-            <Stack spacing='40px' mb='-100px'>
+            <Stack spacing='40px'>
                 <SectionTitle
                     // opacity={0.8}
                     dark
-                    subheading={
-                        <>Generate a typed sdk client for your graphql api.</>
-                    }
+                    subheading='Publishing packages without cli has been disabled'
                 />
-                <MainForm alignSelf='center' />
+                {/* <MainForm alignSelf='center' /> */}
             </Stack>
         </Box>
         <Stack

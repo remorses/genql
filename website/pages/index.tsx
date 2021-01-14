@@ -18,6 +18,7 @@ import {
     TestimonialsLogos,
     Stack,
 } from 'landing-blocks/src'
+import NextLink from 'next/link'
 import React, { Fragment } from 'react'
 import {
     FaAngular as AngularIcon,
@@ -59,6 +60,11 @@ const Page = () => (
         <Hero
             bullet='Introducing Genql 1.0'
             dark
+            cta={
+                <NextLink href='/docs'>
+                    <Button>Read the docs</Button>
+                </NextLink>
+            }
             heading={
                 <Heading maxW='600px' fontSize='50px'>
                     Type safe Graphql <br />
@@ -115,7 +121,7 @@ const Page = () => (
 
         {/* cta form  */}
 
-        <Box>
+        {/* <Box>
             <Stack spacing='40px' mb='-100px'>
                 <SectionTitle
                     // opacity={0.8}
@@ -129,7 +135,7 @@ const Page = () => (
                 />
                 <MainForm alignSelf='center' />
             </Stack>
-        </Box>
+        </Box> */}
 
         {/* code snippets */}
         <Stack spacing='40px' py='120px' bg='white'>
