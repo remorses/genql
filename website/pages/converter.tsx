@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 import { print } from '@genql/cli/dist/printer'
 import { useDebouncedCallback } from 'use-debounce'
 
-import { SectionTitle } from 'landing-blocks/src'
+import { SectionTitle } from 'landing-blocks'
 
 function Page({}) {
     const [code, setCode] = useState(DEFAULT_QUERY)

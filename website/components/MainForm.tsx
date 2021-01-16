@@ -13,7 +13,7 @@ import {
 } from 'firebase-react-components'
 import 'firebase/auth'
 import fetch from 'isomorphic-unfetch'
-import { Button, PageContainer } from 'landing-blocks/src'
+import { Button, PageContainer } from 'landing-blocks'
 import { Stack, StackProps } from 'layout-kit-react'
 import Router from 'next/router'
 import debounce from 'p-debounce'

@@ -17,7 +17,7 @@ import {
     SectionTitle,
     TestimonialsLogos,
     Stack,
-} from 'landing-blocks/src'
+} from 'landing-blocks'
 import NextLink from 'next/link'
 import React, { Fragment } from 'react'
 import {
