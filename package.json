@@ -23,6 +23,7 @@
         "runexample": "node -r sucrase/register example/example.ts"
     },
     "devDependencies": {
+        "typescript": "^4.1.3",
         "lerna": "^3.22.1",
         "ultra-runner": "^3.9.0"
     }

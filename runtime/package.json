@@ -24,7 +24,7 @@
     "scripts": {
         "start": "tsdx watch",
         "build": "rm -rf dist esm *.tsbuildinfo && tsc && tsc -m ESNext --outDir esm",
-        "typesTests": "tsc -b src/client/__tests__/tsconfig.json",
+        "typesTests": "tsc -p src/client/__tests__/tsconfig.json",
         "test": "yarn typesTests && jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "watch": "tsc -w"
@@ -45,8 +45,7 @@
         "dotenv": "^8.2.0",
         "jest": ">=22 <24",
         "sucrase": "^3.12.1",
-        "ts-jest": "^23.10.5",
-        "typescript": "^4.0.2"
+        "ts-jest": "^23.10.5"
     },
     "peerDependencies": {
         "graphql": "*"
