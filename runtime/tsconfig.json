@@ -10,6 +10,7 @@
         "module": "CommonJS",
         "moduleResolution": "node",
         "outDir": "./dist",
+        "declarationMap": true,
         "esModuleInterop": true,
         "allowJs": true,
         "sourceMap": true,

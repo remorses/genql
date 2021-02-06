@@ -9,3 +9,7 @@ export function sortKeys(obj: Record<any, any>): Record<any, any> {
         })
     return ordered
 }
+
+export function intersection<T>(a: T[][]): T[] {
+    return a.reduce((p, c) => p.filter((e) => c.includes(e)))
+}

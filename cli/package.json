@@ -26,7 +26,7 @@
         "build": "rm -rf dist esm *.tsbuildinfo && tsc",
         "test": "jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
-        "dev": "yarn compile && node dist"
+        "watch": "tsc -w"
     },
     "keywords": [],
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",

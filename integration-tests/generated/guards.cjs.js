@@ -100,3 +100,35 @@ module.exports.isPoint = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPoint"')
   return Point_possibleTypes.includes(obj.__typename)
 }
+
+
+
+var ClientError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
+module.exports.isClientError = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isClientError"')
+  return ClientError_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var ClientErrorNameAlreadyTaken_possibleTypes = ['ClientErrorNameAlreadyTaken']
+module.exports.isClientErrorNameAlreadyTaken = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isClientErrorNameAlreadyTaken"')
+  return ClientErrorNameAlreadyTaken_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var ClientErrorNameInvalid_possibleTypes = ['ClientErrorNameInvalid']
+module.exports.isClientErrorNameInvalid = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isClientErrorNameInvalid"')
+  return ClientErrorNameInvalid_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var GenericError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
+module.exports.isGenericError = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isGenericError"')
+  return GenericError_possibleTypes.includes(obj.__typename)
+}

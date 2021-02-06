@@ -15,6 +15,7 @@ export interface Query {
     recursiveType?: (RecursiveType | undefined)[]
     account?: Account
     coordinates?: Point
+    unionThatImplementsInterface?: GenericError
     __typename?: 'Query'
 }
 
@@ -83,6 +84,22 @@ export interface Bank {
 
 export type Point = (House | Bank) & { __isUnion?: true }
 
+export type ClientError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid) & { __isUnion?: true }
+
+export interface ClientErrorNameAlreadyTaken {
+    message: Scalars['String']
+    ownProp1?: Scalars['String']
+    __typename?: 'ClientErrorNameAlreadyTaken'
+}
+
+export interface ClientErrorNameInvalid {
+    message: Scalars['String']
+    ownProp2?: Scalars['String']
+    __typename?: 'ClientErrorNameInvalid'
+}
+
+export type GenericError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid) & { __isUnion?: true }
+
 export interface QueryRequest{
     /** Some description */
     repository?: [{name: Scalars['String'],owner?: (Scalars['String'] | null)},RepositoryRequest]
@@ -91,6 +108,7 @@ export interface QueryRequest{
     recursiveType?: [{requiredVal?: (Scalars['String'][] | null)},RecursiveTypeRequest] | RecursiveTypeRequest
     account?: AccountRequest
     coordinates?: PointRequest
+    unionThatImplementsInterface?: GenericErrorRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -143,7 +161,11 @@ export interface SubscriptionRequest{
     __scalar?: boolean | number
 }
 
-export interface AccountRequest{on_User?:UserRequest,on_Guest?:GuestRequest,__typename?:boolean | number}
+export interface AccountRequest{
+    on_User?:UserRequest,
+    on_Guest?:GuestRequest,
+    __typename?: boolean | number
+}
 
 export interface GuestRequest{
     anonymous?: boolean | number
@@ -175,6 +197,35 @@ export interface PointRequest{
     on_Bank?: BankRequest
     __typename?: boolean | number
     __scalar?: boolean | number
+}
+
+export interface ClientErrorRequest{
+    message?: boolean | number
+    on_ClientErrorNameAlreadyTaken?: ClientErrorNameAlreadyTakenRequest
+    on_ClientErrorNameInvalid?: ClientErrorNameInvalidRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface ClientErrorNameAlreadyTakenRequest{
+    message?: boolean | number
+    ownProp1?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface ClientErrorNameInvalidRequest{
+    message?: boolean | number
+    ownProp2?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface GenericErrorRequest{
+    on_ClientErrorNameAlreadyTaken?:ClientErrorNameAlreadyTakenRequest,
+    on_ClientErrorNameInvalid?:ClientErrorNameInvalidRequest,
+    on_ClientError?: ClientErrorRequest,
+    __typename?: boolean | number
 }
 
 
@@ -281,6 +332,38 @@ export const isPoint = (obj?: { __typename?: any } | null): obj is Point => {
 }
 
 
+
+const ClientError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
+export const isClientError = (obj?: { __typename?: any } | null): obj is ClientError => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isClientError"')
+  return ClientError_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ClientErrorNameAlreadyTaken_possibleTypes = ['ClientErrorNameAlreadyTaken']
+export const isClientErrorNameAlreadyTaken = (obj?: { __typename?: any } | null): obj is ClientErrorNameAlreadyTaken => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isClientErrorNameAlreadyTaken"')
+  return ClientErrorNameAlreadyTaken_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ClientErrorNameInvalid_possibleTypes = ['ClientErrorNameInvalid']
+export const isClientErrorNameInvalid = (obj?: { __typename?: any } | null): obj is ClientErrorNameInvalid => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isClientErrorNameInvalid"')
+  return ClientErrorNameInvalid_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const GenericError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
+export const isGenericError = (obj?: { __typename?: any } | null): obj is GenericError => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isGenericError"')
+  return GenericError_possibleTypes.includes(obj.__typename)
+}
+
+
 export interface QueryPromiseChain{
     
 /** Some description */
@@ -289,7 +372,8 @@ repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}
     someScalarValue: ((args?: {x?: (Scalars['Float'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
     account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Promise<(FieldsSelection<Account, R> | undefined)>}),
-    coordinates: (PointPromiseChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Promise<(FieldsSelection<Point, R> | undefined)>})
+    coordinates: (PointPromiseChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Promise<(FieldsSelection<Point, R> | undefined)>}),
+    unionThatImplementsInterface: ({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>})
 }
 
 export interface QueryObservableChain{
@@ -300,7 +384,8 @@ repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}
     someScalarValue: ((args?: {x?: (Scalars['Float'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
     account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Observable<(FieldsSelection<Account, R> | undefined)>}),
-    coordinates: (PointObservableChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Observable<(FieldsSelection<Point, R> | undefined)>})
+    coordinates: (PointObservableChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Observable<(FieldsSelection<Point, R> | undefined)>}),
+    unionThatImplementsInterface: ({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>})
 }
 
 export interface RecursiveTypePromiseChain{
@@ -415,4 +500,32 @@ export interface PointPromiseChain{
 export interface PointObservableChain{
     x: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     y: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+export interface ClientErrorPromiseChain{
+    message: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>})
+}
+
+export interface ClientErrorObservableChain{
+    message: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>})
+}
+
+export interface ClientErrorNameAlreadyTakenPromiseChain{
+    message: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
+    ownProp1: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+export interface ClientErrorNameAlreadyTakenObservableChain{
+    message: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
+    ownProp1: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+export interface ClientErrorNameInvalidPromiseChain{
+    message: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
+    ownProp2: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+export interface ClientErrorNameInvalidObservableChain{
+    message: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
+    ownProp2: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
