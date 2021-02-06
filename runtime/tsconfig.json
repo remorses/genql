@@ -17,7 +17,7 @@
         "resolveJsonModule": true,
         "lib": ["dom", "esnext.asynciterable"],
         "skipLibCheck": true,
-        "composite": true
+        
     },
     "include": ["src", "src/version.json"],
     "exclude": [

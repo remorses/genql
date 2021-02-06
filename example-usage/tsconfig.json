@@ -15,13 +15,5 @@
         "jsx": "preserve"
     },
     "exclude": ["node_modules"],
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-    "references": [
-        {
-            "path": "../cli"
-        },
-        {
-            "path": "../runtime"
-        }
-    ]
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

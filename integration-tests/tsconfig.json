@@ -10,23 +10,14 @@
         "module": "CommonJS",
         "moduleResolution": "node",
         "outDir": "./dist",
-        
+
         "esModuleInterop": true,
         "allowJs": true,
         "skipLibCheck": true,
         "noImplicitThis": false,
         "resolveJsonModule": true,
-        "lib": ["dom", "es2017", "esnext.asynciterable"],
-        "composite": true
+        "lib": ["dom", "es2017", "esnext.asynciterable"]
     },
     "exclude": ["node_modules", "**/*.case.ts", "example", "dist"],
-    "include": ["tests", "generated/**/*.json", "generated"],
-    "references": [
-        {
-            "path": "../cli"
-        },
-        {
-            "path": "../runtime"
-        }
-    ]
+    "include": ["tests", "generated/**/*.json", "generated"]
 }

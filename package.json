@@ -13,7 +13,7 @@
     "scripts": {
         "genall": "ultra -r gen",
         "tscall": "ultra -r --filter '@genql/*' tsc",
-        "build": "ultra -r --filter '@genql/*' --topology build",
+        "buildall": "ultra -r --filter '@genql/*' --topology build",
         "test": "ultra -r test",
         "watch": "ultra -r watch",
         "play": "node -r sucrase/register cli/src/cli.ts",
