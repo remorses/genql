@@ -729,6 +729,15 @@ module.exports = {
             "on_User": [
                 979
             ],
+            "on_Actor": [
+                7
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
             "__typename": [
                 1
             ]
@@ -960,6 +969,15 @@ module.exports = {
             ],
             "on_User": [
                 979
+            ],
+            "on_Actor": [
+                7
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_UniformResourceLocatable": [
+                880
             ],
             "__typename": [
                 1
@@ -2049,6 +2067,15 @@ module.exports = {
             ],
             "on_PullRequest": [
                 560
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_UniformResourceLocatable": [
+                880
             ],
             "__typename": [
                 1
@@ -3979,6 +4006,9 @@ module.exports = {
             "on_RestrictedContribution": [
                 745
             ],
+            "on_Contribution": [
+                117
+            ],
             "__typename": [
                 1
             ]
@@ -4040,6 +4070,9 @@ module.exports = {
             ],
             "on_RestrictedContribution": [
                 745
+            ],
+            "on_Contribution": [
+                117
             ],
             "__typename": [
                 1
@@ -4159,6 +4192,9 @@ module.exports = {
             ],
             "on_RestrictedContribution": [
                 745
+            ],
+            "on_Contribution": [
+                117
             ],
             "__typename": [
                 1
@@ -5435,6 +5471,12 @@ module.exports = {
             ],
             "on_User": [
                 979
+            ],
+            "on_Actor": [
+                7
+            ],
+            "on_Node": [
+                432
             ],
             "__typename": [
                 1
@@ -7594,6 +7636,9 @@ module.exports = {
             "on_Organization": [
                 478
             ],
+            "on_Node": [
+                432
+            ],
             "__typename": [
                 1
             ]
@@ -8135,6 +8180,42 @@ module.exports = {
             "on_PullRequest": [
                 560
             ],
+            "on_Assignable": [
+                34
+            ],
+            "on_Closable": [
+                89
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Labelable": [
+                379
+            ],
+            "on_Lockable": [
+                393
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
+            ],
             "__typename": [
                 1
             ]
@@ -8226,6 +8307,9 @@ module.exports = {
             ],
             "on_UserBlockedEvent": [
                 981
+            ],
+            "on_Node": [
+                432
             ],
             "__typename": [
                 1
@@ -8332,6 +8416,9 @@ module.exports = {
             ],
             "on_UserBlockedEvent": [
                 981
+            ],
+            "on_Node": [
+                432
             ],
             "__typename": [
                 1
@@ -9615,6 +9702,42 @@ module.exports = {
             ],
             "on_PullRequest": [
                 560
+            ],
+            "on_Assignable": [
+                34
+            ],
+            "on_Closable": [
+                89
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Labelable": [
+                379
+            ],
+            "on_Lockable": [
+                393
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
             ],
             "__typename": [
                 1
@@ -14109,6 +14232,15 @@ module.exports = {
             "on_TeamRemoveRepositoryAuditEntry": [
                 855
             ],
+            "on_AuditEntry": [
+                37
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_OrganizationAuditEntryData": [
+                481
+            ],
             "__typename": [
                 1
             ]
@@ -14939,6 +15071,9 @@ module.exports = {
             "on_Team": [
                 828
             ],
+            "on_Node": [
+                432
+            ],
             "__typename": [
                 1
             ]
@@ -14985,6 +15120,15 @@ module.exports = {
             ],
             "on_Repository": [
                 707
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_Starrable": [
+                808
+            ],
+            "on_UniformResourceLocatable": [
+                880
             ],
             "__typename": [
                 1
@@ -15539,6 +15683,42 @@ module.exports = {
             ],
             "on_PullRequest": [
                 560
+            ],
+            "on_Assignable": [
+                34
+            ],
+            "on_Closable": [
+                89
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Labelable": [
+                379
+            ],
+            "on_Lockable": [
+                393
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
             ],
             "__typename": [
                 1
@@ -17099,6 +17279,9 @@ module.exports = {
             "on_UserBlockedEvent": [
                 981
             ],
+            "on_Node": [
+                432
+            ],
             "__typename": [
                 1
             ]
@@ -17354,6 +17537,9 @@ module.exports = {
             ],
             "on_User": [
                 979
+            ],
+            "on_Node": [
+                432
             ],
             "__typename": [
                 1
@@ -18115,6 +18301,42 @@ module.exports = {
             ],
             "on_PullRequest": [
                 560
+            ],
+            "on_Assignable": [
+                34
+            ],
+            "on_Closable": [
+                89
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Labelable": [
+                379
+            ],
+            "on_Lockable": [
+                393
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
             ],
             "__typename": [
                 1
@@ -19217,6 +19439,42 @@ module.exports = {
             ],
             "on_PullRequest": [
                 560
+            ],
+            "on_Assignable": [
+                34
+            ],
+            "on_Closable": [
+                89
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Labelable": [
+                379
+            ],
+            "on_Lockable": [
+                393
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
             ],
             "__typename": [
                 1
@@ -22265,6 +22523,9 @@ module.exports = {
             "on_User": [
                 979
             ],
+            "on_Node": [
+                432
+            ],
             "__typename": [
                 1
             ]
@@ -22356,6 +22617,9 @@ module.exports = {
             ],
             "on_User": [
                 979
+            ],
+            "on_Node": [
+                432
             ],
             "__typename": [
                 1
@@ -22615,6 +22879,9 @@ module.exports = {
             ],
             "on_User": [
                 979
+            ],
+            "on_Node": [
+                432
             ],
             "__typename": [
                 1
@@ -22962,6 +23229,36 @@ module.exports = {
             ],
             "on_User": [
                 979
+            ],
+            "on_Actor": [
+                7
+            ],
+            "on_Node": [
+                432
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
+            "on_UniformResourceLocatable": [
+                880
             ],
             "__typename": [
                 1
@@ -23423,6 +23720,9 @@ module.exports = {
             ],
             "on_StatusContext": [
                 816
+            ],
+            "on_Node": [
+                432
             ],
             "__typename": [
                 1

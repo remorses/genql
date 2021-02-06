@@ -46,7 +46,12 @@ module.exports = {
                 16
             ],
             "unionThatImplementsInterface": [
-                20
+                20,
+                {
+                    "typename": [
+                        1
+                    ]
+                }
             ],
             "__typename": [
                 1

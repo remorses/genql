@@ -11,12 +11,11 @@
         "integration-tests"
     ],
     "scripts": {
-        "genall": "yarn --cwd example-usage gen && yarn --cwd try-clients gen && yarn --cwd integration-tests gen",
-        "tscall": "yarn --cwd example-usage tsc && yarn --cwd try-clients tsc && yarn --cwd integration-tests tsc",
-        "buildall": "lerna run --scope @genql/* build",
+        "genall": "ultra -r gen",
+        "tscall": "ultra -r --filter '@genql/*' tsc",
+        "build": "ultra -r --filter '@genql/*' --topology build",
         "test": "ultra -r test",
         "watch": "ultra -r watch",
-        "build": "yarn --cwd website build",
         "play": "node -r sucrase/register cli/src/cli.ts",
         "integration": "cd integration-tests && yarn gen && tsc && yarn test",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",

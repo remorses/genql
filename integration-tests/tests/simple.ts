@@ -1,9 +1,10 @@
 import { generateQueryOp, createClient, everything } from '../generated'
-import { prettify } from '@genql/cli/dist/helpers/prettify'
 import { buildASTSchema, OperationDefinitionNode, parse } from 'graphql'
 import { generateSubscriptionOp } from '../generated'
 import assert from 'assert'
 import snapshot from 'snap-shot-it'
+
+const prettify = (code, parser) => require('prettier').format(code, { parser })
 
 describe('generate queries', () => {
     it('query', () => {

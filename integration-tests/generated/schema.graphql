@@ -6,7 +6,7 @@ type Query {
   recursiveType(requiredVal: [String!]): [RecursiveType]
   account: Account
   coordinates: Point
-  unionThatImplementsInterface: GenericError
+  unionThatImplementsInterface(typename: String): GenericError
 }
 
 type RecursiveType {

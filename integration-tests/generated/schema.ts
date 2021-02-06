@@ -108,7 +108,7 @@ export interface QueryRequest{
     recursiveType?: [{requiredVal?: (Scalars['String'][] | null)},RecursiveTypeRequest] | RecursiveTypeRequest
     account?: AccountRequest
     coordinates?: PointRequest
-    unionThatImplementsInterface?: GenericErrorRequest
+    unionThatImplementsInterface?: [{typename?: (Scalars['String'] | null)},GenericErrorRequest] | GenericErrorRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -373,7 +373,7 @@ repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}
     recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
     account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Promise<(FieldsSelection<Account, R> | undefined)>}),
     coordinates: (PointPromiseChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Promise<(FieldsSelection<Point, R> | undefined)>}),
-    unionThatImplementsInterface: ({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>})
+    unionThatImplementsInterface: ((args?: {typename?: (Scalars['String'] | null)}) => {get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>})&({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>})
 }
 
 export interface QueryObservableChain{
@@ -385,7 +385,7 @@ repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}
     recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
     account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Observable<(FieldsSelection<Account, R> | undefined)>}),
     coordinates: (PointObservableChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Observable<(FieldsSelection<Point, R> | undefined)>}),
-    unionThatImplementsInterface: ({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>})
+    unionThatImplementsInterface: ((args?: {typename?: (Scalars['String'] | null)}) => {get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>})&({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>})
 }
 
 export interface RecursiveTypePromiseChain{
