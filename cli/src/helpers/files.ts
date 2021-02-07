@@ -8,14 +8,14 @@ export const ensurePath = async (path: string[], clear: boolean = false) => {
         await new Promise((rs, rj) => {
             rimraf(resolve(...path), (err) => {
                 if (err) rj(err)
-                else rs()
+                else rs(undefined)
             })
         })
 
     await new Promise((rs, rj) => {
         mkdirp(resolve(...path), (err) => {
             if (err) rj(err)
-            else rs()
+            else rs(undefined)
         })
     })
 }
