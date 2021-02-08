@@ -1,3 +1,7 @@
+## 2.4.0
+
+-   Ability to query interfaces that a union implements https://github.com/remorses/genql/issues/44
+
 ## 2.3.3
 
 -   `genql-cli` package becomes `@genql/cli`
