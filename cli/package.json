@@ -1,7 +1,7 @@
 {
     "name": "@genql/cli",
     "_": "[bump]",
-    "version": "2.3.3",
+    "version": "2.4.0",
     "description": "Generate a client sdl from your GraphQl API",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -49,7 +49,7 @@
         "ts-jest": "^23.10.5"
     },
     "dependencies": {
-        "@genql/runtime": "^2.3.3",
+        "@genql/runtime": "^2.4.0",
         "@graphql-tools/graphql-file-loader": "^6.0.10",
         "@graphql-tools/load": "^6.0.10",
         "@types/node": "*",
