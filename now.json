@@ -1,9 +1,0 @@
-{
-    "version": 2,
-    "builds": [
-        { "src": "website/package.json", "use": "@now/next" }
-    ],
-    "rewrites": [{ "source": "/(.*)", "destination": "/website/$1" }]
-}
-
-

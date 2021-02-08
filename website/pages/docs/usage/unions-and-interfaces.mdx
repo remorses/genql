@@ -27,6 +27,28 @@ const { account } = await client.query({
 console.log(account?.commonProp)
 ```
 
+## Restrict an union to the correct sub type
+
+You can check the value of `__typename` to restrict an union type to one of its sub types and let typescript infer its correct fields
+
+```ts
+const { account } = await client.query({
+    account: {
+        __typename: true,
+        on_User: {
+            id: true,
+            name: true,
+        },
+    },
+})
+
+if (account.__typename === 'User') {
+    // now account has type User
+    console.log(account.name)
+    console.log(account.id)
+}
+```
+
 ## Type Guards
 
 Union and interfaces are translated to typescript using union types
@@ -54,6 +76,13 @@ const { account } = await client.query({
 })
 
 if (isUser(account)) {
+    // now account has type User
+    console.log(account.name)
+    console.log(account.id)
+}
+
+// another way to do the same without guards, typescript will infer the type to User
+if (account.__typename === 'User') {
     // now account has type User
     console.log(account.name)
     console.log(account.id)

@@ -19,6 +19,7 @@ import {
     isUser,
 } from '../generated'
 import { GraphqlOperation } from '@genql/runtime'
+import { isClientErrorNameInvalid } from '../generated/guards.cjs'
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
@@ -73,6 +74,14 @@ describe('execute queries', async function() {
                 Query: {
                     user: () => {
                         return x
+                    },
+                    unionThatImplementsInterface: ({ typename = '' } = {}) => {
+                        return {
+                            message: 'A message',
+                            ownProp1: 'Own prop 1',
+                            ownProp2: 'Own prop 2',
+                            __typename: typename || 'ClientErrorNameInvalid',
+                        }
                     },
                     someScalarValue: () => 'someScalarValue',
                     repository: () => {
@@ -302,6 +311,50 @@ describe('execute queries', async function() {
             expectType<Maybe<number>>(account?.common)
             if (account && 'anonymous' in account) {
                 account?.anonymous
+            }
+        }),
+    )
+    it(
+        'ability to query interfaces that a union implements',
+        withServer(async () => {
+            const { unionThatImplementsInterface } = await client.query({
+                unionThatImplementsInterface: {
+                    __typename: 1,
+                    on_ClientErrorNameInvalid: {
+                        ownProp2: 1,
+                    },
+                    on_ClientError: {
+                        message: 1,
+                    },
+                },
+            })
+            assert.ok(unionThatImplementsInterface?.message)
+            expectType<Maybe<string>>(unionThatImplementsInterface?.message)
+            if (
+                unionThatImplementsInterface.__typename ===
+                'ClientErrorNameInvalid'
+            ) {
+                assert.ok(unionThatImplementsInterface?.ownProp2)
+            }
+        }),
+    )
+    it(
+        'ability to query interfaces that a union implements, chain syntax',
+        withServer(async () => {
+            const unionThatImplementsInterface = await client.chain.query
+                .unionThatImplementsInterface({})
+                .get({
+                    on_ClientError: { message: 1 },
+                    on_ClientErrorNameInvalid: { ownProp2: 1 },
+                })
+
+            assert.ok(unionThatImplementsInterface?.message)
+            expectType<Maybe<string>>(unionThatImplementsInterface?.message)
+            if (
+                unionThatImplementsInterface.__typename ===
+                'ClientErrorNameInvalid'
+            ) {
+                assert.ok(unionThatImplementsInterface?.ownProp2)
             }
         }),
     )

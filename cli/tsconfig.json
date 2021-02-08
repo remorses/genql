@@ -20,10 +20,9 @@
             "esnext.asynciterable"
         ],
         "skipLibCheck": true,
-        "composite": true
+        
         
     },
-    "references": [{"path": "../runtime"}],
     "include": [
         "src"
     ],

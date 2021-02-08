@@ -13715,7 +13715,16 @@ export interface AssignedEventRequest{
 
 
 /** Types that can be assigned to issues. */
-export interface AssigneeRequest{on_Bot?:BotRequest,on_Mannequin?:MannequinRequest,on_Organization?:OrganizationRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface AssigneeRequest{
+    on_Bot?:BotRequest,
+    on_Mannequin?:MannequinRequest,
+    on_Organization?:OrganizationRequest,
+    on_User?:UserRequest,
+    on_Actor?: ActorRequest,
+    on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    __typename?: boolean | number
+}
 
 
 /** An entry in the audit log. */
@@ -13810,7 +13819,15 @@ export interface AuditEntryRequest{
 
 
 /** Types that can initiate an audit log event. */
-export interface AuditEntryActorRequest{on_Bot?:BotRequest,on_Organization?:OrganizationRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface AuditEntryActorRequest{
+    on_Bot?:BotRequest,
+    on_Organization?:OrganizationRequest,
+    on_User?:UserRequest,
+    on_Actor?: ActorRequest,
+    on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    __typename?: boolean | number
+}
 
 
 /** Ordering options for Audit Log connections. */
@@ -14655,7 +14672,14 @@ export interface ClosedEventRequest{
 
 
 /** The object which triggered a `ClosedEvent`. */
-export interface CloserRequest{on_Commit?:CommitRequest,on_PullRequest?:PullRequestRequest,__typename?:boolean | number}
+export interface CloserRequest{
+    on_Commit?:CommitRequest,
+    on_PullRequest?:PullRequestRequest,
+    on_Node?: NodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    __typename?: boolean | number
+}
 
 
 /** The Code of Conduct for a repository */
@@ -16146,7 +16170,12 @@ export interface CreatedIssueContributionEdgeRequest{
 
 
 /** Represents either a issue the viewer can access or a restricted contribution. */
-export interface CreatedIssueOrRestrictedContributionRequest{on_CreatedIssueContribution?:CreatedIssueContributionRequest,on_RestrictedContribution?:RestrictedContributionRequest,__typename?:boolean | number}
+export interface CreatedIssueOrRestrictedContributionRequest{
+    on_CreatedIssueContribution?:CreatedIssueContributionRequest,
+    on_RestrictedContribution?:RestrictedContributionRequest,
+    on_Contribution?: ContributionRequest,
+    __typename?: boolean | number
+}
 
 
 /** Represents the contribution a user made on GitHub by opening a pull request. */
@@ -16199,7 +16228,12 @@ export interface CreatedPullRequestContributionEdgeRequest{
 
 
 /** Represents either a pull request the viewer can access or a restricted contribution. */
-export interface CreatedPullRequestOrRestrictedContributionRequest{on_CreatedPullRequestContribution?:CreatedPullRequestContributionRequest,on_RestrictedContribution?:RestrictedContributionRequest,__typename?:boolean | number}
+export interface CreatedPullRequestOrRestrictedContributionRequest{
+    on_CreatedPullRequestContribution?:CreatedPullRequestContributionRequest,
+    on_RestrictedContribution?:RestrictedContributionRequest,
+    on_Contribution?: ContributionRequest,
+    __typename?: boolean | number
+}
 
 
 /** Represents the contribution a user made by leaving a review on a pull request. */
@@ -16305,7 +16339,12 @@ export interface CreatedRepositoryContributionEdgeRequest{
 
 
 /** Represents either a repository the viewer can access or a restricted contribution. */
-export interface CreatedRepositoryOrRestrictedContributionRequest{on_CreatedRepositoryContribution?:CreatedRepositoryContributionRequest,on_RestrictedContribution?:RestrictedContributionRequest,__typename?:boolean | number}
+export interface CreatedRepositoryOrRestrictedContributionRequest{
+    on_CreatedRepositoryContribution?:CreatedRepositoryContributionRequest,
+    on_RestrictedContribution?:RestrictedContributionRequest,
+    on_Contribution?: ContributionRequest,
+    __typename?: boolean | number
+}
 
 
 /** Represents a mention made by one issue or pull request to another. */
@@ -17299,7 +17338,13 @@ export interface EnterpriseIdentityProviderRequest{
 
 
 /** An object that is a member of an enterprise. */
-export interface EnterpriseMemberRequest{on_EnterpriseUserAccount?:EnterpriseUserAccountRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface EnterpriseMemberRequest{
+    on_EnterpriseUserAccount?:EnterpriseUserAccountRequest,
+    on_User?:UserRequest,
+    on_Actor?: ActorRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for EnterpriseMember. */
@@ -18876,7 +18921,12 @@ field: IpAllowListEntryOrderField}
 
 
 /** Types that can own an IP allow list. */
-export interface IpAllowListOwnerRequest{on_Enterprise?:EnterpriseRequest,on_Organization?:OrganizationRequest,__typename?:boolean | number}
+export interface IpAllowListOwnerRequest{
+    on_Enterprise?:EnterpriseRequest,
+    on_Organization?:OrganizationRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project. */
@@ -19252,7 +19302,23 @@ viewerSubscribed?: (Scalars['Boolean'] | null)}
 
 
 /** Used for return value of Repository.issueOrPullRequest. */
-export interface IssueOrPullRequestRequest{on_Issue?:IssueRequest,on_PullRequest?:PullRequestRequest,__typename?:boolean | number}
+export interface IssueOrPullRequestRequest{
+    on_Issue?:IssueRequest,
+    on_PullRequest?:PullRequestRequest,
+    on_Assignable?: AssignableRequest,
+    on_Closable?: ClosableRequest,
+    on_Comment?: CommentRequest,
+    on_Labelable?: LabelableRequest,
+    on_Lockable?: LockableRequest,
+    on_Node?: NodeRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
+    __typename?: boolean | number
+}
 
 
 /** Ways in which lists of issues can be ordered upon return. */
@@ -19279,7 +19345,29 @@ export interface IssueTimelineConnectionRequest{
 
 
 /** An item in an issue timeline */
-export interface IssueTimelineItemRequest{on_AssignedEvent?:AssignedEventRequest,on_ClosedEvent?:ClosedEventRequest,on_Commit?:CommitRequest,on_CrossReferencedEvent?:CrossReferencedEventRequest,on_DemilestonedEvent?:DemilestonedEventRequest,on_IssueComment?:IssueCommentRequest,on_LabeledEvent?:LabeledEventRequest,on_LockedEvent?:LockedEventRequest,on_MilestonedEvent?:MilestonedEventRequest,on_ReferencedEvent?:ReferencedEventRequest,on_RenamedTitleEvent?:RenamedTitleEventRequest,on_ReopenedEvent?:ReopenedEventRequest,on_SubscribedEvent?:SubscribedEventRequest,on_TransferredEvent?:TransferredEventRequest,on_UnassignedEvent?:UnassignedEventRequest,on_UnlabeledEvent?:UnlabeledEventRequest,on_UnlockedEvent?:UnlockedEventRequest,on_UnsubscribedEvent?:UnsubscribedEventRequest,on_UserBlockedEvent?:UserBlockedEventRequest,__typename?:boolean | number}
+export interface IssueTimelineItemRequest{
+    on_AssignedEvent?:AssignedEventRequest,
+    on_ClosedEvent?:ClosedEventRequest,
+    on_Commit?:CommitRequest,
+    on_CrossReferencedEvent?:CrossReferencedEventRequest,
+    on_DemilestonedEvent?:DemilestonedEventRequest,
+    on_IssueComment?:IssueCommentRequest,
+    on_LabeledEvent?:LabeledEventRequest,
+    on_LockedEvent?:LockedEventRequest,
+    on_MilestonedEvent?:MilestonedEventRequest,
+    on_ReferencedEvent?:ReferencedEventRequest,
+    on_RenamedTitleEvent?:RenamedTitleEventRequest,
+    on_ReopenedEvent?:ReopenedEventRequest,
+    on_SubscribedEvent?:SubscribedEventRequest,
+    on_TransferredEvent?:TransferredEventRequest,
+    on_UnassignedEvent?:UnassignedEventRequest,
+    on_UnlabeledEvent?:UnlabeledEventRequest,
+    on_UnlockedEvent?:UnlockedEventRequest,
+    on_UnsubscribedEvent?:UnsubscribedEventRequest,
+    on_UserBlockedEvent?:UserBlockedEventRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** An edge in a connection. */
@@ -19294,7 +19382,40 @@ export interface IssueTimelineItemEdgeRequest{
 
 
 /** An item in an issue timeline */
-export interface IssueTimelineItemsRequest{on_AddedToProjectEvent?:AddedToProjectEventRequest,on_AssignedEvent?:AssignedEventRequest,on_ClosedEvent?:ClosedEventRequest,on_CommentDeletedEvent?:CommentDeletedEventRequest,on_ConnectedEvent?:ConnectedEventRequest,on_ConvertedNoteToIssueEvent?:ConvertedNoteToIssueEventRequest,on_CrossReferencedEvent?:CrossReferencedEventRequest,on_DemilestonedEvent?:DemilestonedEventRequest,on_DisconnectedEvent?:DisconnectedEventRequest,on_IssueComment?:IssueCommentRequest,on_LabeledEvent?:LabeledEventRequest,on_LockedEvent?:LockedEventRequest,on_MarkedAsDuplicateEvent?:MarkedAsDuplicateEventRequest,on_MentionedEvent?:MentionedEventRequest,on_MilestonedEvent?:MilestonedEventRequest,on_MovedColumnsInProjectEvent?:MovedColumnsInProjectEventRequest,on_PinnedEvent?:PinnedEventRequest,on_ReferencedEvent?:ReferencedEventRequest,on_RemovedFromProjectEvent?:RemovedFromProjectEventRequest,on_RenamedTitleEvent?:RenamedTitleEventRequest,on_ReopenedEvent?:ReopenedEventRequest,on_SubscribedEvent?:SubscribedEventRequest,on_TransferredEvent?:TransferredEventRequest,on_UnassignedEvent?:UnassignedEventRequest,on_UnlabeledEvent?:UnlabeledEventRequest,on_UnlockedEvent?:UnlockedEventRequest,on_UnmarkedAsDuplicateEvent?:UnmarkedAsDuplicateEventRequest,on_UnpinnedEvent?:UnpinnedEventRequest,on_UnsubscribedEvent?:UnsubscribedEventRequest,on_UserBlockedEvent?:UserBlockedEventRequest,__typename?:boolean | number}
+export interface IssueTimelineItemsRequest{
+    on_AddedToProjectEvent?:AddedToProjectEventRequest,
+    on_AssignedEvent?:AssignedEventRequest,
+    on_ClosedEvent?:ClosedEventRequest,
+    on_CommentDeletedEvent?:CommentDeletedEventRequest,
+    on_ConnectedEvent?:ConnectedEventRequest,
+    on_ConvertedNoteToIssueEvent?:ConvertedNoteToIssueEventRequest,
+    on_CrossReferencedEvent?:CrossReferencedEventRequest,
+    on_DemilestonedEvent?:DemilestonedEventRequest,
+    on_DisconnectedEvent?:DisconnectedEventRequest,
+    on_IssueComment?:IssueCommentRequest,
+    on_LabeledEvent?:LabeledEventRequest,
+    on_LockedEvent?:LockedEventRequest,
+    on_MarkedAsDuplicateEvent?:MarkedAsDuplicateEventRequest,
+    on_MentionedEvent?:MentionedEventRequest,
+    on_MilestonedEvent?:MilestonedEventRequest,
+    on_MovedColumnsInProjectEvent?:MovedColumnsInProjectEventRequest,
+    on_PinnedEvent?:PinnedEventRequest,
+    on_ReferencedEvent?:ReferencedEventRequest,
+    on_RemovedFromProjectEvent?:RemovedFromProjectEventRequest,
+    on_RenamedTitleEvent?:RenamedTitleEventRequest,
+    on_ReopenedEvent?:ReopenedEventRequest,
+    on_SubscribedEvent?:SubscribedEventRequest,
+    on_TransferredEvent?:TransferredEventRequest,
+    on_UnassignedEvent?:UnassignedEventRequest,
+    on_UnlabeledEvent?:UnlabeledEventRequest,
+    on_UnlockedEvent?:UnlockedEventRequest,
+    on_UnmarkedAsDuplicateEvent?:UnmarkedAsDuplicateEventRequest,
+    on_UnpinnedEvent?:UnpinnedEventRequest,
+    on_UnsubscribedEvent?:UnsubscribedEventRequest,
+    on_UserBlockedEvent?:UserBlockedEventRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for IssueTimelineItems. */
@@ -20261,7 +20382,23 @@ export interface MilestoneEdgeRequest{
 
 
 /** Types that can be inside a Milestone. */
-export interface MilestoneItemRequest{on_Issue?:IssueRequest,on_PullRequest?:PullRequestRequest,__typename?:boolean | number}
+export interface MilestoneItemRequest{
+    on_Issue?:IssueRequest,
+    on_PullRequest?:PullRequestRequest,
+    on_Assignable?: AssignableRequest,
+    on_Closable?: ClosableRequest,
+    on_Comment?: CommentRequest,
+    on_Labelable?: LabelableRequest,
+    on_Lockable?: LockableRequest,
+    on_Node?: NodeRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
+    __typename?: boolean | number
+}
 
 
 /** Ordering options for milestone connections. */
@@ -21915,7 +22052,12 @@ export interface OrgRestoreMemberAuditEntryRequest{
 
 
 /** Types of memberships that can be restored for an Organization member. */
-export interface OrgRestoreMemberAuditEntryMembershipRequest{on_OrgRestoreMemberMembershipOrganizationAuditEntryData?:OrgRestoreMemberMembershipOrganizationAuditEntryDataRequest,on_OrgRestoreMemberMembershipRepositoryAuditEntryData?:OrgRestoreMemberMembershipRepositoryAuditEntryDataRequest,on_OrgRestoreMemberMembershipTeamAuditEntryData?:OrgRestoreMemberMembershipTeamAuditEntryDataRequest,__typename?:boolean | number}
+export interface OrgRestoreMemberAuditEntryMembershipRequest{
+    on_OrgRestoreMemberMembershipOrganizationAuditEntryData?:OrgRestoreMemberMembershipOrganizationAuditEntryDataRequest,
+    on_OrgRestoreMemberMembershipRepositoryAuditEntryData?:OrgRestoreMemberMembershipRepositoryAuditEntryDataRequest,
+    on_OrgRestoreMemberMembershipTeamAuditEntryData?:OrgRestoreMemberMembershipTeamAuditEntryDataRequest,
+    __typename?: boolean | number
+}
 
 
 /** Metadata for an organization membership for org.restore_member actions */
@@ -22538,7 +22680,70 @@ export interface OrganizationRequest{
 
 
 /** An audit entry in an organization audit log. */
-export interface OrganizationAuditEntryRequest{on_MembersCanDeleteReposClearAuditEntry?:MembersCanDeleteReposClearAuditEntryRequest,on_MembersCanDeleteReposDisableAuditEntry?:MembersCanDeleteReposDisableAuditEntryRequest,on_MembersCanDeleteReposEnableAuditEntry?:MembersCanDeleteReposEnableAuditEntryRequest,on_OauthApplicationCreateAuditEntry?:OauthApplicationCreateAuditEntryRequest,on_OrgAddBillingManagerAuditEntry?:OrgAddBillingManagerAuditEntryRequest,on_OrgAddMemberAuditEntry?:OrgAddMemberAuditEntryRequest,on_OrgBlockUserAuditEntry?:OrgBlockUserAuditEntryRequest,on_OrgConfigDisableCollaboratorsOnlyAuditEntry?:OrgConfigDisableCollaboratorsOnlyAuditEntryRequest,on_OrgConfigEnableCollaboratorsOnlyAuditEntry?:OrgConfigEnableCollaboratorsOnlyAuditEntryRequest,on_OrgCreateAuditEntry?:OrgCreateAuditEntryRequest,on_OrgDisableOauthAppRestrictionsAuditEntry?:OrgDisableOauthAppRestrictionsAuditEntryRequest,on_OrgDisableSamlAuditEntry?:OrgDisableSamlAuditEntryRequest,on_OrgDisableTwoFactorRequirementAuditEntry?:OrgDisableTwoFactorRequirementAuditEntryRequest,on_OrgEnableOauthAppRestrictionsAuditEntry?:OrgEnableOauthAppRestrictionsAuditEntryRequest,on_OrgEnableSamlAuditEntry?:OrgEnableSamlAuditEntryRequest,on_OrgEnableTwoFactorRequirementAuditEntry?:OrgEnableTwoFactorRequirementAuditEntryRequest,on_OrgInviteMemberAuditEntry?:OrgInviteMemberAuditEntryRequest,on_OrgInviteToBusinessAuditEntry?:OrgInviteToBusinessAuditEntryRequest,on_OrgOauthAppAccessApprovedAuditEntry?:OrgOauthAppAccessApprovedAuditEntryRequest,on_OrgOauthAppAccessDeniedAuditEntry?:OrgOauthAppAccessDeniedAuditEntryRequest,on_OrgOauthAppAccessRequestedAuditEntry?:OrgOauthAppAccessRequestedAuditEntryRequest,on_OrgRemoveBillingManagerAuditEntry?:OrgRemoveBillingManagerAuditEntryRequest,on_OrgRemoveMemberAuditEntry?:OrgRemoveMemberAuditEntryRequest,on_OrgRemoveOutsideCollaboratorAuditEntry?:OrgRemoveOutsideCollaboratorAuditEntryRequest,on_OrgRestoreMemberAuditEntry?:OrgRestoreMemberAuditEntryRequest,on_OrgUnblockUserAuditEntry?:OrgUnblockUserAuditEntryRequest,on_OrgUpdateDefaultRepositoryPermissionAuditEntry?:OrgUpdateDefaultRepositoryPermissionAuditEntryRequest,on_OrgUpdateMemberAuditEntry?:OrgUpdateMemberAuditEntryRequest,on_OrgUpdateMemberRepositoryCreationPermissionAuditEntry?:OrgUpdateMemberRepositoryCreationPermissionAuditEntryRequest,on_OrgUpdateMemberRepositoryInvitationPermissionAuditEntry?:OrgUpdateMemberRepositoryInvitationPermissionAuditEntryRequest,on_PrivateRepositoryForkingDisableAuditEntry?:PrivateRepositoryForkingDisableAuditEntryRequest,on_PrivateRepositoryForkingEnableAuditEntry?:PrivateRepositoryForkingEnableAuditEntryRequest,on_RepoAccessAuditEntry?:RepoAccessAuditEntryRequest,on_RepoAddMemberAuditEntry?:RepoAddMemberAuditEntryRequest,on_RepoAddTopicAuditEntry?:RepoAddTopicAuditEntryRequest,on_RepoArchivedAuditEntry?:RepoArchivedAuditEntryRequest,on_RepoChangeMergeSettingAuditEntry?:RepoChangeMergeSettingAuditEntryRequest,on_RepoConfigDisableAnonymousGitAccessAuditEntry?:RepoConfigDisableAnonymousGitAccessAuditEntryRequest,on_RepoConfigDisableCollaboratorsOnlyAuditEntry?:RepoConfigDisableCollaboratorsOnlyAuditEntryRequest,on_RepoConfigDisableContributorsOnlyAuditEntry?:RepoConfigDisableContributorsOnlyAuditEntryRequest,on_RepoConfigDisableSockpuppetDisallowedAuditEntry?:RepoConfigDisableSockpuppetDisallowedAuditEntryRequest,on_RepoConfigEnableAnonymousGitAccessAuditEntry?:RepoConfigEnableAnonymousGitAccessAuditEntryRequest,on_RepoConfigEnableCollaboratorsOnlyAuditEntry?:RepoConfigEnableCollaboratorsOnlyAuditEntryRequest,on_RepoConfigEnableContributorsOnlyAuditEntry?:RepoConfigEnableContributorsOnlyAuditEntryRequest,on_RepoConfigEnableSockpuppetDisallowedAuditEntry?:RepoConfigEnableSockpuppetDisallowedAuditEntryRequest,on_RepoConfigLockAnonymousGitAccessAuditEntry?:RepoConfigLockAnonymousGitAccessAuditEntryRequest,on_RepoConfigUnlockAnonymousGitAccessAuditEntry?:RepoConfigUnlockAnonymousGitAccessAuditEntryRequest,on_RepoCreateAuditEntry?:RepoCreateAuditEntryRequest,on_RepoDestroyAuditEntry?:RepoDestroyAuditEntryRequest,on_RepoRemoveMemberAuditEntry?:RepoRemoveMemberAuditEntryRequest,on_RepoRemoveTopicAuditEntry?:RepoRemoveTopicAuditEntryRequest,on_RepositoryVisibilityChangeDisableAuditEntry?:RepositoryVisibilityChangeDisableAuditEntryRequest,on_RepositoryVisibilityChangeEnableAuditEntry?:RepositoryVisibilityChangeEnableAuditEntryRequest,on_TeamAddMemberAuditEntry?:TeamAddMemberAuditEntryRequest,on_TeamAddRepositoryAuditEntry?:TeamAddRepositoryAuditEntryRequest,on_TeamChangeParentTeamAuditEntry?:TeamChangeParentTeamAuditEntryRequest,on_TeamRemoveMemberAuditEntry?:TeamRemoveMemberAuditEntryRequest,on_TeamRemoveRepositoryAuditEntry?:TeamRemoveRepositoryAuditEntryRequest,__typename?:boolean | number}
+export interface OrganizationAuditEntryRequest{
+    on_MembersCanDeleteReposClearAuditEntry?:MembersCanDeleteReposClearAuditEntryRequest,
+    on_MembersCanDeleteReposDisableAuditEntry?:MembersCanDeleteReposDisableAuditEntryRequest,
+    on_MembersCanDeleteReposEnableAuditEntry?:MembersCanDeleteReposEnableAuditEntryRequest,
+    on_OauthApplicationCreateAuditEntry?:OauthApplicationCreateAuditEntryRequest,
+    on_OrgAddBillingManagerAuditEntry?:OrgAddBillingManagerAuditEntryRequest,
+    on_OrgAddMemberAuditEntry?:OrgAddMemberAuditEntryRequest,
+    on_OrgBlockUserAuditEntry?:OrgBlockUserAuditEntryRequest,
+    on_OrgConfigDisableCollaboratorsOnlyAuditEntry?:OrgConfigDisableCollaboratorsOnlyAuditEntryRequest,
+    on_OrgConfigEnableCollaboratorsOnlyAuditEntry?:OrgConfigEnableCollaboratorsOnlyAuditEntryRequest,
+    on_OrgCreateAuditEntry?:OrgCreateAuditEntryRequest,
+    on_OrgDisableOauthAppRestrictionsAuditEntry?:OrgDisableOauthAppRestrictionsAuditEntryRequest,
+    on_OrgDisableSamlAuditEntry?:OrgDisableSamlAuditEntryRequest,
+    on_OrgDisableTwoFactorRequirementAuditEntry?:OrgDisableTwoFactorRequirementAuditEntryRequest,
+    on_OrgEnableOauthAppRestrictionsAuditEntry?:OrgEnableOauthAppRestrictionsAuditEntryRequest,
+    on_OrgEnableSamlAuditEntry?:OrgEnableSamlAuditEntryRequest,
+    on_OrgEnableTwoFactorRequirementAuditEntry?:OrgEnableTwoFactorRequirementAuditEntryRequest,
+    on_OrgInviteMemberAuditEntry?:OrgInviteMemberAuditEntryRequest,
+    on_OrgInviteToBusinessAuditEntry?:OrgInviteToBusinessAuditEntryRequest,
+    on_OrgOauthAppAccessApprovedAuditEntry?:OrgOauthAppAccessApprovedAuditEntryRequest,
+    on_OrgOauthAppAccessDeniedAuditEntry?:OrgOauthAppAccessDeniedAuditEntryRequest,
+    on_OrgOauthAppAccessRequestedAuditEntry?:OrgOauthAppAccessRequestedAuditEntryRequest,
+    on_OrgRemoveBillingManagerAuditEntry?:OrgRemoveBillingManagerAuditEntryRequest,
+    on_OrgRemoveMemberAuditEntry?:OrgRemoveMemberAuditEntryRequest,
+    on_OrgRemoveOutsideCollaboratorAuditEntry?:OrgRemoveOutsideCollaboratorAuditEntryRequest,
+    on_OrgRestoreMemberAuditEntry?:OrgRestoreMemberAuditEntryRequest,
+    on_OrgUnblockUserAuditEntry?:OrgUnblockUserAuditEntryRequest,
+    on_OrgUpdateDefaultRepositoryPermissionAuditEntry?:OrgUpdateDefaultRepositoryPermissionAuditEntryRequest,
+    on_OrgUpdateMemberAuditEntry?:OrgUpdateMemberAuditEntryRequest,
+    on_OrgUpdateMemberRepositoryCreationPermissionAuditEntry?:OrgUpdateMemberRepositoryCreationPermissionAuditEntryRequest,
+    on_OrgUpdateMemberRepositoryInvitationPermissionAuditEntry?:OrgUpdateMemberRepositoryInvitationPermissionAuditEntryRequest,
+    on_PrivateRepositoryForkingDisableAuditEntry?:PrivateRepositoryForkingDisableAuditEntryRequest,
+    on_PrivateRepositoryForkingEnableAuditEntry?:PrivateRepositoryForkingEnableAuditEntryRequest,
+    on_RepoAccessAuditEntry?:RepoAccessAuditEntryRequest,
+    on_RepoAddMemberAuditEntry?:RepoAddMemberAuditEntryRequest,
+    on_RepoAddTopicAuditEntry?:RepoAddTopicAuditEntryRequest,
+    on_RepoArchivedAuditEntry?:RepoArchivedAuditEntryRequest,
+    on_RepoChangeMergeSettingAuditEntry?:RepoChangeMergeSettingAuditEntryRequest,
+    on_RepoConfigDisableAnonymousGitAccessAuditEntry?:RepoConfigDisableAnonymousGitAccessAuditEntryRequest,
+    on_RepoConfigDisableCollaboratorsOnlyAuditEntry?:RepoConfigDisableCollaboratorsOnlyAuditEntryRequest,
+    on_RepoConfigDisableContributorsOnlyAuditEntry?:RepoConfigDisableContributorsOnlyAuditEntryRequest,
+    on_RepoConfigDisableSockpuppetDisallowedAuditEntry?:RepoConfigDisableSockpuppetDisallowedAuditEntryRequest,
+    on_RepoConfigEnableAnonymousGitAccessAuditEntry?:RepoConfigEnableAnonymousGitAccessAuditEntryRequest,
+    on_RepoConfigEnableCollaboratorsOnlyAuditEntry?:RepoConfigEnableCollaboratorsOnlyAuditEntryRequest,
+    on_RepoConfigEnableContributorsOnlyAuditEntry?:RepoConfigEnableContributorsOnlyAuditEntryRequest,
+    on_RepoConfigEnableSockpuppetDisallowedAuditEntry?:RepoConfigEnableSockpuppetDisallowedAuditEntryRequest,
+    on_RepoConfigLockAnonymousGitAccessAuditEntry?:RepoConfigLockAnonymousGitAccessAuditEntryRequest,
+    on_RepoConfigUnlockAnonymousGitAccessAuditEntry?:RepoConfigUnlockAnonymousGitAccessAuditEntryRequest,
+    on_RepoCreateAuditEntry?:RepoCreateAuditEntryRequest,
+    on_RepoDestroyAuditEntry?:RepoDestroyAuditEntryRequest,
+    on_RepoRemoveMemberAuditEntry?:RepoRemoveMemberAuditEntryRequest,
+    on_RepoRemoveTopicAuditEntry?:RepoRemoveTopicAuditEntryRequest,
+    on_RepositoryVisibilityChangeDisableAuditEntry?:RepositoryVisibilityChangeDisableAuditEntryRequest,
+    on_RepositoryVisibilityChangeEnableAuditEntry?:RepositoryVisibilityChangeEnableAuditEntryRequest,
+    on_TeamAddMemberAuditEntry?:TeamAddMemberAuditEntryRequest,
+    on_TeamAddRepositoryAuditEntry?:TeamAddRepositoryAuditEntryRequest,
+    on_TeamChangeParentTeamAuditEntry?:TeamChangeParentTeamAuditEntryRequest,
+    on_TeamRemoveMemberAuditEntry?:TeamRemoveMemberAuditEntryRequest,
+    on_TeamRemoveRepositoryAuditEntry?:TeamRemoveRepositoryAuditEntryRequest,
+    on_AuditEntry?: AuditEntryRequest,
+    on_Node?: NodeRequest,
+    on_OrganizationAuditEntryData?: OrganizationAuditEntryDataRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for OrganizationAuditEntry. */
@@ -23102,7 +23307,13 @@ export interface PageInfoRequest{
 
 
 /** Types that can grant permissions on a repository to a user */
-export interface PermissionGranterRequest{on_Organization?:OrganizationRequest,on_Repository?:RepositoryRequest,on_Team?:TeamRequest,__typename?:boolean | number}
+export interface PermissionGranterRequest{
+    on_Organization?:OrganizationRequest,
+    on_Repository?:RepositoryRequest,
+    on_Team?:TeamRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** A level of permission and source for a user's access to a repository. */
@@ -23138,7 +23349,14 @@ export interface PinIssuePayloadRequest{
 
 
 /** Types that can be pinned to a profile page. */
-export interface PinnableItemRequest{on_Gist?:GistRequest,on_Repository?:RepositoryRequest,__typename?:boolean | number}
+export interface PinnableItemRequest{
+    on_Gist?:GistRequest,
+    on_Repository?:RepositoryRequest,
+    on_Node?: NodeRequest,
+    on_Starrable?: StarrableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for PinnableItem. */
@@ -23550,7 +23768,23 @@ repository: Scalars['String']}
 
 
 /** Types that can be inside Project Cards. */
-export interface ProjectCardItemRequest{on_Issue?:IssueRequest,on_PullRequest?:PullRequestRequest,__typename?:boolean | number}
+export interface ProjectCardItemRequest{
+    on_Issue?:IssueRequest,
+    on_PullRequest?:PullRequestRequest,
+    on_Assignable?: AssignableRequest,
+    on_Closable?: ClosableRequest,
+    on_Comment?: CommentRequest,
+    on_Labelable?: LabelableRequest,
+    on_Lockable?: LockableRequest,
+    on_Node?: NodeRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
+    __typename?: boolean | number
+}
 
 
 /** A column inside a project. */
@@ -24599,7 +24833,42 @@ export interface PullRequestTimelineConnectionRequest{
 
 
 /** An item in an pull request timeline */
-export interface PullRequestTimelineItemRequest{on_AssignedEvent?:AssignedEventRequest,on_BaseRefForcePushedEvent?:BaseRefForcePushedEventRequest,on_ClosedEvent?:ClosedEventRequest,on_Commit?:CommitRequest,on_CommitCommentThread?:CommitCommentThreadRequest,on_CrossReferencedEvent?:CrossReferencedEventRequest,on_DemilestonedEvent?:DemilestonedEventRequest,on_DeployedEvent?:DeployedEventRequest,on_DeploymentEnvironmentChangedEvent?:DeploymentEnvironmentChangedEventRequest,on_HeadRefDeletedEvent?:HeadRefDeletedEventRequest,on_HeadRefForcePushedEvent?:HeadRefForcePushedEventRequest,on_HeadRefRestoredEvent?:HeadRefRestoredEventRequest,on_IssueComment?:IssueCommentRequest,on_LabeledEvent?:LabeledEventRequest,on_LockedEvent?:LockedEventRequest,on_MergedEvent?:MergedEventRequest,on_MilestonedEvent?:MilestonedEventRequest,on_PullRequestReview?:PullRequestReviewRequest,on_PullRequestReviewComment?:PullRequestReviewCommentRequest,on_PullRequestReviewThread?:PullRequestReviewThreadRequest,on_ReferencedEvent?:ReferencedEventRequest,on_RenamedTitleEvent?:RenamedTitleEventRequest,on_ReopenedEvent?:ReopenedEventRequest,on_ReviewDismissedEvent?:ReviewDismissedEventRequest,on_ReviewRequestRemovedEvent?:ReviewRequestRemovedEventRequest,on_ReviewRequestedEvent?:ReviewRequestedEventRequest,on_SubscribedEvent?:SubscribedEventRequest,on_UnassignedEvent?:UnassignedEventRequest,on_UnlabeledEvent?:UnlabeledEventRequest,on_UnlockedEvent?:UnlockedEventRequest,on_UnsubscribedEvent?:UnsubscribedEventRequest,on_UserBlockedEvent?:UserBlockedEventRequest,__typename?:boolean | number}
+export interface PullRequestTimelineItemRequest{
+    on_AssignedEvent?:AssignedEventRequest,
+    on_BaseRefForcePushedEvent?:BaseRefForcePushedEventRequest,
+    on_ClosedEvent?:ClosedEventRequest,
+    on_Commit?:CommitRequest,
+    on_CommitCommentThread?:CommitCommentThreadRequest,
+    on_CrossReferencedEvent?:CrossReferencedEventRequest,
+    on_DemilestonedEvent?:DemilestonedEventRequest,
+    on_DeployedEvent?:DeployedEventRequest,
+    on_DeploymentEnvironmentChangedEvent?:DeploymentEnvironmentChangedEventRequest,
+    on_HeadRefDeletedEvent?:HeadRefDeletedEventRequest,
+    on_HeadRefForcePushedEvent?:HeadRefForcePushedEventRequest,
+    on_HeadRefRestoredEvent?:HeadRefRestoredEventRequest,
+    on_IssueComment?:IssueCommentRequest,
+    on_LabeledEvent?:LabeledEventRequest,
+    on_LockedEvent?:LockedEventRequest,
+    on_MergedEvent?:MergedEventRequest,
+    on_MilestonedEvent?:MilestonedEventRequest,
+    on_PullRequestReview?:PullRequestReviewRequest,
+    on_PullRequestReviewComment?:PullRequestReviewCommentRequest,
+    on_PullRequestReviewThread?:PullRequestReviewThreadRequest,
+    on_ReferencedEvent?:ReferencedEventRequest,
+    on_RenamedTitleEvent?:RenamedTitleEventRequest,
+    on_ReopenedEvent?:ReopenedEventRequest,
+    on_ReviewDismissedEvent?:ReviewDismissedEventRequest,
+    on_ReviewRequestRemovedEvent?:ReviewRequestRemovedEventRequest,
+    on_ReviewRequestedEvent?:ReviewRequestedEventRequest,
+    on_SubscribedEvent?:SubscribedEventRequest,
+    on_UnassignedEvent?:UnassignedEventRequest,
+    on_UnlabeledEvent?:UnlabeledEventRequest,
+    on_UnlockedEvent?:UnlockedEventRequest,
+    on_UnsubscribedEvent?:UnsubscribedEventRequest,
+    on_UserBlockedEvent?:UserBlockedEventRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** An edge in a connection. */
@@ -24614,7 +24883,59 @@ export interface PullRequestTimelineItemEdgeRequest{
 
 
 /** An item in a pull request timeline */
-export interface PullRequestTimelineItemsRequest{on_AddedToProjectEvent?:AddedToProjectEventRequest,on_AssignedEvent?:AssignedEventRequest,on_AutomaticBaseChangeFailedEvent?:AutomaticBaseChangeFailedEventRequest,on_AutomaticBaseChangeSucceededEvent?:AutomaticBaseChangeSucceededEventRequest,on_BaseRefChangedEvent?:BaseRefChangedEventRequest,on_BaseRefForcePushedEvent?:BaseRefForcePushedEventRequest,on_ClosedEvent?:ClosedEventRequest,on_CommentDeletedEvent?:CommentDeletedEventRequest,on_ConnectedEvent?:ConnectedEventRequest,on_ConvertToDraftEvent?:ConvertToDraftEventRequest,on_ConvertedNoteToIssueEvent?:ConvertedNoteToIssueEventRequest,on_CrossReferencedEvent?:CrossReferencedEventRequest,on_DemilestonedEvent?:DemilestonedEventRequest,on_DeployedEvent?:DeployedEventRequest,on_DeploymentEnvironmentChangedEvent?:DeploymentEnvironmentChangedEventRequest,on_DisconnectedEvent?:DisconnectedEventRequest,on_HeadRefDeletedEvent?:HeadRefDeletedEventRequest,on_HeadRefForcePushedEvent?:HeadRefForcePushedEventRequest,on_HeadRefRestoredEvent?:HeadRefRestoredEventRequest,on_IssueComment?:IssueCommentRequest,on_LabeledEvent?:LabeledEventRequest,on_LockedEvent?:LockedEventRequest,on_MarkedAsDuplicateEvent?:MarkedAsDuplicateEventRequest,on_MentionedEvent?:MentionedEventRequest,on_MergedEvent?:MergedEventRequest,on_MilestonedEvent?:MilestonedEventRequest,on_MovedColumnsInProjectEvent?:MovedColumnsInProjectEventRequest,on_PinnedEvent?:PinnedEventRequest,on_PullRequestCommit?:PullRequestCommitRequest,on_PullRequestCommitCommentThread?:PullRequestCommitCommentThreadRequest,on_PullRequestReview?:PullRequestReviewRequest,on_PullRequestReviewThread?:PullRequestReviewThreadRequest,on_PullRequestRevisionMarker?:PullRequestRevisionMarkerRequest,on_ReadyForReviewEvent?:ReadyForReviewEventRequest,on_ReferencedEvent?:ReferencedEventRequest,on_RemovedFromProjectEvent?:RemovedFromProjectEventRequest,on_RenamedTitleEvent?:RenamedTitleEventRequest,on_ReopenedEvent?:ReopenedEventRequest,on_ReviewDismissedEvent?:ReviewDismissedEventRequest,on_ReviewRequestRemovedEvent?:ReviewRequestRemovedEventRequest,on_ReviewRequestedEvent?:ReviewRequestedEventRequest,on_SubscribedEvent?:SubscribedEventRequest,on_TransferredEvent?:TransferredEventRequest,on_UnassignedEvent?:UnassignedEventRequest,on_UnlabeledEvent?:UnlabeledEventRequest,on_UnlockedEvent?:UnlockedEventRequest,on_UnmarkedAsDuplicateEvent?:UnmarkedAsDuplicateEventRequest,on_UnpinnedEvent?:UnpinnedEventRequest,on_UnsubscribedEvent?:UnsubscribedEventRequest,on_UserBlockedEvent?:UserBlockedEventRequest,__typename?:boolean | number}
+export interface PullRequestTimelineItemsRequest{
+    on_AddedToProjectEvent?:AddedToProjectEventRequest,
+    on_AssignedEvent?:AssignedEventRequest,
+    on_AutomaticBaseChangeFailedEvent?:AutomaticBaseChangeFailedEventRequest,
+    on_AutomaticBaseChangeSucceededEvent?:AutomaticBaseChangeSucceededEventRequest,
+    on_BaseRefChangedEvent?:BaseRefChangedEventRequest,
+    on_BaseRefForcePushedEvent?:BaseRefForcePushedEventRequest,
+    on_ClosedEvent?:ClosedEventRequest,
+    on_CommentDeletedEvent?:CommentDeletedEventRequest,
+    on_ConnectedEvent?:ConnectedEventRequest,
+    on_ConvertToDraftEvent?:ConvertToDraftEventRequest,
+    on_ConvertedNoteToIssueEvent?:ConvertedNoteToIssueEventRequest,
+    on_CrossReferencedEvent?:CrossReferencedEventRequest,
+    on_DemilestonedEvent?:DemilestonedEventRequest,
+    on_DeployedEvent?:DeployedEventRequest,
+    on_DeploymentEnvironmentChangedEvent?:DeploymentEnvironmentChangedEventRequest,
+    on_DisconnectedEvent?:DisconnectedEventRequest,
+    on_HeadRefDeletedEvent?:HeadRefDeletedEventRequest,
+    on_HeadRefForcePushedEvent?:HeadRefForcePushedEventRequest,
+    on_HeadRefRestoredEvent?:HeadRefRestoredEventRequest,
+    on_IssueComment?:IssueCommentRequest,
+    on_LabeledEvent?:LabeledEventRequest,
+    on_LockedEvent?:LockedEventRequest,
+    on_MarkedAsDuplicateEvent?:MarkedAsDuplicateEventRequest,
+    on_MentionedEvent?:MentionedEventRequest,
+    on_MergedEvent?:MergedEventRequest,
+    on_MilestonedEvent?:MilestonedEventRequest,
+    on_MovedColumnsInProjectEvent?:MovedColumnsInProjectEventRequest,
+    on_PinnedEvent?:PinnedEventRequest,
+    on_PullRequestCommit?:PullRequestCommitRequest,
+    on_PullRequestCommitCommentThread?:PullRequestCommitCommentThreadRequest,
+    on_PullRequestReview?:PullRequestReviewRequest,
+    on_PullRequestReviewThread?:PullRequestReviewThreadRequest,
+    on_PullRequestRevisionMarker?:PullRequestRevisionMarkerRequest,
+    on_ReadyForReviewEvent?:ReadyForReviewEventRequest,
+    on_ReferencedEvent?:ReferencedEventRequest,
+    on_RemovedFromProjectEvent?:RemovedFromProjectEventRequest,
+    on_RenamedTitleEvent?:RenamedTitleEventRequest,
+    on_ReopenedEvent?:ReopenedEventRequest,
+    on_ReviewDismissedEvent?:ReviewDismissedEventRequest,
+    on_ReviewRequestRemovedEvent?:ReviewRequestRemovedEventRequest,
+    on_ReviewRequestedEvent?:ReviewRequestedEventRequest,
+    on_SubscribedEvent?:SubscribedEventRequest,
+    on_TransferredEvent?:TransferredEventRequest,
+    on_UnassignedEvent?:UnassignedEventRequest,
+    on_UnlabeledEvent?:UnlabeledEventRequest,
+    on_UnlockedEvent?:UnlockedEventRequest,
+    on_UnmarkedAsDuplicateEvent?:UnmarkedAsDuplicateEventRequest,
+    on_UnpinnedEvent?:UnpinnedEventRequest,
+    on_UnsubscribedEvent?:UnsubscribedEventRequest,
+    on_UserBlockedEvent?:UserBlockedEventRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for PullRequestTimelineItems. */
@@ -24680,7 +25001,13 @@ export interface PushAllowanceRequest{
 
 
 /** Types that can be an actor. */
-export interface PushAllowanceActorRequest{on_App?:AppRequest,on_Team?:TeamRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface PushAllowanceActorRequest{
+    on_App?:AppRequest,
+    on_Team?:TeamRequest,
+    on_User?:UserRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for PushAllowance. */
@@ -25191,7 +25518,23 @@ export interface ReferencedEventRequest{
 
 
 /** Any referencable object */
-export interface ReferencedSubjectRequest{on_Issue?:IssueRequest,on_PullRequest?:PullRequestRequest,__typename?:boolean | number}
+export interface ReferencedSubjectRequest{
+    on_Issue?:IssueRequest,
+    on_PullRequest?:PullRequestRequest,
+    on_Assignable?: AssignableRequest,
+    on_Closable?: ClosableRequest,
+    on_Comment?: CommentRequest,
+    on_Labelable?: LabelableRequest,
+    on_Lockable?: LockableRequest,
+    on_Node?: NodeRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
+    __typename?: boolean | number
+}
 
 
 /** Autogenerated input type of RegenerateEnterpriseIdentityProviderRecoveryCodes */
@@ -26203,7 +26546,23 @@ export interface RenamedTitleEventRequest{
 
 
 /** An object which has a renamable title */
-export interface RenamedTitleSubjectRequest{on_Issue?:IssueRequest,on_PullRequest?:PullRequestRequest,__typename?:boolean | number}
+export interface RenamedTitleSubjectRequest{
+    on_Issue?:IssueRequest,
+    on_PullRequest?:PullRequestRequest,
+    on_Assignable?: AssignableRequest,
+    on_Closable?: ClosableRequest,
+    on_Comment?: CommentRequest,
+    on_Labelable?: LabelableRequest,
+    on_Lockable?: LockableRequest,
+    on_Node?: NodeRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
+    __typename?: boolean | number
+}
 
 
 /** Autogenerated input type of ReopenIssue */
@@ -28286,7 +28645,13 @@ export interface RequestReviewsPayloadRequest{
 
 
 /** Types that can be requested reviewers. */
-export interface RequestedReviewerRequest{on_Mannequin?:MannequinRequest,on_Team?:TeamRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface RequestedReviewerRequest{
+    on_Mannequin?:MannequinRequest,
+    on_Team?:TeamRequest,
+    on_User?:UserRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** Autogenerated input type of RerequestCheckSuite */
@@ -28363,7 +28728,12 @@ export interface ReviewDismissalAllowanceRequest{
 
 
 /** Types that can be an actor. */
-export interface ReviewDismissalAllowanceActorRequest{on_Team?:TeamRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface ReviewDismissalAllowanceActorRequest{
+    on_Team?:TeamRequest,
+    on_User?:UserRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for ReviewDismissalAllowance. */
@@ -28563,7 +28933,17 @@ field: SavedReplyOrderField}
 
 
 /** The results of a search. */
-export interface SearchResultItemRequest{on_App?:AppRequest,on_Issue?:IssueRequest,on_MarketplaceListing?:MarketplaceListingRequest,on_Organization?:OrganizationRequest,on_PullRequest?:PullRequestRequest,on_Repository?:RepositoryRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface SearchResultItemRequest{
+    on_App?:AppRequest,
+    on_Issue?:IssueRequest,
+    on_MarketplaceListing?:MarketplaceListingRequest,
+    on_Organization?:OrganizationRequest,
+    on_PullRequest?:PullRequestRequest,
+    on_Repository?:RepositoryRequest,
+    on_User?:UserRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** A list of results that matched against a search query. */
@@ -28849,7 +29229,21 @@ export interface SmimeSignatureRequest{
 
 
 /** Entites that can sponsor others via GitHub Sponsors */
-export interface SponsorRequest{on_Organization?:OrganizationRequest,on_User?:UserRequest,__typename?:boolean | number}
+export interface SponsorRequest{
+    on_Organization?:OrganizationRequest,
+    on_User?:UserRequest,
+    on_Actor?: ActorRequest,
+    on_Node?: NodeRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    __typename?: boolean | number
+}
 
 
 /** Entities that can be sponsored through GitHub Sponsors */
@@ -29203,7 +29597,12 @@ export interface StatusCheckRollupRequest{
 
 
 /** Types that can be inside a StatusCheckRollup context. */
-export interface StatusCheckRollupContextRequest{on_CheckRun?:CheckRunRequest,on_StatusContext?:StatusContextRequest,__typename?:boolean | number}
+export interface StatusCheckRollupContextRequest{
+    on_CheckRun?:CheckRunRequest,
+    on_StatusContext?:StatusContextRequest,
+    on_Node?: NodeRequest,
+    __typename?: boolean | number
+}
 
 
 /** The connection type for StatusCheckRollupContext. */

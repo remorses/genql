@@ -1,7 +1,7 @@
 import { GraphQLSchema } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
-import { version } from '../../version'
+const { version } = require('../../../package.json')
 
 const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
@@ -70,7 +70,7 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
   var typeMap = linkTypeMap(types)
   export * from './guards.esm'
 
-  export var version = '${version}'
+  export var version = ${JSON.stringify(version)}
   assertSameVersion(version)
 
   export var createClient = ${renderClientCode(ctx)}

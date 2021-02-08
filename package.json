@@ -11,25 +11,20 @@
         "integration-tests"
     ],
     "scripts": {
-        "genall": "yarn --cwd example-usage gen && yarn --cwd try-clients gen && yarn --cwd integration-tests gen",
-        "tscall": "yarn --cwd example-usage tsc && yarn --cwd try-clients tsc && yarn --cwd integration-tests tsc",
-        "buildall": "lerna run --scope @genql/* build",
-        "test": "lerna run test",
-        "setupts": "setup-typescript-monorepo --addComposite  --indentation 4",
-        "watch-cli": "yarn --cwd genql-cli tsc -w --preserveWatchOutput",
-        "start": "concurrently npm:watch-*",
-        "dev": "yarn --cwd website dev",
-        "build": "yarn --cwd website build",
+        "genall": "ultra -r gen",
+        "tscall": "ultra -r --filter '@genql/*' tsc",
+        "buildall": "ultra -r --filter '@genql/*' --topology build",
+        "test": "ultra -r test",
+        "watch": "ultra -r watch",
         "play": "node -r sucrase/register cli/src/cli.ts",
         "integration": "cd integration-tests && yarn gen && tsc && yarn test",
         "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
         "publ": "yarn buildall && lerna publish patch",
         "runexample": "node -r sucrase/register example/example.ts"
     },
-    "dependencies": {
-        "concurrently": "^5.2.0"
-    },
     "devDependencies": {
-        "lerna": "^3.22.1"
+        "typescript": "^4.1.3",
+        "lerna": "^3.22.1",
+        "ultra-runner": "^3.9.0"
     }
 }

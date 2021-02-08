@@ -6,6 +6,7 @@ type Query {
   recursiveType(requiredVal: [String!]): [RecursiveType]
   account: Account
   coordinates: Point
+  unionThatImplementsInterface(typename: String): GenericError
 }
 
 type RecursiveType {
@@ -65,3 +66,19 @@ interface Point {
   x: String
   y: String
 }
+
+interface ClientError {
+  message: String!
+}
+
+type ClientErrorNameAlreadyTaken implements ClientError {
+  message: String!
+  ownProp1: String
+}
+
+type ClientErrorNameInvalid implements ClientError {
+  message: String!
+  ownProp2: String
+}
+
+union GenericError = ClientErrorNameAlreadyTaken | ClientErrorNameInvalid

@@ -49,7 +49,7 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
     ? 'object'
     : 'never']
 
-type HandleObject<SRC extends Anify<DST> | undefined, DST> = SRC extends Nil
+type HandleObject<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
     : Pick<
           {

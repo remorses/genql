@@ -7,8 +7,8 @@
         "build": "next build",
         "start": "next start",
         "gen": "yarn countries && yarn hasura",
-        "countries": "cd .. && yarn play --esm -o example-usage/generated -e https://countries.trevorblades.com",
-        "hasura": "cd .. && yarn play --esm -o example-usage/hasura -e https://hasura-2334534.herokuapp.com/v1/graphql -H \"Authorization: Bearer xxx\"  -H \"Xxx: Bearer xxx\"  "
+        "countries": "yarn --cwd .. play --esm -o example-usage/generated -e https://countries.trevorblades.com",
+        "hasura": "yarn --cwd .. play --esm -o example-usage/hasura -e https://hasura-2334534.herokuapp.com/v1/graphql -H \"Authorization: Bearer xxx\"  -H \"Xxx: Bearer xxx\"  "
     },
     "mocha": {
         "require": "tests/init.js",
@@ -45,7 +45,6 @@
         "@types/tmp": "^0.2.0",
         "mocha": "^7.1.2",
         "next-transpile-modules": "^3.3.0",
-        "sucrase": "^3.14.0",
-        "typescript": "^4.0.2"
+        "sucrase": "^3.14.0"
     }
 }

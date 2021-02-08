@@ -45,6 +45,14 @@ export default {
             "coordinates": [
                 16
             ],
+            "unionThatImplementsInterface": [
+                20,
+                {
+                    "typename": [
+                        1
+                    ]
+                }
+            ],
             "__typename": [
                 1
             ]
@@ -186,6 +194,56 @@ export default {
             ],
             "on_Bank": [
                 15
+            ],
+            "__typename": [
+                1
+            ]
+        },
+        "ClientError": {
+            "message": [
+                1
+            ],
+            "on_ClientErrorNameAlreadyTaken": [
+                18
+            ],
+            "on_ClientErrorNameInvalid": [
+                19
+            ],
+            "__typename": [
+                1
+            ]
+        },
+        "ClientErrorNameAlreadyTaken": {
+            "message": [
+                1
+            ],
+            "ownProp1": [
+                1
+            ],
+            "__typename": [
+                1
+            ]
+        },
+        "ClientErrorNameInvalid": {
+            "message": [
+                1
+            ],
+            "ownProp2": [
+                1
+            ],
+            "__typename": [
+                1
+            ]
+        },
+        "GenericError": {
+            "on_ClientErrorNameAlreadyTaken": [
+                18
+            ],
+            "on_ClientErrorNameInvalid": [
+                19
+            ],
+            "on_ClientError": [
+                17
             ],
             "__typename": [
                 1

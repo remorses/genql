@@ -16,11 +16,7 @@
         "spec": "tests/**.ts",
         "timeout": 9999999999
     },
-    "files": [
-        "/dist/*",
-        "/esm/*",
-        "src"
-    ],
+    "files": ["/dist/*", "/esm/*", "src"],
     "scripts": {
         "start": "tsdx watch",
         "build": "rm -rf dist esm *.tsbuildinfo && cp ./package.json src/version.json && tsc && tsc -m ESNext --outDir esm",
@@ -45,8 +41,7 @@
         "dotenv": "^8.2.0",
         "jest": ">=22 <24",
         "sucrase": "^3.12.1",
-        "ts-jest": "^23.10.5",
-        "typescript": "^4.0.2"
+        "ts-jest": "^23.10.5"
     },
     "dependencies": {
         "@types/qs": "^6.9.0",
@@ -64,20 +59,9 @@
         "transform": {
             ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
         },
-        "roots": [
-            "<rootDir>/src"
-        ],
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js",
-            "jsx",
-            "json",
-            "node"
-        ],
-        "modulePaths": [
-            "<rootDir>"
-        ],
+        "roots": ["<rootDir>/src"],
+        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+        "modulePaths": ["<rootDir>"],
         "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
         "testEnvironment": "node",
         "collectCoverageFrom": [
@@ -87,8 +71,6 @@
             "!**/*.case.ts",
             "!src/testHelpers/**/*.ts"
         ],
-        "coverageReporters": [
-            "text"
-        ]
+        "coverageReporters": ["text"]
     }
 }

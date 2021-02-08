@@ -10,13 +10,14 @@
         "module": "CommonJS",
         "moduleResolution": "node",
         "outDir": "./dist",
+        "declarationMap": true,
         "esModuleInterop": true,
         "allowJs": true,
         "sourceMap": true,
         "resolveJsonModule": true,
         "lib": ["dom", "esnext.asynciterable"],
         "skipLibCheck": true,
-        "composite": true
+        
     },
     "include": ["src", "src/version.json"],
     "exclude": [
