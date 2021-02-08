@@ -315,7 +315,7 @@ describe('execute queries', async function() {
         }),
     )
     it(
-        'Ability to query interfaces that a union implements',
+        'ability to query interfaces that a union implements',
         withServer(async () => {
             const { unionThatImplementsInterface } = await client.query({
                 unionThatImplementsInterface: {
@@ -328,6 +328,26 @@ describe('execute queries', async function() {
                     },
                 },
             })
+            assert.ok(unionThatImplementsInterface?.message)
+            expectType<Maybe<string>>(unionThatImplementsInterface?.message)
+            if (
+                unionThatImplementsInterface.__typename ===
+                'ClientErrorNameInvalid'
+            ) {
+                assert.ok(unionThatImplementsInterface?.ownProp2)
+            }
+        }),
+    )
+    it(
+        'ability to query interfaces that a union implements, chain syntax',
+        withServer(async () => {
+            const unionThatImplementsInterface = await client.chain.query
+                .unionThatImplementsInterface({})
+                .get({
+                    on_ClientError: { message: 1 },
+                    on_ClientErrorNameInvalid: { ownProp2: 1 },
+                })
+
             assert.ok(unionThatImplementsInterface?.message)
             expectType<Maybe<string>>(unionThatImplementsInterface?.message)
             if (
