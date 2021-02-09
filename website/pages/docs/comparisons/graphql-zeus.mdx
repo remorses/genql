@@ -1,5 +1,12 @@
 ## [Graphql-zeus](https://github.com/graphql-editor/graphql-zeus)
 
+-   Chain syntax: https://genql.now.sh/docs/usage/using-chain-syntax
+-   Genql has subscriptions: https://genql.now.sh/docs/usage/subscriptions
+-   Genql has batching built in: https://genql.now.sh/docs/usage/batching-queries
+-   Genql has a dependency on `@genql/runtime`, graphql zeus does not
+-   Genql does not support aliases
+-   Genql will have a big bundle size for large graphql schemas because it needs to store some schema information, this information is really compressed but it can be a problem for large schemas (see an example of this data [here](https://github.com/remorses/genql/blob/v2.4.0/example-usage/generated/types.esm.js))
+-   With genql you can easily fetch all scalar fields of a type: https://genql.now.sh/docs/usage/selecting-fields#querying-all-fields
 -   Easier variables passing
 
 graphql zeus
@@ -46,11 +53,3 @@ await client.mutation({
     ],
 })
 ```
-
--   Chain syntax: https://genql.now.sh/docs/usage/using-chain-syntax
--   Genql has subscriptions: https://genql.now.sh/docs/usage/subscriptions
--   Genql has batching built in: https://genql.now.sh/docs/usage/batching-queries
--   Genql has a dependency on `@genql/runtime`, graphql zeus does not
--   Genql does not support aliases
--   Genql will have a big bundle size for large graphql schemas because it needs to store some schema information, this information is really compressed but it can be a problem for large schemas (see an example of this data [here](https://github.com/remorses/genql/blob/v2.4.0/example-usage/generated/types.esm.js))
-- With genql you can easily fetch all scalar fields of a type: https://genql.now.sh/docs/usage/selecting-fields#querying-all-fields

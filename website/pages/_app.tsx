@@ -68,6 +68,9 @@ export default function App(props) {
                                 subscriptions: true,
                                 'advanced-typings': true,
                             },
+                            cli: {},
+                            library: {},
+                            comparisons: {},
                         },
                     }}
                     docsRootPath='pages/docs'
