@@ -63,10 +63,12 @@ client
 Genql let you query all scalar fields in a type by using the `everything` object:
 
 ```js
+import { everything } from './generated' // everything is just an object: const everything = { __scalar: true };
+
 client
     .query({
         countries: {
-            ...everything,
+            ...everything, // same as __scalar: true
             languages: {
                 ...everything,
             },
