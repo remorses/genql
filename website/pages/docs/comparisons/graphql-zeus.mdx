@@ -1,0 +1,52 @@
+## [Graphql-zeus](https://github.com/graphql-editor/graphql-zeus)
+
+-   Easier variables passing
+
+graphql zeus
+
+```ts
+const test = await Gql.mutation(
+    {
+        addCard: [
+            {
+                card: $`card`,
+            },
+            {
+                id: true,
+            },
+        ],
+    },
+    {
+        card: {
+            Attack: 2,
+            Defense: 3,
+            description: 'Lord of the mountains',
+            name: 'Golrog',
+        },
+    },
+)
+```
+
+Genql
+
+```ts
+await client.mutation({
+    addCard: [
+        {
+            card: {
+                Attack: 2,
+                Defense: 3,
+                description: 'Lord of the mountains',
+                name: 'Golrog',
+            },
+        },
+        {
+            id: true,
+        },
+    ],
+})
+```
+
+-   Chain syntax: https://genql.now.sh/docs/usage/using-chain-syntax
+-   Genql has subscriptions: https://genql.now.sh/docs/usage/subscriptions
+-   Genql has batching built in: https://genql.now.sh/docs/usage/batching-queries
