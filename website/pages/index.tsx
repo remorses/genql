@@ -231,8 +231,8 @@ const Page = () => (
         <Section degree={0} zIndex={1} bg='white'>
             <Banner
                 // dark
-                heading='Want to use the cli instead?'
-                bullet='cli is cool too'
+                heading='Generate your own graphql SDK in seconds'
+                bullet='@genql/cli'
                 subheading='You can generate the client locally based on an endpoint or a local graphql schema.'
                 bg='transparent'
                 image={
