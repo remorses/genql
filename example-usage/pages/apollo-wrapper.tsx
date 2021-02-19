@@ -24,13 +24,13 @@ function useGenqlQuery<Q extends QueryRequest>(
 
 const Page = () => {
     const { data, error } = useGenqlQuery({
-        countries: tuple([
+        countries: [
             { filter: { continent: { nin: [] } } },
             {
                 name: true,
                 code: 1,
             },
-        ]),
+        ],
     })
     return (
         <Stack spacing='40px' mt='40px'>
