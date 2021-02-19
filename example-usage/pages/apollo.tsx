@@ -6,12 +6,21 @@ import { Hero, PageContainer, SectionTitle } from 'landing-blocks'
 import React from 'react'
 import { generateQueryOp, QueryResult, QueryRequest } from '../generated/'
 
+
+function tuple<T1, T2>(data: [T1, T2]): typeof data
+function tuple(data: Array<any>) {
+    return data
+}
+
 const Page = () => {
     const q = {
-        countries: {
-            name: true,
-            code: 1,
-        },
+        countries: tuple([
+            {filter: {continent: {nin: []}}},
+            {
+                name: true,
+                code: 1,
+            },
+        ]),
     }
     const { query, variables } = generateQueryOp(q)
     const { data, error } = useQuery<QueryResult<typeof q>>(gql(query), {
