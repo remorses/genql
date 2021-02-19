@@ -27,19 +27,24 @@ const result = await client.query(fields)
 If you want to reuse the result type of a query in another function you can use the `QueryResult`, `MutationResult` and `SubscriptionResult` generic types.
 These types take a query object as argument and give the associated result type as result.
 
-> Always use `as const` after a tuple to tell typescript to use tuple semantics
+> You need to use the `tuple` function to tell typescript to use tuple semantics
 
 ```tsx
 import { QueryResult } from './generated'
 
+function tuple<T1, T2>(data: [T1, T2]): typeof data
+function tuple(data: Array<any>) {
+    return data
+}
+
 const fields = {
-    countries: [
+    countries: tuple([
         { argument: 'exampleArgument' },
         {
             name: 1,
             code: 1,
         },
-    ] as const, // tell typescript this is a tuple and not an array
+    ]), // tell typescript this is a tuple and not an array
 }
 
 // you can use this type in other places
