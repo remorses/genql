@@ -10,6 +10,7 @@ const paths: Record<any, any> = {
     'react-query': '/react-query',
     swr: '/swr',
     apollo: '/apollo',
+    'apollo-wrapper': '/apollo-wrapper',
     'client/query': '/builtin-client/query',
     'client/subscription': '/builtin-client/subscription',
     'client/mutation': '/builtin-client/mutation',
