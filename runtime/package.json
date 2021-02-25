@@ -1,7 +1,7 @@
 {
     "name": "@genql/runtime",
     "_": "[bump]",
-    "version": "2.4.0",
+    "version": "2.5.0",
     "description": "Genql runtime client",
     "repository": {
         "url": "https://github.com/remorses/genql"
