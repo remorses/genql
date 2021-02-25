@@ -79,6 +79,22 @@ client
 
 > `everything` queries only the leaf types, you have to manually query object types
 
+## Excluding fields
+
+You can also exclude some fields from the selection passing falsy values
+
+```js
+client
+    .query({
+        countries: {
+            ...everything, // same as __scalar: true
+            id: false,
+            code: false,
+        },
+    })
+    .then((x) => console.log(JSON.stringify(x)))
+```
+
 # Using the chain syntax
 
 Genql has an alternative way of executing queries called `chain` mode.
