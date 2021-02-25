@@ -117,4 +117,24 @@ describe('generate queries', () => {
         })
         snapshot(prettify(query, 'graphql'))
     })
+    it('do not fetch falsy fields', () => {
+        const { query } = generateSubscriptionOp({
+            user: {
+                common: false,
+                name: true,
+            },
+        })
+        // assert.strictEqual(op.name, NAME)
+        snapshot(prettify(query, 'graphql'))
+    })
+    it('do not fetch falsy fields with __scalar', () => {
+        const { query } = generateSubscriptionOp({
+            user: {
+                common: false,
+                __scalar: true,
+            },
+        })
+        // assert.strictEqual(op.name, NAME)
+        snapshot(prettify(query, 'graphql'))
+    })
 })

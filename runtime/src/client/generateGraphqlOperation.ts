@@ -83,6 +83,9 @@ const parseRequest = (
         let scalarFieldsFragment: string | undefined
 
         if (fieldNames.includes('__scalar')) {
+            const falsyFieldNames = new Set(
+                Object.keys(fields).filter((k) => !Boolean(fields[k])),
+            )
             if (scalarFields?.length) {
                 ctx.fragmentCounter++
                 scalarFieldsFragment = `f${ctx.fragmentCounter}`
@@ -90,36 +93,38 @@ const parseRequest = (
                 ctx.fragments.push(
                     `fragment ${scalarFieldsFragment} on ${
                         type.name
-                    }{${scalarFields.join(',')}}`,
+                    }{${scalarFields
+                        .filter((f) => !falsyFieldNames.has(f))
+                        .join(',')}}`,
                 )
             }
         }
 
         const fieldsSelection = fieldNames
-        .filter((f) => !['__scalar', '__name'].includes(f))
-        .map((f) => {
-            const parsed = parseRequest(fields[f], ctx, [...path, f])
+            .filter((f) => !['__scalar', '__name'].includes(f))
+            .map((f) => {
+                const parsed = parseRequest(fields[f], ctx, [...path, f])
 
-            if (f.startsWith('on_')) {
-                ctx.fragmentCounter++
-                const implementationFragment = `f${ctx.fragmentCounter}`
+                if (f.startsWith('on_')) {
+                    ctx.fragmentCounter++
+                    const implementationFragment = `f${ctx.fragmentCounter}`
 
-                const typeMatch = f.match(/^on_(.+)/)
+                    const typeMatch = f.match(/^on_(.+)/)
 
-                if (!typeMatch || !typeMatch[1])
-                    throw new Error('match failed')
+                    if (!typeMatch || !typeMatch[1])
+                        throw new Error('match failed')
 
-                ctx.fragments.push(
-                    `fragment ${implementationFragment} on ${typeMatch[1]}${parsed}`,
-                )
+                    ctx.fragments.push(
+                        `fragment ${implementationFragment} on ${typeMatch[1]}${parsed}`,
+                    )
 
-                return `...${implementationFragment}`
-            } else {
-                return `${f}${parsed}`
-            }
-        })
-        .concat(scalarFieldsFragment ? [`...${scalarFieldsFragment}`] : [])
-        .join(',')
+                    return `...${implementationFragment}`
+                } else {
+                    return `${f}${parsed}`
+                }
+            })
+            .concat(scalarFieldsFragment ? [`...${scalarFieldsFragment}`] : [])
+            .join(',')
 
         return `{${fieldsSelection}}`
     } else {

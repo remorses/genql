@@ -143,3 +143,25 @@ fragment f2 on User {
 }
 
 `
+
+exports['generate queries do not fetch falsy fields 1'] = `
+subscription {
+  user {
+    name
+  }
+}
+
+`
+
+exports['generate queries do not fetch falsy fields with __scalar 1'] = `
+subscription {
+  user {
+    ...f1
+  }
+}
+fragment f1 on User {
+  name
+  __typename
+}
+
+`
