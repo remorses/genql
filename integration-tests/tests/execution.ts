@@ -333,20 +333,29 @@ describe('execute queries', async function() {
                 unionThatImplementsInterface: {
                     __typename: 1,
                     on_ClientErrorNameInvalid: {
+                        message: 1,
                         ownProp2: 1,
                     },
                     on_ClientError: {
                         message: 1,
                     },
+                    on_ClientErrorWithoutInterface: {
+                        ownProp3: 1,
+                    },
                 },
             })
-            assert.ok(unionThatImplementsInterface?.message)
-            expectType<Maybe<string>>(unionThatImplementsInterface?.message)
+
             if (
-                unionThatImplementsInterface.__typename ===
+                unionThatImplementsInterface?.__typename ===
                 'ClientErrorNameInvalid'
             ) {
                 assert.ok(unionThatImplementsInterface?.ownProp2)
+            }
+            if (
+                unionThatImplementsInterface?.__typename ===
+                'ClientErrorWithoutInterface'
+            ) {
+                assert.ok(unionThatImplementsInterface?.ownProp3)
             }
         }),
     )
@@ -360,10 +369,8 @@ describe('execute queries', async function() {
                     on_ClientErrorNameInvalid: { ownProp2: 1 },
                 })
 
-            assert.ok(unionThatImplementsInterface?.message)
-            expectType<Maybe<string>>(unionThatImplementsInterface?.message)
             if (
-                unionThatImplementsInterface.__typename ===
+                unionThatImplementsInterface?.__typename ===
                 'ClientErrorNameInvalid'
             ) {
                 assert.ok(unionThatImplementsInterface?.ownProp2)

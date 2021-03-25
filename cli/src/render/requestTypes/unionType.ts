@@ -1,7 +1,7 @@
 import { GraphQLUnionType } from 'graphql'
+import { flatten, uniq } from 'lodash'
 import { typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
-import { intersection } from '../common/support'
 import { requestTypeName } from './requestTypeName'
 
 export const unionType = (type: GraphQLUnionType, ctx: RenderContext) => {
@@ -10,7 +10,8 @@ export const unionType = (type: GraphQLUnionType, ctx: RenderContext) => {
         types = types.sort()
     }
     const fieldStrings = types.map((t) => `on_${t.name}?:${requestTypeName(t)}`)
-    const commonInterfaces = intersection(types.map((x) => x.getInterfaces()))
+
+    const commonInterfaces = uniq(flatten(types.map((x) => x.getInterfaces())))
     fieldStrings.push(
         ...commonInterfaces.map((type) => {
             return `on_${type.name}?: ${requestTypeName(type)}`
