@@ -738,6 +738,30 @@ module.exports = {
             "on_UniformResourceLocatable": [
                 880
             ],
+            "on_MemberStatusable": [
+                403
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
             "__typename": [
                 1
             ]
@@ -978,6 +1002,30 @@ module.exports = {
             ],
             "on_UniformResourceLocatable": [
                 880
+            ],
+            "on_MemberStatusable": [
+                403
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
             ],
             "__typename": [
                 1
@@ -2068,6 +2116,9 @@ module.exports = {
             "on_PullRequest": [
                 560
             ],
+            "on_GitObject": [
+                328
+            ],
             "on_Node": [
                 432
             ],
@@ -2076,6 +2127,33 @@ module.exports = {
             ],
             "on_UniformResourceLocatable": [
                 880
+            ],
+            "on_Assignable": [
+                34
+            ],
+            "on_Closable": [
+                89
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Labelable": [
+                379
+            ],
+            "on_Lockable": [
+                393
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
             ],
             "__typename": [
                 1
@@ -5478,6 +5556,30 @@ module.exports = {
             "on_Node": [
                 432
             ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
             "__typename": [
                 1
             ]
@@ -7639,6 +7741,36 @@ module.exports = {
             "on_Node": [
                 432
             ],
+            "on_Actor": [
+                7
+            ],
+            "on_MemberStatusable": [
+                403
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
             "__typename": [
                 1
             ]
@@ -8311,6 +8443,36 @@ module.exports = {
             "on_Node": [
                 432
             ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_GitObject": [
+                328
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Deletable": [
+                184
+            ],
+            "on_Minimizable": [
+                423
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
+            ],
             "__typename": [
                 1
             ]
@@ -8419,6 +8581,30 @@ module.exports = {
             ],
             "on_Node": [
                 432
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Deletable": [
+                184
+            ],
+            "on_Minimizable": [
+                423
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
             ],
             "__typename": [
                 1
@@ -13150,6 +13336,15 @@ module.exports = {
             "on_OrgRestoreMemberMembershipTeamAuditEntryData": [
                 469
             ],
+            "on_OrganizationAuditEntryData": [
+                481
+            ],
+            "on_RepositoryAuditEntryData": [
+                709
+            ],
+            "on_TeamAuditEntryData": [
+                831
+            ],
             "__typename": [
                 1
             ]
@@ -14235,11 +14430,26 @@ module.exports = {
             "on_AuditEntry": [
                 37
             ],
+            "on_EnterpriseAuditEntryData": [
+                252
+            ],
             "on_Node": [
                 432
             ],
             "on_OrganizationAuditEntryData": [
                 481
+            ],
+            "on_OauthApplicationAuditEntryData": [
+                433
+            ],
+            "on_RepositoryAuditEntryData": [
+                709
+            ],
+            "on_TopicAuditEntryData": [
+                865
+            ],
+            "on_TeamAuditEntryData": [
+                831
             ],
             "__typename": [
                 1
@@ -15071,8 +15281,47 @@ module.exports = {
             "on_Team": [
                 828
             ],
+            "on_Actor": [
+                7
+            ],
+            "on_MemberStatusable": [
+                403
+            ],
             "on_Node": [
                 432
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_RepositoryInfo": [
+                715
+            ],
+            "on_Starrable": [
+                808
+            ],
+            "on_Subscribable": [
+                823
             ],
             "__typename": [
                 1
@@ -15129,6 +15378,24 @@ module.exports = {
             ],
             "on_UniformResourceLocatable": [
                 880
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryInfo": [
+                715
+            ],
+            "on_Subscribable": [
+                823
             ],
             "__typename": [
                 1
@@ -17282,6 +17549,36 @@ module.exports = {
             "on_Node": [
                 432
             ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_GitObject": [
+                328
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Deletable": [
+                184
+            ],
+            "on_Minimizable": [
+                423
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
+            ],
             "__typename": [
                 1
             ]
@@ -17448,6 +17745,33 @@ module.exports = {
             "on_UserBlockedEvent": [
                 981
             ],
+            "on_Node": [
+                432
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Deletable": [
+                184
+            ],
+            "on_Minimizable": [
+                423
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
+            ],
             "__typename": [
                 1
             ]
@@ -17540,6 +17864,39 @@ module.exports = {
             ],
             "on_Node": [
                 432
+            ],
+            "on_MemberStatusable": [
+                403
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_Actor": [
+                7
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
+            "on_UniformResourceLocatable": [
+                880
             ],
             "__typename": [
                 1
@@ -22523,8 +22880,41 @@ module.exports = {
             "on_User": [
                 979
             ],
+            "on_Actor": [
+                7
+            ],
             "on_Node": [
                 432
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_MemberStatusable": [
+                403
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
             ],
             "__typename": [
                 1
@@ -22618,8 +23008,41 @@ module.exports = {
             "on_User": [
                 979
             ],
+            "on_MemberStatusable": [
+                403
+            ],
             "on_Node": [
                 432
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_Actor": [
+                7
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
+            "on_UniformResourceLocatable": [
+                880
             ],
             "__typename": [
                 1
@@ -22882,6 +23305,72 @@ module.exports = {
             ],
             "on_Node": [
                 432
+            ],
+            "on_Assignable": [
+                34
+            ],
+            "on_Closable": [
+                89
+            ],
+            "on_Comment": [
+                98
+            ],
+            "on_Labelable": [
+                379
+            ],
+            "on_Lockable": [
+                393
+            ],
+            "on_Reactable": [
+                605
+            ],
+            "on_RepositoryNode": [
+                722
+            ],
+            "on_Subscribable": [
+                823
+            ],
+            "on_UniformResourceLocatable": [
+                880
+            ],
+            "on_Updatable": [
+                899
+            ],
+            "on_UpdatableComment": [
+                900
+            ],
+            "on_Actor": [
+                7
+            ],
+            "on_MemberStatusable": [
+                403
+            ],
+            "on_PackageOwner": [
+                509
+            ],
+            "on_ProfileOwner": [
+                536
+            ],
+            "on_ProjectOwner": [
+                554
+            ],
+            "on_RegistryPackageOwner": [
+                637
+            ],
+            "on_RegistryPackageSearch": [
+                638
+            ],
+            "on_RepositoryOwner": [
+                725
+            ],
+            "on_Sponsorable": [
+                790
+            ],
+            "on_RepositoryInfo": [
+                715
+            ],
+            "on_Starrable": [
+                808
             ],
             "__typename": [
                 1
@@ -23232,6 +23721,9 @@ module.exports = {
             ],
             "on_Actor": [
                 7
+            ],
+            "on_MemberStatusable": [
+                403
             ],
             "on_Node": [
                 432
@@ -23723,6 +24215,9 @@ module.exports = {
             ],
             "on_Node": [
                 432
+            ],
+            "on_UniformResourceLocatable": [
+                880
             ],
             "__typename": [
                 1

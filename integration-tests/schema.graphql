@@ -99,7 +99,11 @@ type ClientErrorNameInvalid implements ClientError {
     ownProp2: String
 }
 
-union GenericError = ClientErrorNameAlreadyTaken | ClientErrorNameInvalid
+type ClientErrorWithoutInterface {
+    ownProp3: String
+}
+
+union GenericError = ClientErrorNameAlreadyTaken | ClientErrorNameInvalid | ClientErrorWithoutInterface
 
 extend type Query {
     unionThatImplementsInterface(typename: String): GenericError

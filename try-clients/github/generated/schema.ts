@@ -13723,6 +13723,14 @@ export interface AssigneeRequest{
     on_Actor?: ActorRequest,
     on_Node?: NodeRequest,
     on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
     __typename?: boolean | number
 }
 
@@ -13826,6 +13834,14 @@ export interface AuditEntryActorRequest{
     on_Actor?: ActorRequest,
     on_Node?: NodeRequest,
     on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
     __typename?: boolean | number
 }
 
@@ -14675,9 +14691,19 @@ export interface ClosedEventRequest{
 export interface CloserRequest{
     on_Commit?:CommitRequest,
     on_PullRequest?:PullRequestRequest,
+    on_GitObject?: GitObjectRequest,
     on_Node?: NodeRequest,
     on_Subscribable?: SubscribableRequest,
     on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Assignable?: AssignableRequest,
+    on_Closable?: ClosableRequest,
+    on_Comment?: CommentRequest,
+    on_Labelable?: LabelableRequest,
+    on_Lockable?: LockableRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
     __typename?: boolean | number
 }
 
@@ -17343,6 +17369,14 @@ export interface EnterpriseMemberRequest{
     on_User?:UserRequest,
     on_Actor?: ActorRequest,
     on_Node?: NodeRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
     __typename?: boolean | number
 }
 
@@ -18925,6 +18959,16 @@ export interface IpAllowListOwnerRequest{
     on_Enterprise?:EnterpriseRequest,
     on_Organization?:OrganizationRequest,
     on_Node?: NodeRequest,
+    on_Actor?: ActorRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
     __typename?: boolean | number
 }
 
@@ -19366,6 +19410,16 @@ export interface IssueTimelineItemRequest{
     on_UnsubscribedEvent?:UnsubscribedEventRequest,
     on_UserBlockedEvent?:UserBlockedEventRequest,
     on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_GitObject?: GitObjectRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_Comment?: CommentRequest,
+    on_Deletable?: DeletableRequest,
+    on_Minimizable?: MinimizableRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
     __typename?: boolean | number
 }
 
@@ -19414,6 +19468,14 @@ export interface IssueTimelineItemsRequest{
     on_UnsubscribedEvent?:UnsubscribedEventRequest,
     on_UserBlockedEvent?:UserBlockedEventRequest,
     on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Comment?: CommentRequest,
+    on_Deletable?: DeletableRequest,
+    on_Minimizable?: MinimizableRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
     __typename?: boolean | number
 }
 
@@ -22056,6 +22118,9 @@ export interface OrgRestoreMemberAuditEntryMembershipRequest{
     on_OrgRestoreMemberMembershipOrganizationAuditEntryData?:OrgRestoreMemberMembershipOrganizationAuditEntryDataRequest,
     on_OrgRestoreMemberMembershipRepositoryAuditEntryData?:OrgRestoreMemberMembershipRepositoryAuditEntryDataRequest,
     on_OrgRestoreMemberMembershipTeamAuditEntryData?:OrgRestoreMemberMembershipTeamAuditEntryDataRequest,
+    on_OrganizationAuditEntryData?: OrganizationAuditEntryDataRequest,
+    on_RepositoryAuditEntryData?: RepositoryAuditEntryDataRequest,
+    on_TeamAuditEntryData?: TeamAuditEntryDataRequest,
     __typename?: boolean | number
 }
 
@@ -22740,8 +22805,13 @@ export interface OrganizationAuditEntryRequest{
     on_TeamRemoveMemberAuditEntry?:TeamRemoveMemberAuditEntryRequest,
     on_TeamRemoveRepositoryAuditEntry?:TeamRemoveRepositoryAuditEntryRequest,
     on_AuditEntry?: AuditEntryRequest,
+    on_EnterpriseAuditEntryData?: EnterpriseAuditEntryDataRequest,
     on_Node?: NodeRequest,
     on_OrganizationAuditEntryData?: OrganizationAuditEntryDataRequest,
+    on_OauthApplicationAuditEntryData?: OauthApplicationAuditEntryDataRequest,
+    on_RepositoryAuditEntryData?: RepositoryAuditEntryDataRequest,
+    on_TopicAuditEntryData?: TopicAuditEntryDataRequest,
+    on_TeamAuditEntryData?: TeamAuditEntryDataRequest,
     __typename?: boolean | number
 }
 
@@ -23311,7 +23381,20 @@ export interface PermissionGranterRequest{
     on_Organization?:OrganizationRequest,
     on_Repository?:RepositoryRequest,
     on_Team?:TeamRequest,
+    on_Actor?: ActorRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
     on_Node?: NodeRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_RepositoryInfo?: RepositoryInfoRequest,
+    on_Starrable?: StarrableRequest,
+    on_Subscribable?: SubscribableRequest,
     __typename?: boolean | number
 }
 
@@ -23355,6 +23438,12 @@ export interface PinnableItemRequest{
     on_Node?: NodeRequest,
     on_Starrable?: StarrableRequest,
     on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryInfo?: RepositoryInfoRequest,
+    on_Subscribable?: SubscribableRequest,
     __typename?: boolean | number
 }
 
@@ -24867,6 +24956,16 @@ export interface PullRequestTimelineItemRequest{
     on_UnsubscribedEvent?:UnsubscribedEventRequest,
     on_UserBlockedEvent?:UserBlockedEventRequest,
     on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_GitObject?: GitObjectRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Comment?: CommentRequest,
+    on_Deletable?: DeletableRequest,
+    on_Minimizable?: MinimizableRequest,
+    on_Reactable?: ReactableRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
     __typename?: boolean | number
 }
 
@@ -24934,6 +25033,15 @@ export interface PullRequestTimelineItemsRequest{
     on_UnpinnedEvent?:UnpinnedEventRequest,
     on_UnsubscribedEvent?:UnsubscribedEventRequest,
     on_UserBlockedEvent?:UserBlockedEventRequest,
+    on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Comment?: CommentRequest,
+    on_Deletable?: DeletableRequest,
+    on_Minimizable?: MinimizableRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
     __typename?: boolean | number
 }
 
@@ -25006,6 +25114,17 @@ export interface PushAllowanceActorRequest{
     on_Team?:TeamRequest,
     on_User?:UserRequest,
     on_Node?: NodeRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_Actor?: ActorRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
     __typename?: boolean | number
 }
 
@@ -28649,7 +28768,18 @@ export interface RequestedReviewerRequest{
     on_Mannequin?:MannequinRequest,
     on_Team?:TeamRequest,
     on_User?:UserRequest,
+    on_Actor?: ActorRequest,
     on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
     __typename?: boolean | number
 }
 
@@ -28731,7 +28861,18 @@ export interface ReviewDismissalAllowanceRequest{
 export interface ReviewDismissalAllowanceActorRequest{
     on_Team?:TeamRequest,
     on_User?:UserRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
     on_Node?: NodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_Actor?: ActorRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
     __typename?: boolean | number
 }
 
@@ -28942,6 +29083,28 @@ export interface SearchResultItemRequest{
     on_Repository?:RepositoryRequest,
     on_User?:UserRequest,
     on_Node?: NodeRequest,
+    on_Assignable?: AssignableRequest,
+    on_Closable?: ClosableRequest,
+    on_Comment?: CommentRequest,
+    on_Labelable?: LabelableRequest,
+    on_Lockable?: LockableRequest,
+    on_Reactable?: ReactableRequest,
+    on_RepositoryNode?: RepositoryNodeRequest,
+    on_Subscribable?: SubscribableRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
+    on_Updatable?: UpdatableRequest,
+    on_UpdatableComment?: UpdatableCommentRequest,
+    on_Actor?: ActorRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
+    on_PackageOwner?: PackageOwnerRequest,
+    on_ProfileOwner?: ProfileOwnerRequest,
+    on_ProjectOwner?: ProjectOwnerRequest,
+    on_RegistryPackageOwner?: RegistryPackageOwnerRequest,
+    on_RegistryPackageSearch?: RegistryPackageSearchRequest,
+    on_RepositoryOwner?: RepositoryOwnerRequest,
+    on_Sponsorable?: SponsorableRequest,
+    on_RepositoryInfo?: RepositoryInfoRequest,
+    on_Starrable?: StarrableRequest,
     __typename?: boolean | number
 }
 
@@ -29233,6 +29396,7 @@ export interface SponsorRequest{
     on_Organization?:OrganizationRequest,
     on_User?:UserRequest,
     on_Actor?: ActorRequest,
+    on_MemberStatusable?: MemberStatusableRequest,
     on_Node?: NodeRequest,
     on_PackageOwner?: PackageOwnerRequest,
     on_ProfileOwner?: ProfileOwnerRequest,
@@ -29601,6 +29765,7 @@ export interface StatusCheckRollupContextRequest{
     on_CheckRun?:CheckRunRequest,
     on_StatusContext?:StatusContextRequest,
     on_Node?: NodeRequest,
+    on_UniformResourceLocatable?: UniformResourceLocatableRequest,
     __typename?: boolean | number
 }
 

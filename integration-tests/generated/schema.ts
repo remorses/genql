@@ -98,7 +98,12 @@ export interface ClientErrorNameInvalid {
     __typename: 'ClientErrorNameInvalid'
 }
 
-export type GenericError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid) & { __isUnion?: true }
+export interface ClientErrorWithoutInterface {
+    ownProp3?: Scalars['String']
+    __typename: 'ClientErrorWithoutInterface'
+}
+
+export type GenericError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid | ClientErrorWithoutInterface) & { __isUnion?: true }
 
 export interface QueryRequest{
     /** Some description */
@@ -221,9 +226,16 @@ export interface ClientErrorNameInvalidRequest{
     __scalar?: boolean | number
 }
 
+export interface ClientErrorWithoutInterfaceRequest{
+    ownProp3?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface GenericErrorRequest{
     on_ClientErrorNameAlreadyTaken?:ClientErrorNameAlreadyTakenRequest,
     on_ClientErrorNameInvalid?:ClientErrorNameInvalidRequest,
+    on_ClientErrorWithoutInterface?:ClientErrorWithoutInterfaceRequest,
     on_ClientError?: ClientErrorRequest,
     __typename?: boolean | number
 }
@@ -357,7 +369,15 @@ export const isClientErrorNameInvalid = (obj?: { __typename?: any } | null): obj
 
 
 
-const GenericError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
+const ClientErrorWithoutInterface_possibleTypes = ['ClientErrorWithoutInterface']
+export const isClientErrorWithoutInterface = (obj?: { __typename?: any } | null): obj is ClientErrorWithoutInterface => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isClientErrorWithoutInterface"')
+  return ClientErrorWithoutInterface_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const GenericError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid','ClientErrorWithoutInterface']
 export const isGenericError = (obj?: { __typename?: any } | null): obj is GenericError => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGenericError"')
   return GenericError_possibleTypes.includes(obj.__typename)
@@ -528,4 +548,12 @@ export interface ClientErrorNameInvalidPromiseChain{
 export interface ClientErrorNameInvalidObservableChain{
     message: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
     ownProp2: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+export interface ClientErrorWithoutInterfacePromiseChain{
+    ownProp3: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+export interface ClientErrorWithoutInterfaceObservableChain{
+    ownProp3: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }

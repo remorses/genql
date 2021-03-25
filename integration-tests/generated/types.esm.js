@@ -46,7 +46,7 @@ export default {
                 16
             ],
             "unionThatImplementsInterface": [
-                20,
+                21,
                 {
                     "typename": [
                         1
@@ -235,12 +235,23 @@ export default {
                 1
             ]
         },
+        "ClientErrorWithoutInterface": {
+            "ownProp3": [
+                1
+            ],
+            "__typename": [
+                1
+            ]
+        },
         "GenericError": {
             "on_ClientErrorNameAlreadyTaken": [
                 18
             ],
             "on_ClientErrorNameInvalid": [
                 19
+            ],
+            "on_ClientErrorWithoutInterface": [
+                20
             ],
             "on_ClientError": [
                 17

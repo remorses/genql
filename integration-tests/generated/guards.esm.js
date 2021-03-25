@@ -127,7 +127,15 @@ export var isClientErrorNameInvalid = function(obj) {
 
 
 
-var GenericError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
+var ClientErrorWithoutInterface_possibleTypes = ['ClientErrorWithoutInterface']
+export var isClientErrorWithoutInterface = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isClientErrorWithoutInterface"')
+  return ClientErrorWithoutInterface_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var GenericError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid','ClientErrorWithoutInterface']
 export var isGenericError = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isGenericError"')
   return GenericError_possibleTypes.includes(obj.__typename)
