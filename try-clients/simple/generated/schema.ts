@@ -8,7 +8,7 @@ export type Scalars = {
 
 export interface Query {
     users?: User[]
-    __typename?: 'Query'
+    __typename: 'Query'
 }
 
 
@@ -16,7 +16,7 @@ export interface Query {
 export interface User {
     id?: Scalars['ID']
     name?: Scalars['String']
-    __typename?: 'User'
+    __typename: 'User'
 }
 
 export interface QueryRequest{

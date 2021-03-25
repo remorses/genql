@@ -15,14 +15,14 @@ export interface Query {
     country?: Country
     languages: Language[]
     language?: Language
-    __typename?: 'Query'
+    __typename: 'Query'
 }
 
 export interface Continent {
     code: Scalars['ID']
     name: Scalars['String']
     countries: Country[]
-    __typename?: 'Continent'
+    __typename: 'Continent'
 }
 
 export interface Country {
@@ -37,7 +37,7 @@ export interface Country {
     emoji: Scalars['String']
     emojiU: Scalars['String']
     states: State[]
-    __typename?: 'Country'
+    __typename: 'Country'
 }
 
 export interface Language {
@@ -45,14 +45,14 @@ export interface Language {
     name?: Scalars['String']
     native?: Scalars['String']
     rtl: Scalars['Boolean']
-    __typename?: 'Language'
+    __typename: 'Language'
 }
 
 export interface State {
     code?: Scalars['String']
     name: Scalars['String']
     country: Country
-    __typename?: 'State'
+    __typename: 'State'
 }
 
 export type CacheControlScope = 'PUBLIC' | 'PRIVATE'

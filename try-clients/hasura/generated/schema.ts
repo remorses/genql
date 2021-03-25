@@ -23,7 +23,7 @@ export interface mutation_root {
     update_user?: user_mutation_response
     /** update single row of the table: "user" */
     update_user_by_pk?: user
-    __typename?: 'mutation_root'
+    __typename: 'mutation_root'
 }
 
 
@@ -39,7 +39,7 @@ export interface query_root {
     user_aggregate: user_aggregate
     /** fetch data from the table: "user" using primary key columns */
     user_by_pk?: user
-    __typename?: 'query_root'
+    __typename: 'query_root'
 }
 
 
@@ -51,7 +51,7 @@ export interface subscription_root {
     user_aggregate: user_aggregate
     /** fetch data from the table: "user" using primary key columns */
     user_by_pk?: user
-    __typename?: 'subscription_root'
+    __typename: 'subscription_root'
 }
 
 
@@ -60,7 +60,7 @@ export interface user {
     age: Scalars['Int']
     id: Scalars['String']
     name: Scalars['String']
-    __typename?: 'user'
+    __typename: 'user'
 }
 
 
@@ -68,7 +68,7 @@ export interface user {
 export interface user_aggregate {
     aggregate?: user_aggregate_fields
     nodes: user[]
-    __typename?: 'user_aggregate'
+    __typename: 'user_aggregate'
 }
 
 
@@ -85,14 +85,14 @@ export interface user_aggregate_fields {
     var_pop?: user_var_pop_fields
     var_samp?: user_var_samp_fields
     variance?: user_variance_fields
-    __typename?: 'user_aggregate_fields'
+    __typename: 'user_aggregate_fields'
 }
 
 
 /** aggregate avg on columns */
 export interface user_avg_fields {
     age?: Scalars['Float']
-    __typename?: 'user_avg_fields'
+    __typename: 'user_avg_fields'
 }
 
 
@@ -105,7 +105,7 @@ export interface user_max_fields {
     age?: Scalars['Int']
     id?: Scalars['String']
     name?: Scalars['String']
-    __typename?: 'user_max_fields'
+    __typename: 'user_max_fields'
 }
 
 
@@ -114,7 +114,7 @@ export interface user_min_fields {
     age?: Scalars['Int']
     id?: Scalars['String']
     name?: Scalars['String']
-    __typename?: 'user_min_fields'
+    __typename: 'user_min_fields'
 }
 
 
@@ -124,7 +124,7 @@ export interface user_mutation_response {
     affected_rows: Scalars['Int']
     /** data of the affected rows by the mutation */
     returning: user[]
-    __typename?: 'user_mutation_response'
+    __typename: 'user_mutation_response'
 }
 
 
@@ -135,28 +135,28 @@ export type user_select_column = 'age' | 'id' | 'name'
 /** aggregate stddev on columns */
 export interface user_stddev_fields {
     age?: Scalars['Float']
-    __typename?: 'user_stddev_fields'
+    __typename: 'user_stddev_fields'
 }
 
 
 /** aggregate stddev_pop on columns */
 export interface user_stddev_pop_fields {
     age?: Scalars['Float']
-    __typename?: 'user_stddev_pop_fields'
+    __typename: 'user_stddev_pop_fields'
 }
 
 
 /** aggregate stddev_samp on columns */
 export interface user_stddev_samp_fields {
     age?: Scalars['Float']
-    __typename?: 'user_stddev_samp_fields'
+    __typename: 'user_stddev_samp_fields'
 }
 
 
 /** aggregate sum on columns */
 export interface user_sum_fields {
     age?: Scalars['Int']
-    __typename?: 'user_sum_fields'
+    __typename: 'user_sum_fields'
 }
 
 
@@ -167,21 +167,21 @@ export type user_update_column = 'age' | 'id' | 'name'
 /** aggregate var_pop on columns */
 export interface user_var_pop_fields {
     age?: Scalars['Float']
-    __typename?: 'user_var_pop_fields'
+    __typename: 'user_var_pop_fields'
 }
 
 
 /** aggregate var_samp on columns */
 export interface user_var_samp_fields {
     age?: Scalars['Float']
-    __typename?: 'user_var_samp_fields'
+    __typename: 'user_var_samp_fields'
 }
 
 
 /** aggregate variance on columns */
 export interface user_variance_fields {
     age?: Scalars['Float']
-    __typename?: 'user_variance_fields'
+    __typename: 'user_variance_fields'
 }
 
 export type Query = query_root

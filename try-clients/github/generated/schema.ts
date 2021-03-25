@@ -27,7 +27,7 @@ export interface AcceptEnterpriseAdministratorInvitationPayload {
     invitation?: EnterpriseAdministratorInvitation
     /** A message confirming the result of accepting an administrator invitation. */
     message?: Scalars['String']
-    __typename?: 'AcceptEnterpriseAdministratorInvitationPayload'
+    __typename: 'AcceptEnterpriseAdministratorInvitationPayload'
 }
 
 
@@ -37,7 +37,7 @@ export interface AcceptTopicSuggestionPayload {
     clientMutationId?: Scalars['String']
     /** The accepted topic. */
     topic?: Topic
-    __typename?: 'AcceptTopicSuggestionPayload'
+    __typename: 'AcceptTopicSuggestionPayload'
 }
 
 
@@ -61,7 +61,7 @@ export interface ActorLocation {
     region?: Scalars['String']
     /** Region or state code */
     regionCode?: Scalars['String']
-    __typename?: 'ActorLocation'
+    __typename: 'ActorLocation'
 }
 
 
@@ -71,7 +71,7 @@ export interface AddAssigneesToAssignablePayload {
     assignable?: Assignable
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'AddAssigneesToAssignablePayload'
+    __typename: 'AddAssigneesToAssignablePayload'
 }
 
 
@@ -85,7 +85,7 @@ export interface AddCommentPayload {
     subject?: Node
     /** The edge from the subject's timeline connection. */
     timelineEdge?: IssueTimelineItemEdge
-    __typename?: 'AddCommentPayload'
+    __typename: 'AddCommentPayload'
 }
 
 
@@ -95,7 +95,7 @@ export interface AddLabelsToLabelablePayload {
     clientMutationId?: Scalars['String']
     /** The item that was labeled. */
     labelable?: Labelable
-    __typename?: 'AddLabelsToLabelablePayload'
+    __typename: 'AddLabelsToLabelablePayload'
 }
 
 
@@ -107,7 +107,7 @@ export interface AddProjectCardPayload {
     clientMutationId?: Scalars['String']
     /** The ProjectColumn */
     projectColumn?: ProjectColumn
-    __typename?: 'AddProjectCardPayload'
+    __typename: 'AddProjectCardPayload'
 }
 
 
@@ -119,7 +119,7 @@ export interface AddProjectColumnPayload {
     columnEdge?: ProjectColumnEdge
     /** The project */
     project?: Project
-    __typename?: 'AddProjectColumnPayload'
+    __typename: 'AddProjectColumnPayload'
 }
 
 
@@ -131,7 +131,7 @@ export interface AddPullRequestReviewCommentPayload {
     comment?: PullRequestReviewComment
     /** The edge from the review's comment connection. */
     commentEdge?: PullRequestReviewCommentEdge
-    __typename?: 'AddPullRequestReviewCommentPayload'
+    __typename: 'AddPullRequestReviewCommentPayload'
 }
 
 
@@ -143,7 +143,7 @@ export interface AddPullRequestReviewPayload {
     pullRequestReview?: PullRequestReview
     /** The edge from the pull request's review connection. */
     reviewEdge?: PullRequestReviewEdge
-    __typename?: 'AddPullRequestReviewPayload'
+    __typename: 'AddPullRequestReviewPayload'
 }
 
 
@@ -153,7 +153,7 @@ export interface AddPullRequestReviewThreadPayload {
     clientMutationId?: Scalars['String']
     /** The newly created thread. */
     thread?: PullRequestReviewThread
-    __typename?: 'AddPullRequestReviewThreadPayload'
+    __typename: 'AddPullRequestReviewThreadPayload'
 }
 
 
@@ -165,7 +165,7 @@ export interface AddReactionPayload {
     reaction?: Reaction
     /** The reactable subject. */
     subject?: Reactable
-    __typename?: 'AddReactionPayload'
+    __typename: 'AddReactionPayload'
 }
 
 
@@ -175,7 +175,7 @@ export interface AddStarPayload {
     clientMutationId?: Scalars['String']
     /** The starrable. */
     starrable?: Starrable
-    __typename?: 'AddStarPayload'
+    __typename: 'AddStarPayload'
 }
 
 
@@ -194,7 +194,7 @@ export interface AddedToProjectEvent {
     projectCard?: ProjectCard
     /** Column name referenced by this project event. */
     projectColumnName: Scalars['String']
-    __typename?: 'AddedToProjectEvent'
+    __typename: 'AddedToProjectEvent'
 }
 
 
@@ -219,7 +219,7 @@ export interface App {
     updatedAt: Scalars['DateTime']
     /** The URL to the app's homepage. */
     url: Scalars['URI']
-    __typename?: 'App'
+    __typename: 'App'
 }
 
 
@@ -229,7 +229,7 @@ export interface ArchiveRepositoryPayload {
     clientMutationId?: Scalars['String']
     /** The repository that was marked as archived. */
     repository?: Repository
-    __typename?: 'ArchiveRepositoryPayload'
+    __typename: 'ArchiveRepositoryPayload'
 }
 
 
@@ -253,7 +253,7 @@ export interface AssignedEvent {
      * Identifies the user who was assigned.
      */
     user?: User
-    __typename?: 'AssignedEvent'
+    __typename: 'AssignedEvent'
 }
 
 
@@ -286,7 +286,7 @@ export interface AutomaticBaseChangeFailedEvent {
     oldBase: Scalars['String']
     /** PullRequest referenced by event. */
     pullRequest: PullRequest
-    __typename?: 'AutomaticBaseChangeFailedEvent'
+    __typename: 'AutomaticBaseChangeFailedEvent'
 }
 
 
@@ -303,7 +303,7 @@ export interface AutomaticBaseChangeSucceededEvent {
     oldBase: Scalars['String']
     /** PullRequest referenced by event. */
     pullRequest: PullRequest
-    __typename?: 'AutomaticBaseChangeSucceededEvent'
+    __typename: 'AutomaticBaseChangeSucceededEvent'
 }
 
 
@@ -316,7 +316,7 @@ export interface BaseRefChangedEvent {
     /** Identifies the primary key from the database. */
     databaseId?: Scalars['Int']
     id: Scalars['ID']
-    __typename?: 'BaseRefChangedEvent'
+    __typename: 'BaseRefChangedEvent'
 }
 
 
@@ -335,7 +335,7 @@ export interface BaseRefForcePushedEvent {
     pullRequest: PullRequest
     /** Identifies the fully qualified ref name for the 'base_ref_force_pushed' event. */
     ref?: Ref
-    __typename?: 'BaseRefForcePushedEvent'
+    __typename: 'BaseRefForcePushedEvent'
 }
 
 
@@ -343,7 +343,7 @@ export interface BaseRefForcePushedEvent {
 export interface Blame {
     /** The list of ranges from a Git blame. */
     ranges: BlameRange[]
-    __typename?: 'Blame'
+    __typename: 'Blame'
 }
 
 
@@ -362,7 +362,7 @@ export interface BlameRange {
     endingLine: Scalars['Int']
     /** The starting line for the range */
     startingLine: Scalars['Int']
-    __typename?: 'BlameRange'
+    __typename: 'BlameRange'
 }
 
 
@@ -393,7 +393,7 @@ export interface Blob {
     repository: Repository
     /** UTF8 text data or null if the Blob is binary */
     text?: Scalars['String']
-    __typename?: 'Blob'
+    __typename: 'Blob'
 }
 
 
@@ -414,7 +414,7 @@ export interface Bot {
     updatedAt: Scalars['DateTime']
     /** The HTTP URL for this bot */
     url: Scalars['URI']
-    __typename?: 'Bot'
+    __typename: 'Bot'
 }
 
 
@@ -459,7 +459,7 @@ export interface BranchProtectionRule {
     restrictsReviewDismissals: Scalars['Boolean']
     /** A list review dismissal allowances for this branch protection rule. */
     reviewDismissalAllowances: ReviewDismissalAllowanceConnection
-    __typename?: 'BranchProtectionRule'
+    __typename: 'BranchProtectionRule'
 }
 
 
@@ -471,7 +471,7 @@ export interface BranchProtectionRuleConflict {
     conflictingBranchProtectionRule?: BranchProtectionRule
     /** Identifies the branch ref that has conflicting rules */
     ref?: Ref
-    __typename?: 'BranchProtectionRuleConflict'
+    __typename: 'BranchProtectionRuleConflict'
 }
 
 
@@ -485,7 +485,7 @@ export interface BranchProtectionRuleConflictConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'BranchProtectionRuleConflictConnection'
+    __typename: 'BranchProtectionRuleConflictConnection'
 }
 
 
@@ -495,7 +495,7 @@ export interface BranchProtectionRuleConflictEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: BranchProtectionRuleConflict
-    __typename?: 'BranchProtectionRuleConflictEdge'
+    __typename: 'BranchProtectionRuleConflictEdge'
 }
 
 
@@ -509,7 +509,7 @@ export interface BranchProtectionRuleConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'BranchProtectionRuleConnection'
+    __typename: 'BranchProtectionRuleConnection'
 }
 
 
@@ -519,7 +519,7 @@ export interface BranchProtectionRuleEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: BranchProtectionRule
-    __typename?: 'BranchProtectionRuleEdge'
+    __typename: 'BranchProtectionRuleEdge'
 }
 
 
@@ -531,7 +531,7 @@ export interface CancelEnterpriseAdminInvitationPayload {
     invitation?: EnterpriseAdministratorInvitation
     /** A message confirming the result of canceling an administrator invitation. */
     message?: Scalars['String']
-    __typename?: 'CancelEnterpriseAdminInvitationPayload'
+    __typename: 'CancelEnterpriseAdminInvitationPayload'
 }
 
 
@@ -541,7 +541,7 @@ export interface ChangeUserStatusPayload {
     clientMutationId?: Scalars['String']
     /** Your updated status. */
     status?: UserStatus
-    __typename?: 'ChangeUserStatusPayload'
+    __typename: 'ChangeUserStatusPayload'
 }
 
 
@@ -563,7 +563,7 @@ export interface CheckAnnotation {
     rawDetails?: Scalars['String']
     /** The annotation's title */
     title?: Scalars['String']
-    __typename?: 'CheckAnnotation'
+    __typename: 'CheckAnnotation'
 }
 
 
@@ -577,7 +577,7 @@ export interface CheckAnnotationConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CheckAnnotationConnection'
+    __typename: 'CheckAnnotationConnection'
 }
 
 
@@ -587,7 +587,7 @@ export interface CheckAnnotationEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CheckAnnotation
-    __typename?: 'CheckAnnotationEdge'
+    __typename: 'CheckAnnotationEdge'
 }
 
 
@@ -601,7 +601,7 @@ export interface CheckAnnotationPosition {
     column?: Scalars['Int']
     /** Line number (1 indexed). */
     line: Scalars['Int']
-    __typename?: 'CheckAnnotationPosition'
+    __typename: 'CheckAnnotationPosition'
 }
 
 
@@ -611,7 +611,7 @@ export interface CheckAnnotationSpan {
     end: CheckAnnotationPosition
     /** Start position (inclusive). */
     start: CheckAnnotationPosition
-    __typename?: 'CheckAnnotationSpan'
+    __typename: 'CheckAnnotationSpan'
 }
 
 
@@ -656,7 +656,7 @@ export interface CheckRun {
     title?: Scalars['String']
     /** The HTTP URL for this check run. */
     url: Scalars['URI']
-    __typename?: 'CheckRun'
+    __typename: 'CheckRun'
 }
 
 
@@ -670,7 +670,7 @@ export interface CheckRunConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CheckRunConnection'
+    __typename: 'CheckRunConnection'
 }
 
 
@@ -680,7 +680,7 @@ export interface CheckRunEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CheckRun
-    __typename?: 'CheckRunEdge'
+    __typename: 'CheckRunEdge'
 }
 
 
@@ -723,7 +723,7 @@ export interface CheckSuite {
     updatedAt: Scalars['DateTime']
     /** The HTTP URL for this check suite */
     url: Scalars['URI']
-    __typename?: 'CheckSuite'
+    __typename: 'CheckSuite'
 }
 
 
@@ -737,7 +737,7 @@ export interface CheckSuiteConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CheckSuiteConnection'
+    __typename: 'CheckSuiteConnection'
 }
 
 
@@ -747,7 +747,7 @@ export interface CheckSuiteEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CheckSuite
-    __typename?: 'CheckSuiteEdge'
+    __typename: 'CheckSuiteEdge'
 }
 
 
@@ -757,7 +757,7 @@ export interface ClearLabelsFromLabelablePayload {
     clientMutationId?: Scalars['String']
     /** The item that was unlabeled. */
     labelable?: Labelable
-    __typename?: 'ClearLabelsFromLabelablePayload'
+    __typename: 'ClearLabelsFromLabelablePayload'
 }
 
 
@@ -769,7 +769,7 @@ export interface CloneProjectPayload {
     jobStatusId?: Scalars['String']
     /** The new cloned project. */
     project?: Project
-    __typename?: 'CloneProjectPayload'
+    __typename: 'CloneProjectPayload'
 }
 
 
@@ -779,7 +779,7 @@ export interface CloneTemplateRepositoryPayload {
     clientMutationId?: Scalars['String']
     /** The new repository. */
     repository?: Repository
-    __typename?: 'CloneTemplateRepositoryPayload'
+    __typename: 'CloneTemplateRepositoryPayload'
 }
 
 
@@ -793,7 +793,7 @@ export interface CloseIssuePayload {
     clientMutationId?: Scalars['String']
     /** The issue that was closed. */
     issue?: Issue
-    __typename?: 'CloseIssuePayload'
+    __typename: 'CloseIssuePayload'
 }
 
 
@@ -803,7 +803,7 @@ export interface ClosePullRequestPayload {
     clientMutationId?: Scalars['String']
     /** The pull request that was closed. */
     pullRequest?: PullRequest
-    __typename?: 'ClosePullRequestPayload'
+    __typename: 'ClosePullRequestPayload'
 }
 
 
@@ -822,7 +822,7 @@ export interface ClosedEvent {
     resourcePath: Scalars['URI']
     /** The HTTP URL for this closed event. */
     url: Scalars['URI']
-    __typename?: 'ClosedEvent'
+    __typename: 'ClosedEvent'
 }
 
 
@@ -843,7 +843,7 @@ export interface CodeOfConduct {
     resourcePath?: Scalars['URI']
     /** The HTTP URL for this Code of Conduct */
     url?: Scalars['URI']
-    __typename?: 'CodeOfConduct'
+    __typename: 'CodeOfConduct'
 }
 
 
@@ -872,7 +872,7 @@ export interface CommentDeletedEvent {
     /** Identifies the primary key from the database. */
     databaseId?: Scalars['Int']
     id: Scalars['ID']
-    __typename?: 'CommentDeletedEvent'
+    __typename: 'CommentDeletedEvent'
 }
 
 
@@ -967,7 +967,7 @@ export interface Commit {
      * Note: For private repositories, these links are temporary and expire after five minutes.
      */
     zipballUrl: Scalars['URI']
-    __typename?: 'Commit'
+    __typename: 'Commit'
 }
 
 
@@ -1034,7 +1034,7 @@ export interface CommitComment {
     viewerCannotUpdateReasons: CommentCannotUpdateReason[]
     /** Did the viewer author this comment. */
     viewerDidAuthor: Scalars['Boolean']
-    __typename?: 'CommitComment'
+    __typename: 'CommitComment'
 }
 
 
@@ -1048,7 +1048,7 @@ export interface CommitCommentConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CommitCommentConnection'
+    __typename: 'CommitCommentConnection'
 }
 
 
@@ -1058,7 +1058,7 @@ export interface CommitCommentEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CommitComment
-    __typename?: 'CommitCommentEdge'
+    __typename: 'CommitCommentEdge'
 }
 
 
@@ -1075,7 +1075,7 @@ export interface CommitCommentThread {
     position?: Scalars['Int']
     /** The repository associated with this node. */
     repository: Repository
-    __typename?: 'CommitCommentThread'
+    __typename: 'CommitCommentThread'
 }
 
 
@@ -1089,7 +1089,7 @@ export interface CommitConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CommitConnection'
+    __typename: 'CommitConnection'
 }
 
 
@@ -1107,7 +1107,7 @@ export interface CommitContributionsByRepository {
     resourcePath: Scalars['URI']
     /** The HTTP URL for the user's commits to the repository in this time range. */
     url: Scalars['URI']
-    __typename?: 'CommitContributionsByRepository'
+    __typename: 'CommitContributionsByRepository'
 }
 
 
@@ -1117,7 +1117,7 @@ export interface CommitEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Commit
-    __typename?: 'CommitEdge'
+    __typename: 'CommitEdge'
 }
 
 
@@ -1131,7 +1131,7 @@ export interface CommitHistoryConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CommitHistoryConnection'
+    __typename: 'CommitHistoryConnection'
 }
 
 
@@ -1148,7 +1148,7 @@ export interface ConnectedEvent {
     source: ReferencedSubject
     /** Issue or pull request which was connected. */
     subject: ReferencedSubject
-    __typename?: 'ConnectedEvent'
+    __typename: 'ConnectedEvent'
 }
 
 
@@ -1163,7 +1163,7 @@ export interface ContentAttachment {
     id: Scalars['ID']
     /** The title of the content attachment. */
     title: Scalars['String']
-    __typename?: 'ContentAttachment'
+    __typename: 'ContentAttachment'
 }
 
 
@@ -1174,7 +1174,7 @@ export interface ContentReference {
     id: Scalars['ID']
     /** The reference of the content reference. */
     reference: Scalars['String']
-    __typename?: 'ContentReference'
+    __typename: 'ContentReference'
 }
 
 
@@ -1194,7 +1194,7 @@ export interface ContributionCalendar {
     totalContributions: Scalars['Int']
     /** A list of the weeks of contributions in this calendar. */
     weeks: ContributionCalendarWeek[]
-    __typename?: 'ContributionCalendar'
+    __typename: 'ContributionCalendar'
 }
 
 
@@ -1208,7 +1208,7 @@ export interface ContributionCalendarDay {
     date: Scalars['Date']
     /** A number representing which day of the week this square represents, e.g., 1 is Monday. */
     weekday: Scalars['Int']
-    __typename?: 'ContributionCalendarDay'
+    __typename: 'ContributionCalendarDay'
 }
 
 
@@ -1222,7 +1222,7 @@ export interface ContributionCalendarMonth {
     totalWeeks: Scalars['Int']
     /** The year the month occurred in. */
     year: Scalars['Int']
-    __typename?: 'ContributionCalendarMonth'
+    __typename: 'ContributionCalendarMonth'
 }
 
 
@@ -1232,7 +1232,7 @@ export interface ContributionCalendarWeek {
     contributionDays: ContributionCalendarDay[]
     /** The date of the earliest square in this week. */
     firstDay: Scalars['Date']
-    __typename?: 'ContributionCalendarWeek'
+    __typename: 'ContributionCalendarWeek'
 }
 
 
@@ -1357,7 +1357,7 @@ export interface ContributionsCollection {
     totalRepositoryContributions: Scalars['Int']
     /** The user who made the contributions in this collection. */
     user: User
-    __typename?: 'ContributionsCollection'
+    __typename: 'ContributionsCollection'
 }
 
 
@@ -1367,7 +1367,7 @@ export interface ConvertProjectCardNoteToIssuePayload {
     clientMutationId?: Scalars['String']
     /** The updated ProjectCard. */
     projectCard?: ProjectCard
-    __typename?: 'ConvertProjectCardNoteToIssuePayload'
+    __typename: 'ConvertProjectCardNoteToIssuePayload'
 }
 
 
@@ -1384,7 +1384,7 @@ export interface ConvertToDraftEvent {
     resourcePath: Scalars['URI']
     /** The HTTP URL for this convert to draft event. */
     url: Scalars['URI']
-    __typename?: 'ConvertToDraftEvent'
+    __typename: 'ConvertToDraftEvent'
 }
 
 
@@ -1403,7 +1403,7 @@ export interface ConvertedNoteToIssueEvent {
     projectCard?: ProjectCard
     /** Column name referenced by this project event. */
     projectColumnName: Scalars['String']
-    __typename?: 'ConvertedNoteToIssueEvent'
+    __typename: 'ConvertedNoteToIssueEvent'
 }
 
 
@@ -1413,7 +1413,7 @@ export interface CreateBranchProtectionRulePayload {
     branchProtectionRule?: BranchProtectionRule
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'CreateBranchProtectionRulePayload'
+    __typename: 'CreateBranchProtectionRulePayload'
 }
 
 
@@ -1423,7 +1423,7 @@ export interface CreateCheckRunPayload {
     checkRun?: CheckRun
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'CreateCheckRunPayload'
+    __typename: 'CreateCheckRunPayload'
 }
 
 
@@ -1433,7 +1433,7 @@ export interface CreateCheckSuitePayload {
     checkSuite?: CheckSuite
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'CreateCheckSuitePayload'
+    __typename: 'CreateCheckSuitePayload'
 }
 
 
@@ -1443,7 +1443,7 @@ export interface CreateContentAttachmentPayload {
     clientMutationId?: Scalars['String']
     /** The newly created content attachment. */
     contentAttachment?: ContentAttachment
-    __typename?: 'CreateContentAttachmentPayload'
+    __typename: 'CreateContentAttachmentPayload'
 }
 
 
@@ -1455,7 +1455,7 @@ export interface CreateDeploymentPayload {
     clientMutationId?: Scalars['String']
     /** The new deployment. */
     deployment?: Deployment
-    __typename?: 'CreateDeploymentPayload'
+    __typename: 'CreateDeploymentPayload'
 }
 
 
@@ -1465,7 +1465,7 @@ export interface CreateDeploymentStatusPayload {
     clientMutationId?: Scalars['String']
     /** The new deployment status. */
     deploymentStatus?: DeploymentStatus
-    __typename?: 'CreateDeploymentStatusPayload'
+    __typename: 'CreateDeploymentStatusPayload'
 }
 
 
@@ -1477,7 +1477,7 @@ export interface CreateEnterpriseOrganizationPayload {
     enterprise?: Enterprise
     /** The organization that was created. */
     organization?: Organization
-    __typename?: 'CreateEnterpriseOrganizationPayload'
+    __typename: 'CreateEnterpriseOrganizationPayload'
 }
 
 
@@ -1487,7 +1487,7 @@ export interface CreateIpAllowListEntryPayload {
     clientMutationId?: Scalars['String']
     /** The IP allow list entry that was created. */
     ipAllowListEntry?: IpAllowListEntry
-    __typename?: 'CreateIpAllowListEntryPayload'
+    __typename: 'CreateIpAllowListEntryPayload'
 }
 
 
@@ -1497,7 +1497,7 @@ export interface CreateIssuePayload {
     clientMutationId?: Scalars['String']
     /** The new issue. */
     issue?: Issue
-    __typename?: 'CreateIssuePayload'
+    __typename: 'CreateIssuePayload'
 }
 
 
@@ -1507,7 +1507,7 @@ export interface CreateLabelPayload {
     clientMutationId?: Scalars['String']
     /** The new label. */
     label?: Label
-    __typename?: 'CreateLabelPayload'
+    __typename: 'CreateLabelPayload'
 }
 
 
@@ -1517,7 +1517,7 @@ export interface CreateProjectPayload {
     clientMutationId?: Scalars['String']
     /** The new project. */
     project?: Project
-    __typename?: 'CreateProjectPayload'
+    __typename: 'CreateProjectPayload'
 }
 
 
@@ -1527,7 +1527,7 @@ export interface CreatePullRequestPayload {
     clientMutationId?: Scalars['String']
     /** The new pull request. */
     pullRequest?: PullRequest
-    __typename?: 'CreatePullRequestPayload'
+    __typename: 'CreatePullRequestPayload'
 }
 
 
@@ -1537,7 +1537,7 @@ export interface CreateRefPayload {
     clientMutationId?: Scalars['String']
     /** The newly created ref. */
     ref?: Ref
-    __typename?: 'CreateRefPayload'
+    __typename: 'CreateRefPayload'
 }
 
 
@@ -1547,7 +1547,7 @@ export interface CreateRepositoryPayload {
     clientMutationId?: Scalars['String']
     /** The new repository. */
     repository?: Repository
-    __typename?: 'CreateRepositoryPayload'
+    __typename: 'CreateRepositoryPayload'
 }
 
 
@@ -1557,7 +1557,7 @@ export interface CreateTeamDiscussionCommentPayload {
     clientMutationId?: Scalars['String']
     /** The new comment. */
     teamDiscussionComment?: TeamDiscussionComment
-    __typename?: 'CreateTeamDiscussionCommentPayload'
+    __typename: 'CreateTeamDiscussionCommentPayload'
 }
 
 
@@ -1567,7 +1567,7 @@ export interface CreateTeamDiscussionPayload {
     clientMutationId?: Scalars['String']
     /** The new discussion. */
     teamDiscussion?: TeamDiscussion
-    __typename?: 'CreateTeamDiscussionPayload'
+    __typename: 'CreateTeamDiscussionPayload'
 }
 
 
@@ -1591,7 +1591,7 @@ export interface CreatedCommitContribution {
     url: Scalars['URI']
     /** The user who made this contribution. */
     user: User
-    __typename?: 'CreatedCommitContribution'
+    __typename: 'CreatedCommitContribution'
 }
 
 
@@ -1605,7 +1605,7 @@ export interface CreatedCommitContributionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of commits across days and repositories in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CreatedCommitContributionConnection'
+    __typename: 'CreatedCommitContributionConnection'
 }
 
 
@@ -1615,7 +1615,7 @@ export interface CreatedCommitContributionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CreatedCommitContribution
-    __typename?: 'CreatedCommitContributionEdge'
+    __typename: 'CreatedCommitContributionEdge'
 }
 
 
@@ -1637,7 +1637,7 @@ export interface CreatedIssueContribution {
     url: Scalars['URI']
     /** The user who made this contribution. */
     user: User
-    __typename?: 'CreatedIssueContribution'
+    __typename: 'CreatedIssueContribution'
 }
 
 
@@ -1651,7 +1651,7 @@ export interface CreatedIssueContributionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CreatedIssueContributionConnection'
+    __typename: 'CreatedIssueContributionConnection'
 }
 
 
@@ -1661,7 +1661,7 @@ export interface CreatedIssueContributionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CreatedIssueContribution
-    __typename?: 'CreatedIssueContributionEdge'
+    __typename: 'CreatedIssueContributionEdge'
 }
 
 
@@ -1687,7 +1687,7 @@ export interface CreatedPullRequestContribution {
     url: Scalars['URI']
     /** The user who made this contribution. */
     user: User
-    __typename?: 'CreatedPullRequestContribution'
+    __typename: 'CreatedPullRequestContribution'
 }
 
 
@@ -1701,7 +1701,7 @@ export interface CreatedPullRequestContributionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CreatedPullRequestContributionConnection'
+    __typename: 'CreatedPullRequestContributionConnection'
 }
 
 
@@ -1711,7 +1711,7 @@ export interface CreatedPullRequestContributionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CreatedPullRequestContribution
-    __typename?: 'CreatedPullRequestContributionEdge'
+    __typename: 'CreatedPullRequestContributionEdge'
 }
 
 
@@ -1741,7 +1741,7 @@ export interface CreatedPullRequestReviewContribution {
     url: Scalars['URI']
     /** The user who made this contribution. */
     user: User
-    __typename?: 'CreatedPullRequestReviewContribution'
+    __typename: 'CreatedPullRequestReviewContribution'
 }
 
 
@@ -1755,7 +1755,7 @@ export interface CreatedPullRequestReviewContributionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CreatedPullRequestReviewContributionConnection'
+    __typename: 'CreatedPullRequestReviewContributionConnection'
 }
 
 
@@ -1765,7 +1765,7 @@ export interface CreatedPullRequestReviewContributionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CreatedPullRequestReviewContribution
-    __typename?: 'CreatedPullRequestReviewContributionEdge'
+    __typename: 'CreatedPullRequestReviewContributionEdge'
 }
 
 
@@ -1787,7 +1787,7 @@ export interface CreatedRepositoryContribution {
     url: Scalars['URI']
     /** The user who made this contribution. */
     user: User
-    __typename?: 'CreatedRepositoryContribution'
+    __typename: 'CreatedRepositoryContribution'
 }
 
 
@@ -1801,7 +1801,7 @@ export interface CreatedRepositoryContributionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'CreatedRepositoryContributionConnection'
+    __typename: 'CreatedRepositoryContributionConnection'
 }
 
 
@@ -1811,7 +1811,7 @@ export interface CreatedRepositoryContributionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: CreatedRepositoryContribution
-    __typename?: 'CreatedRepositoryContributionEdge'
+    __typename: 'CreatedRepositoryContributionEdge'
 }
 
 
@@ -1840,7 +1840,7 @@ export interface CrossReferencedEvent {
     url: Scalars['URI']
     /** Checks if the target will be closed when the source is merged. */
     willCloseTarget: Scalars['Boolean']
-    __typename?: 'CrossReferencedEvent'
+    __typename: 'CrossReferencedEvent'
 }
 
 
@@ -1850,7 +1850,7 @@ export interface DeclineTopicSuggestionPayload {
     clientMutationId?: Scalars['String']
     /** The declined topic. */
     topic?: Topic
-    __typename?: 'DeclineTopicSuggestionPayload'
+    __typename: 'DeclineTopicSuggestionPayload'
 }
 
 
@@ -1866,7 +1866,7 @@ export type Deletable = (CommitComment | GistComment | IssueComment | PullReques
 export interface DeleteBranchProtectionRulePayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'DeleteBranchProtectionRulePayload'
+    __typename: 'DeleteBranchProtectionRulePayload'
 }
 
 
@@ -1874,7 +1874,7 @@ export interface DeleteBranchProtectionRulePayload {
 export interface DeleteDeploymentPayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'DeleteDeploymentPayload'
+    __typename: 'DeleteDeploymentPayload'
 }
 
 
@@ -1884,7 +1884,7 @@ export interface DeleteIpAllowListEntryPayload {
     clientMutationId?: Scalars['String']
     /** The IP allow list entry that was deleted. */
     ipAllowListEntry?: IpAllowListEntry
-    __typename?: 'DeleteIpAllowListEntryPayload'
+    __typename: 'DeleteIpAllowListEntryPayload'
 }
 
 
@@ -1892,7 +1892,7 @@ export interface DeleteIpAllowListEntryPayload {
 export interface DeleteIssueCommentPayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'DeleteIssueCommentPayload'
+    __typename: 'DeleteIssueCommentPayload'
 }
 
 
@@ -1902,7 +1902,7 @@ export interface DeleteIssuePayload {
     clientMutationId?: Scalars['String']
     /** The repository the issue belonged to */
     repository?: Repository
-    __typename?: 'DeleteIssuePayload'
+    __typename: 'DeleteIssuePayload'
 }
 
 
@@ -1910,7 +1910,7 @@ export interface DeleteIssuePayload {
 export interface DeleteLabelPayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'DeleteLabelPayload'
+    __typename: 'DeleteLabelPayload'
 }
 
 
@@ -1920,7 +1920,7 @@ export interface DeletePackageVersionPayload {
     clientMutationId?: Scalars['String']
     /** Whether or not the operation succeeded. */
     success?: Scalars['Boolean']
-    __typename?: 'DeletePackageVersionPayload'
+    __typename: 'DeletePackageVersionPayload'
 }
 
 
@@ -1932,7 +1932,7 @@ export interface DeleteProjectCardPayload {
     column?: ProjectColumn
     /** The deleted card ID. */
     deletedCardId?: Scalars['ID']
-    __typename?: 'DeleteProjectCardPayload'
+    __typename: 'DeleteProjectCardPayload'
 }
 
 
@@ -1944,7 +1944,7 @@ export interface DeleteProjectColumnPayload {
     deletedColumnId?: Scalars['ID']
     /** The project the deleted column was in. */
     project?: Project
-    __typename?: 'DeleteProjectColumnPayload'
+    __typename: 'DeleteProjectColumnPayload'
 }
 
 
@@ -1954,7 +1954,7 @@ export interface DeleteProjectPayload {
     clientMutationId?: Scalars['String']
     /** The repository or organization the project was removed from. */
     owner?: ProjectOwner
-    __typename?: 'DeleteProjectPayload'
+    __typename: 'DeleteProjectPayload'
 }
 
 
@@ -1964,7 +1964,7 @@ export interface DeletePullRequestReviewCommentPayload {
     clientMutationId?: Scalars['String']
     /** The pull request review the deleted comment belonged to. */
     pullRequestReview?: PullRequestReview
-    __typename?: 'DeletePullRequestReviewCommentPayload'
+    __typename: 'DeletePullRequestReviewCommentPayload'
 }
 
 
@@ -1974,7 +1974,7 @@ export interface DeletePullRequestReviewPayload {
     clientMutationId?: Scalars['String']
     /** The deleted pull request review. */
     pullRequestReview?: PullRequestReview
-    __typename?: 'DeletePullRequestReviewPayload'
+    __typename: 'DeletePullRequestReviewPayload'
 }
 
 
@@ -1982,7 +1982,7 @@ export interface DeletePullRequestReviewPayload {
 export interface DeleteRefPayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'DeleteRefPayload'
+    __typename: 'DeleteRefPayload'
 }
 
 
@@ -1990,7 +1990,7 @@ export interface DeleteRefPayload {
 export interface DeleteTeamDiscussionCommentPayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'DeleteTeamDiscussionCommentPayload'
+    __typename: 'DeleteTeamDiscussionCommentPayload'
 }
 
 
@@ -1998,7 +1998,7 @@ export interface DeleteTeamDiscussionCommentPayload {
 export interface DeleteTeamDiscussionPayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'DeleteTeamDiscussionPayload'
+    __typename: 'DeleteTeamDiscussionPayload'
 }
 
 
@@ -2013,7 +2013,7 @@ export interface DemilestonedEvent {
     milestoneTitle: Scalars['String']
     /** Object referenced by event. */
     subject: MilestoneItem
-    __typename?: 'DemilestonedEvent'
+    __typename: 'DemilestonedEvent'
 }
 
 
@@ -2029,7 +2029,7 @@ export interface DependencyGraphDependency {
     repository?: Repository
     /** The dependency version requirements */
     requirements: Scalars['String']
-    __typename?: 'DependencyGraphDependency'
+    __typename: 'DependencyGraphDependency'
 }
 
 
@@ -2043,7 +2043,7 @@ export interface DependencyGraphDependencyConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'DependencyGraphDependencyConnection'
+    __typename: 'DependencyGraphDependencyConnection'
 }
 
 
@@ -2053,7 +2053,7 @@ export interface DependencyGraphDependencyEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: DependencyGraphDependency
-    __typename?: 'DependencyGraphDependencyEdge'
+    __typename: 'DependencyGraphDependencyEdge'
 }
 
 
@@ -2074,7 +2074,7 @@ export interface DependencyGraphManifest {
     parseable: Scalars['Boolean']
     /** The repository containing the manifest */
     repository: Repository
-    __typename?: 'DependencyGraphManifest'
+    __typename: 'DependencyGraphManifest'
 }
 
 
@@ -2088,7 +2088,7 @@ export interface DependencyGraphManifestConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'DependencyGraphManifestConnection'
+    __typename: 'DependencyGraphManifestConnection'
 }
 
 
@@ -2098,7 +2098,7 @@ export interface DependencyGraphManifestEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: DependencyGraphManifest
-    __typename?: 'DependencyGraphManifestEdge'
+    __typename: 'DependencyGraphManifestEdge'
 }
 
 
@@ -2115,7 +2115,7 @@ export interface DeployKey {
     title: Scalars['String']
     /** Whether or not the deploy key has been verified. */
     verified: Scalars['Boolean']
-    __typename?: 'DeployKey'
+    __typename: 'DeployKey'
 }
 
 
@@ -2129,7 +2129,7 @@ export interface DeployKeyConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'DeployKeyConnection'
+    __typename: 'DeployKeyConnection'
 }
 
 
@@ -2139,7 +2139,7 @@ export interface DeployKeyEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: DeployKey
-    __typename?: 'DeployKeyEdge'
+    __typename: 'DeployKeyEdge'
 }
 
 
@@ -2158,7 +2158,7 @@ export interface DeployedEvent {
     pullRequest: PullRequest
     /** The ref associated with the 'deployed' event. */
     ref?: Ref
-    __typename?: 'DeployedEvent'
+    __typename: 'DeployedEvent'
 }
 
 
@@ -2199,7 +2199,7 @@ export interface Deployment {
     task?: Scalars['String']
     /** Identifies the date and time when the object was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'Deployment'
+    __typename: 'Deployment'
 }
 
 
@@ -2213,7 +2213,7 @@ export interface DeploymentConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'DeploymentConnection'
+    __typename: 'DeploymentConnection'
 }
 
 
@@ -2223,7 +2223,7 @@ export interface DeploymentEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Deployment
-    __typename?: 'DeploymentEdge'
+    __typename: 'DeploymentEdge'
 }
 
 
@@ -2238,7 +2238,7 @@ export interface DeploymentEnvironmentChangedEvent {
     id: Scalars['ID']
     /** PullRequest referenced by event. */
     pullRequest: PullRequest
-    __typename?: 'DeploymentEnvironmentChangedEvent'
+    __typename: 'DeploymentEnvironmentChangedEvent'
 }
 
 
@@ -2271,7 +2271,7 @@ export interface DeploymentStatus {
     state: DeploymentStatusState
     /** Identifies the date and time when the object was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'DeploymentStatus'
+    __typename: 'DeploymentStatus'
 }
 
 
@@ -2285,7 +2285,7 @@ export interface DeploymentStatusConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'DeploymentStatusConnection'
+    __typename: 'DeploymentStatusConnection'
 }
 
 
@@ -2295,7 +2295,7 @@ export interface DeploymentStatusEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: DeploymentStatus
-    __typename?: 'DeploymentStatusEdge'
+    __typename: 'DeploymentStatusEdge'
 }
 
 
@@ -2320,7 +2320,7 @@ export interface DisconnectedEvent {
     source: ReferencedSubject
     /** Issue or pull request which was disconnected. */
     subject: ReferencedSubject
-    __typename?: 'DisconnectedEvent'
+    __typename: 'DisconnectedEvent'
 }
 
 
@@ -2330,7 +2330,7 @@ export interface DismissPullRequestReviewPayload {
     clientMutationId?: Scalars['String']
     /** The dismissed pull request review. */
     pullRequestReview?: PullRequestReview
-    __typename?: 'DismissPullRequestReviewPayload'
+    __typename: 'DismissPullRequestReviewPayload'
 }
 
 
@@ -2371,7 +2371,7 @@ export interface Enterprise {
     viewerIsAdmin: Scalars['Boolean']
     /** The URL of the enterprise website. */
     websiteUrl?: Scalars['URI']
-    __typename?: 'Enterprise'
+    __typename: 'Enterprise'
 }
 
 
@@ -2385,7 +2385,7 @@ export interface EnterpriseAdministratorConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseAdministratorConnection'
+    __typename: 'EnterpriseAdministratorConnection'
 }
 
 
@@ -2397,7 +2397,7 @@ export interface EnterpriseAdministratorEdge {
     node?: User
     /** The role of the administrator. */
     role: EnterpriseAdministratorRole
-    __typename?: 'EnterpriseAdministratorEdge'
+    __typename: 'EnterpriseAdministratorEdge'
 }
 
 
@@ -2416,7 +2416,7 @@ export interface EnterpriseAdministratorInvitation {
     inviter?: User
     /** The invitee's pending role in the enterprise (owner or billing_manager). */
     role: EnterpriseAdministratorRole
-    __typename?: 'EnterpriseAdministratorInvitation'
+    __typename: 'EnterpriseAdministratorInvitation'
 }
 
 
@@ -2430,7 +2430,7 @@ export interface EnterpriseAdministratorInvitationConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseAdministratorInvitationConnection'
+    __typename: 'EnterpriseAdministratorInvitationConnection'
 }
 
 
@@ -2440,7 +2440,7 @@ export interface EnterpriseAdministratorInvitationEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: EnterpriseAdministratorInvitation
-    __typename?: 'EnterpriseAdministratorInvitationEdge'
+    __typename: 'EnterpriseAdministratorInvitationEdge'
 }
 
 
@@ -2488,7 +2488,7 @@ export interface EnterpriseBillingInfo {
     totalAvailableLicenses: Scalars['Int']
     /** The total number of licenses allocated. */
     totalLicenses: Scalars['Int']
-    __typename?: 'EnterpriseBillingInfo'
+    __typename: 'EnterpriseBillingInfo'
 }
 
 
@@ -2523,7 +2523,7 @@ export interface EnterpriseIdentityProvider {
     signatureMethod?: SamlSignatureAlgorithm
     /** The URL endpoint for the identity provider's SAML SSO. */
     ssoUrl?: Scalars['URI']
-    __typename?: 'EnterpriseIdentityProvider'
+    __typename: 'EnterpriseIdentityProvider'
 }
 
 
@@ -2541,7 +2541,7 @@ export interface EnterpriseMemberConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseMemberConnection'
+    __typename: 'EnterpriseMemberConnection'
 }
 
 
@@ -2553,7 +2553,7 @@ export interface EnterpriseMemberEdge {
     isUnlicensed: Scalars['Boolean']
     /** The item at the end of the edge. */
     node?: EnterpriseMember
-    __typename?: 'EnterpriseMemberEdge'
+    __typename: 'EnterpriseMemberEdge'
 }
 
 
@@ -2579,7 +2579,7 @@ export interface EnterpriseOrganizationMembershipConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseOrganizationMembershipConnection'
+    __typename: 'EnterpriseOrganizationMembershipConnection'
 }
 
 
@@ -2591,7 +2591,7 @@ export interface EnterpriseOrganizationMembershipEdge {
     node?: Organization
     /** The role of the user in the enterprise membership. */
     role: EnterpriseUserAccountMembershipRole
-    __typename?: 'EnterpriseOrganizationMembershipEdge'
+    __typename: 'EnterpriseOrganizationMembershipEdge'
 }
 
 
@@ -2605,7 +2605,7 @@ export interface EnterpriseOutsideCollaboratorConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseOutsideCollaboratorConnection'
+    __typename: 'EnterpriseOutsideCollaboratorConnection'
 }
 
 
@@ -2619,7 +2619,7 @@ export interface EnterpriseOutsideCollaboratorEdge {
     node?: User
     /** The enterprise organization repositories this user is a member of. */
     repositories: EnterpriseRepositoryInfoConnection
-    __typename?: 'EnterpriseOutsideCollaboratorEdge'
+    __typename: 'EnterpriseOutsideCollaboratorEdge'
 }
 
 
@@ -2723,7 +2723,7 @@ export interface EnterpriseOwnerInfo {
     twoFactorRequiredSetting: EnterpriseEnabledSettingValue
     /** A list of enterprise organizations configured with the two-factor authentication setting value. */
     twoFactorRequiredSettingOrganizations: OrganizationConnection
-    __typename?: 'EnterpriseOwnerInfo'
+    __typename: 'EnterpriseOwnerInfo'
 }
 
 
@@ -2737,7 +2737,7 @@ export interface EnterprisePendingCollaboratorConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterprisePendingCollaboratorConnection'
+    __typename: 'EnterprisePendingCollaboratorConnection'
 }
 
 
@@ -2751,7 +2751,7 @@ export interface EnterprisePendingCollaboratorEdge {
     node?: User
     /** The enterprise organization repositories this user is a member of. */
     repositories: EnterpriseRepositoryInfoConnection
-    __typename?: 'EnterprisePendingCollaboratorEdge'
+    __typename: 'EnterprisePendingCollaboratorEdge'
 }
 
 
@@ -2767,7 +2767,7 @@ export interface EnterprisePendingMemberInvitationConnection {
     totalCount: Scalars['Int']
     /** Identifies the total count of unique users in the connection. */
     totalUniqueUserCount: Scalars['Int']
-    __typename?: 'EnterprisePendingMemberInvitationConnection'
+    __typename: 'EnterprisePendingMemberInvitationConnection'
 }
 
 
@@ -2779,7 +2779,7 @@ export interface EnterprisePendingMemberInvitationEdge {
     isUnlicensed: Scalars['Boolean']
     /** The item at the end of the edge. */
     node?: OrganizationInvitation
-    __typename?: 'EnterprisePendingMemberInvitationEdge'
+    __typename: 'EnterprisePendingMemberInvitationEdge'
 }
 
 
@@ -2792,7 +2792,7 @@ export interface EnterpriseRepositoryInfo {
     name: Scalars['String']
     /** The repository's name with owner. */
     nameWithOwner: Scalars['String']
-    __typename?: 'EnterpriseRepositoryInfo'
+    __typename: 'EnterpriseRepositoryInfo'
 }
 
 
@@ -2806,7 +2806,7 @@ export interface EnterpriseRepositoryInfoConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseRepositoryInfoConnection'
+    __typename: 'EnterpriseRepositoryInfoConnection'
 }
 
 
@@ -2816,7 +2816,7 @@ export interface EnterpriseRepositoryInfoEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: EnterpriseRepositoryInfo
-    __typename?: 'EnterpriseRepositoryInfoEdge'
+    __typename: 'EnterpriseRepositoryInfoEdge'
 }
 
 
@@ -2837,7 +2837,7 @@ export interface EnterpriseServerInstallation {
     userAccounts: EnterpriseServerUserAccountConnection
     /** User accounts uploads for the Enterprise Server installation. */
     userAccountsUploads: EnterpriseServerUserAccountsUploadConnection
-    __typename?: 'EnterpriseServerInstallation'
+    __typename: 'EnterpriseServerInstallation'
 }
 
 
@@ -2851,7 +2851,7 @@ export interface EnterpriseServerInstallationConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseServerInstallationConnection'
+    __typename: 'EnterpriseServerInstallationConnection'
 }
 
 
@@ -2861,7 +2861,7 @@ export interface EnterpriseServerInstallationEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: EnterpriseServerInstallation
-    __typename?: 'EnterpriseServerInstallationEdge'
+    __typename: 'EnterpriseServerInstallationEdge'
 }
 
 
@@ -2890,7 +2890,7 @@ export interface EnterpriseServerUserAccount {
     remoteUserId: Scalars['Int']
     /** Identifies the date and time when the object was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'EnterpriseServerUserAccount'
+    __typename: 'EnterpriseServerUserAccount'
 }
 
 
@@ -2904,7 +2904,7 @@ export interface EnterpriseServerUserAccountConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseServerUserAccountConnection'
+    __typename: 'EnterpriseServerUserAccountConnection'
 }
 
 
@@ -2914,7 +2914,7 @@ export interface EnterpriseServerUserAccountEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: EnterpriseServerUserAccount
-    __typename?: 'EnterpriseServerUserAccountEdge'
+    __typename: 'EnterpriseServerUserAccountEdge'
 }
 
 
@@ -2931,7 +2931,7 @@ export interface EnterpriseServerUserAccountEmail {
     updatedAt: Scalars['DateTime']
     /** The user account to which the email belongs. */
     userAccount: EnterpriseServerUserAccount
-    __typename?: 'EnterpriseServerUserAccountEmail'
+    __typename: 'EnterpriseServerUserAccountEmail'
 }
 
 
@@ -2945,7 +2945,7 @@ export interface EnterpriseServerUserAccountEmailConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseServerUserAccountEmailConnection'
+    __typename: 'EnterpriseServerUserAccountEmailConnection'
 }
 
 
@@ -2955,7 +2955,7 @@ export interface EnterpriseServerUserAccountEmailEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: EnterpriseServerUserAccountEmail
-    __typename?: 'EnterpriseServerUserAccountEmailEdge'
+    __typename: 'EnterpriseServerUserAccountEmailEdge'
 }
 
 
@@ -2982,7 +2982,7 @@ export interface EnterpriseServerUserAccountsUpload {
     syncState: EnterpriseServerUserAccountsUploadSyncState
     /** Identifies the date and time when the object was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'EnterpriseServerUserAccountsUpload'
+    __typename: 'EnterpriseServerUserAccountsUpload'
 }
 
 
@@ -2996,7 +2996,7 @@ export interface EnterpriseServerUserAccountsUploadConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseServerUserAccountsUploadConnection'
+    __typename: 'EnterpriseServerUserAccountsUploadConnection'
 }
 
 
@@ -3006,7 +3006,7 @@ export interface EnterpriseServerUserAccountsUploadEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: EnterpriseServerUserAccountsUpload
-    __typename?: 'EnterpriseServerUserAccountsUploadEdge'
+    __typename: 'EnterpriseServerUserAccountsUploadEdge'
 }
 
 
@@ -3041,7 +3041,7 @@ export interface EnterpriseUserAccount {
     url: Scalars['URI']
     /** The user within the enterprise. */
     user?: User
-    __typename?: 'EnterpriseUserAccount'
+    __typename: 'EnterpriseUserAccount'
 }
 
 
@@ -3055,7 +3055,7 @@ export interface EnterpriseUserAccountConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'EnterpriseUserAccountConnection'
+    __typename: 'EnterpriseUserAccountConnection'
 }
 
 
@@ -3065,7 +3065,7 @@ export interface EnterpriseUserAccountEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: EnterpriseUserAccount
-    __typename?: 'EnterpriseUserAccountEdge'
+    __typename: 'EnterpriseUserAccountEdge'
 }
 
 
@@ -3090,7 +3090,7 @@ export interface ExternalIdentity {
     scimIdentity?: ExternalIdentityScimAttributes
     /** User linked to this external identity. Will be NULL if this identity has not been claimed by an organization member. */
     user?: User
-    __typename?: 'ExternalIdentity'
+    __typename: 'ExternalIdentity'
 }
 
 
@@ -3104,7 +3104,7 @@ export interface ExternalIdentityConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ExternalIdentityConnection'
+    __typename: 'ExternalIdentityConnection'
 }
 
 
@@ -3114,7 +3114,7 @@ export interface ExternalIdentityEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: ExternalIdentity
-    __typename?: 'ExternalIdentityEdge'
+    __typename: 'ExternalIdentityEdge'
 }
 
 
@@ -3122,7 +3122,7 @@ export interface ExternalIdentityEdge {
 export interface ExternalIdentitySamlAttributes {
     /** The NameID of the SAML identity */
     nameId?: Scalars['String']
-    __typename?: 'ExternalIdentitySamlAttributes'
+    __typename: 'ExternalIdentitySamlAttributes'
 }
 
 
@@ -3130,7 +3130,7 @@ export interface ExternalIdentitySamlAttributes {
 export interface ExternalIdentityScimAttributes {
     /** The userName of the SCIM identity */
     username?: Scalars['String']
-    __typename?: 'ExternalIdentityScimAttributes'
+    __typename: 'ExternalIdentityScimAttributes'
 }
 
 
@@ -3140,7 +3140,7 @@ export interface FollowUserPayload {
     clientMutationId?: Scalars['String']
     /** The user that was followed. */
     user?: User
-    __typename?: 'FollowUserPayload'
+    __typename: 'FollowUserPayload'
 }
 
 
@@ -3154,7 +3154,7 @@ export interface FollowerConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'FollowerConnection'
+    __typename: 'FollowerConnection'
 }
 
 
@@ -3168,7 +3168,7 @@ export interface FollowingConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'FollowingConnection'
+    __typename: 'FollowingConnection'
 }
 
 
@@ -3178,7 +3178,7 @@ export interface FundingLink {
     platform: FundingPlatform
     /** The configured URL for this funding link. */
     url: Scalars['URI']
-    __typename?: 'FundingLink'
+    __typename: 'FundingLink'
 }
 
 
@@ -3192,7 +3192,7 @@ export interface GenericHovercardContext {
     message: Scalars['String']
     /** An octicon to accompany this context */
     octicon: Scalars['String']
-    __typename?: 'GenericHovercardContext'
+    __typename: 'GenericHovercardContext'
 }
 
 
@@ -3229,7 +3229,7 @@ export interface Gist {
     url: Scalars['URI']
     /** Returns a boolean indicating whether the viewing user has starred this starrable. */
     viewerHasStarred: Scalars['Boolean']
-    __typename?: 'Gist'
+    __typename: 'Gist'
 }
 
 
@@ -3280,7 +3280,7 @@ export interface GistComment {
     viewerCannotUpdateReasons: CommentCannotUpdateReason[]
     /** Did the viewer author this comment. */
     viewerDidAuthor: Scalars['Boolean']
-    __typename?: 'GistComment'
+    __typename: 'GistComment'
 }
 
 
@@ -3294,7 +3294,7 @@ export interface GistCommentConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'GistCommentConnection'
+    __typename: 'GistCommentConnection'
 }
 
 
@@ -3304,7 +3304,7 @@ export interface GistCommentEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: GistComment
-    __typename?: 'GistCommentEdge'
+    __typename: 'GistCommentEdge'
 }
 
 
@@ -3318,7 +3318,7 @@ export interface GistConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'GistConnection'
+    __typename: 'GistConnection'
 }
 
 
@@ -3328,7 +3328,7 @@ export interface GistEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Gist
-    __typename?: 'GistEdge'
+    __typename: 'GistEdge'
 }
 
 
@@ -3352,7 +3352,7 @@ export interface GistFile {
     size?: Scalars['Int']
     /** UTF8 text data or null if the file is binary */
     text?: Scalars['String']
-    __typename?: 'GistFile'
+    __typename: 'GistFile'
 }
 
 
@@ -3376,7 +3376,7 @@ export interface GitActor {
     name?: Scalars['String']
     /** The GitHub user corresponding to the email field. Null if no such user exists. */
     user?: User
-    __typename?: 'GitActor'
+    __typename: 'GitActor'
 }
 
 
@@ -3394,7 +3394,7 @@ export interface GitHubMetadata {
     isPasswordAuthenticationVerifiable: Scalars['Boolean']
     /** IP addresses for GitHub Pages' A records */
     pagesIpAddresses?: Scalars['String'][]
-    __typename?: 'GitHubMetadata'
+    __typename: 'GitHubMetadata'
 }
 
 
@@ -3431,7 +3431,7 @@ export interface GpgSignature {
     state: GitSignatureState
     /** True if the signature was made with GitHub's signing key. */
     wasSignedByGitHub: Scalars['Boolean']
-    __typename?: 'GpgSignature'
+    __typename: 'GpgSignature'
 }
 
 
@@ -3448,7 +3448,7 @@ export interface HeadRefDeletedEvent {
     id: Scalars['ID']
     /** PullRequest referenced by event. */
     pullRequest: PullRequest
-    __typename?: 'HeadRefDeletedEvent'
+    __typename: 'HeadRefDeletedEvent'
 }
 
 
@@ -3467,7 +3467,7 @@ export interface HeadRefForcePushedEvent {
     pullRequest: PullRequest
     /** Identifies the fully qualified ref name for the 'head_ref_force_pushed' event. */
     ref?: Ref
-    __typename?: 'HeadRefForcePushedEvent'
+    __typename: 'HeadRefForcePushedEvent'
 }
 
 
@@ -3480,7 +3480,7 @@ export interface HeadRefRestoredEvent {
     id: Scalars['ID']
     /** PullRequest referenced by event. */
     pullRequest: PullRequest
-    __typename?: 'HeadRefRestoredEvent'
+    __typename: 'HeadRefRestoredEvent'
 }
 
 
@@ -3488,7 +3488,7 @@ export interface HeadRefRestoredEvent {
 export interface Hovercard {
     /** Each of the contexts for this hovercard */
     contexts: HovercardContext[]
-    __typename?: 'Hovercard'
+    __typename: 'Hovercard'
 }
 
 
@@ -3506,7 +3506,7 @@ export interface ImportProjectPayload {
     clientMutationId?: Scalars['String']
     /** The new Project! */
     project?: Project
-    __typename?: 'ImportProjectPayload'
+    __typename: 'ImportProjectPayload'
 }
 
 
@@ -3516,7 +3516,7 @@ export interface InviteEnterpriseAdminPayload {
     clientMutationId?: Scalars['String']
     /** The created enterprise administrator invitation. */
     invitation?: EnterpriseAdministratorInvitation
-    __typename?: 'InviteEnterpriseAdminPayload'
+    __typename: 'InviteEnterpriseAdminPayload'
 }
 
 
@@ -3539,7 +3539,7 @@ export interface IpAllowListEntry {
     owner: IpAllowListOwner
     /** Identifies the date and time when the object was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'IpAllowListEntry'
+    __typename: 'IpAllowListEntry'
 }
 
 
@@ -3553,7 +3553,7 @@ export interface IpAllowListEntryConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'IpAllowListEntryConnection'
+    __typename: 'IpAllowListEntryConnection'
 }
 
 
@@ -3563,7 +3563,7 @@ export interface IpAllowListEntryEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: IpAllowListEntry
-    __typename?: 'IpAllowListEntryEdge'
+    __typename: 'IpAllowListEntryEdge'
 }
 
 
@@ -3663,7 +3663,7 @@ export interface Issue {
     viewerDidAuthor: Scalars['Boolean']
     /** Identifies if the viewer is watching, not watching, or ignoring the subscribable entity. */
     viewerSubscription?: SubscriptionState
-    __typename?: 'Issue'
+    __typename: 'Issue'
 }
 
 
@@ -3731,7 +3731,7 @@ export interface IssueComment {
     viewerCannotUpdateReasons: CommentCannotUpdateReason[]
     /** Did the viewer author this comment. */
     viewerDidAuthor: Scalars['Boolean']
-    __typename?: 'IssueComment'
+    __typename: 'IssueComment'
 }
 
 
@@ -3745,7 +3745,7 @@ export interface IssueCommentConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'IssueCommentConnection'
+    __typename: 'IssueCommentConnection'
 }
 
 
@@ -3755,7 +3755,7 @@ export interface IssueCommentEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: IssueComment
-    __typename?: 'IssueCommentEdge'
+    __typename: 'IssueCommentEdge'
 }
 
 
@@ -3769,7 +3769,7 @@ export interface IssueConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'IssueConnection'
+    __typename: 'IssueConnection'
 }
 
 
@@ -3779,7 +3779,7 @@ export interface IssueContributionsByRepository {
     contributions: CreatedIssueContributionConnection
     /** The repository in which the issues were opened. */
     repository: Repository
-    __typename?: 'IssueContributionsByRepository'
+    __typename: 'IssueContributionsByRepository'
 }
 
 
@@ -3789,7 +3789,7 @@ export interface IssueEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Issue
-    __typename?: 'IssueEdge'
+    __typename: 'IssueEdge'
 }
 
 
@@ -3815,7 +3815,7 @@ export interface IssueTimelineConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'IssueTimelineConnection'
+    __typename: 'IssueTimelineConnection'
 }
 
 
@@ -3829,7 +3829,7 @@ export interface IssueTimelineItemEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: IssueTimelineItem
-    __typename?: 'IssueTimelineItemEdge'
+    __typename: 'IssueTimelineItemEdge'
 }
 
 
@@ -3853,7 +3853,7 @@ export interface IssueTimelineItemsConnection {
     totalCount: Scalars['Int']
     /** Identifies the date and time when the timeline was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'IssueTimelineItemsConnection'
+    __typename: 'IssueTimelineItemsConnection'
 }
 
 
@@ -3863,7 +3863,7 @@ export interface IssueTimelineItemsEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: IssueTimelineItems
-    __typename?: 'IssueTimelineItemsEdge'
+    __typename: 'IssueTimelineItemsEdge'
 }
 
 
@@ -3887,7 +3887,7 @@ export interface JoinedGitHubContribution {
     url: Scalars['URI']
     /** The user who made this contribution. */
     user: User
-    __typename?: 'JoinedGitHubContribution'
+    __typename: 'JoinedGitHubContribution'
 }
 
 
@@ -3916,7 +3916,7 @@ export interface Label {
     updatedAt?: Scalars['DateTime']
     /** The HTTP URL for this label. */
     url: Scalars['URI']
-    __typename?: 'Label'
+    __typename: 'Label'
 }
 
 
@@ -3930,7 +3930,7 @@ export interface LabelConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'LabelConnection'
+    __typename: 'LabelConnection'
 }
 
 
@@ -3940,7 +3940,7 @@ export interface LabelEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Label
-    __typename?: 'LabelEdge'
+    __typename: 'LabelEdge'
 }
 
 
@@ -3963,7 +3963,7 @@ export interface LabeledEvent {
     label: Label
     /** Identifies the `Labelable` associated with the event. */
     labelable: Labelable
-    __typename?: 'LabeledEvent'
+    __typename: 'LabeledEvent'
 }
 
 
@@ -3974,7 +3974,7 @@ export interface Language {
     id: Scalars['ID']
     /** The name of the current language. */
     name: Scalars['String']
-    __typename?: 'Language'
+    __typename: 'Language'
 }
 
 
@@ -3990,7 +3990,7 @@ export interface LanguageConnection {
     totalCount: Scalars['Int']
     /** The total size in bytes of files written in that language. */
     totalSize: Scalars['Int']
-    __typename?: 'LanguageConnection'
+    __typename: 'LanguageConnection'
 }
 
 
@@ -4000,7 +4000,7 @@ export interface LanguageEdge {
     node: Language
     /** The number of bytes of code written in the language. */
     size: Scalars['Int']
-    __typename?: 'LanguageEdge'
+    __typename: 'LanguageEdge'
 }
 
 
@@ -4039,7 +4039,7 @@ export interface License {
     spdxId?: Scalars['String']
     /** URL to the license on <https://choosealicense.com> */
     url?: Scalars['URI']
-    __typename?: 'License'
+    __typename: 'License'
 }
 
 
@@ -4051,7 +4051,7 @@ export interface LicenseRule {
     key: Scalars['String']
     /** The human-readable rule label */
     label: Scalars['String']
-    __typename?: 'LicenseRule'
+    __typename: 'LicenseRule'
 }
 
 
@@ -4063,7 +4063,7 @@ export interface LinkRepositoryToProjectPayload {
     project?: Project
     /** The linked Repository. */
     repository?: Repository
-    __typename?: 'LinkRepositoryToProjectPayload'
+    __typename: 'LinkRepositoryToProjectPayload'
 }
 
 
@@ -4075,7 +4075,7 @@ export interface LockLockablePayload {
     clientMutationId?: Scalars['String']
     /** The item that was locked. */
     lockedRecord?: Lockable
-    __typename?: 'LockLockablePayload'
+    __typename: 'LockLockablePayload'
 }
 
 
@@ -4098,7 +4098,7 @@ export interface LockedEvent {
     lockReason?: LockReason
     /** Object that was locked. */
     lockable: Lockable
-    __typename?: 'LockedEvent'
+    __typename: 'LockedEvent'
 }
 
 
@@ -4121,7 +4121,7 @@ export interface Mannequin {
     updatedAt: Scalars['DateTime']
     /** The URL to this resource. */
     url: Scalars['URI']
-    __typename?: 'Mannequin'
+    __typename: 'Mannequin'
 }
 
 
@@ -4131,7 +4131,7 @@ export interface MarkPullRequestReadyForReviewPayload {
     clientMutationId?: Scalars['String']
     /** The pull request that is ready for review. */
     pullRequest?: PullRequest
-    __typename?: 'MarkPullRequestReadyForReviewPayload'
+    __typename: 'MarkPullRequestReadyForReviewPayload'
 }
 
 
@@ -4142,7 +4142,7 @@ export interface MarkedAsDuplicateEvent {
     /** Identifies the date and time when the object was created. */
     createdAt: Scalars['DateTime']
     id: Scalars['ID']
-    __typename?: 'MarkedAsDuplicateEvent'
+    __typename: 'MarkedAsDuplicateEvent'
 }
 
 
@@ -4165,7 +4165,7 @@ export interface MarketplaceCategory {
     slug: Scalars['String']
     /** The HTTP URL for this Marketplace category. */
     url: Scalars['URI']
-    __typename?: 'MarketplaceCategory'
+    __typename: 'MarketplaceCategory'
 }
 
 
@@ -4301,7 +4301,7 @@ export interface MarketplaceListing {
     viewerHasPurchasedForAllOrganizations: Scalars['Boolean']
     /** Does the current viewer role allow them to administer this Marketplace listing. */
     viewerIsListingAdmin: Scalars['Boolean']
-    __typename?: 'MarketplaceListing'
+    __typename: 'MarketplaceListing'
 }
 
 
@@ -4315,7 +4315,7 @@ export interface MarketplaceListingConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'MarketplaceListingConnection'
+    __typename: 'MarketplaceListingConnection'
 }
 
 
@@ -4325,7 +4325,7 @@ export interface MarketplaceListingEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: MarketplaceListing
-    __typename?: 'MarketplaceListingEdge'
+    __typename: 'MarketplaceListingEdge'
 }
 
 
@@ -4376,7 +4376,7 @@ export interface MembersCanDeleteReposClearAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'MembersCanDeleteReposClearAuditEntry'
+    __typename: 'MembersCanDeleteReposClearAuditEntry'
 }
 
 
@@ -4423,7 +4423,7 @@ export interface MembersCanDeleteReposDisableAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'MembersCanDeleteReposDisableAuditEntry'
+    __typename: 'MembersCanDeleteReposDisableAuditEntry'
 }
 
 
@@ -4470,7 +4470,7 @@ export interface MembersCanDeleteReposEnableAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'MembersCanDeleteReposEnableAuditEntry'
+    __typename: 'MembersCanDeleteReposEnableAuditEntry'
 }
 
 
@@ -4483,7 +4483,7 @@ export interface MentionedEvent {
     /** Identifies the primary key from the database. */
     databaseId?: Scalars['Int']
     id: Scalars['ID']
-    __typename?: 'MentionedEvent'
+    __typename: 'MentionedEvent'
 }
 
 
@@ -4493,7 +4493,7 @@ export interface MergeBranchPayload {
     clientMutationId?: Scalars['String']
     /** The resulting merge Commit. */
     mergeCommit?: Commit
-    __typename?: 'MergeBranchPayload'
+    __typename: 'MergeBranchPayload'
 }
 
 
@@ -4505,7 +4505,7 @@ export interface MergePullRequestPayload {
     clientMutationId?: Scalars['String']
     /** The pull request that was merged. */
     pullRequest?: PullRequest
-    __typename?: 'MergePullRequestPayload'
+    __typename: 'MergePullRequestPayload'
 }
 
 
@@ -4536,7 +4536,7 @@ export interface MergedEvent {
     resourcePath: Scalars['URI']
     /** The HTTP URL for this merged event. */
     url: Scalars['URI']
-    __typename?: 'MergedEvent'
+    __typename: 'MergedEvent'
 }
 
 
@@ -4575,7 +4575,7 @@ export interface Milestone {
     updatedAt: Scalars['DateTime']
     /** The HTTP URL for this milestone */
     url: Scalars['URI']
-    __typename?: 'Milestone'
+    __typename: 'Milestone'
 }
 
 
@@ -4589,7 +4589,7 @@ export interface MilestoneConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'MilestoneConnection'
+    __typename: 'MilestoneConnection'
 }
 
 
@@ -4599,7 +4599,7 @@ export interface MilestoneEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Milestone
-    __typename?: 'MilestoneEdge'
+    __typename: 'MilestoneEdge'
 }
 
 
@@ -4626,7 +4626,7 @@ export interface MilestonedEvent {
     milestoneTitle: Scalars['String']
     /** Object referenced by event. */
     subject: MilestoneItem
-    __typename?: 'MilestonedEvent'
+    __typename: 'MilestonedEvent'
 }
 
 
@@ -4640,7 +4640,7 @@ export interface MinimizeCommentPayload {
     clientMutationId?: Scalars['String']
     /** The comment that was minimized. */
     minimizedComment?: Minimizable
-    __typename?: 'MinimizeCommentPayload'
+    __typename: 'MinimizeCommentPayload'
 }
 
 
@@ -4650,7 +4650,7 @@ export interface MoveProjectCardPayload {
     cardEdge?: ProjectCardEdge
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'MoveProjectCardPayload'
+    __typename: 'MoveProjectCardPayload'
 }
 
 
@@ -4660,7 +4660,7 @@ export interface MoveProjectColumnPayload {
     clientMutationId?: Scalars['String']
     /** The new edge of the moved column. */
     columnEdge?: ProjectColumnEdge
-    __typename?: 'MoveProjectColumnPayload'
+    __typename: 'MoveProjectColumnPayload'
 }
 
 
@@ -4681,7 +4681,7 @@ export interface MovedColumnsInProjectEvent {
     projectCard?: ProjectCard
     /** Column name the issue or pull request was moved to. */
     projectColumnName: Scalars['String']
-    __typename?: 'MovedColumnsInProjectEvent'
+    __typename: 'MovedColumnsInProjectEvent'
 }
 
 
@@ -4966,7 +4966,7 @@ export interface Mutation {
     updateTeamReviewAssignment?: UpdateTeamReviewAssignmentPayload
     /** Replaces the repository's topics with the given topics. */
     updateTopics?: UpdateTopicsPayload
-    __typename?: 'Mutation'
+    __typename: 'Mutation'
 }
 
 
@@ -5029,7 +5029,7 @@ export interface OauthApplicationCreateAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OauthApplicationCreateAuditEntry'
+    __typename: 'OauthApplicationCreateAuditEntry'
 }
 
 
@@ -5084,7 +5084,7 @@ export interface OrgAddBillingManagerAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgAddBillingManagerAuditEntry'
+    __typename: 'OrgAddBillingManagerAuditEntry'
 }
 
 
@@ -5127,7 +5127,7 @@ export interface OrgAddMemberAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgAddMemberAuditEntry'
+    __typename: 'OrgAddMemberAuditEntry'
 }
 
 
@@ -5180,7 +5180,7 @@ export interface OrgBlockUserAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgBlockUserAuditEntry'
+    __typename: 'OrgBlockUserAuditEntry'
 }
 
 
@@ -5221,7 +5221,7 @@ export interface OrgConfigDisableCollaboratorsOnlyAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgConfigDisableCollaboratorsOnlyAuditEntry'
+    __typename: 'OrgConfigDisableCollaboratorsOnlyAuditEntry'
 }
 
 
@@ -5262,7 +5262,7 @@ export interface OrgConfigEnableCollaboratorsOnlyAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgConfigEnableCollaboratorsOnlyAuditEntry'
+    __typename: 'OrgConfigEnableCollaboratorsOnlyAuditEntry'
 }
 
 
@@ -5305,7 +5305,7 @@ export interface OrgCreateAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgCreateAuditEntry'
+    __typename: 'OrgCreateAuditEntry'
 }
 
 
@@ -5350,7 +5350,7 @@ export interface OrgDisableOauthAppRestrictionsAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgDisableOauthAppRestrictionsAuditEntry'
+    __typename: 'OrgDisableOauthAppRestrictionsAuditEntry'
 }
 
 
@@ -5399,7 +5399,7 @@ export interface OrgDisableSamlAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgDisableSamlAuditEntry'
+    __typename: 'OrgDisableSamlAuditEntry'
 }
 
 
@@ -5440,7 +5440,7 @@ export interface OrgDisableTwoFactorRequirementAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgDisableTwoFactorRequirementAuditEntry'
+    __typename: 'OrgDisableTwoFactorRequirementAuditEntry'
 }
 
 
@@ -5481,7 +5481,7 @@ export interface OrgEnableOauthAppRestrictionsAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgEnableOauthAppRestrictionsAuditEntry'
+    __typename: 'OrgEnableOauthAppRestrictionsAuditEntry'
 }
 
 
@@ -5530,7 +5530,7 @@ export interface OrgEnableSamlAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgEnableSamlAuditEntry'
+    __typename: 'OrgEnableSamlAuditEntry'
 }
 
 
@@ -5571,7 +5571,7 @@ export interface OrgEnableTwoFactorRequirementAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgEnableTwoFactorRequirementAuditEntry'
+    __typename: 'OrgEnableTwoFactorRequirementAuditEntry'
 }
 
 
@@ -5616,7 +5616,7 @@ export interface OrgInviteMemberAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgInviteMemberAuditEntry'
+    __typename: 'OrgInviteMemberAuditEntry'
 }
 
 
@@ -5663,7 +5663,7 @@ export interface OrgInviteToBusinessAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgInviteToBusinessAuditEntry'
+    __typename: 'OrgInviteToBusinessAuditEntry'
 }
 
 
@@ -5710,7 +5710,7 @@ export interface OrgOauthAppAccessApprovedAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgOauthAppAccessApprovedAuditEntry'
+    __typename: 'OrgOauthAppAccessApprovedAuditEntry'
 }
 
 
@@ -5757,7 +5757,7 @@ export interface OrgOauthAppAccessDeniedAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgOauthAppAccessDeniedAuditEntry'
+    __typename: 'OrgOauthAppAccessDeniedAuditEntry'
 }
 
 
@@ -5804,7 +5804,7 @@ export interface OrgOauthAppAccessRequestedAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgOauthAppAccessRequestedAuditEntry'
+    __typename: 'OrgOauthAppAccessRequestedAuditEntry'
 }
 
 
@@ -5847,7 +5847,7 @@ export interface OrgRemoveBillingManagerAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgRemoveBillingManagerAuditEntry'
+    __typename: 'OrgRemoveBillingManagerAuditEntry'
 }
 
 
@@ -5896,7 +5896,7 @@ export interface OrgRemoveMemberAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgRemoveMemberAuditEntry'
+    __typename: 'OrgRemoveMemberAuditEntry'
 }
 
 
@@ -5949,7 +5949,7 @@ export interface OrgRemoveOutsideCollaboratorAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgRemoveOutsideCollaboratorAuditEntry'
+    __typename: 'OrgRemoveOutsideCollaboratorAuditEntry'
 }
 
 
@@ -6012,7 +6012,7 @@ export interface OrgRestoreMemberAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgRestoreMemberAuditEntry'
+    __typename: 'OrgRestoreMemberAuditEntry'
 }
 
 
@@ -6030,7 +6030,7 @@ export interface OrgRestoreMemberMembershipOrganizationAuditEntryData {
     organizationResourcePath?: Scalars['URI']
     /** The HTTP URL for the organization */
     organizationUrl?: Scalars['URI']
-    __typename?: 'OrgRestoreMemberMembershipOrganizationAuditEntryData'
+    __typename: 'OrgRestoreMemberMembershipOrganizationAuditEntryData'
 }
 
 
@@ -6044,7 +6044,7 @@ export interface OrgRestoreMemberMembershipRepositoryAuditEntryData {
     repositoryResourcePath?: Scalars['URI']
     /** The HTTP URL for the repository */
     repositoryUrl?: Scalars['URI']
-    __typename?: 'OrgRestoreMemberMembershipRepositoryAuditEntryData'
+    __typename: 'OrgRestoreMemberMembershipRepositoryAuditEntryData'
 }
 
 
@@ -6058,7 +6058,7 @@ export interface OrgRestoreMemberMembershipTeamAuditEntryData {
     teamResourcePath?: Scalars['URI']
     /** The HTTP URL for this team */
     teamUrl?: Scalars['URI']
-    __typename?: 'OrgRestoreMemberMembershipTeamAuditEntryData'
+    __typename: 'OrgRestoreMemberMembershipTeamAuditEntryData'
 }
 
 
@@ -6107,7 +6107,7 @@ export interface OrgUnblockUserAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgUnblockUserAuditEntry'
+    __typename: 'OrgUnblockUserAuditEntry'
 }
 
 
@@ -6152,7 +6152,7 @@ export interface OrgUpdateDefaultRepositoryPermissionAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgUpdateDefaultRepositoryPermissionAuditEntry'
+    __typename: 'OrgUpdateDefaultRepositoryPermissionAuditEntry'
 }
 
 
@@ -6201,7 +6201,7 @@ export interface OrgUpdateMemberAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgUpdateMemberAuditEntry'
+    __typename: 'OrgUpdateMemberAuditEntry'
 }
 
 
@@ -6250,7 +6250,7 @@ export interface OrgUpdateMemberRepositoryCreationPermissionAuditEntry {
     userUrl?: Scalars['URI']
     /** The permission for visibility level of repositories for this organization. */
     visibility?: OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility
-    __typename?: 'OrgUpdateMemberRepositoryCreationPermissionAuditEntry'
+    __typename: 'OrgUpdateMemberRepositoryCreationPermissionAuditEntry'
 }
 
 
@@ -6297,7 +6297,7 @@ export interface OrgUpdateMemberRepositoryInvitationPermissionAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'OrgUpdateMemberRepositoryInvitationPermissionAuditEntry'
+    __typename: 'OrgUpdateMemberRepositoryInvitationPermissionAuditEntry'
 }
 
 
@@ -6422,7 +6422,7 @@ export interface Organization {
     viewerIsAMember: Scalars['Boolean']
     /** The organization's public profile URL. */
     websiteUrl?: Scalars['URI']
-    __typename?: 'Organization'
+    __typename: 'Organization'
 }
 
 
@@ -6440,7 +6440,7 @@ export interface OrganizationAuditEntryConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'OrganizationAuditEntryConnection'
+    __typename: 'OrganizationAuditEntryConnection'
 }
 
 
@@ -6454,7 +6454,7 @@ export interface OrganizationAuditEntryEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: OrganizationAuditEntry
-    __typename?: 'OrganizationAuditEntryEdge'
+    __typename: 'OrganizationAuditEntryEdge'
 }
 
 
@@ -6468,7 +6468,7 @@ export interface OrganizationConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'OrganizationConnection'
+    __typename: 'OrganizationConnection'
 }
 
 
@@ -6478,7 +6478,7 @@ export interface OrganizationEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Organization
-    __typename?: 'OrganizationEdge'
+    __typename: 'OrganizationEdge'
 }
 
 
@@ -6499,7 +6499,7 @@ export interface OrganizationIdentityProvider {
     signatureMethod?: Scalars['URI']
     /** The URL endpoint for the Identity Provider's SAML SSO. */
     ssoUrl?: Scalars['URI']
-    __typename?: 'OrganizationIdentityProvider'
+    __typename: 'OrganizationIdentityProvider'
 }
 
 
@@ -6520,7 +6520,7 @@ export interface OrganizationInvitation {
     organization: Organization
     /** The user's pending role in the organization (e.g. member, owner). */
     role: OrganizationInvitationRole
-    __typename?: 'OrganizationInvitation'
+    __typename: 'OrganizationInvitation'
 }
 
 
@@ -6534,7 +6534,7 @@ export interface OrganizationInvitationConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'OrganizationInvitationConnection'
+    __typename: 'OrganizationInvitationConnection'
 }
 
 
@@ -6544,7 +6544,7 @@ export interface OrganizationInvitationEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: OrganizationInvitation
-    __typename?: 'OrganizationInvitationEdge'
+    __typename: 'OrganizationInvitationEdge'
 }
 
 
@@ -6566,7 +6566,7 @@ export interface OrganizationMemberConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'OrganizationMemberConnection'
+    __typename: 'OrganizationMemberConnection'
 }
 
 
@@ -6580,7 +6580,7 @@ export interface OrganizationMemberEdge {
     node?: User
     /** The role this user has in the organization. */
     role?: OrganizationMemberRole
-    __typename?: 'OrganizationMemberEdge'
+    __typename: 'OrganizationMemberEdge'
 }
 
 
@@ -6610,7 +6610,7 @@ export interface OrganizationTeamsHovercardContext {
     teamsUrl: Scalars['URI']
     /** The total number of teams the user is on in the organization */
     totalTeamCount: Scalars['Int']
-    __typename?: 'OrganizationTeamsHovercardContext'
+    __typename: 'OrganizationTeamsHovercardContext'
 }
 
 
@@ -6624,7 +6624,7 @@ export interface OrganizationsHovercardContext {
     relevantOrganizations: OrganizationConnection
     /** The total number of organizations this user is in */
     totalOrganizationCount: Scalars['Int']
-    __typename?: 'OrganizationsHovercardContext'
+    __typename: 'OrganizationsHovercardContext'
 }
 
 
@@ -6645,7 +6645,7 @@ export interface Package {
     version?: PackageVersion
     /** list of versions for this package */
     versions: PackageVersionConnection
-    __typename?: 'Package'
+    __typename: 'Package'
 }
 
 
@@ -6659,7 +6659,7 @@ export interface PackageConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PackageConnection'
+    __typename: 'PackageConnection'
 }
 
 
@@ -6669,7 +6669,7 @@ export interface PackageEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Package
-    __typename?: 'PackageEdge'
+    __typename: 'PackageEdge'
 }
 
 
@@ -6692,7 +6692,7 @@ export interface PackageFile {
     updatedAt: Scalars['DateTime']
     /** URL to download the asset. */
     url?: Scalars['URI']
-    __typename?: 'PackageFile'
+    __typename: 'PackageFile'
 }
 
 
@@ -6706,7 +6706,7 @@ export interface PackageFileConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PackageFileConnection'
+    __typename: 'PackageFileConnection'
 }
 
 
@@ -6716,7 +6716,7 @@ export interface PackageFileEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PackageFile
-    __typename?: 'PackageFileEdge'
+    __typename: 'PackageFileEdge'
 }
 
 
@@ -6736,7 +6736,7 @@ export type PackageOwner = (Organization | Repository | User) & { __isUnion?: tr
 export interface PackageStatistics {
     /** Number of times the package was downloaded since it was created. */
     downloadsTotalCount: Scalars['Int']
-    __typename?: 'PackageStatistics'
+    __typename: 'PackageStatistics'
 }
 
 
@@ -6747,7 +6747,7 @@ export interface PackageTag {
     name: Scalars['String']
     /** Version that the tag is associated with. */
     version?: PackageVersion
-    __typename?: 'PackageTag'
+    __typename: 'PackageTag'
 }
 
 
@@ -6776,7 +6776,7 @@ export interface PackageVersion {
     summary?: Scalars['String']
     /** The version string. */
     version: Scalars['String']
-    __typename?: 'PackageVersion'
+    __typename: 'PackageVersion'
 }
 
 
@@ -6790,7 +6790,7 @@ export interface PackageVersionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PackageVersionConnection'
+    __typename: 'PackageVersionConnection'
 }
 
 
@@ -6800,7 +6800,7 @@ export interface PackageVersionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PackageVersion
-    __typename?: 'PackageVersionEdge'
+    __typename: 'PackageVersionEdge'
 }
 
 
@@ -6812,7 +6812,7 @@ export type PackageVersionOrderField = 'CREATED_AT'
 export interface PackageVersionStatistics {
     /** Number of times the package was downloaded since it was created. */
     downloadsTotalCount: Scalars['Int']
-    __typename?: 'PackageVersionStatistics'
+    __typename: 'PackageVersionStatistics'
 }
 
 
@@ -6826,7 +6826,7 @@ export interface PageInfo {
     hasPreviousPage: Scalars['Boolean']
     /** When paginating backwards, the cursor to continue. */
     startCursor?: Scalars['String']
-    __typename?: 'PageInfo'
+    __typename: 'PageInfo'
 }
 
 
@@ -6842,7 +6842,7 @@ export interface PermissionSource {
     permission: DefaultRepositoryPermissionField
     /** The source of this permission. */
     source: PermissionGranter
-    __typename?: 'PermissionSource'
+    __typename: 'PermissionSource'
 }
 
 
@@ -6852,7 +6852,7 @@ export interface PinIssuePayload {
     clientMutationId?: Scalars['String']
     /** The issue that was pinned */
     issue?: Issue
-    __typename?: 'PinIssuePayload'
+    __typename: 'PinIssuePayload'
 }
 
 
@@ -6870,7 +6870,7 @@ export interface PinnableItemConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PinnableItemConnection'
+    __typename: 'PinnableItemConnection'
 }
 
 
@@ -6880,7 +6880,7 @@ export interface PinnableItemEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PinnableItem
-    __typename?: 'PinnableItemEdge'
+    __typename: 'PinnableItemEdge'
 }
 
 
@@ -6897,7 +6897,7 @@ export interface PinnedEvent {
     id: Scalars['ID']
     /** Identifies the issue associated with the event. */
     issue: Issue
-    __typename?: 'PinnedEvent'
+    __typename: 'PinnedEvent'
 }
 
 
@@ -6912,7 +6912,7 @@ export interface PinnedIssue {
     pinnedBy: Actor
     /** The repository that this issue was pinned to. */
     repository: Repository
-    __typename?: 'PinnedIssue'
+    __typename: 'PinnedIssue'
 }
 
 
@@ -6926,7 +6926,7 @@ export interface PinnedIssueConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PinnedIssueConnection'
+    __typename: 'PinnedIssueConnection'
 }
 
 
@@ -6936,7 +6936,7 @@ export interface PinnedIssueEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PinnedIssue
-    __typename?: 'PinnedIssueEdge'
+    __typename: 'PinnedIssueEdge'
 }
 
 
@@ -6991,7 +6991,7 @@ export interface PrivateRepositoryForkingDisableAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'PrivateRepositoryForkingDisableAuditEntry'
+    __typename: 'PrivateRepositoryForkingDisableAuditEntry'
 }
 
 
@@ -7046,7 +7046,7 @@ export interface PrivateRepositoryForkingEnableAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'PrivateRepositoryForkingEnableAuditEntry'
+    __typename: 'PrivateRepositoryForkingEnableAuditEntry'
 }
 
 
@@ -7063,7 +7063,7 @@ export interface ProfileItemShowcase {
      * repositories will be returned.
      */
     items: PinnableItemConnection
-    __typename?: 'ProfileItemShowcase'
+    __typename: 'ProfileItemShowcase'
 }
 
 
@@ -7108,7 +7108,7 @@ export interface Project {
     url: Scalars['URI']
     /** Check if the current viewer can update this object. */
     viewerCanUpdate: Scalars['Boolean']
-    __typename?: 'Project'
+    __typename: 'Project'
 }
 
 
@@ -7144,7 +7144,7 @@ export interface ProjectCard {
     updatedAt: Scalars['DateTime']
     /** The HTTP URL for this card */
     url: Scalars['URI']
-    __typename?: 'ProjectCard'
+    __typename: 'ProjectCard'
 }
 
 
@@ -7162,7 +7162,7 @@ export interface ProjectCardConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ProjectCardConnection'
+    __typename: 'ProjectCardConnection'
 }
 
 
@@ -7172,7 +7172,7 @@ export interface ProjectCardEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: ProjectCard
-    __typename?: 'ProjectCardEdge'
+    __typename: 'ProjectCardEdge'
 }
 
 
@@ -7205,7 +7205,7 @@ export interface ProjectColumn {
     updatedAt: Scalars['DateTime']
     /** The HTTP URL for this project column */
     url: Scalars['URI']
-    __typename?: 'ProjectColumn'
+    __typename: 'ProjectColumn'
 }
 
 
@@ -7219,7 +7219,7 @@ export interface ProjectColumnConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ProjectColumnConnection'
+    __typename: 'ProjectColumnConnection'
 }
 
 
@@ -7229,7 +7229,7 @@ export interface ProjectColumnEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: ProjectColumn
-    __typename?: 'ProjectColumnEdge'
+    __typename: 'ProjectColumnEdge'
 }
 
 
@@ -7247,7 +7247,7 @@ export interface ProjectConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ProjectConnection'
+    __typename: 'ProjectConnection'
 }
 
 
@@ -7257,7 +7257,7 @@ export interface ProjectEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Project
-    __typename?: 'ProjectEdge'
+    __typename: 'ProjectEdge'
 }
 
 
@@ -7299,7 +7299,7 @@ export interface PublicKey {
      * owned by the user.
      */
     updatedAt?: Scalars['DateTime']
-    __typename?: 'PublicKey'
+    __typename: 'PublicKey'
 }
 
 
@@ -7313,7 +7313,7 @@ export interface PublicKeyConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PublicKeyConnection'
+    __typename: 'PublicKeyConnection'
 }
 
 
@@ -7323,7 +7323,7 @@ export interface PublicKeyEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PublicKey
-    __typename?: 'PublicKeyEdge'
+    __typename: 'PublicKeyEdge'
 }
 
 
@@ -7492,7 +7492,7 @@ export interface PullRequest {
     viewerDidAuthor: Scalars['Boolean']
     /** Identifies if the viewer is watching, not watching, or ignoring the subscribable entity. */
     viewerSubscription?: SubscriptionState
-    __typename?: 'PullRequest'
+    __typename: 'PullRequest'
 }
 
 
@@ -7504,7 +7504,7 @@ export interface PullRequestChangedFile {
     deletions: Scalars['Int']
     /** The path of the file. */
     path: Scalars['String']
-    __typename?: 'PullRequestChangedFile'
+    __typename: 'PullRequestChangedFile'
 }
 
 
@@ -7518,7 +7518,7 @@ export interface PullRequestChangedFileConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PullRequestChangedFileConnection'
+    __typename: 'PullRequestChangedFileConnection'
 }
 
 
@@ -7528,7 +7528,7 @@ export interface PullRequestChangedFileEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequestChangedFile
-    __typename?: 'PullRequestChangedFileEdge'
+    __typename: 'PullRequestChangedFileEdge'
 }
 
 
@@ -7543,7 +7543,7 @@ export interface PullRequestCommit {
     resourcePath: Scalars['URI']
     /** The HTTP URL for this pull request commit */
     url: Scalars['URI']
-    __typename?: 'PullRequestCommit'
+    __typename: 'PullRequestCommit'
 }
 
 
@@ -7562,7 +7562,7 @@ export interface PullRequestCommitCommentThread {
     pullRequest: PullRequest
     /** The repository associated with this node. */
     repository: Repository
-    __typename?: 'PullRequestCommitCommentThread'
+    __typename: 'PullRequestCommitCommentThread'
 }
 
 
@@ -7576,7 +7576,7 @@ export interface PullRequestCommitConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PullRequestCommitConnection'
+    __typename: 'PullRequestCommitConnection'
 }
 
 
@@ -7586,7 +7586,7 @@ export interface PullRequestCommitEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequestCommit
-    __typename?: 'PullRequestCommitEdge'
+    __typename: 'PullRequestCommitEdge'
 }
 
 
@@ -7600,7 +7600,7 @@ export interface PullRequestConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PullRequestConnection'
+    __typename: 'PullRequestConnection'
 }
 
 
@@ -7610,7 +7610,7 @@ export interface PullRequestContributionsByRepository {
     contributions: CreatedPullRequestContributionConnection
     /** The repository in which the pull requests were opened. */
     repository: Repository
-    __typename?: 'PullRequestContributionsByRepository'
+    __typename: 'PullRequestContributionsByRepository'
 }
 
 
@@ -7620,7 +7620,7 @@ export interface PullRequestEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequest
-    __typename?: 'PullRequestEdge'
+    __typename: 'PullRequestEdge'
 }
 
 
@@ -7695,7 +7695,7 @@ export interface PullRequestReview {
     viewerCannotUpdateReasons: CommentCannotUpdateReason[]
     /** Did the viewer author this comment. */
     viewerDidAuthor: Scalars['Boolean']
-    __typename?: 'PullRequestReview'
+    __typename: 'PullRequestReview'
 }
 
 
@@ -7780,7 +7780,7 @@ export interface PullRequestReviewComment {
     viewerCannotUpdateReasons: CommentCannotUpdateReason[]
     /** Did the viewer author this comment. */
     viewerDidAuthor: Scalars['Boolean']
-    __typename?: 'PullRequestReviewComment'
+    __typename: 'PullRequestReviewComment'
 }
 
 
@@ -7794,7 +7794,7 @@ export interface PullRequestReviewCommentConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PullRequestReviewCommentConnection'
+    __typename: 'PullRequestReviewCommentConnection'
 }
 
 
@@ -7804,7 +7804,7 @@ export interface PullRequestReviewCommentEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequestReviewComment
-    __typename?: 'PullRequestReviewCommentEdge'
+    __typename: 'PullRequestReviewCommentEdge'
 }
 
 
@@ -7822,7 +7822,7 @@ export interface PullRequestReviewConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PullRequestReviewConnection'
+    __typename: 'PullRequestReviewConnection'
 }
 
 
@@ -7832,7 +7832,7 @@ export interface PullRequestReviewContributionsByRepository {
     contributions: CreatedPullRequestReviewContributionConnection
     /** The repository in which the pull request reviews were made. */
     repository: Repository
-    __typename?: 'PullRequestReviewContributionsByRepository'
+    __typename: 'PullRequestReviewContributionsByRepository'
 }
 
 
@@ -7846,7 +7846,7 @@ export interface PullRequestReviewEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequestReview
-    __typename?: 'PullRequestReviewEdge'
+    __typename: 'PullRequestReviewEdge'
 }
 
 
@@ -7887,7 +7887,7 @@ export interface PullRequestReviewThread {
     viewerCanResolve: Scalars['Boolean']
     /** Whether or not the viewer can unresolve this thread */
     viewerCanUnresolve: Scalars['Boolean']
-    __typename?: 'PullRequestReviewThread'
+    __typename: 'PullRequestReviewThread'
 }
 
 
@@ -7901,7 +7901,7 @@ export interface PullRequestReviewThreadConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PullRequestReviewThreadConnection'
+    __typename: 'PullRequestReviewThreadConnection'
 }
 
 
@@ -7911,7 +7911,7 @@ export interface PullRequestReviewThreadEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequestReviewThread
-    __typename?: 'PullRequestReviewThreadEdge'
+    __typename: 'PullRequestReviewThreadEdge'
 }
 
 
@@ -7923,7 +7923,7 @@ export interface PullRequestRevisionMarker {
     lastSeenCommit: Commit
     /** The pull request to which the marker belongs. */
     pullRequest: PullRequest
-    __typename?: 'PullRequestRevisionMarker'
+    __typename: 'PullRequestRevisionMarker'
 }
 
 
@@ -7941,7 +7941,7 @@ export interface PullRequestTimelineConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PullRequestTimelineConnection'
+    __typename: 'PullRequestTimelineConnection'
 }
 
 
@@ -7955,7 +7955,7 @@ export interface PullRequestTimelineItemEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequestTimelineItem
-    __typename?: 'PullRequestTimelineItemEdge'
+    __typename: 'PullRequestTimelineItemEdge'
 }
 
 
@@ -7979,7 +7979,7 @@ export interface PullRequestTimelineItemsConnection {
     totalCount: Scalars['Int']
     /** Identifies the date and time when the timeline was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'PullRequestTimelineItemsConnection'
+    __typename: 'PullRequestTimelineItemsConnection'
 }
 
 
@@ -7989,7 +7989,7 @@ export interface PullRequestTimelineItemsEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PullRequestTimelineItems
-    __typename?: 'PullRequestTimelineItemsEdge'
+    __typename: 'PullRequestTimelineItemsEdge'
 }
 
 
@@ -8014,7 +8014,7 @@ export interface Push {
     pusher: User
     /** The repository that was pushed to */
     repository: Repository
-    __typename?: 'Push'
+    __typename: 'Push'
 }
 
 
@@ -8025,7 +8025,7 @@ export interface PushAllowance {
     /** Identifies the branch protection rule associated with the allowed user or team. */
     branchProtectionRule?: BranchProtectionRule
     id: Scalars['ID']
-    __typename?: 'PushAllowance'
+    __typename: 'PushAllowance'
 }
 
 
@@ -8043,7 +8043,7 @@ export interface PushAllowanceConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'PushAllowanceConnection'
+    __typename: 'PushAllowanceConnection'
 }
 
 
@@ -8053,7 +8053,7 @@ export interface PushAllowanceEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: PushAllowance
-    __typename?: 'PushAllowanceEdge'
+    __typename: 'PushAllowanceEdge'
 }
 
 
@@ -8118,7 +8118,7 @@ export interface Query {
     user?: User
     /** The currently authenticated user. */
     viewer: User
-    __typename?: 'Query'
+    __typename: 'Query'
 }
 
 
@@ -8134,7 +8134,7 @@ export interface RateLimit {
     remaining: Scalars['Int']
     /** The time at which the current rate limit window resets in UTC epoch seconds. */
     resetAt: Scalars['DateTime']
-    __typename?: 'RateLimit'
+    __typename: 'RateLimit'
 }
 
 
@@ -8152,7 +8152,7 @@ export interface ReactingUserConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ReactingUserConnection'
+    __typename: 'ReactingUserConnection'
 }
 
 
@@ -8163,7 +8163,7 @@ export interface ReactingUserEdge {
     node: User
     /** The moment when the user made the reaction. */
     reactedAt: Scalars['DateTime']
-    __typename?: 'ReactingUserEdge'
+    __typename: 'ReactingUserEdge'
 }
 
 
@@ -8180,7 +8180,7 @@ export interface Reaction {
     reactable: Reactable
     /** Identifies the user who created this reaction. */
     user?: User
-    __typename?: 'Reaction'
+    __typename: 'Reaction'
 }
 
 
@@ -8196,7 +8196,7 @@ export interface ReactionConnection {
     totalCount: Scalars['Int']
     /** Whether or not the authenticated user has left a reaction on the subject. */
     viewerHasReacted: Scalars['Boolean']
-    __typename?: 'ReactionConnection'
+    __typename: 'ReactionConnection'
 }
 
 
@@ -8210,7 +8210,7 @@ export interface ReactionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Reaction
-    __typename?: 'ReactionEdge'
+    __typename: 'ReactionEdge'
 }
 
 
@@ -8226,7 +8226,7 @@ export interface ReactionGroup {
     users: ReactingUserConnection
     /** Whether or not the authenticated user has left a reaction on the subject. */
     viewerHasReacted: Scalars['Boolean']
-    __typename?: 'ReactionGroup'
+    __typename: 'ReactionGroup'
 }
 
 
@@ -8247,7 +8247,7 @@ export interface ReadyForReviewEvent {
     resourcePath: Scalars['URI']
     /** The HTTP URL for this ready for review event. */
     url: Scalars['URI']
-    __typename?: 'ReadyForReviewEvent'
+    __typename: 'ReadyForReviewEvent'
 }
 
 
@@ -8270,7 +8270,7 @@ export interface Ref {
      * **Reason:** The `target` field may return `null` values and is changing to nullable
      */
     target: GitObject
-    __typename?: 'Ref'
+    __typename: 'Ref'
 }
 
 
@@ -8284,7 +8284,7 @@ export interface RefConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RefConnection'
+    __typename: 'RefConnection'
 }
 
 
@@ -8294,7 +8294,7 @@ export interface RefEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Ref
-    __typename?: 'RefEdge'
+    __typename: 'RefEdge'
 }
 
 
@@ -8319,7 +8319,7 @@ export interface ReferencedEvent {
     isDirectReference: Scalars['Boolean']
     /** Object referenced by event. */
     subject: ReferencedSubject
-    __typename?: 'ReferencedEvent'
+    __typename: 'ReferencedEvent'
 }
 
 
@@ -8333,7 +8333,7 @@ export interface RegenerateEnterpriseIdentityProviderRecoveryCodesPayload {
     clientMutationId?: Scalars['String']
     /** The identity provider for the enterprise. */
     identityProvider?: EnterpriseIdentityProvider
-    __typename?: 'RegenerateEnterpriseIdentityProviderRecoveryCodesPayload'
+    __typename: 'RegenerateEnterpriseIdentityProviderRecoveryCodesPayload'
 }
 
 
@@ -8430,7 +8430,7 @@ export interface RegistryPackage {
      * List package versions with a specific metadatum.
      */
     versionsByMetadatum?: RegistryPackageVersionConnection
-    __typename?: 'RegistryPackage'
+    __typename: 'RegistryPackage'
 }
 
 
@@ -8444,7 +8444,7 @@ export interface RegistryPackageConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RegistryPackageConnection'
+    __typename: 'RegistryPackageConnection'
 }
 
 
@@ -8466,7 +8466,7 @@ export interface RegistryPackageDependency {
      * Identifies the version of the dependency.
      */
     version: Scalars['String']
-    __typename?: 'RegistryPackageDependency'
+    __typename: 'RegistryPackageDependency'
 }
 
 
@@ -8480,7 +8480,7 @@ export interface RegistryPackageDependencyConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RegistryPackageDependencyConnection'
+    __typename: 'RegistryPackageDependencyConnection'
 }
 
 
@@ -8490,7 +8490,7 @@ export interface RegistryPackageDependencyEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RegistryPackageDependency
-    __typename?: 'RegistryPackageDependencyEdge'
+    __typename: 'RegistryPackageDependencyEdge'
 }
 
 
@@ -8504,7 +8504,7 @@ export interface RegistryPackageEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RegistryPackage
-    __typename?: 'RegistryPackageEdge'
+    __typename: 'RegistryPackageEdge'
 }
 
 
@@ -8558,7 +8558,7 @@ export interface RegistryPackageFile {
      * URL to download the asset.
      */
     url: Scalars['URI']
-    __typename?: 'RegistryPackageFile'
+    __typename: 'RegistryPackageFile'
 }
 
 
@@ -8572,7 +8572,7 @@ export interface RegistryPackageFileConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RegistryPackageFileConnection'
+    __typename: 'RegistryPackageFileConnection'
 }
 
 
@@ -8582,7 +8582,7 @@ export interface RegistryPackageFileEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RegistryPackageFile
-    __typename?: 'RegistryPackageFileEdge'
+    __typename: 'RegistryPackageFileEdge'
 }
 
 
@@ -8621,7 +8621,7 @@ export interface RegistryPackageStatistics {
      * Number of times the package was downloaded since it was created.
      */
     downloadsTotalCount: Scalars['Int']
-    __typename?: 'RegistryPackageStatistics'
+    __typename: 'RegistryPackageStatistics'
 }
 
 
@@ -8638,7 +8638,7 @@ export interface RegistryPackageTag {
      * version that the tag is associated with
      */
     version?: RegistryPackageVersion
-    __typename?: 'RegistryPackageTag'
+    __typename: 'RegistryPackageTag'
 }
 
 
@@ -8652,7 +8652,7 @@ export interface RegistryPackageTagConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RegistryPackageTagConnection'
+    __typename: 'RegistryPackageTagConnection'
 }
 
 
@@ -8662,7 +8662,7 @@ export interface RegistryPackageTagEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RegistryPackageTag
-    __typename?: 'RegistryPackageTagEdge'
+    __typename: 'RegistryPackageTagEdge'
 }
 
 
@@ -8768,7 +8768,7 @@ export interface RegistryPackageVersion {
      * Can the current viewer edit this Package version.
      */
     viewerCanEdit: Scalars['Boolean']
-    __typename?: 'RegistryPackageVersion'
+    __typename: 'RegistryPackageVersion'
 }
 
 
@@ -8782,7 +8782,7 @@ export interface RegistryPackageVersionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RegistryPackageVersionConnection'
+    __typename: 'RegistryPackageVersionConnection'
 }
 
 
@@ -8792,7 +8792,7 @@ export interface RegistryPackageVersionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RegistryPackageVersion
-    __typename?: 'RegistryPackageVersionEdge'
+    __typename: 'RegistryPackageVersionEdge'
 }
 
 
@@ -8823,7 +8823,7 @@ export interface RegistryPackageVersionStatistics {
      * Number of times the package was downloaded since it was created.
      */
     downloadsTotalCount: Scalars['Int']
-    __typename?: 'RegistryPackageVersionStatistics'
+    __typename: 'RegistryPackageVersionStatistics'
 }
 
 
@@ -8860,7 +8860,7 @@ export interface Release {
     updatedAt: Scalars['DateTime']
     /** The HTTP URL for this issue */
     url: Scalars['URI']
-    __typename?: 'Release'
+    __typename: 'Release'
 }
 
 
@@ -8887,7 +8887,7 @@ export interface ReleaseAsset {
     uploadedBy: User
     /** Identifies the URL of the release asset. */
     url: Scalars['URI']
-    __typename?: 'ReleaseAsset'
+    __typename: 'ReleaseAsset'
 }
 
 
@@ -8901,7 +8901,7 @@ export interface ReleaseAssetConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ReleaseAssetConnection'
+    __typename: 'ReleaseAssetConnection'
 }
 
 
@@ -8911,7 +8911,7 @@ export interface ReleaseAssetEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: ReleaseAsset
-    __typename?: 'ReleaseAssetEdge'
+    __typename: 'ReleaseAssetEdge'
 }
 
 
@@ -8925,7 +8925,7 @@ export interface ReleaseConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ReleaseConnection'
+    __typename: 'ReleaseConnection'
 }
 
 
@@ -8935,7 +8935,7 @@ export interface ReleaseEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Release
-    __typename?: 'ReleaseEdge'
+    __typename: 'ReleaseEdge'
 }
 
 
@@ -8949,7 +8949,7 @@ export interface RemoveAssigneesFromAssignablePayload {
     assignable?: Assignable
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'RemoveAssigneesFromAssignablePayload'
+    __typename: 'RemoveAssigneesFromAssignablePayload'
 }
 
 
@@ -8965,7 +8965,7 @@ export interface RemoveEnterpriseAdminPayload {
     message?: Scalars['String']
     /** The viewer performing the mutation. */
     viewer?: User
-    __typename?: 'RemoveEnterpriseAdminPayload'
+    __typename: 'RemoveEnterpriseAdminPayload'
 }
 
 
@@ -8975,7 +8975,7 @@ export interface RemoveEnterpriseIdentityProviderPayload {
     clientMutationId?: Scalars['String']
     /** The identity provider that was removed from the enterprise. */
     identityProvider?: EnterpriseIdentityProvider
-    __typename?: 'RemoveEnterpriseIdentityProviderPayload'
+    __typename: 'RemoveEnterpriseIdentityProviderPayload'
 }
 
 
@@ -8989,7 +8989,7 @@ export interface RemoveEnterpriseOrganizationPayload {
     organization?: Organization
     /** The viewer performing the mutation. */
     viewer?: User
-    __typename?: 'RemoveEnterpriseOrganizationPayload'
+    __typename: 'RemoveEnterpriseOrganizationPayload'
 }
 
 
@@ -8999,7 +8999,7 @@ export interface RemoveLabelsFromLabelablePayload {
     clientMutationId?: Scalars['String']
     /** The Labelable the labels were removed from. */
     labelable?: Labelable
-    __typename?: 'RemoveLabelsFromLabelablePayload'
+    __typename: 'RemoveLabelsFromLabelablePayload'
 }
 
 
@@ -9009,7 +9009,7 @@ export interface RemoveOutsideCollaboratorPayload {
     clientMutationId?: Scalars['String']
     /** The user that was removed as an outside collaborator. */
     removedUser?: User
-    __typename?: 'RemoveOutsideCollaboratorPayload'
+    __typename: 'RemoveOutsideCollaboratorPayload'
 }
 
 
@@ -9021,7 +9021,7 @@ export interface RemoveReactionPayload {
     reaction?: Reaction
     /** The reactable subject. */
     subject?: Reactable
-    __typename?: 'RemoveReactionPayload'
+    __typename: 'RemoveReactionPayload'
 }
 
 
@@ -9031,7 +9031,7 @@ export interface RemoveStarPayload {
     clientMutationId?: Scalars['String']
     /** The starrable. */
     starrable?: Starrable
-    __typename?: 'RemoveStarPayload'
+    __typename: 'RemoveStarPayload'
 }
 
 
@@ -9048,7 +9048,7 @@ export interface RemovedFromProjectEvent {
     project?: Project
     /** Column name referenced by this project event. */
     projectColumnName: Scalars['String']
-    __typename?: 'RemovedFromProjectEvent'
+    __typename: 'RemovedFromProjectEvent'
 }
 
 
@@ -9065,7 +9065,7 @@ export interface RenamedTitleEvent {
     previousTitle: Scalars['String']
     /** Subject that was renamed. */
     subject: RenamedTitleSubject
-    __typename?: 'RenamedTitleEvent'
+    __typename: 'RenamedTitleEvent'
 }
 
 
@@ -9079,7 +9079,7 @@ export interface ReopenIssuePayload {
     clientMutationId?: Scalars['String']
     /** The issue that was opened. */
     issue?: Issue
-    __typename?: 'ReopenIssuePayload'
+    __typename: 'ReopenIssuePayload'
 }
 
 
@@ -9089,7 +9089,7 @@ export interface ReopenPullRequestPayload {
     clientMutationId?: Scalars['String']
     /** The pull request that was reopened. */
     pullRequest?: PullRequest
-    __typename?: 'ReopenPullRequestPayload'
+    __typename: 'ReopenPullRequestPayload'
 }
 
 
@@ -9102,7 +9102,7 @@ export interface ReopenedEvent {
     /** Identifies the date and time when the object was created. */
     createdAt: Scalars['DateTime']
     id: Scalars['ID']
-    __typename?: 'ReopenedEvent'
+    __typename: 'ReopenedEvent'
 }
 
 
@@ -9153,7 +9153,7 @@ export interface RepoAccessAuditEntry {
     userUrl?: Scalars['URI']
     /** The visibility of the repository */
     visibility?: RepoAccessAuditEntryVisibility
-    __typename?: 'RepoAccessAuditEntry'
+    __typename: 'RepoAccessAuditEntry'
 }
 
 
@@ -9208,7 +9208,7 @@ export interface RepoAddMemberAuditEntry {
     userUrl?: Scalars['URI']
     /** The visibility of the repository */
     visibility?: RepoAddMemberAuditEntryVisibility
-    __typename?: 'RepoAddMemberAuditEntry'
+    __typename: 'RepoAddMemberAuditEntry'
 }
 
 
@@ -9265,7 +9265,7 @@ export interface RepoAddTopicAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoAddTopicAuditEntry'
+    __typename: 'RepoAddTopicAuditEntry'
 }
 
 
@@ -9316,7 +9316,7 @@ export interface RepoArchivedAuditEntry {
     userUrl?: Scalars['URI']
     /** The visibility of the repository */
     visibility?: RepoArchivedAuditEntryVisibility
-    __typename?: 'RepoArchivedAuditEntry'
+    __typename: 'RepoArchivedAuditEntry'
 }
 
 
@@ -9373,7 +9373,7 @@ export interface RepoChangeMergeSettingAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoChangeMergeSettingAuditEntry'
+    __typename: 'RepoChangeMergeSettingAuditEntry'
 }
 
 
@@ -9426,7 +9426,7 @@ export interface RepoConfigDisableAnonymousGitAccessAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigDisableAnonymousGitAccessAuditEntry'
+    __typename: 'RepoConfigDisableAnonymousGitAccessAuditEntry'
 }
 
 
@@ -9475,7 +9475,7 @@ export interface RepoConfigDisableCollaboratorsOnlyAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigDisableCollaboratorsOnlyAuditEntry'
+    __typename: 'RepoConfigDisableCollaboratorsOnlyAuditEntry'
 }
 
 
@@ -9524,7 +9524,7 @@ export interface RepoConfigDisableContributorsOnlyAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigDisableContributorsOnlyAuditEntry'
+    __typename: 'RepoConfigDisableContributorsOnlyAuditEntry'
 }
 
 
@@ -9573,7 +9573,7 @@ export interface RepoConfigDisableSockpuppetDisallowedAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigDisableSockpuppetDisallowedAuditEntry'
+    __typename: 'RepoConfigDisableSockpuppetDisallowedAuditEntry'
 }
 
 
@@ -9622,7 +9622,7 @@ export interface RepoConfigEnableAnonymousGitAccessAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigEnableAnonymousGitAccessAuditEntry'
+    __typename: 'RepoConfigEnableAnonymousGitAccessAuditEntry'
 }
 
 
@@ -9671,7 +9671,7 @@ export interface RepoConfigEnableCollaboratorsOnlyAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigEnableCollaboratorsOnlyAuditEntry'
+    __typename: 'RepoConfigEnableCollaboratorsOnlyAuditEntry'
 }
 
 
@@ -9720,7 +9720,7 @@ export interface RepoConfigEnableContributorsOnlyAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigEnableContributorsOnlyAuditEntry'
+    __typename: 'RepoConfigEnableContributorsOnlyAuditEntry'
 }
 
 
@@ -9769,7 +9769,7 @@ export interface RepoConfigEnableSockpuppetDisallowedAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigEnableSockpuppetDisallowedAuditEntry'
+    __typename: 'RepoConfigEnableSockpuppetDisallowedAuditEntry'
 }
 
 
@@ -9818,7 +9818,7 @@ export interface RepoConfigLockAnonymousGitAccessAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigLockAnonymousGitAccessAuditEntry'
+    __typename: 'RepoConfigLockAnonymousGitAccessAuditEntry'
 }
 
 
@@ -9867,7 +9867,7 @@ export interface RepoConfigUnlockAnonymousGitAccessAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoConfigUnlockAnonymousGitAccessAuditEntry'
+    __typename: 'RepoConfigUnlockAnonymousGitAccessAuditEntry'
 }
 
 
@@ -9922,7 +9922,7 @@ export interface RepoCreateAuditEntry {
     userUrl?: Scalars['URI']
     /** The visibility of the repository */
     visibility?: RepoCreateAuditEntryVisibility
-    __typename?: 'RepoCreateAuditEntry'
+    __typename: 'RepoCreateAuditEntry'
 }
 
 
@@ -9977,7 +9977,7 @@ export interface RepoDestroyAuditEntry {
     userUrl?: Scalars['URI']
     /** The visibility of the repository */
     visibility?: RepoDestroyAuditEntryVisibility
-    __typename?: 'RepoDestroyAuditEntry'
+    __typename: 'RepoDestroyAuditEntry'
 }
 
 
@@ -10032,7 +10032,7 @@ export interface RepoRemoveMemberAuditEntry {
     userUrl?: Scalars['URI']
     /** The visibility of the repository */
     visibility?: RepoRemoveMemberAuditEntryVisibility
-    __typename?: 'RepoRemoveMemberAuditEntry'
+    __typename: 'RepoRemoveMemberAuditEntry'
 }
 
 
@@ -10089,7 +10089,7 @@ export interface RepoRemoveTopicAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepoRemoveTopicAuditEntry'
+    __typename: 'RepoRemoveTopicAuditEntry'
 }
 
 
@@ -10281,7 +10281,7 @@ export interface Repository {
     vulnerabilityAlerts?: RepositoryVulnerabilityAlertConnection
     /** A list of users watching the repository. */
     watchers: UserConnection
-    __typename?: 'Repository'
+    __typename: 'Repository'
 }
 
 
@@ -10303,7 +10303,7 @@ export interface RepositoryCollaboratorConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RepositoryCollaboratorConnection'
+    __typename: 'RepositoryCollaboratorConnection'
 }
 
 
@@ -10322,7 +10322,7 @@ export interface RepositoryCollaboratorEdge {
     permission: RepositoryPermission
     /** A list of sources for the user's access to the repository. */
     permissionSources?: PermissionSource[]
-    __typename?: 'RepositoryCollaboratorEdge'
+    __typename: 'RepositoryCollaboratorEdge'
 }
 
 
@@ -10338,7 +10338,7 @@ export interface RepositoryConnection {
     totalCount: Scalars['Int']
     /** The total size in kilobytes of all repositories in the connection. */
     totalDiskUsage: Scalars['Int']
-    __typename?: 'RepositoryConnection'
+    __typename: 'RepositoryConnection'
 }
 
 
@@ -10352,7 +10352,7 @@ export interface RepositoryEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Repository
-    __typename?: 'RepositoryEdge'
+    __typename: 'RepositoryEdge'
 }
 
 
@@ -10379,7 +10379,7 @@ export interface RepositoryInvitation {
     permission: RepositoryPermission
     /** The Repository the user is invited to. */
     repository?: RepositoryInfo
-    __typename?: 'RepositoryInvitation'
+    __typename: 'RepositoryInvitation'
 }
 
 
@@ -10393,7 +10393,7 @@ export interface RepositoryInvitationConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RepositoryInvitationConnection'
+    __typename: 'RepositoryInvitationConnection'
 }
 
 
@@ -10403,7 +10403,7 @@ export interface RepositoryInvitationEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RepositoryInvitation
-    __typename?: 'RepositoryInvitationEdge'
+    __typename: 'RepositoryInvitationEdge'
 }
 
 
@@ -10444,7 +10444,7 @@ export interface RepositoryTopic {
     topic: Topic
     /** The HTTP URL for this repository-topic. */
     url: Scalars['URI']
-    __typename?: 'RepositoryTopic'
+    __typename: 'RepositoryTopic'
 }
 
 
@@ -10458,7 +10458,7 @@ export interface RepositoryTopicConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RepositoryTopicConnection'
+    __typename: 'RepositoryTopicConnection'
 }
 
 
@@ -10468,7 +10468,7 @@ export interface RepositoryTopicEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RepositoryTopic
-    __typename?: 'RepositoryTopicEdge'
+    __typename: 'RepositoryTopicEdge'
 }
 
 
@@ -10519,7 +10519,7 @@ export interface RepositoryVisibilityChangeDisableAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepositoryVisibilityChangeDisableAuditEntry'
+    __typename: 'RepositoryVisibilityChangeDisableAuditEntry'
 }
 
 
@@ -10566,7 +10566,7 @@ export interface RepositoryVisibilityChangeEnableAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'RepositoryVisibilityChangeEnableAuditEntry'
+    __typename: 'RepositoryVisibilityChangeEnableAuditEntry'
 }
 
 
@@ -10593,7 +10593,7 @@ export interface RepositoryVulnerabilityAlert {
     vulnerableManifestPath: Scalars['String']
     /** The vulnerable requirements */
     vulnerableRequirements?: Scalars['String']
-    __typename?: 'RepositoryVulnerabilityAlert'
+    __typename: 'RepositoryVulnerabilityAlert'
 }
 
 
@@ -10607,7 +10607,7 @@ export interface RepositoryVulnerabilityAlertConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'RepositoryVulnerabilityAlertConnection'
+    __typename: 'RepositoryVulnerabilityAlertConnection'
 }
 
 
@@ -10617,7 +10617,7 @@ export interface RepositoryVulnerabilityAlertEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: RepositoryVulnerabilityAlert
-    __typename?: 'RepositoryVulnerabilityAlertEdge'
+    __typename: 'RepositoryVulnerabilityAlertEdge'
 }
 
 
@@ -10631,7 +10631,7 @@ export interface RequestReviewsPayload {
     pullRequest?: PullRequest
     /** The edge from the pull request to the requested reviewers. */
     requestedReviewersEdge?: UserEdge
-    __typename?: 'RequestReviewsPayload'
+    __typename: 'RequestReviewsPayload'
 }
 
 
@@ -10649,7 +10649,7 @@ export interface RerequestCheckSuitePayload {
     checkSuite?: CheckSuite
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'RerequestCheckSuitePayload'
+    __typename: 'RerequestCheckSuitePayload'
 }
 
 
@@ -10659,7 +10659,7 @@ export interface ResolveReviewThreadPayload {
     clientMutationId?: Scalars['String']
     /** The thread to resolve. */
     thread?: PullRequestReviewThread
-    __typename?: 'ResolveReviewThreadPayload'
+    __typename: 'ResolveReviewThreadPayload'
 }
 
 
@@ -10679,7 +10679,7 @@ export interface RestrictedContribution {
     url: Scalars['URI']
     /** The user who made this contribution. */
     user: User
-    __typename?: 'RestrictedContribution'
+    __typename: 'RestrictedContribution'
 }
 
 
@@ -10690,7 +10690,7 @@ export interface ReviewDismissalAllowance {
     /** Identifies the branch protection rule associated with the allowed user or team. */
     branchProtectionRule?: BranchProtectionRule
     id: Scalars['ID']
-    __typename?: 'ReviewDismissalAllowance'
+    __typename: 'ReviewDismissalAllowance'
 }
 
 
@@ -10708,7 +10708,7 @@ export interface ReviewDismissalAllowanceConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ReviewDismissalAllowanceConnection'
+    __typename: 'ReviewDismissalAllowanceConnection'
 }
 
 
@@ -10718,7 +10718,7 @@ export interface ReviewDismissalAllowanceEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: ReviewDismissalAllowance
-    __typename?: 'ReviewDismissalAllowanceEdge'
+    __typename: 'ReviewDismissalAllowanceEdge'
 }
 
 
@@ -10747,7 +10747,7 @@ export interface ReviewDismissedEvent {
     review?: PullRequestReview
     /** The HTTP URL for this review dismissed event. */
     url: Scalars['URI']
-    __typename?: 'ReviewDismissedEvent'
+    __typename: 'ReviewDismissedEvent'
 }
 
 
@@ -10760,7 +10760,7 @@ export interface ReviewRequest {
     pullRequest: PullRequest
     /** The reviewer that is requested. */
     requestedReviewer?: RequestedReviewer
-    __typename?: 'ReviewRequest'
+    __typename: 'ReviewRequest'
 }
 
 
@@ -10774,7 +10774,7 @@ export interface ReviewRequestConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'ReviewRequestConnection'
+    __typename: 'ReviewRequestConnection'
 }
 
 
@@ -10784,7 +10784,7 @@ export interface ReviewRequestEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: ReviewRequest
-    __typename?: 'ReviewRequestEdge'
+    __typename: 'ReviewRequestEdge'
 }
 
 
@@ -10799,7 +10799,7 @@ export interface ReviewRequestRemovedEvent {
     pullRequest: PullRequest
     /** Identifies the reviewer whose review request was removed. */
     requestedReviewer?: RequestedReviewer
-    __typename?: 'ReviewRequestRemovedEvent'
+    __typename: 'ReviewRequestRemovedEvent'
 }
 
 
@@ -10814,7 +10814,7 @@ export interface ReviewRequestedEvent {
     pullRequest: PullRequest
     /** Identifies the reviewer whose review was requested. */
     requestedReviewer?: RequestedReviewer
-    __typename?: 'ReviewRequestedEvent'
+    __typename: 'ReviewRequestedEvent'
 }
 
 
@@ -10829,7 +10829,7 @@ export interface ReviewStatusHovercardContext {
     octicon: Scalars['String']
     /** The current status of the pull request with respect to code review. */
     reviewDecision?: PullRequestReviewDecision
-    __typename?: 'ReviewStatusHovercardContext'
+    __typename: 'ReviewStatusHovercardContext'
 }
 
 
@@ -10854,7 +10854,7 @@ export interface SavedReply {
     title: Scalars['String']
     /** The user that saved this reply. */
     user?: Actor
-    __typename?: 'SavedReply'
+    __typename: 'SavedReply'
 }
 
 
@@ -10868,7 +10868,7 @@ export interface SavedReplyConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'SavedReplyConnection'
+    __typename: 'SavedReplyConnection'
 }
 
 
@@ -10878,7 +10878,7 @@ export interface SavedReplyEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: SavedReply
-    __typename?: 'SavedReplyEdge'
+    __typename: 'SavedReplyEdge'
 }
 
 
@@ -10908,7 +10908,7 @@ export interface SearchResultItemConnection {
     userCount: Scalars['Int']
     /** The number of wiki pages that matched the search query. */
     wikiCount: Scalars['Int']
-    __typename?: 'SearchResultItemConnection'
+    __typename: 'SearchResultItemConnection'
 }
 
 
@@ -10920,7 +10920,7 @@ export interface SearchResultItemEdge {
     node?: SearchResultItem
     /** Text matches on the result found. */
     textMatches?: (TextMatch | undefined)[]
-    __typename?: 'SearchResultItemEdge'
+    __typename: 'SearchResultItemEdge'
 }
 
 
@@ -10957,7 +10957,7 @@ export interface SecurityAdvisory {
     vulnerabilities: SecurityVulnerabilityConnection
     /** When the advisory was withdrawn, if it has been withdrawn */
     withdrawnAt?: Scalars['DateTime']
-    __typename?: 'SecurityAdvisory'
+    __typename: 'SecurityAdvisory'
 }
 
 
@@ -10971,7 +10971,7 @@ export interface SecurityAdvisoryConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'SecurityAdvisoryConnection'
+    __typename: 'SecurityAdvisoryConnection'
 }
 
 
@@ -10985,7 +10985,7 @@ export interface SecurityAdvisoryEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: SecurityAdvisory
-    __typename?: 'SecurityAdvisoryEdge'
+    __typename: 'SecurityAdvisoryEdge'
 }
 
 
@@ -10995,7 +10995,7 @@ export interface SecurityAdvisoryIdentifier {
     type: Scalars['String']
     /** The identifier */
     value: Scalars['String']
-    __typename?: 'SecurityAdvisoryIdentifier'
+    __typename: 'SecurityAdvisoryIdentifier'
 }
 
 
@@ -11013,7 +11013,7 @@ export interface SecurityAdvisoryPackage {
     ecosystem: SecurityAdvisoryEcosystem
     /** The package name */
     name: Scalars['String']
-    __typename?: 'SecurityAdvisoryPackage'
+    __typename: 'SecurityAdvisoryPackage'
 }
 
 
@@ -11021,7 +11021,7 @@ export interface SecurityAdvisoryPackage {
 export interface SecurityAdvisoryPackageVersion {
     /** The package name or version */
     identifier: Scalars['String']
-    __typename?: 'SecurityAdvisoryPackageVersion'
+    __typename: 'SecurityAdvisoryPackageVersion'
 }
 
 
@@ -11029,7 +11029,7 @@ export interface SecurityAdvisoryPackageVersion {
 export interface SecurityAdvisoryReference {
     /** A publicly accessible reference */
     url: Scalars['URI']
-    __typename?: 'SecurityAdvisoryReference'
+    __typename: 'SecurityAdvisoryReference'
 }
 
 
@@ -11059,7 +11059,7 @@ export interface SecurityVulnerability {
      * + `>= 0.0.1` denotes a version range with a known minimum, but no known maximum
      */
     vulnerableVersionRange: Scalars['String']
-    __typename?: 'SecurityVulnerability'
+    __typename: 'SecurityVulnerability'
 }
 
 
@@ -11073,7 +11073,7 @@ export interface SecurityVulnerabilityConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'SecurityVulnerabilityConnection'
+    __typename: 'SecurityVulnerabilityConnection'
 }
 
 
@@ -11083,7 +11083,7 @@ export interface SecurityVulnerabilityEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: SecurityVulnerability
-    __typename?: 'SecurityVulnerabilityEdge'
+    __typename: 'SecurityVulnerabilityEdge'
 }
 
 
@@ -11097,7 +11097,7 @@ export interface SetEnterpriseIdentityProviderPayload {
     clientMutationId?: Scalars['String']
     /** The identity provider for the enterprise. */
     identityProvider?: EnterpriseIdentityProvider
-    __typename?: 'SetEnterpriseIdentityProviderPayload'
+    __typename: 'SetEnterpriseIdentityProviderPayload'
 }
 
 
@@ -11120,7 +11120,7 @@ export interface SmimeSignature {
     state: GitSignatureState
     /** True if the signature was made with GitHub's signing key. */
     wasSignedByGitHub: Scalars['Boolean']
-    __typename?: 'SmimeSignature'
+    __typename: 'SmimeSignature'
 }
 
 
@@ -11149,7 +11149,7 @@ export interface SponsorsListing {
     slug: Scalars['String']
     /** The published tiers for this GitHub Sponsors listing. */
     tiers?: SponsorsTierConnection
-    __typename?: 'SponsorsListing'
+    __typename: 'SponsorsListing'
 }
 
 
@@ -11174,7 +11174,7 @@ export interface SponsorsTier {
     sponsorsListing: SponsorsListing
     /** Identifies the date and time when the object was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'SponsorsTier'
+    __typename: 'SponsorsTier'
 }
 
 
@@ -11182,7 +11182,7 @@ export interface SponsorsTier {
 export interface SponsorsTierAdminInfo {
     /** The sponsorships associated with this tier. */
     sponsorships: SponsorshipConnection
-    __typename?: 'SponsorsTierAdminInfo'
+    __typename: 'SponsorsTierAdminInfo'
 }
 
 
@@ -11196,7 +11196,7 @@ export interface SponsorsTierConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'SponsorsTierConnection'
+    __typename: 'SponsorsTierConnection'
 }
 
 
@@ -11206,7 +11206,7 @@ export interface SponsorsTierEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: SponsorsTier
-    __typename?: 'SponsorsTierEdge'
+    __typename: 'SponsorsTierEdge'
 }
 
 
@@ -11237,7 +11237,7 @@ export interface Sponsorship {
     sponsorable: Sponsorable
     /** The associated sponsorship tier */
     tier?: SponsorsTier
-    __typename?: 'Sponsorship'
+    __typename: 'Sponsorship'
 }
 
 
@@ -11251,7 +11251,7 @@ export interface SponsorshipConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'SponsorshipConnection'
+    __typename: 'SponsorshipConnection'
 }
 
 
@@ -11261,7 +11261,7 @@ export interface SponsorshipEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Sponsorship
-    __typename?: 'SponsorshipEdge'
+    __typename: 'SponsorshipEdge'
 }
 
 
@@ -11287,7 +11287,7 @@ export interface StargazerConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'StargazerConnection'
+    __typename: 'StargazerConnection'
 }
 
 
@@ -11298,7 +11298,7 @@ export interface StargazerEdge {
     node: User
     /** Identifies when the item was starred. */
     starredAt: Scalars['DateTime']
-    __typename?: 'StargazerEdge'
+    __typename: 'StargazerEdge'
 }
 
 
@@ -11318,7 +11318,7 @@ export interface StarredRepositoryConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'StarredRepositoryConnection'
+    __typename: 'StarredRepositoryConnection'
 }
 
 
@@ -11329,7 +11329,7 @@ export interface StarredRepositoryEdge {
     node: Repository
     /** Identifies when the item was starred. */
     starredAt: Scalars['DateTime']
-    __typename?: 'StarredRepositoryEdge'
+    __typename: 'StarredRepositoryEdge'
 }
 
 
@@ -11344,7 +11344,7 @@ export interface Status {
     id: Scalars['ID']
     /** The combined commit status. */
     state: StatusState
-    __typename?: 'Status'
+    __typename: 'Status'
 }
 
 
@@ -11357,7 +11357,7 @@ export interface StatusCheckRollup {
     id: Scalars['ID']
     /** The combined status for the commit. */
     state: StatusState
-    __typename?: 'StatusCheckRollup'
+    __typename: 'StatusCheckRollup'
 }
 
 
@@ -11375,7 +11375,7 @@ export interface StatusCheckRollupContextConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'StatusCheckRollupContextConnection'
+    __typename: 'StatusCheckRollupContextConnection'
 }
 
 
@@ -11385,7 +11385,7 @@ export interface StatusCheckRollupContextEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: StatusCheckRollupContext
-    __typename?: 'StatusCheckRollupContextEdge'
+    __typename: 'StatusCheckRollupContextEdge'
 }
 
 
@@ -11408,7 +11408,7 @@ export interface StatusContext {
     state: StatusState
     /** The URL for this status context. */
     targetUrl?: Scalars['URI']
-    __typename?: 'StatusContext'
+    __typename: 'StatusContext'
 }
 
 
@@ -11422,7 +11422,7 @@ export interface SubmitPullRequestReviewPayload {
     clientMutationId?: Scalars['String']
     /** The submitted pull request review. */
     pullRequestReview?: PullRequestReview
-    __typename?: 'SubmitPullRequestReviewPayload'
+    __typename: 'SubmitPullRequestReviewPayload'
 }
 
 
@@ -11438,7 +11438,7 @@ export interface Submodule {
     path: Scalars['String']
     /** The commit revision of the subproject repository being tracked by the submodule */
     subprojectCommitOid?: Scalars['GitObjectID']
-    __typename?: 'Submodule'
+    __typename: 'Submodule'
 }
 
 
@@ -11452,7 +11452,7 @@ export interface SubmoduleConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'SubmoduleConnection'
+    __typename: 'SubmoduleConnection'
 }
 
 
@@ -11462,7 +11462,7 @@ export interface SubmoduleEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Submodule
-    __typename?: 'SubmoduleEdge'
+    __typename: 'SubmoduleEdge'
 }
 
 
@@ -11479,7 +11479,7 @@ export interface SubscribedEvent {
     id: Scalars['ID']
     /** Object referenced by event. */
     subscribable: Subscribable
-    __typename?: 'SubscribedEvent'
+    __typename: 'SubscribedEvent'
 }
 
 
@@ -11495,7 +11495,7 @@ export interface SuggestedReviewer {
     isCommenter: Scalars['Boolean']
     /** Identifies the user suggested to review the pull request. */
     reviewer: User
-    __typename?: 'SuggestedReviewer'
+    __typename: 'SuggestedReviewer'
 }
 
 
@@ -11520,7 +11520,7 @@ export interface Tag {
     tagger?: GitActor
     /** The Git object the tag points to. */
     target: GitObject
-    __typename?: 'Tag'
+    __typename: 'Tag'
 }
 
 
@@ -11605,7 +11605,7 @@ export interface Team {
     viewerCanSubscribe: Scalars['Boolean']
     /** Identifies if the viewer is watching, not watching, or ignoring the subscribable entity. */
     viewerSubscription?: SubscriptionState
-    __typename?: 'Team'
+    __typename: 'Team'
 }
 
 
@@ -11656,7 +11656,7 @@ export interface TeamAddMemberAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'TeamAddMemberAuditEntry'
+    __typename: 'TeamAddMemberAuditEntry'
 }
 
 
@@ -11715,7 +11715,7 @@ export interface TeamAddRepositoryAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'TeamAddRepositoryAuditEntry'
+    __typename: 'TeamAddRepositoryAuditEntry'
 }
 
 
@@ -11786,7 +11786,7 @@ export interface TeamChangeParentTeamAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'TeamChangeParentTeamAuditEntry'
+    __typename: 'TeamChangeParentTeamAuditEntry'
 }
 
 
@@ -11800,7 +11800,7 @@ export interface TeamConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'TeamConnection'
+    __typename: 'TeamConnection'
 }
 
 
@@ -11877,7 +11877,7 @@ export interface TeamDiscussion {
     viewerDidAuthor: Scalars['Boolean']
     /** Identifies if the viewer is watching, not watching, or ignoring the subscribable entity. */
     viewerSubscription?: SubscriptionState
-    __typename?: 'TeamDiscussion'
+    __typename: 'TeamDiscussion'
 }
 
 
@@ -11936,7 +11936,7 @@ export interface TeamDiscussionComment {
     viewerCannotUpdateReasons: CommentCannotUpdateReason[]
     /** Did the viewer author this comment. */
     viewerDidAuthor: Scalars['Boolean']
-    __typename?: 'TeamDiscussionComment'
+    __typename: 'TeamDiscussionComment'
 }
 
 
@@ -11950,7 +11950,7 @@ export interface TeamDiscussionCommentConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'TeamDiscussionCommentConnection'
+    __typename: 'TeamDiscussionCommentConnection'
 }
 
 
@@ -11960,7 +11960,7 @@ export interface TeamDiscussionCommentEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: TeamDiscussionComment
-    __typename?: 'TeamDiscussionCommentEdge'
+    __typename: 'TeamDiscussionCommentEdge'
 }
 
 
@@ -11978,7 +11978,7 @@ export interface TeamDiscussionConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'TeamDiscussionConnection'
+    __typename: 'TeamDiscussionConnection'
 }
 
 
@@ -11988,7 +11988,7 @@ export interface TeamDiscussionEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: TeamDiscussion
-    __typename?: 'TeamDiscussionEdge'
+    __typename: 'TeamDiscussionEdge'
 }
 
 
@@ -12002,7 +12002,7 @@ export interface TeamEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Team
-    __typename?: 'TeamEdge'
+    __typename: 'TeamEdge'
 }
 
 
@@ -12016,7 +12016,7 @@ export interface TeamMemberConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'TeamMemberConnection'
+    __typename: 'TeamMemberConnection'
 }
 
 
@@ -12031,7 +12031,7 @@ export interface TeamMemberEdge {
     node: User
     /** The role the member has on the team. */
     role: TeamMemberRole
-    __typename?: 'TeamMemberEdge'
+    __typename: 'TeamMemberEdge'
 }
 
 
@@ -12102,7 +12102,7 @@ export interface TeamRemoveMemberAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'TeamRemoveMemberAuditEntry'
+    __typename: 'TeamRemoveMemberAuditEntry'
 }
 
 
@@ -12161,7 +12161,7 @@ export interface TeamRemoveRepositoryAuditEntry {
     userResourcePath?: Scalars['URI']
     /** The HTTP URL for the user. */
     userUrl?: Scalars['URI']
-    __typename?: 'TeamRemoveRepositoryAuditEntry'
+    __typename: 'TeamRemoveRepositoryAuditEntry'
 }
 
 
@@ -12175,7 +12175,7 @@ export interface TeamRepositoryConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'TeamRepositoryConnection'
+    __typename: 'TeamRepositoryConnection'
 }
 
 
@@ -12192,7 +12192,7 @@ export interface TeamRepositoryEdge {
      * **Reason:** This field may return additional values
      */
     permission: RepositoryPermission
-    __typename?: 'TeamRepositoryEdge'
+    __typename: 'TeamRepositoryEdge'
 }
 
 
@@ -12216,7 +12216,7 @@ export interface TextMatch {
     highlights: TextMatchHighlight[]
     /** The property matched on. */
     property: Scalars['String']
-    __typename?: 'TextMatch'
+    __typename: 'TextMatch'
 }
 
 
@@ -12228,7 +12228,7 @@ export interface TextMatchHighlight {
     endIndice: Scalars['Int']
     /** The text matched. */
     text: Scalars['String']
-    __typename?: 'TextMatchHighlight'
+    __typename: 'TextMatchHighlight'
 }
 
 
@@ -12246,7 +12246,7 @@ export interface Topic {
     stargazers: StargazerConnection
     /** Returns a boolean indicating whether the viewing user has starred this starrable. */
     viewerHasStarred: Scalars['Boolean']
-    __typename?: 'Topic'
+    __typename: 'Topic'
 }
 
 
@@ -12264,7 +12264,7 @@ export interface TopicConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'TopicConnection'
+    __typename: 'TopicConnection'
 }
 
 
@@ -12274,7 +12274,7 @@ export interface TopicEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: Topic
-    __typename?: 'TopicEdge'
+    __typename: 'TopicEdge'
 }
 
 
@@ -12288,7 +12288,7 @@ export interface TransferIssuePayload {
     clientMutationId?: Scalars['String']
     /** The issue that was transferred */
     issue?: Issue
-    __typename?: 'TransferIssuePayload'
+    __typename: 'TransferIssuePayload'
 }
 
 
@@ -12303,7 +12303,7 @@ export interface TransferredEvent {
     id: Scalars['ID']
     /** Identifies the issue associated with the event. */
     issue: Issue
-    __typename?: 'TransferredEvent'
+    __typename: 'TransferredEvent'
 }
 
 
@@ -12322,7 +12322,7 @@ export interface Tree {
     oid: Scalars['GitObjectID']
     /** The Repository the Git object belongs to */
     repository: Repository
-    __typename?: 'Tree'
+    __typename: 'Tree'
 }
 
 
@@ -12342,7 +12342,7 @@ export interface TreeEntry {
     submodule?: Submodule
     /** Entry file type. */
     type: Scalars['String']
-    __typename?: 'TreeEntry'
+    __typename: 'TreeEntry'
 }
 
 
@@ -12352,7 +12352,7 @@ export interface UnarchiveRepositoryPayload {
     clientMutationId?: Scalars['String']
     /** The repository that was unarchived. */
     repository?: Repository
-    __typename?: 'UnarchiveRepositoryPayload'
+    __typename: 'UnarchiveRepositoryPayload'
 }
 
 
@@ -12372,7 +12372,7 @@ export interface UnassignedEvent {
      * Identifies the subject (user) who was unassigned.
      */
     user?: User
-    __typename?: 'UnassignedEvent'
+    __typename: 'UnassignedEvent'
 }
 
 
@@ -12382,7 +12382,7 @@ export interface UnfollowUserPayload {
     clientMutationId?: Scalars['String']
     /** The user that was unfollowed. */
     user?: User
-    __typename?: 'UnfollowUserPayload'
+    __typename: 'UnfollowUserPayload'
 }
 
 
@@ -12409,7 +12409,7 @@ export interface UnknownSignature {
     state: GitSignatureState
     /** True if the signature was made with GitHub's signing key. */
     wasSignedByGitHub: Scalars['Boolean']
-    __typename?: 'UnknownSignature'
+    __typename: 'UnknownSignature'
 }
 
 
@@ -12424,7 +12424,7 @@ export interface UnlabeledEvent {
     label: Label
     /** Identifies the `Labelable` associated with the event. */
     labelable: Labelable
-    __typename?: 'UnlabeledEvent'
+    __typename: 'UnlabeledEvent'
 }
 
 
@@ -12436,7 +12436,7 @@ export interface UnlinkRepositoryFromProjectPayload {
     project?: Project
     /** The linked Repository. */
     repository?: Repository
-    __typename?: 'UnlinkRepositoryFromProjectPayload'
+    __typename: 'UnlinkRepositoryFromProjectPayload'
 }
 
 
@@ -12448,7 +12448,7 @@ export interface UnlockLockablePayload {
     clientMutationId?: Scalars['String']
     /** The item that was unlocked. */
     unlockedRecord?: Lockable
-    __typename?: 'UnlockLockablePayload'
+    __typename: 'UnlockLockablePayload'
 }
 
 
@@ -12461,7 +12461,7 @@ export interface UnlockedEvent {
     id: Scalars['ID']
     /** Object that was unlocked. */
     lockable: Lockable
-    __typename?: 'UnlockedEvent'
+    __typename: 'UnlockedEvent'
 }
 
 
@@ -12471,7 +12471,7 @@ export interface UnmarkIssueAsDuplicatePayload {
     clientMutationId?: Scalars['String']
     /** The issue or pull request that was marked as a duplicate. */
     duplicate?: IssueOrPullRequest
-    __typename?: 'UnmarkIssueAsDuplicatePayload'
+    __typename: 'UnmarkIssueAsDuplicatePayload'
 }
 
 
@@ -12482,7 +12482,7 @@ export interface UnmarkedAsDuplicateEvent {
     /** Identifies the date and time when the object was created. */
     createdAt: Scalars['DateTime']
     id: Scalars['ID']
-    __typename?: 'UnmarkedAsDuplicateEvent'
+    __typename: 'UnmarkedAsDuplicateEvent'
 }
 
 
@@ -12492,7 +12492,7 @@ export interface UnminimizeCommentPayload {
     clientMutationId?: Scalars['String']
     /** The comment that was unminimized. */
     unminimizedComment?: Minimizable
-    __typename?: 'UnminimizeCommentPayload'
+    __typename: 'UnminimizeCommentPayload'
 }
 
 
@@ -12502,7 +12502,7 @@ export interface UnpinIssuePayload {
     clientMutationId?: Scalars['String']
     /** The issue that was unpinned */
     issue?: Issue
-    __typename?: 'UnpinIssuePayload'
+    __typename: 'UnpinIssuePayload'
 }
 
 
@@ -12515,7 +12515,7 @@ export interface UnpinnedEvent {
     id: Scalars['ID']
     /** Identifies the issue associated with the event. */
     issue: Issue
-    __typename?: 'UnpinnedEvent'
+    __typename: 'UnpinnedEvent'
 }
 
 
@@ -12525,7 +12525,7 @@ export interface UnresolveReviewThreadPayload {
     clientMutationId?: Scalars['String']
     /** The thread to resolve. */
     thread?: PullRequestReviewThread
-    __typename?: 'UnresolveReviewThreadPayload'
+    __typename: 'UnresolveReviewThreadPayload'
 }
 
 
@@ -12538,7 +12538,7 @@ export interface UnsubscribedEvent {
     id: Scalars['ID']
     /** Object referenced by event. */
     subscribable: Subscribable
-    __typename?: 'UnsubscribedEvent'
+    __typename: 'UnsubscribedEvent'
 }
 
 
@@ -12556,7 +12556,7 @@ export interface UpdateBranchProtectionRulePayload {
     branchProtectionRule?: BranchProtectionRule
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'UpdateBranchProtectionRulePayload'
+    __typename: 'UpdateBranchProtectionRulePayload'
 }
 
 
@@ -12566,7 +12566,7 @@ export interface UpdateCheckRunPayload {
     checkRun?: CheckRun
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'UpdateCheckRunPayload'
+    __typename: 'UpdateCheckRunPayload'
 }
 
 
@@ -12576,7 +12576,7 @@ export interface UpdateCheckSuitePreferencesPayload {
     clientMutationId?: Scalars['String']
     /** The updated repository. */
     repository?: Repository
-    __typename?: 'UpdateCheckSuitePreferencesPayload'
+    __typename: 'UpdateCheckSuitePreferencesPayload'
 }
 
 
@@ -12588,7 +12588,7 @@ export interface UpdateEnterpriseActionExecutionCapabilitySettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the action execution capability setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseActionExecutionCapabilitySettingPayload'
+    __typename: 'UpdateEnterpriseActionExecutionCapabilitySettingPayload'
 }
 
 
@@ -12598,7 +12598,7 @@ export interface UpdateEnterpriseAdministratorRolePayload {
     clientMutationId?: Scalars['String']
     /** A message confirming the result of changing the administrator's role. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseAdministratorRolePayload'
+    __typename: 'UpdateEnterpriseAdministratorRolePayload'
 }
 
 
@@ -12610,7 +12610,7 @@ export interface UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the allow private repository forking setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload'
+    __typename: 'UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload'
 }
 
 
@@ -12622,7 +12622,7 @@ export interface UpdateEnterpriseDefaultRepositoryPermissionSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the default repository permission setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseDefaultRepositoryPermissionSettingPayload'
+    __typename: 'UpdateEnterpriseDefaultRepositoryPermissionSettingPayload'
 }
 
 
@@ -12634,7 +12634,7 @@ export interface UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayl
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can change repository visibility setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload'
 }
 
 
@@ -12646,7 +12646,7 @@ export interface UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can create repositories setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload'
 }
 
 
@@ -12658,7 +12658,7 @@ export interface UpdateEnterpriseMembersCanDeleteIssuesSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can delete issues setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanDeleteIssuesSettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanDeleteIssuesSettingPayload'
 }
 
 
@@ -12670,7 +12670,7 @@ export interface UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can delete repositories setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload'
 }
 
 
@@ -12682,7 +12682,7 @@ export interface UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can invite collaborators setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload'
 }
 
 
@@ -12694,7 +12694,7 @@ export interface UpdateEnterpriseMembersCanMakePurchasesSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can make purchases setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanMakePurchasesSettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanMakePurchasesSettingPayload'
 }
 
 
@@ -12706,7 +12706,7 @@ export interface UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can update protected branches setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload'
 }
 
 
@@ -12718,7 +12718,7 @@ export interface UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload 
     enterprise?: Enterprise
     /** A message confirming the result of updating the members can view dependency insights setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload'
+    __typename: 'UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload'
 }
 
 
@@ -12730,7 +12730,7 @@ export interface UpdateEnterpriseOrganizationProjectsSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the organization projects setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseOrganizationProjectsSettingPayload'
+    __typename: 'UpdateEnterpriseOrganizationProjectsSettingPayload'
 }
 
 
@@ -12740,7 +12740,7 @@ export interface UpdateEnterpriseProfilePayload {
     clientMutationId?: Scalars['String']
     /** The updated enterprise. */
     enterprise?: Enterprise
-    __typename?: 'UpdateEnterpriseProfilePayload'
+    __typename: 'UpdateEnterpriseProfilePayload'
 }
 
 
@@ -12752,7 +12752,7 @@ export interface UpdateEnterpriseRepositoryProjectsSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the repository projects setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseRepositoryProjectsSettingPayload'
+    __typename: 'UpdateEnterpriseRepositoryProjectsSettingPayload'
 }
 
 
@@ -12764,7 +12764,7 @@ export interface UpdateEnterpriseTeamDiscussionsSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the team discussions setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseTeamDiscussionsSettingPayload'
+    __typename: 'UpdateEnterpriseTeamDiscussionsSettingPayload'
 }
 
 
@@ -12776,7 +12776,7 @@ export interface UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload {
     enterprise?: Enterprise
     /** A message confirming the result of updating the two factor authentication required setting. */
     message?: Scalars['String']
-    __typename?: 'UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload'
+    __typename: 'UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload'
 }
 
 
@@ -12786,7 +12786,7 @@ export interface UpdateIpAllowListEnabledSettingPayload {
     clientMutationId?: Scalars['String']
     /** The IP allow list owner on which the setting was updated. */
     owner?: IpAllowListOwner
-    __typename?: 'UpdateIpAllowListEnabledSettingPayload'
+    __typename: 'UpdateIpAllowListEnabledSettingPayload'
 }
 
 
@@ -12796,7 +12796,7 @@ export interface UpdateIpAllowListEntryPayload {
     clientMutationId?: Scalars['String']
     /** The IP allow list entry that was updated. */
     ipAllowListEntry?: IpAllowListEntry
-    __typename?: 'UpdateIpAllowListEntryPayload'
+    __typename: 'UpdateIpAllowListEntryPayload'
 }
 
 
@@ -12806,7 +12806,7 @@ export interface UpdateIssueCommentPayload {
     clientMutationId?: Scalars['String']
     /** The updated comment. */
     issueComment?: IssueComment
-    __typename?: 'UpdateIssueCommentPayload'
+    __typename: 'UpdateIssueCommentPayload'
 }
 
 
@@ -12818,7 +12818,7 @@ export interface UpdateIssuePayload {
     clientMutationId?: Scalars['String']
     /** The issue. */
     issue?: Issue
-    __typename?: 'UpdateIssuePayload'
+    __typename: 'UpdateIssuePayload'
 }
 
 
@@ -12828,7 +12828,7 @@ export interface UpdateLabelPayload {
     clientMutationId?: Scalars['String']
     /** The updated label. */
     label?: Label
-    __typename?: 'UpdateLabelPayload'
+    __typename: 'UpdateLabelPayload'
 }
 
 
@@ -12838,7 +12838,7 @@ export interface UpdateProjectCardPayload {
     clientMutationId?: Scalars['String']
     /** The updated ProjectCard. */
     projectCard?: ProjectCard
-    __typename?: 'UpdateProjectCardPayload'
+    __typename: 'UpdateProjectCardPayload'
 }
 
 
@@ -12848,7 +12848,7 @@ export interface UpdateProjectColumnPayload {
     clientMutationId?: Scalars['String']
     /** The updated project column. */
     projectColumn?: ProjectColumn
-    __typename?: 'UpdateProjectColumnPayload'
+    __typename: 'UpdateProjectColumnPayload'
 }
 
 
@@ -12858,7 +12858,7 @@ export interface UpdateProjectPayload {
     clientMutationId?: Scalars['String']
     /** The updated project. */
     project?: Project
-    __typename?: 'UpdateProjectPayload'
+    __typename: 'UpdateProjectPayload'
 }
 
 
@@ -12870,7 +12870,7 @@ export interface UpdatePullRequestPayload {
     clientMutationId?: Scalars['String']
     /** The updated pull request. */
     pullRequest?: PullRequest
-    __typename?: 'UpdatePullRequestPayload'
+    __typename: 'UpdatePullRequestPayload'
 }
 
 
@@ -12880,7 +12880,7 @@ export interface UpdatePullRequestReviewCommentPayload {
     clientMutationId?: Scalars['String']
     /** The updated comment. */
     pullRequestReviewComment?: PullRequestReviewComment
-    __typename?: 'UpdatePullRequestReviewCommentPayload'
+    __typename: 'UpdatePullRequestReviewCommentPayload'
 }
 
 
@@ -12890,7 +12890,7 @@ export interface UpdatePullRequestReviewPayload {
     clientMutationId?: Scalars['String']
     /** The updated pull request review. */
     pullRequestReview?: PullRequestReview
-    __typename?: 'UpdatePullRequestReviewPayload'
+    __typename: 'UpdatePullRequestReviewPayload'
 }
 
 
@@ -12900,7 +12900,7 @@ export interface UpdateRefPayload {
     clientMutationId?: Scalars['String']
     /** The updated Ref. */
     ref?: Ref
-    __typename?: 'UpdateRefPayload'
+    __typename: 'UpdateRefPayload'
 }
 
 
@@ -12908,7 +12908,7 @@ export interface UpdateRefPayload {
 export interface UpdateRefsPayload {
     /** A unique identifier for the client performing the mutation. */
     clientMutationId?: Scalars['String']
-    __typename?: 'UpdateRefsPayload'
+    __typename: 'UpdateRefsPayload'
 }
 
 
@@ -12918,7 +12918,7 @@ export interface UpdateRepositoryPayload {
     clientMutationId?: Scalars['String']
     /** The updated repository. */
     repository?: Repository
-    __typename?: 'UpdateRepositoryPayload'
+    __typename: 'UpdateRepositoryPayload'
 }
 
 
@@ -12928,7 +12928,7 @@ export interface UpdateSubscriptionPayload {
     clientMutationId?: Scalars['String']
     /** The input subscribable entity. */
     subscribable?: Subscribable
-    __typename?: 'UpdateSubscriptionPayload'
+    __typename: 'UpdateSubscriptionPayload'
 }
 
 
@@ -12938,7 +12938,7 @@ export interface UpdateTeamDiscussionCommentPayload {
     clientMutationId?: Scalars['String']
     /** The updated comment. */
     teamDiscussionComment?: TeamDiscussionComment
-    __typename?: 'UpdateTeamDiscussionCommentPayload'
+    __typename: 'UpdateTeamDiscussionCommentPayload'
 }
 
 
@@ -12948,7 +12948,7 @@ export interface UpdateTeamDiscussionPayload {
     clientMutationId?: Scalars['String']
     /** The updated discussion. */
     teamDiscussion?: TeamDiscussion
-    __typename?: 'UpdateTeamDiscussionPayload'
+    __typename: 'UpdateTeamDiscussionPayload'
 }
 
 
@@ -12958,7 +12958,7 @@ export interface UpdateTeamReviewAssignmentPayload {
     clientMutationId?: Scalars['String']
     /** The team that was modified */
     team?: Team
-    __typename?: 'UpdateTeamReviewAssignmentPayload'
+    __typename: 'UpdateTeamReviewAssignmentPayload'
 }
 
 
@@ -12970,7 +12970,7 @@ export interface UpdateTopicsPayload {
     invalidTopicNames?: Scalars['String'][]
     /** The updated repository. */
     repository?: Repository
-    __typename?: 'UpdateTopicsPayload'
+    __typename: 'UpdateTopicsPayload'
 }
 
 
@@ -13116,7 +13116,7 @@ export interface User {
     watching: RepositoryConnection
     /** A URL pointing to the user's public website/blog. */
     websiteUrl?: Scalars['URI']
-    __typename?: 'User'
+    __typename: 'User'
 }
 
 
@@ -13135,7 +13135,7 @@ export interface UserBlockedEvent {
     id: Scalars['ID']
     /** The user who was blocked. */
     subject?: User
-    __typename?: 'UserBlockedEvent'
+    __typename: 'UserBlockedEvent'
 }
 
 
@@ -13149,7 +13149,7 @@ export interface UserConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'UserConnection'
+    __typename: 'UserConnection'
 }
 
 
@@ -13170,7 +13170,7 @@ export interface UserContentEdit {
     id: Scalars['ID']
     /** Identifies the date and time when the object was last updated. */
     updatedAt: Scalars['DateTime']
-    __typename?: 'UserContentEdit'
+    __typename: 'UserContentEdit'
 }
 
 
@@ -13184,7 +13184,7 @@ export interface UserContentEditConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'UserContentEditConnection'
+    __typename: 'UserContentEditConnection'
 }
 
 
@@ -13194,7 +13194,7 @@ export interface UserContentEditEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: UserContentEdit
-    __typename?: 'UserContentEditEdge'
+    __typename: 'UserContentEditEdge'
 }
 
 
@@ -13204,7 +13204,7 @@ export interface UserEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: User
-    __typename?: 'UserEdge'
+    __typename: 'UserEdge'
 }
 
 
@@ -13230,7 +13230,7 @@ export interface UserStatus {
     updatedAt: Scalars['DateTime']
     /** The user who has this status. */
     user: User
-    __typename?: 'UserStatus'
+    __typename: 'UserStatus'
 }
 
 
@@ -13244,7 +13244,7 @@ export interface UserStatusConnection {
     pageInfo: PageInfo
     /** Identifies the total count of items in the connection. */
     totalCount: Scalars['Int']
-    __typename?: 'UserStatusConnection'
+    __typename: 'UserStatusConnection'
 }
 
 
@@ -13254,7 +13254,7 @@ export interface UserStatusEdge {
     cursor: Scalars['String']
     /** The item at the end of the edge. */
     node?: UserStatus
-    __typename?: 'UserStatusEdge'
+    __typename: 'UserStatusEdge'
 }
 
 
@@ -13270,7 +13270,7 @@ export interface ViewerHovercardContext {
     octicon: Scalars['String']
     /** Identifies the user who is related to this context. */
     viewer: User
-    __typename?: 'ViewerHovercardContext'
+    __typename: 'ViewerHovercardContext'
 }
 
 

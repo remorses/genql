@@ -16,48 +16,48 @@ export interface Query {
     account?: Account
     coordinates?: Point
     unionThatImplementsInterface?: GenericError
-    __typename?: 'Query'
+    __typename: 'Query'
 }
 
 export interface RecursiveType {
     value?: Scalars['String']
     recurse?: RecursiveType
-    __typename?: 'RecursiveType'
+    __typename: 'RecursiveType'
 }
 
 export interface Repository {
     createdAt: Scalars['String']
     forks?: ForkConnection
-    __typename?: 'Repository'
+    __typename: 'Repository'
 }
 
 export interface ForkConnection {
     edges?: (ForkEdge | undefined)[]
-    __typename?: 'ForkConnection'
+    __typename: 'ForkConnection'
 }
 
 export interface ForkEdge {
     cursor?: Scalars['String']
     node?: Fork
-    __typename?: 'ForkEdge'
+    __typename: 'ForkEdge'
 }
 
 export interface Fork {
     name?: Scalars['String']
     number?: Scalars['Int']
-    __typename?: 'Fork'
+    __typename: 'Fork'
 }
 
 export interface User {
     /** Some description */
     name?: Scalars['String']
     common?: Scalars['Int']
-    __typename?: 'User'
+    __typename: 'User'
 }
 
 export interface Subscription {
     user?: User
-    __typename?: 'Subscription'
+    __typename: 'Subscription'
 }
 
 export type Account = (User | Guest) & { __isUnion?: true }
@@ -65,21 +65,21 @@ export type Account = (User | Guest) & { __isUnion?: true }
 export interface Guest {
     anonymous?: Scalars['Boolean']
     common?: Scalars['Int']
-    __typename?: 'Guest'
+    __typename: 'Guest'
 }
 
 export interface House {
     owner?: User
     x?: Scalars['String']
     y?: Scalars['String']
-    __typename?: 'House'
+    __typename: 'House'
 }
 
 export interface Bank {
     address?: Scalars['String']
     x?: Scalars['String']
     y?: Scalars['String']
-    __typename?: 'Bank'
+    __typename: 'Bank'
 }
 
 export type Point = (House | Bank) & { __isUnion?: true }
@@ -89,13 +89,13 @@ export type ClientError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid)
 export interface ClientErrorNameAlreadyTaken {
     message: Scalars['String']
     ownProp1?: Scalars['String']
-    __typename?: 'ClientErrorNameAlreadyTaken'
+    __typename: 'ClientErrorNameAlreadyTaken'
 }
 
 export interface ClientErrorNameInvalid {
     message: Scalars['String']
     ownProp2?: Scalars['String']
-    __typename?: 'ClientErrorNameInvalid'
+    __typename: 'ClientErrorNameInvalid'
 }
 
 export type GenericError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid) & { __isUnion?: true }
