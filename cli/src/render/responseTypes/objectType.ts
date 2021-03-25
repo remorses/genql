@@ -41,7 +41,7 @@ export const objectType = (
             )}`
         })
         .concat([
-            `__typename?: ${
+            `__typename: ${
                 typeNames.length > 0
                     ? typeNames.map((t) => `'${t}'`).join('|')
                     : 'string'

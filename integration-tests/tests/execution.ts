@@ -135,6 +135,18 @@ describe('execute queries', async function() {
             assert.deepStrictEqual(res.user, x)
         }),
     )
+    it(
+        '__typename is not optional',
+        withServer(async () => {
+            const res = await client.query({
+                user: {
+                    name: true,
+                    __typename: true,
+                },
+            })
+            expectType<string>(res.user!.__typename)
+        }),
+    )
 
     it(
         'scalar value with argument ',
