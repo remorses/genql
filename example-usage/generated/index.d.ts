@@ -23,7 +23,7 @@ export interface Client {
   }
 }
 
-export type QueryResult<fields> = FieldsSelection<
+export type QueryResult<fields extends QueryRequest> = FieldsSelection<
   Query,
   fields
 >
