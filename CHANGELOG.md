@@ -1,3 +1,12 @@
+## 2.6.0
+
+-   Query any interface on an union, not only the common ones
+-   Fixed \_\_typename always optional
+
+## 2.5.0
+
+-   Do not query falsy values when using \_\_scalar
+
 ## 2.4.0
 
 -   Ability to query interfaces that a union implements https://github.com/remorses/genql/issues/44
