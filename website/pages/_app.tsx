@@ -153,12 +153,8 @@ export function MyNavbar({ ...rest }) {
         <MyLink isExternal href={DOCS_LINK}>
             Docs
         </MyLink>,
-        user ? (
-            <MyLink href='/me'>Dashboard</MyLink>
-        ) : (
-            <MyLink href='/login'>Login</MyLink>
-        ),
-    ]
+        user ? <MyLink href='/me'>Dashboard</MyLink> : null,
+    ].filter(Boolean)
     if (user) {
         navs.push(<MyLink href='/logout'>Logout</MyLink>)
     }
