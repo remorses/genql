@@ -51,7 +51,7 @@ client
     .then(console.log)
 ```
 
-The code above wil fetch the graphql query below
+The code above will fetch the graphql query below
 
 ```graphql
 query {
