@@ -1,12 +1,23 @@
-import { generateQueryOp, createClient, everything } from '../generated'
+import {
+    generateQueryOp,
+    createClient,
+    everything,
+    enumSomeEnum,
+} from '../generated'
 import { buildASTSchema, OperationDefinitionNode, parse } from 'graphql'
 import { generateSubscriptionOp } from '../generated'
 import assert from 'assert'
 import snapshot from 'snap-shot-it'
+import { expectType } from 'tsd'
 
 const prettify = (code, parser) => require('prettier').format(code, { parser })
 
 describe('generate queries', () => {
+    it('enum string is present', () => {
+        expectType<string>(enumSomeEnum.X)
+        assert.strictEqual(enumSomeEnum.X, 'X')
+        assert.strictEqual(enumSomeEnum.Y, 'Y')
+    })
     it('query', () => {
         const { query } = generateQueryOp({
             repository: [

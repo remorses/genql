@@ -25,6 +25,11 @@ export var createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
+export const enumCacheControlScope = {
+  PUBLIC: 'PUBLIC',
+  PRIVATE: 'PRIVATE',
+}
+
 export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }

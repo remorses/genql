@@ -25,6 +25,31 @@ export var createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
+export const enumorderBy = {
+  asc: 'asc',
+  asc_nulls_first: 'asc_nulls_first',
+  asc_nulls_last: 'asc_nulls_last',
+  desc: 'desc',
+  desc_nulls_first: 'desc_nulls_first',
+  desc_nulls_last: 'desc_nulls_last',
+}
+
+export const enumuserConstraint = {
+  user_pkey: 'user_pkey',
+}
+
+export const enumuserSelectColumn = {
+  age: 'age',
+  id: 'id',
+  name: 'name',
+}
+
+export const enumuserUpdateColumn = {
+  age: 'age',
+  id: 'id',
+  name: 'name',
+}
+
 export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }

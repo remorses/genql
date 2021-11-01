@@ -104,7 +104,7 @@ export const Code = ({
                     border: none;
                     overflow: auto;
                     outline: none;
-
+                    
                     -webkit-box-shadow: none;
                     -moz-box-shadow: none;
                     box-shadow: none;

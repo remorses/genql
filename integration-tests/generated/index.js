@@ -25,6 +25,17 @@ module.exports.createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
+module.exports.enumSomeEnum = {
+  X: 'X',
+  Y: 'Y',
+  Z: 'Z',
+}
+
+module.exports.enumSomeEnum2 = {
+  hello: 'hello',
+  world: 'world',
+}
+
 module.exports.generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }

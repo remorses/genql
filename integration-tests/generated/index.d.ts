@@ -51,3 +51,14 @@ export type SubscriptionResult<
 export declare const generateSubscriptionOp: (
   fields: SubscriptionRequest & { __name?: string },
 ) => GraphqlOperation
+
+export declare const enumSomeEnum = {
+  X: 'X',
+  Y: 'Y',
+  Z: 'Z',
+}
+
+export declare const enumSomeEnum2 = {
+  hello: 'hello',
+  world: 'world',
+}

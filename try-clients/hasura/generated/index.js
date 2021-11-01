@@ -25,6 +25,31 @@ module.exports.createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
+module.exports.enumorderBy = {
+  asc: 'asc',
+  asc_nulls_first: 'asc_nulls_first',
+  asc_nulls_last: 'asc_nulls_last',
+  desc: 'desc',
+  desc_nulls_first: 'desc_nulls_first',
+  desc_nulls_last: 'desc_nulls_last',
+}
+
+module.exports.enumuserConstraint = {
+  user_pkey: 'user_pkey',
+}
+
+module.exports.enumuserSelectColumn = {
+  age: 'age',
+  id: 'id',
+  name: 'name',
+}
+
+module.exports.enumuserUpdateColumn = {
+  age: 'age',
+  id: 'id',
+  name: 'name',
+}
+
 module.exports.generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }

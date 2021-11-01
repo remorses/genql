@@ -1,263 +1,267 @@
 module.exports = {
     "scalars": [
+        0,
         1,
-        2,
-        8,
-        13
+        3,
+        4,
+        10,
+        15
     ],
     "types": {
+        "SomeEnum": {},
+        "SomeEnum2": {},
         "Query": {
             "repository": [
-                4,
+                6,
                 {
                     "name": [
-                        1,
+                        3,
                         "String!"
                     ],
                     "owner": [
-                        1
+                        3
                     ]
                 }
             ],
             "user": [
-                9
+                11
             ],
             "someScalarValue": [
-                1,
+                3,
                 {
                     "x": [
-                        2
+                        4
                     ]
                 }
             ],
             "recursiveType": [
-                3,
+                5,
                 {
                     "requiredVal": [
-                        1,
+                        3,
                         "[String!]"
                     ]
                 }
             ],
             "account": [
-                11
+                13
             ],
             "coordinates": [
-                16
+                18
             ],
             "unionThatImplementsInterface": [
-                21,
+                23,
                 {
                     "typename": [
-                        1
+                        3
                     ]
                 }
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "String": {},
         "Float": {},
         "RecursiveType": {
             "value": [
-                1
-            ],
-            "recurse": [
                 3
             ],
+            "recurse": [
+                5
+            ],
             "__typename": [
-                1
+                3
             ]
         },
         "Repository": {
             "createdAt": [
-                1
+                3
             ],
             "forks": [
-                5
+                7
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "ForkConnection": {
             "edges": [
-                6
+                8
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "ForkEdge": {
             "cursor": [
-                1
+                3
             ],
             "node": [
-                7
+                9
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Fork": {
             "name": [
-                1
+                3
             ],
             "number": [
-                8
+                10
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Int": {},
         "User": {
             "name": [
-                1
+                3
             ],
             "common": [
-                8
+                10
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Subscription": {
             "user": [
-                9
+                11
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Account": {
             "on_User": [
-                9
+                11
             ],
             "on_Guest": [
-                12
+                14
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Guest": {
             "anonymous": [
-                13
+                15
             ],
             "common": [
-                8
+                10
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Boolean": {},
         "House": {
             "owner": [
-                9
+                11
             ],
             "x": [
-                1
+                3
             ],
             "y": [
-                1
+                3
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Bank": {
             "address": [
-                1
+                3
             ],
             "x": [
-                1
+                3
             ],
             "y": [
-                1
+                3
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "Point": {
             "x": [
-                1
+                3
             ],
             "y": [
-                1
+                3
             ],
             "on_House": [
-                14
+                16
             ],
             "on_Bank": [
-                15
+                17
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "ClientError": {
             "message": [
-                1
+                3
             ],
             "on_ClientErrorNameAlreadyTaken": [
-                18
+                20
             ],
             "on_ClientErrorNameInvalid": [
-                19
+                21
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "ClientErrorNameAlreadyTaken": {
             "message": [
-                1
+                3
             ],
             "ownProp1": [
-                1
+                3
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "ClientErrorNameInvalid": {
             "message": [
-                1
+                3
             ],
             "ownProp2": [
-                1
+                3
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "ClientErrorWithoutInterface": {
             "ownProp3": [
-                1
+                3
             ],
             "__typename": [
-                1
+                3
             ]
         },
         "GenericError": {
             "on_ClientErrorNameAlreadyTaken": [
-                18
-            ],
-            "on_ClientErrorNameInvalid": [
-                19
-            ],
-            "on_ClientErrorWithoutInterface": [
                 20
             ],
+            "on_ClientErrorNameInvalid": [
+                21
+            ],
+            "on_ClientErrorWithoutInterface": [
+                22
+            ],
             "on_ClientError": [
-                17
+                19
             ],
             "__typename": [
-                1
+                3
             ]
         }
     }

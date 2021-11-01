@@ -7,6 +7,10 @@ export type Scalars = {
     Boolean: boolean,
 }
 
+export type SomeEnum = 'X' | 'Y' | 'Z'
+
+export type SomeEnum2 = 'hello' | 'world'
+
 export interface Query {
     /** Some description */
     repository: Repository

@@ -1,3 +1,13 @@
+enum SomeEnum {
+    X
+    Y
+    Z
+}
+enum SomeEnum2 {
+    hello
+    world
+}
+
 # Some comment
 type Query {
     """
@@ -103,7 +113,10 @@ type ClientErrorWithoutInterface {
     ownProp3: String
 }
 
-union GenericError = ClientErrorNameAlreadyTaken | ClientErrorNameInvalid | ClientErrorWithoutInterface
+union GenericError =
+      ClientErrorNameAlreadyTaken
+    | ClientErrorNameInvalid
+    | ClientErrorWithoutInterface
 
 extend type Query {
     unionThatImplementsInterface(typename: String): GenericError
