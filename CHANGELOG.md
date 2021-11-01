@@ -1,3 +1,7 @@
+## 2.7.0
+
+Added `enumGraphqlEnumName` exports to get access to enum strings
+
 ## 2.6.0
 
 -   Query any interface on an union, not only the common ones

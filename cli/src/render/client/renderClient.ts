@@ -1,7 +1,9 @@
-import { GraphQLSchema } from 'graphql'
+import { GraphQLEnumType, GraphQLSchema, isEnumType } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
+import { excludedTypes } from '../common/excludedTypes'
 const { version } = require('../../../package.json')
+import camelCase from 'lodash/camelCase'
 
 const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
@@ -20,8 +22,52 @@ function(options) {
     return createClientOriginal(optionsCopy)
 }`
 }
+export function renderEnumsMaps(
+    schema: GraphQLSchema,
+    moduleType: 'esm' | 'cjs' | 'type',
+) {
+    let typeMap = schema.getTypeMap()
 
-export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
+    const enums: GraphQLEnumType[] = []
+    for (const name in typeMap) {
+        if (excludedTypes.includes(name)) continue
+
+        const type = typeMap[name]
+
+        if (isEnumType(type)) {
+            enums.push(type)
+        }
+    }
+    if (enums.length === 0) return ''
+    const declaration = (() => {
+        if (moduleType === 'esm') {
+            return 'export const '
+        } else if (moduleType === 'cjs') {
+            return 'module.exports.'
+        } else if (moduleType === 'type') {
+            return 'export declare const '
+        }
+        return ''
+    })()
+    return enums
+        .map(
+            (type) =>
+                `${declaration}${camelCase('enum' + type.name)} = {\n` +
+                type
+                    .getValues()
+                    .map((v) => {
+                        if (!v?.name) {
+                            return ''
+                        }
+                        return `  ${v.name}: '${v.name}'`
+                    })
+                    .join(',\n') +
+                '\n};\n',
+        )
+        .join('\n')
+}
+
+export const renderClientCjs = (schema: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
   const { 
       linkTypeMap, 
@@ -37,6 +83,8 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
   module.exports.version = version
 
   module.exports.createClient = ${renderClientCode(ctx)}
+  
+  ${renderEnumsMaps(schema, 'cjs')}
 
   module.exports.generateQueryOp = function(fields) {
     return generateGraphqlOperation('query', typeMap.Query, fields)
@@ -58,7 +106,7 @@ export const renderClientCjs = (_: GraphQLSchema, ctx: RenderContext) => {
   `)
 }
 
-export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
+export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(`
   import { 
       linkTypeMap, 
@@ -74,6 +122,8 @@ export const renderClientEsm = (_: GraphQLSchema, ctx: RenderContext) => {
   assertSameVersion(version)
 
   export var createClient = ${renderClientCode(ctx)}
+
+  ${renderEnumsMaps(schema, 'esm')}
 
   export var generateQueryOp = function(fields) {
     return generateGraphqlOperation('query', typeMap.Query, fields)

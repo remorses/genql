@@ -2,7 +2,11 @@ import Listr, { ListrTask } from 'listr'
 import { Config } from '../config'
 import { ensurePath, writeFileToPath } from '../helpers/files'
 import { renderChainTypes } from '../render/chain/renderChainTypes'
-import { renderClientCjs, renderClientEsm } from '../render/client/renderClient'
+import {
+    renderClientCjs,
+    renderClientEsm,
+    renderEnumsMaps,
+} from '../render/client/renderClient'
 import { renderClientDefinition } from '../render/client/renderClientDefinition'
 import { RenderContext } from '../render/common/RenderContext'
 import { renderRequestTypes } from '../render/requestTypes/renderRequestTypes'

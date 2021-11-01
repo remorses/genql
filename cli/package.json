@@ -46,15 +46,14 @@
         "jest": ">=22 <24",
         "pretty-quick": "^1.10.0",
         "sucrase": "^3.12.1",
+        "@types/prettier": "^1.19.0",
+        "@types/yargs": "^15.0.5",
         "ts-jest": "^23.10.5"
     },
     "dependencies": {
         "@genql/runtime": "^2.6.0",
         "@graphql-tools/graphql-file-loader": "^6.0.10",
         "@graphql-tools/load": "^6.0.10",
-        "@types/node": "*",
-        "@types/prettier": "^1.19.0",
-        "@types/yargs": "^15.0.5",
         "chalk": "^4.1.0",
         "fs-extra": "^9.0.1",
         "graphql": "*",

@@ -67,6 +67,9 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(
         JSON.stringify(replaceTypeNamesWithIndexes(result), null, 4),
     )
+    
+
+
 }
 
 export function replaceTypeNamesWithIndexes(

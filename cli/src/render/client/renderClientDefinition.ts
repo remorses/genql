@@ -3,6 +3,7 @@ import { chainTypeName } from '../chain/objectType'
 import { RenderContext } from '../common/RenderContext'
 import { requestTypeName } from '../requestTypes/requestTypeName'
 import { RUNTIME_LIB_NAME } from '../../config'
+import { renderEnumsMaps } from './renderClient'
 
 export const renderClientDefinition = (
     schema: GraphQLSchema,
@@ -35,6 +36,8 @@ export const renderClientDefinition = (
             subscriptionType,
         }),
     )
+
+    ctx.addCodeBlock(renderEnumsMaps(schema, 'type'))
 }
 
 function renderClientTypesImports({
