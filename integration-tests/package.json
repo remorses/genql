@@ -1,7 +1,7 @@
 {
     "name": "integration-tests",
     "private": true,
-    "version": "2.6.0",
+    "version": "2.7.0",
     "main": "index.js",
     "author": "remorses",
     "license": "MIT",
@@ -12,7 +12,7 @@
         "flame": "node --prof-process --preprocess -j isolate*.log | flamebearer && open flamegraph.html"
     },
     "dependencies": {
-        "@genql/cli": "^2.6.0",
+        "@genql/cli": "^2.7.0",
         "@genql/runtime": "^2.6.0",
         "apollo-server": "^2.14.1",
         "await-sleep": "^0.0.1",
