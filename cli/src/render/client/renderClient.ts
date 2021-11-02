@@ -62,7 +62,7 @@ export function renderEnumsMaps(
                         return `  ${v.name}: '${v.name}'`
                     })
                     .join(',\n') +
-                '\n};\n',
+                `\n}${moduleType === 'type' ? ' as const' : ''}\n`,
         )
         .join('\n')
 }
