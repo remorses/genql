@@ -58,17 +58,17 @@ export declare const enumActionExecutionCapabilitySetting = {
   DISABLED: 'DISABLED',
   LOCAL_ACTIONS_ONLY: 'LOCAL_ACTIONS_ONLY',
   NO_POLICY: 'NO_POLICY',
-}
+} as const
 
 export declare const enumAuditLogOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumCheckAnnotationLevel = {
   FAILURE: 'FAILURE',
   NOTICE: 'NOTICE',
   WARNING: 'WARNING',
-}
+} as const
 
 export declare const enumCheckConclusionState = {
   ACTION_REQUIRED: 'ACTION_REQUIRED',
@@ -79,25 +79,25 @@ export declare const enumCheckConclusionState = {
   STALE: 'STALE',
   SUCCESS: 'SUCCESS',
   TIMED_OUT: 'TIMED_OUT',
-}
+} as const
 
 export declare const enumCheckRunType = {
   ALL: 'ALL',
   LATEST: 'LATEST',
-}
+} as const
 
 export declare const enumCheckStatusState = {
   COMPLETED: 'COMPLETED',
   IN_PROGRESS: 'IN_PROGRESS',
   QUEUED: 'QUEUED',
   REQUESTED: 'REQUESTED',
-}
+} as const
 
 export declare const enumCollaboratorAffiliation = {
   ALL: 'ALL',
   DIRECT: 'DIRECT',
   OUTSIDE: 'OUTSIDE',
-}
+} as const
 
 export declare const enumCommentAuthorAssociation = {
   COLLABORATOR: 'COLLABORATOR',
@@ -107,7 +107,7 @@ export declare const enumCommentAuthorAssociation = {
   MEMBER: 'MEMBER',
   NONE: 'NONE',
   OWNER: 'OWNER',
-}
+} as const
 
 export declare const enumCommentCannotUpdateReason = {
   ARCHIVED: 'ARCHIVED',
@@ -117,23 +117,23 @@ export declare const enumCommentCannotUpdateReason = {
   LOGIN_REQUIRED: 'LOGIN_REQUIRED',
   MAINTENANCE: 'MAINTENANCE',
   VERIFIED_EMAIL_REQUIRED: 'VERIFIED_EMAIL_REQUIRED',
-}
+} as const
 
 export declare const enumCommitContributionOrderField = {
   COMMIT_COUNT: 'COMMIT_COUNT',
   OCCURRED_AT: 'OCCURRED_AT',
-}
+} as const
 
 export declare const enumDefaultRepositoryPermissionField = {
   ADMIN: 'ADMIN',
   NONE: 'NONE',
   READ: 'READ',
   WRITE: 'WRITE',
-}
+} as const
 
 export declare const enumDeploymentOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumDeploymentState = {
   ABANDONED: 'ABANDONED',
@@ -145,7 +145,7 @@ export declare const enumDeploymentState = {
   IN_PROGRESS: 'IN_PROGRESS',
   PENDING: 'PENDING',
   QUEUED: 'QUEUED',
-}
+} as const
 
 export declare const enumDeploymentStatusState = {
   ERROR: 'ERROR',
@@ -155,21 +155,21 @@ export declare const enumDeploymentStatusState = {
   PENDING: 'PENDING',
   QUEUED: 'QUEUED',
   SUCCESS: 'SUCCESS',
-}
+} as const
 
 export declare const enumDiffSide = {
   LEFT: 'LEFT',
   RIGHT: 'RIGHT',
-}
+} as const
 
 export declare const enumEnterpriseAdministratorInvitationOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumEnterpriseAdministratorRole = {
   BILLING_MANAGER: 'BILLING_MANAGER',
   OWNER: 'OWNER',
-}
+} as const
 
 export declare const enumEnterpriseDefaultRepositoryPermissionSettingValue = {
   ADMIN: 'ADMIN',
@@ -177,23 +177,23 @@ export declare const enumEnterpriseDefaultRepositoryPermissionSettingValue = {
   NO_POLICY: 'NO_POLICY',
   READ: 'READ',
   WRITE: 'WRITE',
-}
+} as const
 
 export declare const enumEnterpriseEnabledDisabledSettingValue = {
   DISABLED: 'DISABLED',
   ENABLED: 'ENABLED',
   NO_POLICY: 'NO_POLICY',
-}
+} as const
 
 export declare const enumEnterpriseEnabledSettingValue = {
   ENABLED: 'ENABLED',
   NO_POLICY: 'NO_POLICY',
-}
+} as const
 
 export declare const enumEnterpriseMemberOrderField = {
   CREATED_AT: 'CREATED_AT',
   LOGIN: 'LOGIN',
-}
+} as const
 
 export declare const enumEnterpriseMembersCanCreateRepositoriesSettingValue = {
   ALL: 'ALL',
@@ -201,47 +201,47 @@ export declare const enumEnterpriseMembersCanCreateRepositoriesSettingValue = {
   NO_POLICY: 'NO_POLICY',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumEnterpriseMembersCanMakePurchasesSettingValue = {
   DISABLED: 'DISABLED',
   ENABLED: 'ENABLED',
-}
+} as const
 
 export declare const enumEnterpriseServerInstallationOrderField = {
   CREATED_AT: 'CREATED_AT',
   CUSTOMER_NAME: 'CUSTOMER_NAME',
   HOST_NAME: 'HOST_NAME',
-}
+} as const
 
 export declare const enumEnterpriseServerUserAccountEmailOrderField = {
   EMAIL: 'EMAIL',
-}
+} as const
 
 export declare const enumEnterpriseServerUserAccountOrderField = {
   LOGIN: 'LOGIN',
   REMOTE_CREATED_AT: 'REMOTE_CREATED_AT',
-}
+} as const
 
 export declare const enumEnterpriseServerUserAccountsUploadOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumEnterpriseServerUserAccountsUploadSyncState = {
   FAILURE: 'FAILURE',
   PENDING: 'PENDING',
   SUCCESS: 'SUCCESS',
-}
+} as const
 
 export declare const enumEnterpriseUserAccountMembershipRole = {
   MEMBER: 'MEMBER',
   OWNER: 'OWNER',
-}
+} as const
 
 export declare const enumEnterpriseUserDeployment = {
   CLOUD: 'CLOUD',
   SERVER: 'SERVER',
-}
+} as const
 
 export declare const enumFundingPlatform = {
   COMMUNITY_BRIDGE: 'COMMUNITY_BRIDGE',
@@ -254,19 +254,19 @@ export declare const enumFundingPlatform = {
   OTECHIE: 'OTECHIE',
   PATREON: 'PATREON',
   TIDELIFT: 'TIDELIFT',
-}
+} as const
 
 export declare const enumGistOrderField = {
   CREATED_AT: 'CREATED_AT',
   PUSHED_AT: 'PUSHED_AT',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumGistPrivacy = {
   ALL: 'ALL',
   PUBLIC: 'PUBLIC',
   SECRET: 'SECRET',
-}
+} as const
 
 export declare const enumGitSignatureState = {
   BAD_CERT: 'BAD_CERT',
@@ -286,34 +286,34 @@ export declare const enumGitSignatureState = {
   UNSIGNED: 'UNSIGNED',
   UNVERIFIED_EMAIL: 'UNVERIFIED_EMAIL',
   VALID: 'VALID',
-}
+} as const
 
 export declare const enumIdentityProviderConfigurationState = {
   CONFIGURED: 'CONFIGURED',
   ENFORCED: 'ENFORCED',
   UNCONFIGURED: 'UNCONFIGURED',
-}
+} as const
 
 export declare const enumIpAllowListEnabledSettingValue = {
   DISABLED: 'DISABLED',
   ENABLED: 'ENABLED',
-}
+} as const
 
 export declare const enumIpAllowListEntryOrderField = {
   ALLOW_LIST_VALUE: 'ALLOW_LIST_VALUE',
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumIssueOrderField = {
   COMMENTS: 'COMMENTS',
   CREATED_AT: 'CREATED_AT',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumIssueState = {
   CLOSED: 'CLOSED',
   OPEN: 'OPEN',
-}
+} as const
 
 export declare const enumIssueTimelineItemsItemType = {
   ADDED_TO_PROJECT_EVENT: 'ADDED_TO_PROJECT_EVENT',
@@ -346,23 +346,23 @@ export declare const enumIssueTimelineItemsItemType = {
   UNPINNED_EVENT: 'UNPINNED_EVENT',
   UNSUBSCRIBED_EVENT: 'UNSUBSCRIBED_EVENT',
   USER_BLOCKED_EVENT: 'USER_BLOCKED_EVENT',
-}
+} as const
 
 export declare const enumLabelOrderField = {
   CREATED_AT: 'CREATED_AT',
   NAME: 'NAME',
-}
+} as const
 
 export declare const enumLanguageOrderField = {
   SIZE: 'SIZE',
-}
+} as const
 
 export declare const enumLockReason = {
   OFF_TOPIC: 'OFF_TOPIC',
   RESOLVED: 'RESOLVED',
   SPAM: 'SPAM',
   TOO_HEATED: 'TOO_HEATED',
-}
+} as const
 
 export declare const enumMergeStateStatus = {
   BEHIND: 'BEHIND',
@@ -373,31 +373,31 @@ export declare const enumMergeStateStatus = {
   HAS_HOOKS: 'HAS_HOOKS',
   UNKNOWN: 'UNKNOWN',
   UNSTABLE: 'UNSTABLE',
-}
+} as const
 
 export declare const enumMergeableState = {
   CONFLICTING: 'CONFLICTING',
   MERGEABLE: 'MERGEABLE',
   UNKNOWN: 'UNKNOWN',
-}
+} as const
 
 export declare const enumMilestoneOrderField = {
   CREATED_AT: 'CREATED_AT',
   DUE_DATE: 'DUE_DATE',
   NUMBER: 'NUMBER',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumMilestoneState = {
   CLOSED: 'CLOSED',
   OPEN: 'OPEN',
-}
+} as const
 
 export declare const enumOauthApplicationCreateAuditEntryState = {
   ACTIVE: 'ACTIVE',
   PENDING_DELETION: 'PENDING_DELETION',
   SUSPENDED: 'SUSPENDED',
-}
+} as const
 
 export declare const enumOperationType = {
   ACCESS: 'ACCESS',
@@ -407,17 +407,17 @@ export declare const enumOperationType = {
   REMOVE: 'REMOVE',
   RESTORE: 'RESTORE',
   TRANSFER: 'TRANSFER',
-}
+} as const
 
 export declare const enumOrderDirection = {
   ASC: 'ASC',
   DESC: 'DESC',
-}
+} as const
 
 export declare const enumOrgAddMemberAuditEntryPermission = {
   ADMIN: 'ADMIN',
   READ: 'READ',
-}
+} as const
 
 export declare const enumOrgCreateAuditEntryBillingPlan = {
   BUSINESS: 'BUSINESS',
@@ -425,7 +425,7 @@ export declare const enumOrgCreateAuditEntryBillingPlan = {
   FREE: 'FREE',
   TIERED_PER_SEAT: 'TIERED_PER_SEAT',
   UNLIMITED: 'UNLIMITED',
-}
+} as const
 
 export declare const enumOrgRemoveBillingManagerAuditEntryReason = {
   SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING',
@@ -433,7 +433,7 @@ export declare const enumOrgRemoveBillingManagerAuditEntryReason = {
     'SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY',
   TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE:
     'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE',
-}
+} as const
 
 export declare const enumOrgRemoveMemberAuditEntryMembershipType = {
   ADMIN: 'ADMIN',
@@ -441,7 +441,7 @@ export declare const enumOrgRemoveMemberAuditEntryMembershipType = {
   DIRECT_MEMBER: 'DIRECT_MEMBER',
   OUTSIDE_COLLABORATOR: 'OUTSIDE_COLLABORATOR',
   UNAFFILIATED: 'UNAFFILIATED',
-}
+} as const
 
 export declare const enumOrgRemoveMemberAuditEntryReason = {
   SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING',
@@ -451,72 +451,72 @@ export declare const enumOrgRemoveMemberAuditEntryReason = {
   TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE:
     'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE',
   USER_ACCOUNT_DELETED: 'USER_ACCOUNT_DELETED',
-}
+} as const
 
 export declare const enumOrgRemoveOutsideCollaboratorAuditEntryMembershipType = {
   BILLING_MANAGER: 'BILLING_MANAGER',
   OUTSIDE_COLLABORATOR: 'OUTSIDE_COLLABORATOR',
   UNAFFILIATED: 'UNAFFILIATED',
-}
+} as const
 
 export declare const enumOrgRemoveOutsideCollaboratorAuditEntryReason = {
   SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING',
   TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE:
     'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE',
-}
+} as const
 
 export declare const enumOrgUpdateDefaultRepositoryPermissionAuditEntryPermission = {
   ADMIN: 'ADMIN',
   NONE: 'NONE',
   READ: 'READ',
   WRITE: 'WRITE',
-}
+} as const
 
 export declare const enumOrgUpdateMemberAuditEntryPermission = {
   ADMIN: 'ADMIN',
   READ: 'READ',
-}
+} as const
 
 export declare const enumOrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility = {
   ALL: 'ALL',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumOrganizationInvitationRole = {
   ADMIN: 'ADMIN',
   BILLING_MANAGER: 'BILLING_MANAGER',
   DIRECT_MEMBER: 'DIRECT_MEMBER',
   REINSTATE: 'REINSTATE',
-}
+} as const
 
 export declare const enumOrganizationInvitationType = {
   EMAIL: 'EMAIL',
   USER: 'USER',
-}
+} as const
 
 export declare const enumOrganizationMemberRole = {
   ADMIN: 'ADMIN',
   MEMBER: 'MEMBER',
-}
+} as const
 
 export declare const enumOrganizationMembersCanCreateRepositoriesSettingValue = {
   ALL: 'ALL',
   DISABLED: 'DISABLED',
   PRIVATE: 'PRIVATE',
-}
+} as const
 
 export declare const enumOrganizationOrderField = {
   CREATED_AT: 'CREATED_AT',
   LOGIN: 'LOGIN',
-}
+} as const
 
 export declare const enumPackageFileOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumPackageOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumPackageType = {
   DEBIAN: 'DEBIAN',
@@ -526,11 +526,11 @@ export declare const enumPackageType = {
   NUGET: 'NUGET',
   PYPI: 'PYPI',
   RUBYGEMS: 'RUBYGEMS',
-}
+} as const
 
 export declare const enumPackageVersionOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumPinnableItemType = {
   GIST: 'GIST',
@@ -541,71 +541,71 @@ export declare const enumPinnableItemType = {
   REPOSITORY: 'REPOSITORY',
   TEAM: 'TEAM',
   USER: 'USER',
-}
+} as const
 
 export declare const enumProjectCardArchivedState = {
   ARCHIVED: 'ARCHIVED',
   NOT_ARCHIVED: 'NOT_ARCHIVED',
-}
+} as const
 
 export declare const enumProjectCardState = {
   CONTENT_ONLY: 'CONTENT_ONLY',
   NOTE_ONLY: 'NOTE_ONLY',
   REDACTED: 'REDACTED',
-}
+} as const
 
 export declare const enumProjectColumnPurpose = {
   DONE: 'DONE',
   IN_PROGRESS: 'IN_PROGRESS',
   TODO: 'TODO',
-}
+} as const
 
 export declare const enumProjectOrderField = {
   CREATED_AT: 'CREATED_AT',
   NAME: 'NAME',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumProjectState = {
   CLOSED: 'CLOSED',
   OPEN: 'OPEN',
-}
+} as const
 
 export declare const enumProjectTemplate = {
   AUTOMATED_KANBAN_V2: 'AUTOMATED_KANBAN_V2',
   AUTOMATED_REVIEWS_KANBAN: 'AUTOMATED_REVIEWS_KANBAN',
   BASIC_KANBAN: 'BASIC_KANBAN',
   BUG_TRIAGE: 'BUG_TRIAGE',
-}
+} as const
 
 export declare const enumPullRequestMergeMethod = {
   MERGE: 'MERGE',
   REBASE: 'REBASE',
   SQUASH: 'SQUASH',
-}
+} as const
 
 export declare const enumPullRequestOrderField = {
   CREATED_AT: 'CREATED_AT',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumPullRequestReviewCommentState = {
   PENDING: 'PENDING',
   SUBMITTED: 'SUBMITTED',
-}
+} as const
 
 export declare const enumPullRequestReviewDecision = {
   APPROVED: 'APPROVED',
   CHANGES_REQUESTED: 'CHANGES_REQUESTED',
   REVIEW_REQUIRED: 'REVIEW_REQUIRED',
-}
+} as const
 
 export declare const enumPullRequestReviewEvent = {
   APPROVE: 'APPROVE',
   COMMENT: 'COMMENT',
   DISMISS: 'DISMISS',
   REQUEST_CHANGES: 'REQUEST_CHANGES',
-}
+} as const
 
 export declare const enumPullRequestReviewState = {
   APPROVED: 'APPROVED',
@@ -613,13 +613,13 @@ export declare const enumPullRequestReviewState = {
   COMMENTED: 'COMMENTED',
   DISMISSED: 'DISMISSED',
   PENDING: 'PENDING',
-}
+} as const
 
 export declare const enumPullRequestState = {
   CLOSED: 'CLOSED',
   MERGED: 'MERGED',
   OPEN: 'OPEN',
-}
+} as const
 
 export declare const enumPullRequestTimelineItemsItemType = {
   ADDED_TO_PROJECT_EVENT: 'ADDED_TO_PROJECT_EVENT',
@@ -673,12 +673,12 @@ export declare const enumPullRequestTimelineItemsItemType = {
   UNPINNED_EVENT: 'UNPINNED_EVENT',
   UNSUBSCRIBED_EVENT: 'UNSUBSCRIBED_EVENT',
   USER_BLOCKED_EVENT: 'USER_BLOCKED_EVENT',
-}
+} as const
 
 export declare const enumPullRequestUpdateState = {
   CLOSED: 'CLOSED',
   OPEN: 'OPEN',
-}
+} as const
 
 export declare const enumReactionContent = {
   CONFUSED: 'CONFUSED',
@@ -689,16 +689,16 @@ export declare const enumReactionContent = {
   ROCKET: 'ROCKET',
   THUMBS_DOWN: 'THUMBS_DOWN',
   THUMBS_UP: 'THUMBS_UP',
-}
+} as const
 
 export declare const enumReactionOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumRefOrderField = {
   ALPHABETICAL: 'ALPHABETICAL',
   TAG_COMMIT_DATE: 'TAG_COMMIT_DATE',
-}
+} as const
 
 export declare const enumRegistryPackageDependencyType = {
   BUNDLED: 'BUNDLED',
@@ -707,7 +707,7 @@ export declare const enumRegistryPackageDependencyType = {
   OPTIONAL: 'OPTIONAL',
   PEER: 'PEER',
   TEST: 'TEST',
-}
+} as const
 
 export declare const enumRegistryPackageType = {
   DEBIAN: 'DEBIAN',
@@ -717,54 +717,54 @@ export declare const enumRegistryPackageType = {
   NUGET: 'NUGET',
   PYTHON: 'PYTHON',
   RUBYGEMS: 'RUBYGEMS',
-}
+} as const
 
 export declare const enumReleaseOrderField = {
   CREATED_AT: 'CREATED_AT',
   NAME: 'NAME',
-}
+} as const
 
 export declare const enumRepoAccessAuditEntryVisibility = {
   INTERNAL: 'INTERNAL',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumRepoAddMemberAuditEntryVisibility = {
   INTERNAL: 'INTERNAL',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumRepoArchivedAuditEntryVisibility = {
   INTERNAL: 'INTERNAL',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumRepoChangeMergeSettingAuditEntryMergeType = {
   MERGE: 'MERGE',
   REBASE: 'REBASE',
   SQUASH: 'SQUASH',
-}
+} as const
 
 export declare const enumRepoCreateAuditEntryVisibility = {
   INTERNAL: 'INTERNAL',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumRepoDestroyAuditEntryVisibility = {
   INTERNAL: 'INTERNAL',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumRepoRemoveMemberAuditEntryVisibility = {
   INTERNAL: 'INTERNAL',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumReportedContentClassifiers = {
   ABUSE: 'ABUSE',
@@ -773,13 +773,13 @@ export declare const enumReportedContentClassifiers = {
   OUTDATED: 'OUTDATED',
   RESOLVED: 'RESOLVED',
   SPAM: 'SPAM',
-}
+} as const
 
 export declare const enumRepositoryAffiliation = {
   COLLABORATOR: 'COLLABORATOR',
   ORGANIZATION_MEMBER: 'ORGANIZATION_MEMBER',
   OWNER: 'OWNER',
-}
+} as const
 
 export declare const enumRepositoryContributionType = {
   COMMIT: 'COMMIT',
@@ -787,19 +787,19 @@ export declare const enumRepositoryContributionType = {
   PULL_REQUEST: 'PULL_REQUEST',
   PULL_REQUEST_REVIEW: 'PULL_REQUEST_REVIEW',
   REPOSITORY: 'REPOSITORY',
-}
+} as const
 
 export declare const enumRepositoryInvitationOrderField = {
   CREATED_AT: 'CREATED_AT',
   INVITEE_LOGIN: 'INVITEE_LOGIN',
-}
+} as const
 
 export declare const enumRepositoryLockReason = {
   BILLING: 'BILLING',
   MIGRATING: 'MIGRATING',
   MOVING: 'MOVING',
   RENAME: 'RENAME',
-}
+} as const
 
 export declare const enumRepositoryOrderField = {
   CREATED_AT: 'CREATED_AT',
@@ -807,7 +807,7 @@ export declare const enumRepositoryOrderField = {
   PUSHED_AT: 'PUSHED_AT',
   STARGAZERS: 'STARGAZERS',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumRepositoryPermission = {
   ADMIN: 'ADMIN',
@@ -815,48 +815,48 @@ export declare const enumRepositoryPermission = {
   READ: 'READ',
   TRIAGE: 'TRIAGE',
   WRITE: 'WRITE',
-}
+} as const
 
 export declare const enumRepositoryPrivacy = {
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumRepositoryVisibility = {
   INTERNAL: 'INTERNAL',
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumRequestableCheckStatusState = {
   COMPLETED: 'COMPLETED',
   IN_PROGRESS: 'IN_PROGRESS',
   QUEUED: 'QUEUED',
-}
+} as const
 
 export declare const enumSamlDigestAlgorithm = {
   SHA1: 'SHA1',
   SHA256: 'SHA256',
   SHA384: 'SHA384',
   SHA512: 'SHA512',
-}
+} as const
 
 export declare const enumSamlSignatureAlgorithm = {
   RSA_SHA1: 'RSA_SHA1',
   RSA_SHA256: 'RSA_SHA256',
   RSA_SHA384: 'RSA_SHA384',
   RSA_SHA512: 'RSA_SHA512',
-}
+} as const
 
 export declare const enumSavedReplyOrderField = {
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumSearchType = {
   ISSUE: 'ISSUE',
   REPOSITORY: 'REPOSITORY',
   USER: 'USER',
-}
+} as const
 
 export declare const enumSecurityAdvisoryEcosystem = {
   COMPOSER: 'COMPOSER',
@@ -865,46 +865,46 @@ export declare const enumSecurityAdvisoryEcosystem = {
   NUGET: 'NUGET',
   PIP: 'PIP',
   RUBYGEMS: 'RUBYGEMS',
-}
+} as const
 
 export declare const enumSecurityAdvisoryIdentifierType = {
   CVE: 'CVE',
   GHSA: 'GHSA',
-}
+} as const
 
 export declare const enumSecurityAdvisoryOrderField = {
   PUBLISHED_AT: 'PUBLISHED_AT',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumSecurityAdvisorySeverity = {
   CRITICAL: 'CRITICAL',
   HIGH: 'HIGH',
   LOW: 'LOW',
   MODERATE: 'MODERATE',
-}
+} as const
 
 export declare const enumSecurityVulnerabilityOrderField = {
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumSponsorsTierOrderField = {
   CREATED_AT: 'CREATED_AT',
   MONTHLY_PRICE_IN_CENTS: 'MONTHLY_PRICE_IN_CENTS',
-}
+} as const
 
 export declare const enumSponsorshipOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumSponsorshipPrivacy = {
   PRIVATE: 'PRIVATE',
   PUBLIC: 'PUBLIC',
-}
+} as const
 
 export declare const enumStarOrderField = {
   STARRED_AT: 'STARRED_AT',
-}
+} as const
 
 export declare const enumStatusState = {
   ERROR: 'ERROR',
@@ -912,46 +912,46 @@ export declare const enumStatusState = {
   FAILURE: 'FAILURE',
   PENDING: 'PENDING',
   SUCCESS: 'SUCCESS',
-}
+} as const
 
 export declare const enumSubscriptionState = {
   IGNORED: 'IGNORED',
   SUBSCRIBED: 'SUBSCRIBED',
   UNSUBSCRIBED: 'UNSUBSCRIBED',
-}
+} as const
 
 export declare const enumTeamDiscussionCommentOrderField = {
   NUMBER: 'NUMBER',
-}
+} as const
 
 export declare const enumTeamDiscussionOrderField = {
   CREATED_AT: 'CREATED_AT',
-}
+} as const
 
 export declare const enumTeamMemberOrderField = {
   CREATED_AT: 'CREATED_AT',
   LOGIN: 'LOGIN',
-}
+} as const
 
 export declare const enumTeamMemberRole = {
   MAINTAINER: 'MAINTAINER',
   MEMBER: 'MEMBER',
-}
+} as const
 
 export declare const enumTeamMembershipType = {
   ALL: 'ALL',
   CHILD_TEAM: 'CHILD_TEAM',
   IMMEDIATE: 'IMMEDIATE',
-}
+} as const
 
 export declare const enumTeamOrderField = {
   NAME: 'NAME',
-}
+} as const
 
 export declare const enumTeamPrivacy = {
   SECRET: 'SECRET',
   VISIBLE: 'VISIBLE',
-}
+} as const
 
 export declare const enumTeamRepositoryOrderField = {
   CREATED_AT: 'CREATED_AT',
@@ -960,24 +960,24 @@ export declare const enumTeamRepositoryOrderField = {
   PUSHED_AT: 'PUSHED_AT',
   STARGAZERS: 'STARGAZERS',
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const
 
 export declare const enumTeamReviewAssignmentAlgorithm = {
   LOAD_BALANCE: 'LOAD_BALANCE',
   ROUND_ROBIN: 'ROUND_ROBIN',
-}
+} as const
 
 export declare const enumTeamRole = {
   ADMIN: 'ADMIN',
   MEMBER: 'MEMBER',
-}
+} as const
 
 export declare const enumTopicSuggestionDeclineReason = {
   NOT_RELEVANT: 'NOT_RELEVANT',
   PERSONAL_PREFERENCE: 'PERSONAL_PREFERENCE',
   TOO_GENERAL: 'TOO_GENERAL',
   TOO_SPECIFIC: 'TOO_SPECIFIC',
-}
+} as const
 
 export declare const enumUserBlockDuration = {
   ONE_DAY: 'ONE_DAY',
@@ -985,8 +985,8 @@ export declare const enumUserBlockDuration = {
   ONE_WEEK: 'ONE_WEEK',
   PERMANENT: 'PERMANENT',
   THREE_DAYS: 'THREE_DAYS',
-}
+} as const
 
 export declare const enumUserStatusOrderField = {
   UPDATED_AT: 'UPDATED_AT',
-}
+} as const

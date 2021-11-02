@@ -75,20 +75,20 @@ export declare const enumorderBy = {
   desc: 'desc',
   desc_nulls_first: 'desc_nulls_first',
   desc_nulls_last: 'desc_nulls_last',
-}
+} as const
 
 export declare const enumuserConstraint = {
   user_pkey: 'user_pkey',
-}
+} as const
 
 export declare const enumuserSelectColumn = {
   age: 'age',
   id: 'id',
   name: 'name',
-}
+} as const
 
 export declare const enumuserUpdateColumn = {
   age: 'age',
   id: 'id',
   name: 'name',
-}
+} as const

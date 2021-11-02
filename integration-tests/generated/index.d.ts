@@ -56,9 +56,9 @@ export declare const enumSomeEnum = {
   X: 'X',
   Y: 'Y',
   Z: 'Z',
-}
+} as const
 
 export declare const enumSomeEnum2 = {
   hello: 'hello',
   world: 'world',
-}
+} as const

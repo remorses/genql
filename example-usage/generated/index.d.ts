@@ -35,4 +35,4 @@ export declare const generateQueryOp: (
 export declare const enumCacheControlScope = {
   PUBLIC: 'PUBLIC',
   PRIVATE: 'PRIVATE',
-}
+} as const
