@@ -14,7 +14,7 @@ const prettify = (code, parser) => require('prettier').format(code, { parser })
 
 describe('generate queries', () => {
     it('enum string is present', () => {
-        expectType<string>(enumSomeEnum.X)
+        expectType<'X'>(enumSomeEnum.X)
         assert.strictEqual(enumSomeEnum.X, 'X')
         assert.strictEqual(enumSomeEnum.Y, 'Y')
     })
