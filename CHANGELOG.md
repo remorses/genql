@@ -1,3 +1,7 @@
+## 2.8.0
+
+Add `as const` on enum objects to not use type object values as strings
+
 ## 2.7.0
 
 Added `enumGraphqlEnumName` exports to get access to enum strings
