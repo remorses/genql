@@ -68,27 +68,27 @@ export declare const generateSubscriptionOp: (
   fields: subscription_rootRequest & { __name?: string },
 ) => GraphqlOperation
 
-export declare const enumorderBy = {
-  asc: 'asc',
-  asc_nulls_first: 'asc_nulls_first',
-  asc_nulls_last: 'asc_nulls_last',
-  desc: 'desc',
-  desc_nulls_first: 'desc_nulls_first',
-  desc_nulls_last: 'desc_nulls_last',
-} as const
+export declare const enumorderBy: {
+  readonly asc: 'asc'
+  readonly asc_nulls_first: 'asc_nulls_first'
+  readonly asc_nulls_last: 'asc_nulls_last'
+  readonly desc: 'desc'
+  readonly desc_nulls_first: 'desc_nulls_first'
+  readonly desc_nulls_last: 'desc_nulls_last'
+}
 
-export declare const enumuserConstraint = {
-  user_pkey: 'user_pkey',
-} as const
+export declare const enumuserConstraint: {
+  readonly user_pkey: 'user_pkey'
+}
 
-export declare const enumuserSelectColumn = {
-  age: 'age',
-  id: 'id',
-  name: 'name',
-} as const
+export declare const enumuserSelectColumn: {
+  readonly age: 'age'
+  readonly id: 'id'
+  readonly name: 'name'
+}
 
-export declare const enumuserUpdateColumn = {
-  age: 'age',
-  id: 'id',
-  name: 'name',
-} as const
+export declare const enumuserUpdateColumn: {
+  readonly age: 'age'
+  readonly id: 'id'
+  readonly name: 'name'
+}

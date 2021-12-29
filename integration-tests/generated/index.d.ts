@@ -52,13 +52,13 @@ export declare const generateSubscriptionOp: (
   fields: SubscriptionRequest & { __name?: string },
 ) => GraphqlOperation
 
-export declare const enumSomeEnum = {
-  X: 'X',
-  Y: 'Y',
-  Z: 'Z',
-} as const
+export declare const enumSomeEnum: {
+  readonly X: 'X'
+  readonly Y: 'Y'
+  readonly Z: 'Z'
+}
 
-export declare const enumSomeEnum2 = {
-  hello: 'hello',
-  world: 'world',
-} as const
+export declare const enumSomeEnum2: {
+  readonly hello: 'hello'
+  readonly world: 'world'
+}
