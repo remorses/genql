@@ -52,17 +52,17 @@ export function renderEnumsMaps(
     return enums
         .map(
             (type) =>
-                `${declaration}${camelCase('enum' + type.name)} = {\n` +
+                `${declaration}${camelCase('enum' + type.name)}${moduleType === 'type' ? ': ' : ' = '}{\n` +
                 type
                     .getValues()
                     .map((v) => {
                         if (!v?.name) {
                             return ''
                         }
-                        return `  ${v.name}: '${v.name}'`
+                        return `  ${moduleType === 'type' ? 'readonly ' : ''}${v.name}: '${v.name}'`
                     })
                     .join(',\n') +
-                `\n}${moduleType === 'type' ? ' as const' : ''}\n`,
+                `\n}\n`,
         )
         .join('\n')
 }

@@ -53,940 +53,934 @@ export declare const generateMutationOp: (
   fields: MutationRequest & { __name?: string },
 ) => GraphqlOperation
 
-export declare const enumActionExecutionCapabilitySetting = {
-  ALL_ACTIONS: 'ALL_ACTIONS',
-  DISABLED: 'DISABLED',
-  LOCAL_ACTIONS_ONLY: 'LOCAL_ACTIONS_ONLY',
-  NO_POLICY: 'NO_POLICY',
-} as const
-
-export declare const enumAuditLogOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumCheckAnnotationLevel = {
-  FAILURE: 'FAILURE',
-  NOTICE: 'NOTICE',
-  WARNING: 'WARNING',
-} as const
-
-export declare const enumCheckConclusionState = {
-  ACTION_REQUIRED: 'ACTION_REQUIRED',
-  CANCELLED: 'CANCELLED',
-  FAILURE: 'FAILURE',
-  NEUTRAL: 'NEUTRAL',
-  SKIPPED: 'SKIPPED',
-  STALE: 'STALE',
-  SUCCESS: 'SUCCESS',
-  TIMED_OUT: 'TIMED_OUT',
-} as const
-
-export declare const enumCheckRunType = {
-  ALL: 'ALL',
-  LATEST: 'LATEST',
-} as const
-
-export declare const enumCheckStatusState = {
-  COMPLETED: 'COMPLETED',
-  IN_PROGRESS: 'IN_PROGRESS',
-  QUEUED: 'QUEUED',
-  REQUESTED: 'REQUESTED',
-} as const
-
-export declare const enumCollaboratorAffiliation = {
-  ALL: 'ALL',
-  DIRECT: 'DIRECT',
-  OUTSIDE: 'OUTSIDE',
-} as const
-
-export declare const enumCommentAuthorAssociation = {
-  COLLABORATOR: 'COLLABORATOR',
-  CONTRIBUTOR: 'CONTRIBUTOR',
-  FIRST_TIMER: 'FIRST_TIMER',
-  FIRST_TIME_CONTRIBUTOR: 'FIRST_TIME_CONTRIBUTOR',
-  MEMBER: 'MEMBER',
-  NONE: 'NONE',
-  OWNER: 'OWNER',
-} as const
-
-export declare const enumCommentCannotUpdateReason = {
-  ARCHIVED: 'ARCHIVED',
-  DENIED: 'DENIED',
-  INSUFFICIENT_ACCESS: 'INSUFFICIENT_ACCESS',
-  LOCKED: 'LOCKED',
-  LOGIN_REQUIRED: 'LOGIN_REQUIRED',
-  MAINTENANCE: 'MAINTENANCE',
-  VERIFIED_EMAIL_REQUIRED: 'VERIFIED_EMAIL_REQUIRED',
-} as const
-
-export declare const enumCommitContributionOrderField = {
-  COMMIT_COUNT: 'COMMIT_COUNT',
-  OCCURRED_AT: 'OCCURRED_AT',
-} as const
-
-export declare const enumDefaultRepositoryPermissionField = {
-  ADMIN: 'ADMIN',
-  NONE: 'NONE',
-  READ: 'READ',
-  WRITE: 'WRITE',
-} as const
-
-export declare const enumDeploymentOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumDeploymentState = {
-  ABANDONED: 'ABANDONED',
-  ACTIVE: 'ACTIVE',
-  DESTROYED: 'DESTROYED',
-  ERROR: 'ERROR',
-  FAILURE: 'FAILURE',
-  INACTIVE: 'INACTIVE',
-  IN_PROGRESS: 'IN_PROGRESS',
-  PENDING: 'PENDING',
-  QUEUED: 'QUEUED',
-} as const
-
-export declare const enumDeploymentStatusState = {
-  ERROR: 'ERROR',
-  FAILURE: 'FAILURE',
-  INACTIVE: 'INACTIVE',
-  IN_PROGRESS: 'IN_PROGRESS',
-  PENDING: 'PENDING',
-  QUEUED: 'QUEUED',
-  SUCCESS: 'SUCCESS',
-} as const
-
-export declare const enumDiffSide = {
-  LEFT: 'LEFT',
-  RIGHT: 'RIGHT',
-} as const
-
-export declare const enumEnterpriseAdministratorInvitationOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumEnterpriseAdministratorRole = {
-  BILLING_MANAGER: 'BILLING_MANAGER',
-  OWNER: 'OWNER',
-} as const
-
-export declare const enumEnterpriseDefaultRepositoryPermissionSettingValue = {
-  ADMIN: 'ADMIN',
-  NONE: 'NONE',
-  NO_POLICY: 'NO_POLICY',
-  READ: 'READ',
-  WRITE: 'WRITE',
-} as const
-
-export declare const enumEnterpriseEnabledDisabledSettingValue = {
-  DISABLED: 'DISABLED',
-  ENABLED: 'ENABLED',
-  NO_POLICY: 'NO_POLICY',
-} as const
-
-export declare const enumEnterpriseEnabledSettingValue = {
-  ENABLED: 'ENABLED',
-  NO_POLICY: 'NO_POLICY',
-} as const
-
-export declare const enumEnterpriseMemberOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  LOGIN: 'LOGIN',
-} as const
-
-export declare const enumEnterpriseMembersCanCreateRepositoriesSettingValue = {
-  ALL: 'ALL',
-  DISABLED: 'DISABLED',
-  NO_POLICY: 'NO_POLICY',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumEnterpriseMembersCanMakePurchasesSettingValue = {
-  DISABLED: 'DISABLED',
-  ENABLED: 'ENABLED',
-} as const
-
-export declare const enumEnterpriseServerInstallationOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  CUSTOMER_NAME: 'CUSTOMER_NAME',
-  HOST_NAME: 'HOST_NAME',
-} as const
-
-export declare const enumEnterpriseServerUserAccountEmailOrderField = {
-  EMAIL: 'EMAIL',
-} as const
-
-export declare const enumEnterpriseServerUserAccountOrderField = {
-  LOGIN: 'LOGIN',
-  REMOTE_CREATED_AT: 'REMOTE_CREATED_AT',
-} as const
-
-export declare const enumEnterpriseServerUserAccountsUploadOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumEnterpriseServerUserAccountsUploadSyncState = {
-  FAILURE: 'FAILURE',
-  PENDING: 'PENDING',
-  SUCCESS: 'SUCCESS',
-} as const
-
-export declare const enumEnterpriseUserAccountMembershipRole = {
-  MEMBER: 'MEMBER',
-  OWNER: 'OWNER',
-} as const
-
-export declare const enumEnterpriseUserDeployment = {
-  CLOUD: 'CLOUD',
-  SERVER: 'SERVER',
-} as const
-
-export declare const enumFundingPlatform = {
-  COMMUNITY_BRIDGE: 'COMMUNITY_BRIDGE',
-  CUSTOM: 'CUSTOM',
-  GITHUB: 'GITHUB',
-  ISSUEHUNT: 'ISSUEHUNT',
-  KO_FI: 'KO_FI',
-  LIBERAPAY: 'LIBERAPAY',
-  OPEN_COLLECTIVE: 'OPEN_COLLECTIVE',
-  OTECHIE: 'OTECHIE',
-  PATREON: 'PATREON',
-  TIDELIFT: 'TIDELIFT',
-} as const
-
-export declare const enumGistOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  PUSHED_AT: 'PUSHED_AT',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumGistPrivacy = {
-  ALL: 'ALL',
-  PUBLIC: 'PUBLIC',
-  SECRET: 'SECRET',
-} as const
-
-export declare const enumGitSignatureState = {
-  BAD_CERT: 'BAD_CERT',
-  BAD_EMAIL: 'BAD_EMAIL',
-  EXPIRED_KEY: 'EXPIRED_KEY',
-  GPGVERIFY_ERROR: 'GPGVERIFY_ERROR',
-  GPGVERIFY_UNAVAILABLE: 'GPGVERIFY_UNAVAILABLE',
-  INVALID: 'INVALID',
-  MALFORMED_SIG: 'MALFORMED_SIG',
-  NOT_SIGNING_KEY: 'NOT_SIGNING_KEY',
-  NO_USER: 'NO_USER',
-  OCSP_ERROR: 'OCSP_ERROR',
-  OCSP_PENDING: 'OCSP_PENDING',
-  OCSP_REVOKED: 'OCSP_REVOKED',
-  UNKNOWN_KEY: 'UNKNOWN_KEY',
-  UNKNOWN_SIG_TYPE: 'UNKNOWN_SIG_TYPE',
-  UNSIGNED: 'UNSIGNED',
-  UNVERIFIED_EMAIL: 'UNVERIFIED_EMAIL',
-  VALID: 'VALID',
-} as const
-
-export declare const enumIdentityProviderConfigurationState = {
-  CONFIGURED: 'CONFIGURED',
-  ENFORCED: 'ENFORCED',
-  UNCONFIGURED: 'UNCONFIGURED',
-} as const
-
-export declare const enumIpAllowListEnabledSettingValue = {
-  DISABLED: 'DISABLED',
-  ENABLED: 'ENABLED',
-} as const
-
-export declare const enumIpAllowListEntryOrderField = {
-  ALLOW_LIST_VALUE: 'ALLOW_LIST_VALUE',
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumIssueOrderField = {
-  COMMENTS: 'COMMENTS',
-  CREATED_AT: 'CREATED_AT',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumIssueState = {
-  CLOSED: 'CLOSED',
-  OPEN: 'OPEN',
-} as const
-
-export declare const enumIssueTimelineItemsItemType = {
-  ADDED_TO_PROJECT_EVENT: 'ADDED_TO_PROJECT_EVENT',
-  ASSIGNED_EVENT: 'ASSIGNED_EVENT',
-  CLOSED_EVENT: 'CLOSED_EVENT',
-  COMMENT_DELETED_EVENT: 'COMMENT_DELETED_EVENT',
-  CONNECTED_EVENT: 'CONNECTED_EVENT',
-  CONVERTED_NOTE_TO_ISSUE_EVENT: 'CONVERTED_NOTE_TO_ISSUE_EVENT',
-  CROSS_REFERENCED_EVENT: 'CROSS_REFERENCED_EVENT',
-  DEMILESTONED_EVENT: 'DEMILESTONED_EVENT',
-  DISCONNECTED_EVENT: 'DISCONNECTED_EVENT',
-  ISSUE_COMMENT: 'ISSUE_COMMENT',
-  LABELED_EVENT: 'LABELED_EVENT',
-  LOCKED_EVENT: 'LOCKED_EVENT',
-  MARKED_AS_DUPLICATE_EVENT: 'MARKED_AS_DUPLICATE_EVENT',
-  MENTIONED_EVENT: 'MENTIONED_EVENT',
-  MILESTONED_EVENT: 'MILESTONED_EVENT',
-  MOVED_COLUMNS_IN_PROJECT_EVENT: 'MOVED_COLUMNS_IN_PROJECT_EVENT',
-  PINNED_EVENT: 'PINNED_EVENT',
-  REFERENCED_EVENT: 'REFERENCED_EVENT',
-  REMOVED_FROM_PROJECT_EVENT: 'REMOVED_FROM_PROJECT_EVENT',
-  RENAMED_TITLE_EVENT: 'RENAMED_TITLE_EVENT',
-  REOPENED_EVENT: 'REOPENED_EVENT',
-  SUBSCRIBED_EVENT: 'SUBSCRIBED_EVENT',
-  TRANSFERRED_EVENT: 'TRANSFERRED_EVENT',
-  UNASSIGNED_EVENT: 'UNASSIGNED_EVENT',
-  UNLABELED_EVENT: 'UNLABELED_EVENT',
-  UNLOCKED_EVENT: 'UNLOCKED_EVENT',
-  UNMARKED_AS_DUPLICATE_EVENT: 'UNMARKED_AS_DUPLICATE_EVENT',
-  UNPINNED_EVENT: 'UNPINNED_EVENT',
-  UNSUBSCRIBED_EVENT: 'UNSUBSCRIBED_EVENT',
-  USER_BLOCKED_EVENT: 'USER_BLOCKED_EVENT',
-} as const
-
-export declare const enumLabelOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  NAME: 'NAME',
-} as const
-
-export declare const enumLanguageOrderField = {
-  SIZE: 'SIZE',
-} as const
-
-export declare const enumLockReason = {
-  OFF_TOPIC: 'OFF_TOPIC',
-  RESOLVED: 'RESOLVED',
-  SPAM: 'SPAM',
-  TOO_HEATED: 'TOO_HEATED',
-} as const
-
-export declare const enumMergeStateStatus = {
-  BEHIND: 'BEHIND',
-  BLOCKED: 'BLOCKED',
-  CLEAN: 'CLEAN',
-  DIRTY: 'DIRTY',
-  DRAFT: 'DRAFT',
-  HAS_HOOKS: 'HAS_HOOKS',
-  UNKNOWN: 'UNKNOWN',
-  UNSTABLE: 'UNSTABLE',
-} as const
-
-export declare const enumMergeableState = {
-  CONFLICTING: 'CONFLICTING',
-  MERGEABLE: 'MERGEABLE',
-  UNKNOWN: 'UNKNOWN',
-} as const
-
-export declare const enumMilestoneOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  DUE_DATE: 'DUE_DATE',
-  NUMBER: 'NUMBER',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumMilestoneState = {
-  CLOSED: 'CLOSED',
-  OPEN: 'OPEN',
-} as const
-
-export declare const enumOauthApplicationCreateAuditEntryState = {
-  ACTIVE: 'ACTIVE',
-  PENDING_DELETION: 'PENDING_DELETION',
-  SUSPENDED: 'SUSPENDED',
-} as const
-
-export declare const enumOperationType = {
-  ACCESS: 'ACCESS',
-  AUTHENTICATION: 'AUTHENTICATION',
-  CREATE: 'CREATE',
-  MODIFY: 'MODIFY',
-  REMOVE: 'REMOVE',
-  RESTORE: 'RESTORE',
-  TRANSFER: 'TRANSFER',
-} as const
-
-export declare const enumOrderDirection = {
-  ASC: 'ASC',
-  DESC: 'DESC',
-} as const
-
-export declare const enumOrgAddMemberAuditEntryPermission = {
-  ADMIN: 'ADMIN',
-  READ: 'READ',
-} as const
-
-export declare const enumOrgCreateAuditEntryBillingPlan = {
-  BUSINESS: 'BUSINESS',
-  BUSINESS_PLUS: 'BUSINESS_PLUS',
-  FREE: 'FREE',
-  TIERED_PER_SEAT: 'TIERED_PER_SEAT',
-  UNLIMITED: 'UNLIMITED',
-} as const
-
-export declare const enumOrgRemoveBillingManagerAuditEntryReason = {
-  SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING',
-  SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY:
-    'SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY',
-  TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE:
-    'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE',
-} as const
-
-export declare const enumOrgRemoveMemberAuditEntryMembershipType = {
-  ADMIN: 'ADMIN',
-  BILLING_MANAGER: 'BILLING_MANAGER',
-  DIRECT_MEMBER: 'DIRECT_MEMBER',
-  OUTSIDE_COLLABORATOR: 'OUTSIDE_COLLABORATOR',
-  UNAFFILIATED: 'UNAFFILIATED',
-} as const
-
-export declare const enumOrgRemoveMemberAuditEntryReason = {
-  SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING',
-  SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY:
-    'SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY',
-  TWO_FACTOR_ACCOUNT_RECOVERY: 'TWO_FACTOR_ACCOUNT_RECOVERY',
-  TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE:
-    'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE',
-  USER_ACCOUNT_DELETED: 'USER_ACCOUNT_DELETED',
-} as const
-
-export declare const enumOrgRemoveOutsideCollaboratorAuditEntryMembershipType = {
-  BILLING_MANAGER: 'BILLING_MANAGER',
-  OUTSIDE_COLLABORATOR: 'OUTSIDE_COLLABORATOR',
-  UNAFFILIATED: 'UNAFFILIATED',
-} as const
-
-export declare const enumOrgRemoveOutsideCollaboratorAuditEntryReason = {
-  SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING',
-  TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE:
-    'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE',
-} as const
-
-export declare const enumOrgUpdateDefaultRepositoryPermissionAuditEntryPermission = {
-  ADMIN: 'ADMIN',
-  NONE: 'NONE',
-  READ: 'READ',
-  WRITE: 'WRITE',
-} as const
-
-export declare const enumOrgUpdateMemberAuditEntryPermission = {
-  ADMIN: 'ADMIN',
-  READ: 'READ',
-} as const
-
-export declare const enumOrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility = {
-  ALL: 'ALL',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumOrganizationInvitationRole = {
-  ADMIN: 'ADMIN',
-  BILLING_MANAGER: 'BILLING_MANAGER',
-  DIRECT_MEMBER: 'DIRECT_MEMBER',
-  REINSTATE: 'REINSTATE',
-} as const
-
-export declare const enumOrganizationInvitationType = {
-  EMAIL: 'EMAIL',
-  USER: 'USER',
-} as const
-
-export declare const enumOrganizationMemberRole = {
-  ADMIN: 'ADMIN',
-  MEMBER: 'MEMBER',
-} as const
-
-export declare const enumOrganizationMembersCanCreateRepositoriesSettingValue = {
-  ALL: 'ALL',
-  DISABLED: 'DISABLED',
-  PRIVATE: 'PRIVATE',
-} as const
-
-export declare const enumOrganizationOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  LOGIN: 'LOGIN',
-} as const
-
-export declare const enumPackageFileOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumPackageOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumPackageType = {
-  DEBIAN: 'DEBIAN',
-  DOCKER: 'DOCKER',
-  MAVEN: 'MAVEN',
-  NPM: 'NPM',
-  NUGET: 'NUGET',
-  PYPI: 'PYPI',
-  RUBYGEMS: 'RUBYGEMS',
-} as const
-
-export declare const enumPackageVersionOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumPinnableItemType = {
-  GIST: 'GIST',
-  ISSUE: 'ISSUE',
-  ORGANIZATION: 'ORGANIZATION',
-  PROJECT: 'PROJECT',
-  PULL_REQUEST: 'PULL_REQUEST',
-  REPOSITORY: 'REPOSITORY',
-  TEAM: 'TEAM',
-  USER: 'USER',
-} as const
-
-export declare const enumProjectCardArchivedState = {
-  ARCHIVED: 'ARCHIVED',
-  NOT_ARCHIVED: 'NOT_ARCHIVED',
-} as const
-
-export declare const enumProjectCardState = {
-  CONTENT_ONLY: 'CONTENT_ONLY',
-  NOTE_ONLY: 'NOTE_ONLY',
-  REDACTED: 'REDACTED',
-} as const
-
-export declare const enumProjectColumnPurpose = {
-  DONE: 'DONE',
-  IN_PROGRESS: 'IN_PROGRESS',
-  TODO: 'TODO',
-} as const
-
-export declare const enumProjectOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  NAME: 'NAME',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumProjectState = {
-  CLOSED: 'CLOSED',
-  OPEN: 'OPEN',
-} as const
-
-export declare const enumProjectTemplate = {
-  AUTOMATED_KANBAN_V2: 'AUTOMATED_KANBAN_V2',
-  AUTOMATED_REVIEWS_KANBAN: 'AUTOMATED_REVIEWS_KANBAN',
-  BASIC_KANBAN: 'BASIC_KANBAN',
-  BUG_TRIAGE: 'BUG_TRIAGE',
-} as const
-
-export declare const enumPullRequestMergeMethod = {
-  MERGE: 'MERGE',
-  REBASE: 'REBASE',
-  SQUASH: 'SQUASH',
-} as const
-
-export declare const enumPullRequestOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumPullRequestReviewCommentState = {
-  PENDING: 'PENDING',
-  SUBMITTED: 'SUBMITTED',
-} as const
-
-export declare const enumPullRequestReviewDecision = {
-  APPROVED: 'APPROVED',
-  CHANGES_REQUESTED: 'CHANGES_REQUESTED',
-  REVIEW_REQUIRED: 'REVIEW_REQUIRED',
-} as const
-
-export declare const enumPullRequestReviewEvent = {
-  APPROVE: 'APPROVE',
-  COMMENT: 'COMMENT',
-  DISMISS: 'DISMISS',
-  REQUEST_CHANGES: 'REQUEST_CHANGES',
-} as const
-
-export declare const enumPullRequestReviewState = {
-  APPROVED: 'APPROVED',
-  CHANGES_REQUESTED: 'CHANGES_REQUESTED',
-  COMMENTED: 'COMMENTED',
-  DISMISSED: 'DISMISSED',
-  PENDING: 'PENDING',
-} as const
-
-export declare const enumPullRequestState = {
-  CLOSED: 'CLOSED',
-  MERGED: 'MERGED',
-  OPEN: 'OPEN',
-} as const
-
-export declare const enumPullRequestTimelineItemsItemType = {
-  ADDED_TO_PROJECT_EVENT: 'ADDED_TO_PROJECT_EVENT',
-  ASSIGNED_EVENT: 'ASSIGNED_EVENT',
-  AUTOMATIC_BASE_CHANGE_FAILED_EVENT: 'AUTOMATIC_BASE_CHANGE_FAILED_EVENT',
-  AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT:
-    'AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT',
-  BASE_REF_CHANGED_EVENT: 'BASE_REF_CHANGED_EVENT',
-  BASE_REF_FORCE_PUSHED_EVENT: 'BASE_REF_FORCE_PUSHED_EVENT',
-  CLOSED_EVENT: 'CLOSED_EVENT',
-  COMMENT_DELETED_EVENT: 'COMMENT_DELETED_EVENT',
-  CONNECTED_EVENT: 'CONNECTED_EVENT',
-  CONVERTED_NOTE_TO_ISSUE_EVENT: 'CONVERTED_NOTE_TO_ISSUE_EVENT',
-  CONVERT_TO_DRAFT_EVENT: 'CONVERT_TO_DRAFT_EVENT',
-  CROSS_REFERENCED_EVENT: 'CROSS_REFERENCED_EVENT',
-  DEMILESTONED_EVENT: 'DEMILESTONED_EVENT',
-  DEPLOYED_EVENT: 'DEPLOYED_EVENT',
-  DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT: 'DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT',
-  DISCONNECTED_EVENT: 'DISCONNECTED_EVENT',
-  HEAD_REF_DELETED_EVENT: 'HEAD_REF_DELETED_EVENT',
-  HEAD_REF_FORCE_PUSHED_EVENT: 'HEAD_REF_FORCE_PUSHED_EVENT',
-  HEAD_REF_RESTORED_EVENT: 'HEAD_REF_RESTORED_EVENT',
-  ISSUE_COMMENT: 'ISSUE_COMMENT',
-  LABELED_EVENT: 'LABELED_EVENT',
-  LOCKED_EVENT: 'LOCKED_EVENT',
-  MARKED_AS_DUPLICATE_EVENT: 'MARKED_AS_DUPLICATE_EVENT',
-  MENTIONED_EVENT: 'MENTIONED_EVENT',
-  MERGED_EVENT: 'MERGED_EVENT',
-  MILESTONED_EVENT: 'MILESTONED_EVENT',
-  MOVED_COLUMNS_IN_PROJECT_EVENT: 'MOVED_COLUMNS_IN_PROJECT_EVENT',
-  PINNED_EVENT: 'PINNED_EVENT',
-  PULL_REQUEST_COMMIT: 'PULL_REQUEST_COMMIT',
-  PULL_REQUEST_COMMIT_COMMENT_THREAD: 'PULL_REQUEST_COMMIT_COMMENT_THREAD',
-  PULL_REQUEST_REVIEW: 'PULL_REQUEST_REVIEW',
-  PULL_REQUEST_REVIEW_THREAD: 'PULL_REQUEST_REVIEW_THREAD',
-  PULL_REQUEST_REVISION_MARKER: 'PULL_REQUEST_REVISION_MARKER',
-  READY_FOR_REVIEW_EVENT: 'READY_FOR_REVIEW_EVENT',
-  REFERENCED_EVENT: 'REFERENCED_EVENT',
-  REMOVED_FROM_PROJECT_EVENT: 'REMOVED_FROM_PROJECT_EVENT',
-  RENAMED_TITLE_EVENT: 'RENAMED_TITLE_EVENT',
-  REOPENED_EVENT: 'REOPENED_EVENT',
-  REVIEW_DISMISSED_EVENT: 'REVIEW_DISMISSED_EVENT',
-  REVIEW_REQUESTED_EVENT: 'REVIEW_REQUESTED_EVENT',
-  REVIEW_REQUEST_REMOVED_EVENT: 'REVIEW_REQUEST_REMOVED_EVENT',
-  SUBSCRIBED_EVENT: 'SUBSCRIBED_EVENT',
-  TRANSFERRED_EVENT: 'TRANSFERRED_EVENT',
-  UNASSIGNED_EVENT: 'UNASSIGNED_EVENT',
-  UNLABELED_EVENT: 'UNLABELED_EVENT',
-  UNLOCKED_EVENT: 'UNLOCKED_EVENT',
-  UNMARKED_AS_DUPLICATE_EVENT: 'UNMARKED_AS_DUPLICATE_EVENT',
-  UNPINNED_EVENT: 'UNPINNED_EVENT',
-  UNSUBSCRIBED_EVENT: 'UNSUBSCRIBED_EVENT',
-  USER_BLOCKED_EVENT: 'USER_BLOCKED_EVENT',
-} as const
-
-export declare const enumPullRequestUpdateState = {
-  CLOSED: 'CLOSED',
-  OPEN: 'OPEN',
-} as const
-
-export declare const enumReactionContent = {
-  CONFUSED: 'CONFUSED',
-  EYES: 'EYES',
-  HEART: 'HEART',
-  HOORAY: 'HOORAY',
-  LAUGH: 'LAUGH',
-  ROCKET: 'ROCKET',
-  THUMBS_DOWN: 'THUMBS_DOWN',
-  THUMBS_UP: 'THUMBS_UP',
-} as const
-
-export declare const enumReactionOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumRefOrderField = {
-  ALPHABETICAL: 'ALPHABETICAL',
-  TAG_COMMIT_DATE: 'TAG_COMMIT_DATE',
-} as const
-
-export declare const enumRegistryPackageDependencyType = {
-  BUNDLED: 'BUNDLED',
-  DEFAULT: 'DEFAULT',
-  DEV: 'DEV',
-  OPTIONAL: 'OPTIONAL',
-  PEER: 'PEER',
-  TEST: 'TEST',
-} as const
-
-export declare const enumRegistryPackageType = {
-  DEBIAN: 'DEBIAN',
-  DOCKER: 'DOCKER',
-  MAVEN: 'MAVEN',
-  NPM: 'NPM',
-  NUGET: 'NUGET',
-  PYTHON: 'PYTHON',
-  RUBYGEMS: 'RUBYGEMS',
-} as const
-
-export declare const enumReleaseOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  NAME: 'NAME',
-} as const
-
-export declare const enumRepoAccessAuditEntryVisibility = {
-  INTERNAL: 'INTERNAL',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumRepoAddMemberAuditEntryVisibility = {
-  INTERNAL: 'INTERNAL',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumRepoArchivedAuditEntryVisibility = {
-  INTERNAL: 'INTERNAL',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumRepoChangeMergeSettingAuditEntryMergeType = {
-  MERGE: 'MERGE',
-  REBASE: 'REBASE',
-  SQUASH: 'SQUASH',
-} as const
-
-export declare const enumRepoCreateAuditEntryVisibility = {
-  INTERNAL: 'INTERNAL',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumRepoDestroyAuditEntryVisibility = {
-  INTERNAL: 'INTERNAL',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumRepoRemoveMemberAuditEntryVisibility = {
-  INTERNAL: 'INTERNAL',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumReportedContentClassifiers = {
-  ABUSE: 'ABUSE',
-  DUPLICATE: 'DUPLICATE',
-  OFF_TOPIC: 'OFF_TOPIC',
-  OUTDATED: 'OUTDATED',
-  RESOLVED: 'RESOLVED',
-  SPAM: 'SPAM',
-} as const
-
-export declare const enumRepositoryAffiliation = {
-  COLLABORATOR: 'COLLABORATOR',
-  ORGANIZATION_MEMBER: 'ORGANIZATION_MEMBER',
-  OWNER: 'OWNER',
-} as const
-
-export declare const enumRepositoryContributionType = {
-  COMMIT: 'COMMIT',
-  ISSUE: 'ISSUE',
-  PULL_REQUEST: 'PULL_REQUEST',
-  PULL_REQUEST_REVIEW: 'PULL_REQUEST_REVIEW',
-  REPOSITORY: 'REPOSITORY',
-} as const
-
-export declare const enumRepositoryInvitationOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  INVITEE_LOGIN: 'INVITEE_LOGIN',
-} as const
-
-export declare const enumRepositoryLockReason = {
-  BILLING: 'BILLING',
-  MIGRATING: 'MIGRATING',
-  MOVING: 'MOVING',
-  RENAME: 'RENAME',
-} as const
-
-export declare const enumRepositoryOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  NAME: 'NAME',
-  PUSHED_AT: 'PUSHED_AT',
-  STARGAZERS: 'STARGAZERS',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumRepositoryPermission = {
-  ADMIN: 'ADMIN',
-  MAINTAIN: 'MAINTAIN',
-  READ: 'READ',
-  TRIAGE: 'TRIAGE',
-  WRITE: 'WRITE',
-} as const
-
-export declare const enumRepositoryPrivacy = {
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumRepositoryVisibility = {
-  INTERNAL: 'INTERNAL',
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumRequestableCheckStatusState = {
-  COMPLETED: 'COMPLETED',
-  IN_PROGRESS: 'IN_PROGRESS',
-  QUEUED: 'QUEUED',
-} as const
-
-export declare const enumSamlDigestAlgorithm = {
-  SHA1: 'SHA1',
-  SHA256: 'SHA256',
-  SHA384: 'SHA384',
-  SHA512: 'SHA512',
-} as const
-
-export declare const enumSamlSignatureAlgorithm = {
-  RSA_SHA1: 'RSA_SHA1',
-  RSA_SHA256: 'RSA_SHA256',
-  RSA_SHA384: 'RSA_SHA384',
-  RSA_SHA512: 'RSA_SHA512',
-} as const
-
-export declare const enumSavedReplyOrderField = {
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumSearchType = {
-  ISSUE: 'ISSUE',
-  REPOSITORY: 'REPOSITORY',
-  USER: 'USER',
-} as const
-
-export declare const enumSecurityAdvisoryEcosystem = {
-  COMPOSER: 'COMPOSER',
-  MAVEN: 'MAVEN',
-  NPM: 'NPM',
-  NUGET: 'NUGET',
-  PIP: 'PIP',
-  RUBYGEMS: 'RUBYGEMS',
-} as const
-
-export declare const enumSecurityAdvisoryIdentifierType = {
-  CVE: 'CVE',
-  GHSA: 'GHSA',
-} as const
-
-export declare const enumSecurityAdvisoryOrderField = {
-  PUBLISHED_AT: 'PUBLISHED_AT',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumSecurityAdvisorySeverity = {
-  CRITICAL: 'CRITICAL',
-  HIGH: 'HIGH',
-  LOW: 'LOW',
-  MODERATE: 'MODERATE',
-} as const
-
-export declare const enumSecurityVulnerabilityOrderField = {
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumSponsorsTierOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  MONTHLY_PRICE_IN_CENTS: 'MONTHLY_PRICE_IN_CENTS',
-} as const
-
-export declare const enumSponsorshipOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumSponsorshipPrivacy = {
-  PRIVATE: 'PRIVATE',
-  PUBLIC: 'PUBLIC',
-} as const
-
-export declare const enumStarOrderField = {
-  STARRED_AT: 'STARRED_AT',
-} as const
-
-export declare const enumStatusState = {
-  ERROR: 'ERROR',
-  EXPECTED: 'EXPECTED',
-  FAILURE: 'FAILURE',
-  PENDING: 'PENDING',
-  SUCCESS: 'SUCCESS',
-} as const
-
-export declare const enumSubscriptionState = {
-  IGNORED: 'IGNORED',
-  SUBSCRIBED: 'SUBSCRIBED',
-  UNSUBSCRIBED: 'UNSUBSCRIBED',
-} as const
-
-export declare const enumTeamDiscussionCommentOrderField = {
-  NUMBER: 'NUMBER',
-} as const
-
-export declare const enumTeamDiscussionOrderField = {
-  CREATED_AT: 'CREATED_AT',
-} as const
-
-export declare const enumTeamMemberOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  LOGIN: 'LOGIN',
-} as const
-
-export declare const enumTeamMemberRole = {
-  MAINTAINER: 'MAINTAINER',
-  MEMBER: 'MEMBER',
-} as const
-
-export declare const enumTeamMembershipType = {
-  ALL: 'ALL',
-  CHILD_TEAM: 'CHILD_TEAM',
-  IMMEDIATE: 'IMMEDIATE',
-} as const
-
-export declare const enumTeamOrderField = {
-  NAME: 'NAME',
-} as const
-
-export declare const enumTeamPrivacy = {
-  SECRET: 'SECRET',
-  VISIBLE: 'VISIBLE',
-} as const
-
-export declare const enumTeamRepositoryOrderField = {
-  CREATED_AT: 'CREATED_AT',
-  NAME: 'NAME',
-  PERMISSION: 'PERMISSION',
-  PUSHED_AT: 'PUSHED_AT',
-  STARGAZERS: 'STARGAZERS',
-  UPDATED_AT: 'UPDATED_AT',
-} as const
-
-export declare const enumTeamReviewAssignmentAlgorithm = {
-  LOAD_BALANCE: 'LOAD_BALANCE',
-  ROUND_ROBIN: 'ROUND_ROBIN',
-} as const
-
-export declare const enumTeamRole = {
-  ADMIN: 'ADMIN',
-  MEMBER: 'MEMBER',
-} as const
-
-export declare const enumTopicSuggestionDeclineReason = {
-  NOT_RELEVANT: 'NOT_RELEVANT',
-  PERSONAL_PREFERENCE: 'PERSONAL_PREFERENCE',
-  TOO_GENERAL: 'TOO_GENERAL',
-  TOO_SPECIFIC: 'TOO_SPECIFIC',
-} as const
-
-export declare const enumUserBlockDuration = {
-  ONE_DAY: 'ONE_DAY',
-  ONE_MONTH: 'ONE_MONTH',
-  ONE_WEEK: 'ONE_WEEK',
-  PERMANENT: 'PERMANENT',
-  THREE_DAYS: 'THREE_DAYS',
-} as const
-
-export declare const enumUserStatusOrderField = {
-  UPDATED_AT: 'UPDATED_AT',
-} as const
+export declare const enumActionExecutionCapabilitySetting: {
+  readonly ALL_ACTIONS: 'ALL_ACTIONS'
+  readonly DISABLED: 'DISABLED'
+  readonly LOCAL_ACTIONS_ONLY: 'LOCAL_ACTIONS_ONLY'
+  readonly NO_POLICY: 'NO_POLICY'
+}
+
+export declare const enumAuditLogOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumCheckAnnotationLevel: {
+  readonly FAILURE: 'FAILURE'
+  readonly NOTICE: 'NOTICE'
+  readonly WARNING: 'WARNING'
+}
+
+export declare const enumCheckConclusionState: {
+  readonly ACTION_REQUIRED: 'ACTION_REQUIRED'
+  readonly CANCELLED: 'CANCELLED'
+  readonly FAILURE: 'FAILURE'
+  readonly NEUTRAL: 'NEUTRAL'
+  readonly SKIPPED: 'SKIPPED'
+  readonly STALE: 'STALE'
+  readonly SUCCESS: 'SUCCESS'
+  readonly TIMED_OUT: 'TIMED_OUT'
+}
+
+export declare const enumCheckRunType: {
+  readonly ALL: 'ALL'
+  readonly LATEST: 'LATEST'
+}
+
+export declare const enumCheckStatusState: {
+  readonly COMPLETED: 'COMPLETED'
+  readonly IN_PROGRESS: 'IN_PROGRESS'
+  readonly QUEUED: 'QUEUED'
+  readonly REQUESTED: 'REQUESTED'
+}
+
+export declare const enumCollaboratorAffiliation: {
+  readonly ALL: 'ALL'
+  readonly DIRECT: 'DIRECT'
+  readonly OUTSIDE: 'OUTSIDE'
+}
+
+export declare const enumCommentAuthorAssociation: {
+  readonly COLLABORATOR: 'COLLABORATOR'
+  readonly CONTRIBUTOR: 'CONTRIBUTOR'
+  readonly FIRST_TIMER: 'FIRST_TIMER'
+  readonly FIRST_TIME_CONTRIBUTOR: 'FIRST_TIME_CONTRIBUTOR'
+  readonly MEMBER: 'MEMBER'
+  readonly NONE: 'NONE'
+  readonly OWNER: 'OWNER'
+}
+
+export declare const enumCommentCannotUpdateReason: {
+  readonly ARCHIVED: 'ARCHIVED'
+  readonly DENIED: 'DENIED'
+  readonly INSUFFICIENT_ACCESS: 'INSUFFICIENT_ACCESS'
+  readonly LOCKED: 'LOCKED'
+  readonly LOGIN_REQUIRED: 'LOGIN_REQUIRED'
+  readonly MAINTENANCE: 'MAINTENANCE'
+  readonly VERIFIED_EMAIL_REQUIRED: 'VERIFIED_EMAIL_REQUIRED'
+}
+
+export declare const enumCommitContributionOrderField: {
+  readonly COMMIT_COUNT: 'COMMIT_COUNT'
+  readonly OCCURRED_AT: 'OCCURRED_AT'
+}
+
+export declare const enumDefaultRepositoryPermissionField: {
+  readonly ADMIN: 'ADMIN'
+  readonly NONE: 'NONE'
+  readonly READ: 'READ'
+  readonly WRITE: 'WRITE'
+}
+
+export declare const enumDeploymentOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumDeploymentState: {
+  readonly ABANDONED: 'ABANDONED'
+  readonly ACTIVE: 'ACTIVE'
+  readonly DESTROYED: 'DESTROYED'
+  readonly ERROR: 'ERROR'
+  readonly FAILURE: 'FAILURE'
+  readonly INACTIVE: 'INACTIVE'
+  readonly IN_PROGRESS: 'IN_PROGRESS'
+  readonly PENDING: 'PENDING'
+  readonly QUEUED: 'QUEUED'
+}
+
+export declare const enumDeploymentStatusState: {
+  readonly ERROR: 'ERROR'
+  readonly FAILURE: 'FAILURE'
+  readonly INACTIVE: 'INACTIVE'
+  readonly IN_PROGRESS: 'IN_PROGRESS'
+  readonly PENDING: 'PENDING'
+  readonly QUEUED: 'QUEUED'
+  readonly SUCCESS: 'SUCCESS'
+}
+
+export declare const enumDiffSide: {
+  readonly LEFT: 'LEFT'
+  readonly RIGHT: 'RIGHT'
+}
+
+export declare const enumEnterpriseAdministratorInvitationOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumEnterpriseAdministratorRole: {
+  readonly BILLING_MANAGER: 'BILLING_MANAGER'
+  readonly OWNER: 'OWNER'
+}
+
+export declare const enumEnterpriseDefaultRepositoryPermissionSettingValue: {
+  readonly ADMIN: 'ADMIN'
+  readonly NONE: 'NONE'
+  readonly NO_POLICY: 'NO_POLICY'
+  readonly READ: 'READ'
+  readonly WRITE: 'WRITE'
+}
+
+export declare const enumEnterpriseEnabledDisabledSettingValue: {
+  readonly DISABLED: 'DISABLED'
+  readonly ENABLED: 'ENABLED'
+  readonly NO_POLICY: 'NO_POLICY'
+}
+
+export declare const enumEnterpriseEnabledSettingValue: {
+  readonly ENABLED: 'ENABLED'
+  readonly NO_POLICY: 'NO_POLICY'
+}
+
+export declare const enumEnterpriseMemberOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly LOGIN: 'LOGIN'
+}
+
+export declare const enumEnterpriseMembersCanCreateRepositoriesSettingValue: {
+  readonly ALL: 'ALL'
+  readonly DISABLED: 'DISABLED'
+  readonly NO_POLICY: 'NO_POLICY'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumEnterpriseMembersCanMakePurchasesSettingValue: {
+  readonly DISABLED: 'DISABLED'
+  readonly ENABLED: 'ENABLED'
+}
+
+export declare const enumEnterpriseServerInstallationOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly CUSTOMER_NAME: 'CUSTOMER_NAME'
+  readonly HOST_NAME: 'HOST_NAME'
+}
+
+export declare const enumEnterpriseServerUserAccountEmailOrderField: {
+  readonly EMAIL: 'EMAIL'
+}
+
+export declare const enumEnterpriseServerUserAccountOrderField: {
+  readonly LOGIN: 'LOGIN'
+  readonly REMOTE_CREATED_AT: 'REMOTE_CREATED_AT'
+}
+
+export declare const enumEnterpriseServerUserAccountsUploadOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumEnterpriseServerUserAccountsUploadSyncState: {
+  readonly FAILURE: 'FAILURE'
+  readonly PENDING: 'PENDING'
+  readonly SUCCESS: 'SUCCESS'
+}
+
+export declare const enumEnterpriseUserAccountMembershipRole: {
+  readonly MEMBER: 'MEMBER'
+  readonly OWNER: 'OWNER'
+}
+
+export declare const enumEnterpriseUserDeployment: {
+  readonly CLOUD: 'CLOUD'
+  readonly SERVER: 'SERVER'
+}
+
+export declare const enumFundingPlatform: {
+  readonly COMMUNITY_BRIDGE: 'COMMUNITY_BRIDGE'
+  readonly CUSTOM: 'CUSTOM'
+  readonly GITHUB: 'GITHUB'
+  readonly ISSUEHUNT: 'ISSUEHUNT'
+  readonly KO_FI: 'KO_FI'
+  readonly LIBERAPAY: 'LIBERAPAY'
+  readonly OPEN_COLLECTIVE: 'OPEN_COLLECTIVE'
+  readonly OTECHIE: 'OTECHIE'
+  readonly PATREON: 'PATREON'
+  readonly TIDELIFT: 'TIDELIFT'
+}
+
+export declare const enumGistOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly PUSHED_AT: 'PUSHED_AT'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumGistPrivacy: {
+  readonly ALL: 'ALL'
+  readonly PUBLIC: 'PUBLIC'
+  readonly SECRET: 'SECRET'
+}
+
+export declare const enumGitSignatureState: {
+  readonly BAD_CERT: 'BAD_CERT'
+  readonly BAD_EMAIL: 'BAD_EMAIL'
+  readonly EXPIRED_KEY: 'EXPIRED_KEY'
+  readonly GPGVERIFY_ERROR: 'GPGVERIFY_ERROR'
+  readonly GPGVERIFY_UNAVAILABLE: 'GPGVERIFY_UNAVAILABLE'
+  readonly INVALID: 'INVALID'
+  readonly MALFORMED_SIG: 'MALFORMED_SIG'
+  readonly NOT_SIGNING_KEY: 'NOT_SIGNING_KEY'
+  readonly NO_USER: 'NO_USER'
+  readonly OCSP_ERROR: 'OCSP_ERROR'
+  readonly OCSP_PENDING: 'OCSP_PENDING'
+  readonly OCSP_REVOKED: 'OCSP_REVOKED'
+  readonly UNKNOWN_KEY: 'UNKNOWN_KEY'
+  readonly UNKNOWN_SIG_TYPE: 'UNKNOWN_SIG_TYPE'
+  readonly UNSIGNED: 'UNSIGNED'
+  readonly UNVERIFIED_EMAIL: 'UNVERIFIED_EMAIL'
+  readonly VALID: 'VALID'
+}
+
+export declare const enumIdentityProviderConfigurationState: {
+  readonly CONFIGURED: 'CONFIGURED'
+  readonly ENFORCED: 'ENFORCED'
+  readonly UNCONFIGURED: 'UNCONFIGURED'
+}
+
+export declare const enumIpAllowListEnabledSettingValue: {
+  readonly DISABLED: 'DISABLED'
+  readonly ENABLED: 'ENABLED'
+}
+
+export declare const enumIpAllowListEntryOrderField: {
+  readonly ALLOW_LIST_VALUE: 'ALLOW_LIST_VALUE'
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumIssueOrderField: {
+  readonly COMMENTS: 'COMMENTS'
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumIssueState: {
+  readonly CLOSED: 'CLOSED'
+  readonly OPEN: 'OPEN'
+}
+
+export declare const enumIssueTimelineItemsItemType: {
+  readonly ADDED_TO_PROJECT_EVENT: 'ADDED_TO_PROJECT_EVENT'
+  readonly ASSIGNED_EVENT: 'ASSIGNED_EVENT'
+  readonly CLOSED_EVENT: 'CLOSED_EVENT'
+  readonly COMMENT_DELETED_EVENT: 'COMMENT_DELETED_EVENT'
+  readonly CONNECTED_EVENT: 'CONNECTED_EVENT'
+  readonly CONVERTED_NOTE_TO_ISSUE_EVENT: 'CONVERTED_NOTE_TO_ISSUE_EVENT'
+  readonly CROSS_REFERENCED_EVENT: 'CROSS_REFERENCED_EVENT'
+  readonly DEMILESTONED_EVENT: 'DEMILESTONED_EVENT'
+  readonly DISCONNECTED_EVENT: 'DISCONNECTED_EVENT'
+  readonly ISSUE_COMMENT: 'ISSUE_COMMENT'
+  readonly LABELED_EVENT: 'LABELED_EVENT'
+  readonly LOCKED_EVENT: 'LOCKED_EVENT'
+  readonly MARKED_AS_DUPLICATE_EVENT: 'MARKED_AS_DUPLICATE_EVENT'
+  readonly MENTIONED_EVENT: 'MENTIONED_EVENT'
+  readonly MILESTONED_EVENT: 'MILESTONED_EVENT'
+  readonly MOVED_COLUMNS_IN_PROJECT_EVENT: 'MOVED_COLUMNS_IN_PROJECT_EVENT'
+  readonly PINNED_EVENT: 'PINNED_EVENT'
+  readonly REFERENCED_EVENT: 'REFERENCED_EVENT'
+  readonly REMOVED_FROM_PROJECT_EVENT: 'REMOVED_FROM_PROJECT_EVENT'
+  readonly RENAMED_TITLE_EVENT: 'RENAMED_TITLE_EVENT'
+  readonly REOPENED_EVENT: 'REOPENED_EVENT'
+  readonly SUBSCRIBED_EVENT: 'SUBSCRIBED_EVENT'
+  readonly TRANSFERRED_EVENT: 'TRANSFERRED_EVENT'
+  readonly UNASSIGNED_EVENT: 'UNASSIGNED_EVENT'
+  readonly UNLABELED_EVENT: 'UNLABELED_EVENT'
+  readonly UNLOCKED_EVENT: 'UNLOCKED_EVENT'
+  readonly UNMARKED_AS_DUPLICATE_EVENT: 'UNMARKED_AS_DUPLICATE_EVENT'
+  readonly UNPINNED_EVENT: 'UNPINNED_EVENT'
+  readonly UNSUBSCRIBED_EVENT: 'UNSUBSCRIBED_EVENT'
+  readonly USER_BLOCKED_EVENT: 'USER_BLOCKED_EVENT'
+}
+
+export declare const enumLabelOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly NAME: 'NAME'
+}
+
+export declare const enumLanguageOrderField: {
+  readonly SIZE: 'SIZE'
+}
+
+export declare const enumLockReason: {
+  readonly OFF_TOPIC: 'OFF_TOPIC'
+  readonly RESOLVED: 'RESOLVED'
+  readonly SPAM: 'SPAM'
+  readonly TOO_HEATED: 'TOO_HEATED'
+}
+
+export declare const enumMergeStateStatus: {
+  readonly BEHIND: 'BEHIND'
+  readonly BLOCKED: 'BLOCKED'
+  readonly CLEAN: 'CLEAN'
+  readonly DIRTY: 'DIRTY'
+  readonly DRAFT: 'DRAFT'
+  readonly HAS_HOOKS: 'HAS_HOOKS'
+  readonly UNKNOWN: 'UNKNOWN'
+  readonly UNSTABLE: 'UNSTABLE'
+}
+
+export declare const enumMergeableState: {
+  readonly CONFLICTING: 'CONFLICTING'
+  readonly MERGEABLE: 'MERGEABLE'
+  readonly UNKNOWN: 'UNKNOWN'
+}
+
+export declare const enumMilestoneOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly DUE_DATE: 'DUE_DATE'
+  readonly NUMBER: 'NUMBER'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumMilestoneState: {
+  readonly CLOSED: 'CLOSED'
+  readonly OPEN: 'OPEN'
+}
+
+export declare const enumOauthApplicationCreateAuditEntryState: {
+  readonly ACTIVE: 'ACTIVE'
+  readonly PENDING_DELETION: 'PENDING_DELETION'
+  readonly SUSPENDED: 'SUSPENDED'
+}
+
+export declare const enumOperationType: {
+  readonly ACCESS: 'ACCESS'
+  readonly AUTHENTICATION: 'AUTHENTICATION'
+  readonly CREATE: 'CREATE'
+  readonly MODIFY: 'MODIFY'
+  readonly REMOVE: 'REMOVE'
+  readonly RESTORE: 'RESTORE'
+  readonly TRANSFER: 'TRANSFER'
+}
+
+export declare const enumOrderDirection: {
+  readonly ASC: 'ASC'
+  readonly DESC: 'DESC'
+}
+
+export declare const enumOrgAddMemberAuditEntryPermission: {
+  readonly ADMIN: 'ADMIN'
+  readonly READ: 'READ'
+}
+
+export declare const enumOrgCreateAuditEntryBillingPlan: {
+  readonly BUSINESS: 'BUSINESS'
+  readonly BUSINESS_PLUS: 'BUSINESS_PLUS'
+  readonly FREE: 'FREE'
+  readonly TIERED_PER_SEAT: 'TIERED_PER_SEAT'
+  readonly UNLIMITED: 'UNLIMITED'
+}
+
+export declare const enumOrgRemoveBillingManagerAuditEntryReason: {
+  readonly SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING'
+  readonly SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY: 'SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY'
+  readonly TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE: 'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE'
+}
+
+export declare const enumOrgRemoveMemberAuditEntryMembershipType: {
+  readonly ADMIN: 'ADMIN'
+  readonly BILLING_MANAGER: 'BILLING_MANAGER'
+  readonly DIRECT_MEMBER: 'DIRECT_MEMBER'
+  readonly OUTSIDE_COLLABORATOR: 'OUTSIDE_COLLABORATOR'
+  readonly UNAFFILIATED: 'UNAFFILIATED'
+}
+
+export declare const enumOrgRemoveMemberAuditEntryReason: {
+  readonly SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING'
+  readonly SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY: 'SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY'
+  readonly TWO_FACTOR_ACCOUNT_RECOVERY: 'TWO_FACTOR_ACCOUNT_RECOVERY'
+  readonly TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE: 'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE'
+  readonly USER_ACCOUNT_DELETED: 'USER_ACCOUNT_DELETED'
+}
+
+export declare const enumOrgRemoveOutsideCollaboratorAuditEntryMembershipType: {
+  readonly BILLING_MANAGER: 'BILLING_MANAGER'
+  readonly OUTSIDE_COLLABORATOR: 'OUTSIDE_COLLABORATOR'
+  readonly UNAFFILIATED: 'UNAFFILIATED'
+}
+
+export declare const enumOrgRemoveOutsideCollaboratorAuditEntryReason: {
+  readonly SAML_EXTERNAL_IDENTITY_MISSING: 'SAML_EXTERNAL_IDENTITY_MISSING'
+  readonly TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE: 'TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE'
+}
+
+export declare const enumOrgUpdateDefaultRepositoryPermissionAuditEntryPermission: {
+  readonly ADMIN: 'ADMIN'
+  readonly NONE: 'NONE'
+  readonly READ: 'READ'
+  readonly WRITE: 'WRITE'
+}
+
+export declare const enumOrgUpdateMemberAuditEntryPermission: {
+  readonly ADMIN: 'ADMIN'
+  readonly READ: 'READ'
+}
+
+export declare const enumOrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility: {
+  readonly ALL: 'ALL'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumOrganizationInvitationRole: {
+  readonly ADMIN: 'ADMIN'
+  readonly BILLING_MANAGER: 'BILLING_MANAGER'
+  readonly DIRECT_MEMBER: 'DIRECT_MEMBER'
+  readonly REINSTATE: 'REINSTATE'
+}
+
+export declare const enumOrganizationInvitationType: {
+  readonly EMAIL: 'EMAIL'
+  readonly USER: 'USER'
+}
+
+export declare const enumOrganizationMemberRole: {
+  readonly ADMIN: 'ADMIN'
+  readonly MEMBER: 'MEMBER'
+}
+
+export declare const enumOrganizationMembersCanCreateRepositoriesSettingValue: {
+  readonly ALL: 'ALL'
+  readonly DISABLED: 'DISABLED'
+  readonly PRIVATE: 'PRIVATE'
+}
+
+export declare const enumOrganizationOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly LOGIN: 'LOGIN'
+}
+
+export declare const enumPackageFileOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumPackageOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumPackageType: {
+  readonly DEBIAN: 'DEBIAN'
+  readonly DOCKER: 'DOCKER'
+  readonly MAVEN: 'MAVEN'
+  readonly NPM: 'NPM'
+  readonly NUGET: 'NUGET'
+  readonly PYPI: 'PYPI'
+  readonly RUBYGEMS: 'RUBYGEMS'
+}
+
+export declare const enumPackageVersionOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumPinnableItemType: {
+  readonly GIST: 'GIST'
+  readonly ISSUE: 'ISSUE'
+  readonly ORGANIZATION: 'ORGANIZATION'
+  readonly PROJECT: 'PROJECT'
+  readonly PULL_REQUEST: 'PULL_REQUEST'
+  readonly REPOSITORY: 'REPOSITORY'
+  readonly TEAM: 'TEAM'
+  readonly USER: 'USER'
+}
+
+export declare const enumProjectCardArchivedState: {
+  readonly ARCHIVED: 'ARCHIVED'
+  readonly NOT_ARCHIVED: 'NOT_ARCHIVED'
+}
+
+export declare const enumProjectCardState: {
+  readonly CONTENT_ONLY: 'CONTENT_ONLY'
+  readonly NOTE_ONLY: 'NOTE_ONLY'
+  readonly REDACTED: 'REDACTED'
+}
+
+export declare const enumProjectColumnPurpose: {
+  readonly DONE: 'DONE'
+  readonly IN_PROGRESS: 'IN_PROGRESS'
+  readonly TODO: 'TODO'
+}
+
+export declare const enumProjectOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly NAME: 'NAME'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumProjectState: {
+  readonly CLOSED: 'CLOSED'
+  readonly OPEN: 'OPEN'
+}
+
+export declare const enumProjectTemplate: {
+  readonly AUTOMATED_KANBAN_V2: 'AUTOMATED_KANBAN_V2'
+  readonly AUTOMATED_REVIEWS_KANBAN: 'AUTOMATED_REVIEWS_KANBAN'
+  readonly BASIC_KANBAN: 'BASIC_KANBAN'
+  readonly BUG_TRIAGE: 'BUG_TRIAGE'
+}
+
+export declare const enumPullRequestMergeMethod: {
+  readonly MERGE: 'MERGE'
+  readonly REBASE: 'REBASE'
+  readonly SQUASH: 'SQUASH'
+}
+
+export declare const enumPullRequestOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumPullRequestReviewCommentState: {
+  readonly PENDING: 'PENDING'
+  readonly SUBMITTED: 'SUBMITTED'
+}
+
+export declare const enumPullRequestReviewDecision: {
+  readonly APPROVED: 'APPROVED'
+  readonly CHANGES_REQUESTED: 'CHANGES_REQUESTED'
+  readonly REVIEW_REQUIRED: 'REVIEW_REQUIRED'
+}
+
+export declare const enumPullRequestReviewEvent: {
+  readonly APPROVE: 'APPROVE'
+  readonly COMMENT: 'COMMENT'
+  readonly DISMISS: 'DISMISS'
+  readonly REQUEST_CHANGES: 'REQUEST_CHANGES'
+}
+
+export declare const enumPullRequestReviewState: {
+  readonly APPROVED: 'APPROVED'
+  readonly CHANGES_REQUESTED: 'CHANGES_REQUESTED'
+  readonly COMMENTED: 'COMMENTED'
+  readonly DISMISSED: 'DISMISSED'
+  readonly PENDING: 'PENDING'
+}
+
+export declare const enumPullRequestState: {
+  readonly CLOSED: 'CLOSED'
+  readonly MERGED: 'MERGED'
+  readonly OPEN: 'OPEN'
+}
+
+export declare const enumPullRequestTimelineItemsItemType: {
+  readonly ADDED_TO_PROJECT_EVENT: 'ADDED_TO_PROJECT_EVENT'
+  readonly ASSIGNED_EVENT: 'ASSIGNED_EVENT'
+  readonly AUTOMATIC_BASE_CHANGE_FAILED_EVENT: 'AUTOMATIC_BASE_CHANGE_FAILED_EVENT'
+  readonly AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT: 'AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT'
+  readonly BASE_REF_CHANGED_EVENT: 'BASE_REF_CHANGED_EVENT'
+  readonly BASE_REF_FORCE_PUSHED_EVENT: 'BASE_REF_FORCE_PUSHED_EVENT'
+  readonly CLOSED_EVENT: 'CLOSED_EVENT'
+  readonly COMMENT_DELETED_EVENT: 'COMMENT_DELETED_EVENT'
+  readonly CONNECTED_EVENT: 'CONNECTED_EVENT'
+  readonly CONVERTED_NOTE_TO_ISSUE_EVENT: 'CONVERTED_NOTE_TO_ISSUE_EVENT'
+  readonly CONVERT_TO_DRAFT_EVENT: 'CONVERT_TO_DRAFT_EVENT'
+  readonly CROSS_REFERENCED_EVENT: 'CROSS_REFERENCED_EVENT'
+  readonly DEMILESTONED_EVENT: 'DEMILESTONED_EVENT'
+  readonly DEPLOYED_EVENT: 'DEPLOYED_EVENT'
+  readonly DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT: 'DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT'
+  readonly DISCONNECTED_EVENT: 'DISCONNECTED_EVENT'
+  readonly HEAD_REF_DELETED_EVENT: 'HEAD_REF_DELETED_EVENT'
+  readonly HEAD_REF_FORCE_PUSHED_EVENT: 'HEAD_REF_FORCE_PUSHED_EVENT'
+  readonly HEAD_REF_RESTORED_EVENT: 'HEAD_REF_RESTORED_EVENT'
+  readonly ISSUE_COMMENT: 'ISSUE_COMMENT'
+  readonly LABELED_EVENT: 'LABELED_EVENT'
+  readonly LOCKED_EVENT: 'LOCKED_EVENT'
+  readonly MARKED_AS_DUPLICATE_EVENT: 'MARKED_AS_DUPLICATE_EVENT'
+  readonly MENTIONED_EVENT: 'MENTIONED_EVENT'
+  readonly MERGED_EVENT: 'MERGED_EVENT'
+  readonly MILESTONED_EVENT: 'MILESTONED_EVENT'
+  readonly MOVED_COLUMNS_IN_PROJECT_EVENT: 'MOVED_COLUMNS_IN_PROJECT_EVENT'
+  readonly PINNED_EVENT: 'PINNED_EVENT'
+  readonly PULL_REQUEST_COMMIT: 'PULL_REQUEST_COMMIT'
+  readonly PULL_REQUEST_COMMIT_COMMENT_THREAD: 'PULL_REQUEST_COMMIT_COMMENT_THREAD'
+  readonly PULL_REQUEST_REVIEW: 'PULL_REQUEST_REVIEW'
+  readonly PULL_REQUEST_REVIEW_THREAD: 'PULL_REQUEST_REVIEW_THREAD'
+  readonly PULL_REQUEST_REVISION_MARKER: 'PULL_REQUEST_REVISION_MARKER'
+  readonly READY_FOR_REVIEW_EVENT: 'READY_FOR_REVIEW_EVENT'
+  readonly REFERENCED_EVENT: 'REFERENCED_EVENT'
+  readonly REMOVED_FROM_PROJECT_EVENT: 'REMOVED_FROM_PROJECT_EVENT'
+  readonly RENAMED_TITLE_EVENT: 'RENAMED_TITLE_EVENT'
+  readonly REOPENED_EVENT: 'REOPENED_EVENT'
+  readonly REVIEW_DISMISSED_EVENT: 'REVIEW_DISMISSED_EVENT'
+  readonly REVIEW_REQUESTED_EVENT: 'REVIEW_REQUESTED_EVENT'
+  readonly REVIEW_REQUEST_REMOVED_EVENT: 'REVIEW_REQUEST_REMOVED_EVENT'
+  readonly SUBSCRIBED_EVENT: 'SUBSCRIBED_EVENT'
+  readonly TRANSFERRED_EVENT: 'TRANSFERRED_EVENT'
+  readonly UNASSIGNED_EVENT: 'UNASSIGNED_EVENT'
+  readonly UNLABELED_EVENT: 'UNLABELED_EVENT'
+  readonly UNLOCKED_EVENT: 'UNLOCKED_EVENT'
+  readonly UNMARKED_AS_DUPLICATE_EVENT: 'UNMARKED_AS_DUPLICATE_EVENT'
+  readonly UNPINNED_EVENT: 'UNPINNED_EVENT'
+  readonly UNSUBSCRIBED_EVENT: 'UNSUBSCRIBED_EVENT'
+  readonly USER_BLOCKED_EVENT: 'USER_BLOCKED_EVENT'
+}
+
+export declare const enumPullRequestUpdateState: {
+  readonly CLOSED: 'CLOSED'
+  readonly OPEN: 'OPEN'
+}
+
+export declare const enumReactionContent: {
+  readonly CONFUSED: 'CONFUSED'
+  readonly EYES: 'EYES'
+  readonly HEART: 'HEART'
+  readonly HOORAY: 'HOORAY'
+  readonly LAUGH: 'LAUGH'
+  readonly ROCKET: 'ROCKET'
+  readonly THUMBS_DOWN: 'THUMBS_DOWN'
+  readonly THUMBS_UP: 'THUMBS_UP'
+}
+
+export declare const enumReactionOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumRefOrderField: {
+  readonly ALPHABETICAL: 'ALPHABETICAL'
+  readonly TAG_COMMIT_DATE: 'TAG_COMMIT_DATE'
+}
+
+export declare const enumRegistryPackageDependencyType: {
+  readonly BUNDLED: 'BUNDLED'
+  readonly DEFAULT: 'DEFAULT'
+  readonly DEV: 'DEV'
+  readonly OPTIONAL: 'OPTIONAL'
+  readonly PEER: 'PEER'
+  readonly TEST: 'TEST'
+}
+
+export declare const enumRegistryPackageType: {
+  readonly DEBIAN: 'DEBIAN'
+  readonly DOCKER: 'DOCKER'
+  readonly MAVEN: 'MAVEN'
+  readonly NPM: 'NPM'
+  readonly NUGET: 'NUGET'
+  readonly PYTHON: 'PYTHON'
+  readonly RUBYGEMS: 'RUBYGEMS'
+}
+
+export declare const enumReleaseOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly NAME: 'NAME'
+}
+
+export declare const enumRepoAccessAuditEntryVisibility: {
+  readonly INTERNAL: 'INTERNAL'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumRepoAddMemberAuditEntryVisibility: {
+  readonly INTERNAL: 'INTERNAL'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumRepoArchivedAuditEntryVisibility: {
+  readonly INTERNAL: 'INTERNAL'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumRepoChangeMergeSettingAuditEntryMergeType: {
+  readonly MERGE: 'MERGE'
+  readonly REBASE: 'REBASE'
+  readonly SQUASH: 'SQUASH'
+}
+
+export declare const enumRepoCreateAuditEntryVisibility: {
+  readonly INTERNAL: 'INTERNAL'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumRepoDestroyAuditEntryVisibility: {
+  readonly INTERNAL: 'INTERNAL'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumRepoRemoveMemberAuditEntryVisibility: {
+  readonly INTERNAL: 'INTERNAL'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumReportedContentClassifiers: {
+  readonly ABUSE: 'ABUSE'
+  readonly DUPLICATE: 'DUPLICATE'
+  readonly OFF_TOPIC: 'OFF_TOPIC'
+  readonly OUTDATED: 'OUTDATED'
+  readonly RESOLVED: 'RESOLVED'
+  readonly SPAM: 'SPAM'
+}
+
+export declare const enumRepositoryAffiliation: {
+  readonly COLLABORATOR: 'COLLABORATOR'
+  readonly ORGANIZATION_MEMBER: 'ORGANIZATION_MEMBER'
+  readonly OWNER: 'OWNER'
+}
+
+export declare const enumRepositoryContributionType: {
+  readonly COMMIT: 'COMMIT'
+  readonly ISSUE: 'ISSUE'
+  readonly PULL_REQUEST: 'PULL_REQUEST'
+  readonly PULL_REQUEST_REVIEW: 'PULL_REQUEST_REVIEW'
+  readonly REPOSITORY: 'REPOSITORY'
+}
+
+export declare const enumRepositoryInvitationOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly INVITEE_LOGIN: 'INVITEE_LOGIN'
+}
+
+export declare const enumRepositoryLockReason: {
+  readonly BILLING: 'BILLING'
+  readonly MIGRATING: 'MIGRATING'
+  readonly MOVING: 'MOVING'
+  readonly RENAME: 'RENAME'
+}
+
+export declare const enumRepositoryOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly NAME: 'NAME'
+  readonly PUSHED_AT: 'PUSHED_AT'
+  readonly STARGAZERS: 'STARGAZERS'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumRepositoryPermission: {
+  readonly ADMIN: 'ADMIN'
+  readonly MAINTAIN: 'MAINTAIN'
+  readonly READ: 'READ'
+  readonly TRIAGE: 'TRIAGE'
+  readonly WRITE: 'WRITE'
+}
+
+export declare const enumRepositoryPrivacy: {
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumRepositoryVisibility: {
+  readonly INTERNAL: 'INTERNAL'
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumRequestableCheckStatusState: {
+  readonly COMPLETED: 'COMPLETED'
+  readonly IN_PROGRESS: 'IN_PROGRESS'
+  readonly QUEUED: 'QUEUED'
+}
+
+export declare const enumSamlDigestAlgorithm: {
+  readonly SHA1: 'SHA1'
+  readonly SHA256: 'SHA256'
+  readonly SHA384: 'SHA384'
+  readonly SHA512: 'SHA512'
+}
+
+export declare const enumSamlSignatureAlgorithm: {
+  readonly RSA_SHA1: 'RSA_SHA1'
+  readonly RSA_SHA256: 'RSA_SHA256'
+  readonly RSA_SHA384: 'RSA_SHA384'
+  readonly RSA_SHA512: 'RSA_SHA512'
+}
+
+export declare const enumSavedReplyOrderField: {
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumSearchType: {
+  readonly ISSUE: 'ISSUE'
+  readonly REPOSITORY: 'REPOSITORY'
+  readonly USER: 'USER'
+}
+
+export declare const enumSecurityAdvisoryEcosystem: {
+  readonly COMPOSER: 'COMPOSER'
+  readonly MAVEN: 'MAVEN'
+  readonly NPM: 'NPM'
+  readonly NUGET: 'NUGET'
+  readonly PIP: 'PIP'
+  readonly RUBYGEMS: 'RUBYGEMS'
+}
+
+export declare const enumSecurityAdvisoryIdentifierType: {
+  readonly CVE: 'CVE'
+  readonly GHSA: 'GHSA'
+}
+
+export declare const enumSecurityAdvisoryOrderField: {
+  readonly PUBLISHED_AT: 'PUBLISHED_AT'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumSecurityAdvisorySeverity: {
+  readonly CRITICAL: 'CRITICAL'
+  readonly HIGH: 'HIGH'
+  readonly LOW: 'LOW'
+  readonly MODERATE: 'MODERATE'
+}
+
+export declare const enumSecurityVulnerabilityOrderField: {
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumSponsorsTierOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly MONTHLY_PRICE_IN_CENTS: 'MONTHLY_PRICE_IN_CENTS'
+}
+
+export declare const enumSponsorshipOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumSponsorshipPrivacy: {
+  readonly PRIVATE: 'PRIVATE'
+  readonly PUBLIC: 'PUBLIC'
+}
+
+export declare const enumStarOrderField: {
+  readonly STARRED_AT: 'STARRED_AT'
+}
+
+export declare const enumStatusState: {
+  readonly ERROR: 'ERROR'
+  readonly EXPECTED: 'EXPECTED'
+  readonly FAILURE: 'FAILURE'
+  readonly PENDING: 'PENDING'
+  readonly SUCCESS: 'SUCCESS'
+}
+
+export declare const enumSubscriptionState: {
+  readonly IGNORED: 'IGNORED'
+  readonly SUBSCRIBED: 'SUBSCRIBED'
+  readonly UNSUBSCRIBED: 'UNSUBSCRIBED'
+}
+
+export declare const enumTeamDiscussionCommentOrderField: {
+  readonly NUMBER: 'NUMBER'
+}
+
+export declare const enumTeamDiscussionOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+}
+
+export declare const enumTeamMemberOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly LOGIN: 'LOGIN'
+}
+
+export declare const enumTeamMemberRole: {
+  readonly MAINTAINER: 'MAINTAINER'
+  readonly MEMBER: 'MEMBER'
+}
+
+export declare const enumTeamMembershipType: {
+  readonly ALL: 'ALL'
+  readonly CHILD_TEAM: 'CHILD_TEAM'
+  readonly IMMEDIATE: 'IMMEDIATE'
+}
+
+export declare const enumTeamOrderField: {
+  readonly NAME: 'NAME'
+}
+
+export declare const enumTeamPrivacy: {
+  readonly SECRET: 'SECRET'
+  readonly VISIBLE: 'VISIBLE'
+}
+
+export declare const enumTeamRepositoryOrderField: {
+  readonly CREATED_AT: 'CREATED_AT'
+  readonly NAME: 'NAME'
+  readonly PERMISSION: 'PERMISSION'
+  readonly PUSHED_AT: 'PUSHED_AT'
+  readonly STARGAZERS: 'STARGAZERS'
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
+
+export declare const enumTeamReviewAssignmentAlgorithm: {
+  readonly LOAD_BALANCE: 'LOAD_BALANCE'
+  readonly ROUND_ROBIN: 'ROUND_ROBIN'
+}
+
+export declare const enumTeamRole: {
+  readonly ADMIN: 'ADMIN'
+  readonly MEMBER: 'MEMBER'
+}
+
+export declare const enumTopicSuggestionDeclineReason: {
+  readonly NOT_RELEVANT: 'NOT_RELEVANT'
+  readonly PERSONAL_PREFERENCE: 'PERSONAL_PREFERENCE'
+  readonly TOO_GENERAL: 'TOO_GENERAL'
+  readonly TOO_SPECIFIC: 'TOO_SPECIFIC'
+}
+
+export declare const enumUserBlockDuration: {
+  readonly ONE_DAY: 'ONE_DAY'
+  readonly ONE_MONTH: 'ONE_MONTH'
+  readonly ONE_WEEK: 'ONE_WEEK'
+  readonly PERMANENT: 'PERMANENT'
+  readonly THREE_DAYS: 'THREE_DAYS'
+}
+
+export declare const enumUserStatusOrderField: {
+  readonly UPDATED_AT: 'UPDATED_AT'
+}
