@@ -6,6 +6,7 @@ import { validateConfigs } from './tasks/validateConfigs'
 import { Config } from './config'
 import { version } from './version'
 import { existsSync, readFileSync } from 'fs'
+import { parseColonSeparatedStrings } from './helpers/parse'
 
 const program = yargs
     .option('output', {
@@ -33,13 +34,13 @@ const program = yargs
     .option('header', {
         alias: 'H',
         type: 'array',
-        // string: true,
+        string: true,
         description: 'header to use in introspection query',
     })
     .option('scalar', {
         alias: 'S',
         type: 'array',
-        // string: true,
+        string: true,
         description:
             'map a scalar to a type, for example `-S DateTime:string` ',
     })
@@ -118,22 +119,6 @@ generate(config)
             dependencies: [`@genql/runtime@${version}`, 'graphql'],
         })
     })
-
-function parseColonSeparatedStrings(headersArray) {
-    // console.log(headersArray)
-    let obj = {}
-    if (headersArray) {
-        for (let h of headersArray) {
-            const parts = String(h).split(':')
-            if (parts.length !== 2) {
-                console.error(`cannot parse string '${h}' (multiple or no ':')`)
-                process.exit(1)
-            }
-            obj[parts[0].trim()] = parts[1].trim()
-        }
-    }
-    return obj
-}
 
 export function printHelp({ useYarn, dirPath, dependencies }) {
     console.log()
