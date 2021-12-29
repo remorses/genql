@@ -1,3 +1,9 @@
+## 2.9.0
+
+Support for more than one : in -S option (by @boredland)
+
+Fixed declaration files generations for enums (by @DanielRose)
+
 ## 2.8.0
 
 Add `as const` on enum objects to not use type object values as strings
