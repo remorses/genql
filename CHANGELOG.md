@@ -1,3 +1,7 @@
+## 2.10.0
+
+Fixed problem generating interfaces without any implementation
+
 ## 2.9.0
 
 Support for more than one : in -S option (by @boredland)
