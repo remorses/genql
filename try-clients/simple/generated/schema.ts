@@ -35,7 +35,7 @@ export interface UserRequest{
 }
 
 
-const Query_possibleTypes = ['Query']
+const Query_possibleTypes: string[] = ['Query']
 export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
   return Query_possibleTypes.includes(obj.__typename)
@@ -43,7 +43,7 @@ export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
 
 
 
-const User_possibleTypes = ['User']
+const User_possibleTypes: string[] = ['User']
 export const isUser = (obj?: { __typename?: any } | null): obj is User => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUser"')
   return User_possibleTypes.includes(obj.__typename)

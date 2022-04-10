@@ -5,7 +5,8 @@ export default {
         3,
         4,
         10,
-        15
+        15,
+        24
     ],
     "types": {
         "SomeEnum": {},
@@ -56,6 +57,9 @@ export default {
                         3
                     ]
                 }
+            ],
+            "InterfaceNotImplemented": [
+                25
             ],
             "__typename": [
                 3
@@ -259,6 +263,27 @@ export default {
             ],
             "on_ClientError": [
                 19
+            ],
+            "__typename": [
+                3
+            ]
+        },
+        "ID": {},
+        "InterfaceNotImplemented": {
+            "id": [
+                24
+            ],
+            "title": [
+                3
+            ],
+            "url": [
+                3
+            ],
+            "permalink": [
+                3
+            ],
+            "entry_id": [
+                24
             ],
             "__typename": [
                 3

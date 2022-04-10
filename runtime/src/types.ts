@@ -91,3 +91,4 @@ export interface LinkedType {
 export interface LinkedTypeMap {
     [type: string]: LinkedType | undefined
 }
+

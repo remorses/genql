@@ -18,6 +18,7 @@ type Query {
   account: Account
   coordinates: Point
   unionThatImplementsInterface(typename: String): GenericError
+  InterfaceNotImplemented: InterfaceNotImplemented
 }
 
 type RecursiveType {
@@ -97,3 +98,11 @@ type ClientErrorWithoutInterface {
 }
 
 union GenericError = ClientErrorNameAlreadyTaken | ClientErrorNameInvalid | ClientErrorWithoutInterface
+
+interface InterfaceNotImplemented {
+  id: ID!
+  title: String
+  url: String
+  permalink: String
+  entry_id: ID
+}

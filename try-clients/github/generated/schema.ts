@@ -32989,7 +32989,7 @@ export interface ViewerHovercardContextRequest{
 }
 
 
-const AcceptEnterpriseAdministratorInvitationPayload_possibleTypes = ['AcceptEnterpriseAdministratorInvitationPayload']
+const AcceptEnterpriseAdministratorInvitationPayload_possibleTypes: string[] = ['AcceptEnterpriseAdministratorInvitationPayload']
 export const isAcceptEnterpriseAdministratorInvitationPayload = (obj?: { __typename?: any } | null): obj is AcceptEnterpriseAdministratorInvitationPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAcceptEnterpriseAdministratorInvitationPayload"')
   return AcceptEnterpriseAdministratorInvitationPayload_possibleTypes.includes(obj.__typename)
@@ -32997,7 +32997,7 @@ export const isAcceptEnterpriseAdministratorInvitationPayload = (obj?: { __typen
 
 
 
-const AcceptTopicSuggestionPayload_possibleTypes = ['AcceptTopicSuggestionPayload']
+const AcceptTopicSuggestionPayload_possibleTypes: string[] = ['AcceptTopicSuggestionPayload']
 export const isAcceptTopicSuggestionPayload = (obj?: { __typename?: any } | null): obj is AcceptTopicSuggestionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAcceptTopicSuggestionPayload"')
   return AcceptTopicSuggestionPayload_possibleTypes.includes(obj.__typename)
@@ -33005,7 +33005,7 @@ export const isAcceptTopicSuggestionPayload = (obj?: { __typename?: any } | null
 
 
 
-const Actor_possibleTypes = ['Bot','EnterpriseUserAccount','Mannequin','Organization','User']
+const Actor_possibleTypes: string[] = ['Bot','EnterpriseUserAccount','Mannequin','Organization','User']
 export const isActor = (obj?: { __typename?: any } | null): obj is Actor => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isActor"')
   return Actor_possibleTypes.includes(obj.__typename)
@@ -33013,7 +33013,7 @@ export const isActor = (obj?: { __typename?: any } | null): obj is Actor => {
 
 
 
-const ActorLocation_possibleTypes = ['ActorLocation']
+const ActorLocation_possibleTypes: string[] = ['ActorLocation']
 export const isActorLocation = (obj?: { __typename?: any } | null): obj is ActorLocation => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isActorLocation"')
   return ActorLocation_possibleTypes.includes(obj.__typename)
@@ -33021,7 +33021,7 @@ export const isActorLocation = (obj?: { __typename?: any } | null): obj is Actor
 
 
 
-const AddAssigneesToAssignablePayload_possibleTypes = ['AddAssigneesToAssignablePayload']
+const AddAssigneesToAssignablePayload_possibleTypes: string[] = ['AddAssigneesToAssignablePayload']
 export const isAddAssigneesToAssignablePayload = (obj?: { __typename?: any } | null): obj is AddAssigneesToAssignablePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddAssigneesToAssignablePayload"')
   return AddAssigneesToAssignablePayload_possibleTypes.includes(obj.__typename)
@@ -33029,7 +33029,7 @@ export const isAddAssigneesToAssignablePayload = (obj?: { __typename?: any } | n
 
 
 
-const AddCommentPayload_possibleTypes = ['AddCommentPayload']
+const AddCommentPayload_possibleTypes: string[] = ['AddCommentPayload']
 export const isAddCommentPayload = (obj?: { __typename?: any } | null): obj is AddCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddCommentPayload"')
   return AddCommentPayload_possibleTypes.includes(obj.__typename)
@@ -33037,7 +33037,7 @@ export const isAddCommentPayload = (obj?: { __typename?: any } | null): obj is A
 
 
 
-const AddLabelsToLabelablePayload_possibleTypes = ['AddLabelsToLabelablePayload']
+const AddLabelsToLabelablePayload_possibleTypes: string[] = ['AddLabelsToLabelablePayload']
 export const isAddLabelsToLabelablePayload = (obj?: { __typename?: any } | null): obj is AddLabelsToLabelablePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddLabelsToLabelablePayload"')
   return AddLabelsToLabelablePayload_possibleTypes.includes(obj.__typename)
@@ -33045,7 +33045,7 @@ export const isAddLabelsToLabelablePayload = (obj?: { __typename?: any } | null)
 
 
 
-const AddProjectCardPayload_possibleTypes = ['AddProjectCardPayload']
+const AddProjectCardPayload_possibleTypes: string[] = ['AddProjectCardPayload']
 export const isAddProjectCardPayload = (obj?: { __typename?: any } | null): obj is AddProjectCardPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddProjectCardPayload"')
   return AddProjectCardPayload_possibleTypes.includes(obj.__typename)
@@ -33053,7 +33053,7 @@ export const isAddProjectCardPayload = (obj?: { __typename?: any } | null): obj 
 
 
 
-const AddProjectColumnPayload_possibleTypes = ['AddProjectColumnPayload']
+const AddProjectColumnPayload_possibleTypes: string[] = ['AddProjectColumnPayload']
 export const isAddProjectColumnPayload = (obj?: { __typename?: any } | null): obj is AddProjectColumnPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddProjectColumnPayload"')
   return AddProjectColumnPayload_possibleTypes.includes(obj.__typename)
@@ -33061,7 +33061,7 @@ export const isAddProjectColumnPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const AddPullRequestReviewCommentPayload_possibleTypes = ['AddPullRequestReviewCommentPayload']
+const AddPullRequestReviewCommentPayload_possibleTypes: string[] = ['AddPullRequestReviewCommentPayload']
 export const isAddPullRequestReviewCommentPayload = (obj?: { __typename?: any } | null): obj is AddPullRequestReviewCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddPullRequestReviewCommentPayload"')
   return AddPullRequestReviewCommentPayload_possibleTypes.includes(obj.__typename)
@@ -33069,7 +33069,7 @@ export const isAddPullRequestReviewCommentPayload = (obj?: { __typename?: any } 
 
 
 
-const AddPullRequestReviewPayload_possibleTypes = ['AddPullRequestReviewPayload']
+const AddPullRequestReviewPayload_possibleTypes: string[] = ['AddPullRequestReviewPayload']
 export const isAddPullRequestReviewPayload = (obj?: { __typename?: any } | null): obj is AddPullRequestReviewPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddPullRequestReviewPayload"')
   return AddPullRequestReviewPayload_possibleTypes.includes(obj.__typename)
@@ -33077,7 +33077,7 @@ export const isAddPullRequestReviewPayload = (obj?: { __typename?: any } | null)
 
 
 
-const AddPullRequestReviewThreadPayload_possibleTypes = ['AddPullRequestReviewThreadPayload']
+const AddPullRequestReviewThreadPayload_possibleTypes: string[] = ['AddPullRequestReviewThreadPayload']
 export const isAddPullRequestReviewThreadPayload = (obj?: { __typename?: any } | null): obj is AddPullRequestReviewThreadPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddPullRequestReviewThreadPayload"')
   return AddPullRequestReviewThreadPayload_possibleTypes.includes(obj.__typename)
@@ -33085,7 +33085,7 @@ export const isAddPullRequestReviewThreadPayload = (obj?: { __typename?: any } |
 
 
 
-const AddReactionPayload_possibleTypes = ['AddReactionPayload']
+const AddReactionPayload_possibleTypes: string[] = ['AddReactionPayload']
 export const isAddReactionPayload = (obj?: { __typename?: any } | null): obj is AddReactionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddReactionPayload"')
   return AddReactionPayload_possibleTypes.includes(obj.__typename)
@@ -33093,7 +33093,7 @@ export const isAddReactionPayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const AddStarPayload_possibleTypes = ['AddStarPayload']
+const AddStarPayload_possibleTypes: string[] = ['AddStarPayload']
 export const isAddStarPayload = (obj?: { __typename?: any } | null): obj is AddStarPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddStarPayload"')
   return AddStarPayload_possibleTypes.includes(obj.__typename)
@@ -33101,7 +33101,7 @@ export const isAddStarPayload = (obj?: { __typename?: any } | null): obj is AddS
 
 
 
-const AddedToProjectEvent_possibleTypes = ['AddedToProjectEvent']
+const AddedToProjectEvent_possibleTypes: string[] = ['AddedToProjectEvent']
 export const isAddedToProjectEvent = (obj?: { __typename?: any } | null): obj is AddedToProjectEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAddedToProjectEvent"')
   return AddedToProjectEvent_possibleTypes.includes(obj.__typename)
@@ -33109,7 +33109,7 @@ export const isAddedToProjectEvent = (obj?: { __typename?: any } | null): obj is
 
 
 
-const App_possibleTypes = ['App']
+const App_possibleTypes: string[] = ['App']
 export const isApp = (obj?: { __typename?: any } | null): obj is App => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isApp"')
   return App_possibleTypes.includes(obj.__typename)
@@ -33117,7 +33117,7 @@ export const isApp = (obj?: { __typename?: any } | null): obj is App => {
 
 
 
-const ArchiveRepositoryPayload_possibleTypes = ['ArchiveRepositoryPayload']
+const ArchiveRepositoryPayload_possibleTypes: string[] = ['ArchiveRepositoryPayload']
 export const isArchiveRepositoryPayload = (obj?: { __typename?: any } | null): obj is ArchiveRepositoryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isArchiveRepositoryPayload"')
   return ArchiveRepositoryPayload_possibleTypes.includes(obj.__typename)
@@ -33125,7 +33125,7 @@ export const isArchiveRepositoryPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const Assignable_possibleTypes = ['Issue','PullRequest']
+const Assignable_possibleTypes: string[] = ['Issue','PullRequest']
 export const isAssignable = (obj?: { __typename?: any } | null): obj is Assignable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAssignable"')
   return Assignable_possibleTypes.includes(obj.__typename)
@@ -33133,7 +33133,7 @@ export const isAssignable = (obj?: { __typename?: any } | null): obj is Assignab
 
 
 
-const AssignedEvent_possibleTypes = ['AssignedEvent']
+const AssignedEvent_possibleTypes: string[] = ['AssignedEvent']
 export const isAssignedEvent = (obj?: { __typename?: any } | null): obj is AssignedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAssignedEvent"')
   return AssignedEvent_possibleTypes.includes(obj.__typename)
@@ -33141,7 +33141,7 @@ export const isAssignedEvent = (obj?: { __typename?: any } | null): obj is Assig
 
 
 
-const Assignee_possibleTypes = ['Bot','Mannequin','Organization','User']
+const Assignee_possibleTypes: string[] = ['Bot','Mannequin','Organization','User']
 export const isAssignee = (obj?: { __typename?: any } | null): obj is Assignee => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAssignee"')
   return Assignee_possibleTypes.includes(obj.__typename)
@@ -33149,7 +33149,7 @@ export const isAssignee = (obj?: { __typename?: any } | null): obj is Assignee =
 
 
 
-const AuditEntry_possibleTypes = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
+const AuditEntry_possibleTypes: string[] = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
 export const isAuditEntry = (obj?: { __typename?: any } | null): obj is AuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAuditEntry"')
   return AuditEntry_possibleTypes.includes(obj.__typename)
@@ -33157,7 +33157,7 @@ export const isAuditEntry = (obj?: { __typename?: any } | null): obj is AuditEnt
 
 
 
-const AuditEntryActor_possibleTypes = ['Bot','Organization','User']
+const AuditEntryActor_possibleTypes: string[] = ['Bot','Organization','User']
 export const isAuditEntryActor = (obj?: { __typename?: any } | null): obj is AuditEntryActor => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAuditEntryActor"')
   return AuditEntryActor_possibleTypes.includes(obj.__typename)
@@ -33165,7 +33165,7 @@ export const isAuditEntryActor = (obj?: { __typename?: any } | null): obj is Aud
 
 
 
-const AutomaticBaseChangeFailedEvent_possibleTypes = ['AutomaticBaseChangeFailedEvent']
+const AutomaticBaseChangeFailedEvent_possibleTypes: string[] = ['AutomaticBaseChangeFailedEvent']
 export const isAutomaticBaseChangeFailedEvent = (obj?: { __typename?: any } | null): obj is AutomaticBaseChangeFailedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAutomaticBaseChangeFailedEvent"')
   return AutomaticBaseChangeFailedEvent_possibleTypes.includes(obj.__typename)
@@ -33173,7 +33173,7 @@ export const isAutomaticBaseChangeFailedEvent = (obj?: { __typename?: any } | nu
 
 
 
-const AutomaticBaseChangeSucceededEvent_possibleTypes = ['AutomaticBaseChangeSucceededEvent']
+const AutomaticBaseChangeSucceededEvent_possibleTypes: string[] = ['AutomaticBaseChangeSucceededEvent']
 export const isAutomaticBaseChangeSucceededEvent = (obj?: { __typename?: any } | null): obj is AutomaticBaseChangeSucceededEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAutomaticBaseChangeSucceededEvent"')
   return AutomaticBaseChangeSucceededEvent_possibleTypes.includes(obj.__typename)
@@ -33181,7 +33181,7 @@ export const isAutomaticBaseChangeSucceededEvent = (obj?: { __typename?: any } |
 
 
 
-const BaseRefChangedEvent_possibleTypes = ['BaseRefChangedEvent']
+const BaseRefChangedEvent_possibleTypes: string[] = ['BaseRefChangedEvent']
 export const isBaseRefChangedEvent = (obj?: { __typename?: any } | null): obj is BaseRefChangedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBaseRefChangedEvent"')
   return BaseRefChangedEvent_possibleTypes.includes(obj.__typename)
@@ -33189,7 +33189,7 @@ export const isBaseRefChangedEvent = (obj?: { __typename?: any } | null): obj is
 
 
 
-const BaseRefForcePushedEvent_possibleTypes = ['BaseRefForcePushedEvent']
+const BaseRefForcePushedEvent_possibleTypes: string[] = ['BaseRefForcePushedEvent']
 export const isBaseRefForcePushedEvent = (obj?: { __typename?: any } | null): obj is BaseRefForcePushedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBaseRefForcePushedEvent"')
   return BaseRefForcePushedEvent_possibleTypes.includes(obj.__typename)
@@ -33197,7 +33197,7 @@ export const isBaseRefForcePushedEvent = (obj?: { __typename?: any } | null): ob
 
 
 
-const Blame_possibleTypes = ['Blame']
+const Blame_possibleTypes: string[] = ['Blame']
 export const isBlame = (obj?: { __typename?: any } | null): obj is Blame => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBlame"')
   return Blame_possibleTypes.includes(obj.__typename)
@@ -33205,7 +33205,7 @@ export const isBlame = (obj?: { __typename?: any } | null): obj is Blame => {
 
 
 
-const BlameRange_possibleTypes = ['BlameRange']
+const BlameRange_possibleTypes: string[] = ['BlameRange']
 export const isBlameRange = (obj?: { __typename?: any } | null): obj is BlameRange => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBlameRange"')
   return BlameRange_possibleTypes.includes(obj.__typename)
@@ -33213,7 +33213,7 @@ export const isBlameRange = (obj?: { __typename?: any } | null): obj is BlameRan
 
 
 
-const Blob_possibleTypes = ['Blob']
+const Blob_possibleTypes: string[] = ['Blob']
 export const isBlob = (obj?: { __typename?: any } | null): obj is Blob => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBlob"')
   return Blob_possibleTypes.includes(obj.__typename)
@@ -33221,7 +33221,7 @@ export const isBlob = (obj?: { __typename?: any } | null): obj is Blob => {
 
 
 
-const Bot_possibleTypes = ['Bot']
+const Bot_possibleTypes: string[] = ['Bot']
 export const isBot = (obj?: { __typename?: any } | null): obj is Bot => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBot"')
   return Bot_possibleTypes.includes(obj.__typename)
@@ -33229,7 +33229,7 @@ export const isBot = (obj?: { __typename?: any } | null): obj is Bot => {
 
 
 
-const BranchProtectionRule_possibleTypes = ['BranchProtectionRule']
+const BranchProtectionRule_possibleTypes: string[] = ['BranchProtectionRule']
 export const isBranchProtectionRule = (obj?: { __typename?: any } | null): obj is BranchProtectionRule => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBranchProtectionRule"')
   return BranchProtectionRule_possibleTypes.includes(obj.__typename)
@@ -33237,7 +33237,7 @@ export const isBranchProtectionRule = (obj?: { __typename?: any } | null): obj i
 
 
 
-const BranchProtectionRuleConflict_possibleTypes = ['BranchProtectionRuleConflict']
+const BranchProtectionRuleConflict_possibleTypes: string[] = ['BranchProtectionRuleConflict']
 export const isBranchProtectionRuleConflict = (obj?: { __typename?: any } | null): obj is BranchProtectionRuleConflict => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBranchProtectionRuleConflict"')
   return BranchProtectionRuleConflict_possibleTypes.includes(obj.__typename)
@@ -33245,7 +33245,7 @@ export const isBranchProtectionRuleConflict = (obj?: { __typename?: any } | null
 
 
 
-const BranchProtectionRuleConflictConnection_possibleTypes = ['BranchProtectionRuleConflictConnection']
+const BranchProtectionRuleConflictConnection_possibleTypes: string[] = ['BranchProtectionRuleConflictConnection']
 export const isBranchProtectionRuleConflictConnection = (obj?: { __typename?: any } | null): obj is BranchProtectionRuleConflictConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBranchProtectionRuleConflictConnection"')
   return BranchProtectionRuleConflictConnection_possibleTypes.includes(obj.__typename)
@@ -33253,7 +33253,7 @@ export const isBranchProtectionRuleConflictConnection = (obj?: { __typename?: an
 
 
 
-const BranchProtectionRuleConflictEdge_possibleTypes = ['BranchProtectionRuleConflictEdge']
+const BranchProtectionRuleConflictEdge_possibleTypes: string[] = ['BranchProtectionRuleConflictEdge']
 export const isBranchProtectionRuleConflictEdge = (obj?: { __typename?: any } | null): obj is BranchProtectionRuleConflictEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBranchProtectionRuleConflictEdge"')
   return BranchProtectionRuleConflictEdge_possibleTypes.includes(obj.__typename)
@@ -33261,7 +33261,7 @@ export const isBranchProtectionRuleConflictEdge = (obj?: { __typename?: any } | 
 
 
 
-const BranchProtectionRuleConnection_possibleTypes = ['BranchProtectionRuleConnection']
+const BranchProtectionRuleConnection_possibleTypes: string[] = ['BranchProtectionRuleConnection']
 export const isBranchProtectionRuleConnection = (obj?: { __typename?: any } | null): obj is BranchProtectionRuleConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBranchProtectionRuleConnection"')
   return BranchProtectionRuleConnection_possibleTypes.includes(obj.__typename)
@@ -33269,7 +33269,7 @@ export const isBranchProtectionRuleConnection = (obj?: { __typename?: any } | nu
 
 
 
-const BranchProtectionRuleEdge_possibleTypes = ['BranchProtectionRuleEdge']
+const BranchProtectionRuleEdge_possibleTypes: string[] = ['BranchProtectionRuleEdge']
 export const isBranchProtectionRuleEdge = (obj?: { __typename?: any } | null): obj is BranchProtectionRuleEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBranchProtectionRuleEdge"')
   return BranchProtectionRuleEdge_possibleTypes.includes(obj.__typename)
@@ -33277,7 +33277,7 @@ export const isBranchProtectionRuleEdge = (obj?: { __typename?: any } | null): o
 
 
 
-const CancelEnterpriseAdminInvitationPayload_possibleTypes = ['CancelEnterpriseAdminInvitationPayload']
+const CancelEnterpriseAdminInvitationPayload_possibleTypes: string[] = ['CancelEnterpriseAdminInvitationPayload']
 export const isCancelEnterpriseAdminInvitationPayload = (obj?: { __typename?: any } | null): obj is CancelEnterpriseAdminInvitationPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCancelEnterpriseAdminInvitationPayload"')
   return CancelEnterpriseAdminInvitationPayload_possibleTypes.includes(obj.__typename)
@@ -33285,7 +33285,7 @@ export const isCancelEnterpriseAdminInvitationPayload = (obj?: { __typename?: an
 
 
 
-const ChangeUserStatusPayload_possibleTypes = ['ChangeUserStatusPayload']
+const ChangeUserStatusPayload_possibleTypes: string[] = ['ChangeUserStatusPayload']
 export const isChangeUserStatusPayload = (obj?: { __typename?: any } | null): obj is ChangeUserStatusPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isChangeUserStatusPayload"')
   return ChangeUserStatusPayload_possibleTypes.includes(obj.__typename)
@@ -33293,7 +33293,7 @@ export const isChangeUserStatusPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const CheckAnnotation_possibleTypes = ['CheckAnnotation']
+const CheckAnnotation_possibleTypes: string[] = ['CheckAnnotation']
 export const isCheckAnnotation = (obj?: { __typename?: any } | null): obj is CheckAnnotation => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckAnnotation"')
   return CheckAnnotation_possibleTypes.includes(obj.__typename)
@@ -33301,7 +33301,7 @@ export const isCheckAnnotation = (obj?: { __typename?: any } | null): obj is Che
 
 
 
-const CheckAnnotationConnection_possibleTypes = ['CheckAnnotationConnection']
+const CheckAnnotationConnection_possibleTypes: string[] = ['CheckAnnotationConnection']
 export const isCheckAnnotationConnection = (obj?: { __typename?: any } | null): obj is CheckAnnotationConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckAnnotationConnection"')
   return CheckAnnotationConnection_possibleTypes.includes(obj.__typename)
@@ -33309,7 +33309,7 @@ export const isCheckAnnotationConnection = (obj?: { __typename?: any } | null): 
 
 
 
-const CheckAnnotationEdge_possibleTypes = ['CheckAnnotationEdge']
+const CheckAnnotationEdge_possibleTypes: string[] = ['CheckAnnotationEdge']
 export const isCheckAnnotationEdge = (obj?: { __typename?: any } | null): obj is CheckAnnotationEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckAnnotationEdge"')
   return CheckAnnotationEdge_possibleTypes.includes(obj.__typename)
@@ -33317,7 +33317,7 @@ export const isCheckAnnotationEdge = (obj?: { __typename?: any } | null): obj is
 
 
 
-const CheckAnnotationPosition_possibleTypes = ['CheckAnnotationPosition']
+const CheckAnnotationPosition_possibleTypes: string[] = ['CheckAnnotationPosition']
 export const isCheckAnnotationPosition = (obj?: { __typename?: any } | null): obj is CheckAnnotationPosition => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckAnnotationPosition"')
   return CheckAnnotationPosition_possibleTypes.includes(obj.__typename)
@@ -33325,7 +33325,7 @@ export const isCheckAnnotationPosition = (obj?: { __typename?: any } | null): ob
 
 
 
-const CheckAnnotationSpan_possibleTypes = ['CheckAnnotationSpan']
+const CheckAnnotationSpan_possibleTypes: string[] = ['CheckAnnotationSpan']
 export const isCheckAnnotationSpan = (obj?: { __typename?: any } | null): obj is CheckAnnotationSpan => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckAnnotationSpan"')
   return CheckAnnotationSpan_possibleTypes.includes(obj.__typename)
@@ -33333,7 +33333,7 @@ export const isCheckAnnotationSpan = (obj?: { __typename?: any } | null): obj is
 
 
 
-const CheckRun_possibleTypes = ['CheckRun']
+const CheckRun_possibleTypes: string[] = ['CheckRun']
 export const isCheckRun = (obj?: { __typename?: any } | null): obj is CheckRun => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckRun"')
   return CheckRun_possibleTypes.includes(obj.__typename)
@@ -33341,7 +33341,7 @@ export const isCheckRun = (obj?: { __typename?: any } | null): obj is CheckRun =
 
 
 
-const CheckRunConnection_possibleTypes = ['CheckRunConnection']
+const CheckRunConnection_possibleTypes: string[] = ['CheckRunConnection']
 export const isCheckRunConnection = (obj?: { __typename?: any } | null): obj is CheckRunConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckRunConnection"')
   return CheckRunConnection_possibleTypes.includes(obj.__typename)
@@ -33349,7 +33349,7 @@ export const isCheckRunConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const CheckRunEdge_possibleTypes = ['CheckRunEdge']
+const CheckRunEdge_possibleTypes: string[] = ['CheckRunEdge']
 export const isCheckRunEdge = (obj?: { __typename?: any } | null): obj is CheckRunEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckRunEdge"')
   return CheckRunEdge_possibleTypes.includes(obj.__typename)
@@ -33357,7 +33357,7 @@ export const isCheckRunEdge = (obj?: { __typename?: any } | null): obj is CheckR
 
 
 
-const CheckSuite_possibleTypes = ['CheckSuite']
+const CheckSuite_possibleTypes: string[] = ['CheckSuite']
 export const isCheckSuite = (obj?: { __typename?: any } | null): obj is CheckSuite => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckSuite"')
   return CheckSuite_possibleTypes.includes(obj.__typename)
@@ -33365,7 +33365,7 @@ export const isCheckSuite = (obj?: { __typename?: any } | null): obj is CheckSui
 
 
 
-const CheckSuiteConnection_possibleTypes = ['CheckSuiteConnection']
+const CheckSuiteConnection_possibleTypes: string[] = ['CheckSuiteConnection']
 export const isCheckSuiteConnection = (obj?: { __typename?: any } | null): obj is CheckSuiteConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckSuiteConnection"')
   return CheckSuiteConnection_possibleTypes.includes(obj.__typename)
@@ -33373,7 +33373,7 @@ export const isCheckSuiteConnection = (obj?: { __typename?: any } | null): obj i
 
 
 
-const CheckSuiteEdge_possibleTypes = ['CheckSuiteEdge']
+const CheckSuiteEdge_possibleTypes: string[] = ['CheckSuiteEdge']
 export const isCheckSuiteEdge = (obj?: { __typename?: any } | null): obj is CheckSuiteEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCheckSuiteEdge"')
   return CheckSuiteEdge_possibleTypes.includes(obj.__typename)
@@ -33381,7 +33381,7 @@ export const isCheckSuiteEdge = (obj?: { __typename?: any } | null): obj is Chec
 
 
 
-const ClearLabelsFromLabelablePayload_possibleTypes = ['ClearLabelsFromLabelablePayload']
+const ClearLabelsFromLabelablePayload_possibleTypes: string[] = ['ClearLabelsFromLabelablePayload']
 export const isClearLabelsFromLabelablePayload = (obj?: { __typename?: any } | null): obj is ClearLabelsFromLabelablePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClearLabelsFromLabelablePayload"')
   return ClearLabelsFromLabelablePayload_possibleTypes.includes(obj.__typename)
@@ -33389,7 +33389,7 @@ export const isClearLabelsFromLabelablePayload = (obj?: { __typename?: any } | n
 
 
 
-const CloneProjectPayload_possibleTypes = ['CloneProjectPayload']
+const CloneProjectPayload_possibleTypes: string[] = ['CloneProjectPayload']
 export const isCloneProjectPayload = (obj?: { __typename?: any } | null): obj is CloneProjectPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCloneProjectPayload"')
   return CloneProjectPayload_possibleTypes.includes(obj.__typename)
@@ -33397,7 +33397,7 @@ export const isCloneProjectPayload = (obj?: { __typename?: any } | null): obj is
 
 
 
-const CloneTemplateRepositoryPayload_possibleTypes = ['CloneTemplateRepositoryPayload']
+const CloneTemplateRepositoryPayload_possibleTypes: string[] = ['CloneTemplateRepositoryPayload']
 export const isCloneTemplateRepositoryPayload = (obj?: { __typename?: any } | null): obj is CloneTemplateRepositoryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCloneTemplateRepositoryPayload"')
   return CloneTemplateRepositoryPayload_possibleTypes.includes(obj.__typename)
@@ -33405,7 +33405,7 @@ export const isCloneTemplateRepositoryPayload = (obj?: { __typename?: any } | nu
 
 
 
-const Closable_possibleTypes = ['Issue','Milestone','Project','PullRequest']
+const Closable_possibleTypes: string[] = ['Issue','Milestone','Project','PullRequest']
 export const isClosable = (obj?: { __typename?: any } | null): obj is Closable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClosable"')
   return Closable_possibleTypes.includes(obj.__typename)
@@ -33413,7 +33413,7 @@ export const isClosable = (obj?: { __typename?: any } | null): obj is Closable =
 
 
 
-const CloseIssuePayload_possibleTypes = ['CloseIssuePayload']
+const CloseIssuePayload_possibleTypes: string[] = ['CloseIssuePayload']
 export const isCloseIssuePayload = (obj?: { __typename?: any } | null): obj is CloseIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCloseIssuePayload"')
   return CloseIssuePayload_possibleTypes.includes(obj.__typename)
@@ -33421,7 +33421,7 @@ export const isCloseIssuePayload = (obj?: { __typename?: any } | null): obj is C
 
 
 
-const ClosePullRequestPayload_possibleTypes = ['ClosePullRequestPayload']
+const ClosePullRequestPayload_possibleTypes: string[] = ['ClosePullRequestPayload']
 export const isClosePullRequestPayload = (obj?: { __typename?: any } | null): obj is ClosePullRequestPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClosePullRequestPayload"')
   return ClosePullRequestPayload_possibleTypes.includes(obj.__typename)
@@ -33429,7 +33429,7 @@ export const isClosePullRequestPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const ClosedEvent_possibleTypes = ['ClosedEvent']
+const ClosedEvent_possibleTypes: string[] = ['ClosedEvent']
 export const isClosedEvent = (obj?: { __typename?: any } | null): obj is ClosedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClosedEvent"')
   return ClosedEvent_possibleTypes.includes(obj.__typename)
@@ -33437,7 +33437,7 @@ export const isClosedEvent = (obj?: { __typename?: any } | null): obj is ClosedE
 
 
 
-const Closer_possibleTypes = ['Commit','PullRequest']
+const Closer_possibleTypes: string[] = ['Commit','PullRequest']
 export const isCloser = (obj?: { __typename?: any } | null): obj is Closer => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCloser"')
   return Closer_possibleTypes.includes(obj.__typename)
@@ -33445,7 +33445,7 @@ export const isCloser = (obj?: { __typename?: any } | null): obj is Closer => {
 
 
 
-const CodeOfConduct_possibleTypes = ['CodeOfConduct']
+const CodeOfConduct_possibleTypes: string[] = ['CodeOfConduct']
 export const isCodeOfConduct = (obj?: { __typename?: any } | null): obj is CodeOfConduct => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCodeOfConduct"')
   return CodeOfConduct_possibleTypes.includes(obj.__typename)
@@ -33453,7 +33453,7 @@ export const isCodeOfConduct = (obj?: { __typename?: any } | null): obj is CodeO
 
 
 
-const Comment_possibleTypes = ['CommitComment','GistComment','Issue','IssueComment','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
+const Comment_possibleTypes: string[] = ['CommitComment','GistComment','Issue','IssueComment','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
 export const isComment = (obj?: { __typename?: any } | null): obj is Comment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isComment"')
   return Comment_possibleTypes.includes(obj.__typename)
@@ -33461,7 +33461,7 @@ export const isComment = (obj?: { __typename?: any } | null): obj is Comment => 
 
 
 
-const CommentDeletedEvent_possibleTypes = ['CommentDeletedEvent']
+const CommentDeletedEvent_possibleTypes: string[] = ['CommentDeletedEvent']
 export const isCommentDeletedEvent = (obj?: { __typename?: any } | null): obj is CommentDeletedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommentDeletedEvent"')
   return CommentDeletedEvent_possibleTypes.includes(obj.__typename)
@@ -33469,7 +33469,7 @@ export const isCommentDeletedEvent = (obj?: { __typename?: any } | null): obj is
 
 
 
-const Commit_possibleTypes = ['Commit']
+const Commit_possibleTypes: string[] = ['Commit']
 export const isCommit = (obj?: { __typename?: any } | null): obj is Commit => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommit"')
   return Commit_possibleTypes.includes(obj.__typename)
@@ -33477,7 +33477,7 @@ export const isCommit = (obj?: { __typename?: any } | null): obj is Commit => {
 
 
 
-const CommitComment_possibleTypes = ['CommitComment']
+const CommitComment_possibleTypes: string[] = ['CommitComment']
 export const isCommitComment = (obj?: { __typename?: any } | null): obj is CommitComment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitComment"')
   return CommitComment_possibleTypes.includes(obj.__typename)
@@ -33485,7 +33485,7 @@ export const isCommitComment = (obj?: { __typename?: any } | null): obj is Commi
 
 
 
-const CommitCommentConnection_possibleTypes = ['CommitCommentConnection']
+const CommitCommentConnection_possibleTypes: string[] = ['CommitCommentConnection']
 export const isCommitCommentConnection = (obj?: { __typename?: any } | null): obj is CommitCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitCommentConnection"')
   return CommitCommentConnection_possibleTypes.includes(obj.__typename)
@@ -33493,7 +33493,7 @@ export const isCommitCommentConnection = (obj?: { __typename?: any } | null): ob
 
 
 
-const CommitCommentEdge_possibleTypes = ['CommitCommentEdge']
+const CommitCommentEdge_possibleTypes: string[] = ['CommitCommentEdge']
 export const isCommitCommentEdge = (obj?: { __typename?: any } | null): obj is CommitCommentEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitCommentEdge"')
   return CommitCommentEdge_possibleTypes.includes(obj.__typename)
@@ -33501,7 +33501,7 @@ export const isCommitCommentEdge = (obj?: { __typename?: any } | null): obj is C
 
 
 
-const CommitCommentThread_possibleTypes = ['CommitCommentThread']
+const CommitCommentThread_possibleTypes: string[] = ['CommitCommentThread']
 export const isCommitCommentThread = (obj?: { __typename?: any } | null): obj is CommitCommentThread => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitCommentThread"')
   return CommitCommentThread_possibleTypes.includes(obj.__typename)
@@ -33509,7 +33509,7 @@ export const isCommitCommentThread = (obj?: { __typename?: any } | null): obj is
 
 
 
-const CommitConnection_possibleTypes = ['CommitConnection']
+const CommitConnection_possibleTypes: string[] = ['CommitConnection']
 export const isCommitConnection = (obj?: { __typename?: any } | null): obj is CommitConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitConnection"')
   return CommitConnection_possibleTypes.includes(obj.__typename)
@@ -33517,7 +33517,7 @@ export const isCommitConnection = (obj?: { __typename?: any } | null): obj is Co
 
 
 
-const CommitContributionsByRepository_possibleTypes = ['CommitContributionsByRepository']
+const CommitContributionsByRepository_possibleTypes: string[] = ['CommitContributionsByRepository']
 export const isCommitContributionsByRepository = (obj?: { __typename?: any } | null): obj is CommitContributionsByRepository => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitContributionsByRepository"')
   return CommitContributionsByRepository_possibleTypes.includes(obj.__typename)
@@ -33525,7 +33525,7 @@ export const isCommitContributionsByRepository = (obj?: { __typename?: any } | n
 
 
 
-const CommitEdge_possibleTypes = ['CommitEdge']
+const CommitEdge_possibleTypes: string[] = ['CommitEdge']
 export const isCommitEdge = (obj?: { __typename?: any } | null): obj is CommitEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitEdge"')
   return CommitEdge_possibleTypes.includes(obj.__typename)
@@ -33533,7 +33533,7 @@ export const isCommitEdge = (obj?: { __typename?: any } | null): obj is CommitEd
 
 
 
-const CommitHistoryConnection_possibleTypes = ['CommitHistoryConnection']
+const CommitHistoryConnection_possibleTypes: string[] = ['CommitHistoryConnection']
 export const isCommitHistoryConnection = (obj?: { __typename?: any } | null): obj is CommitHistoryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCommitHistoryConnection"')
   return CommitHistoryConnection_possibleTypes.includes(obj.__typename)
@@ -33541,7 +33541,7 @@ export const isCommitHistoryConnection = (obj?: { __typename?: any } | null): ob
 
 
 
-const ConnectedEvent_possibleTypes = ['ConnectedEvent']
+const ConnectedEvent_possibleTypes: string[] = ['ConnectedEvent']
 export const isConnectedEvent = (obj?: { __typename?: any } | null): obj is ConnectedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isConnectedEvent"')
   return ConnectedEvent_possibleTypes.includes(obj.__typename)
@@ -33549,7 +33549,7 @@ export const isConnectedEvent = (obj?: { __typename?: any } | null): obj is Conn
 
 
 
-const ContentAttachment_possibleTypes = ['ContentAttachment']
+const ContentAttachment_possibleTypes: string[] = ['ContentAttachment']
 export const isContentAttachment = (obj?: { __typename?: any } | null): obj is ContentAttachment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentAttachment"')
   return ContentAttachment_possibleTypes.includes(obj.__typename)
@@ -33557,7 +33557,7 @@ export const isContentAttachment = (obj?: { __typename?: any } | null): obj is C
 
 
 
-const ContentReference_possibleTypes = ['ContentReference']
+const ContentReference_possibleTypes: string[] = ['ContentReference']
 export const isContentReference = (obj?: { __typename?: any } | null): obj is ContentReference => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentReference"')
   return ContentReference_possibleTypes.includes(obj.__typename)
@@ -33565,7 +33565,7 @@ export const isContentReference = (obj?: { __typename?: any } | null): obj is Co
 
 
 
-const Contribution_possibleTypes = ['CreatedCommitContribution','CreatedIssueContribution','CreatedPullRequestContribution','CreatedPullRequestReviewContribution','CreatedRepositoryContribution','JoinedGitHubContribution','RestrictedContribution']
+const Contribution_possibleTypes: string[] = ['CreatedCommitContribution','CreatedIssueContribution','CreatedPullRequestContribution','CreatedPullRequestReviewContribution','CreatedRepositoryContribution','JoinedGitHubContribution','RestrictedContribution']
 export const isContribution = (obj?: { __typename?: any } | null): obj is Contribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContribution"')
   return Contribution_possibleTypes.includes(obj.__typename)
@@ -33573,7 +33573,7 @@ export const isContribution = (obj?: { __typename?: any } | null): obj is Contri
 
 
 
-const ContributionCalendar_possibleTypes = ['ContributionCalendar']
+const ContributionCalendar_possibleTypes: string[] = ['ContributionCalendar']
 export const isContributionCalendar = (obj?: { __typename?: any } | null): obj is ContributionCalendar => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContributionCalendar"')
   return ContributionCalendar_possibleTypes.includes(obj.__typename)
@@ -33581,7 +33581,7 @@ export const isContributionCalendar = (obj?: { __typename?: any } | null): obj i
 
 
 
-const ContributionCalendarDay_possibleTypes = ['ContributionCalendarDay']
+const ContributionCalendarDay_possibleTypes: string[] = ['ContributionCalendarDay']
 export const isContributionCalendarDay = (obj?: { __typename?: any } | null): obj is ContributionCalendarDay => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContributionCalendarDay"')
   return ContributionCalendarDay_possibleTypes.includes(obj.__typename)
@@ -33589,7 +33589,7 @@ export const isContributionCalendarDay = (obj?: { __typename?: any } | null): ob
 
 
 
-const ContributionCalendarMonth_possibleTypes = ['ContributionCalendarMonth']
+const ContributionCalendarMonth_possibleTypes: string[] = ['ContributionCalendarMonth']
 export const isContributionCalendarMonth = (obj?: { __typename?: any } | null): obj is ContributionCalendarMonth => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContributionCalendarMonth"')
   return ContributionCalendarMonth_possibleTypes.includes(obj.__typename)
@@ -33597,7 +33597,7 @@ export const isContributionCalendarMonth = (obj?: { __typename?: any } | null): 
 
 
 
-const ContributionCalendarWeek_possibleTypes = ['ContributionCalendarWeek']
+const ContributionCalendarWeek_possibleTypes: string[] = ['ContributionCalendarWeek']
 export const isContributionCalendarWeek = (obj?: { __typename?: any } | null): obj is ContributionCalendarWeek => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContributionCalendarWeek"')
   return ContributionCalendarWeek_possibleTypes.includes(obj.__typename)
@@ -33605,7 +33605,7 @@ export const isContributionCalendarWeek = (obj?: { __typename?: any } | null): o
 
 
 
-const ContributionsCollection_possibleTypes = ['ContributionsCollection']
+const ContributionsCollection_possibleTypes: string[] = ['ContributionsCollection']
 export const isContributionsCollection = (obj?: { __typename?: any } | null): obj is ContributionsCollection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContributionsCollection"')
   return ContributionsCollection_possibleTypes.includes(obj.__typename)
@@ -33613,7 +33613,7 @@ export const isContributionsCollection = (obj?: { __typename?: any } | null): ob
 
 
 
-const ConvertProjectCardNoteToIssuePayload_possibleTypes = ['ConvertProjectCardNoteToIssuePayload']
+const ConvertProjectCardNoteToIssuePayload_possibleTypes: string[] = ['ConvertProjectCardNoteToIssuePayload']
 export const isConvertProjectCardNoteToIssuePayload = (obj?: { __typename?: any } | null): obj is ConvertProjectCardNoteToIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isConvertProjectCardNoteToIssuePayload"')
   return ConvertProjectCardNoteToIssuePayload_possibleTypes.includes(obj.__typename)
@@ -33621,7 +33621,7 @@ export const isConvertProjectCardNoteToIssuePayload = (obj?: { __typename?: any 
 
 
 
-const ConvertToDraftEvent_possibleTypes = ['ConvertToDraftEvent']
+const ConvertToDraftEvent_possibleTypes: string[] = ['ConvertToDraftEvent']
 export const isConvertToDraftEvent = (obj?: { __typename?: any } | null): obj is ConvertToDraftEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isConvertToDraftEvent"')
   return ConvertToDraftEvent_possibleTypes.includes(obj.__typename)
@@ -33629,7 +33629,7 @@ export const isConvertToDraftEvent = (obj?: { __typename?: any } | null): obj is
 
 
 
-const ConvertedNoteToIssueEvent_possibleTypes = ['ConvertedNoteToIssueEvent']
+const ConvertedNoteToIssueEvent_possibleTypes: string[] = ['ConvertedNoteToIssueEvent']
 export const isConvertedNoteToIssueEvent = (obj?: { __typename?: any } | null): obj is ConvertedNoteToIssueEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isConvertedNoteToIssueEvent"')
   return ConvertedNoteToIssueEvent_possibleTypes.includes(obj.__typename)
@@ -33637,7 +33637,7 @@ export const isConvertedNoteToIssueEvent = (obj?: { __typename?: any } | null): 
 
 
 
-const CreateBranchProtectionRulePayload_possibleTypes = ['CreateBranchProtectionRulePayload']
+const CreateBranchProtectionRulePayload_possibleTypes: string[] = ['CreateBranchProtectionRulePayload']
 export const isCreateBranchProtectionRulePayload = (obj?: { __typename?: any } | null): obj is CreateBranchProtectionRulePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateBranchProtectionRulePayload"')
   return CreateBranchProtectionRulePayload_possibleTypes.includes(obj.__typename)
@@ -33645,7 +33645,7 @@ export const isCreateBranchProtectionRulePayload = (obj?: { __typename?: any } |
 
 
 
-const CreateCheckRunPayload_possibleTypes = ['CreateCheckRunPayload']
+const CreateCheckRunPayload_possibleTypes: string[] = ['CreateCheckRunPayload']
 export const isCreateCheckRunPayload = (obj?: { __typename?: any } | null): obj is CreateCheckRunPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateCheckRunPayload"')
   return CreateCheckRunPayload_possibleTypes.includes(obj.__typename)
@@ -33653,7 +33653,7 @@ export const isCreateCheckRunPayload = (obj?: { __typename?: any } | null): obj 
 
 
 
-const CreateCheckSuitePayload_possibleTypes = ['CreateCheckSuitePayload']
+const CreateCheckSuitePayload_possibleTypes: string[] = ['CreateCheckSuitePayload']
 export const isCreateCheckSuitePayload = (obj?: { __typename?: any } | null): obj is CreateCheckSuitePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateCheckSuitePayload"')
   return CreateCheckSuitePayload_possibleTypes.includes(obj.__typename)
@@ -33661,7 +33661,7 @@ export const isCreateCheckSuitePayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const CreateContentAttachmentPayload_possibleTypes = ['CreateContentAttachmentPayload']
+const CreateContentAttachmentPayload_possibleTypes: string[] = ['CreateContentAttachmentPayload']
 export const isCreateContentAttachmentPayload = (obj?: { __typename?: any } | null): obj is CreateContentAttachmentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateContentAttachmentPayload"')
   return CreateContentAttachmentPayload_possibleTypes.includes(obj.__typename)
@@ -33669,7 +33669,7 @@ export const isCreateContentAttachmentPayload = (obj?: { __typename?: any } | nu
 
 
 
-const CreateDeploymentPayload_possibleTypes = ['CreateDeploymentPayload']
+const CreateDeploymentPayload_possibleTypes: string[] = ['CreateDeploymentPayload']
 export const isCreateDeploymentPayload = (obj?: { __typename?: any } | null): obj is CreateDeploymentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateDeploymentPayload"')
   return CreateDeploymentPayload_possibleTypes.includes(obj.__typename)
@@ -33677,7 +33677,7 @@ export const isCreateDeploymentPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const CreateDeploymentStatusPayload_possibleTypes = ['CreateDeploymentStatusPayload']
+const CreateDeploymentStatusPayload_possibleTypes: string[] = ['CreateDeploymentStatusPayload']
 export const isCreateDeploymentStatusPayload = (obj?: { __typename?: any } | null): obj is CreateDeploymentStatusPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateDeploymentStatusPayload"')
   return CreateDeploymentStatusPayload_possibleTypes.includes(obj.__typename)
@@ -33685,7 +33685,7 @@ export const isCreateDeploymentStatusPayload = (obj?: { __typename?: any } | nul
 
 
 
-const CreateEnterpriseOrganizationPayload_possibleTypes = ['CreateEnterpriseOrganizationPayload']
+const CreateEnterpriseOrganizationPayload_possibleTypes: string[] = ['CreateEnterpriseOrganizationPayload']
 export const isCreateEnterpriseOrganizationPayload = (obj?: { __typename?: any } | null): obj is CreateEnterpriseOrganizationPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateEnterpriseOrganizationPayload"')
   return CreateEnterpriseOrganizationPayload_possibleTypes.includes(obj.__typename)
@@ -33693,7 +33693,7 @@ export const isCreateEnterpriseOrganizationPayload = (obj?: { __typename?: any }
 
 
 
-const CreateIpAllowListEntryPayload_possibleTypes = ['CreateIpAllowListEntryPayload']
+const CreateIpAllowListEntryPayload_possibleTypes: string[] = ['CreateIpAllowListEntryPayload']
 export const isCreateIpAllowListEntryPayload = (obj?: { __typename?: any } | null): obj is CreateIpAllowListEntryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateIpAllowListEntryPayload"')
   return CreateIpAllowListEntryPayload_possibleTypes.includes(obj.__typename)
@@ -33701,7 +33701,7 @@ export const isCreateIpAllowListEntryPayload = (obj?: { __typename?: any } | nul
 
 
 
-const CreateIssuePayload_possibleTypes = ['CreateIssuePayload']
+const CreateIssuePayload_possibleTypes: string[] = ['CreateIssuePayload']
 export const isCreateIssuePayload = (obj?: { __typename?: any } | null): obj is CreateIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateIssuePayload"')
   return CreateIssuePayload_possibleTypes.includes(obj.__typename)
@@ -33709,7 +33709,7 @@ export const isCreateIssuePayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const CreateLabelPayload_possibleTypes = ['CreateLabelPayload']
+const CreateLabelPayload_possibleTypes: string[] = ['CreateLabelPayload']
 export const isCreateLabelPayload = (obj?: { __typename?: any } | null): obj is CreateLabelPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateLabelPayload"')
   return CreateLabelPayload_possibleTypes.includes(obj.__typename)
@@ -33717,7 +33717,7 @@ export const isCreateLabelPayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const CreateProjectPayload_possibleTypes = ['CreateProjectPayload']
+const CreateProjectPayload_possibleTypes: string[] = ['CreateProjectPayload']
 export const isCreateProjectPayload = (obj?: { __typename?: any } | null): obj is CreateProjectPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateProjectPayload"')
   return CreateProjectPayload_possibleTypes.includes(obj.__typename)
@@ -33725,7 +33725,7 @@ export const isCreateProjectPayload = (obj?: { __typename?: any } | null): obj i
 
 
 
-const CreatePullRequestPayload_possibleTypes = ['CreatePullRequestPayload']
+const CreatePullRequestPayload_possibleTypes: string[] = ['CreatePullRequestPayload']
 export const isCreatePullRequestPayload = (obj?: { __typename?: any } | null): obj is CreatePullRequestPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatePullRequestPayload"')
   return CreatePullRequestPayload_possibleTypes.includes(obj.__typename)
@@ -33733,7 +33733,7 @@ export const isCreatePullRequestPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const CreateRefPayload_possibleTypes = ['CreateRefPayload']
+const CreateRefPayload_possibleTypes: string[] = ['CreateRefPayload']
 export const isCreateRefPayload = (obj?: { __typename?: any } | null): obj is CreateRefPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateRefPayload"')
   return CreateRefPayload_possibleTypes.includes(obj.__typename)
@@ -33741,7 +33741,7 @@ export const isCreateRefPayload = (obj?: { __typename?: any } | null): obj is Cr
 
 
 
-const CreateRepositoryPayload_possibleTypes = ['CreateRepositoryPayload']
+const CreateRepositoryPayload_possibleTypes: string[] = ['CreateRepositoryPayload']
 export const isCreateRepositoryPayload = (obj?: { __typename?: any } | null): obj is CreateRepositoryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateRepositoryPayload"')
   return CreateRepositoryPayload_possibleTypes.includes(obj.__typename)
@@ -33749,7 +33749,7 @@ export const isCreateRepositoryPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const CreateTeamDiscussionCommentPayload_possibleTypes = ['CreateTeamDiscussionCommentPayload']
+const CreateTeamDiscussionCommentPayload_possibleTypes: string[] = ['CreateTeamDiscussionCommentPayload']
 export const isCreateTeamDiscussionCommentPayload = (obj?: { __typename?: any } | null): obj is CreateTeamDiscussionCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateTeamDiscussionCommentPayload"')
   return CreateTeamDiscussionCommentPayload_possibleTypes.includes(obj.__typename)
@@ -33757,7 +33757,7 @@ export const isCreateTeamDiscussionCommentPayload = (obj?: { __typename?: any } 
 
 
 
-const CreateTeamDiscussionPayload_possibleTypes = ['CreateTeamDiscussionPayload']
+const CreateTeamDiscussionPayload_possibleTypes: string[] = ['CreateTeamDiscussionPayload']
 export const isCreateTeamDiscussionPayload = (obj?: { __typename?: any } | null): obj is CreateTeamDiscussionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateTeamDiscussionPayload"')
   return CreateTeamDiscussionPayload_possibleTypes.includes(obj.__typename)
@@ -33765,7 +33765,7 @@ export const isCreateTeamDiscussionPayload = (obj?: { __typename?: any } | null)
 
 
 
-const CreatedCommitContribution_possibleTypes = ['CreatedCommitContribution']
+const CreatedCommitContribution_possibleTypes: string[] = ['CreatedCommitContribution']
 export const isCreatedCommitContribution = (obj?: { __typename?: any } | null): obj is CreatedCommitContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedCommitContribution"')
   return CreatedCommitContribution_possibleTypes.includes(obj.__typename)
@@ -33773,7 +33773,7 @@ export const isCreatedCommitContribution = (obj?: { __typename?: any } | null): 
 
 
 
-const CreatedCommitContributionConnection_possibleTypes = ['CreatedCommitContributionConnection']
+const CreatedCommitContributionConnection_possibleTypes: string[] = ['CreatedCommitContributionConnection']
 export const isCreatedCommitContributionConnection = (obj?: { __typename?: any } | null): obj is CreatedCommitContributionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedCommitContributionConnection"')
   return CreatedCommitContributionConnection_possibleTypes.includes(obj.__typename)
@@ -33781,7 +33781,7 @@ export const isCreatedCommitContributionConnection = (obj?: { __typename?: any }
 
 
 
-const CreatedCommitContributionEdge_possibleTypes = ['CreatedCommitContributionEdge']
+const CreatedCommitContributionEdge_possibleTypes: string[] = ['CreatedCommitContributionEdge']
 export const isCreatedCommitContributionEdge = (obj?: { __typename?: any } | null): obj is CreatedCommitContributionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedCommitContributionEdge"')
   return CreatedCommitContributionEdge_possibleTypes.includes(obj.__typename)
@@ -33789,7 +33789,7 @@ export const isCreatedCommitContributionEdge = (obj?: { __typename?: any } | nul
 
 
 
-const CreatedIssueContribution_possibleTypes = ['CreatedIssueContribution']
+const CreatedIssueContribution_possibleTypes: string[] = ['CreatedIssueContribution']
 export const isCreatedIssueContribution = (obj?: { __typename?: any } | null): obj is CreatedIssueContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedIssueContribution"')
   return CreatedIssueContribution_possibleTypes.includes(obj.__typename)
@@ -33797,7 +33797,7 @@ export const isCreatedIssueContribution = (obj?: { __typename?: any } | null): o
 
 
 
-const CreatedIssueContributionConnection_possibleTypes = ['CreatedIssueContributionConnection']
+const CreatedIssueContributionConnection_possibleTypes: string[] = ['CreatedIssueContributionConnection']
 export const isCreatedIssueContributionConnection = (obj?: { __typename?: any } | null): obj is CreatedIssueContributionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedIssueContributionConnection"')
   return CreatedIssueContributionConnection_possibleTypes.includes(obj.__typename)
@@ -33805,7 +33805,7 @@ export const isCreatedIssueContributionConnection = (obj?: { __typename?: any } 
 
 
 
-const CreatedIssueContributionEdge_possibleTypes = ['CreatedIssueContributionEdge']
+const CreatedIssueContributionEdge_possibleTypes: string[] = ['CreatedIssueContributionEdge']
 export const isCreatedIssueContributionEdge = (obj?: { __typename?: any } | null): obj is CreatedIssueContributionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedIssueContributionEdge"')
   return CreatedIssueContributionEdge_possibleTypes.includes(obj.__typename)
@@ -33813,7 +33813,7 @@ export const isCreatedIssueContributionEdge = (obj?: { __typename?: any } | null
 
 
 
-const CreatedIssueOrRestrictedContribution_possibleTypes = ['CreatedIssueContribution','RestrictedContribution']
+const CreatedIssueOrRestrictedContribution_possibleTypes: string[] = ['CreatedIssueContribution','RestrictedContribution']
 export const isCreatedIssueOrRestrictedContribution = (obj?: { __typename?: any } | null): obj is CreatedIssueOrRestrictedContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedIssueOrRestrictedContribution"')
   return CreatedIssueOrRestrictedContribution_possibleTypes.includes(obj.__typename)
@@ -33821,7 +33821,7 @@ export const isCreatedIssueOrRestrictedContribution = (obj?: { __typename?: any 
 
 
 
-const CreatedPullRequestContribution_possibleTypes = ['CreatedPullRequestContribution']
+const CreatedPullRequestContribution_possibleTypes: string[] = ['CreatedPullRequestContribution']
 export const isCreatedPullRequestContribution = (obj?: { __typename?: any } | null): obj is CreatedPullRequestContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedPullRequestContribution"')
   return CreatedPullRequestContribution_possibleTypes.includes(obj.__typename)
@@ -33829,7 +33829,7 @@ export const isCreatedPullRequestContribution = (obj?: { __typename?: any } | nu
 
 
 
-const CreatedPullRequestContributionConnection_possibleTypes = ['CreatedPullRequestContributionConnection']
+const CreatedPullRequestContributionConnection_possibleTypes: string[] = ['CreatedPullRequestContributionConnection']
 export const isCreatedPullRequestContributionConnection = (obj?: { __typename?: any } | null): obj is CreatedPullRequestContributionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedPullRequestContributionConnection"')
   return CreatedPullRequestContributionConnection_possibleTypes.includes(obj.__typename)
@@ -33837,7 +33837,7 @@ export const isCreatedPullRequestContributionConnection = (obj?: { __typename?: 
 
 
 
-const CreatedPullRequestContributionEdge_possibleTypes = ['CreatedPullRequestContributionEdge']
+const CreatedPullRequestContributionEdge_possibleTypes: string[] = ['CreatedPullRequestContributionEdge']
 export const isCreatedPullRequestContributionEdge = (obj?: { __typename?: any } | null): obj is CreatedPullRequestContributionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedPullRequestContributionEdge"')
   return CreatedPullRequestContributionEdge_possibleTypes.includes(obj.__typename)
@@ -33845,7 +33845,7 @@ export const isCreatedPullRequestContributionEdge = (obj?: { __typename?: any } 
 
 
 
-const CreatedPullRequestOrRestrictedContribution_possibleTypes = ['CreatedPullRequestContribution','RestrictedContribution']
+const CreatedPullRequestOrRestrictedContribution_possibleTypes: string[] = ['CreatedPullRequestContribution','RestrictedContribution']
 export const isCreatedPullRequestOrRestrictedContribution = (obj?: { __typename?: any } | null): obj is CreatedPullRequestOrRestrictedContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedPullRequestOrRestrictedContribution"')
   return CreatedPullRequestOrRestrictedContribution_possibleTypes.includes(obj.__typename)
@@ -33853,7 +33853,7 @@ export const isCreatedPullRequestOrRestrictedContribution = (obj?: { __typename?
 
 
 
-const CreatedPullRequestReviewContribution_possibleTypes = ['CreatedPullRequestReviewContribution']
+const CreatedPullRequestReviewContribution_possibleTypes: string[] = ['CreatedPullRequestReviewContribution']
 export const isCreatedPullRequestReviewContribution = (obj?: { __typename?: any } | null): obj is CreatedPullRequestReviewContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedPullRequestReviewContribution"')
   return CreatedPullRequestReviewContribution_possibleTypes.includes(obj.__typename)
@@ -33861,7 +33861,7 @@ export const isCreatedPullRequestReviewContribution = (obj?: { __typename?: any 
 
 
 
-const CreatedPullRequestReviewContributionConnection_possibleTypes = ['CreatedPullRequestReviewContributionConnection']
+const CreatedPullRequestReviewContributionConnection_possibleTypes: string[] = ['CreatedPullRequestReviewContributionConnection']
 export const isCreatedPullRequestReviewContributionConnection = (obj?: { __typename?: any } | null): obj is CreatedPullRequestReviewContributionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedPullRequestReviewContributionConnection"')
   return CreatedPullRequestReviewContributionConnection_possibleTypes.includes(obj.__typename)
@@ -33869,7 +33869,7 @@ export const isCreatedPullRequestReviewContributionConnection = (obj?: { __typen
 
 
 
-const CreatedPullRequestReviewContributionEdge_possibleTypes = ['CreatedPullRequestReviewContributionEdge']
+const CreatedPullRequestReviewContributionEdge_possibleTypes: string[] = ['CreatedPullRequestReviewContributionEdge']
 export const isCreatedPullRequestReviewContributionEdge = (obj?: { __typename?: any } | null): obj is CreatedPullRequestReviewContributionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedPullRequestReviewContributionEdge"')
   return CreatedPullRequestReviewContributionEdge_possibleTypes.includes(obj.__typename)
@@ -33877,7 +33877,7 @@ export const isCreatedPullRequestReviewContributionEdge = (obj?: { __typename?: 
 
 
 
-const CreatedRepositoryContribution_possibleTypes = ['CreatedRepositoryContribution']
+const CreatedRepositoryContribution_possibleTypes: string[] = ['CreatedRepositoryContribution']
 export const isCreatedRepositoryContribution = (obj?: { __typename?: any } | null): obj is CreatedRepositoryContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedRepositoryContribution"')
   return CreatedRepositoryContribution_possibleTypes.includes(obj.__typename)
@@ -33885,7 +33885,7 @@ export const isCreatedRepositoryContribution = (obj?: { __typename?: any } | nul
 
 
 
-const CreatedRepositoryContributionConnection_possibleTypes = ['CreatedRepositoryContributionConnection']
+const CreatedRepositoryContributionConnection_possibleTypes: string[] = ['CreatedRepositoryContributionConnection']
 export const isCreatedRepositoryContributionConnection = (obj?: { __typename?: any } | null): obj is CreatedRepositoryContributionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedRepositoryContributionConnection"')
   return CreatedRepositoryContributionConnection_possibleTypes.includes(obj.__typename)
@@ -33893,7 +33893,7 @@ export const isCreatedRepositoryContributionConnection = (obj?: { __typename?: a
 
 
 
-const CreatedRepositoryContributionEdge_possibleTypes = ['CreatedRepositoryContributionEdge']
+const CreatedRepositoryContributionEdge_possibleTypes: string[] = ['CreatedRepositoryContributionEdge']
 export const isCreatedRepositoryContributionEdge = (obj?: { __typename?: any } | null): obj is CreatedRepositoryContributionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedRepositoryContributionEdge"')
   return CreatedRepositoryContributionEdge_possibleTypes.includes(obj.__typename)
@@ -33901,7 +33901,7 @@ export const isCreatedRepositoryContributionEdge = (obj?: { __typename?: any } |
 
 
 
-const CreatedRepositoryOrRestrictedContribution_possibleTypes = ['CreatedRepositoryContribution','RestrictedContribution']
+const CreatedRepositoryOrRestrictedContribution_possibleTypes: string[] = ['CreatedRepositoryContribution','RestrictedContribution']
 export const isCreatedRepositoryOrRestrictedContribution = (obj?: { __typename?: any } | null): obj is CreatedRepositoryOrRestrictedContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreatedRepositoryOrRestrictedContribution"')
   return CreatedRepositoryOrRestrictedContribution_possibleTypes.includes(obj.__typename)
@@ -33909,7 +33909,7 @@ export const isCreatedRepositoryOrRestrictedContribution = (obj?: { __typename?:
 
 
 
-const CrossReferencedEvent_possibleTypes = ['CrossReferencedEvent']
+const CrossReferencedEvent_possibleTypes: string[] = ['CrossReferencedEvent']
 export const isCrossReferencedEvent = (obj?: { __typename?: any } | null): obj is CrossReferencedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCrossReferencedEvent"')
   return CrossReferencedEvent_possibleTypes.includes(obj.__typename)
@@ -33917,7 +33917,7 @@ export const isCrossReferencedEvent = (obj?: { __typename?: any } | null): obj i
 
 
 
-const DeclineTopicSuggestionPayload_possibleTypes = ['DeclineTopicSuggestionPayload']
+const DeclineTopicSuggestionPayload_possibleTypes: string[] = ['DeclineTopicSuggestionPayload']
 export const isDeclineTopicSuggestionPayload = (obj?: { __typename?: any } | null): obj is DeclineTopicSuggestionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeclineTopicSuggestionPayload"')
   return DeclineTopicSuggestionPayload_possibleTypes.includes(obj.__typename)
@@ -33925,7 +33925,7 @@ export const isDeclineTopicSuggestionPayload = (obj?: { __typename?: any } | nul
 
 
 
-const Deletable_possibleTypes = ['CommitComment','GistComment','IssueComment','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
+const Deletable_possibleTypes: string[] = ['CommitComment','GistComment','IssueComment','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
 export const isDeletable = (obj?: { __typename?: any } | null): obj is Deletable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeletable"')
   return Deletable_possibleTypes.includes(obj.__typename)
@@ -33933,7 +33933,7 @@ export const isDeletable = (obj?: { __typename?: any } | null): obj is Deletable
 
 
 
-const DeleteBranchProtectionRulePayload_possibleTypes = ['DeleteBranchProtectionRulePayload']
+const DeleteBranchProtectionRulePayload_possibleTypes: string[] = ['DeleteBranchProtectionRulePayload']
 export const isDeleteBranchProtectionRulePayload = (obj?: { __typename?: any } | null): obj is DeleteBranchProtectionRulePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteBranchProtectionRulePayload"')
   return DeleteBranchProtectionRulePayload_possibleTypes.includes(obj.__typename)
@@ -33941,7 +33941,7 @@ export const isDeleteBranchProtectionRulePayload = (obj?: { __typename?: any } |
 
 
 
-const DeleteDeploymentPayload_possibleTypes = ['DeleteDeploymentPayload']
+const DeleteDeploymentPayload_possibleTypes: string[] = ['DeleteDeploymentPayload']
 export const isDeleteDeploymentPayload = (obj?: { __typename?: any } | null): obj is DeleteDeploymentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteDeploymentPayload"')
   return DeleteDeploymentPayload_possibleTypes.includes(obj.__typename)
@@ -33949,7 +33949,7 @@ export const isDeleteDeploymentPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const DeleteIpAllowListEntryPayload_possibleTypes = ['DeleteIpAllowListEntryPayload']
+const DeleteIpAllowListEntryPayload_possibleTypes: string[] = ['DeleteIpAllowListEntryPayload']
 export const isDeleteIpAllowListEntryPayload = (obj?: { __typename?: any } | null): obj is DeleteIpAllowListEntryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteIpAllowListEntryPayload"')
   return DeleteIpAllowListEntryPayload_possibleTypes.includes(obj.__typename)
@@ -33957,7 +33957,7 @@ export const isDeleteIpAllowListEntryPayload = (obj?: { __typename?: any } | nul
 
 
 
-const DeleteIssueCommentPayload_possibleTypes = ['DeleteIssueCommentPayload']
+const DeleteIssueCommentPayload_possibleTypes: string[] = ['DeleteIssueCommentPayload']
 export const isDeleteIssueCommentPayload = (obj?: { __typename?: any } | null): obj is DeleteIssueCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteIssueCommentPayload"')
   return DeleteIssueCommentPayload_possibleTypes.includes(obj.__typename)
@@ -33965,7 +33965,7 @@ export const isDeleteIssueCommentPayload = (obj?: { __typename?: any } | null): 
 
 
 
-const DeleteIssuePayload_possibleTypes = ['DeleteIssuePayload']
+const DeleteIssuePayload_possibleTypes: string[] = ['DeleteIssuePayload']
 export const isDeleteIssuePayload = (obj?: { __typename?: any } | null): obj is DeleteIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteIssuePayload"')
   return DeleteIssuePayload_possibleTypes.includes(obj.__typename)
@@ -33973,7 +33973,7 @@ export const isDeleteIssuePayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const DeleteLabelPayload_possibleTypes = ['DeleteLabelPayload']
+const DeleteLabelPayload_possibleTypes: string[] = ['DeleteLabelPayload']
 export const isDeleteLabelPayload = (obj?: { __typename?: any } | null): obj is DeleteLabelPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteLabelPayload"')
   return DeleteLabelPayload_possibleTypes.includes(obj.__typename)
@@ -33981,7 +33981,7 @@ export const isDeleteLabelPayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const DeletePackageVersionPayload_possibleTypes = ['DeletePackageVersionPayload']
+const DeletePackageVersionPayload_possibleTypes: string[] = ['DeletePackageVersionPayload']
 export const isDeletePackageVersionPayload = (obj?: { __typename?: any } | null): obj is DeletePackageVersionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeletePackageVersionPayload"')
   return DeletePackageVersionPayload_possibleTypes.includes(obj.__typename)
@@ -33989,7 +33989,7 @@ export const isDeletePackageVersionPayload = (obj?: { __typename?: any } | null)
 
 
 
-const DeleteProjectCardPayload_possibleTypes = ['DeleteProjectCardPayload']
+const DeleteProjectCardPayload_possibleTypes: string[] = ['DeleteProjectCardPayload']
 export const isDeleteProjectCardPayload = (obj?: { __typename?: any } | null): obj is DeleteProjectCardPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteProjectCardPayload"')
   return DeleteProjectCardPayload_possibleTypes.includes(obj.__typename)
@@ -33997,7 +33997,7 @@ export const isDeleteProjectCardPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const DeleteProjectColumnPayload_possibleTypes = ['DeleteProjectColumnPayload']
+const DeleteProjectColumnPayload_possibleTypes: string[] = ['DeleteProjectColumnPayload']
 export const isDeleteProjectColumnPayload = (obj?: { __typename?: any } | null): obj is DeleteProjectColumnPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteProjectColumnPayload"')
   return DeleteProjectColumnPayload_possibleTypes.includes(obj.__typename)
@@ -34005,7 +34005,7 @@ export const isDeleteProjectColumnPayload = (obj?: { __typename?: any } | null):
 
 
 
-const DeleteProjectPayload_possibleTypes = ['DeleteProjectPayload']
+const DeleteProjectPayload_possibleTypes: string[] = ['DeleteProjectPayload']
 export const isDeleteProjectPayload = (obj?: { __typename?: any } | null): obj is DeleteProjectPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteProjectPayload"')
   return DeleteProjectPayload_possibleTypes.includes(obj.__typename)
@@ -34013,7 +34013,7 @@ export const isDeleteProjectPayload = (obj?: { __typename?: any } | null): obj i
 
 
 
-const DeletePullRequestReviewCommentPayload_possibleTypes = ['DeletePullRequestReviewCommentPayload']
+const DeletePullRequestReviewCommentPayload_possibleTypes: string[] = ['DeletePullRequestReviewCommentPayload']
 export const isDeletePullRequestReviewCommentPayload = (obj?: { __typename?: any } | null): obj is DeletePullRequestReviewCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeletePullRequestReviewCommentPayload"')
   return DeletePullRequestReviewCommentPayload_possibleTypes.includes(obj.__typename)
@@ -34021,7 +34021,7 @@ export const isDeletePullRequestReviewCommentPayload = (obj?: { __typename?: any
 
 
 
-const DeletePullRequestReviewPayload_possibleTypes = ['DeletePullRequestReviewPayload']
+const DeletePullRequestReviewPayload_possibleTypes: string[] = ['DeletePullRequestReviewPayload']
 export const isDeletePullRequestReviewPayload = (obj?: { __typename?: any } | null): obj is DeletePullRequestReviewPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeletePullRequestReviewPayload"')
   return DeletePullRequestReviewPayload_possibleTypes.includes(obj.__typename)
@@ -34029,7 +34029,7 @@ export const isDeletePullRequestReviewPayload = (obj?: { __typename?: any } | nu
 
 
 
-const DeleteRefPayload_possibleTypes = ['DeleteRefPayload']
+const DeleteRefPayload_possibleTypes: string[] = ['DeleteRefPayload']
 export const isDeleteRefPayload = (obj?: { __typename?: any } | null): obj is DeleteRefPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteRefPayload"')
   return DeleteRefPayload_possibleTypes.includes(obj.__typename)
@@ -34037,7 +34037,7 @@ export const isDeleteRefPayload = (obj?: { __typename?: any } | null): obj is De
 
 
 
-const DeleteTeamDiscussionCommentPayload_possibleTypes = ['DeleteTeamDiscussionCommentPayload']
+const DeleteTeamDiscussionCommentPayload_possibleTypes: string[] = ['DeleteTeamDiscussionCommentPayload']
 export const isDeleteTeamDiscussionCommentPayload = (obj?: { __typename?: any } | null): obj is DeleteTeamDiscussionCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteTeamDiscussionCommentPayload"')
   return DeleteTeamDiscussionCommentPayload_possibleTypes.includes(obj.__typename)
@@ -34045,7 +34045,7 @@ export const isDeleteTeamDiscussionCommentPayload = (obj?: { __typename?: any } 
 
 
 
-const DeleteTeamDiscussionPayload_possibleTypes = ['DeleteTeamDiscussionPayload']
+const DeleteTeamDiscussionPayload_possibleTypes: string[] = ['DeleteTeamDiscussionPayload']
 export const isDeleteTeamDiscussionPayload = (obj?: { __typename?: any } | null): obj is DeleteTeamDiscussionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteTeamDiscussionPayload"')
   return DeleteTeamDiscussionPayload_possibleTypes.includes(obj.__typename)
@@ -34053,7 +34053,7 @@ export const isDeleteTeamDiscussionPayload = (obj?: { __typename?: any } | null)
 
 
 
-const DemilestonedEvent_possibleTypes = ['DemilestonedEvent']
+const DemilestonedEvent_possibleTypes: string[] = ['DemilestonedEvent']
 export const isDemilestonedEvent = (obj?: { __typename?: any } | null): obj is DemilestonedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDemilestonedEvent"')
   return DemilestonedEvent_possibleTypes.includes(obj.__typename)
@@ -34061,7 +34061,7 @@ export const isDemilestonedEvent = (obj?: { __typename?: any } | null): obj is D
 
 
 
-const DependencyGraphDependency_possibleTypes = ['DependencyGraphDependency']
+const DependencyGraphDependency_possibleTypes: string[] = ['DependencyGraphDependency']
 export const isDependencyGraphDependency = (obj?: { __typename?: any } | null): obj is DependencyGraphDependency => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDependencyGraphDependency"')
   return DependencyGraphDependency_possibleTypes.includes(obj.__typename)
@@ -34069,7 +34069,7 @@ export const isDependencyGraphDependency = (obj?: { __typename?: any } | null): 
 
 
 
-const DependencyGraphDependencyConnection_possibleTypes = ['DependencyGraphDependencyConnection']
+const DependencyGraphDependencyConnection_possibleTypes: string[] = ['DependencyGraphDependencyConnection']
 export const isDependencyGraphDependencyConnection = (obj?: { __typename?: any } | null): obj is DependencyGraphDependencyConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDependencyGraphDependencyConnection"')
   return DependencyGraphDependencyConnection_possibleTypes.includes(obj.__typename)
@@ -34077,7 +34077,7 @@ export const isDependencyGraphDependencyConnection = (obj?: { __typename?: any }
 
 
 
-const DependencyGraphDependencyEdge_possibleTypes = ['DependencyGraphDependencyEdge']
+const DependencyGraphDependencyEdge_possibleTypes: string[] = ['DependencyGraphDependencyEdge']
 export const isDependencyGraphDependencyEdge = (obj?: { __typename?: any } | null): obj is DependencyGraphDependencyEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDependencyGraphDependencyEdge"')
   return DependencyGraphDependencyEdge_possibleTypes.includes(obj.__typename)
@@ -34085,7 +34085,7 @@ export const isDependencyGraphDependencyEdge = (obj?: { __typename?: any } | nul
 
 
 
-const DependencyGraphManifest_possibleTypes = ['DependencyGraphManifest']
+const DependencyGraphManifest_possibleTypes: string[] = ['DependencyGraphManifest']
 export const isDependencyGraphManifest = (obj?: { __typename?: any } | null): obj is DependencyGraphManifest => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDependencyGraphManifest"')
   return DependencyGraphManifest_possibleTypes.includes(obj.__typename)
@@ -34093,7 +34093,7 @@ export const isDependencyGraphManifest = (obj?: { __typename?: any } | null): ob
 
 
 
-const DependencyGraphManifestConnection_possibleTypes = ['DependencyGraphManifestConnection']
+const DependencyGraphManifestConnection_possibleTypes: string[] = ['DependencyGraphManifestConnection']
 export const isDependencyGraphManifestConnection = (obj?: { __typename?: any } | null): obj is DependencyGraphManifestConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDependencyGraphManifestConnection"')
   return DependencyGraphManifestConnection_possibleTypes.includes(obj.__typename)
@@ -34101,7 +34101,7 @@ export const isDependencyGraphManifestConnection = (obj?: { __typename?: any } |
 
 
 
-const DependencyGraphManifestEdge_possibleTypes = ['DependencyGraphManifestEdge']
+const DependencyGraphManifestEdge_possibleTypes: string[] = ['DependencyGraphManifestEdge']
 export const isDependencyGraphManifestEdge = (obj?: { __typename?: any } | null): obj is DependencyGraphManifestEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDependencyGraphManifestEdge"')
   return DependencyGraphManifestEdge_possibleTypes.includes(obj.__typename)
@@ -34109,7 +34109,7 @@ export const isDependencyGraphManifestEdge = (obj?: { __typename?: any } | null)
 
 
 
-const DeployKey_possibleTypes = ['DeployKey']
+const DeployKey_possibleTypes: string[] = ['DeployKey']
 export const isDeployKey = (obj?: { __typename?: any } | null): obj is DeployKey => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeployKey"')
   return DeployKey_possibleTypes.includes(obj.__typename)
@@ -34117,7 +34117,7 @@ export const isDeployKey = (obj?: { __typename?: any } | null): obj is DeployKey
 
 
 
-const DeployKeyConnection_possibleTypes = ['DeployKeyConnection']
+const DeployKeyConnection_possibleTypes: string[] = ['DeployKeyConnection']
 export const isDeployKeyConnection = (obj?: { __typename?: any } | null): obj is DeployKeyConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeployKeyConnection"')
   return DeployKeyConnection_possibleTypes.includes(obj.__typename)
@@ -34125,7 +34125,7 @@ export const isDeployKeyConnection = (obj?: { __typename?: any } | null): obj is
 
 
 
-const DeployKeyEdge_possibleTypes = ['DeployKeyEdge']
+const DeployKeyEdge_possibleTypes: string[] = ['DeployKeyEdge']
 export const isDeployKeyEdge = (obj?: { __typename?: any } | null): obj is DeployKeyEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeployKeyEdge"')
   return DeployKeyEdge_possibleTypes.includes(obj.__typename)
@@ -34133,7 +34133,7 @@ export const isDeployKeyEdge = (obj?: { __typename?: any } | null): obj is Deplo
 
 
 
-const DeployedEvent_possibleTypes = ['DeployedEvent']
+const DeployedEvent_possibleTypes: string[] = ['DeployedEvent']
 export const isDeployedEvent = (obj?: { __typename?: any } | null): obj is DeployedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeployedEvent"')
   return DeployedEvent_possibleTypes.includes(obj.__typename)
@@ -34141,7 +34141,7 @@ export const isDeployedEvent = (obj?: { __typename?: any } | null): obj is Deplo
 
 
 
-const Deployment_possibleTypes = ['Deployment']
+const Deployment_possibleTypes: string[] = ['Deployment']
 export const isDeployment = (obj?: { __typename?: any } | null): obj is Deployment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeployment"')
   return Deployment_possibleTypes.includes(obj.__typename)
@@ -34149,7 +34149,7 @@ export const isDeployment = (obj?: { __typename?: any } | null): obj is Deployme
 
 
 
-const DeploymentConnection_possibleTypes = ['DeploymentConnection']
+const DeploymentConnection_possibleTypes: string[] = ['DeploymentConnection']
 export const isDeploymentConnection = (obj?: { __typename?: any } | null): obj is DeploymentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeploymentConnection"')
   return DeploymentConnection_possibleTypes.includes(obj.__typename)
@@ -34157,7 +34157,7 @@ export const isDeploymentConnection = (obj?: { __typename?: any } | null): obj i
 
 
 
-const DeploymentEdge_possibleTypes = ['DeploymentEdge']
+const DeploymentEdge_possibleTypes: string[] = ['DeploymentEdge']
 export const isDeploymentEdge = (obj?: { __typename?: any } | null): obj is DeploymentEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeploymentEdge"')
   return DeploymentEdge_possibleTypes.includes(obj.__typename)
@@ -34165,7 +34165,7 @@ export const isDeploymentEdge = (obj?: { __typename?: any } | null): obj is Depl
 
 
 
-const DeploymentEnvironmentChangedEvent_possibleTypes = ['DeploymentEnvironmentChangedEvent']
+const DeploymentEnvironmentChangedEvent_possibleTypes: string[] = ['DeploymentEnvironmentChangedEvent']
 export const isDeploymentEnvironmentChangedEvent = (obj?: { __typename?: any } | null): obj is DeploymentEnvironmentChangedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeploymentEnvironmentChangedEvent"')
   return DeploymentEnvironmentChangedEvent_possibleTypes.includes(obj.__typename)
@@ -34173,7 +34173,7 @@ export const isDeploymentEnvironmentChangedEvent = (obj?: { __typename?: any } |
 
 
 
-const DeploymentStatus_possibleTypes = ['DeploymentStatus']
+const DeploymentStatus_possibleTypes: string[] = ['DeploymentStatus']
 export const isDeploymentStatus = (obj?: { __typename?: any } | null): obj is DeploymentStatus => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeploymentStatus"')
   return DeploymentStatus_possibleTypes.includes(obj.__typename)
@@ -34181,7 +34181,7 @@ export const isDeploymentStatus = (obj?: { __typename?: any } | null): obj is De
 
 
 
-const DeploymentStatusConnection_possibleTypes = ['DeploymentStatusConnection']
+const DeploymentStatusConnection_possibleTypes: string[] = ['DeploymentStatusConnection']
 export const isDeploymentStatusConnection = (obj?: { __typename?: any } | null): obj is DeploymentStatusConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeploymentStatusConnection"')
   return DeploymentStatusConnection_possibleTypes.includes(obj.__typename)
@@ -34189,7 +34189,7 @@ export const isDeploymentStatusConnection = (obj?: { __typename?: any } | null):
 
 
 
-const DeploymentStatusEdge_possibleTypes = ['DeploymentStatusEdge']
+const DeploymentStatusEdge_possibleTypes: string[] = ['DeploymentStatusEdge']
 export const isDeploymentStatusEdge = (obj?: { __typename?: any } | null): obj is DeploymentStatusEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeploymentStatusEdge"')
   return DeploymentStatusEdge_possibleTypes.includes(obj.__typename)
@@ -34197,7 +34197,7 @@ export const isDeploymentStatusEdge = (obj?: { __typename?: any } | null): obj i
 
 
 
-const DisconnectedEvent_possibleTypes = ['DisconnectedEvent']
+const DisconnectedEvent_possibleTypes: string[] = ['DisconnectedEvent']
 export const isDisconnectedEvent = (obj?: { __typename?: any } | null): obj is DisconnectedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDisconnectedEvent"')
   return DisconnectedEvent_possibleTypes.includes(obj.__typename)
@@ -34205,7 +34205,7 @@ export const isDisconnectedEvent = (obj?: { __typename?: any } | null): obj is D
 
 
 
-const DismissPullRequestReviewPayload_possibleTypes = ['DismissPullRequestReviewPayload']
+const DismissPullRequestReviewPayload_possibleTypes: string[] = ['DismissPullRequestReviewPayload']
 export const isDismissPullRequestReviewPayload = (obj?: { __typename?: any } | null): obj is DismissPullRequestReviewPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDismissPullRequestReviewPayload"')
   return DismissPullRequestReviewPayload_possibleTypes.includes(obj.__typename)
@@ -34213,7 +34213,7 @@ export const isDismissPullRequestReviewPayload = (obj?: { __typename?: any } | n
 
 
 
-const Enterprise_possibleTypes = ['Enterprise']
+const Enterprise_possibleTypes: string[] = ['Enterprise']
 export const isEnterprise = (obj?: { __typename?: any } | null): obj is Enterprise => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterprise"')
   return Enterprise_possibleTypes.includes(obj.__typename)
@@ -34221,7 +34221,7 @@ export const isEnterprise = (obj?: { __typename?: any } | null): obj is Enterpri
 
 
 
-const EnterpriseAdministratorConnection_possibleTypes = ['EnterpriseAdministratorConnection']
+const EnterpriseAdministratorConnection_possibleTypes: string[] = ['EnterpriseAdministratorConnection']
 export const isEnterpriseAdministratorConnection = (obj?: { __typename?: any } | null): obj is EnterpriseAdministratorConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseAdministratorConnection"')
   return EnterpriseAdministratorConnection_possibleTypes.includes(obj.__typename)
@@ -34229,7 +34229,7 @@ export const isEnterpriseAdministratorConnection = (obj?: { __typename?: any } |
 
 
 
-const EnterpriseAdministratorEdge_possibleTypes = ['EnterpriseAdministratorEdge']
+const EnterpriseAdministratorEdge_possibleTypes: string[] = ['EnterpriseAdministratorEdge']
 export const isEnterpriseAdministratorEdge = (obj?: { __typename?: any } | null): obj is EnterpriseAdministratorEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseAdministratorEdge"')
   return EnterpriseAdministratorEdge_possibleTypes.includes(obj.__typename)
@@ -34237,7 +34237,7 @@ export const isEnterpriseAdministratorEdge = (obj?: { __typename?: any } | null)
 
 
 
-const EnterpriseAdministratorInvitation_possibleTypes = ['EnterpriseAdministratorInvitation']
+const EnterpriseAdministratorInvitation_possibleTypes: string[] = ['EnterpriseAdministratorInvitation']
 export const isEnterpriseAdministratorInvitation = (obj?: { __typename?: any } | null): obj is EnterpriseAdministratorInvitation => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseAdministratorInvitation"')
   return EnterpriseAdministratorInvitation_possibleTypes.includes(obj.__typename)
@@ -34245,7 +34245,7 @@ export const isEnterpriseAdministratorInvitation = (obj?: { __typename?: any } |
 
 
 
-const EnterpriseAdministratorInvitationConnection_possibleTypes = ['EnterpriseAdministratorInvitationConnection']
+const EnterpriseAdministratorInvitationConnection_possibleTypes: string[] = ['EnterpriseAdministratorInvitationConnection']
 export const isEnterpriseAdministratorInvitationConnection = (obj?: { __typename?: any } | null): obj is EnterpriseAdministratorInvitationConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseAdministratorInvitationConnection"')
   return EnterpriseAdministratorInvitationConnection_possibleTypes.includes(obj.__typename)
@@ -34253,7 +34253,7 @@ export const isEnterpriseAdministratorInvitationConnection = (obj?: { __typename
 
 
 
-const EnterpriseAdministratorInvitationEdge_possibleTypes = ['EnterpriseAdministratorInvitationEdge']
+const EnterpriseAdministratorInvitationEdge_possibleTypes: string[] = ['EnterpriseAdministratorInvitationEdge']
 export const isEnterpriseAdministratorInvitationEdge = (obj?: { __typename?: any } | null): obj is EnterpriseAdministratorInvitationEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseAdministratorInvitationEdge"')
   return EnterpriseAdministratorInvitationEdge_possibleTypes.includes(obj.__typename)
@@ -34261,7 +34261,7 @@ export const isEnterpriseAdministratorInvitationEdge = (obj?: { __typename?: any
 
 
 
-const EnterpriseAuditEntryData_possibleTypes = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OrgInviteToBusinessAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry']
+const EnterpriseAuditEntryData_possibleTypes: string[] = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OrgInviteToBusinessAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry']
 export const isEnterpriseAuditEntryData = (obj?: { __typename?: any } | null): obj is EnterpriseAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseAuditEntryData"')
   return EnterpriseAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -34269,7 +34269,7 @@ export const isEnterpriseAuditEntryData = (obj?: { __typename?: any } | null): o
 
 
 
-const EnterpriseBillingInfo_possibleTypes = ['EnterpriseBillingInfo']
+const EnterpriseBillingInfo_possibleTypes: string[] = ['EnterpriseBillingInfo']
 export const isEnterpriseBillingInfo = (obj?: { __typename?: any } | null): obj is EnterpriseBillingInfo => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseBillingInfo"')
   return EnterpriseBillingInfo_possibleTypes.includes(obj.__typename)
@@ -34277,7 +34277,7 @@ export const isEnterpriseBillingInfo = (obj?: { __typename?: any } | null): obj 
 
 
 
-const EnterpriseIdentityProvider_possibleTypes = ['EnterpriseIdentityProvider']
+const EnterpriseIdentityProvider_possibleTypes: string[] = ['EnterpriseIdentityProvider']
 export const isEnterpriseIdentityProvider = (obj?: { __typename?: any } | null): obj is EnterpriseIdentityProvider => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseIdentityProvider"')
   return EnterpriseIdentityProvider_possibleTypes.includes(obj.__typename)
@@ -34285,7 +34285,7 @@ export const isEnterpriseIdentityProvider = (obj?: { __typename?: any } | null):
 
 
 
-const EnterpriseMember_possibleTypes = ['EnterpriseUserAccount','User']
+const EnterpriseMember_possibleTypes: string[] = ['EnterpriseUserAccount','User']
 export const isEnterpriseMember = (obj?: { __typename?: any } | null): obj is EnterpriseMember => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseMember"')
   return EnterpriseMember_possibleTypes.includes(obj.__typename)
@@ -34293,7 +34293,7 @@ export const isEnterpriseMember = (obj?: { __typename?: any } | null): obj is En
 
 
 
-const EnterpriseMemberConnection_possibleTypes = ['EnterpriseMemberConnection']
+const EnterpriseMemberConnection_possibleTypes: string[] = ['EnterpriseMemberConnection']
 export const isEnterpriseMemberConnection = (obj?: { __typename?: any } | null): obj is EnterpriseMemberConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseMemberConnection"')
   return EnterpriseMemberConnection_possibleTypes.includes(obj.__typename)
@@ -34301,7 +34301,7 @@ export const isEnterpriseMemberConnection = (obj?: { __typename?: any } | null):
 
 
 
-const EnterpriseMemberEdge_possibleTypes = ['EnterpriseMemberEdge']
+const EnterpriseMemberEdge_possibleTypes: string[] = ['EnterpriseMemberEdge']
 export const isEnterpriseMemberEdge = (obj?: { __typename?: any } | null): obj is EnterpriseMemberEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseMemberEdge"')
   return EnterpriseMemberEdge_possibleTypes.includes(obj.__typename)
@@ -34309,7 +34309,7 @@ export const isEnterpriseMemberEdge = (obj?: { __typename?: any } | null): obj i
 
 
 
-const EnterpriseOrganizationMembershipConnection_possibleTypes = ['EnterpriseOrganizationMembershipConnection']
+const EnterpriseOrganizationMembershipConnection_possibleTypes: string[] = ['EnterpriseOrganizationMembershipConnection']
 export const isEnterpriseOrganizationMembershipConnection = (obj?: { __typename?: any } | null): obj is EnterpriseOrganizationMembershipConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseOrganizationMembershipConnection"')
   return EnterpriseOrganizationMembershipConnection_possibleTypes.includes(obj.__typename)
@@ -34317,7 +34317,7 @@ export const isEnterpriseOrganizationMembershipConnection = (obj?: { __typename?
 
 
 
-const EnterpriseOrganizationMembershipEdge_possibleTypes = ['EnterpriseOrganizationMembershipEdge']
+const EnterpriseOrganizationMembershipEdge_possibleTypes: string[] = ['EnterpriseOrganizationMembershipEdge']
 export const isEnterpriseOrganizationMembershipEdge = (obj?: { __typename?: any } | null): obj is EnterpriseOrganizationMembershipEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseOrganizationMembershipEdge"')
   return EnterpriseOrganizationMembershipEdge_possibleTypes.includes(obj.__typename)
@@ -34325,7 +34325,7 @@ export const isEnterpriseOrganizationMembershipEdge = (obj?: { __typename?: any 
 
 
 
-const EnterpriseOutsideCollaboratorConnection_possibleTypes = ['EnterpriseOutsideCollaboratorConnection']
+const EnterpriseOutsideCollaboratorConnection_possibleTypes: string[] = ['EnterpriseOutsideCollaboratorConnection']
 export const isEnterpriseOutsideCollaboratorConnection = (obj?: { __typename?: any } | null): obj is EnterpriseOutsideCollaboratorConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseOutsideCollaboratorConnection"')
   return EnterpriseOutsideCollaboratorConnection_possibleTypes.includes(obj.__typename)
@@ -34333,7 +34333,7 @@ export const isEnterpriseOutsideCollaboratorConnection = (obj?: { __typename?: a
 
 
 
-const EnterpriseOutsideCollaboratorEdge_possibleTypes = ['EnterpriseOutsideCollaboratorEdge']
+const EnterpriseOutsideCollaboratorEdge_possibleTypes: string[] = ['EnterpriseOutsideCollaboratorEdge']
 export const isEnterpriseOutsideCollaboratorEdge = (obj?: { __typename?: any } | null): obj is EnterpriseOutsideCollaboratorEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseOutsideCollaboratorEdge"')
   return EnterpriseOutsideCollaboratorEdge_possibleTypes.includes(obj.__typename)
@@ -34341,7 +34341,7 @@ export const isEnterpriseOutsideCollaboratorEdge = (obj?: { __typename?: any } |
 
 
 
-const EnterpriseOwnerInfo_possibleTypes = ['EnterpriseOwnerInfo']
+const EnterpriseOwnerInfo_possibleTypes: string[] = ['EnterpriseOwnerInfo']
 export const isEnterpriseOwnerInfo = (obj?: { __typename?: any } | null): obj is EnterpriseOwnerInfo => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseOwnerInfo"')
   return EnterpriseOwnerInfo_possibleTypes.includes(obj.__typename)
@@ -34349,7 +34349,7 @@ export const isEnterpriseOwnerInfo = (obj?: { __typename?: any } | null): obj is
 
 
 
-const EnterprisePendingCollaboratorConnection_possibleTypes = ['EnterprisePendingCollaboratorConnection']
+const EnterprisePendingCollaboratorConnection_possibleTypes: string[] = ['EnterprisePendingCollaboratorConnection']
 export const isEnterprisePendingCollaboratorConnection = (obj?: { __typename?: any } | null): obj is EnterprisePendingCollaboratorConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterprisePendingCollaboratorConnection"')
   return EnterprisePendingCollaboratorConnection_possibleTypes.includes(obj.__typename)
@@ -34357,7 +34357,7 @@ export const isEnterprisePendingCollaboratorConnection = (obj?: { __typename?: a
 
 
 
-const EnterprisePendingCollaboratorEdge_possibleTypes = ['EnterprisePendingCollaboratorEdge']
+const EnterprisePendingCollaboratorEdge_possibleTypes: string[] = ['EnterprisePendingCollaboratorEdge']
 export const isEnterprisePendingCollaboratorEdge = (obj?: { __typename?: any } | null): obj is EnterprisePendingCollaboratorEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterprisePendingCollaboratorEdge"')
   return EnterprisePendingCollaboratorEdge_possibleTypes.includes(obj.__typename)
@@ -34365,7 +34365,7 @@ export const isEnterprisePendingCollaboratorEdge = (obj?: { __typename?: any } |
 
 
 
-const EnterprisePendingMemberInvitationConnection_possibleTypes = ['EnterprisePendingMemberInvitationConnection']
+const EnterprisePendingMemberInvitationConnection_possibleTypes: string[] = ['EnterprisePendingMemberInvitationConnection']
 export const isEnterprisePendingMemberInvitationConnection = (obj?: { __typename?: any } | null): obj is EnterprisePendingMemberInvitationConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterprisePendingMemberInvitationConnection"')
   return EnterprisePendingMemberInvitationConnection_possibleTypes.includes(obj.__typename)
@@ -34373,7 +34373,7 @@ export const isEnterprisePendingMemberInvitationConnection = (obj?: { __typename
 
 
 
-const EnterprisePendingMemberInvitationEdge_possibleTypes = ['EnterprisePendingMemberInvitationEdge']
+const EnterprisePendingMemberInvitationEdge_possibleTypes: string[] = ['EnterprisePendingMemberInvitationEdge']
 export const isEnterprisePendingMemberInvitationEdge = (obj?: { __typename?: any } | null): obj is EnterprisePendingMemberInvitationEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterprisePendingMemberInvitationEdge"')
   return EnterprisePendingMemberInvitationEdge_possibleTypes.includes(obj.__typename)
@@ -34381,7 +34381,7 @@ export const isEnterprisePendingMemberInvitationEdge = (obj?: { __typename?: any
 
 
 
-const EnterpriseRepositoryInfo_possibleTypes = ['EnterpriseRepositoryInfo']
+const EnterpriseRepositoryInfo_possibleTypes: string[] = ['EnterpriseRepositoryInfo']
 export const isEnterpriseRepositoryInfo = (obj?: { __typename?: any } | null): obj is EnterpriseRepositoryInfo => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseRepositoryInfo"')
   return EnterpriseRepositoryInfo_possibleTypes.includes(obj.__typename)
@@ -34389,7 +34389,7 @@ export const isEnterpriseRepositoryInfo = (obj?: { __typename?: any } | null): o
 
 
 
-const EnterpriseRepositoryInfoConnection_possibleTypes = ['EnterpriseRepositoryInfoConnection']
+const EnterpriseRepositoryInfoConnection_possibleTypes: string[] = ['EnterpriseRepositoryInfoConnection']
 export const isEnterpriseRepositoryInfoConnection = (obj?: { __typename?: any } | null): obj is EnterpriseRepositoryInfoConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseRepositoryInfoConnection"')
   return EnterpriseRepositoryInfoConnection_possibleTypes.includes(obj.__typename)
@@ -34397,7 +34397,7 @@ export const isEnterpriseRepositoryInfoConnection = (obj?: { __typename?: any } 
 
 
 
-const EnterpriseRepositoryInfoEdge_possibleTypes = ['EnterpriseRepositoryInfoEdge']
+const EnterpriseRepositoryInfoEdge_possibleTypes: string[] = ['EnterpriseRepositoryInfoEdge']
 export const isEnterpriseRepositoryInfoEdge = (obj?: { __typename?: any } | null): obj is EnterpriseRepositoryInfoEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseRepositoryInfoEdge"')
   return EnterpriseRepositoryInfoEdge_possibleTypes.includes(obj.__typename)
@@ -34405,7 +34405,7 @@ export const isEnterpriseRepositoryInfoEdge = (obj?: { __typename?: any } | null
 
 
 
-const EnterpriseServerInstallation_possibleTypes = ['EnterpriseServerInstallation']
+const EnterpriseServerInstallation_possibleTypes: string[] = ['EnterpriseServerInstallation']
 export const isEnterpriseServerInstallation = (obj?: { __typename?: any } | null): obj is EnterpriseServerInstallation => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerInstallation"')
   return EnterpriseServerInstallation_possibleTypes.includes(obj.__typename)
@@ -34413,7 +34413,7 @@ export const isEnterpriseServerInstallation = (obj?: { __typename?: any } | null
 
 
 
-const EnterpriseServerInstallationConnection_possibleTypes = ['EnterpriseServerInstallationConnection']
+const EnterpriseServerInstallationConnection_possibleTypes: string[] = ['EnterpriseServerInstallationConnection']
 export const isEnterpriseServerInstallationConnection = (obj?: { __typename?: any } | null): obj is EnterpriseServerInstallationConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerInstallationConnection"')
   return EnterpriseServerInstallationConnection_possibleTypes.includes(obj.__typename)
@@ -34421,7 +34421,7 @@ export const isEnterpriseServerInstallationConnection = (obj?: { __typename?: an
 
 
 
-const EnterpriseServerInstallationEdge_possibleTypes = ['EnterpriseServerInstallationEdge']
+const EnterpriseServerInstallationEdge_possibleTypes: string[] = ['EnterpriseServerInstallationEdge']
 export const isEnterpriseServerInstallationEdge = (obj?: { __typename?: any } | null): obj is EnterpriseServerInstallationEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerInstallationEdge"')
   return EnterpriseServerInstallationEdge_possibleTypes.includes(obj.__typename)
@@ -34429,7 +34429,7 @@ export const isEnterpriseServerInstallationEdge = (obj?: { __typename?: any } | 
 
 
 
-const EnterpriseServerUserAccount_possibleTypes = ['EnterpriseServerUserAccount']
+const EnterpriseServerUserAccount_possibleTypes: string[] = ['EnterpriseServerUserAccount']
 export const isEnterpriseServerUserAccount = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccount => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccount"')
   return EnterpriseServerUserAccount_possibleTypes.includes(obj.__typename)
@@ -34437,7 +34437,7 @@ export const isEnterpriseServerUserAccount = (obj?: { __typename?: any } | null)
 
 
 
-const EnterpriseServerUserAccountConnection_possibleTypes = ['EnterpriseServerUserAccountConnection']
+const EnterpriseServerUserAccountConnection_possibleTypes: string[] = ['EnterpriseServerUserAccountConnection']
 export const isEnterpriseServerUserAccountConnection = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountConnection"')
   return EnterpriseServerUserAccountConnection_possibleTypes.includes(obj.__typename)
@@ -34445,7 +34445,7 @@ export const isEnterpriseServerUserAccountConnection = (obj?: { __typename?: any
 
 
 
-const EnterpriseServerUserAccountEdge_possibleTypes = ['EnterpriseServerUserAccountEdge']
+const EnterpriseServerUserAccountEdge_possibleTypes: string[] = ['EnterpriseServerUserAccountEdge']
 export const isEnterpriseServerUserAccountEdge = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountEdge"')
   return EnterpriseServerUserAccountEdge_possibleTypes.includes(obj.__typename)
@@ -34453,7 +34453,7 @@ export const isEnterpriseServerUserAccountEdge = (obj?: { __typename?: any } | n
 
 
 
-const EnterpriseServerUserAccountEmail_possibleTypes = ['EnterpriseServerUserAccountEmail']
+const EnterpriseServerUserAccountEmail_possibleTypes: string[] = ['EnterpriseServerUserAccountEmail']
 export const isEnterpriseServerUserAccountEmail = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountEmail => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountEmail"')
   return EnterpriseServerUserAccountEmail_possibleTypes.includes(obj.__typename)
@@ -34461,7 +34461,7 @@ export const isEnterpriseServerUserAccountEmail = (obj?: { __typename?: any } | 
 
 
 
-const EnterpriseServerUserAccountEmailConnection_possibleTypes = ['EnterpriseServerUserAccountEmailConnection']
+const EnterpriseServerUserAccountEmailConnection_possibleTypes: string[] = ['EnterpriseServerUserAccountEmailConnection']
 export const isEnterpriseServerUserAccountEmailConnection = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountEmailConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountEmailConnection"')
   return EnterpriseServerUserAccountEmailConnection_possibleTypes.includes(obj.__typename)
@@ -34469,7 +34469,7 @@ export const isEnterpriseServerUserAccountEmailConnection = (obj?: { __typename?
 
 
 
-const EnterpriseServerUserAccountEmailEdge_possibleTypes = ['EnterpriseServerUserAccountEmailEdge']
+const EnterpriseServerUserAccountEmailEdge_possibleTypes: string[] = ['EnterpriseServerUserAccountEmailEdge']
 export const isEnterpriseServerUserAccountEmailEdge = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountEmailEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountEmailEdge"')
   return EnterpriseServerUserAccountEmailEdge_possibleTypes.includes(obj.__typename)
@@ -34477,7 +34477,7 @@ export const isEnterpriseServerUserAccountEmailEdge = (obj?: { __typename?: any 
 
 
 
-const EnterpriseServerUserAccountsUpload_possibleTypes = ['EnterpriseServerUserAccountsUpload']
+const EnterpriseServerUserAccountsUpload_possibleTypes: string[] = ['EnterpriseServerUserAccountsUpload']
 export const isEnterpriseServerUserAccountsUpload = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountsUpload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountsUpload"')
   return EnterpriseServerUserAccountsUpload_possibleTypes.includes(obj.__typename)
@@ -34485,7 +34485,7 @@ export const isEnterpriseServerUserAccountsUpload = (obj?: { __typename?: any } 
 
 
 
-const EnterpriseServerUserAccountsUploadConnection_possibleTypes = ['EnterpriseServerUserAccountsUploadConnection']
+const EnterpriseServerUserAccountsUploadConnection_possibleTypes: string[] = ['EnterpriseServerUserAccountsUploadConnection']
 export const isEnterpriseServerUserAccountsUploadConnection = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountsUploadConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountsUploadConnection"')
   return EnterpriseServerUserAccountsUploadConnection_possibleTypes.includes(obj.__typename)
@@ -34493,7 +34493,7 @@ export const isEnterpriseServerUserAccountsUploadConnection = (obj?: { __typenam
 
 
 
-const EnterpriseServerUserAccountsUploadEdge_possibleTypes = ['EnterpriseServerUserAccountsUploadEdge']
+const EnterpriseServerUserAccountsUploadEdge_possibleTypes: string[] = ['EnterpriseServerUserAccountsUploadEdge']
 export const isEnterpriseServerUserAccountsUploadEdge = (obj?: { __typename?: any } | null): obj is EnterpriseServerUserAccountsUploadEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseServerUserAccountsUploadEdge"')
   return EnterpriseServerUserAccountsUploadEdge_possibleTypes.includes(obj.__typename)
@@ -34501,7 +34501,7 @@ export const isEnterpriseServerUserAccountsUploadEdge = (obj?: { __typename?: an
 
 
 
-const EnterpriseUserAccount_possibleTypes = ['EnterpriseUserAccount']
+const EnterpriseUserAccount_possibleTypes: string[] = ['EnterpriseUserAccount']
 export const isEnterpriseUserAccount = (obj?: { __typename?: any } | null): obj is EnterpriseUserAccount => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseUserAccount"')
   return EnterpriseUserAccount_possibleTypes.includes(obj.__typename)
@@ -34509,7 +34509,7 @@ export const isEnterpriseUserAccount = (obj?: { __typename?: any } | null): obj 
 
 
 
-const EnterpriseUserAccountConnection_possibleTypes = ['EnterpriseUserAccountConnection']
+const EnterpriseUserAccountConnection_possibleTypes: string[] = ['EnterpriseUserAccountConnection']
 export const isEnterpriseUserAccountConnection = (obj?: { __typename?: any } | null): obj is EnterpriseUserAccountConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseUserAccountConnection"')
   return EnterpriseUserAccountConnection_possibleTypes.includes(obj.__typename)
@@ -34517,7 +34517,7 @@ export const isEnterpriseUserAccountConnection = (obj?: { __typename?: any } | n
 
 
 
-const EnterpriseUserAccountEdge_possibleTypes = ['EnterpriseUserAccountEdge']
+const EnterpriseUserAccountEdge_possibleTypes: string[] = ['EnterpriseUserAccountEdge']
 export const isEnterpriseUserAccountEdge = (obj?: { __typename?: any } | null): obj is EnterpriseUserAccountEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEnterpriseUserAccountEdge"')
   return EnterpriseUserAccountEdge_possibleTypes.includes(obj.__typename)
@@ -34525,7 +34525,7 @@ export const isEnterpriseUserAccountEdge = (obj?: { __typename?: any } | null): 
 
 
 
-const ExternalIdentity_possibleTypes = ['ExternalIdentity']
+const ExternalIdentity_possibleTypes: string[] = ['ExternalIdentity']
 export const isExternalIdentity = (obj?: { __typename?: any } | null): obj is ExternalIdentity => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isExternalIdentity"')
   return ExternalIdentity_possibleTypes.includes(obj.__typename)
@@ -34533,7 +34533,7 @@ export const isExternalIdentity = (obj?: { __typename?: any } | null): obj is Ex
 
 
 
-const ExternalIdentityConnection_possibleTypes = ['ExternalIdentityConnection']
+const ExternalIdentityConnection_possibleTypes: string[] = ['ExternalIdentityConnection']
 export const isExternalIdentityConnection = (obj?: { __typename?: any } | null): obj is ExternalIdentityConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isExternalIdentityConnection"')
   return ExternalIdentityConnection_possibleTypes.includes(obj.__typename)
@@ -34541,7 +34541,7 @@ export const isExternalIdentityConnection = (obj?: { __typename?: any } | null):
 
 
 
-const ExternalIdentityEdge_possibleTypes = ['ExternalIdentityEdge']
+const ExternalIdentityEdge_possibleTypes: string[] = ['ExternalIdentityEdge']
 export const isExternalIdentityEdge = (obj?: { __typename?: any } | null): obj is ExternalIdentityEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isExternalIdentityEdge"')
   return ExternalIdentityEdge_possibleTypes.includes(obj.__typename)
@@ -34549,7 +34549,7 @@ export const isExternalIdentityEdge = (obj?: { __typename?: any } | null): obj i
 
 
 
-const ExternalIdentitySamlAttributes_possibleTypes = ['ExternalIdentitySamlAttributes']
+const ExternalIdentitySamlAttributes_possibleTypes: string[] = ['ExternalIdentitySamlAttributes']
 export const isExternalIdentitySamlAttributes = (obj?: { __typename?: any } | null): obj is ExternalIdentitySamlAttributes => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isExternalIdentitySamlAttributes"')
   return ExternalIdentitySamlAttributes_possibleTypes.includes(obj.__typename)
@@ -34557,7 +34557,7 @@ export const isExternalIdentitySamlAttributes = (obj?: { __typename?: any } | nu
 
 
 
-const ExternalIdentityScimAttributes_possibleTypes = ['ExternalIdentityScimAttributes']
+const ExternalIdentityScimAttributes_possibleTypes: string[] = ['ExternalIdentityScimAttributes']
 export const isExternalIdentityScimAttributes = (obj?: { __typename?: any } | null): obj is ExternalIdentityScimAttributes => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isExternalIdentityScimAttributes"')
   return ExternalIdentityScimAttributes_possibleTypes.includes(obj.__typename)
@@ -34565,7 +34565,7 @@ export const isExternalIdentityScimAttributes = (obj?: { __typename?: any } | nu
 
 
 
-const FollowUserPayload_possibleTypes = ['FollowUserPayload']
+const FollowUserPayload_possibleTypes: string[] = ['FollowUserPayload']
 export const isFollowUserPayload = (obj?: { __typename?: any } | null): obj is FollowUserPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isFollowUserPayload"')
   return FollowUserPayload_possibleTypes.includes(obj.__typename)
@@ -34573,7 +34573,7 @@ export const isFollowUserPayload = (obj?: { __typename?: any } | null): obj is F
 
 
 
-const FollowerConnection_possibleTypes = ['FollowerConnection']
+const FollowerConnection_possibleTypes: string[] = ['FollowerConnection']
 export const isFollowerConnection = (obj?: { __typename?: any } | null): obj is FollowerConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isFollowerConnection"')
   return FollowerConnection_possibleTypes.includes(obj.__typename)
@@ -34581,7 +34581,7 @@ export const isFollowerConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const FollowingConnection_possibleTypes = ['FollowingConnection']
+const FollowingConnection_possibleTypes: string[] = ['FollowingConnection']
 export const isFollowingConnection = (obj?: { __typename?: any } | null): obj is FollowingConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isFollowingConnection"')
   return FollowingConnection_possibleTypes.includes(obj.__typename)
@@ -34589,7 +34589,7 @@ export const isFollowingConnection = (obj?: { __typename?: any } | null): obj is
 
 
 
-const FundingLink_possibleTypes = ['FundingLink']
+const FundingLink_possibleTypes: string[] = ['FundingLink']
 export const isFundingLink = (obj?: { __typename?: any } | null): obj is FundingLink => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isFundingLink"')
   return FundingLink_possibleTypes.includes(obj.__typename)
@@ -34597,7 +34597,7 @@ export const isFundingLink = (obj?: { __typename?: any } | null): obj is Funding
 
 
 
-const GenericHovercardContext_possibleTypes = ['GenericHovercardContext']
+const GenericHovercardContext_possibleTypes: string[] = ['GenericHovercardContext']
 export const isGenericHovercardContext = (obj?: { __typename?: any } | null): obj is GenericHovercardContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGenericHovercardContext"')
   return GenericHovercardContext_possibleTypes.includes(obj.__typename)
@@ -34605,7 +34605,7 @@ export const isGenericHovercardContext = (obj?: { __typename?: any } | null): ob
 
 
 
-const Gist_possibleTypes = ['Gist']
+const Gist_possibleTypes: string[] = ['Gist']
 export const isGist = (obj?: { __typename?: any } | null): obj is Gist => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGist"')
   return Gist_possibleTypes.includes(obj.__typename)
@@ -34613,7 +34613,7 @@ export const isGist = (obj?: { __typename?: any } | null): obj is Gist => {
 
 
 
-const GistComment_possibleTypes = ['GistComment']
+const GistComment_possibleTypes: string[] = ['GistComment']
 export const isGistComment = (obj?: { __typename?: any } | null): obj is GistComment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGistComment"')
   return GistComment_possibleTypes.includes(obj.__typename)
@@ -34621,7 +34621,7 @@ export const isGistComment = (obj?: { __typename?: any } | null): obj is GistCom
 
 
 
-const GistCommentConnection_possibleTypes = ['GistCommentConnection']
+const GistCommentConnection_possibleTypes: string[] = ['GistCommentConnection']
 export const isGistCommentConnection = (obj?: { __typename?: any } | null): obj is GistCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGistCommentConnection"')
   return GistCommentConnection_possibleTypes.includes(obj.__typename)
@@ -34629,7 +34629,7 @@ export const isGistCommentConnection = (obj?: { __typename?: any } | null): obj 
 
 
 
-const GistCommentEdge_possibleTypes = ['GistCommentEdge']
+const GistCommentEdge_possibleTypes: string[] = ['GistCommentEdge']
 export const isGistCommentEdge = (obj?: { __typename?: any } | null): obj is GistCommentEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGistCommentEdge"')
   return GistCommentEdge_possibleTypes.includes(obj.__typename)
@@ -34637,7 +34637,7 @@ export const isGistCommentEdge = (obj?: { __typename?: any } | null): obj is Gis
 
 
 
-const GistConnection_possibleTypes = ['GistConnection']
+const GistConnection_possibleTypes: string[] = ['GistConnection']
 export const isGistConnection = (obj?: { __typename?: any } | null): obj is GistConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGistConnection"')
   return GistConnection_possibleTypes.includes(obj.__typename)
@@ -34645,7 +34645,7 @@ export const isGistConnection = (obj?: { __typename?: any } | null): obj is Gist
 
 
 
-const GistEdge_possibleTypes = ['GistEdge']
+const GistEdge_possibleTypes: string[] = ['GistEdge']
 export const isGistEdge = (obj?: { __typename?: any } | null): obj is GistEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGistEdge"')
   return GistEdge_possibleTypes.includes(obj.__typename)
@@ -34653,7 +34653,7 @@ export const isGistEdge = (obj?: { __typename?: any } | null): obj is GistEdge =
 
 
 
-const GistFile_possibleTypes = ['GistFile']
+const GistFile_possibleTypes: string[] = ['GistFile']
 export const isGistFile = (obj?: { __typename?: any } | null): obj is GistFile => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGistFile"')
   return GistFile_possibleTypes.includes(obj.__typename)
@@ -34661,7 +34661,7 @@ export const isGistFile = (obj?: { __typename?: any } | null): obj is GistFile =
 
 
 
-const GitActor_possibleTypes = ['GitActor']
+const GitActor_possibleTypes: string[] = ['GitActor']
 export const isGitActor = (obj?: { __typename?: any } | null): obj is GitActor => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGitActor"')
   return GitActor_possibleTypes.includes(obj.__typename)
@@ -34669,7 +34669,7 @@ export const isGitActor = (obj?: { __typename?: any } | null): obj is GitActor =
 
 
 
-const GitHubMetadata_possibleTypes = ['GitHubMetadata']
+const GitHubMetadata_possibleTypes: string[] = ['GitHubMetadata']
 export const isGitHubMetadata = (obj?: { __typename?: any } | null): obj is GitHubMetadata => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGitHubMetadata"')
   return GitHubMetadata_possibleTypes.includes(obj.__typename)
@@ -34677,7 +34677,7 @@ export const isGitHubMetadata = (obj?: { __typename?: any } | null): obj is GitH
 
 
 
-const GitObject_possibleTypes = ['Blob','Commit','Tag','Tree']
+const GitObject_possibleTypes: string[] = ['Blob','Commit','Tag','Tree']
 export const isGitObject = (obj?: { __typename?: any } | null): obj is GitObject => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGitObject"')
   return GitObject_possibleTypes.includes(obj.__typename)
@@ -34685,7 +34685,7 @@ export const isGitObject = (obj?: { __typename?: any } | null): obj is GitObject
 
 
 
-const GitSignature_possibleTypes = ['GpgSignature','SmimeSignature','UnknownSignature']
+const GitSignature_possibleTypes: string[] = ['GpgSignature','SmimeSignature','UnknownSignature']
 export const isGitSignature = (obj?: { __typename?: any } | null): obj is GitSignature => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGitSignature"')
   return GitSignature_possibleTypes.includes(obj.__typename)
@@ -34693,7 +34693,7 @@ export const isGitSignature = (obj?: { __typename?: any } | null): obj is GitSig
 
 
 
-const GpgSignature_possibleTypes = ['GpgSignature']
+const GpgSignature_possibleTypes: string[] = ['GpgSignature']
 export const isGpgSignature = (obj?: { __typename?: any } | null): obj is GpgSignature => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGpgSignature"')
   return GpgSignature_possibleTypes.includes(obj.__typename)
@@ -34701,7 +34701,7 @@ export const isGpgSignature = (obj?: { __typename?: any } | null): obj is GpgSig
 
 
 
-const HeadRefDeletedEvent_possibleTypes = ['HeadRefDeletedEvent']
+const HeadRefDeletedEvent_possibleTypes: string[] = ['HeadRefDeletedEvent']
 export const isHeadRefDeletedEvent = (obj?: { __typename?: any } | null): obj is HeadRefDeletedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHeadRefDeletedEvent"')
   return HeadRefDeletedEvent_possibleTypes.includes(obj.__typename)
@@ -34709,7 +34709,7 @@ export const isHeadRefDeletedEvent = (obj?: { __typename?: any } | null): obj is
 
 
 
-const HeadRefForcePushedEvent_possibleTypes = ['HeadRefForcePushedEvent']
+const HeadRefForcePushedEvent_possibleTypes: string[] = ['HeadRefForcePushedEvent']
 export const isHeadRefForcePushedEvent = (obj?: { __typename?: any } | null): obj is HeadRefForcePushedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHeadRefForcePushedEvent"')
   return HeadRefForcePushedEvent_possibleTypes.includes(obj.__typename)
@@ -34717,7 +34717,7 @@ export const isHeadRefForcePushedEvent = (obj?: { __typename?: any } | null): ob
 
 
 
-const HeadRefRestoredEvent_possibleTypes = ['HeadRefRestoredEvent']
+const HeadRefRestoredEvent_possibleTypes: string[] = ['HeadRefRestoredEvent']
 export const isHeadRefRestoredEvent = (obj?: { __typename?: any } | null): obj is HeadRefRestoredEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHeadRefRestoredEvent"')
   return HeadRefRestoredEvent_possibleTypes.includes(obj.__typename)
@@ -34725,7 +34725,7 @@ export const isHeadRefRestoredEvent = (obj?: { __typename?: any } | null): obj i
 
 
 
-const Hovercard_possibleTypes = ['Hovercard']
+const Hovercard_possibleTypes: string[] = ['Hovercard']
 export const isHovercard = (obj?: { __typename?: any } | null): obj is Hovercard => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHovercard"')
   return Hovercard_possibleTypes.includes(obj.__typename)
@@ -34733,7 +34733,7 @@ export const isHovercard = (obj?: { __typename?: any } | null): obj is Hovercard
 
 
 
-const HovercardContext_possibleTypes = ['GenericHovercardContext','OrganizationTeamsHovercardContext','OrganizationsHovercardContext','ReviewStatusHovercardContext','ViewerHovercardContext']
+const HovercardContext_possibleTypes: string[] = ['GenericHovercardContext','OrganizationTeamsHovercardContext','OrganizationsHovercardContext','ReviewStatusHovercardContext','ViewerHovercardContext']
 export const isHovercardContext = (obj?: { __typename?: any } | null): obj is HovercardContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHovercardContext"')
   return HovercardContext_possibleTypes.includes(obj.__typename)
@@ -34741,7 +34741,7 @@ export const isHovercardContext = (obj?: { __typename?: any } | null): obj is Ho
 
 
 
-const ImportProjectPayload_possibleTypes = ['ImportProjectPayload']
+const ImportProjectPayload_possibleTypes: string[] = ['ImportProjectPayload']
 export const isImportProjectPayload = (obj?: { __typename?: any } | null): obj is ImportProjectPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isImportProjectPayload"')
   return ImportProjectPayload_possibleTypes.includes(obj.__typename)
@@ -34749,7 +34749,7 @@ export const isImportProjectPayload = (obj?: { __typename?: any } | null): obj i
 
 
 
-const InviteEnterpriseAdminPayload_possibleTypes = ['InviteEnterpriseAdminPayload']
+const InviteEnterpriseAdminPayload_possibleTypes: string[] = ['InviteEnterpriseAdminPayload']
 export const isInviteEnterpriseAdminPayload = (obj?: { __typename?: any } | null): obj is InviteEnterpriseAdminPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isInviteEnterpriseAdminPayload"')
   return InviteEnterpriseAdminPayload_possibleTypes.includes(obj.__typename)
@@ -34757,7 +34757,7 @@ export const isInviteEnterpriseAdminPayload = (obj?: { __typename?: any } | null
 
 
 
-const IpAllowListEntry_possibleTypes = ['IpAllowListEntry']
+const IpAllowListEntry_possibleTypes: string[] = ['IpAllowListEntry']
 export const isIpAllowListEntry = (obj?: { __typename?: any } | null): obj is IpAllowListEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIpAllowListEntry"')
   return IpAllowListEntry_possibleTypes.includes(obj.__typename)
@@ -34765,7 +34765,7 @@ export const isIpAllowListEntry = (obj?: { __typename?: any } | null): obj is Ip
 
 
 
-const IpAllowListEntryConnection_possibleTypes = ['IpAllowListEntryConnection']
+const IpAllowListEntryConnection_possibleTypes: string[] = ['IpAllowListEntryConnection']
 export const isIpAllowListEntryConnection = (obj?: { __typename?: any } | null): obj is IpAllowListEntryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIpAllowListEntryConnection"')
   return IpAllowListEntryConnection_possibleTypes.includes(obj.__typename)
@@ -34773,7 +34773,7 @@ export const isIpAllowListEntryConnection = (obj?: { __typename?: any } | null):
 
 
 
-const IpAllowListEntryEdge_possibleTypes = ['IpAllowListEntryEdge']
+const IpAllowListEntryEdge_possibleTypes: string[] = ['IpAllowListEntryEdge']
 export const isIpAllowListEntryEdge = (obj?: { __typename?: any } | null): obj is IpAllowListEntryEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIpAllowListEntryEdge"')
   return IpAllowListEntryEdge_possibleTypes.includes(obj.__typename)
@@ -34781,7 +34781,7 @@ export const isIpAllowListEntryEdge = (obj?: { __typename?: any } | null): obj i
 
 
 
-const IpAllowListOwner_possibleTypes = ['Enterprise','Organization']
+const IpAllowListOwner_possibleTypes: string[] = ['Enterprise','Organization']
 export const isIpAllowListOwner = (obj?: { __typename?: any } | null): obj is IpAllowListOwner => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIpAllowListOwner"')
   return IpAllowListOwner_possibleTypes.includes(obj.__typename)
@@ -34789,7 +34789,7 @@ export const isIpAllowListOwner = (obj?: { __typename?: any } | null): obj is Ip
 
 
 
-const Issue_possibleTypes = ['Issue']
+const Issue_possibleTypes: string[] = ['Issue']
 export const isIssue = (obj?: { __typename?: any } | null): obj is Issue => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssue"')
   return Issue_possibleTypes.includes(obj.__typename)
@@ -34797,7 +34797,7 @@ export const isIssue = (obj?: { __typename?: any } | null): obj is Issue => {
 
 
 
-const IssueComment_possibleTypes = ['IssueComment']
+const IssueComment_possibleTypes: string[] = ['IssueComment']
 export const isIssueComment = (obj?: { __typename?: any } | null): obj is IssueComment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueComment"')
   return IssueComment_possibleTypes.includes(obj.__typename)
@@ -34805,7 +34805,7 @@ export const isIssueComment = (obj?: { __typename?: any } | null): obj is IssueC
 
 
 
-const IssueCommentConnection_possibleTypes = ['IssueCommentConnection']
+const IssueCommentConnection_possibleTypes: string[] = ['IssueCommentConnection']
 export const isIssueCommentConnection = (obj?: { __typename?: any } | null): obj is IssueCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueCommentConnection"')
   return IssueCommentConnection_possibleTypes.includes(obj.__typename)
@@ -34813,7 +34813,7 @@ export const isIssueCommentConnection = (obj?: { __typename?: any } | null): obj
 
 
 
-const IssueCommentEdge_possibleTypes = ['IssueCommentEdge']
+const IssueCommentEdge_possibleTypes: string[] = ['IssueCommentEdge']
 export const isIssueCommentEdge = (obj?: { __typename?: any } | null): obj is IssueCommentEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueCommentEdge"')
   return IssueCommentEdge_possibleTypes.includes(obj.__typename)
@@ -34821,7 +34821,7 @@ export const isIssueCommentEdge = (obj?: { __typename?: any } | null): obj is Is
 
 
 
-const IssueConnection_possibleTypes = ['IssueConnection']
+const IssueConnection_possibleTypes: string[] = ['IssueConnection']
 export const isIssueConnection = (obj?: { __typename?: any } | null): obj is IssueConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueConnection"')
   return IssueConnection_possibleTypes.includes(obj.__typename)
@@ -34829,7 +34829,7 @@ export const isIssueConnection = (obj?: { __typename?: any } | null): obj is Iss
 
 
 
-const IssueContributionsByRepository_possibleTypes = ['IssueContributionsByRepository']
+const IssueContributionsByRepository_possibleTypes: string[] = ['IssueContributionsByRepository']
 export const isIssueContributionsByRepository = (obj?: { __typename?: any } | null): obj is IssueContributionsByRepository => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueContributionsByRepository"')
   return IssueContributionsByRepository_possibleTypes.includes(obj.__typename)
@@ -34837,7 +34837,7 @@ export const isIssueContributionsByRepository = (obj?: { __typename?: any } | nu
 
 
 
-const IssueEdge_possibleTypes = ['IssueEdge']
+const IssueEdge_possibleTypes: string[] = ['IssueEdge']
 export const isIssueEdge = (obj?: { __typename?: any } | null): obj is IssueEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueEdge"')
   return IssueEdge_possibleTypes.includes(obj.__typename)
@@ -34845,7 +34845,7 @@ export const isIssueEdge = (obj?: { __typename?: any } | null): obj is IssueEdge
 
 
 
-const IssueOrPullRequest_possibleTypes = ['Issue','PullRequest']
+const IssueOrPullRequest_possibleTypes: string[] = ['Issue','PullRequest']
 export const isIssueOrPullRequest = (obj?: { __typename?: any } | null): obj is IssueOrPullRequest => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueOrPullRequest"')
   return IssueOrPullRequest_possibleTypes.includes(obj.__typename)
@@ -34853,7 +34853,7 @@ export const isIssueOrPullRequest = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const IssueTimelineConnection_possibleTypes = ['IssueTimelineConnection']
+const IssueTimelineConnection_possibleTypes: string[] = ['IssueTimelineConnection']
 export const isIssueTimelineConnection = (obj?: { __typename?: any } | null): obj is IssueTimelineConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueTimelineConnection"')
   return IssueTimelineConnection_possibleTypes.includes(obj.__typename)
@@ -34861,7 +34861,7 @@ export const isIssueTimelineConnection = (obj?: { __typename?: any } | null): ob
 
 
 
-const IssueTimelineItem_possibleTypes = ['AssignedEvent','ClosedEvent','Commit','CrossReferencedEvent','DemilestonedEvent','IssueComment','LabeledEvent','LockedEvent','MilestonedEvent','ReferencedEvent','RenamedTitleEvent','ReopenedEvent','SubscribedEvent','TransferredEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnsubscribedEvent','UserBlockedEvent']
+const IssueTimelineItem_possibleTypes: string[] = ['AssignedEvent','ClosedEvent','Commit','CrossReferencedEvent','DemilestonedEvent','IssueComment','LabeledEvent','LockedEvent','MilestonedEvent','ReferencedEvent','RenamedTitleEvent','ReopenedEvent','SubscribedEvent','TransferredEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnsubscribedEvent','UserBlockedEvent']
 export const isIssueTimelineItem = (obj?: { __typename?: any } | null): obj is IssueTimelineItem => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueTimelineItem"')
   return IssueTimelineItem_possibleTypes.includes(obj.__typename)
@@ -34869,7 +34869,7 @@ export const isIssueTimelineItem = (obj?: { __typename?: any } | null): obj is I
 
 
 
-const IssueTimelineItemEdge_possibleTypes = ['IssueTimelineItemEdge']
+const IssueTimelineItemEdge_possibleTypes: string[] = ['IssueTimelineItemEdge']
 export const isIssueTimelineItemEdge = (obj?: { __typename?: any } | null): obj is IssueTimelineItemEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueTimelineItemEdge"')
   return IssueTimelineItemEdge_possibleTypes.includes(obj.__typename)
@@ -34877,7 +34877,7 @@ export const isIssueTimelineItemEdge = (obj?: { __typename?: any } | null): obj 
 
 
 
-const IssueTimelineItems_possibleTypes = ['AddedToProjectEvent','AssignedEvent','ClosedEvent','CommentDeletedEvent','ConnectedEvent','ConvertedNoteToIssueEvent','CrossReferencedEvent','DemilestonedEvent','DisconnectedEvent','IssueComment','LabeledEvent','LockedEvent','MarkedAsDuplicateEvent','MentionedEvent','MilestonedEvent','MovedColumnsInProjectEvent','PinnedEvent','ReferencedEvent','RemovedFromProjectEvent','RenamedTitleEvent','ReopenedEvent','SubscribedEvent','TransferredEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnmarkedAsDuplicateEvent','UnpinnedEvent','UnsubscribedEvent','UserBlockedEvent']
+const IssueTimelineItems_possibleTypes: string[] = ['AddedToProjectEvent','AssignedEvent','ClosedEvent','CommentDeletedEvent','ConnectedEvent','ConvertedNoteToIssueEvent','CrossReferencedEvent','DemilestonedEvent','DisconnectedEvent','IssueComment','LabeledEvent','LockedEvent','MarkedAsDuplicateEvent','MentionedEvent','MilestonedEvent','MovedColumnsInProjectEvent','PinnedEvent','ReferencedEvent','RemovedFromProjectEvent','RenamedTitleEvent','ReopenedEvent','SubscribedEvent','TransferredEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnmarkedAsDuplicateEvent','UnpinnedEvent','UnsubscribedEvent','UserBlockedEvent']
 export const isIssueTimelineItems = (obj?: { __typename?: any } | null): obj is IssueTimelineItems => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueTimelineItems"')
   return IssueTimelineItems_possibleTypes.includes(obj.__typename)
@@ -34885,7 +34885,7 @@ export const isIssueTimelineItems = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const IssueTimelineItemsConnection_possibleTypes = ['IssueTimelineItemsConnection']
+const IssueTimelineItemsConnection_possibleTypes: string[] = ['IssueTimelineItemsConnection']
 export const isIssueTimelineItemsConnection = (obj?: { __typename?: any } | null): obj is IssueTimelineItemsConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueTimelineItemsConnection"')
   return IssueTimelineItemsConnection_possibleTypes.includes(obj.__typename)
@@ -34893,7 +34893,7 @@ export const isIssueTimelineItemsConnection = (obj?: { __typename?: any } | null
 
 
 
-const IssueTimelineItemsEdge_possibleTypes = ['IssueTimelineItemsEdge']
+const IssueTimelineItemsEdge_possibleTypes: string[] = ['IssueTimelineItemsEdge']
 export const isIssueTimelineItemsEdge = (obj?: { __typename?: any } | null): obj is IssueTimelineItemsEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isIssueTimelineItemsEdge"')
   return IssueTimelineItemsEdge_possibleTypes.includes(obj.__typename)
@@ -34901,7 +34901,7 @@ export const isIssueTimelineItemsEdge = (obj?: { __typename?: any } | null): obj
 
 
 
-const JoinedGitHubContribution_possibleTypes = ['JoinedGitHubContribution']
+const JoinedGitHubContribution_possibleTypes: string[] = ['JoinedGitHubContribution']
 export const isJoinedGitHubContribution = (obj?: { __typename?: any } | null): obj is JoinedGitHubContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isJoinedGitHubContribution"')
   return JoinedGitHubContribution_possibleTypes.includes(obj.__typename)
@@ -34909,7 +34909,7 @@ export const isJoinedGitHubContribution = (obj?: { __typename?: any } | null): o
 
 
 
-const Label_possibleTypes = ['Label']
+const Label_possibleTypes: string[] = ['Label']
 export const isLabel = (obj?: { __typename?: any } | null): obj is Label => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLabel"')
   return Label_possibleTypes.includes(obj.__typename)
@@ -34917,7 +34917,7 @@ export const isLabel = (obj?: { __typename?: any } | null): obj is Label => {
 
 
 
-const LabelConnection_possibleTypes = ['LabelConnection']
+const LabelConnection_possibleTypes: string[] = ['LabelConnection']
 export const isLabelConnection = (obj?: { __typename?: any } | null): obj is LabelConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLabelConnection"')
   return LabelConnection_possibleTypes.includes(obj.__typename)
@@ -34925,7 +34925,7 @@ export const isLabelConnection = (obj?: { __typename?: any } | null): obj is Lab
 
 
 
-const LabelEdge_possibleTypes = ['LabelEdge']
+const LabelEdge_possibleTypes: string[] = ['LabelEdge']
 export const isLabelEdge = (obj?: { __typename?: any } | null): obj is LabelEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLabelEdge"')
   return LabelEdge_possibleTypes.includes(obj.__typename)
@@ -34933,7 +34933,7 @@ export const isLabelEdge = (obj?: { __typename?: any } | null): obj is LabelEdge
 
 
 
-const Labelable_possibleTypes = ['Issue','PullRequest']
+const Labelable_possibleTypes: string[] = ['Issue','PullRequest']
 export const isLabelable = (obj?: { __typename?: any } | null): obj is Labelable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLabelable"')
   return Labelable_possibleTypes.includes(obj.__typename)
@@ -34941,7 +34941,7 @@ export const isLabelable = (obj?: { __typename?: any } | null): obj is Labelable
 
 
 
-const LabeledEvent_possibleTypes = ['LabeledEvent']
+const LabeledEvent_possibleTypes: string[] = ['LabeledEvent']
 export const isLabeledEvent = (obj?: { __typename?: any } | null): obj is LabeledEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLabeledEvent"')
   return LabeledEvent_possibleTypes.includes(obj.__typename)
@@ -34949,7 +34949,7 @@ export const isLabeledEvent = (obj?: { __typename?: any } | null): obj is Labele
 
 
 
-const Language_possibleTypes = ['Language']
+const Language_possibleTypes: string[] = ['Language']
 export const isLanguage = (obj?: { __typename?: any } | null): obj is Language => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLanguage"')
   return Language_possibleTypes.includes(obj.__typename)
@@ -34957,7 +34957,7 @@ export const isLanguage = (obj?: { __typename?: any } | null): obj is Language =
 
 
 
-const LanguageConnection_possibleTypes = ['LanguageConnection']
+const LanguageConnection_possibleTypes: string[] = ['LanguageConnection']
 export const isLanguageConnection = (obj?: { __typename?: any } | null): obj is LanguageConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLanguageConnection"')
   return LanguageConnection_possibleTypes.includes(obj.__typename)
@@ -34965,7 +34965,7 @@ export const isLanguageConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const LanguageEdge_possibleTypes = ['LanguageEdge']
+const LanguageEdge_possibleTypes: string[] = ['LanguageEdge']
 export const isLanguageEdge = (obj?: { __typename?: any } | null): obj is LanguageEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLanguageEdge"')
   return LanguageEdge_possibleTypes.includes(obj.__typename)
@@ -34973,7 +34973,7 @@ export const isLanguageEdge = (obj?: { __typename?: any } | null): obj is Langua
 
 
 
-const License_possibleTypes = ['License']
+const License_possibleTypes: string[] = ['License']
 export const isLicense = (obj?: { __typename?: any } | null): obj is License => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLicense"')
   return License_possibleTypes.includes(obj.__typename)
@@ -34981,7 +34981,7 @@ export const isLicense = (obj?: { __typename?: any } | null): obj is License => 
 
 
 
-const LicenseRule_possibleTypes = ['LicenseRule']
+const LicenseRule_possibleTypes: string[] = ['LicenseRule']
 export const isLicenseRule = (obj?: { __typename?: any } | null): obj is LicenseRule => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLicenseRule"')
   return LicenseRule_possibleTypes.includes(obj.__typename)
@@ -34989,7 +34989,7 @@ export const isLicenseRule = (obj?: { __typename?: any } | null): obj is License
 
 
 
-const LinkRepositoryToProjectPayload_possibleTypes = ['LinkRepositoryToProjectPayload']
+const LinkRepositoryToProjectPayload_possibleTypes: string[] = ['LinkRepositoryToProjectPayload']
 export const isLinkRepositoryToProjectPayload = (obj?: { __typename?: any } | null): obj is LinkRepositoryToProjectPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLinkRepositoryToProjectPayload"')
   return LinkRepositoryToProjectPayload_possibleTypes.includes(obj.__typename)
@@ -34997,7 +34997,7 @@ export const isLinkRepositoryToProjectPayload = (obj?: { __typename?: any } | nu
 
 
 
-const LockLockablePayload_possibleTypes = ['LockLockablePayload']
+const LockLockablePayload_possibleTypes: string[] = ['LockLockablePayload']
 export const isLockLockablePayload = (obj?: { __typename?: any } | null): obj is LockLockablePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLockLockablePayload"')
   return LockLockablePayload_possibleTypes.includes(obj.__typename)
@@ -35005,7 +35005,7 @@ export const isLockLockablePayload = (obj?: { __typename?: any } | null): obj is
 
 
 
-const Lockable_possibleTypes = ['Issue','PullRequest']
+const Lockable_possibleTypes: string[] = ['Issue','PullRequest']
 export const isLockable = (obj?: { __typename?: any } | null): obj is Lockable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLockable"')
   return Lockable_possibleTypes.includes(obj.__typename)
@@ -35013,7 +35013,7 @@ export const isLockable = (obj?: { __typename?: any } | null): obj is Lockable =
 
 
 
-const LockedEvent_possibleTypes = ['LockedEvent']
+const LockedEvent_possibleTypes: string[] = ['LockedEvent']
 export const isLockedEvent = (obj?: { __typename?: any } | null): obj is LockedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isLockedEvent"')
   return LockedEvent_possibleTypes.includes(obj.__typename)
@@ -35021,7 +35021,7 @@ export const isLockedEvent = (obj?: { __typename?: any } | null): obj is LockedE
 
 
 
-const Mannequin_possibleTypes = ['Mannequin']
+const Mannequin_possibleTypes: string[] = ['Mannequin']
 export const isMannequin = (obj?: { __typename?: any } | null): obj is Mannequin => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMannequin"')
   return Mannequin_possibleTypes.includes(obj.__typename)
@@ -35029,7 +35029,7 @@ export const isMannequin = (obj?: { __typename?: any } | null): obj is Mannequin
 
 
 
-const MarkPullRequestReadyForReviewPayload_possibleTypes = ['MarkPullRequestReadyForReviewPayload']
+const MarkPullRequestReadyForReviewPayload_possibleTypes: string[] = ['MarkPullRequestReadyForReviewPayload']
 export const isMarkPullRequestReadyForReviewPayload = (obj?: { __typename?: any } | null): obj is MarkPullRequestReadyForReviewPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMarkPullRequestReadyForReviewPayload"')
   return MarkPullRequestReadyForReviewPayload_possibleTypes.includes(obj.__typename)
@@ -35037,7 +35037,7 @@ export const isMarkPullRequestReadyForReviewPayload = (obj?: { __typename?: any 
 
 
 
-const MarkedAsDuplicateEvent_possibleTypes = ['MarkedAsDuplicateEvent']
+const MarkedAsDuplicateEvent_possibleTypes: string[] = ['MarkedAsDuplicateEvent']
 export const isMarkedAsDuplicateEvent = (obj?: { __typename?: any } | null): obj is MarkedAsDuplicateEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMarkedAsDuplicateEvent"')
   return MarkedAsDuplicateEvent_possibleTypes.includes(obj.__typename)
@@ -35045,7 +35045,7 @@ export const isMarkedAsDuplicateEvent = (obj?: { __typename?: any } | null): obj
 
 
 
-const MarketplaceCategory_possibleTypes = ['MarketplaceCategory']
+const MarketplaceCategory_possibleTypes: string[] = ['MarketplaceCategory']
 export const isMarketplaceCategory = (obj?: { __typename?: any } | null): obj is MarketplaceCategory => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMarketplaceCategory"')
   return MarketplaceCategory_possibleTypes.includes(obj.__typename)
@@ -35053,7 +35053,7 @@ export const isMarketplaceCategory = (obj?: { __typename?: any } | null): obj is
 
 
 
-const MarketplaceListing_possibleTypes = ['MarketplaceListing']
+const MarketplaceListing_possibleTypes: string[] = ['MarketplaceListing']
 export const isMarketplaceListing = (obj?: { __typename?: any } | null): obj is MarketplaceListing => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMarketplaceListing"')
   return MarketplaceListing_possibleTypes.includes(obj.__typename)
@@ -35061,7 +35061,7 @@ export const isMarketplaceListing = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const MarketplaceListingConnection_possibleTypes = ['MarketplaceListingConnection']
+const MarketplaceListingConnection_possibleTypes: string[] = ['MarketplaceListingConnection']
 export const isMarketplaceListingConnection = (obj?: { __typename?: any } | null): obj is MarketplaceListingConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMarketplaceListingConnection"')
   return MarketplaceListingConnection_possibleTypes.includes(obj.__typename)
@@ -35069,7 +35069,7 @@ export const isMarketplaceListingConnection = (obj?: { __typename?: any } | null
 
 
 
-const MarketplaceListingEdge_possibleTypes = ['MarketplaceListingEdge']
+const MarketplaceListingEdge_possibleTypes: string[] = ['MarketplaceListingEdge']
 export const isMarketplaceListingEdge = (obj?: { __typename?: any } | null): obj is MarketplaceListingEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMarketplaceListingEdge"')
   return MarketplaceListingEdge_possibleTypes.includes(obj.__typename)
@@ -35077,7 +35077,7 @@ export const isMarketplaceListingEdge = (obj?: { __typename?: any } | null): obj
 
 
 
-const MemberStatusable_possibleTypes = ['Organization','Team']
+const MemberStatusable_possibleTypes: string[] = ['Organization','Team']
 export const isMemberStatusable = (obj?: { __typename?: any } | null): obj is MemberStatusable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMemberStatusable"')
   return MemberStatusable_possibleTypes.includes(obj.__typename)
@@ -35085,7 +35085,7 @@ export const isMemberStatusable = (obj?: { __typename?: any } | null): obj is Me
 
 
 
-const MembersCanDeleteReposClearAuditEntry_possibleTypes = ['MembersCanDeleteReposClearAuditEntry']
+const MembersCanDeleteReposClearAuditEntry_possibleTypes: string[] = ['MembersCanDeleteReposClearAuditEntry']
 export const isMembersCanDeleteReposClearAuditEntry = (obj?: { __typename?: any } | null): obj is MembersCanDeleteReposClearAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMembersCanDeleteReposClearAuditEntry"')
   return MembersCanDeleteReposClearAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35093,7 +35093,7 @@ export const isMembersCanDeleteReposClearAuditEntry = (obj?: { __typename?: any 
 
 
 
-const MembersCanDeleteReposDisableAuditEntry_possibleTypes = ['MembersCanDeleteReposDisableAuditEntry']
+const MembersCanDeleteReposDisableAuditEntry_possibleTypes: string[] = ['MembersCanDeleteReposDisableAuditEntry']
 export const isMembersCanDeleteReposDisableAuditEntry = (obj?: { __typename?: any } | null): obj is MembersCanDeleteReposDisableAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMembersCanDeleteReposDisableAuditEntry"')
   return MembersCanDeleteReposDisableAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35101,7 +35101,7 @@ export const isMembersCanDeleteReposDisableAuditEntry = (obj?: { __typename?: an
 
 
 
-const MembersCanDeleteReposEnableAuditEntry_possibleTypes = ['MembersCanDeleteReposEnableAuditEntry']
+const MembersCanDeleteReposEnableAuditEntry_possibleTypes: string[] = ['MembersCanDeleteReposEnableAuditEntry']
 export const isMembersCanDeleteReposEnableAuditEntry = (obj?: { __typename?: any } | null): obj is MembersCanDeleteReposEnableAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMembersCanDeleteReposEnableAuditEntry"')
   return MembersCanDeleteReposEnableAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35109,7 +35109,7 @@ export const isMembersCanDeleteReposEnableAuditEntry = (obj?: { __typename?: any
 
 
 
-const MentionedEvent_possibleTypes = ['MentionedEvent']
+const MentionedEvent_possibleTypes: string[] = ['MentionedEvent']
 export const isMentionedEvent = (obj?: { __typename?: any } | null): obj is MentionedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMentionedEvent"')
   return MentionedEvent_possibleTypes.includes(obj.__typename)
@@ -35117,7 +35117,7 @@ export const isMentionedEvent = (obj?: { __typename?: any } | null): obj is Ment
 
 
 
-const MergeBranchPayload_possibleTypes = ['MergeBranchPayload']
+const MergeBranchPayload_possibleTypes: string[] = ['MergeBranchPayload']
 export const isMergeBranchPayload = (obj?: { __typename?: any } | null): obj is MergeBranchPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMergeBranchPayload"')
   return MergeBranchPayload_possibleTypes.includes(obj.__typename)
@@ -35125,7 +35125,7 @@ export const isMergeBranchPayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const MergePullRequestPayload_possibleTypes = ['MergePullRequestPayload']
+const MergePullRequestPayload_possibleTypes: string[] = ['MergePullRequestPayload']
 export const isMergePullRequestPayload = (obj?: { __typename?: any } | null): obj is MergePullRequestPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMergePullRequestPayload"')
   return MergePullRequestPayload_possibleTypes.includes(obj.__typename)
@@ -35133,7 +35133,7 @@ export const isMergePullRequestPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const MergedEvent_possibleTypes = ['MergedEvent']
+const MergedEvent_possibleTypes: string[] = ['MergedEvent']
 export const isMergedEvent = (obj?: { __typename?: any } | null): obj is MergedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMergedEvent"')
   return MergedEvent_possibleTypes.includes(obj.__typename)
@@ -35141,7 +35141,7 @@ export const isMergedEvent = (obj?: { __typename?: any } | null): obj is MergedE
 
 
 
-const Milestone_possibleTypes = ['Milestone']
+const Milestone_possibleTypes: string[] = ['Milestone']
 export const isMilestone = (obj?: { __typename?: any } | null): obj is Milestone => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMilestone"')
   return Milestone_possibleTypes.includes(obj.__typename)
@@ -35149,7 +35149,7 @@ export const isMilestone = (obj?: { __typename?: any } | null): obj is Milestone
 
 
 
-const MilestoneConnection_possibleTypes = ['MilestoneConnection']
+const MilestoneConnection_possibleTypes: string[] = ['MilestoneConnection']
 export const isMilestoneConnection = (obj?: { __typename?: any } | null): obj is MilestoneConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMilestoneConnection"')
   return MilestoneConnection_possibleTypes.includes(obj.__typename)
@@ -35157,7 +35157,7 @@ export const isMilestoneConnection = (obj?: { __typename?: any } | null): obj is
 
 
 
-const MilestoneEdge_possibleTypes = ['MilestoneEdge']
+const MilestoneEdge_possibleTypes: string[] = ['MilestoneEdge']
 export const isMilestoneEdge = (obj?: { __typename?: any } | null): obj is MilestoneEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMilestoneEdge"')
   return MilestoneEdge_possibleTypes.includes(obj.__typename)
@@ -35165,7 +35165,7 @@ export const isMilestoneEdge = (obj?: { __typename?: any } | null): obj is Miles
 
 
 
-const MilestoneItem_possibleTypes = ['Issue','PullRequest']
+const MilestoneItem_possibleTypes: string[] = ['Issue','PullRequest']
 export const isMilestoneItem = (obj?: { __typename?: any } | null): obj is MilestoneItem => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMilestoneItem"')
   return MilestoneItem_possibleTypes.includes(obj.__typename)
@@ -35173,7 +35173,7 @@ export const isMilestoneItem = (obj?: { __typename?: any } | null): obj is Miles
 
 
 
-const MilestonedEvent_possibleTypes = ['MilestonedEvent']
+const MilestonedEvent_possibleTypes: string[] = ['MilestonedEvent']
 export const isMilestonedEvent = (obj?: { __typename?: any } | null): obj is MilestonedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMilestonedEvent"')
   return MilestonedEvent_possibleTypes.includes(obj.__typename)
@@ -35181,7 +35181,7 @@ export const isMilestonedEvent = (obj?: { __typename?: any } | null): obj is Mil
 
 
 
-const Minimizable_possibleTypes = ['CommitComment','GistComment','IssueComment','PullRequestReviewComment']
+const Minimizable_possibleTypes: string[] = ['CommitComment','GistComment','IssueComment','PullRequestReviewComment']
 export const isMinimizable = (obj?: { __typename?: any } | null): obj is Minimizable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMinimizable"')
   return Minimizable_possibleTypes.includes(obj.__typename)
@@ -35189,7 +35189,7 @@ export const isMinimizable = (obj?: { __typename?: any } | null): obj is Minimiz
 
 
 
-const MinimizeCommentPayload_possibleTypes = ['MinimizeCommentPayload']
+const MinimizeCommentPayload_possibleTypes: string[] = ['MinimizeCommentPayload']
 export const isMinimizeCommentPayload = (obj?: { __typename?: any } | null): obj is MinimizeCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMinimizeCommentPayload"')
   return MinimizeCommentPayload_possibleTypes.includes(obj.__typename)
@@ -35197,7 +35197,7 @@ export const isMinimizeCommentPayload = (obj?: { __typename?: any } | null): obj
 
 
 
-const MoveProjectCardPayload_possibleTypes = ['MoveProjectCardPayload']
+const MoveProjectCardPayload_possibleTypes: string[] = ['MoveProjectCardPayload']
 export const isMoveProjectCardPayload = (obj?: { __typename?: any } | null): obj is MoveProjectCardPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMoveProjectCardPayload"')
   return MoveProjectCardPayload_possibleTypes.includes(obj.__typename)
@@ -35205,7 +35205,7 @@ export const isMoveProjectCardPayload = (obj?: { __typename?: any } | null): obj
 
 
 
-const MoveProjectColumnPayload_possibleTypes = ['MoveProjectColumnPayload']
+const MoveProjectColumnPayload_possibleTypes: string[] = ['MoveProjectColumnPayload']
 export const isMoveProjectColumnPayload = (obj?: { __typename?: any } | null): obj is MoveProjectColumnPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMoveProjectColumnPayload"')
   return MoveProjectColumnPayload_possibleTypes.includes(obj.__typename)
@@ -35213,7 +35213,7 @@ export const isMoveProjectColumnPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const MovedColumnsInProjectEvent_possibleTypes = ['MovedColumnsInProjectEvent']
+const MovedColumnsInProjectEvent_possibleTypes: string[] = ['MovedColumnsInProjectEvent']
 export const isMovedColumnsInProjectEvent = (obj?: { __typename?: any } | null): obj is MovedColumnsInProjectEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMovedColumnsInProjectEvent"')
   return MovedColumnsInProjectEvent_possibleTypes.includes(obj.__typename)
@@ -35221,7 +35221,7 @@ export const isMovedColumnsInProjectEvent = (obj?: { __typename?: any } | null):
 
 
 
-const Mutation_possibleTypes = ['Mutation']
+const Mutation_possibleTypes: string[] = ['Mutation']
 export const isMutation = (obj?: { __typename?: any } | null): obj is Mutation => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMutation"')
   return Mutation_possibleTypes.includes(obj.__typename)
@@ -35229,7 +35229,7 @@ export const isMutation = (obj?: { __typename?: any } | null): obj is Mutation =
 
 
 
-const Node_possibleTypes = ['AddedToProjectEvent','App','AssignedEvent','AutomaticBaseChangeFailedEvent','AutomaticBaseChangeSucceededEvent','BaseRefChangedEvent','BaseRefForcePushedEvent','Blob','Bot','BranchProtectionRule','CheckRun','CheckSuite','ClosedEvent','CodeOfConduct','CommentDeletedEvent','Commit','CommitComment','CommitCommentThread','ConnectedEvent','ConvertToDraftEvent','ConvertedNoteToIssueEvent','CrossReferencedEvent','DemilestonedEvent','DependencyGraphManifest','DeployKey','DeployedEvent','Deployment','DeploymentEnvironmentChangedEvent','DeploymentStatus','DisconnectedEvent','Enterprise','EnterpriseAdministratorInvitation','EnterpriseIdentityProvider','EnterpriseRepositoryInfo','EnterpriseServerInstallation','EnterpriseServerUserAccount','EnterpriseServerUserAccountEmail','EnterpriseServerUserAccountsUpload','EnterpriseUserAccount','ExternalIdentity','Gist','GistComment','HeadRefDeletedEvent','HeadRefForcePushedEvent','HeadRefRestoredEvent','IpAllowListEntry','Issue','IssueComment','Label','LabeledEvent','Language','License','LockedEvent','Mannequin','MarkedAsDuplicateEvent','MarketplaceCategory','MarketplaceListing','MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','MentionedEvent','MergedEvent','Milestone','MilestonedEvent','MovedColumnsInProjectEvent','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','Organization','OrganizationIdentityProvider','OrganizationInvitation','Package','PackageFile','PackageTag','PackageVersion','PinnedEvent','PinnedIssue','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','Project','ProjectCard','ProjectColumn','PublicKey','PullRequest','PullRequestCommit','PullRequestCommitCommentThread','PullRequestReview','PullRequestReviewComment','PullRequestReviewThread','Push','PushAllowance','Reaction','ReadyForReviewEvent','Ref','ReferencedEvent','RegistryPackage','RegistryPackageDependency','RegistryPackageFile','RegistryPackageTag','RegistryPackageVersion','Release','ReleaseAsset','RemovedFromProjectEvent','RenamedTitleEvent','ReopenedEvent','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','Repository','RepositoryInvitation','RepositoryTopic','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','RepositoryVulnerabilityAlert','ReviewDismissalAllowance','ReviewDismissedEvent','ReviewRequest','ReviewRequestRemovedEvent','ReviewRequestedEvent','SavedReply','SecurityAdvisory','SponsorsListing','SponsorsTier','Sponsorship','Status','StatusCheckRollup','StatusContext','SubscribedEvent','Tag','Team','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamDiscussion','TeamDiscussionComment','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry','Topic','TransferredEvent','Tree','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnmarkedAsDuplicateEvent','UnpinnedEvent','UnsubscribedEvent','User','UserBlockedEvent','UserContentEdit','UserStatus']
+const Node_possibleTypes: string[] = ['AddedToProjectEvent','App','AssignedEvent','AutomaticBaseChangeFailedEvent','AutomaticBaseChangeSucceededEvent','BaseRefChangedEvent','BaseRefForcePushedEvent','Blob','Bot','BranchProtectionRule','CheckRun','CheckSuite','ClosedEvent','CodeOfConduct','CommentDeletedEvent','Commit','CommitComment','CommitCommentThread','ConnectedEvent','ConvertToDraftEvent','ConvertedNoteToIssueEvent','CrossReferencedEvent','DemilestonedEvent','DependencyGraphManifest','DeployKey','DeployedEvent','Deployment','DeploymentEnvironmentChangedEvent','DeploymentStatus','DisconnectedEvent','Enterprise','EnterpriseAdministratorInvitation','EnterpriseIdentityProvider','EnterpriseRepositoryInfo','EnterpriseServerInstallation','EnterpriseServerUserAccount','EnterpriseServerUserAccountEmail','EnterpriseServerUserAccountsUpload','EnterpriseUserAccount','ExternalIdentity','Gist','GistComment','HeadRefDeletedEvent','HeadRefForcePushedEvent','HeadRefRestoredEvent','IpAllowListEntry','Issue','IssueComment','Label','LabeledEvent','Language','License','LockedEvent','Mannequin','MarkedAsDuplicateEvent','MarketplaceCategory','MarketplaceListing','MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','MentionedEvent','MergedEvent','Milestone','MilestonedEvent','MovedColumnsInProjectEvent','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','Organization','OrganizationIdentityProvider','OrganizationInvitation','Package','PackageFile','PackageTag','PackageVersion','PinnedEvent','PinnedIssue','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','Project','ProjectCard','ProjectColumn','PublicKey','PullRequest','PullRequestCommit','PullRequestCommitCommentThread','PullRequestReview','PullRequestReviewComment','PullRequestReviewThread','Push','PushAllowance','Reaction','ReadyForReviewEvent','Ref','ReferencedEvent','RegistryPackage','RegistryPackageDependency','RegistryPackageFile','RegistryPackageTag','RegistryPackageVersion','Release','ReleaseAsset','RemovedFromProjectEvent','RenamedTitleEvent','ReopenedEvent','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','Repository','RepositoryInvitation','RepositoryTopic','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','RepositoryVulnerabilityAlert','ReviewDismissalAllowance','ReviewDismissedEvent','ReviewRequest','ReviewRequestRemovedEvent','ReviewRequestedEvent','SavedReply','SecurityAdvisory','SponsorsListing','SponsorsTier','Sponsorship','Status','StatusCheckRollup','StatusContext','SubscribedEvent','Tag','Team','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamDiscussion','TeamDiscussionComment','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry','Topic','TransferredEvent','Tree','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnmarkedAsDuplicateEvent','UnpinnedEvent','UnsubscribedEvent','User','UserBlockedEvent','UserContentEdit','UserStatus']
 export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
   return Node_possibleTypes.includes(obj.__typename)
@@ -35237,7 +35237,7 @@ export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
 
 
 
-const OauthApplicationAuditEntryData_possibleTypes = ['OauthApplicationCreateAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry']
+const OauthApplicationAuditEntryData_possibleTypes: string[] = ['OauthApplicationCreateAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry']
 export const isOauthApplicationAuditEntryData = (obj?: { __typename?: any } | null): obj is OauthApplicationAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOauthApplicationAuditEntryData"')
   return OauthApplicationAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -35245,7 +35245,7 @@ export const isOauthApplicationAuditEntryData = (obj?: { __typename?: any } | nu
 
 
 
-const OauthApplicationCreateAuditEntry_possibleTypes = ['OauthApplicationCreateAuditEntry']
+const OauthApplicationCreateAuditEntry_possibleTypes: string[] = ['OauthApplicationCreateAuditEntry']
 export const isOauthApplicationCreateAuditEntry = (obj?: { __typename?: any } | null): obj is OauthApplicationCreateAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOauthApplicationCreateAuditEntry"')
   return OauthApplicationCreateAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35253,7 +35253,7 @@ export const isOauthApplicationCreateAuditEntry = (obj?: { __typename?: any } | 
 
 
 
-const OrgAddBillingManagerAuditEntry_possibleTypes = ['OrgAddBillingManagerAuditEntry']
+const OrgAddBillingManagerAuditEntry_possibleTypes: string[] = ['OrgAddBillingManagerAuditEntry']
 export const isOrgAddBillingManagerAuditEntry = (obj?: { __typename?: any } | null): obj is OrgAddBillingManagerAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgAddBillingManagerAuditEntry"')
   return OrgAddBillingManagerAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35261,7 +35261,7 @@ export const isOrgAddBillingManagerAuditEntry = (obj?: { __typename?: any } | nu
 
 
 
-const OrgAddMemberAuditEntry_possibleTypes = ['OrgAddMemberAuditEntry']
+const OrgAddMemberAuditEntry_possibleTypes: string[] = ['OrgAddMemberAuditEntry']
 export const isOrgAddMemberAuditEntry = (obj?: { __typename?: any } | null): obj is OrgAddMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgAddMemberAuditEntry"')
   return OrgAddMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35269,7 +35269,7 @@ export const isOrgAddMemberAuditEntry = (obj?: { __typename?: any } | null): obj
 
 
 
-const OrgBlockUserAuditEntry_possibleTypes = ['OrgBlockUserAuditEntry']
+const OrgBlockUserAuditEntry_possibleTypes: string[] = ['OrgBlockUserAuditEntry']
 export const isOrgBlockUserAuditEntry = (obj?: { __typename?: any } | null): obj is OrgBlockUserAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgBlockUserAuditEntry"')
   return OrgBlockUserAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35277,7 +35277,7 @@ export const isOrgBlockUserAuditEntry = (obj?: { __typename?: any } | null): obj
 
 
 
-const OrgConfigDisableCollaboratorsOnlyAuditEntry_possibleTypes = ['OrgConfigDisableCollaboratorsOnlyAuditEntry']
+const OrgConfigDisableCollaboratorsOnlyAuditEntry_possibleTypes: string[] = ['OrgConfigDisableCollaboratorsOnlyAuditEntry']
 export const isOrgConfigDisableCollaboratorsOnlyAuditEntry = (obj?: { __typename?: any } | null): obj is OrgConfigDisableCollaboratorsOnlyAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgConfigDisableCollaboratorsOnlyAuditEntry"')
   return OrgConfigDisableCollaboratorsOnlyAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35285,7 +35285,7 @@ export const isOrgConfigDisableCollaboratorsOnlyAuditEntry = (obj?: { __typename
 
 
 
-const OrgConfigEnableCollaboratorsOnlyAuditEntry_possibleTypes = ['OrgConfigEnableCollaboratorsOnlyAuditEntry']
+const OrgConfigEnableCollaboratorsOnlyAuditEntry_possibleTypes: string[] = ['OrgConfigEnableCollaboratorsOnlyAuditEntry']
 export const isOrgConfigEnableCollaboratorsOnlyAuditEntry = (obj?: { __typename?: any } | null): obj is OrgConfigEnableCollaboratorsOnlyAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgConfigEnableCollaboratorsOnlyAuditEntry"')
   return OrgConfigEnableCollaboratorsOnlyAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35293,7 +35293,7 @@ export const isOrgConfigEnableCollaboratorsOnlyAuditEntry = (obj?: { __typename?
 
 
 
-const OrgCreateAuditEntry_possibleTypes = ['OrgCreateAuditEntry']
+const OrgCreateAuditEntry_possibleTypes: string[] = ['OrgCreateAuditEntry']
 export const isOrgCreateAuditEntry = (obj?: { __typename?: any } | null): obj is OrgCreateAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgCreateAuditEntry"')
   return OrgCreateAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35301,7 +35301,7 @@ export const isOrgCreateAuditEntry = (obj?: { __typename?: any } | null): obj is
 
 
 
-const OrgDisableOauthAppRestrictionsAuditEntry_possibleTypes = ['OrgDisableOauthAppRestrictionsAuditEntry']
+const OrgDisableOauthAppRestrictionsAuditEntry_possibleTypes: string[] = ['OrgDisableOauthAppRestrictionsAuditEntry']
 export const isOrgDisableOauthAppRestrictionsAuditEntry = (obj?: { __typename?: any } | null): obj is OrgDisableOauthAppRestrictionsAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgDisableOauthAppRestrictionsAuditEntry"')
   return OrgDisableOauthAppRestrictionsAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35309,7 +35309,7 @@ export const isOrgDisableOauthAppRestrictionsAuditEntry = (obj?: { __typename?: 
 
 
 
-const OrgDisableSamlAuditEntry_possibleTypes = ['OrgDisableSamlAuditEntry']
+const OrgDisableSamlAuditEntry_possibleTypes: string[] = ['OrgDisableSamlAuditEntry']
 export const isOrgDisableSamlAuditEntry = (obj?: { __typename?: any } | null): obj is OrgDisableSamlAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgDisableSamlAuditEntry"')
   return OrgDisableSamlAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35317,7 +35317,7 @@ export const isOrgDisableSamlAuditEntry = (obj?: { __typename?: any } | null): o
 
 
 
-const OrgDisableTwoFactorRequirementAuditEntry_possibleTypes = ['OrgDisableTwoFactorRequirementAuditEntry']
+const OrgDisableTwoFactorRequirementAuditEntry_possibleTypes: string[] = ['OrgDisableTwoFactorRequirementAuditEntry']
 export const isOrgDisableTwoFactorRequirementAuditEntry = (obj?: { __typename?: any } | null): obj is OrgDisableTwoFactorRequirementAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgDisableTwoFactorRequirementAuditEntry"')
   return OrgDisableTwoFactorRequirementAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35325,7 +35325,7 @@ export const isOrgDisableTwoFactorRequirementAuditEntry = (obj?: { __typename?: 
 
 
 
-const OrgEnableOauthAppRestrictionsAuditEntry_possibleTypes = ['OrgEnableOauthAppRestrictionsAuditEntry']
+const OrgEnableOauthAppRestrictionsAuditEntry_possibleTypes: string[] = ['OrgEnableOauthAppRestrictionsAuditEntry']
 export const isOrgEnableOauthAppRestrictionsAuditEntry = (obj?: { __typename?: any } | null): obj is OrgEnableOauthAppRestrictionsAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgEnableOauthAppRestrictionsAuditEntry"')
   return OrgEnableOauthAppRestrictionsAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35333,7 +35333,7 @@ export const isOrgEnableOauthAppRestrictionsAuditEntry = (obj?: { __typename?: a
 
 
 
-const OrgEnableSamlAuditEntry_possibleTypes = ['OrgEnableSamlAuditEntry']
+const OrgEnableSamlAuditEntry_possibleTypes: string[] = ['OrgEnableSamlAuditEntry']
 export const isOrgEnableSamlAuditEntry = (obj?: { __typename?: any } | null): obj is OrgEnableSamlAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgEnableSamlAuditEntry"')
   return OrgEnableSamlAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35341,7 +35341,7 @@ export const isOrgEnableSamlAuditEntry = (obj?: { __typename?: any } | null): ob
 
 
 
-const OrgEnableTwoFactorRequirementAuditEntry_possibleTypes = ['OrgEnableTwoFactorRequirementAuditEntry']
+const OrgEnableTwoFactorRequirementAuditEntry_possibleTypes: string[] = ['OrgEnableTwoFactorRequirementAuditEntry']
 export const isOrgEnableTwoFactorRequirementAuditEntry = (obj?: { __typename?: any } | null): obj is OrgEnableTwoFactorRequirementAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgEnableTwoFactorRequirementAuditEntry"')
   return OrgEnableTwoFactorRequirementAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35349,7 +35349,7 @@ export const isOrgEnableTwoFactorRequirementAuditEntry = (obj?: { __typename?: a
 
 
 
-const OrgInviteMemberAuditEntry_possibleTypes = ['OrgInviteMemberAuditEntry']
+const OrgInviteMemberAuditEntry_possibleTypes: string[] = ['OrgInviteMemberAuditEntry']
 export const isOrgInviteMemberAuditEntry = (obj?: { __typename?: any } | null): obj is OrgInviteMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgInviteMemberAuditEntry"')
   return OrgInviteMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35357,7 +35357,7 @@ export const isOrgInviteMemberAuditEntry = (obj?: { __typename?: any } | null): 
 
 
 
-const OrgInviteToBusinessAuditEntry_possibleTypes = ['OrgInviteToBusinessAuditEntry']
+const OrgInviteToBusinessAuditEntry_possibleTypes: string[] = ['OrgInviteToBusinessAuditEntry']
 export const isOrgInviteToBusinessAuditEntry = (obj?: { __typename?: any } | null): obj is OrgInviteToBusinessAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgInviteToBusinessAuditEntry"')
   return OrgInviteToBusinessAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35365,7 +35365,7 @@ export const isOrgInviteToBusinessAuditEntry = (obj?: { __typename?: any } | nul
 
 
 
-const OrgOauthAppAccessApprovedAuditEntry_possibleTypes = ['OrgOauthAppAccessApprovedAuditEntry']
+const OrgOauthAppAccessApprovedAuditEntry_possibleTypes: string[] = ['OrgOauthAppAccessApprovedAuditEntry']
 export const isOrgOauthAppAccessApprovedAuditEntry = (obj?: { __typename?: any } | null): obj is OrgOauthAppAccessApprovedAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgOauthAppAccessApprovedAuditEntry"')
   return OrgOauthAppAccessApprovedAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35373,7 +35373,7 @@ export const isOrgOauthAppAccessApprovedAuditEntry = (obj?: { __typename?: any }
 
 
 
-const OrgOauthAppAccessDeniedAuditEntry_possibleTypes = ['OrgOauthAppAccessDeniedAuditEntry']
+const OrgOauthAppAccessDeniedAuditEntry_possibleTypes: string[] = ['OrgOauthAppAccessDeniedAuditEntry']
 export const isOrgOauthAppAccessDeniedAuditEntry = (obj?: { __typename?: any } | null): obj is OrgOauthAppAccessDeniedAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgOauthAppAccessDeniedAuditEntry"')
   return OrgOauthAppAccessDeniedAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35381,7 +35381,7 @@ export const isOrgOauthAppAccessDeniedAuditEntry = (obj?: { __typename?: any } |
 
 
 
-const OrgOauthAppAccessRequestedAuditEntry_possibleTypes = ['OrgOauthAppAccessRequestedAuditEntry']
+const OrgOauthAppAccessRequestedAuditEntry_possibleTypes: string[] = ['OrgOauthAppAccessRequestedAuditEntry']
 export const isOrgOauthAppAccessRequestedAuditEntry = (obj?: { __typename?: any } | null): obj is OrgOauthAppAccessRequestedAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgOauthAppAccessRequestedAuditEntry"')
   return OrgOauthAppAccessRequestedAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35389,7 +35389,7 @@ export const isOrgOauthAppAccessRequestedAuditEntry = (obj?: { __typename?: any 
 
 
 
-const OrgRemoveBillingManagerAuditEntry_possibleTypes = ['OrgRemoveBillingManagerAuditEntry']
+const OrgRemoveBillingManagerAuditEntry_possibleTypes: string[] = ['OrgRemoveBillingManagerAuditEntry']
 export const isOrgRemoveBillingManagerAuditEntry = (obj?: { __typename?: any } | null): obj is OrgRemoveBillingManagerAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRemoveBillingManagerAuditEntry"')
   return OrgRemoveBillingManagerAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35397,7 +35397,7 @@ export const isOrgRemoveBillingManagerAuditEntry = (obj?: { __typename?: any } |
 
 
 
-const OrgRemoveMemberAuditEntry_possibleTypes = ['OrgRemoveMemberAuditEntry']
+const OrgRemoveMemberAuditEntry_possibleTypes: string[] = ['OrgRemoveMemberAuditEntry']
 export const isOrgRemoveMemberAuditEntry = (obj?: { __typename?: any } | null): obj is OrgRemoveMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRemoveMemberAuditEntry"')
   return OrgRemoveMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35405,7 +35405,7 @@ export const isOrgRemoveMemberAuditEntry = (obj?: { __typename?: any } | null): 
 
 
 
-const OrgRemoveOutsideCollaboratorAuditEntry_possibleTypes = ['OrgRemoveOutsideCollaboratorAuditEntry']
+const OrgRemoveOutsideCollaboratorAuditEntry_possibleTypes: string[] = ['OrgRemoveOutsideCollaboratorAuditEntry']
 export const isOrgRemoveOutsideCollaboratorAuditEntry = (obj?: { __typename?: any } | null): obj is OrgRemoveOutsideCollaboratorAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRemoveOutsideCollaboratorAuditEntry"')
   return OrgRemoveOutsideCollaboratorAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35413,7 +35413,7 @@ export const isOrgRemoveOutsideCollaboratorAuditEntry = (obj?: { __typename?: an
 
 
 
-const OrgRestoreMemberAuditEntry_possibleTypes = ['OrgRestoreMemberAuditEntry']
+const OrgRestoreMemberAuditEntry_possibleTypes: string[] = ['OrgRestoreMemberAuditEntry']
 export const isOrgRestoreMemberAuditEntry = (obj?: { __typename?: any } | null): obj is OrgRestoreMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRestoreMemberAuditEntry"')
   return OrgRestoreMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35421,7 +35421,7 @@ export const isOrgRestoreMemberAuditEntry = (obj?: { __typename?: any } | null):
 
 
 
-const OrgRestoreMemberAuditEntryMembership_possibleTypes = ['OrgRestoreMemberMembershipOrganizationAuditEntryData','OrgRestoreMemberMembershipRepositoryAuditEntryData','OrgRestoreMemberMembershipTeamAuditEntryData']
+const OrgRestoreMemberAuditEntryMembership_possibleTypes: string[] = ['OrgRestoreMemberMembershipOrganizationAuditEntryData','OrgRestoreMemberMembershipRepositoryAuditEntryData','OrgRestoreMemberMembershipTeamAuditEntryData']
 export const isOrgRestoreMemberAuditEntryMembership = (obj?: { __typename?: any } | null): obj is OrgRestoreMemberAuditEntryMembership => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRestoreMemberAuditEntryMembership"')
   return OrgRestoreMemberAuditEntryMembership_possibleTypes.includes(obj.__typename)
@@ -35429,7 +35429,7 @@ export const isOrgRestoreMemberAuditEntryMembership = (obj?: { __typename?: any 
 
 
 
-const OrgRestoreMemberMembershipOrganizationAuditEntryData_possibleTypes = ['OrgRestoreMemberMembershipOrganizationAuditEntryData']
+const OrgRestoreMemberMembershipOrganizationAuditEntryData_possibleTypes: string[] = ['OrgRestoreMemberMembershipOrganizationAuditEntryData']
 export const isOrgRestoreMemberMembershipOrganizationAuditEntryData = (obj?: { __typename?: any } | null): obj is OrgRestoreMemberMembershipOrganizationAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRestoreMemberMembershipOrganizationAuditEntryData"')
   return OrgRestoreMemberMembershipOrganizationAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -35437,7 +35437,7 @@ export const isOrgRestoreMemberMembershipOrganizationAuditEntryData = (obj?: { _
 
 
 
-const OrgRestoreMemberMembershipRepositoryAuditEntryData_possibleTypes = ['OrgRestoreMemberMembershipRepositoryAuditEntryData']
+const OrgRestoreMemberMembershipRepositoryAuditEntryData_possibleTypes: string[] = ['OrgRestoreMemberMembershipRepositoryAuditEntryData']
 export const isOrgRestoreMemberMembershipRepositoryAuditEntryData = (obj?: { __typename?: any } | null): obj is OrgRestoreMemberMembershipRepositoryAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRestoreMemberMembershipRepositoryAuditEntryData"')
   return OrgRestoreMemberMembershipRepositoryAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -35445,7 +35445,7 @@ export const isOrgRestoreMemberMembershipRepositoryAuditEntryData = (obj?: { __t
 
 
 
-const OrgRestoreMemberMembershipTeamAuditEntryData_possibleTypes = ['OrgRestoreMemberMembershipTeamAuditEntryData']
+const OrgRestoreMemberMembershipTeamAuditEntryData_possibleTypes: string[] = ['OrgRestoreMemberMembershipTeamAuditEntryData']
 export const isOrgRestoreMemberMembershipTeamAuditEntryData = (obj?: { __typename?: any } | null): obj is OrgRestoreMemberMembershipTeamAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgRestoreMemberMembershipTeamAuditEntryData"')
   return OrgRestoreMemberMembershipTeamAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -35453,7 +35453,7 @@ export const isOrgRestoreMemberMembershipTeamAuditEntryData = (obj?: { __typenam
 
 
 
-const OrgUnblockUserAuditEntry_possibleTypes = ['OrgUnblockUserAuditEntry']
+const OrgUnblockUserAuditEntry_possibleTypes: string[] = ['OrgUnblockUserAuditEntry']
 export const isOrgUnblockUserAuditEntry = (obj?: { __typename?: any } | null): obj is OrgUnblockUserAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgUnblockUserAuditEntry"')
   return OrgUnblockUserAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35461,7 +35461,7 @@ export const isOrgUnblockUserAuditEntry = (obj?: { __typename?: any } | null): o
 
 
 
-const OrgUpdateDefaultRepositoryPermissionAuditEntry_possibleTypes = ['OrgUpdateDefaultRepositoryPermissionAuditEntry']
+const OrgUpdateDefaultRepositoryPermissionAuditEntry_possibleTypes: string[] = ['OrgUpdateDefaultRepositoryPermissionAuditEntry']
 export const isOrgUpdateDefaultRepositoryPermissionAuditEntry = (obj?: { __typename?: any } | null): obj is OrgUpdateDefaultRepositoryPermissionAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgUpdateDefaultRepositoryPermissionAuditEntry"')
   return OrgUpdateDefaultRepositoryPermissionAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35469,7 +35469,7 @@ export const isOrgUpdateDefaultRepositoryPermissionAuditEntry = (obj?: { __typen
 
 
 
-const OrgUpdateMemberAuditEntry_possibleTypes = ['OrgUpdateMemberAuditEntry']
+const OrgUpdateMemberAuditEntry_possibleTypes: string[] = ['OrgUpdateMemberAuditEntry']
 export const isOrgUpdateMemberAuditEntry = (obj?: { __typename?: any } | null): obj is OrgUpdateMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgUpdateMemberAuditEntry"')
   return OrgUpdateMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35477,7 +35477,7 @@ export const isOrgUpdateMemberAuditEntry = (obj?: { __typename?: any } | null): 
 
 
 
-const OrgUpdateMemberRepositoryCreationPermissionAuditEntry_possibleTypes = ['OrgUpdateMemberRepositoryCreationPermissionAuditEntry']
+const OrgUpdateMemberRepositoryCreationPermissionAuditEntry_possibleTypes: string[] = ['OrgUpdateMemberRepositoryCreationPermissionAuditEntry']
 export const isOrgUpdateMemberRepositoryCreationPermissionAuditEntry = (obj?: { __typename?: any } | null): obj is OrgUpdateMemberRepositoryCreationPermissionAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgUpdateMemberRepositoryCreationPermissionAuditEntry"')
   return OrgUpdateMemberRepositoryCreationPermissionAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35485,7 +35485,7 @@ export const isOrgUpdateMemberRepositoryCreationPermissionAuditEntry = (obj?: { 
 
 
 
-const OrgUpdateMemberRepositoryInvitationPermissionAuditEntry_possibleTypes = ['OrgUpdateMemberRepositoryInvitationPermissionAuditEntry']
+const OrgUpdateMemberRepositoryInvitationPermissionAuditEntry_possibleTypes: string[] = ['OrgUpdateMemberRepositoryInvitationPermissionAuditEntry']
 export const isOrgUpdateMemberRepositoryInvitationPermissionAuditEntry = (obj?: { __typename?: any } | null): obj is OrgUpdateMemberRepositoryInvitationPermissionAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrgUpdateMemberRepositoryInvitationPermissionAuditEntry"')
   return OrgUpdateMemberRepositoryInvitationPermissionAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35493,7 +35493,7 @@ export const isOrgUpdateMemberRepositoryInvitationPermissionAuditEntry = (obj?: 
 
 
 
-const Organization_possibleTypes = ['Organization']
+const Organization_possibleTypes: string[] = ['Organization']
 export const isOrganization = (obj?: { __typename?: any } | null): obj is Organization => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganization"')
   return Organization_possibleTypes.includes(obj.__typename)
@@ -35501,7 +35501,7 @@ export const isOrganization = (obj?: { __typename?: any } | null): obj is Organi
 
 
 
-const OrganizationAuditEntry_possibleTypes = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
+const OrganizationAuditEntry_possibleTypes: string[] = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
 export const isOrganizationAuditEntry = (obj?: { __typename?: any } | null): obj is OrganizationAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationAuditEntry"')
   return OrganizationAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35509,7 +35509,7 @@ export const isOrganizationAuditEntry = (obj?: { __typename?: any } | null): obj
 
 
 
-const OrganizationAuditEntryConnection_possibleTypes = ['OrganizationAuditEntryConnection']
+const OrganizationAuditEntryConnection_possibleTypes: string[] = ['OrganizationAuditEntryConnection']
 export const isOrganizationAuditEntryConnection = (obj?: { __typename?: any } | null): obj is OrganizationAuditEntryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationAuditEntryConnection"')
   return OrganizationAuditEntryConnection_possibleTypes.includes(obj.__typename)
@@ -35517,7 +35517,7 @@ export const isOrganizationAuditEntryConnection = (obj?: { __typename?: any } | 
 
 
 
-const OrganizationAuditEntryData_possibleTypes = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgRestoreMemberMembershipOrganizationAuditEntryData','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
+const OrganizationAuditEntryData_possibleTypes: string[] = ['MembersCanDeleteReposClearAuditEntry','MembersCanDeleteReposDisableAuditEntry','MembersCanDeleteReposEnableAuditEntry','OauthApplicationCreateAuditEntry','OrgAddBillingManagerAuditEntry','OrgAddMemberAuditEntry','OrgBlockUserAuditEntry','OrgConfigDisableCollaboratorsOnlyAuditEntry','OrgConfigEnableCollaboratorsOnlyAuditEntry','OrgCreateAuditEntry','OrgDisableOauthAppRestrictionsAuditEntry','OrgDisableSamlAuditEntry','OrgDisableTwoFactorRequirementAuditEntry','OrgEnableOauthAppRestrictionsAuditEntry','OrgEnableSamlAuditEntry','OrgEnableTwoFactorRequirementAuditEntry','OrgInviteMemberAuditEntry','OrgInviteToBusinessAuditEntry','OrgOauthAppAccessApprovedAuditEntry','OrgOauthAppAccessDeniedAuditEntry','OrgOauthAppAccessRequestedAuditEntry','OrgRemoveBillingManagerAuditEntry','OrgRemoveMemberAuditEntry','OrgRemoveOutsideCollaboratorAuditEntry','OrgRestoreMemberAuditEntry','OrgRestoreMemberMembershipOrganizationAuditEntryData','OrgUnblockUserAuditEntry','OrgUpdateDefaultRepositoryPermissionAuditEntry','OrgUpdateMemberAuditEntry','OrgUpdateMemberRepositoryCreationPermissionAuditEntry','OrgUpdateMemberRepositoryInvitationPermissionAuditEntry','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','RepositoryVisibilityChangeDisableAuditEntry','RepositoryVisibilityChangeEnableAuditEntry','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
 export const isOrganizationAuditEntryData = (obj?: { __typename?: any } | null): obj is OrganizationAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationAuditEntryData"')
   return OrganizationAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -35525,7 +35525,7 @@ export const isOrganizationAuditEntryData = (obj?: { __typename?: any } | null):
 
 
 
-const OrganizationAuditEntryEdge_possibleTypes = ['OrganizationAuditEntryEdge']
+const OrganizationAuditEntryEdge_possibleTypes: string[] = ['OrganizationAuditEntryEdge']
 export const isOrganizationAuditEntryEdge = (obj?: { __typename?: any } | null): obj is OrganizationAuditEntryEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationAuditEntryEdge"')
   return OrganizationAuditEntryEdge_possibleTypes.includes(obj.__typename)
@@ -35533,7 +35533,7 @@ export const isOrganizationAuditEntryEdge = (obj?: { __typename?: any } | null):
 
 
 
-const OrganizationConnection_possibleTypes = ['OrganizationConnection']
+const OrganizationConnection_possibleTypes: string[] = ['OrganizationConnection']
 export const isOrganizationConnection = (obj?: { __typename?: any } | null): obj is OrganizationConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationConnection"')
   return OrganizationConnection_possibleTypes.includes(obj.__typename)
@@ -35541,7 +35541,7 @@ export const isOrganizationConnection = (obj?: { __typename?: any } | null): obj
 
 
 
-const OrganizationEdge_possibleTypes = ['OrganizationEdge']
+const OrganizationEdge_possibleTypes: string[] = ['OrganizationEdge']
 export const isOrganizationEdge = (obj?: { __typename?: any } | null): obj is OrganizationEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationEdge"')
   return OrganizationEdge_possibleTypes.includes(obj.__typename)
@@ -35549,7 +35549,7 @@ export const isOrganizationEdge = (obj?: { __typename?: any } | null): obj is Or
 
 
 
-const OrganizationIdentityProvider_possibleTypes = ['OrganizationIdentityProvider']
+const OrganizationIdentityProvider_possibleTypes: string[] = ['OrganizationIdentityProvider']
 export const isOrganizationIdentityProvider = (obj?: { __typename?: any } | null): obj is OrganizationIdentityProvider => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationIdentityProvider"')
   return OrganizationIdentityProvider_possibleTypes.includes(obj.__typename)
@@ -35557,7 +35557,7 @@ export const isOrganizationIdentityProvider = (obj?: { __typename?: any } | null
 
 
 
-const OrganizationInvitation_possibleTypes = ['OrganizationInvitation']
+const OrganizationInvitation_possibleTypes: string[] = ['OrganizationInvitation']
 export const isOrganizationInvitation = (obj?: { __typename?: any } | null): obj is OrganizationInvitation => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationInvitation"')
   return OrganizationInvitation_possibleTypes.includes(obj.__typename)
@@ -35565,7 +35565,7 @@ export const isOrganizationInvitation = (obj?: { __typename?: any } | null): obj
 
 
 
-const OrganizationInvitationConnection_possibleTypes = ['OrganizationInvitationConnection']
+const OrganizationInvitationConnection_possibleTypes: string[] = ['OrganizationInvitationConnection']
 export const isOrganizationInvitationConnection = (obj?: { __typename?: any } | null): obj is OrganizationInvitationConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationInvitationConnection"')
   return OrganizationInvitationConnection_possibleTypes.includes(obj.__typename)
@@ -35573,7 +35573,7 @@ export const isOrganizationInvitationConnection = (obj?: { __typename?: any } | 
 
 
 
-const OrganizationInvitationEdge_possibleTypes = ['OrganizationInvitationEdge']
+const OrganizationInvitationEdge_possibleTypes: string[] = ['OrganizationInvitationEdge']
 export const isOrganizationInvitationEdge = (obj?: { __typename?: any } | null): obj is OrganizationInvitationEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationInvitationEdge"')
   return OrganizationInvitationEdge_possibleTypes.includes(obj.__typename)
@@ -35581,7 +35581,7 @@ export const isOrganizationInvitationEdge = (obj?: { __typename?: any } | null):
 
 
 
-const OrganizationMemberConnection_possibleTypes = ['OrganizationMemberConnection']
+const OrganizationMemberConnection_possibleTypes: string[] = ['OrganizationMemberConnection']
 export const isOrganizationMemberConnection = (obj?: { __typename?: any } | null): obj is OrganizationMemberConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationMemberConnection"')
   return OrganizationMemberConnection_possibleTypes.includes(obj.__typename)
@@ -35589,7 +35589,7 @@ export const isOrganizationMemberConnection = (obj?: { __typename?: any } | null
 
 
 
-const OrganizationMemberEdge_possibleTypes = ['OrganizationMemberEdge']
+const OrganizationMemberEdge_possibleTypes: string[] = ['OrganizationMemberEdge']
 export const isOrganizationMemberEdge = (obj?: { __typename?: any } | null): obj is OrganizationMemberEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationMemberEdge"')
   return OrganizationMemberEdge_possibleTypes.includes(obj.__typename)
@@ -35597,7 +35597,7 @@ export const isOrganizationMemberEdge = (obj?: { __typename?: any } | null): obj
 
 
 
-const OrganizationTeamsHovercardContext_possibleTypes = ['OrganizationTeamsHovercardContext']
+const OrganizationTeamsHovercardContext_possibleTypes: string[] = ['OrganizationTeamsHovercardContext']
 export const isOrganizationTeamsHovercardContext = (obj?: { __typename?: any } | null): obj is OrganizationTeamsHovercardContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationTeamsHovercardContext"')
   return OrganizationTeamsHovercardContext_possibleTypes.includes(obj.__typename)
@@ -35605,7 +35605,7 @@ export const isOrganizationTeamsHovercardContext = (obj?: { __typename?: any } |
 
 
 
-const OrganizationsHovercardContext_possibleTypes = ['OrganizationsHovercardContext']
+const OrganizationsHovercardContext_possibleTypes: string[] = ['OrganizationsHovercardContext']
 export const isOrganizationsHovercardContext = (obj?: { __typename?: any } | null): obj is OrganizationsHovercardContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOrganizationsHovercardContext"')
   return OrganizationsHovercardContext_possibleTypes.includes(obj.__typename)
@@ -35613,7 +35613,7 @@ export const isOrganizationsHovercardContext = (obj?: { __typename?: any } | nul
 
 
 
-const Package_possibleTypes = ['Package']
+const Package_possibleTypes: string[] = ['Package']
 export const isPackage = (obj?: { __typename?: any } | null): obj is Package => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackage"')
   return Package_possibleTypes.includes(obj.__typename)
@@ -35621,7 +35621,7 @@ export const isPackage = (obj?: { __typename?: any } | null): obj is Package => 
 
 
 
-const PackageConnection_possibleTypes = ['PackageConnection']
+const PackageConnection_possibleTypes: string[] = ['PackageConnection']
 export const isPackageConnection = (obj?: { __typename?: any } | null): obj is PackageConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageConnection"')
   return PackageConnection_possibleTypes.includes(obj.__typename)
@@ -35629,7 +35629,7 @@ export const isPackageConnection = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const PackageEdge_possibleTypes = ['PackageEdge']
+const PackageEdge_possibleTypes: string[] = ['PackageEdge']
 export const isPackageEdge = (obj?: { __typename?: any } | null): obj is PackageEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageEdge"')
   return PackageEdge_possibleTypes.includes(obj.__typename)
@@ -35637,7 +35637,7 @@ export const isPackageEdge = (obj?: { __typename?: any } | null): obj is Package
 
 
 
-const PackageFile_possibleTypes = ['PackageFile']
+const PackageFile_possibleTypes: string[] = ['PackageFile']
 export const isPackageFile = (obj?: { __typename?: any } | null): obj is PackageFile => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageFile"')
   return PackageFile_possibleTypes.includes(obj.__typename)
@@ -35645,7 +35645,7 @@ export const isPackageFile = (obj?: { __typename?: any } | null): obj is Package
 
 
 
-const PackageFileConnection_possibleTypes = ['PackageFileConnection']
+const PackageFileConnection_possibleTypes: string[] = ['PackageFileConnection']
 export const isPackageFileConnection = (obj?: { __typename?: any } | null): obj is PackageFileConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageFileConnection"')
   return PackageFileConnection_possibleTypes.includes(obj.__typename)
@@ -35653,7 +35653,7 @@ export const isPackageFileConnection = (obj?: { __typename?: any } | null): obj 
 
 
 
-const PackageFileEdge_possibleTypes = ['PackageFileEdge']
+const PackageFileEdge_possibleTypes: string[] = ['PackageFileEdge']
 export const isPackageFileEdge = (obj?: { __typename?: any } | null): obj is PackageFileEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageFileEdge"')
   return PackageFileEdge_possibleTypes.includes(obj.__typename)
@@ -35661,7 +35661,7 @@ export const isPackageFileEdge = (obj?: { __typename?: any } | null): obj is Pac
 
 
 
-const PackageOwner_possibleTypes = ['Organization','Repository','User']
+const PackageOwner_possibleTypes: string[] = ['Organization','Repository','User']
 export const isPackageOwner = (obj?: { __typename?: any } | null): obj is PackageOwner => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageOwner"')
   return PackageOwner_possibleTypes.includes(obj.__typename)
@@ -35669,7 +35669,7 @@ export const isPackageOwner = (obj?: { __typename?: any } | null): obj is Packag
 
 
 
-const PackageStatistics_possibleTypes = ['PackageStatistics']
+const PackageStatistics_possibleTypes: string[] = ['PackageStatistics']
 export const isPackageStatistics = (obj?: { __typename?: any } | null): obj is PackageStatistics => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageStatistics"')
   return PackageStatistics_possibleTypes.includes(obj.__typename)
@@ -35677,7 +35677,7 @@ export const isPackageStatistics = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const PackageTag_possibleTypes = ['PackageTag']
+const PackageTag_possibleTypes: string[] = ['PackageTag']
 export const isPackageTag = (obj?: { __typename?: any } | null): obj is PackageTag => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageTag"')
   return PackageTag_possibleTypes.includes(obj.__typename)
@@ -35685,7 +35685,7 @@ export const isPackageTag = (obj?: { __typename?: any } | null): obj is PackageT
 
 
 
-const PackageVersion_possibleTypes = ['PackageVersion']
+const PackageVersion_possibleTypes: string[] = ['PackageVersion']
 export const isPackageVersion = (obj?: { __typename?: any } | null): obj is PackageVersion => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageVersion"')
   return PackageVersion_possibleTypes.includes(obj.__typename)
@@ -35693,7 +35693,7 @@ export const isPackageVersion = (obj?: { __typename?: any } | null): obj is Pack
 
 
 
-const PackageVersionConnection_possibleTypes = ['PackageVersionConnection']
+const PackageVersionConnection_possibleTypes: string[] = ['PackageVersionConnection']
 export const isPackageVersionConnection = (obj?: { __typename?: any } | null): obj is PackageVersionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageVersionConnection"')
   return PackageVersionConnection_possibleTypes.includes(obj.__typename)
@@ -35701,7 +35701,7 @@ export const isPackageVersionConnection = (obj?: { __typename?: any } | null): o
 
 
 
-const PackageVersionEdge_possibleTypes = ['PackageVersionEdge']
+const PackageVersionEdge_possibleTypes: string[] = ['PackageVersionEdge']
 export const isPackageVersionEdge = (obj?: { __typename?: any } | null): obj is PackageVersionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageVersionEdge"')
   return PackageVersionEdge_possibleTypes.includes(obj.__typename)
@@ -35709,7 +35709,7 @@ export const isPackageVersionEdge = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const PackageVersionStatistics_possibleTypes = ['PackageVersionStatistics']
+const PackageVersionStatistics_possibleTypes: string[] = ['PackageVersionStatistics']
 export const isPackageVersionStatistics = (obj?: { __typename?: any } | null): obj is PackageVersionStatistics => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPackageVersionStatistics"')
   return PackageVersionStatistics_possibleTypes.includes(obj.__typename)
@@ -35717,7 +35717,7 @@ export const isPackageVersionStatistics = (obj?: { __typename?: any } | null): o
 
 
 
-const PageInfo_possibleTypes = ['PageInfo']
+const PageInfo_possibleTypes: string[] = ['PageInfo']
 export const isPageInfo = (obj?: { __typename?: any } | null): obj is PageInfo => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPageInfo"')
   return PageInfo_possibleTypes.includes(obj.__typename)
@@ -35725,7 +35725,7 @@ export const isPageInfo = (obj?: { __typename?: any } | null): obj is PageInfo =
 
 
 
-const PermissionGranter_possibleTypes = ['Organization','Repository','Team']
+const PermissionGranter_possibleTypes: string[] = ['Organization','Repository','Team']
 export const isPermissionGranter = (obj?: { __typename?: any } | null): obj is PermissionGranter => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPermissionGranter"')
   return PermissionGranter_possibleTypes.includes(obj.__typename)
@@ -35733,7 +35733,7 @@ export const isPermissionGranter = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const PermissionSource_possibleTypes = ['PermissionSource']
+const PermissionSource_possibleTypes: string[] = ['PermissionSource']
 export const isPermissionSource = (obj?: { __typename?: any } | null): obj is PermissionSource => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPermissionSource"')
   return PermissionSource_possibleTypes.includes(obj.__typename)
@@ -35741,7 +35741,7 @@ export const isPermissionSource = (obj?: { __typename?: any } | null): obj is Pe
 
 
 
-const PinIssuePayload_possibleTypes = ['PinIssuePayload']
+const PinIssuePayload_possibleTypes: string[] = ['PinIssuePayload']
 export const isPinIssuePayload = (obj?: { __typename?: any } | null): obj is PinIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinIssuePayload"')
   return PinIssuePayload_possibleTypes.includes(obj.__typename)
@@ -35749,7 +35749,7 @@ export const isPinIssuePayload = (obj?: { __typename?: any } | null): obj is Pin
 
 
 
-const PinnableItem_possibleTypes = ['Gist','Repository']
+const PinnableItem_possibleTypes: string[] = ['Gist','Repository']
 export const isPinnableItem = (obj?: { __typename?: any } | null): obj is PinnableItem => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinnableItem"')
   return PinnableItem_possibleTypes.includes(obj.__typename)
@@ -35757,7 +35757,7 @@ export const isPinnableItem = (obj?: { __typename?: any } | null): obj is Pinnab
 
 
 
-const PinnableItemConnection_possibleTypes = ['PinnableItemConnection']
+const PinnableItemConnection_possibleTypes: string[] = ['PinnableItemConnection']
 export const isPinnableItemConnection = (obj?: { __typename?: any } | null): obj is PinnableItemConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinnableItemConnection"')
   return PinnableItemConnection_possibleTypes.includes(obj.__typename)
@@ -35765,7 +35765,7 @@ export const isPinnableItemConnection = (obj?: { __typename?: any } | null): obj
 
 
 
-const PinnableItemEdge_possibleTypes = ['PinnableItemEdge']
+const PinnableItemEdge_possibleTypes: string[] = ['PinnableItemEdge']
 export const isPinnableItemEdge = (obj?: { __typename?: any } | null): obj is PinnableItemEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinnableItemEdge"')
   return PinnableItemEdge_possibleTypes.includes(obj.__typename)
@@ -35773,7 +35773,7 @@ export const isPinnableItemEdge = (obj?: { __typename?: any } | null): obj is Pi
 
 
 
-const PinnedEvent_possibleTypes = ['PinnedEvent']
+const PinnedEvent_possibleTypes: string[] = ['PinnedEvent']
 export const isPinnedEvent = (obj?: { __typename?: any } | null): obj is PinnedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinnedEvent"')
   return PinnedEvent_possibleTypes.includes(obj.__typename)
@@ -35781,7 +35781,7 @@ export const isPinnedEvent = (obj?: { __typename?: any } | null): obj is PinnedE
 
 
 
-const PinnedIssue_possibleTypes = ['PinnedIssue']
+const PinnedIssue_possibleTypes: string[] = ['PinnedIssue']
 export const isPinnedIssue = (obj?: { __typename?: any } | null): obj is PinnedIssue => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinnedIssue"')
   return PinnedIssue_possibleTypes.includes(obj.__typename)
@@ -35789,7 +35789,7 @@ export const isPinnedIssue = (obj?: { __typename?: any } | null): obj is PinnedI
 
 
 
-const PinnedIssueConnection_possibleTypes = ['PinnedIssueConnection']
+const PinnedIssueConnection_possibleTypes: string[] = ['PinnedIssueConnection']
 export const isPinnedIssueConnection = (obj?: { __typename?: any } | null): obj is PinnedIssueConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinnedIssueConnection"')
   return PinnedIssueConnection_possibleTypes.includes(obj.__typename)
@@ -35797,7 +35797,7 @@ export const isPinnedIssueConnection = (obj?: { __typename?: any } | null): obj 
 
 
 
-const PinnedIssueEdge_possibleTypes = ['PinnedIssueEdge']
+const PinnedIssueEdge_possibleTypes: string[] = ['PinnedIssueEdge']
 export const isPinnedIssueEdge = (obj?: { __typename?: any } | null): obj is PinnedIssueEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPinnedIssueEdge"')
   return PinnedIssueEdge_possibleTypes.includes(obj.__typename)
@@ -35805,7 +35805,7 @@ export const isPinnedIssueEdge = (obj?: { __typename?: any } | null): obj is Pin
 
 
 
-const PrivateRepositoryForkingDisableAuditEntry_possibleTypes = ['PrivateRepositoryForkingDisableAuditEntry']
+const PrivateRepositoryForkingDisableAuditEntry_possibleTypes: string[] = ['PrivateRepositoryForkingDisableAuditEntry']
 export const isPrivateRepositoryForkingDisableAuditEntry = (obj?: { __typename?: any } | null): obj is PrivateRepositoryForkingDisableAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPrivateRepositoryForkingDisableAuditEntry"')
   return PrivateRepositoryForkingDisableAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35813,7 +35813,7 @@ export const isPrivateRepositoryForkingDisableAuditEntry = (obj?: { __typename?:
 
 
 
-const PrivateRepositoryForkingEnableAuditEntry_possibleTypes = ['PrivateRepositoryForkingEnableAuditEntry']
+const PrivateRepositoryForkingEnableAuditEntry_possibleTypes: string[] = ['PrivateRepositoryForkingEnableAuditEntry']
 export const isPrivateRepositoryForkingEnableAuditEntry = (obj?: { __typename?: any } | null): obj is PrivateRepositoryForkingEnableAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPrivateRepositoryForkingEnableAuditEntry"')
   return PrivateRepositoryForkingEnableAuditEntry_possibleTypes.includes(obj.__typename)
@@ -35821,7 +35821,7 @@ export const isPrivateRepositoryForkingEnableAuditEntry = (obj?: { __typename?: 
 
 
 
-const ProfileItemShowcase_possibleTypes = ['ProfileItemShowcase']
+const ProfileItemShowcase_possibleTypes: string[] = ['ProfileItemShowcase']
 export const isProfileItemShowcase = (obj?: { __typename?: any } | null): obj is ProfileItemShowcase => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProfileItemShowcase"')
   return ProfileItemShowcase_possibleTypes.includes(obj.__typename)
@@ -35829,7 +35829,7 @@ export const isProfileItemShowcase = (obj?: { __typename?: any } | null): obj is
 
 
 
-const ProfileOwner_possibleTypes = ['Organization','User']
+const ProfileOwner_possibleTypes: string[] = ['Organization','User']
 export const isProfileOwner = (obj?: { __typename?: any } | null): obj is ProfileOwner => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProfileOwner"')
   return ProfileOwner_possibleTypes.includes(obj.__typename)
@@ -35837,7 +35837,7 @@ export const isProfileOwner = (obj?: { __typename?: any } | null): obj is Profil
 
 
 
-const Project_possibleTypes = ['Project']
+const Project_possibleTypes: string[] = ['Project']
 export const isProject = (obj?: { __typename?: any } | null): obj is Project => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProject"')
   return Project_possibleTypes.includes(obj.__typename)
@@ -35845,7 +35845,7 @@ export const isProject = (obj?: { __typename?: any } | null): obj is Project => 
 
 
 
-const ProjectCard_possibleTypes = ['ProjectCard']
+const ProjectCard_possibleTypes: string[] = ['ProjectCard']
 export const isProjectCard = (obj?: { __typename?: any } | null): obj is ProjectCard => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectCard"')
   return ProjectCard_possibleTypes.includes(obj.__typename)
@@ -35853,7 +35853,7 @@ export const isProjectCard = (obj?: { __typename?: any } | null): obj is Project
 
 
 
-const ProjectCardConnection_possibleTypes = ['ProjectCardConnection']
+const ProjectCardConnection_possibleTypes: string[] = ['ProjectCardConnection']
 export const isProjectCardConnection = (obj?: { __typename?: any } | null): obj is ProjectCardConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectCardConnection"')
   return ProjectCardConnection_possibleTypes.includes(obj.__typename)
@@ -35861,7 +35861,7 @@ export const isProjectCardConnection = (obj?: { __typename?: any } | null): obj 
 
 
 
-const ProjectCardEdge_possibleTypes = ['ProjectCardEdge']
+const ProjectCardEdge_possibleTypes: string[] = ['ProjectCardEdge']
 export const isProjectCardEdge = (obj?: { __typename?: any } | null): obj is ProjectCardEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectCardEdge"')
   return ProjectCardEdge_possibleTypes.includes(obj.__typename)
@@ -35869,7 +35869,7 @@ export const isProjectCardEdge = (obj?: { __typename?: any } | null): obj is Pro
 
 
 
-const ProjectCardItem_possibleTypes = ['Issue','PullRequest']
+const ProjectCardItem_possibleTypes: string[] = ['Issue','PullRequest']
 export const isProjectCardItem = (obj?: { __typename?: any } | null): obj is ProjectCardItem => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectCardItem"')
   return ProjectCardItem_possibleTypes.includes(obj.__typename)
@@ -35877,7 +35877,7 @@ export const isProjectCardItem = (obj?: { __typename?: any } | null): obj is Pro
 
 
 
-const ProjectColumn_possibleTypes = ['ProjectColumn']
+const ProjectColumn_possibleTypes: string[] = ['ProjectColumn']
 export const isProjectColumn = (obj?: { __typename?: any } | null): obj is ProjectColumn => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectColumn"')
   return ProjectColumn_possibleTypes.includes(obj.__typename)
@@ -35885,7 +35885,7 @@ export const isProjectColumn = (obj?: { __typename?: any } | null): obj is Proje
 
 
 
-const ProjectColumnConnection_possibleTypes = ['ProjectColumnConnection']
+const ProjectColumnConnection_possibleTypes: string[] = ['ProjectColumnConnection']
 export const isProjectColumnConnection = (obj?: { __typename?: any } | null): obj is ProjectColumnConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectColumnConnection"')
   return ProjectColumnConnection_possibleTypes.includes(obj.__typename)
@@ -35893,7 +35893,7 @@ export const isProjectColumnConnection = (obj?: { __typename?: any } | null): ob
 
 
 
-const ProjectColumnEdge_possibleTypes = ['ProjectColumnEdge']
+const ProjectColumnEdge_possibleTypes: string[] = ['ProjectColumnEdge']
 export const isProjectColumnEdge = (obj?: { __typename?: any } | null): obj is ProjectColumnEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectColumnEdge"')
   return ProjectColumnEdge_possibleTypes.includes(obj.__typename)
@@ -35901,7 +35901,7 @@ export const isProjectColumnEdge = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const ProjectConnection_possibleTypes = ['ProjectConnection']
+const ProjectConnection_possibleTypes: string[] = ['ProjectConnection']
 export const isProjectConnection = (obj?: { __typename?: any } | null): obj is ProjectConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectConnection"')
   return ProjectConnection_possibleTypes.includes(obj.__typename)
@@ -35909,7 +35909,7 @@ export const isProjectConnection = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const ProjectEdge_possibleTypes = ['ProjectEdge']
+const ProjectEdge_possibleTypes: string[] = ['ProjectEdge']
 export const isProjectEdge = (obj?: { __typename?: any } | null): obj is ProjectEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectEdge"')
   return ProjectEdge_possibleTypes.includes(obj.__typename)
@@ -35917,7 +35917,7 @@ export const isProjectEdge = (obj?: { __typename?: any } | null): obj is Project
 
 
 
-const ProjectOwner_possibleTypes = ['Organization','Repository','User']
+const ProjectOwner_possibleTypes: string[] = ['Organization','Repository','User']
 export const isProjectOwner = (obj?: { __typename?: any } | null): obj is ProjectOwner => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isProjectOwner"')
   return ProjectOwner_possibleTypes.includes(obj.__typename)
@@ -35925,7 +35925,7 @@ export const isProjectOwner = (obj?: { __typename?: any } | null): obj is Projec
 
 
 
-const PublicKey_possibleTypes = ['PublicKey']
+const PublicKey_possibleTypes: string[] = ['PublicKey']
 export const isPublicKey = (obj?: { __typename?: any } | null): obj is PublicKey => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPublicKey"')
   return PublicKey_possibleTypes.includes(obj.__typename)
@@ -35933,7 +35933,7 @@ export const isPublicKey = (obj?: { __typename?: any } | null): obj is PublicKey
 
 
 
-const PublicKeyConnection_possibleTypes = ['PublicKeyConnection']
+const PublicKeyConnection_possibleTypes: string[] = ['PublicKeyConnection']
 export const isPublicKeyConnection = (obj?: { __typename?: any } | null): obj is PublicKeyConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPublicKeyConnection"')
   return PublicKeyConnection_possibleTypes.includes(obj.__typename)
@@ -35941,7 +35941,7 @@ export const isPublicKeyConnection = (obj?: { __typename?: any } | null): obj is
 
 
 
-const PublicKeyEdge_possibleTypes = ['PublicKeyEdge']
+const PublicKeyEdge_possibleTypes: string[] = ['PublicKeyEdge']
 export const isPublicKeyEdge = (obj?: { __typename?: any } | null): obj is PublicKeyEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPublicKeyEdge"')
   return PublicKeyEdge_possibleTypes.includes(obj.__typename)
@@ -35949,7 +35949,7 @@ export const isPublicKeyEdge = (obj?: { __typename?: any } | null): obj is Publi
 
 
 
-const PullRequest_possibleTypes = ['PullRequest']
+const PullRequest_possibleTypes: string[] = ['PullRequest']
 export const isPullRequest = (obj?: { __typename?: any } | null): obj is PullRequest => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequest"')
   return PullRequest_possibleTypes.includes(obj.__typename)
@@ -35957,7 +35957,7 @@ export const isPullRequest = (obj?: { __typename?: any } | null): obj is PullReq
 
 
 
-const PullRequestChangedFile_possibleTypes = ['PullRequestChangedFile']
+const PullRequestChangedFile_possibleTypes: string[] = ['PullRequestChangedFile']
 export const isPullRequestChangedFile = (obj?: { __typename?: any } | null): obj is PullRequestChangedFile => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestChangedFile"')
   return PullRequestChangedFile_possibleTypes.includes(obj.__typename)
@@ -35965,7 +35965,7 @@ export const isPullRequestChangedFile = (obj?: { __typename?: any } | null): obj
 
 
 
-const PullRequestChangedFileConnection_possibleTypes = ['PullRequestChangedFileConnection']
+const PullRequestChangedFileConnection_possibleTypes: string[] = ['PullRequestChangedFileConnection']
 export const isPullRequestChangedFileConnection = (obj?: { __typename?: any } | null): obj is PullRequestChangedFileConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestChangedFileConnection"')
   return PullRequestChangedFileConnection_possibleTypes.includes(obj.__typename)
@@ -35973,7 +35973,7 @@ export const isPullRequestChangedFileConnection = (obj?: { __typename?: any } | 
 
 
 
-const PullRequestChangedFileEdge_possibleTypes = ['PullRequestChangedFileEdge']
+const PullRequestChangedFileEdge_possibleTypes: string[] = ['PullRequestChangedFileEdge']
 export const isPullRequestChangedFileEdge = (obj?: { __typename?: any } | null): obj is PullRequestChangedFileEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestChangedFileEdge"')
   return PullRequestChangedFileEdge_possibleTypes.includes(obj.__typename)
@@ -35981,7 +35981,7 @@ export const isPullRequestChangedFileEdge = (obj?: { __typename?: any } | null):
 
 
 
-const PullRequestCommit_possibleTypes = ['PullRequestCommit']
+const PullRequestCommit_possibleTypes: string[] = ['PullRequestCommit']
 export const isPullRequestCommit = (obj?: { __typename?: any } | null): obj is PullRequestCommit => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestCommit"')
   return PullRequestCommit_possibleTypes.includes(obj.__typename)
@@ -35989,7 +35989,7 @@ export const isPullRequestCommit = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const PullRequestCommitCommentThread_possibleTypes = ['PullRequestCommitCommentThread']
+const PullRequestCommitCommentThread_possibleTypes: string[] = ['PullRequestCommitCommentThread']
 export const isPullRequestCommitCommentThread = (obj?: { __typename?: any } | null): obj is PullRequestCommitCommentThread => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestCommitCommentThread"')
   return PullRequestCommitCommentThread_possibleTypes.includes(obj.__typename)
@@ -35997,7 +35997,7 @@ export const isPullRequestCommitCommentThread = (obj?: { __typename?: any } | nu
 
 
 
-const PullRequestCommitConnection_possibleTypes = ['PullRequestCommitConnection']
+const PullRequestCommitConnection_possibleTypes: string[] = ['PullRequestCommitConnection']
 export const isPullRequestCommitConnection = (obj?: { __typename?: any } | null): obj is PullRequestCommitConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestCommitConnection"')
   return PullRequestCommitConnection_possibleTypes.includes(obj.__typename)
@@ -36005,7 +36005,7 @@ export const isPullRequestCommitConnection = (obj?: { __typename?: any } | null)
 
 
 
-const PullRequestCommitEdge_possibleTypes = ['PullRequestCommitEdge']
+const PullRequestCommitEdge_possibleTypes: string[] = ['PullRequestCommitEdge']
 export const isPullRequestCommitEdge = (obj?: { __typename?: any } | null): obj is PullRequestCommitEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestCommitEdge"')
   return PullRequestCommitEdge_possibleTypes.includes(obj.__typename)
@@ -36013,7 +36013,7 @@ export const isPullRequestCommitEdge = (obj?: { __typename?: any } | null): obj 
 
 
 
-const PullRequestConnection_possibleTypes = ['PullRequestConnection']
+const PullRequestConnection_possibleTypes: string[] = ['PullRequestConnection']
 export const isPullRequestConnection = (obj?: { __typename?: any } | null): obj is PullRequestConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestConnection"')
   return PullRequestConnection_possibleTypes.includes(obj.__typename)
@@ -36021,7 +36021,7 @@ export const isPullRequestConnection = (obj?: { __typename?: any } | null): obj 
 
 
 
-const PullRequestContributionsByRepository_possibleTypes = ['PullRequestContributionsByRepository']
+const PullRequestContributionsByRepository_possibleTypes: string[] = ['PullRequestContributionsByRepository']
 export const isPullRequestContributionsByRepository = (obj?: { __typename?: any } | null): obj is PullRequestContributionsByRepository => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestContributionsByRepository"')
   return PullRequestContributionsByRepository_possibleTypes.includes(obj.__typename)
@@ -36029,7 +36029,7 @@ export const isPullRequestContributionsByRepository = (obj?: { __typename?: any 
 
 
 
-const PullRequestEdge_possibleTypes = ['PullRequestEdge']
+const PullRequestEdge_possibleTypes: string[] = ['PullRequestEdge']
 export const isPullRequestEdge = (obj?: { __typename?: any } | null): obj is PullRequestEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestEdge"')
   return PullRequestEdge_possibleTypes.includes(obj.__typename)
@@ -36037,7 +36037,7 @@ export const isPullRequestEdge = (obj?: { __typename?: any } | null): obj is Pul
 
 
 
-const PullRequestReview_possibleTypes = ['PullRequestReview']
+const PullRequestReview_possibleTypes: string[] = ['PullRequestReview']
 export const isPullRequestReview = (obj?: { __typename?: any } | null): obj is PullRequestReview => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReview"')
   return PullRequestReview_possibleTypes.includes(obj.__typename)
@@ -36045,7 +36045,7 @@ export const isPullRequestReview = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const PullRequestReviewComment_possibleTypes = ['PullRequestReviewComment']
+const PullRequestReviewComment_possibleTypes: string[] = ['PullRequestReviewComment']
 export const isPullRequestReviewComment = (obj?: { __typename?: any } | null): obj is PullRequestReviewComment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewComment"')
   return PullRequestReviewComment_possibleTypes.includes(obj.__typename)
@@ -36053,7 +36053,7 @@ export const isPullRequestReviewComment = (obj?: { __typename?: any } | null): o
 
 
 
-const PullRequestReviewCommentConnection_possibleTypes = ['PullRequestReviewCommentConnection']
+const PullRequestReviewCommentConnection_possibleTypes: string[] = ['PullRequestReviewCommentConnection']
 export const isPullRequestReviewCommentConnection = (obj?: { __typename?: any } | null): obj is PullRequestReviewCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewCommentConnection"')
   return PullRequestReviewCommentConnection_possibleTypes.includes(obj.__typename)
@@ -36061,7 +36061,7 @@ export const isPullRequestReviewCommentConnection = (obj?: { __typename?: any } 
 
 
 
-const PullRequestReviewCommentEdge_possibleTypes = ['PullRequestReviewCommentEdge']
+const PullRequestReviewCommentEdge_possibleTypes: string[] = ['PullRequestReviewCommentEdge']
 export const isPullRequestReviewCommentEdge = (obj?: { __typename?: any } | null): obj is PullRequestReviewCommentEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewCommentEdge"')
   return PullRequestReviewCommentEdge_possibleTypes.includes(obj.__typename)
@@ -36069,7 +36069,7 @@ export const isPullRequestReviewCommentEdge = (obj?: { __typename?: any } | null
 
 
 
-const PullRequestReviewConnection_possibleTypes = ['PullRequestReviewConnection']
+const PullRequestReviewConnection_possibleTypes: string[] = ['PullRequestReviewConnection']
 export const isPullRequestReviewConnection = (obj?: { __typename?: any } | null): obj is PullRequestReviewConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewConnection"')
   return PullRequestReviewConnection_possibleTypes.includes(obj.__typename)
@@ -36077,7 +36077,7 @@ export const isPullRequestReviewConnection = (obj?: { __typename?: any } | null)
 
 
 
-const PullRequestReviewContributionsByRepository_possibleTypes = ['PullRequestReviewContributionsByRepository']
+const PullRequestReviewContributionsByRepository_possibleTypes: string[] = ['PullRequestReviewContributionsByRepository']
 export const isPullRequestReviewContributionsByRepository = (obj?: { __typename?: any } | null): obj is PullRequestReviewContributionsByRepository => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewContributionsByRepository"')
   return PullRequestReviewContributionsByRepository_possibleTypes.includes(obj.__typename)
@@ -36085,7 +36085,7 @@ export const isPullRequestReviewContributionsByRepository = (obj?: { __typename?
 
 
 
-const PullRequestReviewEdge_possibleTypes = ['PullRequestReviewEdge']
+const PullRequestReviewEdge_possibleTypes: string[] = ['PullRequestReviewEdge']
 export const isPullRequestReviewEdge = (obj?: { __typename?: any } | null): obj is PullRequestReviewEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewEdge"')
   return PullRequestReviewEdge_possibleTypes.includes(obj.__typename)
@@ -36093,7 +36093,7 @@ export const isPullRequestReviewEdge = (obj?: { __typename?: any } | null): obj 
 
 
 
-const PullRequestReviewThread_possibleTypes = ['PullRequestReviewThread']
+const PullRequestReviewThread_possibleTypes: string[] = ['PullRequestReviewThread']
 export const isPullRequestReviewThread = (obj?: { __typename?: any } | null): obj is PullRequestReviewThread => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewThread"')
   return PullRequestReviewThread_possibleTypes.includes(obj.__typename)
@@ -36101,7 +36101,7 @@ export const isPullRequestReviewThread = (obj?: { __typename?: any } | null): ob
 
 
 
-const PullRequestReviewThreadConnection_possibleTypes = ['PullRequestReviewThreadConnection']
+const PullRequestReviewThreadConnection_possibleTypes: string[] = ['PullRequestReviewThreadConnection']
 export const isPullRequestReviewThreadConnection = (obj?: { __typename?: any } | null): obj is PullRequestReviewThreadConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewThreadConnection"')
   return PullRequestReviewThreadConnection_possibleTypes.includes(obj.__typename)
@@ -36109,7 +36109,7 @@ export const isPullRequestReviewThreadConnection = (obj?: { __typename?: any } |
 
 
 
-const PullRequestReviewThreadEdge_possibleTypes = ['PullRequestReviewThreadEdge']
+const PullRequestReviewThreadEdge_possibleTypes: string[] = ['PullRequestReviewThreadEdge']
 export const isPullRequestReviewThreadEdge = (obj?: { __typename?: any } | null): obj is PullRequestReviewThreadEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestReviewThreadEdge"')
   return PullRequestReviewThreadEdge_possibleTypes.includes(obj.__typename)
@@ -36117,7 +36117,7 @@ export const isPullRequestReviewThreadEdge = (obj?: { __typename?: any } | null)
 
 
 
-const PullRequestRevisionMarker_possibleTypes = ['PullRequestRevisionMarker']
+const PullRequestRevisionMarker_possibleTypes: string[] = ['PullRequestRevisionMarker']
 export const isPullRequestRevisionMarker = (obj?: { __typename?: any } | null): obj is PullRequestRevisionMarker => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestRevisionMarker"')
   return PullRequestRevisionMarker_possibleTypes.includes(obj.__typename)
@@ -36125,7 +36125,7 @@ export const isPullRequestRevisionMarker = (obj?: { __typename?: any } | null): 
 
 
 
-const PullRequestTimelineConnection_possibleTypes = ['PullRequestTimelineConnection']
+const PullRequestTimelineConnection_possibleTypes: string[] = ['PullRequestTimelineConnection']
 export const isPullRequestTimelineConnection = (obj?: { __typename?: any } | null): obj is PullRequestTimelineConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestTimelineConnection"')
   return PullRequestTimelineConnection_possibleTypes.includes(obj.__typename)
@@ -36133,7 +36133,7 @@ export const isPullRequestTimelineConnection = (obj?: { __typename?: any } | nul
 
 
 
-const PullRequestTimelineItem_possibleTypes = ['AssignedEvent','BaseRefForcePushedEvent','ClosedEvent','Commit','CommitCommentThread','CrossReferencedEvent','DemilestonedEvent','DeployedEvent','DeploymentEnvironmentChangedEvent','HeadRefDeletedEvent','HeadRefForcePushedEvent','HeadRefRestoredEvent','IssueComment','LabeledEvent','LockedEvent','MergedEvent','MilestonedEvent','PullRequestReview','PullRequestReviewComment','PullRequestReviewThread','ReferencedEvent','RenamedTitleEvent','ReopenedEvent','ReviewDismissedEvent','ReviewRequestRemovedEvent','ReviewRequestedEvent','SubscribedEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnsubscribedEvent','UserBlockedEvent']
+const PullRequestTimelineItem_possibleTypes: string[] = ['AssignedEvent','BaseRefForcePushedEvent','ClosedEvent','Commit','CommitCommentThread','CrossReferencedEvent','DemilestonedEvent','DeployedEvent','DeploymentEnvironmentChangedEvent','HeadRefDeletedEvent','HeadRefForcePushedEvent','HeadRefRestoredEvent','IssueComment','LabeledEvent','LockedEvent','MergedEvent','MilestonedEvent','PullRequestReview','PullRequestReviewComment','PullRequestReviewThread','ReferencedEvent','RenamedTitleEvent','ReopenedEvent','ReviewDismissedEvent','ReviewRequestRemovedEvent','ReviewRequestedEvent','SubscribedEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnsubscribedEvent','UserBlockedEvent']
 export const isPullRequestTimelineItem = (obj?: { __typename?: any } | null): obj is PullRequestTimelineItem => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestTimelineItem"')
   return PullRequestTimelineItem_possibleTypes.includes(obj.__typename)
@@ -36141,7 +36141,7 @@ export const isPullRequestTimelineItem = (obj?: { __typename?: any } | null): ob
 
 
 
-const PullRequestTimelineItemEdge_possibleTypes = ['PullRequestTimelineItemEdge']
+const PullRequestTimelineItemEdge_possibleTypes: string[] = ['PullRequestTimelineItemEdge']
 export const isPullRequestTimelineItemEdge = (obj?: { __typename?: any } | null): obj is PullRequestTimelineItemEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestTimelineItemEdge"')
   return PullRequestTimelineItemEdge_possibleTypes.includes(obj.__typename)
@@ -36149,7 +36149,7 @@ export const isPullRequestTimelineItemEdge = (obj?: { __typename?: any } | null)
 
 
 
-const PullRequestTimelineItems_possibleTypes = ['AddedToProjectEvent','AssignedEvent','AutomaticBaseChangeFailedEvent','AutomaticBaseChangeSucceededEvent','BaseRefChangedEvent','BaseRefForcePushedEvent','ClosedEvent','CommentDeletedEvent','ConnectedEvent','ConvertToDraftEvent','ConvertedNoteToIssueEvent','CrossReferencedEvent','DemilestonedEvent','DeployedEvent','DeploymentEnvironmentChangedEvent','DisconnectedEvent','HeadRefDeletedEvent','HeadRefForcePushedEvent','HeadRefRestoredEvent','IssueComment','LabeledEvent','LockedEvent','MarkedAsDuplicateEvent','MentionedEvent','MergedEvent','MilestonedEvent','MovedColumnsInProjectEvent','PinnedEvent','PullRequestCommit','PullRequestCommitCommentThread','PullRequestReview','PullRequestReviewThread','PullRequestRevisionMarker','ReadyForReviewEvent','ReferencedEvent','RemovedFromProjectEvent','RenamedTitleEvent','ReopenedEvent','ReviewDismissedEvent','ReviewRequestRemovedEvent','ReviewRequestedEvent','SubscribedEvent','TransferredEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnmarkedAsDuplicateEvent','UnpinnedEvent','UnsubscribedEvent','UserBlockedEvent']
+const PullRequestTimelineItems_possibleTypes: string[] = ['AddedToProjectEvent','AssignedEvent','AutomaticBaseChangeFailedEvent','AutomaticBaseChangeSucceededEvent','BaseRefChangedEvent','BaseRefForcePushedEvent','ClosedEvent','CommentDeletedEvent','ConnectedEvent','ConvertToDraftEvent','ConvertedNoteToIssueEvent','CrossReferencedEvent','DemilestonedEvent','DeployedEvent','DeploymentEnvironmentChangedEvent','DisconnectedEvent','HeadRefDeletedEvent','HeadRefForcePushedEvent','HeadRefRestoredEvent','IssueComment','LabeledEvent','LockedEvent','MarkedAsDuplicateEvent','MentionedEvent','MergedEvent','MilestonedEvent','MovedColumnsInProjectEvent','PinnedEvent','PullRequestCommit','PullRequestCommitCommentThread','PullRequestReview','PullRequestReviewThread','PullRequestRevisionMarker','ReadyForReviewEvent','ReferencedEvent','RemovedFromProjectEvent','RenamedTitleEvent','ReopenedEvent','ReviewDismissedEvent','ReviewRequestRemovedEvent','ReviewRequestedEvent','SubscribedEvent','TransferredEvent','UnassignedEvent','UnlabeledEvent','UnlockedEvent','UnmarkedAsDuplicateEvent','UnpinnedEvent','UnsubscribedEvent','UserBlockedEvent']
 export const isPullRequestTimelineItems = (obj?: { __typename?: any } | null): obj is PullRequestTimelineItems => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestTimelineItems"')
   return PullRequestTimelineItems_possibleTypes.includes(obj.__typename)
@@ -36157,7 +36157,7 @@ export const isPullRequestTimelineItems = (obj?: { __typename?: any } | null): o
 
 
 
-const PullRequestTimelineItemsConnection_possibleTypes = ['PullRequestTimelineItemsConnection']
+const PullRequestTimelineItemsConnection_possibleTypes: string[] = ['PullRequestTimelineItemsConnection']
 export const isPullRequestTimelineItemsConnection = (obj?: { __typename?: any } | null): obj is PullRequestTimelineItemsConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestTimelineItemsConnection"')
   return PullRequestTimelineItemsConnection_possibleTypes.includes(obj.__typename)
@@ -36165,7 +36165,7 @@ export const isPullRequestTimelineItemsConnection = (obj?: { __typename?: any } 
 
 
 
-const PullRequestTimelineItemsEdge_possibleTypes = ['PullRequestTimelineItemsEdge']
+const PullRequestTimelineItemsEdge_possibleTypes: string[] = ['PullRequestTimelineItemsEdge']
 export const isPullRequestTimelineItemsEdge = (obj?: { __typename?: any } | null): obj is PullRequestTimelineItemsEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPullRequestTimelineItemsEdge"')
   return PullRequestTimelineItemsEdge_possibleTypes.includes(obj.__typename)
@@ -36173,7 +36173,7 @@ export const isPullRequestTimelineItemsEdge = (obj?: { __typename?: any } | null
 
 
 
-const Push_possibleTypes = ['Push']
+const Push_possibleTypes: string[] = ['Push']
 export const isPush = (obj?: { __typename?: any } | null): obj is Push => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPush"')
   return Push_possibleTypes.includes(obj.__typename)
@@ -36181,7 +36181,7 @@ export const isPush = (obj?: { __typename?: any } | null): obj is Push => {
 
 
 
-const PushAllowance_possibleTypes = ['PushAllowance']
+const PushAllowance_possibleTypes: string[] = ['PushAllowance']
 export const isPushAllowance = (obj?: { __typename?: any } | null): obj is PushAllowance => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPushAllowance"')
   return PushAllowance_possibleTypes.includes(obj.__typename)
@@ -36189,7 +36189,7 @@ export const isPushAllowance = (obj?: { __typename?: any } | null): obj is PushA
 
 
 
-const PushAllowanceActor_possibleTypes = ['App','Team','User']
+const PushAllowanceActor_possibleTypes: string[] = ['App','Team','User']
 export const isPushAllowanceActor = (obj?: { __typename?: any } | null): obj is PushAllowanceActor => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPushAllowanceActor"')
   return PushAllowanceActor_possibleTypes.includes(obj.__typename)
@@ -36197,7 +36197,7 @@ export const isPushAllowanceActor = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const PushAllowanceConnection_possibleTypes = ['PushAllowanceConnection']
+const PushAllowanceConnection_possibleTypes: string[] = ['PushAllowanceConnection']
 export const isPushAllowanceConnection = (obj?: { __typename?: any } | null): obj is PushAllowanceConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPushAllowanceConnection"')
   return PushAllowanceConnection_possibleTypes.includes(obj.__typename)
@@ -36205,7 +36205,7 @@ export const isPushAllowanceConnection = (obj?: { __typename?: any } | null): ob
 
 
 
-const PushAllowanceEdge_possibleTypes = ['PushAllowanceEdge']
+const PushAllowanceEdge_possibleTypes: string[] = ['PushAllowanceEdge']
 export const isPushAllowanceEdge = (obj?: { __typename?: any } | null): obj is PushAllowanceEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPushAllowanceEdge"')
   return PushAllowanceEdge_possibleTypes.includes(obj.__typename)
@@ -36213,7 +36213,7 @@ export const isPushAllowanceEdge = (obj?: { __typename?: any } | null): obj is P
 
 
 
-const Query_possibleTypes = ['Query']
+const Query_possibleTypes: string[] = ['Query']
 export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
   return Query_possibleTypes.includes(obj.__typename)
@@ -36221,7 +36221,7 @@ export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
 
 
 
-const RateLimit_possibleTypes = ['RateLimit']
+const RateLimit_possibleTypes: string[] = ['RateLimit']
 export const isRateLimit = (obj?: { __typename?: any } | null): obj is RateLimit => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRateLimit"')
   return RateLimit_possibleTypes.includes(obj.__typename)
@@ -36229,7 +36229,7 @@ export const isRateLimit = (obj?: { __typename?: any } | null): obj is RateLimit
 
 
 
-const Reactable_possibleTypes = ['CommitComment','Issue','IssueComment','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
+const Reactable_possibleTypes: string[] = ['CommitComment','Issue','IssueComment','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
 export const isReactable = (obj?: { __typename?: any } | null): obj is Reactable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReactable"')
   return Reactable_possibleTypes.includes(obj.__typename)
@@ -36237,7 +36237,7 @@ export const isReactable = (obj?: { __typename?: any } | null): obj is Reactable
 
 
 
-const ReactingUserConnection_possibleTypes = ['ReactingUserConnection']
+const ReactingUserConnection_possibleTypes: string[] = ['ReactingUserConnection']
 export const isReactingUserConnection = (obj?: { __typename?: any } | null): obj is ReactingUserConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReactingUserConnection"')
   return ReactingUserConnection_possibleTypes.includes(obj.__typename)
@@ -36245,7 +36245,7 @@ export const isReactingUserConnection = (obj?: { __typename?: any } | null): obj
 
 
 
-const ReactingUserEdge_possibleTypes = ['ReactingUserEdge']
+const ReactingUserEdge_possibleTypes: string[] = ['ReactingUserEdge']
 export const isReactingUserEdge = (obj?: { __typename?: any } | null): obj is ReactingUserEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReactingUserEdge"')
   return ReactingUserEdge_possibleTypes.includes(obj.__typename)
@@ -36253,7 +36253,7 @@ export const isReactingUserEdge = (obj?: { __typename?: any } | null): obj is Re
 
 
 
-const Reaction_possibleTypes = ['Reaction']
+const Reaction_possibleTypes: string[] = ['Reaction']
 export const isReaction = (obj?: { __typename?: any } | null): obj is Reaction => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReaction"')
   return Reaction_possibleTypes.includes(obj.__typename)
@@ -36261,7 +36261,7 @@ export const isReaction = (obj?: { __typename?: any } | null): obj is Reaction =
 
 
 
-const ReactionConnection_possibleTypes = ['ReactionConnection']
+const ReactionConnection_possibleTypes: string[] = ['ReactionConnection']
 export const isReactionConnection = (obj?: { __typename?: any } | null): obj is ReactionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReactionConnection"')
   return ReactionConnection_possibleTypes.includes(obj.__typename)
@@ -36269,7 +36269,7 @@ export const isReactionConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const ReactionEdge_possibleTypes = ['ReactionEdge']
+const ReactionEdge_possibleTypes: string[] = ['ReactionEdge']
 export const isReactionEdge = (obj?: { __typename?: any } | null): obj is ReactionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReactionEdge"')
   return ReactionEdge_possibleTypes.includes(obj.__typename)
@@ -36277,7 +36277,7 @@ export const isReactionEdge = (obj?: { __typename?: any } | null): obj is Reacti
 
 
 
-const ReactionGroup_possibleTypes = ['ReactionGroup']
+const ReactionGroup_possibleTypes: string[] = ['ReactionGroup']
 export const isReactionGroup = (obj?: { __typename?: any } | null): obj is ReactionGroup => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReactionGroup"')
   return ReactionGroup_possibleTypes.includes(obj.__typename)
@@ -36285,7 +36285,7 @@ export const isReactionGroup = (obj?: { __typename?: any } | null): obj is React
 
 
 
-const ReadyForReviewEvent_possibleTypes = ['ReadyForReviewEvent']
+const ReadyForReviewEvent_possibleTypes: string[] = ['ReadyForReviewEvent']
 export const isReadyForReviewEvent = (obj?: { __typename?: any } | null): obj is ReadyForReviewEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReadyForReviewEvent"')
   return ReadyForReviewEvent_possibleTypes.includes(obj.__typename)
@@ -36293,7 +36293,7 @@ export const isReadyForReviewEvent = (obj?: { __typename?: any } | null): obj is
 
 
 
-const Ref_possibleTypes = ['Ref']
+const Ref_possibleTypes: string[] = ['Ref']
 export const isRef = (obj?: { __typename?: any } | null): obj is Ref => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRef"')
   return Ref_possibleTypes.includes(obj.__typename)
@@ -36301,7 +36301,7 @@ export const isRef = (obj?: { __typename?: any } | null): obj is Ref => {
 
 
 
-const RefConnection_possibleTypes = ['RefConnection']
+const RefConnection_possibleTypes: string[] = ['RefConnection']
 export const isRefConnection = (obj?: { __typename?: any } | null): obj is RefConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRefConnection"')
   return RefConnection_possibleTypes.includes(obj.__typename)
@@ -36309,7 +36309,7 @@ export const isRefConnection = (obj?: { __typename?: any } | null): obj is RefCo
 
 
 
-const RefEdge_possibleTypes = ['RefEdge']
+const RefEdge_possibleTypes: string[] = ['RefEdge']
 export const isRefEdge = (obj?: { __typename?: any } | null): obj is RefEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRefEdge"')
   return RefEdge_possibleTypes.includes(obj.__typename)
@@ -36317,7 +36317,7 @@ export const isRefEdge = (obj?: { __typename?: any } | null): obj is RefEdge => 
 
 
 
-const ReferencedEvent_possibleTypes = ['ReferencedEvent']
+const ReferencedEvent_possibleTypes: string[] = ['ReferencedEvent']
 export const isReferencedEvent = (obj?: { __typename?: any } | null): obj is ReferencedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReferencedEvent"')
   return ReferencedEvent_possibleTypes.includes(obj.__typename)
@@ -36325,7 +36325,7 @@ export const isReferencedEvent = (obj?: { __typename?: any } | null): obj is Ref
 
 
 
-const ReferencedSubject_possibleTypes = ['Issue','PullRequest']
+const ReferencedSubject_possibleTypes: string[] = ['Issue','PullRequest']
 export const isReferencedSubject = (obj?: { __typename?: any } | null): obj is ReferencedSubject => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReferencedSubject"')
   return ReferencedSubject_possibleTypes.includes(obj.__typename)
@@ -36333,7 +36333,7 @@ export const isReferencedSubject = (obj?: { __typename?: any } | null): obj is R
 
 
 
-const RegenerateEnterpriseIdentityProviderRecoveryCodesPayload_possibleTypes = ['RegenerateEnterpriseIdentityProviderRecoveryCodesPayload']
+const RegenerateEnterpriseIdentityProviderRecoveryCodesPayload_possibleTypes: string[] = ['RegenerateEnterpriseIdentityProviderRecoveryCodesPayload']
 export const isRegenerateEnterpriseIdentityProviderRecoveryCodesPayload = (obj?: { __typename?: any } | null): obj is RegenerateEnterpriseIdentityProviderRecoveryCodesPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegenerateEnterpriseIdentityProviderRecoveryCodesPayload"')
   return RegenerateEnterpriseIdentityProviderRecoveryCodesPayload_possibleTypes.includes(obj.__typename)
@@ -36341,7 +36341,7 @@ export const isRegenerateEnterpriseIdentityProviderRecoveryCodesPayload = (obj?:
 
 
 
-const RegistryPackage_possibleTypes = ['RegistryPackage']
+const RegistryPackage_possibleTypes: string[] = ['RegistryPackage']
 export const isRegistryPackage = (obj?: { __typename?: any } | null): obj is RegistryPackage => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackage"')
   return RegistryPackage_possibleTypes.includes(obj.__typename)
@@ -36349,7 +36349,7 @@ export const isRegistryPackage = (obj?: { __typename?: any } | null): obj is Reg
 
 
 
-const RegistryPackageConnection_possibleTypes = ['RegistryPackageConnection']
+const RegistryPackageConnection_possibleTypes: string[] = ['RegistryPackageConnection']
 export const isRegistryPackageConnection = (obj?: { __typename?: any } | null): obj is RegistryPackageConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageConnection"')
   return RegistryPackageConnection_possibleTypes.includes(obj.__typename)
@@ -36357,7 +36357,7 @@ export const isRegistryPackageConnection = (obj?: { __typename?: any } | null): 
 
 
 
-const RegistryPackageDependency_possibleTypes = ['RegistryPackageDependency']
+const RegistryPackageDependency_possibleTypes: string[] = ['RegistryPackageDependency']
 export const isRegistryPackageDependency = (obj?: { __typename?: any } | null): obj is RegistryPackageDependency => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageDependency"')
   return RegistryPackageDependency_possibleTypes.includes(obj.__typename)
@@ -36365,7 +36365,7 @@ export const isRegistryPackageDependency = (obj?: { __typename?: any } | null): 
 
 
 
-const RegistryPackageDependencyConnection_possibleTypes = ['RegistryPackageDependencyConnection']
+const RegistryPackageDependencyConnection_possibleTypes: string[] = ['RegistryPackageDependencyConnection']
 export const isRegistryPackageDependencyConnection = (obj?: { __typename?: any } | null): obj is RegistryPackageDependencyConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageDependencyConnection"')
   return RegistryPackageDependencyConnection_possibleTypes.includes(obj.__typename)
@@ -36373,7 +36373,7 @@ export const isRegistryPackageDependencyConnection = (obj?: { __typename?: any }
 
 
 
-const RegistryPackageDependencyEdge_possibleTypes = ['RegistryPackageDependencyEdge']
+const RegistryPackageDependencyEdge_possibleTypes: string[] = ['RegistryPackageDependencyEdge']
 export const isRegistryPackageDependencyEdge = (obj?: { __typename?: any } | null): obj is RegistryPackageDependencyEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageDependencyEdge"')
   return RegistryPackageDependencyEdge_possibleTypes.includes(obj.__typename)
@@ -36381,7 +36381,7 @@ export const isRegistryPackageDependencyEdge = (obj?: { __typename?: any } | nul
 
 
 
-const RegistryPackageEdge_possibleTypes = ['RegistryPackageEdge']
+const RegistryPackageEdge_possibleTypes: string[] = ['RegistryPackageEdge']
 export const isRegistryPackageEdge = (obj?: { __typename?: any } | null): obj is RegistryPackageEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageEdge"')
   return RegistryPackageEdge_possibleTypes.includes(obj.__typename)
@@ -36389,7 +36389,7 @@ export const isRegistryPackageEdge = (obj?: { __typename?: any } | null): obj is
 
 
 
-const RegistryPackageFile_possibleTypes = ['RegistryPackageFile']
+const RegistryPackageFile_possibleTypes: string[] = ['RegistryPackageFile']
 export const isRegistryPackageFile = (obj?: { __typename?: any } | null): obj is RegistryPackageFile => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageFile"')
   return RegistryPackageFile_possibleTypes.includes(obj.__typename)
@@ -36397,7 +36397,7 @@ export const isRegistryPackageFile = (obj?: { __typename?: any } | null): obj is
 
 
 
-const RegistryPackageFileConnection_possibleTypes = ['RegistryPackageFileConnection']
+const RegistryPackageFileConnection_possibleTypes: string[] = ['RegistryPackageFileConnection']
 export const isRegistryPackageFileConnection = (obj?: { __typename?: any } | null): obj is RegistryPackageFileConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageFileConnection"')
   return RegistryPackageFileConnection_possibleTypes.includes(obj.__typename)
@@ -36405,7 +36405,7 @@ export const isRegistryPackageFileConnection = (obj?: { __typename?: any } | nul
 
 
 
-const RegistryPackageFileEdge_possibleTypes = ['RegistryPackageFileEdge']
+const RegistryPackageFileEdge_possibleTypes: string[] = ['RegistryPackageFileEdge']
 export const isRegistryPackageFileEdge = (obj?: { __typename?: any } | null): obj is RegistryPackageFileEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageFileEdge"')
   return RegistryPackageFileEdge_possibleTypes.includes(obj.__typename)
@@ -36413,7 +36413,7 @@ export const isRegistryPackageFileEdge = (obj?: { __typename?: any } | null): ob
 
 
 
-const RegistryPackageOwner_possibleTypes = ['Organization','Repository','User']
+const RegistryPackageOwner_possibleTypes: string[] = ['Organization','Repository','User']
 export const isRegistryPackageOwner = (obj?: { __typename?: any } | null): obj is RegistryPackageOwner => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageOwner"')
   return RegistryPackageOwner_possibleTypes.includes(obj.__typename)
@@ -36421,7 +36421,7 @@ export const isRegistryPackageOwner = (obj?: { __typename?: any } | null): obj i
 
 
 
-const RegistryPackageSearch_possibleTypes = ['Organization','Repository','User']
+const RegistryPackageSearch_possibleTypes: string[] = ['Organization','Repository','User']
 export const isRegistryPackageSearch = (obj?: { __typename?: any } | null): obj is RegistryPackageSearch => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageSearch"')
   return RegistryPackageSearch_possibleTypes.includes(obj.__typename)
@@ -36429,7 +36429,7 @@ export const isRegistryPackageSearch = (obj?: { __typename?: any } | null): obj 
 
 
 
-const RegistryPackageStatistics_possibleTypes = ['RegistryPackageStatistics']
+const RegistryPackageStatistics_possibleTypes: string[] = ['RegistryPackageStatistics']
 export const isRegistryPackageStatistics = (obj?: { __typename?: any } | null): obj is RegistryPackageStatistics => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageStatistics"')
   return RegistryPackageStatistics_possibleTypes.includes(obj.__typename)
@@ -36437,7 +36437,7 @@ export const isRegistryPackageStatistics = (obj?: { __typename?: any } | null): 
 
 
 
-const RegistryPackageTag_possibleTypes = ['RegistryPackageTag']
+const RegistryPackageTag_possibleTypes: string[] = ['RegistryPackageTag']
 export const isRegistryPackageTag = (obj?: { __typename?: any } | null): obj is RegistryPackageTag => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageTag"')
   return RegistryPackageTag_possibleTypes.includes(obj.__typename)
@@ -36445,7 +36445,7 @@ export const isRegistryPackageTag = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const RegistryPackageTagConnection_possibleTypes = ['RegistryPackageTagConnection']
+const RegistryPackageTagConnection_possibleTypes: string[] = ['RegistryPackageTagConnection']
 export const isRegistryPackageTagConnection = (obj?: { __typename?: any } | null): obj is RegistryPackageTagConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageTagConnection"')
   return RegistryPackageTagConnection_possibleTypes.includes(obj.__typename)
@@ -36453,7 +36453,7 @@ export const isRegistryPackageTagConnection = (obj?: { __typename?: any } | null
 
 
 
-const RegistryPackageTagEdge_possibleTypes = ['RegistryPackageTagEdge']
+const RegistryPackageTagEdge_possibleTypes: string[] = ['RegistryPackageTagEdge']
 export const isRegistryPackageTagEdge = (obj?: { __typename?: any } | null): obj is RegistryPackageTagEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageTagEdge"')
   return RegistryPackageTagEdge_possibleTypes.includes(obj.__typename)
@@ -36461,7 +36461,7 @@ export const isRegistryPackageTagEdge = (obj?: { __typename?: any } | null): obj
 
 
 
-const RegistryPackageVersion_possibleTypes = ['RegistryPackageVersion']
+const RegistryPackageVersion_possibleTypes: string[] = ['RegistryPackageVersion']
 export const isRegistryPackageVersion = (obj?: { __typename?: any } | null): obj is RegistryPackageVersion => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageVersion"')
   return RegistryPackageVersion_possibleTypes.includes(obj.__typename)
@@ -36469,7 +36469,7 @@ export const isRegistryPackageVersion = (obj?: { __typename?: any } | null): obj
 
 
 
-const RegistryPackageVersionConnection_possibleTypes = ['RegistryPackageVersionConnection']
+const RegistryPackageVersionConnection_possibleTypes: string[] = ['RegistryPackageVersionConnection']
 export const isRegistryPackageVersionConnection = (obj?: { __typename?: any } | null): obj is RegistryPackageVersionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageVersionConnection"')
   return RegistryPackageVersionConnection_possibleTypes.includes(obj.__typename)
@@ -36477,7 +36477,7 @@ export const isRegistryPackageVersionConnection = (obj?: { __typename?: any } | 
 
 
 
-const RegistryPackageVersionEdge_possibleTypes = ['RegistryPackageVersionEdge']
+const RegistryPackageVersionEdge_possibleTypes: string[] = ['RegistryPackageVersionEdge']
 export const isRegistryPackageVersionEdge = (obj?: { __typename?: any } | null): obj is RegistryPackageVersionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageVersionEdge"')
   return RegistryPackageVersionEdge_possibleTypes.includes(obj.__typename)
@@ -36485,7 +36485,7 @@ export const isRegistryPackageVersionEdge = (obj?: { __typename?: any } | null):
 
 
 
-const RegistryPackageVersionStatistics_possibleTypes = ['RegistryPackageVersionStatistics']
+const RegistryPackageVersionStatistics_possibleTypes: string[] = ['RegistryPackageVersionStatistics']
 export const isRegistryPackageVersionStatistics = (obj?: { __typename?: any } | null): obj is RegistryPackageVersionStatistics => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRegistryPackageVersionStatistics"')
   return RegistryPackageVersionStatistics_possibleTypes.includes(obj.__typename)
@@ -36493,7 +36493,7 @@ export const isRegistryPackageVersionStatistics = (obj?: { __typename?: any } | 
 
 
 
-const Release_possibleTypes = ['Release']
+const Release_possibleTypes: string[] = ['Release']
 export const isRelease = (obj?: { __typename?: any } | null): obj is Release => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRelease"')
   return Release_possibleTypes.includes(obj.__typename)
@@ -36501,7 +36501,7 @@ export const isRelease = (obj?: { __typename?: any } | null): obj is Release => 
 
 
 
-const ReleaseAsset_possibleTypes = ['ReleaseAsset']
+const ReleaseAsset_possibleTypes: string[] = ['ReleaseAsset']
 export const isReleaseAsset = (obj?: { __typename?: any } | null): obj is ReleaseAsset => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReleaseAsset"')
   return ReleaseAsset_possibleTypes.includes(obj.__typename)
@@ -36509,7 +36509,7 @@ export const isReleaseAsset = (obj?: { __typename?: any } | null): obj is Releas
 
 
 
-const ReleaseAssetConnection_possibleTypes = ['ReleaseAssetConnection']
+const ReleaseAssetConnection_possibleTypes: string[] = ['ReleaseAssetConnection']
 export const isReleaseAssetConnection = (obj?: { __typename?: any } | null): obj is ReleaseAssetConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReleaseAssetConnection"')
   return ReleaseAssetConnection_possibleTypes.includes(obj.__typename)
@@ -36517,7 +36517,7 @@ export const isReleaseAssetConnection = (obj?: { __typename?: any } | null): obj
 
 
 
-const ReleaseAssetEdge_possibleTypes = ['ReleaseAssetEdge']
+const ReleaseAssetEdge_possibleTypes: string[] = ['ReleaseAssetEdge']
 export const isReleaseAssetEdge = (obj?: { __typename?: any } | null): obj is ReleaseAssetEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReleaseAssetEdge"')
   return ReleaseAssetEdge_possibleTypes.includes(obj.__typename)
@@ -36525,7 +36525,7 @@ export const isReleaseAssetEdge = (obj?: { __typename?: any } | null): obj is Re
 
 
 
-const ReleaseConnection_possibleTypes = ['ReleaseConnection']
+const ReleaseConnection_possibleTypes: string[] = ['ReleaseConnection']
 export const isReleaseConnection = (obj?: { __typename?: any } | null): obj is ReleaseConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReleaseConnection"')
   return ReleaseConnection_possibleTypes.includes(obj.__typename)
@@ -36533,7 +36533,7 @@ export const isReleaseConnection = (obj?: { __typename?: any } | null): obj is R
 
 
 
-const ReleaseEdge_possibleTypes = ['ReleaseEdge']
+const ReleaseEdge_possibleTypes: string[] = ['ReleaseEdge']
 export const isReleaseEdge = (obj?: { __typename?: any } | null): obj is ReleaseEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReleaseEdge"')
   return ReleaseEdge_possibleTypes.includes(obj.__typename)
@@ -36541,7 +36541,7 @@ export const isReleaseEdge = (obj?: { __typename?: any } | null): obj is Release
 
 
 
-const RemoveAssigneesFromAssignablePayload_possibleTypes = ['RemoveAssigneesFromAssignablePayload']
+const RemoveAssigneesFromAssignablePayload_possibleTypes: string[] = ['RemoveAssigneesFromAssignablePayload']
 export const isRemoveAssigneesFromAssignablePayload = (obj?: { __typename?: any } | null): obj is RemoveAssigneesFromAssignablePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveAssigneesFromAssignablePayload"')
   return RemoveAssigneesFromAssignablePayload_possibleTypes.includes(obj.__typename)
@@ -36549,7 +36549,7 @@ export const isRemoveAssigneesFromAssignablePayload = (obj?: { __typename?: any 
 
 
 
-const RemoveEnterpriseAdminPayload_possibleTypes = ['RemoveEnterpriseAdminPayload']
+const RemoveEnterpriseAdminPayload_possibleTypes: string[] = ['RemoveEnterpriseAdminPayload']
 export const isRemoveEnterpriseAdminPayload = (obj?: { __typename?: any } | null): obj is RemoveEnterpriseAdminPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveEnterpriseAdminPayload"')
   return RemoveEnterpriseAdminPayload_possibleTypes.includes(obj.__typename)
@@ -36557,7 +36557,7 @@ export const isRemoveEnterpriseAdminPayload = (obj?: { __typename?: any } | null
 
 
 
-const RemoveEnterpriseIdentityProviderPayload_possibleTypes = ['RemoveEnterpriseIdentityProviderPayload']
+const RemoveEnterpriseIdentityProviderPayload_possibleTypes: string[] = ['RemoveEnterpriseIdentityProviderPayload']
 export const isRemoveEnterpriseIdentityProviderPayload = (obj?: { __typename?: any } | null): obj is RemoveEnterpriseIdentityProviderPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveEnterpriseIdentityProviderPayload"')
   return RemoveEnterpriseIdentityProviderPayload_possibleTypes.includes(obj.__typename)
@@ -36565,7 +36565,7 @@ export const isRemoveEnterpriseIdentityProviderPayload = (obj?: { __typename?: a
 
 
 
-const RemoveEnterpriseOrganizationPayload_possibleTypes = ['RemoveEnterpriseOrganizationPayload']
+const RemoveEnterpriseOrganizationPayload_possibleTypes: string[] = ['RemoveEnterpriseOrganizationPayload']
 export const isRemoveEnterpriseOrganizationPayload = (obj?: { __typename?: any } | null): obj is RemoveEnterpriseOrganizationPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveEnterpriseOrganizationPayload"')
   return RemoveEnterpriseOrganizationPayload_possibleTypes.includes(obj.__typename)
@@ -36573,7 +36573,7 @@ export const isRemoveEnterpriseOrganizationPayload = (obj?: { __typename?: any }
 
 
 
-const RemoveLabelsFromLabelablePayload_possibleTypes = ['RemoveLabelsFromLabelablePayload']
+const RemoveLabelsFromLabelablePayload_possibleTypes: string[] = ['RemoveLabelsFromLabelablePayload']
 export const isRemoveLabelsFromLabelablePayload = (obj?: { __typename?: any } | null): obj is RemoveLabelsFromLabelablePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveLabelsFromLabelablePayload"')
   return RemoveLabelsFromLabelablePayload_possibleTypes.includes(obj.__typename)
@@ -36581,7 +36581,7 @@ export const isRemoveLabelsFromLabelablePayload = (obj?: { __typename?: any } | 
 
 
 
-const RemoveOutsideCollaboratorPayload_possibleTypes = ['RemoveOutsideCollaboratorPayload']
+const RemoveOutsideCollaboratorPayload_possibleTypes: string[] = ['RemoveOutsideCollaboratorPayload']
 export const isRemoveOutsideCollaboratorPayload = (obj?: { __typename?: any } | null): obj is RemoveOutsideCollaboratorPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveOutsideCollaboratorPayload"')
   return RemoveOutsideCollaboratorPayload_possibleTypes.includes(obj.__typename)
@@ -36589,7 +36589,7 @@ export const isRemoveOutsideCollaboratorPayload = (obj?: { __typename?: any } | 
 
 
 
-const RemoveReactionPayload_possibleTypes = ['RemoveReactionPayload']
+const RemoveReactionPayload_possibleTypes: string[] = ['RemoveReactionPayload']
 export const isRemoveReactionPayload = (obj?: { __typename?: any } | null): obj is RemoveReactionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveReactionPayload"')
   return RemoveReactionPayload_possibleTypes.includes(obj.__typename)
@@ -36597,7 +36597,7 @@ export const isRemoveReactionPayload = (obj?: { __typename?: any } | null): obj 
 
 
 
-const RemoveStarPayload_possibleTypes = ['RemoveStarPayload']
+const RemoveStarPayload_possibleTypes: string[] = ['RemoveStarPayload']
 export const isRemoveStarPayload = (obj?: { __typename?: any } | null): obj is RemoveStarPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemoveStarPayload"')
   return RemoveStarPayload_possibleTypes.includes(obj.__typename)
@@ -36605,7 +36605,7 @@ export const isRemoveStarPayload = (obj?: { __typename?: any } | null): obj is R
 
 
 
-const RemovedFromProjectEvent_possibleTypes = ['RemovedFromProjectEvent']
+const RemovedFromProjectEvent_possibleTypes: string[] = ['RemovedFromProjectEvent']
 export const isRemovedFromProjectEvent = (obj?: { __typename?: any } | null): obj is RemovedFromProjectEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRemovedFromProjectEvent"')
   return RemovedFromProjectEvent_possibleTypes.includes(obj.__typename)
@@ -36613,7 +36613,7 @@ export const isRemovedFromProjectEvent = (obj?: { __typename?: any } | null): ob
 
 
 
-const RenamedTitleEvent_possibleTypes = ['RenamedTitleEvent']
+const RenamedTitleEvent_possibleTypes: string[] = ['RenamedTitleEvent']
 export const isRenamedTitleEvent = (obj?: { __typename?: any } | null): obj is RenamedTitleEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRenamedTitleEvent"')
   return RenamedTitleEvent_possibleTypes.includes(obj.__typename)
@@ -36621,7 +36621,7 @@ export const isRenamedTitleEvent = (obj?: { __typename?: any } | null): obj is R
 
 
 
-const RenamedTitleSubject_possibleTypes = ['Issue','PullRequest']
+const RenamedTitleSubject_possibleTypes: string[] = ['Issue','PullRequest']
 export const isRenamedTitleSubject = (obj?: { __typename?: any } | null): obj is RenamedTitleSubject => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRenamedTitleSubject"')
   return RenamedTitleSubject_possibleTypes.includes(obj.__typename)
@@ -36629,7 +36629,7 @@ export const isRenamedTitleSubject = (obj?: { __typename?: any } | null): obj is
 
 
 
-const ReopenIssuePayload_possibleTypes = ['ReopenIssuePayload']
+const ReopenIssuePayload_possibleTypes: string[] = ['ReopenIssuePayload']
 export const isReopenIssuePayload = (obj?: { __typename?: any } | null): obj is ReopenIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReopenIssuePayload"')
   return ReopenIssuePayload_possibleTypes.includes(obj.__typename)
@@ -36637,7 +36637,7 @@ export const isReopenIssuePayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const ReopenPullRequestPayload_possibleTypes = ['ReopenPullRequestPayload']
+const ReopenPullRequestPayload_possibleTypes: string[] = ['ReopenPullRequestPayload']
 export const isReopenPullRequestPayload = (obj?: { __typename?: any } | null): obj is ReopenPullRequestPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReopenPullRequestPayload"')
   return ReopenPullRequestPayload_possibleTypes.includes(obj.__typename)
@@ -36645,7 +36645,7 @@ export const isReopenPullRequestPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const ReopenedEvent_possibleTypes = ['ReopenedEvent']
+const ReopenedEvent_possibleTypes: string[] = ['ReopenedEvent']
 export const isReopenedEvent = (obj?: { __typename?: any } | null): obj is ReopenedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReopenedEvent"')
   return ReopenedEvent_possibleTypes.includes(obj.__typename)
@@ -36653,7 +36653,7 @@ export const isReopenedEvent = (obj?: { __typename?: any } | null): obj is Reope
 
 
 
-const RepoAccessAuditEntry_possibleTypes = ['RepoAccessAuditEntry']
+const RepoAccessAuditEntry_possibleTypes: string[] = ['RepoAccessAuditEntry']
 export const isRepoAccessAuditEntry = (obj?: { __typename?: any } | null): obj is RepoAccessAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoAccessAuditEntry"')
   return RepoAccessAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36661,7 +36661,7 @@ export const isRepoAccessAuditEntry = (obj?: { __typename?: any } | null): obj i
 
 
 
-const RepoAddMemberAuditEntry_possibleTypes = ['RepoAddMemberAuditEntry']
+const RepoAddMemberAuditEntry_possibleTypes: string[] = ['RepoAddMemberAuditEntry']
 export const isRepoAddMemberAuditEntry = (obj?: { __typename?: any } | null): obj is RepoAddMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoAddMemberAuditEntry"')
   return RepoAddMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36669,7 +36669,7 @@ export const isRepoAddMemberAuditEntry = (obj?: { __typename?: any } | null): ob
 
 
 
-const RepoAddTopicAuditEntry_possibleTypes = ['RepoAddTopicAuditEntry']
+const RepoAddTopicAuditEntry_possibleTypes: string[] = ['RepoAddTopicAuditEntry']
 export const isRepoAddTopicAuditEntry = (obj?: { __typename?: any } | null): obj is RepoAddTopicAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoAddTopicAuditEntry"')
   return RepoAddTopicAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36677,7 +36677,7 @@ export const isRepoAddTopicAuditEntry = (obj?: { __typename?: any } | null): obj
 
 
 
-const RepoArchivedAuditEntry_possibleTypes = ['RepoArchivedAuditEntry']
+const RepoArchivedAuditEntry_possibleTypes: string[] = ['RepoArchivedAuditEntry']
 export const isRepoArchivedAuditEntry = (obj?: { __typename?: any } | null): obj is RepoArchivedAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoArchivedAuditEntry"')
   return RepoArchivedAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36685,7 +36685,7 @@ export const isRepoArchivedAuditEntry = (obj?: { __typename?: any } | null): obj
 
 
 
-const RepoChangeMergeSettingAuditEntry_possibleTypes = ['RepoChangeMergeSettingAuditEntry']
+const RepoChangeMergeSettingAuditEntry_possibleTypes: string[] = ['RepoChangeMergeSettingAuditEntry']
 export const isRepoChangeMergeSettingAuditEntry = (obj?: { __typename?: any } | null): obj is RepoChangeMergeSettingAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoChangeMergeSettingAuditEntry"')
   return RepoChangeMergeSettingAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36693,7 +36693,7 @@ export const isRepoChangeMergeSettingAuditEntry = (obj?: { __typename?: any } | 
 
 
 
-const RepoConfigDisableAnonymousGitAccessAuditEntry_possibleTypes = ['RepoConfigDisableAnonymousGitAccessAuditEntry']
+const RepoConfigDisableAnonymousGitAccessAuditEntry_possibleTypes: string[] = ['RepoConfigDisableAnonymousGitAccessAuditEntry']
 export const isRepoConfigDisableAnonymousGitAccessAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigDisableAnonymousGitAccessAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigDisableAnonymousGitAccessAuditEntry"')
   return RepoConfigDisableAnonymousGitAccessAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36701,7 +36701,7 @@ export const isRepoConfigDisableAnonymousGitAccessAuditEntry = (obj?: { __typena
 
 
 
-const RepoConfigDisableCollaboratorsOnlyAuditEntry_possibleTypes = ['RepoConfigDisableCollaboratorsOnlyAuditEntry']
+const RepoConfigDisableCollaboratorsOnlyAuditEntry_possibleTypes: string[] = ['RepoConfigDisableCollaboratorsOnlyAuditEntry']
 export const isRepoConfigDisableCollaboratorsOnlyAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigDisableCollaboratorsOnlyAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigDisableCollaboratorsOnlyAuditEntry"')
   return RepoConfigDisableCollaboratorsOnlyAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36709,7 +36709,7 @@ export const isRepoConfigDisableCollaboratorsOnlyAuditEntry = (obj?: { __typenam
 
 
 
-const RepoConfigDisableContributorsOnlyAuditEntry_possibleTypes = ['RepoConfigDisableContributorsOnlyAuditEntry']
+const RepoConfigDisableContributorsOnlyAuditEntry_possibleTypes: string[] = ['RepoConfigDisableContributorsOnlyAuditEntry']
 export const isRepoConfigDisableContributorsOnlyAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigDisableContributorsOnlyAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigDisableContributorsOnlyAuditEntry"')
   return RepoConfigDisableContributorsOnlyAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36717,7 +36717,7 @@ export const isRepoConfigDisableContributorsOnlyAuditEntry = (obj?: { __typename
 
 
 
-const RepoConfigDisableSockpuppetDisallowedAuditEntry_possibleTypes = ['RepoConfigDisableSockpuppetDisallowedAuditEntry']
+const RepoConfigDisableSockpuppetDisallowedAuditEntry_possibleTypes: string[] = ['RepoConfigDisableSockpuppetDisallowedAuditEntry']
 export const isRepoConfigDisableSockpuppetDisallowedAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigDisableSockpuppetDisallowedAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigDisableSockpuppetDisallowedAuditEntry"')
   return RepoConfigDisableSockpuppetDisallowedAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36725,7 +36725,7 @@ export const isRepoConfigDisableSockpuppetDisallowedAuditEntry = (obj?: { __type
 
 
 
-const RepoConfigEnableAnonymousGitAccessAuditEntry_possibleTypes = ['RepoConfigEnableAnonymousGitAccessAuditEntry']
+const RepoConfigEnableAnonymousGitAccessAuditEntry_possibleTypes: string[] = ['RepoConfigEnableAnonymousGitAccessAuditEntry']
 export const isRepoConfigEnableAnonymousGitAccessAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigEnableAnonymousGitAccessAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigEnableAnonymousGitAccessAuditEntry"')
   return RepoConfigEnableAnonymousGitAccessAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36733,7 +36733,7 @@ export const isRepoConfigEnableAnonymousGitAccessAuditEntry = (obj?: { __typenam
 
 
 
-const RepoConfigEnableCollaboratorsOnlyAuditEntry_possibleTypes = ['RepoConfigEnableCollaboratorsOnlyAuditEntry']
+const RepoConfigEnableCollaboratorsOnlyAuditEntry_possibleTypes: string[] = ['RepoConfigEnableCollaboratorsOnlyAuditEntry']
 export const isRepoConfigEnableCollaboratorsOnlyAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigEnableCollaboratorsOnlyAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigEnableCollaboratorsOnlyAuditEntry"')
   return RepoConfigEnableCollaboratorsOnlyAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36741,7 +36741,7 @@ export const isRepoConfigEnableCollaboratorsOnlyAuditEntry = (obj?: { __typename
 
 
 
-const RepoConfigEnableContributorsOnlyAuditEntry_possibleTypes = ['RepoConfigEnableContributorsOnlyAuditEntry']
+const RepoConfigEnableContributorsOnlyAuditEntry_possibleTypes: string[] = ['RepoConfigEnableContributorsOnlyAuditEntry']
 export const isRepoConfigEnableContributorsOnlyAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigEnableContributorsOnlyAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigEnableContributorsOnlyAuditEntry"')
   return RepoConfigEnableContributorsOnlyAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36749,7 +36749,7 @@ export const isRepoConfigEnableContributorsOnlyAuditEntry = (obj?: { __typename?
 
 
 
-const RepoConfigEnableSockpuppetDisallowedAuditEntry_possibleTypes = ['RepoConfigEnableSockpuppetDisallowedAuditEntry']
+const RepoConfigEnableSockpuppetDisallowedAuditEntry_possibleTypes: string[] = ['RepoConfigEnableSockpuppetDisallowedAuditEntry']
 export const isRepoConfigEnableSockpuppetDisallowedAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigEnableSockpuppetDisallowedAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigEnableSockpuppetDisallowedAuditEntry"')
   return RepoConfigEnableSockpuppetDisallowedAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36757,7 +36757,7 @@ export const isRepoConfigEnableSockpuppetDisallowedAuditEntry = (obj?: { __typen
 
 
 
-const RepoConfigLockAnonymousGitAccessAuditEntry_possibleTypes = ['RepoConfigLockAnonymousGitAccessAuditEntry']
+const RepoConfigLockAnonymousGitAccessAuditEntry_possibleTypes: string[] = ['RepoConfigLockAnonymousGitAccessAuditEntry']
 export const isRepoConfigLockAnonymousGitAccessAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigLockAnonymousGitAccessAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigLockAnonymousGitAccessAuditEntry"')
   return RepoConfigLockAnonymousGitAccessAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36765,7 +36765,7 @@ export const isRepoConfigLockAnonymousGitAccessAuditEntry = (obj?: { __typename?
 
 
 
-const RepoConfigUnlockAnonymousGitAccessAuditEntry_possibleTypes = ['RepoConfigUnlockAnonymousGitAccessAuditEntry']
+const RepoConfigUnlockAnonymousGitAccessAuditEntry_possibleTypes: string[] = ['RepoConfigUnlockAnonymousGitAccessAuditEntry']
 export const isRepoConfigUnlockAnonymousGitAccessAuditEntry = (obj?: { __typename?: any } | null): obj is RepoConfigUnlockAnonymousGitAccessAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoConfigUnlockAnonymousGitAccessAuditEntry"')
   return RepoConfigUnlockAnonymousGitAccessAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36773,7 +36773,7 @@ export const isRepoConfigUnlockAnonymousGitAccessAuditEntry = (obj?: { __typenam
 
 
 
-const RepoCreateAuditEntry_possibleTypes = ['RepoCreateAuditEntry']
+const RepoCreateAuditEntry_possibleTypes: string[] = ['RepoCreateAuditEntry']
 export const isRepoCreateAuditEntry = (obj?: { __typename?: any } | null): obj is RepoCreateAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoCreateAuditEntry"')
   return RepoCreateAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36781,7 +36781,7 @@ export const isRepoCreateAuditEntry = (obj?: { __typename?: any } | null): obj i
 
 
 
-const RepoDestroyAuditEntry_possibleTypes = ['RepoDestroyAuditEntry']
+const RepoDestroyAuditEntry_possibleTypes: string[] = ['RepoDestroyAuditEntry']
 export const isRepoDestroyAuditEntry = (obj?: { __typename?: any } | null): obj is RepoDestroyAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoDestroyAuditEntry"')
   return RepoDestroyAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36789,7 +36789,7 @@ export const isRepoDestroyAuditEntry = (obj?: { __typename?: any } | null): obj 
 
 
 
-const RepoRemoveMemberAuditEntry_possibleTypes = ['RepoRemoveMemberAuditEntry']
+const RepoRemoveMemberAuditEntry_possibleTypes: string[] = ['RepoRemoveMemberAuditEntry']
 export const isRepoRemoveMemberAuditEntry = (obj?: { __typename?: any } | null): obj is RepoRemoveMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoRemoveMemberAuditEntry"')
   return RepoRemoveMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36797,7 +36797,7 @@ export const isRepoRemoveMemberAuditEntry = (obj?: { __typename?: any } | null):
 
 
 
-const RepoRemoveTopicAuditEntry_possibleTypes = ['RepoRemoveTopicAuditEntry']
+const RepoRemoveTopicAuditEntry_possibleTypes: string[] = ['RepoRemoveTopicAuditEntry']
 export const isRepoRemoveTopicAuditEntry = (obj?: { __typename?: any } | null): obj is RepoRemoveTopicAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepoRemoveTopicAuditEntry"')
   return RepoRemoveTopicAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36805,7 +36805,7 @@ export const isRepoRemoveTopicAuditEntry = (obj?: { __typename?: any } | null): 
 
 
 
-const Repository_possibleTypes = ['Repository']
+const Repository_possibleTypes: string[] = ['Repository']
 export const isRepository = (obj?: { __typename?: any } | null): obj is Repository => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepository"')
   return Repository_possibleTypes.includes(obj.__typename)
@@ -36813,7 +36813,7 @@ export const isRepository = (obj?: { __typename?: any } | null): obj is Reposito
 
 
 
-const RepositoryAuditEntryData_possibleTypes = ['OrgRestoreMemberMembershipRepositoryAuditEntryData','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','TeamAddRepositoryAuditEntry','TeamRemoveRepositoryAuditEntry']
+const RepositoryAuditEntryData_possibleTypes: string[] = ['OrgRestoreMemberMembershipRepositoryAuditEntryData','PrivateRepositoryForkingDisableAuditEntry','PrivateRepositoryForkingEnableAuditEntry','RepoAccessAuditEntry','RepoAddMemberAuditEntry','RepoAddTopicAuditEntry','RepoArchivedAuditEntry','RepoChangeMergeSettingAuditEntry','RepoConfigDisableAnonymousGitAccessAuditEntry','RepoConfigDisableCollaboratorsOnlyAuditEntry','RepoConfigDisableContributorsOnlyAuditEntry','RepoConfigDisableSockpuppetDisallowedAuditEntry','RepoConfigEnableAnonymousGitAccessAuditEntry','RepoConfigEnableCollaboratorsOnlyAuditEntry','RepoConfigEnableContributorsOnlyAuditEntry','RepoConfigEnableSockpuppetDisallowedAuditEntry','RepoConfigLockAnonymousGitAccessAuditEntry','RepoConfigUnlockAnonymousGitAccessAuditEntry','RepoCreateAuditEntry','RepoDestroyAuditEntry','RepoRemoveMemberAuditEntry','RepoRemoveTopicAuditEntry','TeamAddRepositoryAuditEntry','TeamRemoveRepositoryAuditEntry']
 export const isRepositoryAuditEntryData = (obj?: { __typename?: any } | null): obj is RepositoryAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryAuditEntryData"')
   return RepositoryAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -36821,7 +36821,7 @@ export const isRepositoryAuditEntryData = (obj?: { __typename?: any } | null): o
 
 
 
-const RepositoryCollaboratorConnection_possibleTypes = ['RepositoryCollaboratorConnection']
+const RepositoryCollaboratorConnection_possibleTypes: string[] = ['RepositoryCollaboratorConnection']
 export const isRepositoryCollaboratorConnection = (obj?: { __typename?: any } | null): obj is RepositoryCollaboratorConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryCollaboratorConnection"')
   return RepositoryCollaboratorConnection_possibleTypes.includes(obj.__typename)
@@ -36829,7 +36829,7 @@ export const isRepositoryCollaboratorConnection = (obj?: { __typename?: any } | 
 
 
 
-const RepositoryCollaboratorEdge_possibleTypes = ['RepositoryCollaboratorEdge']
+const RepositoryCollaboratorEdge_possibleTypes: string[] = ['RepositoryCollaboratorEdge']
 export const isRepositoryCollaboratorEdge = (obj?: { __typename?: any } | null): obj is RepositoryCollaboratorEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryCollaboratorEdge"')
   return RepositoryCollaboratorEdge_possibleTypes.includes(obj.__typename)
@@ -36837,7 +36837,7 @@ export const isRepositoryCollaboratorEdge = (obj?: { __typename?: any } | null):
 
 
 
-const RepositoryConnection_possibleTypes = ['RepositoryConnection']
+const RepositoryConnection_possibleTypes: string[] = ['RepositoryConnection']
 export const isRepositoryConnection = (obj?: { __typename?: any } | null): obj is RepositoryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryConnection"')
   return RepositoryConnection_possibleTypes.includes(obj.__typename)
@@ -36845,7 +36845,7 @@ export const isRepositoryConnection = (obj?: { __typename?: any } | null): obj i
 
 
 
-const RepositoryEdge_possibleTypes = ['RepositoryEdge']
+const RepositoryEdge_possibleTypes: string[] = ['RepositoryEdge']
 export const isRepositoryEdge = (obj?: { __typename?: any } | null): obj is RepositoryEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryEdge"')
   return RepositoryEdge_possibleTypes.includes(obj.__typename)
@@ -36853,7 +36853,7 @@ export const isRepositoryEdge = (obj?: { __typename?: any } | null): obj is Repo
 
 
 
-const RepositoryInfo_possibleTypes = ['Repository']
+const RepositoryInfo_possibleTypes: string[] = ['Repository']
 export const isRepositoryInfo = (obj?: { __typename?: any } | null): obj is RepositoryInfo => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryInfo"')
   return RepositoryInfo_possibleTypes.includes(obj.__typename)
@@ -36861,7 +36861,7 @@ export const isRepositoryInfo = (obj?: { __typename?: any } | null): obj is Repo
 
 
 
-const RepositoryInvitation_possibleTypes = ['RepositoryInvitation']
+const RepositoryInvitation_possibleTypes: string[] = ['RepositoryInvitation']
 export const isRepositoryInvitation = (obj?: { __typename?: any } | null): obj is RepositoryInvitation => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryInvitation"')
   return RepositoryInvitation_possibleTypes.includes(obj.__typename)
@@ -36869,7 +36869,7 @@ export const isRepositoryInvitation = (obj?: { __typename?: any } | null): obj i
 
 
 
-const RepositoryInvitationConnection_possibleTypes = ['RepositoryInvitationConnection']
+const RepositoryInvitationConnection_possibleTypes: string[] = ['RepositoryInvitationConnection']
 export const isRepositoryInvitationConnection = (obj?: { __typename?: any } | null): obj is RepositoryInvitationConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryInvitationConnection"')
   return RepositoryInvitationConnection_possibleTypes.includes(obj.__typename)
@@ -36877,7 +36877,7 @@ export const isRepositoryInvitationConnection = (obj?: { __typename?: any } | nu
 
 
 
-const RepositoryInvitationEdge_possibleTypes = ['RepositoryInvitationEdge']
+const RepositoryInvitationEdge_possibleTypes: string[] = ['RepositoryInvitationEdge']
 export const isRepositoryInvitationEdge = (obj?: { __typename?: any } | null): obj is RepositoryInvitationEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryInvitationEdge"')
   return RepositoryInvitationEdge_possibleTypes.includes(obj.__typename)
@@ -36885,7 +36885,7 @@ export const isRepositoryInvitationEdge = (obj?: { __typename?: any } | null): o
 
 
 
-const RepositoryNode_possibleTypes = ['CommitComment','CommitCommentThread','Issue','IssueComment','PullRequest','PullRequestCommitCommentThread','PullRequestReview','PullRequestReviewComment','RepositoryVulnerabilityAlert']
+const RepositoryNode_possibleTypes: string[] = ['CommitComment','CommitCommentThread','Issue','IssueComment','PullRequest','PullRequestCommitCommentThread','PullRequestReview','PullRequestReviewComment','RepositoryVulnerabilityAlert']
 export const isRepositoryNode = (obj?: { __typename?: any } | null): obj is RepositoryNode => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryNode"')
   return RepositoryNode_possibleTypes.includes(obj.__typename)
@@ -36893,7 +36893,7 @@ export const isRepositoryNode = (obj?: { __typename?: any } | null): obj is Repo
 
 
 
-const RepositoryOwner_possibleTypes = ['Organization','User']
+const RepositoryOwner_possibleTypes: string[] = ['Organization','User']
 export const isRepositoryOwner = (obj?: { __typename?: any } | null): obj is RepositoryOwner => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryOwner"')
   return RepositoryOwner_possibleTypes.includes(obj.__typename)
@@ -36901,7 +36901,7 @@ export const isRepositoryOwner = (obj?: { __typename?: any } | null): obj is Rep
 
 
 
-const RepositoryTopic_possibleTypes = ['RepositoryTopic']
+const RepositoryTopic_possibleTypes: string[] = ['RepositoryTopic']
 export const isRepositoryTopic = (obj?: { __typename?: any } | null): obj is RepositoryTopic => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryTopic"')
   return RepositoryTopic_possibleTypes.includes(obj.__typename)
@@ -36909,7 +36909,7 @@ export const isRepositoryTopic = (obj?: { __typename?: any } | null): obj is Rep
 
 
 
-const RepositoryTopicConnection_possibleTypes = ['RepositoryTopicConnection']
+const RepositoryTopicConnection_possibleTypes: string[] = ['RepositoryTopicConnection']
 export const isRepositoryTopicConnection = (obj?: { __typename?: any } | null): obj is RepositoryTopicConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryTopicConnection"')
   return RepositoryTopicConnection_possibleTypes.includes(obj.__typename)
@@ -36917,7 +36917,7 @@ export const isRepositoryTopicConnection = (obj?: { __typename?: any } | null): 
 
 
 
-const RepositoryTopicEdge_possibleTypes = ['RepositoryTopicEdge']
+const RepositoryTopicEdge_possibleTypes: string[] = ['RepositoryTopicEdge']
 export const isRepositoryTopicEdge = (obj?: { __typename?: any } | null): obj is RepositoryTopicEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryTopicEdge"')
   return RepositoryTopicEdge_possibleTypes.includes(obj.__typename)
@@ -36925,7 +36925,7 @@ export const isRepositoryTopicEdge = (obj?: { __typename?: any } | null): obj is
 
 
 
-const RepositoryVisibilityChangeDisableAuditEntry_possibleTypes = ['RepositoryVisibilityChangeDisableAuditEntry']
+const RepositoryVisibilityChangeDisableAuditEntry_possibleTypes: string[] = ['RepositoryVisibilityChangeDisableAuditEntry']
 export const isRepositoryVisibilityChangeDisableAuditEntry = (obj?: { __typename?: any } | null): obj is RepositoryVisibilityChangeDisableAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryVisibilityChangeDisableAuditEntry"')
   return RepositoryVisibilityChangeDisableAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36933,7 +36933,7 @@ export const isRepositoryVisibilityChangeDisableAuditEntry = (obj?: { __typename
 
 
 
-const RepositoryVisibilityChangeEnableAuditEntry_possibleTypes = ['RepositoryVisibilityChangeEnableAuditEntry']
+const RepositoryVisibilityChangeEnableAuditEntry_possibleTypes: string[] = ['RepositoryVisibilityChangeEnableAuditEntry']
 export const isRepositoryVisibilityChangeEnableAuditEntry = (obj?: { __typename?: any } | null): obj is RepositoryVisibilityChangeEnableAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryVisibilityChangeEnableAuditEntry"')
   return RepositoryVisibilityChangeEnableAuditEntry_possibleTypes.includes(obj.__typename)
@@ -36941,7 +36941,7 @@ export const isRepositoryVisibilityChangeEnableAuditEntry = (obj?: { __typename?
 
 
 
-const RepositoryVulnerabilityAlert_possibleTypes = ['RepositoryVulnerabilityAlert']
+const RepositoryVulnerabilityAlert_possibleTypes: string[] = ['RepositoryVulnerabilityAlert']
 export const isRepositoryVulnerabilityAlert = (obj?: { __typename?: any } | null): obj is RepositoryVulnerabilityAlert => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryVulnerabilityAlert"')
   return RepositoryVulnerabilityAlert_possibleTypes.includes(obj.__typename)
@@ -36949,7 +36949,7 @@ export const isRepositoryVulnerabilityAlert = (obj?: { __typename?: any } | null
 
 
 
-const RepositoryVulnerabilityAlertConnection_possibleTypes = ['RepositoryVulnerabilityAlertConnection']
+const RepositoryVulnerabilityAlertConnection_possibleTypes: string[] = ['RepositoryVulnerabilityAlertConnection']
 export const isRepositoryVulnerabilityAlertConnection = (obj?: { __typename?: any } | null): obj is RepositoryVulnerabilityAlertConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryVulnerabilityAlertConnection"')
   return RepositoryVulnerabilityAlertConnection_possibleTypes.includes(obj.__typename)
@@ -36957,7 +36957,7 @@ export const isRepositoryVulnerabilityAlertConnection = (obj?: { __typename?: an
 
 
 
-const RepositoryVulnerabilityAlertEdge_possibleTypes = ['RepositoryVulnerabilityAlertEdge']
+const RepositoryVulnerabilityAlertEdge_possibleTypes: string[] = ['RepositoryVulnerabilityAlertEdge']
 export const isRepositoryVulnerabilityAlertEdge = (obj?: { __typename?: any } | null): obj is RepositoryVulnerabilityAlertEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepositoryVulnerabilityAlertEdge"')
   return RepositoryVulnerabilityAlertEdge_possibleTypes.includes(obj.__typename)
@@ -36965,7 +36965,7 @@ export const isRepositoryVulnerabilityAlertEdge = (obj?: { __typename?: any } | 
 
 
 
-const RequestReviewsPayload_possibleTypes = ['RequestReviewsPayload']
+const RequestReviewsPayload_possibleTypes: string[] = ['RequestReviewsPayload']
 export const isRequestReviewsPayload = (obj?: { __typename?: any } | null): obj is RequestReviewsPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRequestReviewsPayload"')
   return RequestReviewsPayload_possibleTypes.includes(obj.__typename)
@@ -36973,7 +36973,7 @@ export const isRequestReviewsPayload = (obj?: { __typename?: any } | null): obj 
 
 
 
-const RequestedReviewer_possibleTypes = ['Mannequin','Team','User']
+const RequestedReviewer_possibleTypes: string[] = ['Mannequin','Team','User']
 export const isRequestedReviewer = (obj?: { __typename?: any } | null): obj is RequestedReviewer => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRequestedReviewer"')
   return RequestedReviewer_possibleTypes.includes(obj.__typename)
@@ -36981,7 +36981,7 @@ export const isRequestedReviewer = (obj?: { __typename?: any } | null): obj is R
 
 
 
-const RerequestCheckSuitePayload_possibleTypes = ['RerequestCheckSuitePayload']
+const RerequestCheckSuitePayload_possibleTypes: string[] = ['RerequestCheckSuitePayload']
 export const isRerequestCheckSuitePayload = (obj?: { __typename?: any } | null): obj is RerequestCheckSuitePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRerequestCheckSuitePayload"')
   return RerequestCheckSuitePayload_possibleTypes.includes(obj.__typename)
@@ -36989,7 +36989,7 @@ export const isRerequestCheckSuitePayload = (obj?: { __typename?: any } | null):
 
 
 
-const ResolveReviewThreadPayload_possibleTypes = ['ResolveReviewThreadPayload']
+const ResolveReviewThreadPayload_possibleTypes: string[] = ['ResolveReviewThreadPayload']
 export const isResolveReviewThreadPayload = (obj?: { __typename?: any } | null): obj is ResolveReviewThreadPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isResolveReviewThreadPayload"')
   return ResolveReviewThreadPayload_possibleTypes.includes(obj.__typename)
@@ -36997,7 +36997,7 @@ export const isResolveReviewThreadPayload = (obj?: { __typename?: any } | null):
 
 
 
-const RestrictedContribution_possibleTypes = ['RestrictedContribution']
+const RestrictedContribution_possibleTypes: string[] = ['RestrictedContribution']
 export const isRestrictedContribution = (obj?: { __typename?: any } | null): obj is RestrictedContribution => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRestrictedContribution"')
   return RestrictedContribution_possibleTypes.includes(obj.__typename)
@@ -37005,7 +37005,7 @@ export const isRestrictedContribution = (obj?: { __typename?: any } | null): obj
 
 
 
-const ReviewDismissalAllowance_possibleTypes = ['ReviewDismissalAllowance']
+const ReviewDismissalAllowance_possibleTypes: string[] = ['ReviewDismissalAllowance']
 export const isReviewDismissalAllowance = (obj?: { __typename?: any } | null): obj is ReviewDismissalAllowance => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewDismissalAllowance"')
   return ReviewDismissalAllowance_possibleTypes.includes(obj.__typename)
@@ -37013,7 +37013,7 @@ export const isReviewDismissalAllowance = (obj?: { __typename?: any } | null): o
 
 
 
-const ReviewDismissalAllowanceActor_possibleTypes = ['Team','User']
+const ReviewDismissalAllowanceActor_possibleTypes: string[] = ['Team','User']
 export const isReviewDismissalAllowanceActor = (obj?: { __typename?: any } | null): obj is ReviewDismissalAllowanceActor => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewDismissalAllowanceActor"')
   return ReviewDismissalAllowanceActor_possibleTypes.includes(obj.__typename)
@@ -37021,7 +37021,7 @@ export const isReviewDismissalAllowanceActor = (obj?: { __typename?: any } | nul
 
 
 
-const ReviewDismissalAllowanceConnection_possibleTypes = ['ReviewDismissalAllowanceConnection']
+const ReviewDismissalAllowanceConnection_possibleTypes: string[] = ['ReviewDismissalAllowanceConnection']
 export const isReviewDismissalAllowanceConnection = (obj?: { __typename?: any } | null): obj is ReviewDismissalAllowanceConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewDismissalAllowanceConnection"')
   return ReviewDismissalAllowanceConnection_possibleTypes.includes(obj.__typename)
@@ -37029,7 +37029,7 @@ export const isReviewDismissalAllowanceConnection = (obj?: { __typename?: any } 
 
 
 
-const ReviewDismissalAllowanceEdge_possibleTypes = ['ReviewDismissalAllowanceEdge']
+const ReviewDismissalAllowanceEdge_possibleTypes: string[] = ['ReviewDismissalAllowanceEdge']
 export const isReviewDismissalAllowanceEdge = (obj?: { __typename?: any } | null): obj is ReviewDismissalAllowanceEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewDismissalAllowanceEdge"')
   return ReviewDismissalAllowanceEdge_possibleTypes.includes(obj.__typename)
@@ -37037,7 +37037,7 @@ export const isReviewDismissalAllowanceEdge = (obj?: { __typename?: any } | null
 
 
 
-const ReviewDismissedEvent_possibleTypes = ['ReviewDismissedEvent']
+const ReviewDismissedEvent_possibleTypes: string[] = ['ReviewDismissedEvent']
 export const isReviewDismissedEvent = (obj?: { __typename?: any } | null): obj is ReviewDismissedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewDismissedEvent"')
   return ReviewDismissedEvent_possibleTypes.includes(obj.__typename)
@@ -37045,7 +37045,7 @@ export const isReviewDismissedEvent = (obj?: { __typename?: any } | null): obj i
 
 
 
-const ReviewRequest_possibleTypes = ['ReviewRequest']
+const ReviewRequest_possibleTypes: string[] = ['ReviewRequest']
 export const isReviewRequest = (obj?: { __typename?: any } | null): obj is ReviewRequest => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewRequest"')
   return ReviewRequest_possibleTypes.includes(obj.__typename)
@@ -37053,7 +37053,7 @@ export const isReviewRequest = (obj?: { __typename?: any } | null): obj is Revie
 
 
 
-const ReviewRequestConnection_possibleTypes = ['ReviewRequestConnection']
+const ReviewRequestConnection_possibleTypes: string[] = ['ReviewRequestConnection']
 export const isReviewRequestConnection = (obj?: { __typename?: any } | null): obj is ReviewRequestConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewRequestConnection"')
   return ReviewRequestConnection_possibleTypes.includes(obj.__typename)
@@ -37061,7 +37061,7 @@ export const isReviewRequestConnection = (obj?: { __typename?: any } | null): ob
 
 
 
-const ReviewRequestEdge_possibleTypes = ['ReviewRequestEdge']
+const ReviewRequestEdge_possibleTypes: string[] = ['ReviewRequestEdge']
 export const isReviewRequestEdge = (obj?: { __typename?: any } | null): obj is ReviewRequestEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewRequestEdge"')
   return ReviewRequestEdge_possibleTypes.includes(obj.__typename)
@@ -37069,7 +37069,7 @@ export const isReviewRequestEdge = (obj?: { __typename?: any } | null): obj is R
 
 
 
-const ReviewRequestRemovedEvent_possibleTypes = ['ReviewRequestRemovedEvent']
+const ReviewRequestRemovedEvent_possibleTypes: string[] = ['ReviewRequestRemovedEvent']
 export const isReviewRequestRemovedEvent = (obj?: { __typename?: any } | null): obj is ReviewRequestRemovedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewRequestRemovedEvent"')
   return ReviewRequestRemovedEvent_possibleTypes.includes(obj.__typename)
@@ -37077,7 +37077,7 @@ export const isReviewRequestRemovedEvent = (obj?: { __typename?: any } | null): 
 
 
 
-const ReviewRequestedEvent_possibleTypes = ['ReviewRequestedEvent']
+const ReviewRequestedEvent_possibleTypes: string[] = ['ReviewRequestedEvent']
 export const isReviewRequestedEvent = (obj?: { __typename?: any } | null): obj is ReviewRequestedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewRequestedEvent"')
   return ReviewRequestedEvent_possibleTypes.includes(obj.__typename)
@@ -37085,7 +37085,7 @@ export const isReviewRequestedEvent = (obj?: { __typename?: any } | null): obj i
 
 
 
-const ReviewStatusHovercardContext_possibleTypes = ['ReviewStatusHovercardContext']
+const ReviewStatusHovercardContext_possibleTypes: string[] = ['ReviewStatusHovercardContext']
 export const isReviewStatusHovercardContext = (obj?: { __typename?: any } | null): obj is ReviewStatusHovercardContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isReviewStatusHovercardContext"')
   return ReviewStatusHovercardContext_possibleTypes.includes(obj.__typename)
@@ -37093,7 +37093,7 @@ export const isReviewStatusHovercardContext = (obj?: { __typename?: any } | null
 
 
 
-const SavedReply_possibleTypes = ['SavedReply']
+const SavedReply_possibleTypes: string[] = ['SavedReply']
 export const isSavedReply = (obj?: { __typename?: any } | null): obj is SavedReply => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSavedReply"')
   return SavedReply_possibleTypes.includes(obj.__typename)
@@ -37101,7 +37101,7 @@ export const isSavedReply = (obj?: { __typename?: any } | null): obj is SavedRep
 
 
 
-const SavedReplyConnection_possibleTypes = ['SavedReplyConnection']
+const SavedReplyConnection_possibleTypes: string[] = ['SavedReplyConnection']
 export const isSavedReplyConnection = (obj?: { __typename?: any } | null): obj is SavedReplyConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSavedReplyConnection"')
   return SavedReplyConnection_possibleTypes.includes(obj.__typename)
@@ -37109,7 +37109,7 @@ export const isSavedReplyConnection = (obj?: { __typename?: any } | null): obj i
 
 
 
-const SavedReplyEdge_possibleTypes = ['SavedReplyEdge']
+const SavedReplyEdge_possibleTypes: string[] = ['SavedReplyEdge']
 export const isSavedReplyEdge = (obj?: { __typename?: any } | null): obj is SavedReplyEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSavedReplyEdge"')
   return SavedReplyEdge_possibleTypes.includes(obj.__typename)
@@ -37117,7 +37117,7 @@ export const isSavedReplyEdge = (obj?: { __typename?: any } | null): obj is Save
 
 
 
-const SearchResultItem_possibleTypes = ['App','Issue','MarketplaceListing','Organization','PullRequest','Repository','User']
+const SearchResultItem_possibleTypes: string[] = ['App','Issue','MarketplaceListing','Organization','PullRequest','Repository','User']
 export const isSearchResultItem = (obj?: { __typename?: any } | null): obj is SearchResultItem => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSearchResultItem"')
   return SearchResultItem_possibleTypes.includes(obj.__typename)
@@ -37125,7 +37125,7 @@ export const isSearchResultItem = (obj?: { __typename?: any } | null): obj is Se
 
 
 
-const SearchResultItemConnection_possibleTypes = ['SearchResultItemConnection']
+const SearchResultItemConnection_possibleTypes: string[] = ['SearchResultItemConnection']
 export const isSearchResultItemConnection = (obj?: { __typename?: any } | null): obj is SearchResultItemConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSearchResultItemConnection"')
   return SearchResultItemConnection_possibleTypes.includes(obj.__typename)
@@ -37133,7 +37133,7 @@ export const isSearchResultItemConnection = (obj?: { __typename?: any } | null):
 
 
 
-const SearchResultItemEdge_possibleTypes = ['SearchResultItemEdge']
+const SearchResultItemEdge_possibleTypes: string[] = ['SearchResultItemEdge']
 export const isSearchResultItemEdge = (obj?: { __typename?: any } | null): obj is SearchResultItemEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSearchResultItemEdge"')
   return SearchResultItemEdge_possibleTypes.includes(obj.__typename)
@@ -37141,7 +37141,7 @@ export const isSearchResultItemEdge = (obj?: { __typename?: any } | null): obj i
 
 
 
-const SecurityAdvisory_possibleTypes = ['SecurityAdvisory']
+const SecurityAdvisory_possibleTypes: string[] = ['SecurityAdvisory']
 export const isSecurityAdvisory = (obj?: { __typename?: any } | null): obj is SecurityAdvisory => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityAdvisory"')
   return SecurityAdvisory_possibleTypes.includes(obj.__typename)
@@ -37149,7 +37149,7 @@ export const isSecurityAdvisory = (obj?: { __typename?: any } | null): obj is Se
 
 
 
-const SecurityAdvisoryConnection_possibleTypes = ['SecurityAdvisoryConnection']
+const SecurityAdvisoryConnection_possibleTypes: string[] = ['SecurityAdvisoryConnection']
 export const isSecurityAdvisoryConnection = (obj?: { __typename?: any } | null): obj is SecurityAdvisoryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityAdvisoryConnection"')
   return SecurityAdvisoryConnection_possibleTypes.includes(obj.__typename)
@@ -37157,7 +37157,7 @@ export const isSecurityAdvisoryConnection = (obj?: { __typename?: any } | null):
 
 
 
-const SecurityAdvisoryEdge_possibleTypes = ['SecurityAdvisoryEdge']
+const SecurityAdvisoryEdge_possibleTypes: string[] = ['SecurityAdvisoryEdge']
 export const isSecurityAdvisoryEdge = (obj?: { __typename?: any } | null): obj is SecurityAdvisoryEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityAdvisoryEdge"')
   return SecurityAdvisoryEdge_possibleTypes.includes(obj.__typename)
@@ -37165,7 +37165,7 @@ export const isSecurityAdvisoryEdge = (obj?: { __typename?: any } | null): obj i
 
 
 
-const SecurityAdvisoryIdentifier_possibleTypes = ['SecurityAdvisoryIdentifier']
+const SecurityAdvisoryIdentifier_possibleTypes: string[] = ['SecurityAdvisoryIdentifier']
 export const isSecurityAdvisoryIdentifier = (obj?: { __typename?: any } | null): obj is SecurityAdvisoryIdentifier => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityAdvisoryIdentifier"')
   return SecurityAdvisoryIdentifier_possibleTypes.includes(obj.__typename)
@@ -37173,7 +37173,7 @@ export const isSecurityAdvisoryIdentifier = (obj?: { __typename?: any } | null):
 
 
 
-const SecurityAdvisoryPackage_possibleTypes = ['SecurityAdvisoryPackage']
+const SecurityAdvisoryPackage_possibleTypes: string[] = ['SecurityAdvisoryPackage']
 export const isSecurityAdvisoryPackage = (obj?: { __typename?: any } | null): obj is SecurityAdvisoryPackage => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityAdvisoryPackage"')
   return SecurityAdvisoryPackage_possibleTypes.includes(obj.__typename)
@@ -37181,7 +37181,7 @@ export const isSecurityAdvisoryPackage = (obj?: { __typename?: any } | null): ob
 
 
 
-const SecurityAdvisoryPackageVersion_possibleTypes = ['SecurityAdvisoryPackageVersion']
+const SecurityAdvisoryPackageVersion_possibleTypes: string[] = ['SecurityAdvisoryPackageVersion']
 export const isSecurityAdvisoryPackageVersion = (obj?: { __typename?: any } | null): obj is SecurityAdvisoryPackageVersion => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityAdvisoryPackageVersion"')
   return SecurityAdvisoryPackageVersion_possibleTypes.includes(obj.__typename)
@@ -37189,7 +37189,7 @@ export const isSecurityAdvisoryPackageVersion = (obj?: { __typename?: any } | nu
 
 
 
-const SecurityAdvisoryReference_possibleTypes = ['SecurityAdvisoryReference']
+const SecurityAdvisoryReference_possibleTypes: string[] = ['SecurityAdvisoryReference']
 export const isSecurityAdvisoryReference = (obj?: { __typename?: any } | null): obj is SecurityAdvisoryReference => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityAdvisoryReference"')
   return SecurityAdvisoryReference_possibleTypes.includes(obj.__typename)
@@ -37197,7 +37197,7 @@ export const isSecurityAdvisoryReference = (obj?: { __typename?: any } | null): 
 
 
 
-const SecurityVulnerability_possibleTypes = ['SecurityVulnerability']
+const SecurityVulnerability_possibleTypes: string[] = ['SecurityVulnerability']
 export const isSecurityVulnerability = (obj?: { __typename?: any } | null): obj is SecurityVulnerability => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityVulnerability"')
   return SecurityVulnerability_possibleTypes.includes(obj.__typename)
@@ -37205,7 +37205,7 @@ export const isSecurityVulnerability = (obj?: { __typename?: any } | null): obj 
 
 
 
-const SecurityVulnerabilityConnection_possibleTypes = ['SecurityVulnerabilityConnection']
+const SecurityVulnerabilityConnection_possibleTypes: string[] = ['SecurityVulnerabilityConnection']
 export const isSecurityVulnerabilityConnection = (obj?: { __typename?: any } | null): obj is SecurityVulnerabilityConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityVulnerabilityConnection"')
   return SecurityVulnerabilityConnection_possibleTypes.includes(obj.__typename)
@@ -37213,7 +37213,7 @@ export const isSecurityVulnerabilityConnection = (obj?: { __typename?: any } | n
 
 
 
-const SecurityVulnerabilityEdge_possibleTypes = ['SecurityVulnerabilityEdge']
+const SecurityVulnerabilityEdge_possibleTypes: string[] = ['SecurityVulnerabilityEdge']
 export const isSecurityVulnerabilityEdge = (obj?: { __typename?: any } | null): obj is SecurityVulnerabilityEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSecurityVulnerabilityEdge"')
   return SecurityVulnerabilityEdge_possibleTypes.includes(obj.__typename)
@@ -37221,7 +37221,7 @@ export const isSecurityVulnerabilityEdge = (obj?: { __typename?: any } | null): 
 
 
 
-const SetEnterpriseIdentityProviderPayload_possibleTypes = ['SetEnterpriseIdentityProviderPayload']
+const SetEnterpriseIdentityProviderPayload_possibleTypes: string[] = ['SetEnterpriseIdentityProviderPayload']
 export const isSetEnterpriseIdentityProviderPayload = (obj?: { __typename?: any } | null): obj is SetEnterpriseIdentityProviderPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSetEnterpriseIdentityProviderPayload"')
   return SetEnterpriseIdentityProviderPayload_possibleTypes.includes(obj.__typename)
@@ -37229,7 +37229,7 @@ export const isSetEnterpriseIdentityProviderPayload = (obj?: { __typename?: any 
 
 
 
-const SmimeSignature_possibleTypes = ['SmimeSignature']
+const SmimeSignature_possibleTypes: string[] = ['SmimeSignature']
 export const isSmimeSignature = (obj?: { __typename?: any } | null): obj is SmimeSignature => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSmimeSignature"')
   return SmimeSignature_possibleTypes.includes(obj.__typename)
@@ -37237,7 +37237,7 @@ export const isSmimeSignature = (obj?: { __typename?: any } | null): obj is Smim
 
 
 
-const Sponsor_possibleTypes = ['Organization','User']
+const Sponsor_possibleTypes: string[] = ['Organization','User']
 export const isSponsor = (obj?: { __typename?: any } | null): obj is Sponsor => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsor"')
   return Sponsor_possibleTypes.includes(obj.__typename)
@@ -37245,7 +37245,7 @@ export const isSponsor = (obj?: { __typename?: any } | null): obj is Sponsor => 
 
 
 
-const Sponsorable_possibleTypes = ['Organization','User']
+const Sponsorable_possibleTypes: string[] = ['Organization','User']
 export const isSponsorable = (obj?: { __typename?: any } | null): obj is Sponsorable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorable"')
   return Sponsorable_possibleTypes.includes(obj.__typename)
@@ -37253,7 +37253,7 @@ export const isSponsorable = (obj?: { __typename?: any } | null): obj is Sponsor
 
 
 
-const SponsorsListing_possibleTypes = ['SponsorsListing']
+const SponsorsListing_possibleTypes: string[] = ['SponsorsListing']
 export const isSponsorsListing = (obj?: { __typename?: any } | null): obj is SponsorsListing => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorsListing"')
   return SponsorsListing_possibleTypes.includes(obj.__typename)
@@ -37261,7 +37261,7 @@ export const isSponsorsListing = (obj?: { __typename?: any } | null): obj is Spo
 
 
 
-const SponsorsTier_possibleTypes = ['SponsorsTier']
+const SponsorsTier_possibleTypes: string[] = ['SponsorsTier']
 export const isSponsorsTier = (obj?: { __typename?: any } | null): obj is SponsorsTier => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorsTier"')
   return SponsorsTier_possibleTypes.includes(obj.__typename)
@@ -37269,7 +37269,7 @@ export const isSponsorsTier = (obj?: { __typename?: any } | null): obj is Sponso
 
 
 
-const SponsorsTierAdminInfo_possibleTypes = ['SponsorsTierAdminInfo']
+const SponsorsTierAdminInfo_possibleTypes: string[] = ['SponsorsTierAdminInfo']
 export const isSponsorsTierAdminInfo = (obj?: { __typename?: any } | null): obj is SponsorsTierAdminInfo => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorsTierAdminInfo"')
   return SponsorsTierAdminInfo_possibleTypes.includes(obj.__typename)
@@ -37277,7 +37277,7 @@ export const isSponsorsTierAdminInfo = (obj?: { __typename?: any } | null): obj 
 
 
 
-const SponsorsTierConnection_possibleTypes = ['SponsorsTierConnection']
+const SponsorsTierConnection_possibleTypes: string[] = ['SponsorsTierConnection']
 export const isSponsorsTierConnection = (obj?: { __typename?: any } | null): obj is SponsorsTierConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorsTierConnection"')
   return SponsorsTierConnection_possibleTypes.includes(obj.__typename)
@@ -37285,7 +37285,7 @@ export const isSponsorsTierConnection = (obj?: { __typename?: any } | null): obj
 
 
 
-const SponsorsTierEdge_possibleTypes = ['SponsorsTierEdge']
+const SponsorsTierEdge_possibleTypes: string[] = ['SponsorsTierEdge']
 export const isSponsorsTierEdge = (obj?: { __typename?: any } | null): obj is SponsorsTierEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorsTierEdge"')
   return SponsorsTierEdge_possibleTypes.includes(obj.__typename)
@@ -37293,7 +37293,7 @@ export const isSponsorsTierEdge = (obj?: { __typename?: any } | null): obj is Sp
 
 
 
-const Sponsorship_possibleTypes = ['Sponsorship']
+const Sponsorship_possibleTypes: string[] = ['Sponsorship']
 export const isSponsorship = (obj?: { __typename?: any } | null): obj is Sponsorship => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorship"')
   return Sponsorship_possibleTypes.includes(obj.__typename)
@@ -37301,7 +37301,7 @@ export const isSponsorship = (obj?: { __typename?: any } | null): obj is Sponsor
 
 
 
-const SponsorshipConnection_possibleTypes = ['SponsorshipConnection']
+const SponsorshipConnection_possibleTypes: string[] = ['SponsorshipConnection']
 export const isSponsorshipConnection = (obj?: { __typename?: any } | null): obj is SponsorshipConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorshipConnection"')
   return SponsorshipConnection_possibleTypes.includes(obj.__typename)
@@ -37309,7 +37309,7 @@ export const isSponsorshipConnection = (obj?: { __typename?: any } | null): obj 
 
 
 
-const SponsorshipEdge_possibleTypes = ['SponsorshipEdge']
+const SponsorshipEdge_possibleTypes: string[] = ['SponsorshipEdge']
 export const isSponsorshipEdge = (obj?: { __typename?: any } | null): obj is SponsorshipEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSponsorshipEdge"')
   return SponsorshipEdge_possibleTypes.includes(obj.__typename)
@@ -37317,7 +37317,7 @@ export const isSponsorshipEdge = (obj?: { __typename?: any } | null): obj is Spo
 
 
 
-const StargazerConnection_possibleTypes = ['StargazerConnection']
+const StargazerConnection_possibleTypes: string[] = ['StargazerConnection']
 export const isStargazerConnection = (obj?: { __typename?: any } | null): obj is StargazerConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStargazerConnection"')
   return StargazerConnection_possibleTypes.includes(obj.__typename)
@@ -37325,7 +37325,7 @@ export const isStargazerConnection = (obj?: { __typename?: any } | null): obj is
 
 
 
-const StargazerEdge_possibleTypes = ['StargazerEdge']
+const StargazerEdge_possibleTypes: string[] = ['StargazerEdge']
 export const isStargazerEdge = (obj?: { __typename?: any } | null): obj is StargazerEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStargazerEdge"')
   return StargazerEdge_possibleTypes.includes(obj.__typename)
@@ -37333,7 +37333,7 @@ export const isStargazerEdge = (obj?: { __typename?: any } | null): obj is Starg
 
 
 
-const Starrable_possibleTypes = ['Gist','Repository','Topic']
+const Starrable_possibleTypes: string[] = ['Gist','Repository','Topic']
 export const isStarrable = (obj?: { __typename?: any } | null): obj is Starrable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStarrable"')
   return Starrable_possibleTypes.includes(obj.__typename)
@@ -37341,7 +37341,7 @@ export const isStarrable = (obj?: { __typename?: any } | null): obj is Starrable
 
 
 
-const StarredRepositoryConnection_possibleTypes = ['StarredRepositoryConnection']
+const StarredRepositoryConnection_possibleTypes: string[] = ['StarredRepositoryConnection']
 export const isStarredRepositoryConnection = (obj?: { __typename?: any } | null): obj is StarredRepositoryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStarredRepositoryConnection"')
   return StarredRepositoryConnection_possibleTypes.includes(obj.__typename)
@@ -37349,7 +37349,7 @@ export const isStarredRepositoryConnection = (obj?: { __typename?: any } | null)
 
 
 
-const StarredRepositoryEdge_possibleTypes = ['StarredRepositoryEdge']
+const StarredRepositoryEdge_possibleTypes: string[] = ['StarredRepositoryEdge']
 export const isStarredRepositoryEdge = (obj?: { __typename?: any } | null): obj is StarredRepositoryEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStarredRepositoryEdge"')
   return StarredRepositoryEdge_possibleTypes.includes(obj.__typename)
@@ -37357,7 +37357,7 @@ export const isStarredRepositoryEdge = (obj?: { __typename?: any } | null): obj 
 
 
 
-const Status_possibleTypes = ['Status']
+const Status_possibleTypes: string[] = ['Status']
 export const isStatus = (obj?: { __typename?: any } | null): obj is Status => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStatus"')
   return Status_possibleTypes.includes(obj.__typename)
@@ -37365,7 +37365,7 @@ export const isStatus = (obj?: { __typename?: any } | null): obj is Status => {
 
 
 
-const StatusCheckRollup_possibleTypes = ['StatusCheckRollup']
+const StatusCheckRollup_possibleTypes: string[] = ['StatusCheckRollup']
 export const isStatusCheckRollup = (obj?: { __typename?: any } | null): obj is StatusCheckRollup => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStatusCheckRollup"')
   return StatusCheckRollup_possibleTypes.includes(obj.__typename)
@@ -37373,7 +37373,7 @@ export const isStatusCheckRollup = (obj?: { __typename?: any } | null): obj is S
 
 
 
-const StatusCheckRollupContext_possibleTypes = ['CheckRun','StatusContext']
+const StatusCheckRollupContext_possibleTypes: string[] = ['CheckRun','StatusContext']
 export const isStatusCheckRollupContext = (obj?: { __typename?: any } | null): obj is StatusCheckRollupContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStatusCheckRollupContext"')
   return StatusCheckRollupContext_possibleTypes.includes(obj.__typename)
@@ -37381,7 +37381,7 @@ export const isStatusCheckRollupContext = (obj?: { __typename?: any } | null): o
 
 
 
-const StatusCheckRollupContextConnection_possibleTypes = ['StatusCheckRollupContextConnection']
+const StatusCheckRollupContextConnection_possibleTypes: string[] = ['StatusCheckRollupContextConnection']
 export const isStatusCheckRollupContextConnection = (obj?: { __typename?: any } | null): obj is StatusCheckRollupContextConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStatusCheckRollupContextConnection"')
   return StatusCheckRollupContextConnection_possibleTypes.includes(obj.__typename)
@@ -37389,7 +37389,7 @@ export const isStatusCheckRollupContextConnection = (obj?: { __typename?: any } 
 
 
 
-const StatusCheckRollupContextEdge_possibleTypes = ['StatusCheckRollupContextEdge']
+const StatusCheckRollupContextEdge_possibleTypes: string[] = ['StatusCheckRollupContextEdge']
 export const isStatusCheckRollupContextEdge = (obj?: { __typename?: any } | null): obj is StatusCheckRollupContextEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStatusCheckRollupContextEdge"')
   return StatusCheckRollupContextEdge_possibleTypes.includes(obj.__typename)
@@ -37397,7 +37397,7 @@ export const isStatusCheckRollupContextEdge = (obj?: { __typename?: any } | null
 
 
 
-const StatusContext_possibleTypes = ['StatusContext']
+const StatusContext_possibleTypes: string[] = ['StatusContext']
 export const isStatusContext = (obj?: { __typename?: any } | null): obj is StatusContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isStatusContext"')
   return StatusContext_possibleTypes.includes(obj.__typename)
@@ -37405,7 +37405,7 @@ export const isStatusContext = (obj?: { __typename?: any } | null): obj is Statu
 
 
 
-const SubmitPullRequestReviewPayload_possibleTypes = ['SubmitPullRequestReviewPayload']
+const SubmitPullRequestReviewPayload_possibleTypes: string[] = ['SubmitPullRequestReviewPayload']
 export const isSubmitPullRequestReviewPayload = (obj?: { __typename?: any } | null): obj is SubmitPullRequestReviewPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSubmitPullRequestReviewPayload"')
   return SubmitPullRequestReviewPayload_possibleTypes.includes(obj.__typename)
@@ -37413,7 +37413,7 @@ export const isSubmitPullRequestReviewPayload = (obj?: { __typename?: any } | nu
 
 
 
-const Submodule_possibleTypes = ['Submodule']
+const Submodule_possibleTypes: string[] = ['Submodule']
 export const isSubmodule = (obj?: { __typename?: any } | null): obj is Submodule => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSubmodule"')
   return Submodule_possibleTypes.includes(obj.__typename)
@@ -37421,7 +37421,7 @@ export const isSubmodule = (obj?: { __typename?: any } | null): obj is Submodule
 
 
 
-const SubmoduleConnection_possibleTypes = ['SubmoduleConnection']
+const SubmoduleConnection_possibleTypes: string[] = ['SubmoduleConnection']
 export const isSubmoduleConnection = (obj?: { __typename?: any } | null): obj is SubmoduleConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSubmoduleConnection"')
   return SubmoduleConnection_possibleTypes.includes(obj.__typename)
@@ -37429,7 +37429,7 @@ export const isSubmoduleConnection = (obj?: { __typename?: any } | null): obj is
 
 
 
-const SubmoduleEdge_possibleTypes = ['SubmoduleEdge']
+const SubmoduleEdge_possibleTypes: string[] = ['SubmoduleEdge']
 export const isSubmoduleEdge = (obj?: { __typename?: any } | null): obj is SubmoduleEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSubmoduleEdge"')
   return SubmoduleEdge_possibleTypes.includes(obj.__typename)
@@ -37437,7 +37437,7 @@ export const isSubmoduleEdge = (obj?: { __typename?: any } | null): obj is Submo
 
 
 
-const Subscribable_possibleTypes = ['Commit','Issue','PullRequest','Repository','Team','TeamDiscussion']
+const Subscribable_possibleTypes: string[] = ['Commit','Issue','PullRequest','Repository','Team','TeamDiscussion']
 export const isSubscribable = (obj?: { __typename?: any } | null): obj is Subscribable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSubscribable"')
   return Subscribable_possibleTypes.includes(obj.__typename)
@@ -37445,7 +37445,7 @@ export const isSubscribable = (obj?: { __typename?: any } | null): obj is Subscr
 
 
 
-const SubscribedEvent_possibleTypes = ['SubscribedEvent']
+const SubscribedEvent_possibleTypes: string[] = ['SubscribedEvent']
 export const isSubscribedEvent = (obj?: { __typename?: any } | null): obj is SubscribedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSubscribedEvent"')
   return SubscribedEvent_possibleTypes.includes(obj.__typename)
@@ -37453,7 +37453,7 @@ export const isSubscribedEvent = (obj?: { __typename?: any } | null): obj is Sub
 
 
 
-const SuggestedReviewer_possibleTypes = ['SuggestedReviewer']
+const SuggestedReviewer_possibleTypes: string[] = ['SuggestedReviewer']
 export const isSuggestedReviewer = (obj?: { __typename?: any } | null): obj is SuggestedReviewer => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSuggestedReviewer"')
   return SuggestedReviewer_possibleTypes.includes(obj.__typename)
@@ -37461,7 +37461,7 @@ export const isSuggestedReviewer = (obj?: { __typename?: any } | null): obj is S
 
 
 
-const Tag_possibleTypes = ['Tag']
+const Tag_possibleTypes: string[] = ['Tag']
 export const isTag = (obj?: { __typename?: any } | null): obj is Tag => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTag"')
   return Tag_possibleTypes.includes(obj.__typename)
@@ -37469,7 +37469,7 @@ export const isTag = (obj?: { __typename?: any } | null): obj is Tag => {
 
 
 
-const Team_possibleTypes = ['Team']
+const Team_possibleTypes: string[] = ['Team']
 export const isTeam = (obj?: { __typename?: any } | null): obj is Team => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeam"')
   return Team_possibleTypes.includes(obj.__typename)
@@ -37477,7 +37477,7 @@ export const isTeam = (obj?: { __typename?: any } | null): obj is Team => {
 
 
 
-const TeamAddMemberAuditEntry_possibleTypes = ['TeamAddMemberAuditEntry']
+const TeamAddMemberAuditEntry_possibleTypes: string[] = ['TeamAddMemberAuditEntry']
 export const isTeamAddMemberAuditEntry = (obj?: { __typename?: any } | null): obj is TeamAddMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamAddMemberAuditEntry"')
   return TeamAddMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -37485,7 +37485,7 @@ export const isTeamAddMemberAuditEntry = (obj?: { __typename?: any } | null): ob
 
 
 
-const TeamAddRepositoryAuditEntry_possibleTypes = ['TeamAddRepositoryAuditEntry']
+const TeamAddRepositoryAuditEntry_possibleTypes: string[] = ['TeamAddRepositoryAuditEntry']
 export const isTeamAddRepositoryAuditEntry = (obj?: { __typename?: any } | null): obj is TeamAddRepositoryAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamAddRepositoryAuditEntry"')
   return TeamAddRepositoryAuditEntry_possibleTypes.includes(obj.__typename)
@@ -37493,7 +37493,7 @@ export const isTeamAddRepositoryAuditEntry = (obj?: { __typename?: any } | null)
 
 
 
-const TeamAuditEntryData_possibleTypes = ['OrgRestoreMemberMembershipTeamAuditEntryData','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
+const TeamAuditEntryData_possibleTypes: string[] = ['OrgRestoreMemberMembershipTeamAuditEntryData','TeamAddMemberAuditEntry','TeamAddRepositoryAuditEntry','TeamChangeParentTeamAuditEntry','TeamRemoveMemberAuditEntry','TeamRemoveRepositoryAuditEntry']
 export const isTeamAuditEntryData = (obj?: { __typename?: any } | null): obj is TeamAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamAuditEntryData"')
   return TeamAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -37501,7 +37501,7 @@ export const isTeamAuditEntryData = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const TeamChangeParentTeamAuditEntry_possibleTypes = ['TeamChangeParentTeamAuditEntry']
+const TeamChangeParentTeamAuditEntry_possibleTypes: string[] = ['TeamChangeParentTeamAuditEntry']
 export const isTeamChangeParentTeamAuditEntry = (obj?: { __typename?: any } | null): obj is TeamChangeParentTeamAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamChangeParentTeamAuditEntry"')
   return TeamChangeParentTeamAuditEntry_possibleTypes.includes(obj.__typename)
@@ -37509,7 +37509,7 @@ export const isTeamChangeParentTeamAuditEntry = (obj?: { __typename?: any } | nu
 
 
 
-const TeamConnection_possibleTypes = ['TeamConnection']
+const TeamConnection_possibleTypes: string[] = ['TeamConnection']
 export const isTeamConnection = (obj?: { __typename?: any } | null): obj is TeamConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamConnection"')
   return TeamConnection_possibleTypes.includes(obj.__typename)
@@ -37517,7 +37517,7 @@ export const isTeamConnection = (obj?: { __typename?: any } | null): obj is Team
 
 
 
-const TeamDiscussion_possibleTypes = ['TeamDiscussion']
+const TeamDiscussion_possibleTypes: string[] = ['TeamDiscussion']
 export const isTeamDiscussion = (obj?: { __typename?: any } | null): obj is TeamDiscussion => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamDiscussion"')
   return TeamDiscussion_possibleTypes.includes(obj.__typename)
@@ -37525,7 +37525,7 @@ export const isTeamDiscussion = (obj?: { __typename?: any } | null): obj is Team
 
 
 
-const TeamDiscussionComment_possibleTypes = ['TeamDiscussionComment']
+const TeamDiscussionComment_possibleTypes: string[] = ['TeamDiscussionComment']
 export const isTeamDiscussionComment = (obj?: { __typename?: any } | null): obj is TeamDiscussionComment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamDiscussionComment"')
   return TeamDiscussionComment_possibleTypes.includes(obj.__typename)
@@ -37533,7 +37533,7 @@ export const isTeamDiscussionComment = (obj?: { __typename?: any } | null): obj 
 
 
 
-const TeamDiscussionCommentConnection_possibleTypes = ['TeamDiscussionCommentConnection']
+const TeamDiscussionCommentConnection_possibleTypes: string[] = ['TeamDiscussionCommentConnection']
 export const isTeamDiscussionCommentConnection = (obj?: { __typename?: any } | null): obj is TeamDiscussionCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamDiscussionCommentConnection"')
   return TeamDiscussionCommentConnection_possibleTypes.includes(obj.__typename)
@@ -37541,7 +37541,7 @@ export const isTeamDiscussionCommentConnection = (obj?: { __typename?: any } | n
 
 
 
-const TeamDiscussionCommentEdge_possibleTypes = ['TeamDiscussionCommentEdge']
+const TeamDiscussionCommentEdge_possibleTypes: string[] = ['TeamDiscussionCommentEdge']
 export const isTeamDiscussionCommentEdge = (obj?: { __typename?: any } | null): obj is TeamDiscussionCommentEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamDiscussionCommentEdge"')
   return TeamDiscussionCommentEdge_possibleTypes.includes(obj.__typename)
@@ -37549,7 +37549,7 @@ export const isTeamDiscussionCommentEdge = (obj?: { __typename?: any } | null): 
 
 
 
-const TeamDiscussionConnection_possibleTypes = ['TeamDiscussionConnection']
+const TeamDiscussionConnection_possibleTypes: string[] = ['TeamDiscussionConnection']
 export const isTeamDiscussionConnection = (obj?: { __typename?: any } | null): obj is TeamDiscussionConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamDiscussionConnection"')
   return TeamDiscussionConnection_possibleTypes.includes(obj.__typename)
@@ -37557,7 +37557,7 @@ export const isTeamDiscussionConnection = (obj?: { __typename?: any } | null): o
 
 
 
-const TeamDiscussionEdge_possibleTypes = ['TeamDiscussionEdge']
+const TeamDiscussionEdge_possibleTypes: string[] = ['TeamDiscussionEdge']
 export const isTeamDiscussionEdge = (obj?: { __typename?: any } | null): obj is TeamDiscussionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamDiscussionEdge"')
   return TeamDiscussionEdge_possibleTypes.includes(obj.__typename)
@@ -37565,7 +37565,7 @@ export const isTeamDiscussionEdge = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const TeamEdge_possibleTypes = ['TeamEdge']
+const TeamEdge_possibleTypes: string[] = ['TeamEdge']
 export const isTeamEdge = (obj?: { __typename?: any } | null): obj is TeamEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamEdge"')
   return TeamEdge_possibleTypes.includes(obj.__typename)
@@ -37573,7 +37573,7 @@ export const isTeamEdge = (obj?: { __typename?: any } | null): obj is TeamEdge =
 
 
 
-const TeamMemberConnection_possibleTypes = ['TeamMemberConnection']
+const TeamMemberConnection_possibleTypes: string[] = ['TeamMemberConnection']
 export const isTeamMemberConnection = (obj?: { __typename?: any } | null): obj is TeamMemberConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamMemberConnection"')
   return TeamMemberConnection_possibleTypes.includes(obj.__typename)
@@ -37581,7 +37581,7 @@ export const isTeamMemberConnection = (obj?: { __typename?: any } | null): obj i
 
 
 
-const TeamMemberEdge_possibleTypes = ['TeamMemberEdge']
+const TeamMemberEdge_possibleTypes: string[] = ['TeamMemberEdge']
 export const isTeamMemberEdge = (obj?: { __typename?: any } | null): obj is TeamMemberEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamMemberEdge"')
   return TeamMemberEdge_possibleTypes.includes(obj.__typename)
@@ -37589,7 +37589,7 @@ export const isTeamMemberEdge = (obj?: { __typename?: any } | null): obj is Team
 
 
 
-const TeamRemoveMemberAuditEntry_possibleTypes = ['TeamRemoveMemberAuditEntry']
+const TeamRemoveMemberAuditEntry_possibleTypes: string[] = ['TeamRemoveMemberAuditEntry']
 export const isTeamRemoveMemberAuditEntry = (obj?: { __typename?: any } | null): obj is TeamRemoveMemberAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamRemoveMemberAuditEntry"')
   return TeamRemoveMemberAuditEntry_possibleTypes.includes(obj.__typename)
@@ -37597,7 +37597,7 @@ export const isTeamRemoveMemberAuditEntry = (obj?: { __typename?: any } | null):
 
 
 
-const TeamRemoveRepositoryAuditEntry_possibleTypes = ['TeamRemoveRepositoryAuditEntry']
+const TeamRemoveRepositoryAuditEntry_possibleTypes: string[] = ['TeamRemoveRepositoryAuditEntry']
 export const isTeamRemoveRepositoryAuditEntry = (obj?: { __typename?: any } | null): obj is TeamRemoveRepositoryAuditEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamRemoveRepositoryAuditEntry"')
   return TeamRemoveRepositoryAuditEntry_possibleTypes.includes(obj.__typename)
@@ -37605,7 +37605,7 @@ export const isTeamRemoveRepositoryAuditEntry = (obj?: { __typename?: any } | nu
 
 
 
-const TeamRepositoryConnection_possibleTypes = ['TeamRepositoryConnection']
+const TeamRepositoryConnection_possibleTypes: string[] = ['TeamRepositoryConnection']
 export const isTeamRepositoryConnection = (obj?: { __typename?: any } | null): obj is TeamRepositoryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamRepositoryConnection"')
   return TeamRepositoryConnection_possibleTypes.includes(obj.__typename)
@@ -37613,7 +37613,7 @@ export const isTeamRepositoryConnection = (obj?: { __typename?: any } | null): o
 
 
 
-const TeamRepositoryEdge_possibleTypes = ['TeamRepositoryEdge']
+const TeamRepositoryEdge_possibleTypes: string[] = ['TeamRepositoryEdge']
 export const isTeamRepositoryEdge = (obj?: { __typename?: any } | null): obj is TeamRepositoryEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTeamRepositoryEdge"')
   return TeamRepositoryEdge_possibleTypes.includes(obj.__typename)
@@ -37621,7 +37621,7 @@ export const isTeamRepositoryEdge = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const TextMatch_possibleTypes = ['TextMatch']
+const TextMatch_possibleTypes: string[] = ['TextMatch']
 export const isTextMatch = (obj?: { __typename?: any } | null): obj is TextMatch => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTextMatch"')
   return TextMatch_possibleTypes.includes(obj.__typename)
@@ -37629,7 +37629,7 @@ export const isTextMatch = (obj?: { __typename?: any } | null): obj is TextMatch
 
 
 
-const TextMatchHighlight_possibleTypes = ['TextMatchHighlight']
+const TextMatchHighlight_possibleTypes: string[] = ['TextMatchHighlight']
 export const isTextMatchHighlight = (obj?: { __typename?: any } | null): obj is TextMatchHighlight => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTextMatchHighlight"')
   return TextMatchHighlight_possibleTypes.includes(obj.__typename)
@@ -37637,7 +37637,7 @@ export const isTextMatchHighlight = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const Topic_possibleTypes = ['Topic']
+const Topic_possibleTypes: string[] = ['Topic']
 export const isTopic = (obj?: { __typename?: any } | null): obj is Topic => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTopic"')
   return Topic_possibleTypes.includes(obj.__typename)
@@ -37645,7 +37645,7 @@ export const isTopic = (obj?: { __typename?: any } | null): obj is Topic => {
 
 
 
-const TopicAuditEntryData_possibleTypes = ['RepoAddTopicAuditEntry','RepoRemoveTopicAuditEntry']
+const TopicAuditEntryData_possibleTypes: string[] = ['RepoAddTopicAuditEntry','RepoRemoveTopicAuditEntry']
 export const isTopicAuditEntryData = (obj?: { __typename?: any } | null): obj is TopicAuditEntryData => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTopicAuditEntryData"')
   return TopicAuditEntryData_possibleTypes.includes(obj.__typename)
@@ -37653,7 +37653,7 @@ export const isTopicAuditEntryData = (obj?: { __typename?: any } | null): obj is
 
 
 
-const TopicConnection_possibleTypes = ['TopicConnection']
+const TopicConnection_possibleTypes: string[] = ['TopicConnection']
 export const isTopicConnection = (obj?: { __typename?: any } | null): obj is TopicConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTopicConnection"')
   return TopicConnection_possibleTypes.includes(obj.__typename)
@@ -37661,7 +37661,7 @@ export const isTopicConnection = (obj?: { __typename?: any } | null): obj is Top
 
 
 
-const TopicEdge_possibleTypes = ['TopicEdge']
+const TopicEdge_possibleTypes: string[] = ['TopicEdge']
 export const isTopicEdge = (obj?: { __typename?: any } | null): obj is TopicEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTopicEdge"')
   return TopicEdge_possibleTypes.includes(obj.__typename)
@@ -37669,7 +37669,7 @@ export const isTopicEdge = (obj?: { __typename?: any } | null): obj is TopicEdge
 
 
 
-const TransferIssuePayload_possibleTypes = ['TransferIssuePayload']
+const TransferIssuePayload_possibleTypes: string[] = ['TransferIssuePayload']
 export const isTransferIssuePayload = (obj?: { __typename?: any } | null): obj is TransferIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTransferIssuePayload"')
   return TransferIssuePayload_possibleTypes.includes(obj.__typename)
@@ -37677,7 +37677,7 @@ export const isTransferIssuePayload = (obj?: { __typename?: any } | null): obj i
 
 
 
-const TransferredEvent_possibleTypes = ['TransferredEvent']
+const TransferredEvent_possibleTypes: string[] = ['TransferredEvent']
 export const isTransferredEvent = (obj?: { __typename?: any } | null): obj is TransferredEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTransferredEvent"')
   return TransferredEvent_possibleTypes.includes(obj.__typename)
@@ -37685,7 +37685,7 @@ export const isTransferredEvent = (obj?: { __typename?: any } | null): obj is Tr
 
 
 
-const Tree_possibleTypes = ['Tree']
+const Tree_possibleTypes: string[] = ['Tree']
 export const isTree = (obj?: { __typename?: any } | null): obj is Tree => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTree"')
   return Tree_possibleTypes.includes(obj.__typename)
@@ -37693,7 +37693,7 @@ export const isTree = (obj?: { __typename?: any } | null): obj is Tree => {
 
 
 
-const TreeEntry_possibleTypes = ['TreeEntry']
+const TreeEntry_possibleTypes: string[] = ['TreeEntry']
 export const isTreeEntry = (obj?: { __typename?: any } | null): obj is TreeEntry => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTreeEntry"')
   return TreeEntry_possibleTypes.includes(obj.__typename)
@@ -37701,7 +37701,7 @@ export const isTreeEntry = (obj?: { __typename?: any } | null): obj is TreeEntry
 
 
 
-const UnarchiveRepositoryPayload_possibleTypes = ['UnarchiveRepositoryPayload']
+const UnarchiveRepositoryPayload_possibleTypes: string[] = ['UnarchiveRepositoryPayload']
 export const isUnarchiveRepositoryPayload = (obj?: { __typename?: any } | null): obj is UnarchiveRepositoryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnarchiveRepositoryPayload"')
   return UnarchiveRepositoryPayload_possibleTypes.includes(obj.__typename)
@@ -37709,7 +37709,7 @@ export const isUnarchiveRepositoryPayload = (obj?: { __typename?: any } | null):
 
 
 
-const UnassignedEvent_possibleTypes = ['UnassignedEvent']
+const UnassignedEvent_possibleTypes: string[] = ['UnassignedEvent']
 export const isUnassignedEvent = (obj?: { __typename?: any } | null): obj is UnassignedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnassignedEvent"')
   return UnassignedEvent_possibleTypes.includes(obj.__typename)
@@ -37717,7 +37717,7 @@ export const isUnassignedEvent = (obj?: { __typename?: any } | null): obj is Una
 
 
 
-const UnfollowUserPayload_possibleTypes = ['UnfollowUserPayload']
+const UnfollowUserPayload_possibleTypes: string[] = ['UnfollowUserPayload']
 export const isUnfollowUserPayload = (obj?: { __typename?: any } | null): obj is UnfollowUserPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnfollowUserPayload"')
   return UnfollowUserPayload_possibleTypes.includes(obj.__typename)
@@ -37725,7 +37725,7 @@ export const isUnfollowUserPayload = (obj?: { __typename?: any } | null): obj is
 
 
 
-const UniformResourceLocatable_possibleTypes = ['Bot','CheckRun','ClosedEvent','Commit','ConvertToDraftEvent','CrossReferencedEvent','Gist','Issue','Mannequin','MergedEvent','Milestone','Organization','PullRequest','PullRequestCommit','ReadyForReviewEvent','Release','Repository','RepositoryTopic','ReviewDismissedEvent','TeamDiscussion','TeamDiscussionComment','User']
+const UniformResourceLocatable_possibleTypes: string[] = ['Bot','CheckRun','ClosedEvent','Commit','ConvertToDraftEvent','CrossReferencedEvent','Gist','Issue','Mannequin','MergedEvent','Milestone','Organization','PullRequest','PullRequestCommit','ReadyForReviewEvent','Release','Repository','RepositoryTopic','ReviewDismissedEvent','TeamDiscussion','TeamDiscussionComment','User']
 export const isUniformResourceLocatable = (obj?: { __typename?: any } | null): obj is UniformResourceLocatable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUniformResourceLocatable"')
   return UniformResourceLocatable_possibleTypes.includes(obj.__typename)
@@ -37733,7 +37733,7 @@ export const isUniformResourceLocatable = (obj?: { __typename?: any } | null): o
 
 
 
-const UnknownSignature_possibleTypes = ['UnknownSignature']
+const UnknownSignature_possibleTypes: string[] = ['UnknownSignature']
 export const isUnknownSignature = (obj?: { __typename?: any } | null): obj is UnknownSignature => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnknownSignature"')
   return UnknownSignature_possibleTypes.includes(obj.__typename)
@@ -37741,7 +37741,7 @@ export const isUnknownSignature = (obj?: { __typename?: any } | null): obj is Un
 
 
 
-const UnlabeledEvent_possibleTypes = ['UnlabeledEvent']
+const UnlabeledEvent_possibleTypes: string[] = ['UnlabeledEvent']
 export const isUnlabeledEvent = (obj?: { __typename?: any } | null): obj is UnlabeledEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnlabeledEvent"')
   return UnlabeledEvent_possibleTypes.includes(obj.__typename)
@@ -37749,7 +37749,7 @@ export const isUnlabeledEvent = (obj?: { __typename?: any } | null): obj is Unla
 
 
 
-const UnlinkRepositoryFromProjectPayload_possibleTypes = ['UnlinkRepositoryFromProjectPayload']
+const UnlinkRepositoryFromProjectPayload_possibleTypes: string[] = ['UnlinkRepositoryFromProjectPayload']
 export const isUnlinkRepositoryFromProjectPayload = (obj?: { __typename?: any } | null): obj is UnlinkRepositoryFromProjectPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnlinkRepositoryFromProjectPayload"')
   return UnlinkRepositoryFromProjectPayload_possibleTypes.includes(obj.__typename)
@@ -37757,7 +37757,7 @@ export const isUnlinkRepositoryFromProjectPayload = (obj?: { __typename?: any } 
 
 
 
-const UnlockLockablePayload_possibleTypes = ['UnlockLockablePayload']
+const UnlockLockablePayload_possibleTypes: string[] = ['UnlockLockablePayload']
 export const isUnlockLockablePayload = (obj?: { __typename?: any } | null): obj is UnlockLockablePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnlockLockablePayload"')
   return UnlockLockablePayload_possibleTypes.includes(obj.__typename)
@@ -37765,7 +37765,7 @@ export const isUnlockLockablePayload = (obj?: { __typename?: any } | null): obj 
 
 
 
-const UnlockedEvent_possibleTypes = ['UnlockedEvent']
+const UnlockedEvent_possibleTypes: string[] = ['UnlockedEvent']
 export const isUnlockedEvent = (obj?: { __typename?: any } | null): obj is UnlockedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnlockedEvent"')
   return UnlockedEvent_possibleTypes.includes(obj.__typename)
@@ -37773,7 +37773,7 @@ export const isUnlockedEvent = (obj?: { __typename?: any } | null): obj is Unloc
 
 
 
-const UnmarkIssueAsDuplicatePayload_possibleTypes = ['UnmarkIssueAsDuplicatePayload']
+const UnmarkIssueAsDuplicatePayload_possibleTypes: string[] = ['UnmarkIssueAsDuplicatePayload']
 export const isUnmarkIssueAsDuplicatePayload = (obj?: { __typename?: any } | null): obj is UnmarkIssueAsDuplicatePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnmarkIssueAsDuplicatePayload"')
   return UnmarkIssueAsDuplicatePayload_possibleTypes.includes(obj.__typename)
@@ -37781,7 +37781,7 @@ export const isUnmarkIssueAsDuplicatePayload = (obj?: { __typename?: any } | nul
 
 
 
-const UnmarkedAsDuplicateEvent_possibleTypes = ['UnmarkedAsDuplicateEvent']
+const UnmarkedAsDuplicateEvent_possibleTypes: string[] = ['UnmarkedAsDuplicateEvent']
 export const isUnmarkedAsDuplicateEvent = (obj?: { __typename?: any } | null): obj is UnmarkedAsDuplicateEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnmarkedAsDuplicateEvent"')
   return UnmarkedAsDuplicateEvent_possibleTypes.includes(obj.__typename)
@@ -37789,7 +37789,7 @@ export const isUnmarkedAsDuplicateEvent = (obj?: { __typename?: any } | null): o
 
 
 
-const UnminimizeCommentPayload_possibleTypes = ['UnminimizeCommentPayload']
+const UnminimizeCommentPayload_possibleTypes: string[] = ['UnminimizeCommentPayload']
 export const isUnminimizeCommentPayload = (obj?: { __typename?: any } | null): obj is UnminimizeCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnminimizeCommentPayload"')
   return UnminimizeCommentPayload_possibleTypes.includes(obj.__typename)
@@ -37797,7 +37797,7 @@ export const isUnminimizeCommentPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const UnpinIssuePayload_possibleTypes = ['UnpinIssuePayload']
+const UnpinIssuePayload_possibleTypes: string[] = ['UnpinIssuePayload']
 export const isUnpinIssuePayload = (obj?: { __typename?: any } | null): obj is UnpinIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnpinIssuePayload"')
   return UnpinIssuePayload_possibleTypes.includes(obj.__typename)
@@ -37805,7 +37805,7 @@ export const isUnpinIssuePayload = (obj?: { __typename?: any } | null): obj is U
 
 
 
-const UnpinnedEvent_possibleTypes = ['UnpinnedEvent']
+const UnpinnedEvent_possibleTypes: string[] = ['UnpinnedEvent']
 export const isUnpinnedEvent = (obj?: { __typename?: any } | null): obj is UnpinnedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnpinnedEvent"')
   return UnpinnedEvent_possibleTypes.includes(obj.__typename)
@@ -37813,7 +37813,7 @@ export const isUnpinnedEvent = (obj?: { __typename?: any } | null): obj is Unpin
 
 
 
-const UnresolveReviewThreadPayload_possibleTypes = ['UnresolveReviewThreadPayload']
+const UnresolveReviewThreadPayload_possibleTypes: string[] = ['UnresolveReviewThreadPayload']
 export const isUnresolveReviewThreadPayload = (obj?: { __typename?: any } | null): obj is UnresolveReviewThreadPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnresolveReviewThreadPayload"')
   return UnresolveReviewThreadPayload_possibleTypes.includes(obj.__typename)
@@ -37821,7 +37821,7 @@ export const isUnresolveReviewThreadPayload = (obj?: { __typename?: any } | null
 
 
 
-const UnsubscribedEvent_possibleTypes = ['UnsubscribedEvent']
+const UnsubscribedEvent_possibleTypes: string[] = ['UnsubscribedEvent']
 export const isUnsubscribedEvent = (obj?: { __typename?: any } | null): obj is UnsubscribedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUnsubscribedEvent"')
   return UnsubscribedEvent_possibleTypes.includes(obj.__typename)
@@ -37829,7 +37829,7 @@ export const isUnsubscribedEvent = (obj?: { __typename?: any } | null): obj is U
 
 
 
-const Updatable_possibleTypes = ['CommitComment','GistComment','Issue','IssueComment','Project','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
+const Updatable_possibleTypes: string[] = ['CommitComment','GistComment','Issue','IssueComment','Project','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
 export const isUpdatable = (obj?: { __typename?: any } | null): obj is Updatable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdatable"')
   return Updatable_possibleTypes.includes(obj.__typename)
@@ -37837,7 +37837,7 @@ export const isUpdatable = (obj?: { __typename?: any } | null): obj is Updatable
 
 
 
-const UpdatableComment_possibleTypes = ['CommitComment','GistComment','Issue','IssueComment','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
+const UpdatableComment_possibleTypes: string[] = ['CommitComment','GistComment','Issue','IssueComment','PullRequest','PullRequestReview','PullRequestReviewComment','TeamDiscussion','TeamDiscussionComment']
 export const isUpdatableComment = (obj?: { __typename?: any } | null): obj is UpdatableComment => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdatableComment"')
   return UpdatableComment_possibleTypes.includes(obj.__typename)
@@ -37845,7 +37845,7 @@ export const isUpdatableComment = (obj?: { __typename?: any } | null): obj is Up
 
 
 
-const UpdateBranchProtectionRulePayload_possibleTypes = ['UpdateBranchProtectionRulePayload']
+const UpdateBranchProtectionRulePayload_possibleTypes: string[] = ['UpdateBranchProtectionRulePayload']
 export const isUpdateBranchProtectionRulePayload = (obj?: { __typename?: any } | null): obj is UpdateBranchProtectionRulePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateBranchProtectionRulePayload"')
   return UpdateBranchProtectionRulePayload_possibleTypes.includes(obj.__typename)
@@ -37853,7 +37853,7 @@ export const isUpdateBranchProtectionRulePayload = (obj?: { __typename?: any } |
 
 
 
-const UpdateCheckRunPayload_possibleTypes = ['UpdateCheckRunPayload']
+const UpdateCheckRunPayload_possibleTypes: string[] = ['UpdateCheckRunPayload']
 export const isUpdateCheckRunPayload = (obj?: { __typename?: any } | null): obj is UpdateCheckRunPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateCheckRunPayload"')
   return UpdateCheckRunPayload_possibleTypes.includes(obj.__typename)
@@ -37861,7 +37861,7 @@ export const isUpdateCheckRunPayload = (obj?: { __typename?: any } | null): obj 
 
 
 
-const UpdateCheckSuitePreferencesPayload_possibleTypes = ['UpdateCheckSuitePreferencesPayload']
+const UpdateCheckSuitePreferencesPayload_possibleTypes: string[] = ['UpdateCheckSuitePreferencesPayload']
 export const isUpdateCheckSuitePreferencesPayload = (obj?: { __typename?: any } | null): obj is UpdateCheckSuitePreferencesPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateCheckSuitePreferencesPayload"')
   return UpdateCheckSuitePreferencesPayload_possibleTypes.includes(obj.__typename)
@@ -37869,7 +37869,7 @@ export const isUpdateCheckSuitePreferencesPayload = (obj?: { __typename?: any } 
 
 
 
-const UpdateEnterpriseActionExecutionCapabilitySettingPayload_possibleTypes = ['UpdateEnterpriseActionExecutionCapabilitySettingPayload']
+const UpdateEnterpriseActionExecutionCapabilitySettingPayload_possibleTypes: string[] = ['UpdateEnterpriseActionExecutionCapabilitySettingPayload']
 export const isUpdateEnterpriseActionExecutionCapabilitySettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseActionExecutionCapabilitySettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseActionExecutionCapabilitySettingPayload"')
   return UpdateEnterpriseActionExecutionCapabilitySettingPayload_possibleTypes.includes(obj.__typename)
@@ -37877,7 +37877,7 @@ export const isUpdateEnterpriseActionExecutionCapabilitySettingPayload = (obj?: 
 
 
 
-const UpdateEnterpriseAdministratorRolePayload_possibleTypes = ['UpdateEnterpriseAdministratorRolePayload']
+const UpdateEnterpriseAdministratorRolePayload_possibleTypes: string[] = ['UpdateEnterpriseAdministratorRolePayload']
 export const isUpdateEnterpriseAdministratorRolePayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseAdministratorRolePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseAdministratorRolePayload"')
   return UpdateEnterpriseAdministratorRolePayload_possibleTypes.includes(obj.__typename)
@@ -37885,7 +37885,7 @@ export const isUpdateEnterpriseAdministratorRolePayload = (obj?: { __typename?: 
 
 
 
-const UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload_possibleTypes = ['UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload']
+const UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload']
 export const isUpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload"')
   return UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37893,7 +37893,7 @@ export const isUpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload = (ob
 
 
 
-const UpdateEnterpriseDefaultRepositoryPermissionSettingPayload_possibleTypes = ['UpdateEnterpriseDefaultRepositoryPermissionSettingPayload']
+const UpdateEnterpriseDefaultRepositoryPermissionSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseDefaultRepositoryPermissionSettingPayload']
 export const isUpdateEnterpriseDefaultRepositoryPermissionSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseDefaultRepositoryPermissionSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseDefaultRepositoryPermissionSettingPayload"')
   return UpdateEnterpriseDefaultRepositoryPermissionSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37901,7 +37901,7 @@ export const isUpdateEnterpriseDefaultRepositoryPermissionSettingPayload = (obj?
 
 
 
-const UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload']
+const UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload']
 export const isUpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload"')
   return UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload_possibleTypes.includes(obj.__typename)
@@ -37909,7 +37909,7 @@ export const isUpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayloa
 
 
 
-const UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload']
+const UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload']
 export const isUpdateEnterpriseMembersCanCreateRepositoriesSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanCreateRepositoriesSettingPayload"')
   return UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37917,7 +37917,7 @@ export const isUpdateEnterpriseMembersCanCreateRepositoriesSettingPayload = (obj
 
 
 
-const UpdateEnterpriseMembersCanDeleteIssuesSettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanDeleteIssuesSettingPayload']
+const UpdateEnterpriseMembersCanDeleteIssuesSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanDeleteIssuesSettingPayload']
 export const isUpdateEnterpriseMembersCanDeleteIssuesSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanDeleteIssuesSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanDeleteIssuesSettingPayload"')
   return UpdateEnterpriseMembersCanDeleteIssuesSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37925,7 +37925,7 @@ export const isUpdateEnterpriseMembersCanDeleteIssuesSettingPayload = (obj?: { _
 
 
 
-const UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload']
+const UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload']
 export const isUpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload"')
   return UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37933,7 +37933,7 @@ export const isUpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload = (obj
 
 
 
-const UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload']
+const UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload']
 export const isUpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload"')
   return UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37941,7 +37941,7 @@ export const isUpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload = (ob
 
 
 
-const UpdateEnterpriseMembersCanMakePurchasesSettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanMakePurchasesSettingPayload']
+const UpdateEnterpriseMembersCanMakePurchasesSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanMakePurchasesSettingPayload']
 export const isUpdateEnterpriseMembersCanMakePurchasesSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanMakePurchasesSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanMakePurchasesSettingPayload"')
   return UpdateEnterpriseMembersCanMakePurchasesSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37949,7 +37949,7 @@ export const isUpdateEnterpriseMembersCanMakePurchasesSettingPayload = (obj?: { 
 
 
 
-const UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload']
+const UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload']
 export const isUpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload"')
   return UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37957,7 +37957,7 @@ export const isUpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload =
 
 
 
-const UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload_possibleTypes = ['UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload']
+const UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload']
 export const isUpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload"')
   return UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37965,7 +37965,7 @@ export const isUpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload = 
 
 
 
-const UpdateEnterpriseOrganizationProjectsSettingPayload_possibleTypes = ['UpdateEnterpriseOrganizationProjectsSettingPayload']
+const UpdateEnterpriseOrganizationProjectsSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseOrganizationProjectsSettingPayload']
 export const isUpdateEnterpriseOrganizationProjectsSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseOrganizationProjectsSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseOrganizationProjectsSettingPayload"')
   return UpdateEnterpriseOrganizationProjectsSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37973,7 +37973,7 @@ export const isUpdateEnterpriseOrganizationProjectsSettingPayload = (obj?: { __t
 
 
 
-const UpdateEnterpriseProfilePayload_possibleTypes = ['UpdateEnterpriseProfilePayload']
+const UpdateEnterpriseProfilePayload_possibleTypes: string[] = ['UpdateEnterpriseProfilePayload']
 export const isUpdateEnterpriseProfilePayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseProfilePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseProfilePayload"')
   return UpdateEnterpriseProfilePayload_possibleTypes.includes(obj.__typename)
@@ -37981,7 +37981,7 @@ export const isUpdateEnterpriseProfilePayload = (obj?: { __typename?: any } | nu
 
 
 
-const UpdateEnterpriseRepositoryProjectsSettingPayload_possibleTypes = ['UpdateEnterpriseRepositoryProjectsSettingPayload']
+const UpdateEnterpriseRepositoryProjectsSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseRepositoryProjectsSettingPayload']
 export const isUpdateEnterpriseRepositoryProjectsSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseRepositoryProjectsSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseRepositoryProjectsSettingPayload"')
   return UpdateEnterpriseRepositoryProjectsSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37989,7 +37989,7 @@ export const isUpdateEnterpriseRepositoryProjectsSettingPayload = (obj?: { __typ
 
 
 
-const UpdateEnterpriseTeamDiscussionsSettingPayload_possibleTypes = ['UpdateEnterpriseTeamDiscussionsSettingPayload']
+const UpdateEnterpriseTeamDiscussionsSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseTeamDiscussionsSettingPayload']
 export const isUpdateEnterpriseTeamDiscussionsSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseTeamDiscussionsSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseTeamDiscussionsSettingPayload"')
   return UpdateEnterpriseTeamDiscussionsSettingPayload_possibleTypes.includes(obj.__typename)
@@ -37997,7 +37997,7 @@ export const isUpdateEnterpriseTeamDiscussionsSettingPayload = (obj?: { __typena
 
 
 
-const UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload_possibleTypes = ['UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload']
+const UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload_possibleTypes: string[] = ['UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload']
 export const isUpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload"')
   return UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload_possibleTypes.includes(obj.__typename)
@@ -38005,7 +38005,7 @@ export const isUpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload = (
 
 
 
-const UpdateIpAllowListEnabledSettingPayload_possibleTypes = ['UpdateIpAllowListEnabledSettingPayload']
+const UpdateIpAllowListEnabledSettingPayload_possibleTypes: string[] = ['UpdateIpAllowListEnabledSettingPayload']
 export const isUpdateIpAllowListEnabledSettingPayload = (obj?: { __typename?: any } | null): obj is UpdateIpAllowListEnabledSettingPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateIpAllowListEnabledSettingPayload"')
   return UpdateIpAllowListEnabledSettingPayload_possibleTypes.includes(obj.__typename)
@@ -38013,7 +38013,7 @@ export const isUpdateIpAllowListEnabledSettingPayload = (obj?: { __typename?: an
 
 
 
-const UpdateIpAllowListEntryPayload_possibleTypes = ['UpdateIpAllowListEntryPayload']
+const UpdateIpAllowListEntryPayload_possibleTypes: string[] = ['UpdateIpAllowListEntryPayload']
 export const isUpdateIpAllowListEntryPayload = (obj?: { __typename?: any } | null): obj is UpdateIpAllowListEntryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateIpAllowListEntryPayload"')
   return UpdateIpAllowListEntryPayload_possibleTypes.includes(obj.__typename)
@@ -38021,7 +38021,7 @@ export const isUpdateIpAllowListEntryPayload = (obj?: { __typename?: any } | nul
 
 
 
-const UpdateIssueCommentPayload_possibleTypes = ['UpdateIssueCommentPayload']
+const UpdateIssueCommentPayload_possibleTypes: string[] = ['UpdateIssueCommentPayload']
 export const isUpdateIssueCommentPayload = (obj?: { __typename?: any } | null): obj is UpdateIssueCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateIssueCommentPayload"')
   return UpdateIssueCommentPayload_possibleTypes.includes(obj.__typename)
@@ -38029,7 +38029,7 @@ export const isUpdateIssueCommentPayload = (obj?: { __typename?: any } | null): 
 
 
 
-const UpdateIssuePayload_possibleTypes = ['UpdateIssuePayload']
+const UpdateIssuePayload_possibleTypes: string[] = ['UpdateIssuePayload']
 export const isUpdateIssuePayload = (obj?: { __typename?: any } | null): obj is UpdateIssuePayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateIssuePayload"')
   return UpdateIssuePayload_possibleTypes.includes(obj.__typename)
@@ -38037,7 +38037,7 @@ export const isUpdateIssuePayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const UpdateLabelPayload_possibleTypes = ['UpdateLabelPayload']
+const UpdateLabelPayload_possibleTypes: string[] = ['UpdateLabelPayload']
 export const isUpdateLabelPayload = (obj?: { __typename?: any } | null): obj is UpdateLabelPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateLabelPayload"')
   return UpdateLabelPayload_possibleTypes.includes(obj.__typename)
@@ -38045,7 +38045,7 @@ export const isUpdateLabelPayload = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const UpdateProjectCardPayload_possibleTypes = ['UpdateProjectCardPayload']
+const UpdateProjectCardPayload_possibleTypes: string[] = ['UpdateProjectCardPayload']
 export const isUpdateProjectCardPayload = (obj?: { __typename?: any } | null): obj is UpdateProjectCardPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateProjectCardPayload"')
   return UpdateProjectCardPayload_possibleTypes.includes(obj.__typename)
@@ -38053,7 +38053,7 @@ export const isUpdateProjectCardPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const UpdateProjectColumnPayload_possibleTypes = ['UpdateProjectColumnPayload']
+const UpdateProjectColumnPayload_possibleTypes: string[] = ['UpdateProjectColumnPayload']
 export const isUpdateProjectColumnPayload = (obj?: { __typename?: any } | null): obj is UpdateProjectColumnPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateProjectColumnPayload"')
   return UpdateProjectColumnPayload_possibleTypes.includes(obj.__typename)
@@ -38061,7 +38061,7 @@ export const isUpdateProjectColumnPayload = (obj?: { __typename?: any } | null):
 
 
 
-const UpdateProjectPayload_possibleTypes = ['UpdateProjectPayload']
+const UpdateProjectPayload_possibleTypes: string[] = ['UpdateProjectPayload']
 export const isUpdateProjectPayload = (obj?: { __typename?: any } | null): obj is UpdateProjectPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateProjectPayload"')
   return UpdateProjectPayload_possibleTypes.includes(obj.__typename)
@@ -38069,7 +38069,7 @@ export const isUpdateProjectPayload = (obj?: { __typename?: any } | null): obj i
 
 
 
-const UpdatePullRequestPayload_possibleTypes = ['UpdatePullRequestPayload']
+const UpdatePullRequestPayload_possibleTypes: string[] = ['UpdatePullRequestPayload']
 export const isUpdatePullRequestPayload = (obj?: { __typename?: any } | null): obj is UpdatePullRequestPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdatePullRequestPayload"')
   return UpdatePullRequestPayload_possibleTypes.includes(obj.__typename)
@@ -38077,7 +38077,7 @@ export const isUpdatePullRequestPayload = (obj?: { __typename?: any } | null): o
 
 
 
-const UpdatePullRequestReviewCommentPayload_possibleTypes = ['UpdatePullRequestReviewCommentPayload']
+const UpdatePullRequestReviewCommentPayload_possibleTypes: string[] = ['UpdatePullRequestReviewCommentPayload']
 export const isUpdatePullRequestReviewCommentPayload = (obj?: { __typename?: any } | null): obj is UpdatePullRequestReviewCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdatePullRequestReviewCommentPayload"')
   return UpdatePullRequestReviewCommentPayload_possibleTypes.includes(obj.__typename)
@@ -38085,7 +38085,7 @@ export const isUpdatePullRequestReviewCommentPayload = (obj?: { __typename?: any
 
 
 
-const UpdatePullRequestReviewPayload_possibleTypes = ['UpdatePullRequestReviewPayload']
+const UpdatePullRequestReviewPayload_possibleTypes: string[] = ['UpdatePullRequestReviewPayload']
 export const isUpdatePullRequestReviewPayload = (obj?: { __typename?: any } | null): obj is UpdatePullRequestReviewPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdatePullRequestReviewPayload"')
   return UpdatePullRequestReviewPayload_possibleTypes.includes(obj.__typename)
@@ -38093,7 +38093,7 @@ export const isUpdatePullRequestReviewPayload = (obj?: { __typename?: any } | nu
 
 
 
-const UpdateRefPayload_possibleTypes = ['UpdateRefPayload']
+const UpdateRefPayload_possibleTypes: string[] = ['UpdateRefPayload']
 export const isUpdateRefPayload = (obj?: { __typename?: any } | null): obj is UpdateRefPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateRefPayload"')
   return UpdateRefPayload_possibleTypes.includes(obj.__typename)
@@ -38101,7 +38101,7 @@ export const isUpdateRefPayload = (obj?: { __typename?: any } | null): obj is Up
 
 
 
-const UpdateRefsPayload_possibleTypes = ['UpdateRefsPayload']
+const UpdateRefsPayload_possibleTypes: string[] = ['UpdateRefsPayload']
 export const isUpdateRefsPayload = (obj?: { __typename?: any } | null): obj is UpdateRefsPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateRefsPayload"')
   return UpdateRefsPayload_possibleTypes.includes(obj.__typename)
@@ -38109,7 +38109,7 @@ export const isUpdateRefsPayload = (obj?: { __typename?: any } | null): obj is U
 
 
 
-const UpdateRepositoryPayload_possibleTypes = ['UpdateRepositoryPayload']
+const UpdateRepositoryPayload_possibleTypes: string[] = ['UpdateRepositoryPayload']
 export const isUpdateRepositoryPayload = (obj?: { __typename?: any } | null): obj is UpdateRepositoryPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateRepositoryPayload"')
   return UpdateRepositoryPayload_possibleTypes.includes(obj.__typename)
@@ -38117,7 +38117,7 @@ export const isUpdateRepositoryPayload = (obj?: { __typename?: any } | null): ob
 
 
 
-const UpdateSubscriptionPayload_possibleTypes = ['UpdateSubscriptionPayload']
+const UpdateSubscriptionPayload_possibleTypes: string[] = ['UpdateSubscriptionPayload']
 export const isUpdateSubscriptionPayload = (obj?: { __typename?: any } | null): obj is UpdateSubscriptionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateSubscriptionPayload"')
   return UpdateSubscriptionPayload_possibleTypes.includes(obj.__typename)
@@ -38125,7 +38125,7 @@ export const isUpdateSubscriptionPayload = (obj?: { __typename?: any } | null): 
 
 
 
-const UpdateTeamDiscussionCommentPayload_possibleTypes = ['UpdateTeamDiscussionCommentPayload']
+const UpdateTeamDiscussionCommentPayload_possibleTypes: string[] = ['UpdateTeamDiscussionCommentPayload']
 export const isUpdateTeamDiscussionCommentPayload = (obj?: { __typename?: any } | null): obj is UpdateTeamDiscussionCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateTeamDiscussionCommentPayload"')
   return UpdateTeamDiscussionCommentPayload_possibleTypes.includes(obj.__typename)
@@ -38133,7 +38133,7 @@ export const isUpdateTeamDiscussionCommentPayload = (obj?: { __typename?: any } 
 
 
 
-const UpdateTeamDiscussionPayload_possibleTypes = ['UpdateTeamDiscussionPayload']
+const UpdateTeamDiscussionPayload_possibleTypes: string[] = ['UpdateTeamDiscussionPayload']
 export const isUpdateTeamDiscussionPayload = (obj?: { __typename?: any } | null): obj is UpdateTeamDiscussionPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateTeamDiscussionPayload"')
   return UpdateTeamDiscussionPayload_possibleTypes.includes(obj.__typename)
@@ -38141,7 +38141,7 @@ export const isUpdateTeamDiscussionPayload = (obj?: { __typename?: any } | null)
 
 
 
-const UpdateTeamReviewAssignmentPayload_possibleTypes = ['UpdateTeamReviewAssignmentPayload']
+const UpdateTeamReviewAssignmentPayload_possibleTypes: string[] = ['UpdateTeamReviewAssignmentPayload']
 export const isUpdateTeamReviewAssignmentPayload = (obj?: { __typename?: any } | null): obj is UpdateTeamReviewAssignmentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateTeamReviewAssignmentPayload"')
   return UpdateTeamReviewAssignmentPayload_possibleTypes.includes(obj.__typename)
@@ -38149,7 +38149,7 @@ export const isUpdateTeamReviewAssignmentPayload = (obj?: { __typename?: any } |
 
 
 
-const UpdateTopicsPayload_possibleTypes = ['UpdateTopicsPayload']
+const UpdateTopicsPayload_possibleTypes: string[] = ['UpdateTopicsPayload']
 export const isUpdateTopicsPayload = (obj?: { __typename?: any } | null): obj is UpdateTopicsPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateTopicsPayload"')
   return UpdateTopicsPayload_possibleTypes.includes(obj.__typename)
@@ -38157,7 +38157,7 @@ export const isUpdateTopicsPayload = (obj?: { __typename?: any } | null): obj is
 
 
 
-const User_possibleTypes = ['User']
+const User_possibleTypes: string[] = ['User']
 export const isUser = (obj?: { __typename?: any } | null): obj is User => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUser"')
   return User_possibleTypes.includes(obj.__typename)
@@ -38165,7 +38165,7 @@ export const isUser = (obj?: { __typename?: any } | null): obj is User => {
 
 
 
-const UserBlockedEvent_possibleTypes = ['UserBlockedEvent']
+const UserBlockedEvent_possibleTypes: string[] = ['UserBlockedEvent']
 export const isUserBlockedEvent = (obj?: { __typename?: any } | null): obj is UserBlockedEvent => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserBlockedEvent"')
   return UserBlockedEvent_possibleTypes.includes(obj.__typename)
@@ -38173,7 +38173,7 @@ export const isUserBlockedEvent = (obj?: { __typename?: any } | null): obj is Us
 
 
 
-const UserConnection_possibleTypes = ['UserConnection']
+const UserConnection_possibleTypes: string[] = ['UserConnection']
 export const isUserConnection = (obj?: { __typename?: any } | null): obj is UserConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserConnection"')
   return UserConnection_possibleTypes.includes(obj.__typename)
@@ -38181,7 +38181,7 @@ export const isUserConnection = (obj?: { __typename?: any } | null): obj is User
 
 
 
-const UserContentEdit_possibleTypes = ['UserContentEdit']
+const UserContentEdit_possibleTypes: string[] = ['UserContentEdit']
 export const isUserContentEdit = (obj?: { __typename?: any } | null): obj is UserContentEdit => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserContentEdit"')
   return UserContentEdit_possibleTypes.includes(obj.__typename)
@@ -38189,7 +38189,7 @@ export const isUserContentEdit = (obj?: { __typename?: any } | null): obj is Use
 
 
 
-const UserContentEditConnection_possibleTypes = ['UserContentEditConnection']
+const UserContentEditConnection_possibleTypes: string[] = ['UserContentEditConnection']
 export const isUserContentEditConnection = (obj?: { __typename?: any } | null): obj is UserContentEditConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserContentEditConnection"')
   return UserContentEditConnection_possibleTypes.includes(obj.__typename)
@@ -38197,7 +38197,7 @@ export const isUserContentEditConnection = (obj?: { __typename?: any } | null): 
 
 
 
-const UserContentEditEdge_possibleTypes = ['UserContentEditEdge']
+const UserContentEditEdge_possibleTypes: string[] = ['UserContentEditEdge']
 export const isUserContentEditEdge = (obj?: { __typename?: any } | null): obj is UserContentEditEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserContentEditEdge"')
   return UserContentEditEdge_possibleTypes.includes(obj.__typename)
@@ -38205,7 +38205,7 @@ export const isUserContentEditEdge = (obj?: { __typename?: any } | null): obj is
 
 
 
-const UserEdge_possibleTypes = ['UserEdge']
+const UserEdge_possibleTypes: string[] = ['UserEdge']
 export const isUserEdge = (obj?: { __typename?: any } | null): obj is UserEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserEdge"')
   return UserEdge_possibleTypes.includes(obj.__typename)
@@ -38213,7 +38213,7 @@ export const isUserEdge = (obj?: { __typename?: any } | null): obj is UserEdge =
 
 
 
-const UserStatus_possibleTypes = ['UserStatus']
+const UserStatus_possibleTypes: string[] = ['UserStatus']
 export const isUserStatus = (obj?: { __typename?: any } | null): obj is UserStatus => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserStatus"')
   return UserStatus_possibleTypes.includes(obj.__typename)
@@ -38221,7 +38221,7 @@ export const isUserStatus = (obj?: { __typename?: any } | null): obj is UserStat
 
 
 
-const UserStatusConnection_possibleTypes = ['UserStatusConnection']
+const UserStatusConnection_possibleTypes: string[] = ['UserStatusConnection']
 export const isUserStatusConnection = (obj?: { __typename?: any } | null): obj is UserStatusConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserStatusConnection"')
   return UserStatusConnection_possibleTypes.includes(obj.__typename)
@@ -38229,7 +38229,7 @@ export const isUserStatusConnection = (obj?: { __typename?: any } | null): obj i
 
 
 
-const UserStatusEdge_possibleTypes = ['UserStatusEdge']
+const UserStatusEdge_possibleTypes: string[] = ['UserStatusEdge']
 export const isUserStatusEdge = (obj?: { __typename?: any } | null): obj is UserStatusEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserStatusEdge"')
   return UserStatusEdge_possibleTypes.includes(obj.__typename)
@@ -38237,7 +38237,7 @@ export const isUserStatusEdge = (obj?: { __typename?: any } | null): obj is User
 
 
 
-const ViewerHovercardContext_possibleTypes = ['ViewerHovercardContext']
+const ViewerHovercardContext_possibleTypes: string[] = ['ViewerHovercardContext']
 export const isViewerHovercardContext = (obj?: { __typename?: any } | null): obj is ViewerHovercardContext => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isViewerHovercardContext"')
   return ViewerHovercardContext_possibleTypes.includes(obj.__typename)

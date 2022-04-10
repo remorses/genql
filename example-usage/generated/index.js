@@ -8,7 +8,7 @@ import types from './types.esm'
 var typeMap = linkTypeMap(types)
 export * from './guards.esm'
 
-export var version = '2.8.0'
+export var version = '2.9.0'
 assertSameVersion(version)
 
 export var createClient = function(options) {
@@ -23,11 +23,6 @@ export var createClient = function(options) {
     optionsCopy[name] = options[name]
   }
   return createClientOriginal(optionsCopy)
-}
-
-export const enumCacheControlScope = {
-  PUBLIC: 'PUBLIC',
-  PRIVATE: 'PRIVATE',
 }
 
 export var generateQueryOp = function(fields) {

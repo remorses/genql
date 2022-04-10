@@ -7,7 +7,7 @@
     "license": "MIT",
     "scripts": {
         "test": "mocha -r ts-node/register",
-        "gen": "node -r sucrase/register generate.ts",
+        "gen": "node -r sucrase/register generate.ts && tsc --noEmit",
         "genprof": "node -r sucrase/register --prof generate.ts",
         "flame": "node --prof-process --preprocess -j isolate*.log | flamebearer && open flamegraph.html"
     },
@@ -28,7 +28,6 @@
         "timeout": 9999999999
     },
     "devDependencies": {
-        "@types/mocha": "^7.0.2",
         "@types/node": "^14.6.4",
         "mocha": "^7.2.0",
         "snap-shot-it": "^7.9.3",

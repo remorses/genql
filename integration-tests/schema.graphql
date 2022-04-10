@@ -120,4 +120,13 @@ union GenericError =
 
 extend type Query {
     unionThatImplementsInterface(typename: String): GenericError
+    InterfaceNotImplemented: InterfaceNotImplemented
+}
+
+interface InterfaceNotImplemented {
+    id: ID!
+    title: String
+    url: String
+    permalink: String
+    entry_id: ID
 }

@@ -5,6 +5,7 @@ export type Scalars = {
     Float: number,
     Int: number,
     Boolean: boolean,
+    ID: string,
 }
 
 export type SomeEnum = 'X' | 'Y' | 'Z'
@@ -20,6 +21,7 @@ export interface Query {
     account?: Account
     coordinates?: Point
     unionThatImplementsInterface?: GenericError
+    InterfaceNotImplemented?: InterfaceNotImplemented
     __typename: 'Query'
 }
 
@@ -109,6 +111,15 @@ export interface ClientErrorWithoutInterface {
 
 export type GenericError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid | ClientErrorWithoutInterface) & { __isUnion?: true }
 
+export interface InterfaceNotImplemented {
+    id: Scalars['ID']
+    title?: Scalars['String']
+    url?: Scalars['String']
+    permalink?: Scalars['String']
+    entry_id?: Scalars['ID']
+    __typename: string
+}
+
 export interface QueryRequest{
     /** Some description */
     repository?: [{name: Scalars['String'],owner?: (Scalars['String'] | null)},RepositoryRequest]
@@ -118,6 +129,7 @@ export interface QueryRequest{
     account?: AccountRequest
     coordinates?: PointRequest
     unionThatImplementsInterface?: [{typename?: (Scalars['String'] | null)},GenericErrorRequest] | GenericErrorRequest
+    InterfaceNotImplemented?: InterfaceNotImplementedRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -244,8 +256,18 @@ export interface GenericErrorRequest{
     __typename?: boolean | number
 }
 
+export interface InterfaceNotImplementedRequest{
+    id?: boolean | number
+    title?: boolean | number
+    url?: boolean | number
+    permalink?: boolean | number
+    entry_id?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
 
-const Query_possibleTypes = ['Query']
+
+const Query_possibleTypes: string[] = ['Query']
 export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
   return Query_possibleTypes.includes(obj.__typename)
@@ -253,7 +275,7 @@ export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
 
 
 
-const RecursiveType_possibleTypes = ['RecursiveType']
+const RecursiveType_possibleTypes: string[] = ['RecursiveType']
 export const isRecursiveType = (obj?: { __typename?: any } | null): obj is RecursiveType => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRecursiveType"')
   return RecursiveType_possibleTypes.includes(obj.__typename)
@@ -261,7 +283,7 @@ export const isRecursiveType = (obj?: { __typename?: any } | null): obj is Recur
 
 
 
-const Repository_possibleTypes = ['Repository']
+const Repository_possibleTypes: string[] = ['Repository']
 export const isRepository = (obj?: { __typename?: any } | null): obj is Repository => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRepository"')
   return Repository_possibleTypes.includes(obj.__typename)
@@ -269,7 +291,7 @@ export const isRepository = (obj?: { __typename?: any } | null): obj is Reposito
 
 
 
-const ForkConnection_possibleTypes = ['ForkConnection']
+const ForkConnection_possibleTypes: string[] = ['ForkConnection']
 export const isForkConnection = (obj?: { __typename?: any } | null): obj is ForkConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isForkConnection"')
   return ForkConnection_possibleTypes.includes(obj.__typename)
@@ -277,7 +299,7 @@ export const isForkConnection = (obj?: { __typename?: any } | null): obj is Fork
 
 
 
-const ForkEdge_possibleTypes = ['ForkEdge']
+const ForkEdge_possibleTypes: string[] = ['ForkEdge']
 export const isForkEdge = (obj?: { __typename?: any } | null): obj is ForkEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isForkEdge"')
   return ForkEdge_possibleTypes.includes(obj.__typename)
@@ -285,7 +307,7 @@ export const isForkEdge = (obj?: { __typename?: any } | null): obj is ForkEdge =
 
 
 
-const Fork_possibleTypes = ['Fork']
+const Fork_possibleTypes: string[] = ['Fork']
 export const isFork = (obj?: { __typename?: any } | null): obj is Fork => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isFork"')
   return Fork_possibleTypes.includes(obj.__typename)
@@ -293,7 +315,7 @@ export const isFork = (obj?: { __typename?: any } | null): obj is Fork => {
 
 
 
-const User_possibleTypes = ['User']
+const User_possibleTypes: string[] = ['User']
 export const isUser = (obj?: { __typename?: any } | null): obj is User => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUser"')
   return User_possibleTypes.includes(obj.__typename)
@@ -301,7 +323,7 @@ export const isUser = (obj?: { __typename?: any } | null): obj is User => {
 
 
 
-const Subscription_possibleTypes = ['Subscription']
+const Subscription_possibleTypes: string[] = ['Subscription']
 export const isSubscription = (obj?: { __typename?: any } | null): obj is Subscription => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isSubscription"')
   return Subscription_possibleTypes.includes(obj.__typename)
@@ -309,7 +331,7 @@ export const isSubscription = (obj?: { __typename?: any } | null): obj is Subscr
 
 
 
-const Account_possibleTypes = ['User','Guest']
+const Account_possibleTypes: string[] = ['User','Guest']
 export const isAccount = (obj?: { __typename?: any } | null): obj is Account => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAccount"')
   return Account_possibleTypes.includes(obj.__typename)
@@ -317,7 +339,7 @@ export const isAccount = (obj?: { __typename?: any } | null): obj is Account => 
 
 
 
-const Guest_possibleTypes = ['Guest']
+const Guest_possibleTypes: string[] = ['Guest']
 export const isGuest = (obj?: { __typename?: any } | null): obj is Guest => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGuest"')
   return Guest_possibleTypes.includes(obj.__typename)
@@ -325,7 +347,7 @@ export const isGuest = (obj?: { __typename?: any } | null): obj is Guest => {
 
 
 
-const House_possibleTypes = ['House']
+const House_possibleTypes: string[] = ['House']
 export const isHouse = (obj?: { __typename?: any } | null): obj is House => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHouse"')
   return House_possibleTypes.includes(obj.__typename)
@@ -333,7 +355,7 @@ export const isHouse = (obj?: { __typename?: any } | null): obj is House => {
 
 
 
-const Bank_possibleTypes = ['Bank']
+const Bank_possibleTypes: string[] = ['Bank']
 export const isBank = (obj?: { __typename?: any } | null): obj is Bank => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBank"')
   return Bank_possibleTypes.includes(obj.__typename)
@@ -341,7 +363,7 @@ export const isBank = (obj?: { __typename?: any } | null): obj is Bank => {
 
 
 
-const Point_possibleTypes = ['House','Bank']
+const Point_possibleTypes: string[] = ['House','Bank']
 export const isPoint = (obj?: { __typename?: any } | null): obj is Point => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPoint"')
   return Point_possibleTypes.includes(obj.__typename)
@@ -349,7 +371,7 @@ export const isPoint = (obj?: { __typename?: any } | null): obj is Point => {
 
 
 
-const ClientError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
+const ClientError_possibleTypes: string[] = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid']
 export const isClientError = (obj?: { __typename?: any } | null): obj is ClientError => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClientError"')
   return ClientError_possibleTypes.includes(obj.__typename)
@@ -357,7 +379,7 @@ export const isClientError = (obj?: { __typename?: any } | null): obj is ClientE
 
 
 
-const ClientErrorNameAlreadyTaken_possibleTypes = ['ClientErrorNameAlreadyTaken']
+const ClientErrorNameAlreadyTaken_possibleTypes: string[] = ['ClientErrorNameAlreadyTaken']
 export const isClientErrorNameAlreadyTaken = (obj?: { __typename?: any } | null): obj is ClientErrorNameAlreadyTaken => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClientErrorNameAlreadyTaken"')
   return ClientErrorNameAlreadyTaken_possibleTypes.includes(obj.__typename)
@@ -365,7 +387,7 @@ export const isClientErrorNameAlreadyTaken = (obj?: { __typename?: any } | null)
 
 
 
-const ClientErrorNameInvalid_possibleTypes = ['ClientErrorNameInvalid']
+const ClientErrorNameInvalid_possibleTypes: string[] = ['ClientErrorNameInvalid']
 export const isClientErrorNameInvalid = (obj?: { __typename?: any } | null): obj is ClientErrorNameInvalid => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClientErrorNameInvalid"')
   return ClientErrorNameInvalid_possibleTypes.includes(obj.__typename)
@@ -373,7 +395,7 @@ export const isClientErrorNameInvalid = (obj?: { __typename?: any } | null): obj
 
 
 
-const ClientErrorWithoutInterface_possibleTypes = ['ClientErrorWithoutInterface']
+const ClientErrorWithoutInterface_possibleTypes: string[] = ['ClientErrorWithoutInterface']
 export const isClientErrorWithoutInterface = (obj?: { __typename?: any } | null): obj is ClientErrorWithoutInterface => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isClientErrorWithoutInterface"')
   return ClientErrorWithoutInterface_possibleTypes.includes(obj.__typename)
@@ -381,10 +403,18 @@ export const isClientErrorWithoutInterface = (obj?: { __typename?: any } | null)
 
 
 
-const GenericError_possibleTypes = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid','ClientErrorWithoutInterface']
+const GenericError_possibleTypes: string[] = ['ClientErrorNameAlreadyTaken','ClientErrorNameInvalid','ClientErrorWithoutInterface']
 export const isGenericError = (obj?: { __typename?: any } | null): obj is GenericError => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGenericError"')
   return GenericError_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const InterfaceNotImplemented_possibleTypes: string[] = []
+export const isInterfaceNotImplemented = (obj?: { __typename?: any } | null): obj is InterfaceNotImplemented => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isInterfaceNotImplemented"')
+  return InterfaceNotImplemented_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -397,7 +427,8 @@ repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}
     recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
     account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Promise<(FieldsSelection<Account, R> | undefined)>}),
     coordinates: (PointPromiseChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Promise<(FieldsSelection<Point, R> | undefined)>}),
-    unionThatImplementsInterface: ((args?: {typename?: (Scalars['String'] | null)}) => {get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>})&({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>})
+    unionThatImplementsInterface: ((args?: {typename?: (Scalars['String'] | null)}) => {get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>})&({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Promise<(FieldsSelection<GenericError, R> | undefined)>}),
+    InterfaceNotImplemented: (InterfaceNotImplementedPromiseChain & {get: <R extends InterfaceNotImplementedRequest>(request: R, defaultValue?: (FieldsSelection<InterfaceNotImplemented, R> | undefined)) => Promise<(FieldsSelection<InterfaceNotImplemented, R> | undefined)>})
 }
 
 export interface QueryObservableChain{
@@ -409,7 +440,8 @@ repository: ((args: {name: Scalars['String'],owner?: (Scalars['String'] | null)}
     recursiveType: ((args?: {requiredVal?: (Scalars['String'][] | null)}) => {get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>})&({get: <R extends RecursiveTypeRequest>(request: R, defaultValue?: ((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<RecursiveType, R> | undefined)[] | undefined)>}),
     account: ({get: <R extends AccountRequest>(request: R, defaultValue?: (FieldsSelection<Account, R> | undefined)) => Observable<(FieldsSelection<Account, R> | undefined)>}),
     coordinates: (PointObservableChain & {get: <R extends PointRequest>(request: R, defaultValue?: (FieldsSelection<Point, R> | undefined)) => Observable<(FieldsSelection<Point, R> | undefined)>}),
-    unionThatImplementsInterface: ((args?: {typename?: (Scalars['String'] | null)}) => {get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>})&({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>})
+    unionThatImplementsInterface: ((args?: {typename?: (Scalars['String'] | null)}) => {get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>})&({get: <R extends GenericErrorRequest>(request: R, defaultValue?: (FieldsSelection<GenericError, R> | undefined)) => Observable<(FieldsSelection<GenericError, R> | undefined)>}),
+    InterfaceNotImplemented: (InterfaceNotImplementedObservableChain & {get: <R extends InterfaceNotImplementedRequest>(request: R, defaultValue?: (FieldsSelection<InterfaceNotImplemented, R> | undefined)) => Observable<(FieldsSelection<InterfaceNotImplemented, R> | undefined)>})
 }
 
 export interface RecursiveTypePromiseChain{
@@ -560,4 +592,20 @@ export interface ClientErrorWithoutInterfacePromiseChain{
 
 export interface ClientErrorWithoutInterfaceObservableChain{
     ownProp3: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+export interface InterfaceNotImplementedPromiseChain{
+    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Promise<Scalars['ID']>}),
+    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    url: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    permalink: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    entry_id: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Promise<(Scalars['ID'] | undefined)>})
+}
+
+export interface InterfaceNotImplementedObservableChain{
+    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Observable<Scalars['ID']>}),
+    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    url: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    permalink: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    entry_id: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>})
 }

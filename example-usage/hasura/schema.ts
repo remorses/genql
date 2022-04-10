@@ -518,7 +518,7 @@ export type MutationRequest = mutation_rootRequest
 export type SubscriptionRequest = subscription_rootRequest
 
 
-const mutation_root_possibleTypes = ['mutation_root']
+const mutation_root_possibleTypes: string[] = ['mutation_root']
 export const ismutation_root = (obj?: { __typename?: any } | null): obj is mutation_root => {
   if (!obj?.__typename) throw new Error('__typename is missing in "ismutation_root"')
   return mutation_root_possibleTypes.includes(obj.__typename)
@@ -526,7 +526,7 @@ export const ismutation_root = (obj?: { __typename?: any } | null): obj is mutat
 
 
 
-const query_root_possibleTypes = ['query_root']
+const query_root_possibleTypes: string[] = ['query_root']
 export const isquery_root = (obj?: { __typename?: any } | null): obj is query_root => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isquery_root"')
   return query_root_possibleTypes.includes(obj.__typename)
@@ -534,7 +534,7 @@ export const isquery_root = (obj?: { __typename?: any } | null): obj is query_ro
 
 
 
-const subscription_root_possibleTypes = ['subscription_root']
+const subscription_root_possibleTypes: string[] = ['subscription_root']
 export const issubscription_root = (obj?: { __typename?: any } | null): obj is subscription_root => {
   if (!obj?.__typename) throw new Error('__typename is missing in "issubscription_root"')
   return subscription_root_possibleTypes.includes(obj.__typename)
@@ -542,7 +542,7 @@ export const issubscription_root = (obj?: { __typename?: any } | null): obj is s
 
 
 
-const user_possibleTypes = ['user']
+const user_possibleTypes: string[] = ['user']
 export const isuser = (obj?: { __typename?: any } | null): obj is user => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser"')
   return user_possibleTypes.includes(obj.__typename)
@@ -550,7 +550,7 @@ export const isuser = (obj?: { __typename?: any } | null): obj is user => {
 
 
 
-const user_aggregate_possibleTypes = ['user_aggregate']
+const user_aggregate_possibleTypes: string[] = ['user_aggregate']
 export const isuser_aggregate = (obj?: { __typename?: any } | null): obj is user_aggregate => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_aggregate"')
   return user_aggregate_possibleTypes.includes(obj.__typename)
@@ -558,7 +558,7 @@ export const isuser_aggregate = (obj?: { __typename?: any } | null): obj is user
 
 
 
-const user_aggregate_fields_possibleTypes = ['user_aggregate_fields']
+const user_aggregate_fields_possibleTypes: string[] = ['user_aggregate_fields']
 export const isuser_aggregate_fields = (obj?: { __typename?: any } | null): obj is user_aggregate_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_aggregate_fields"')
   return user_aggregate_fields_possibleTypes.includes(obj.__typename)
@@ -566,7 +566,7 @@ export const isuser_aggregate_fields = (obj?: { __typename?: any } | null): obj 
 
 
 
-const user_avg_fields_possibleTypes = ['user_avg_fields']
+const user_avg_fields_possibleTypes: string[] = ['user_avg_fields']
 export const isuser_avg_fields = (obj?: { __typename?: any } | null): obj is user_avg_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_avg_fields"')
   return user_avg_fields_possibleTypes.includes(obj.__typename)
@@ -574,7 +574,7 @@ export const isuser_avg_fields = (obj?: { __typename?: any } | null): obj is use
 
 
 
-const user_max_fields_possibleTypes = ['user_max_fields']
+const user_max_fields_possibleTypes: string[] = ['user_max_fields']
 export const isuser_max_fields = (obj?: { __typename?: any } | null): obj is user_max_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_max_fields"')
   return user_max_fields_possibleTypes.includes(obj.__typename)
@@ -582,7 +582,7 @@ export const isuser_max_fields = (obj?: { __typename?: any } | null): obj is use
 
 
 
-const user_min_fields_possibleTypes = ['user_min_fields']
+const user_min_fields_possibleTypes: string[] = ['user_min_fields']
 export const isuser_min_fields = (obj?: { __typename?: any } | null): obj is user_min_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_min_fields"')
   return user_min_fields_possibleTypes.includes(obj.__typename)
@@ -590,7 +590,7 @@ export const isuser_min_fields = (obj?: { __typename?: any } | null): obj is use
 
 
 
-const user_mutation_response_possibleTypes = ['user_mutation_response']
+const user_mutation_response_possibleTypes: string[] = ['user_mutation_response']
 export const isuser_mutation_response = (obj?: { __typename?: any } | null): obj is user_mutation_response => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_mutation_response"')
   return user_mutation_response_possibleTypes.includes(obj.__typename)
@@ -598,7 +598,7 @@ export const isuser_mutation_response = (obj?: { __typename?: any } | null): obj
 
 
 
-const user_stddev_fields_possibleTypes = ['user_stddev_fields']
+const user_stddev_fields_possibleTypes: string[] = ['user_stddev_fields']
 export const isuser_stddev_fields = (obj?: { __typename?: any } | null): obj is user_stddev_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_fields"')
   return user_stddev_fields_possibleTypes.includes(obj.__typename)
@@ -606,7 +606,7 @@ export const isuser_stddev_fields = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const user_stddev_pop_fields_possibleTypes = ['user_stddev_pop_fields']
+const user_stddev_pop_fields_possibleTypes: string[] = ['user_stddev_pop_fields']
 export const isuser_stddev_pop_fields = (obj?: { __typename?: any } | null): obj is user_stddev_pop_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_pop_fields"')
   return user_stddev_pop_fields_possibleTypes.includes(obj.__typename)
@@ -614,7 +614,7 @@ export const isuser_stddev_pop_fields = (obj?: { __typename?: any } | null): obj
 
 
 
-const user_stddev_samp_fields_possibleTypes = ['user_stddev_samp_fields']
+const user_stddev_samp_fields_possibleTypes: string[] = ['user_stddev_samp_fields']
 export const isuser_stddev_samp_fields = (obj?: { __typename?: any } | null): obj is user_stddev_samp_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_stddev_samp_fields"')
   return user_stddev_samp_fields_possibleTypes.includes(obj.__typename)
@@ -622,7 +622,7 @@ export const isuser_stddev_samp_fields = (obj?: { __typename?: any } | null): ob
 
 
 
-const user_sum_fields_possibleTypes = ['user_sum_fields']
+const user_sum_fields_possibleTypes: string[] = ['user_sum_fields']
 export const isuser_sum_fields = (obj?: { __typename?: any } | null): obj is user_sum_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_sum_fields"')
   return user_sum_fields_possibleTypes.includes(obj.__typename)
@@ -630,7 +630,7 @@ export const isuser_sum_fields = (obj?: { __typename?: any } | null): obj is use
 
 
 
-const user_var_pop_fields_possibleTypes = ['user_var_pop_fields']
+const user_var_pop_fields_possibleTypes: string[] = ['user_var_pop_fields']
 export const isuser_var_pop_fields = (obj?: { __typename?: any } | null): obj is user_var_pop_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_var_pop_fields"')
   return user_var_pop_fields_possibleTypes.includes(obj.__typename)
@@ -638,7 +638,7 @@ export const isuser_var_pop_fields = (obj?: { __typename?: any } | null): obj is
 
 
 
-const user_var_samp_fields_possibleTypes = ['user_var_samp_fields']
+const user_var_samp_fields_possibleTypes: string[] = ['user_var_samp_fields']
 export const isuser_var_samp_fields = (obj?: { __typename?: any } | null): obj is user_var_samp_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_var_samp_fields"')
   return user_var_samp_fields_possibleTypes.includes(obj.__typename)
@@ -646,7 +646,7 @@ export const isuser_var_samp_fields = (obj?: { __typename?: any } | null): obj i
 
 
 
-const user_variance_fields_possibleTypes = ['user_variance_fields']
+const user_variance_fields_possibleTypes: string[] = ['user_variance_fields']
 export const isuser_variance_fields = (obj?: { __typename?: any } | null): obj is user_variance_fields => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isuser_variance_fields"')
   return user_variance_fields_possibleTypes.includes(obj.__typename)

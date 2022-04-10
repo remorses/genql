@@ -31,8 +31,3 @@ export type QueryResult<fields extends QueryRequest> = FieldsSelection<
 export declare const generateQueryOp: (
   fields: QueryRequest & { __name?: string },
 ) => GraphqlOperation
-
-export declare const enumCacheControlScope: {
-  readonly PUBLIC: 'PUBLIC'
-  readonly PRIVATE: 'PRIVATE'
-}

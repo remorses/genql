@@ -140,3 +140,11 @@ export var isGenericError = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isGenericError"')
   return GenericError_possibleTypes.includes(obj.__typename)
 }
+
+
+
+var InterfaceNotImplemented_possibleTypes = []
+export var isInterfaceNotImplemented = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isInterfaceNotImplemented"')
+  return InterfaceNotImplemented_possibleTypes.includes(obj.__typename)
+}
