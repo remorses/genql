@@ -50,13 +50,15 @@
         "sucrase": "^3.12.1",
         "ts-jest": "^23.10.5"
     },
+    "peerDependencies": {
+        "graphql": "*"
+    },
     "dependencies": {
         "@genql/runtime": "^2.10.0",
         "@graphql-tools/graphql-file-loader": "^6.0.10",
         "@graphql-tools/load": "^6.0.10",
         "chalk": "^4.1.0",
         "fs-extra": "^9.0.1",
-        "graphql": "*",
         "isomorphic-unfetch": "^3.0.0",
         "listr": "^0.14.3",
         "lodash": "^4.17.20",
