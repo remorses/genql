@@ -146,7 +146,7 @@ const mapResponse = (path: string[], defaultValue: any = undefined) => (
 }
 
 function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
-    let { url, headers = {} } = opts.subscription || {}
+    let { url, headers = {}, ...rest } = opts.subscription || {}
     // by default use the top level url
     if (!url) {
         url = opts?.url
@@ -169,7 +169,7 @@ function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
                     headers: headersObject,
                 }
             },
-            ...opts,
+            ...rest,
         },
         typeof window === 'undefined' ? ws : undefined,
     )
