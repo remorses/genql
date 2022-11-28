@@ -16,7 +16,7 @@ export function Bg() {
                     transform: translateX(0px) translateY(0px) translateZ(0px);
                     max-width: 1800px;
                     background-image: radial-gradient(
-                        at 40% 10%,
+                        at 45% 10%,
                         #4bfefe 0,
                         transparent 100%
                     );

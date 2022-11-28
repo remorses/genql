@@ -47,16 +47,16 @@ export default function App(props) {
                 options={{ showSpinner: false }}
                 showOnShallow={true}
             />
-            <Bg />
+
             <div
                 className='relative text-gray-100 md:px-[30px] flex flex-col space-y-[40px] min-h-[100vh]'
                 style={{ background: BG }}
             >
                 <MyNavbar />
-
                 <Component {...pageProps} />
                 <div className='grow'></div>
                 <MyFooter dark />
+                <Bg />
             </div>
         </>
     )
