@@ -71,9 +71,12 @@ const Page = () => (
         <Hero
             bullet='Introducing Genql 3.0'
             cta={
-                <NextLink href='/docs'>
-                    <Button>Read the docs</Button>
-                </NextLink>
+                <div className='flex items-center gap-4'>
+                    <Button href='/docs'>Quick Start</Button>
+                    <Button ghost href='/clients'>
+                        Explore GraphQL Clients
+                    </Button>
+                </div>
             }
             heading={
                 <div className=''>
