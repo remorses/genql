@@ -1,4 +1,4 @@
-import { Box, Stack } from '@chakra-ui/core'
+import { Box, Stack } from 'layout-kit-react'
 import { print } from '@genql/cli/src/printer'
 import { buildSchema } from 'graphql'
 import { generateRandomQuery } from 'ibm-graphql-query-generator'

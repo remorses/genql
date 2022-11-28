@@ -1,23 +1,20 @@
-/** @jsx jsx */
-import { Box, Image } from '@chakra-ui/core'
-import { css, jsx } from '@emotion/core'
+import Image from 'next/image'
+import { Box, Stack } from 'layout-kit-react'
+
 import { Faded } from 'baby-i-am-faded'
 
 import {
-    Banner,
+    // Banner,
     Button,
-    CodeSnippet,
+    // CodeSnippet,
     Divider,
     Feature,
-    Heading,
     Hero,
     PageContainer,
-    PatternBackground,
     Section,
-    SectionTitle,
-    TestimonialsLogos,
-    Stack,
-} from 'landing-blocks'
+    // SectionTitle,
+    TestimonialLogos,
+} from 'beskar/landing'
 import NextLink from 'next/link'
 import React, { Fragment } from 'react'
 import {
@@ -26,9 +23,10 @@ import {
     FaNode as NodeIcon,
     FaReact as ReactIcon,
 } from 'react-icons/fa'
-import { MainForm } from '../components/MainForm'
+
 import { BG } from '../constants'
-jsx
+import { MyFooter, MyNavbar } from './_app'
+import Head from 'next/head'
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -56,20 +54,32 @@ query {
 }`
 
 const Page = () => (
-    <Stack w='100%' align='stretch' spacing='40px'>
+    <Stack
+        as={'main'}
+        style={{ background: BG }}
+        className='dark py-14'
+        w='100%'
+        align='stretch'
+        spacing='40px'
+    >
+        <Head>
+            <title>Genql - SDK client for any GraphQL API</title>
+        </Head>
+
+        <MyNavbar />
+
         <Hero
             bullet='Introducing Genql 1.0'
-            dark
             cta={
                 <NextLink href='/docs'>
                     <Button>Read the docs</Button>
                 </NextLink>
             }
             heading={
-                <Heading maxW='600px' fontSize='50px'>
+                <div className=''>
                     Type safe Graphql <br />
                     query builder
-                </Heading>
+                </div>
             }
             subheading={
                 <Fragment>
@@ -78,46 +88,48 @@ const Page = () => (
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
-            image={
-                <Box fontSize={['sm', null, 'md']} m='10px'>
-                    <PatternBackground
-                        pattern='diagonalLinesSm'
-                        color='gray.200'
-                        scatter={20}
-                    >
-                        <Faded>
-                            <CodeSnippet
-                                key='2'
-                                overflow='hidden'
-                                // w='auto'
-                                // w='300px'
-                                language='javascript'
-                                // isTyping
-                                code={jsQueryCode}
-                            />
-                        </Faded>
-                    </PatternBackground>
-                </Box>
-            }
+            // image={
+            //     <Box fontSize={['sm', null, 'md']} m='10px'>
+            //         <PatternBackground
+            //             pattern='diagonalLinesSm'
+            //             color='gray.200'
+            //             scatter={20}
+            //         >
+            //             <Faded>
+            //                 <CodeSnippet
+            //                     key='2'
+            //                     overflow='hidden'
+            //                     // w='auto'
+            //                     // w='300px'
+            //                     language='javascript'
+            //                     // isTyping
+            //                     code={jsQueryCode}
+            //                 />
+            //             </Faded>
+            //         </PatternBackground>
+            //     </Box>
+            // }
             // cta={<Button>Try Genql in 5 minutes</Button>}
             // fingerprint='Already using Genql? Sign in'
         />
-        <Divider dark heading='works in browser and node' />
-        <TestimonialsLogos
-            dark
-            animate
+        <Divider heading='works in browser and node' />
+        {/* <TestimonialLogos
             // heading='Works everywhere'
             // subheading='browser and node environments'
-            testimonials={[
-                <Box size='80px' as={ReactIcon} />,
-                <Box size='90px' as={AngularIcon} />,
-                <Box size='90px' as={NodeIcon} />,
-                // <Box size='90px' as={OtherIcon} />,
-                <Image size='80px' src='/apollo-logo.svg' />,
-                <Image size='90px' src='/nextjs-logo.svg' />,
-                <Image size='90px' src='/hasura-logo.svg' />,
+            items={[
+                // <Box size='80px' as={ReactIcon} />,
+                // <Box size='90px' as={AngularIcon} />,
+                // <Box size='90px' as={NodeIcon} />,
+                // // <Box size='90px' as={OtherIcon} />,
+                // <Image src={require('@app/../public/apollo-logo.svg')} />,
+                // <Image src={require('@app/../public/nextjs-logo.svg')} />,
+                // <Image src={require('@app/../public/hasura-logo.svg')} />,
+                {
+                    src: '/nodejs.svg',
+
+                }
             ]}
-        />
+        /> */}
 
         {/* cta form  */}
 
@@ -138,12 +150,12 @@ const Page = () => (
         </Box> */}
 
         {/* code snippets */}
-        <Stack spacing='40px' py='120px' bg='white'>
-            <SectionTitle
+        <Stack spacing='40px' py='120px'>
+            {/* <SectionTitle
                 mt='40px'
                 heading='Graphql queries written in code'
                 subheading='Genql generates a graphql client with typescript types, giving you type safety and auto completion'
-            />
+            /> */}
             <PageContainer>
                 <Stack
                     as={Faded}
@@ -155,7 +167,7 @@ const Page = () => (
                     direction={['column', null, 'row']}
                     align='center'
                 >
-                    <CodeSnippet
+                    {/* <CodeSnippet
                         // bg='gray.200'
                         shadow='xl'
                         lineNumbers
@@ -179,56 +191,61 @@ const Page = () => (
                         // minWidth='300px'
                         code={gqlQueryCode}
                         language='graphql'
-                    />
+                    /> */}
                 </Stack>
             </PageContainer>
         </Stack>
 
         <Feature
-            dark
             flip
             heading='Auto completion'
             subheading='Queries written with a genql client support auto completion thanks to typescript typings'
             image={
-                <Box overflow='hidden' mr='-50%' mb='-50%' zIndex={-1} bg={BG}>
+                <Box overflow='hidden' className='relative' mr='-50%' mb='-50%'>
                     <video
                         loop
                         autoPlay
                         muted
-                        // @ts-ignore
-                        css={css`
-                            min-width: 800px;
-                            mix-blend-mode: lighten;
-                        `}
+                        style={{
+                            mixBlendMode: 'lighten',
+                            minWidth: '800px',
+                        }}
                         // borderRadius='10px'
                         src='/completion.mp4'
                     />
                 </Box>
             }
         />
-        <Feature
-            dark
-            heading='Type Validation'
-            subheading={`Every query written with genql is validated against its schema, you can't write invalid queries anymore`}
-            image={
-                <Box overflow='hidden' mr='-60%' mb='-50%' zIndex={-2} bg={BG}>
-                    <video
-                        loop
-                        autoPlay
-                        muted
-                        // @ts-ignore
-                        css={css`
-                            min-width: 800px;
-                            mix-blend-mode: lighten;
-                        `}
-                        // borderRadius='10px'
-                        src='/validation.mp4'
-                    />
-                </Box>
-            }
-        />
+        <div className='!pt-32'>
+            <Feature
+                heading='Type Validation'
+                subheading={`Every query written with genql is validated against its schema, you can't write invalid queries anymore`}
+                image={
+                    <Box
+                        overflow='hidden'
+                        className='relative'
+                        mr='-60%'
+                        mb='-50%'
+                        bg={BG}
+                    >
+                        <video
+                            loop
+                            autoPlay
+                            muted
+                            style={{
+                                mixBlendMode: 'lighten',
+                                minWidth: '800px',
+                                // zIndex: 1000,
+                            }}
+                            // borderRadius='10px'
+                            src='/validation.mp4'
+                        />
+                    </Box>
+                }
+            />
+        </div>
 
-        <Section degree={0} zIndex={1} bg='white'>
+        {/* <Section degree={0} zIndex={1} bg='white'>
             <Banner
                 // dark
                 heading='Generate your own graphql SDK in seconds'
@@ -249,7 +266,8 @@ const Page = () => (
                     </a>
                 }
             />
-        </Section>
+        </Section> */}
+        <MyFooter />
     </Stack>
 )
 
