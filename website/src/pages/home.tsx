@@ -82,7 +82,7 @@ const Page = () => (
             }
             heading={
                 <div className=''>
-                    Type safe Graphql <br />
+                    Type safe GraphQL <br />
                     query builder
                 </div>
             }
