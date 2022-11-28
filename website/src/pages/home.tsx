@@ -67,7 +67,7 @@ const Page = () => (
         </Head>
 
         {/* <MyNavbar /> */}
-
+        <Bg />
         <Hero
             bullet='Introducing Genql 3.0'
             cta={
@@ -150,7 +150,7 @@ const Page = () => (
         </Box> */}
 
         {/* code snippets */}
-        <Stack spacing='40px' >
+        <Stack spacing='40px'>
             {/* <SectionTitle
                 mt='40px'
                 heading='Graphql queries written in code'
@@ -272,3 +272,41 @@ const Page = () => (
 )
 
 export default Page
+
+function Bg() {
+    return (
+        <>
+            <style jsx global>{`
+                .background_main__HFlNS {
+                    width: 100vw;
+                    min-height: 100vh;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    padding: 120px 24px 160px;
+                    pointer-events: none;
+                }
+
+                .background_content__pv7b5 {
+                    transform: translateX(0px) translateY(0px) translateZ(0px);
+                    max-width: 1800px;
+                    background-image: radial-gradient(
+                        at 30% 10%,
+                        #27cdff 0,
+                        transparent 100%
+                    );
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 400px;
+                    filter: blur(100px) saturate(150%);
+                    top: 10px;
+                    opacity: 0.13;
+                }
+            `}</style>
+            <div className='background_main__HFlNS'>
+                <div className='background_content__pv7b5' />
+            </div>
+        </>
+    )
+}
