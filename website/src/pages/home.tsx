@@ -200,7 +200,7 @@ const Page = () => (
             </Stack>
         </PageContainer>
 
-        <PageContainer dontContain>
+        {/* <PageContainer dontContain>
             <FeaturesBlocks
                 items={[
                     {
@@ -272,7 +272,7 @@ const Page = () => (
                     },
                 ]}
             />
-        </PageContainer>
+        </PageContainer> */}
         <Feature
             flip
             heading='Auto completion'
