@@ -1,4 +1,5 @@
 import { Footer, Link, NavBar } from 'beskar/landing'
+import NextNprogress from 'nextjs-progressbar'
 import Cookies from 'js-cookie'
 
 import { Box, Stack } from 'layout-kit-react'
@@ -16,6 +17,7 @@ import {
 import 'baby-i-am-faded/styles.css'
 import '../global.css'
 import { Bg } from '@app/components/bg'
+import classNames from 'classnames'
 
 // 'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
 
@@ -36,17 +38,27 @@ export default function App(props) {
         )
     }
     return (
-        <div
-            className='relative text-gray-100 md:px-[30px] flex flex-col space-y-[40px] min-h-[100vh]'
-            style={{ background: BG }}
-        >
+        <>
+            <NextNprogress
+                color='#29D'
+                startPosition={0.3}
+                stopDelayMs={200}
+                height={4}
+                options={{ showSpinner: false }}
+                showOnShallow={true}
+            />
             <Bg />
-            <MyNavbar />
+            <div
+                className='relative text-gray-100 md:px-[30px] flex flex-col space-y-[40px] min-h-[100vh]'
+                style={{ background: BG }}
+            >
+                <MyNavbar />
 
-            <Component {...pageProps} />
-            <div className='grow'></div>
-            <MyFooter dark />
-        </div>
+                <Component {...pageProps} />
+                <div className='grow'></div>
+                <MyFooter dark />
+            </div>
+        </>
     )
 }
 
@@ -100,8 +112,9 @@ export function MyFooter({ ...rest }) {
                         My Github
                     </MyLink>,
                 ],
-                'Proudly sponsored by Vercel': [
-                    <Box as={PoweredByVercel} alignSelf='center' />,
+                'Proudly sponsored by Notaku': [
+                    <PoweredByNotaku className='' />,
+                    // <Box as={PoweredByVercel} alignSelf='center' />,
                 ],
             }}
             {...rest}
@@ -172,5 +185,54 @@ export const PoweredByVercel = ({ ...rest }) => {
                 />
             </svg>
         </a>
+    )
+}
+
+function PoweredByNotaku({ className = '', ...rest }) {
+    const href = 'https://notaku.so'
+    return (
+        <a
+            href={href}
+            target='_blank'
+            className={classNames(
+                'transition-transform text-white rounded-md',
+                'right-5 px-4 mx-auto bg-black hover:scale-105',
+                'active:scale-90 text-[15px] py-[8px]',
+                className,
+            )}
+            {...rest}
+        >
+            <IconLogo className='mr-[6px] h-[1.3em] w-[1.3em] inline' />
+            <span className=''>Powered by </span>
+            <span className='font-bold'>Notaku</span>
+        </a>
+    )
+}
+
+function IconLogo({ ...rest }) {
+    return (
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width={170}
+            height={170}
+            viewBox='0 0 120 120'
+            {...rest}
+        >
+            <path
+                fill='#000'
+                fillRule='nonzero'
+                d='M21.0151865,89.4736842 C17.353443,89.4736842 14.9122807,86.7894737 14.9122807,82.7631579 C14.9122807,78.7368421 17.9637336,76.0526316 21.0151865,76.0526316 L81.9164645,76.0526316 C81.548383,79.4582237 81.5808047,86.1981086 82.0175439,89.4736842 L21.0151865,89.4736842 Z'
+                opacity='.727'
+            />
+            <path
+                fill='#FFF'
+                fillRule='nonzero'
+                d='M18.5338346,74.5614035 L81.8577694,74.5614035 C84.416758,74.5614035 86.4912281,72.5584669 86.4912281,70.0877193 L86.4912281,8.94736842 C86.4912281,5.65303833 83.7252679,2.98245614 80.3132832,2.98245614 L18.5338346,2.98245614 C8.29788039,2.98245614 0,10.9942027 0,20.877193 L0,80.5263158 C0,90.409306 8.29788039,98.4210526 18.5338346,98.4210526 L81.8577694,98.4210526 C84.416758,98.4210526 86.4912281,96.418116 86.4912281,93.9473684 L86.4912281,90.9649123 C86.4912281,88.4941647 84.416758,86.4912281 81.8577694,86.4912281 L18.5338346,86.4912281 C14.8270677,86.4912281 12.3558897,84.1052632 12.3558897,80.5263158 C12.3558897,76.9473684 15.4448622,74.5614035 18.5338346,74.5614035 Z'
+            />
+            <polygon
+                fill='#000'
+                points='16.404 0 37.281 0 37.281 28.333 26.842 19.749 16.404 28.333'
+            />
+        </svg>
     )
 }
