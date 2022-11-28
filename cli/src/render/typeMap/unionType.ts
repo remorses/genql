@@ -1,6 +1,6 @@
 import { GraphQLUnionType } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
-import { FieldMap, Type } from '@genql/runtime/dist/types'
+import { FieldMap, Type } from '../../runtime/types'
 import { flatten, uniq } from 'lodash'
 
 export const unionType = (type: GraphQLUnionType, _: RenderContext) => {

@@ -1,5 +1,5 @@
 
-export const RUNTIME_LIB_NAME = '@genql/runtime'
+export const RUNTIME_LIB_NAME = './runtime'
 
 
 export interface Config {
@@ -13,8 +13,6 @@ export interface Config {
     // options?: Options
     headers?: Record<string, string>
     scalarTypes?: { [k: string]: string }
-    onlyEsModules?: boolean
-    onlyCJSModules?: boolean
     sortProperties?: boolean
 }
 

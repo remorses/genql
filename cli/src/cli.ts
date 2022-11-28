@@ -96,8 +96,6 @@ const config: Config = {
     output: program.output,
     headers: parseColonSeparatedStrings(program.header || []),
     scalarTypes: parseColonSeparatedStrings(program.scalar || []),
-    onlyEsModules: program.esm,
-    onlyCJSModules: !program['esm-and-cjs'] && !program.esm,
     verbose: program.verbose,
     sortProperties: program.sort,
 }
@@ -115,30 +113,15 @@ generate(config)
     .then(() => {
         printHelp({
             dirPath: program.output,
-            useYarn: false,
-            dependencies: [`@genql/runtime@${version}`, 'graphql'],
         })
     })
 
-export function printHelp({ useYarn, dirPath, dependencies }) {
+export function printHelp({ dirPath }) {
     console.log()
     console.log(
         `${chalk.green('Success!')} Generated client code inside '${dirPath}'`,
     )
     console.log()
-    console.log(
-        chalk.bold('Remember to install the necessary runtime package with:'),
-    )
-    console.log()
-    console.log(
-        `  ${chalk.cyan(
-            `${useYarn ? 'yarn add' : 'npm install'} ${dependencies.join(' ')}`,
-        )}`,
-    )
-    console.log()
-    console.log(
-        'PS: `@genql/runtime` should always have the same version as the cli!',
-    )
     console.log()
 }
 

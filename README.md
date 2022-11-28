@@ -75,3 +75,19 @@ query {
 ---
 
 [Licensed under MIT]().
+
+### todos
+
+[ ] upgrade grahql to 16
+[ ] support for custom scalars
+[ ] add the original json response to the error thrown
+[ ] make separate client for subscriptions
+[ ] replace the subscription library
+[ ] remove chain syntax
+[ ] redo the docs website with Notaku, host on /docs
+[ ] only output typescript code
+[ ] remove need for @genql/runtime, bundle runtime in the generated code
+[ ] add redirect from genql.now.sh to genql.io
+[ ] create a directory of already generated clients (published on @genql/x on npm), add carbon ads and optimize for SEO
+[ ] use the native-fetch library for fetch impl
+[ ] remove lodash dep

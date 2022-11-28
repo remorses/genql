@@ -51,7 +51,6 @@
         "ts-jest": "^23.10.5"
     },
     "dependencies": {
-        "@genql/runtime": "^2.10.0",
         "@graphql-tools/graphql-file-loader": "^6.0.10",
         "@graphql-tools/load": "^6.0.10",
         "chalk": "^4.1.0",

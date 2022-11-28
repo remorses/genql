@@ -1,7 +1,7 @@
 import { GraphQLNamedType } from 'graphql'
 import { toClientSchema } from '../../testHelpers/render'
 import { RenderContext } from '../common/RenderContext'
-import { Type } from '@genql/runtime/dist/types'
+import { Type } from '../../runtime/types'
 import { objectType } from './objectType'
 import { scalarType } from './scalarType'
 import { unionType } from './unionType'
