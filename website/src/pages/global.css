@@ -5,3 +5,13 @@
 main.dark {
     color: rgb(235, 235, 235);
 }
+
+@keyframes fadeCardsScale {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        transform: scale(1);
+    }
+}

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import classNames from 'classnames'
 import { Box, Stack } from 'layout-kit-react'
 
 import { Faded } from 'baby-i-am-faded'
@@ -22,6 +23,7 @@ import {
     FaArrowRight as ArrowRight,
     FaNode as NodeIcon,
     FaReact as ReactIcon,
+    FaThumbsDown,
 } from 'react-icons/fa'
 
 import { BG } from '../constants'
@@ -57,7 +59,7 @@ const Page = () => (
     <Stack
         as={'main'}
         style={{ background: BG }}
-        className='dark py-14'
+        className='dark  py-14'
         w='100%'
         align='stretch'
         spacing='40px'
@@ -153,24 +155,24 @@ const Page = () => (
         </Box> */}
 
         {/* code snippets */}
-        <Stack spacing='40px'>
-            {/* <SectionTitle
+
+        {/* <SectionTitle
                 mt='40px'
                 heading='Graphql queries written in code'
                 subheading='Genql generates a graphql client with typescript types, giving you type safety and auto completion'
             /> */}
-            <PageContainer>
-                <Stack
-                    as={Faded}
-                    // @ts-ignore
-                    cascade
-                    fontSize={['sm', null, 'md']}
-                    spacing='40px'
-                    justify='center'
-                    direction={['column', null, 'row']}
-                    align='center'
-                >
-                    {/* <CodeSnippet
+        <PageContainer>
+            <Stack
+                as={Faded}
+                // @ts-ignore
+                cascade
+                fontSize={['sm', null, 'md']}
+                spacing='40px'
+                justify='center'
+                direction={['column', null, 'row']}
+                align='center'
+            >
+                {/* <CodeSnippet
                         // bg='gray.200'
                         shadow='xl'
                         lineNumbers
@@ -195,13 +197,86 @@ const Page = () => (
                         code={gqlQueryCode}
                         language='graphql'
                     /> */}
-                </Stack>
-            </PageContainer>
-        </Stack>
+            </Stack>
+        </PageContainer>
 
+        <PageContainer dontContain>
+            <FeaturesBlocks
+                items={[
+                    {
+                        heading: 'Auto completion',
+                        icon: <FaThumbsDown className='w-[16px]' />,
+                        description:
+                            'Queries written with a genql client support auto completion thanks to typescript typings',
+                        image: (
+                            <img
+                                src={
+                                    'https://cdn.sanity.io/images/ornj730p/production/21866580a95028a6ce19619fd5be74ddb88bed6f-1288x624.png?w=600&q=95&auto=format&dpr=2'
+                                }
+                            />
+                        ),
+                    },
+                    {
+                        heading: 'Auto completion',
+                        icon: <FaThumbsDown className='w-[16px]' />,
+                        description:
+                            'Queries written with a genql client support auto completion thanks to typescript typings',
+                        image: (
+                            <img
+                                src={
+                                    'https://cdn.sanity.io/images/ornj730p/production/21866580a95028a6ce19619fd5be74ddb88bed6f-1288x624.png?w=600&q=95&auto=format&dpr=2'
+                                }
+                            />
+                        ),
+                    },
+                    {
+                        heading: 'Auto completion',
+                        icon: <FaThumbsDown className='w-[16px]' />,
+                        description:
+                            'Queries written with a genql client support auto completion thanks to typescript typings',
+                        image: (
+                            <img
+                                src={
+                                    'https://cdn.sanity.io/images/ornj730p/production/21866580a95028a6ce19619fd5be74ddb88bed6f-1288x624.png?w=600&q=95&auto=format&dpr=2'
+                                }
+                            />
+                        ),
+                    },
+                    {
+                        heading: 'Auto completion',
+                        icon: <FaThumbsDown className='w-[16px]' />,
+                        cols: 2,
+                        description:
+                            'Queries written with a genql client support auto completion thanks to typescript typings',
+                        image: (
+                            <img
+                                className=''
+                                src={
+                                    'https://cdn.sanity.io/images/ornj730p/production/21866580a95028a6ce19619fd5be74ddb88bed6f-1288x624.png?w=600&q=95&auto=format&dpr=2'
+                                }
+                            />
+                        ),
+                    },
+                    {
+                        heading: 'Auto completion',
+                        icon: <FaThumbsDown className='w-[16px]' />,
+                        description:
+                            'Queries written with a genql client support auto completion thanks to typescript typings',
+                        image: (
+                            <img
+                                src={
+                                    'https://cdn.sanity.io/images/ornj730p/production/21866580a95028a6ce19619fd5be74ddb88bed6f-1288x624.png?w=600&q=95&auto=format&dpr=2'
+                                }
+                            />
+                        ),
+                    },
+                ]}
+            />
+        </PageContainer>
         <Feature
             flip
             heading='Auto completion'
+            className='md:!pt-24'
             subheading='Queries written with a genql client support auto completion thanks to typescript typings'
             image={
                 <Box overflow='hidden' className='relative' mr='-50%' mb='-50%'>
@@ -219,6 +294,7 @@ const Page = () => (
                 </Box>
             }
         />
+
         <div className='!pt-32'>
             <Feature
                 heading='Type Validation'
@@ -295,7 +371,7 @@ function Bg() {
                     max-width: 1800px;
                     background-image: radial-gradient(
                         at 40% 10%,
-                        #49cfcd 0,
+                        #4bfefe 0,
                         transparent 100%
                     );
                     position: absolute;
@@ -311,5 +387,53 @@ function Bg() {
                 <div className='background_content__pv7b5' />
             </div>
         </>
+    )
+}
+
+function FeaturesBlocks({ items }) {
+    return (
+        <Faded
+            animationName='fadeCardsScale'
+            cascade
+            duration={300}
+            // cascadeIncrement={20}
+            waitMount
+            // timingFunction='ease-in'
+            className='grid grid-cols-3 gap-4 '
+        >
+            {items.map((x) => {
+                return (
+                    <div
+                        style={{
+                            gridColumn: x.cols
+                                ? `span ${x.cols} / span ${x.cols}`
+                                : undefined,
+                        }}
+                        className={classNames(
+                            'dark:bg-gray-700/40 dark:border-gray-600 border-gray-400 hover:scale-95 transition-transform shadow backdrop-blur-lg flex flex-col p-6 h-[300px] rounded-md',
+                            'border-2 origin-center',
+                        )}
+                    >
+                        <div className='font-bold flex flex-col items-center w-full grow [&_img]:max-h-[200px] max-h-[200px]'>
+                            {x.image}
+                        </div>
+
+                        <div className='flex gap-3'>
+                            <div className='w-[24px] shrink-0 mt-1'>
+                                {x.icon}
+                            </div>
+                            <div className='space-y-2'>
+                                {x.heading && (
+                                    <div className='font-bold'>{x.heading}</div>
+                                )}
+                                <div className='text-sm min-h-[2.2em] opacity-70'>
+                                    {x.description}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            })}
+        </Faded>
     )
 }
