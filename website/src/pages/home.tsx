@@ -291,8 +291,8 @@ function Bg() {
                     transform: translateX(0px) translateY(0px) translateZ(0px);
                     max-width: 1800px;
                     background-image: radial-gradient(
-                        at 30% 10%,
-                        #27cdff 0,
+                        at 40% 10%,
+                        #49cfcd 0,
                         transparent 100%
                     );
                     position: absolute;
