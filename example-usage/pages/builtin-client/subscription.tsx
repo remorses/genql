@@ -3,7 +3,7 @@ import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
 import React, { useState } from 'react'
 import useSWR from 'swr'
 import { expectType } from 'tsd'
-import { createClient, user } from '../../hasura/index.js'
+import { createClient, user } from '../../hasura/generated'
 import { useObservable } from 'react-extra-hooks'
 import { useSubscription } from '../../client'
 

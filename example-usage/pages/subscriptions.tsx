@@ -2,7 +2,7 @@ import { Stack, Box, Spinner, Input } from '@chakra-ui/core'
 import { Hero, SectionTitle, PageContainer } from 'landing-blocks'
 import React, { useState } from 'react'
 import useSWR from 'swr'
-import { createClient } from '../hasura/index.js'
+import { createClient } from '../hasura/generated'
 import { everything } from '../generated'
 import { useObservable } from 'react-extra-hooks'
 

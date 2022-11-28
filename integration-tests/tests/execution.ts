@@ -18,15 +18,12 @@ import {
     Point,
     isUser,
 } from '../generated'
-import { GraphqlOperation } from '@genql/runtime'
-import { isClientErrorNameInvalid } from '../generated/guards.cjs'
+
 
 const PORT = 8099
 const URL = `http://localhost:` + PORT
 const SUB_URL = `ws://localhost:` + PORT + '/graphql'
 type Maybe<T> = T | undefined | null
-
-
 
 async function server({ resolvers, port = PORT }) {
     try {
@@ -216,49 +213,6 @@ describe('execute queries', async function() {
             )
         }),
     )
-    it(
-        'chain syntax ',
-        withServer(async () => {
-            client.chain.query.user
-                .get({
-                    name: true,
-                    // sdf: true,
-                })
-                .catch(id)
-            const res = await client.chain.query.user.get({
-                __scalar: true,
-                // sdf: true,
-            })
-            console.log(JSON.stringify(res, null, 2))
-            expectType<Maybe<string>>(res?.name)
-            expectType<Maybe<number>>(res?.common)
-            expectType<Maybe<string>>(res?.__typename)
-        }),
-    )
-    it(
-        'recursive type chain syntax ',
-        withServer(async () => {
-            const res = await client.chain.query
-                .recursiveType()
-                .get({
-                    recurse: {
-                        recurse: {
-                            ...everything,
-                            recurse: {
-                                value: 1,
-                            },
-                        },
-                    },
-                })
-                .catch(id)
-            console.log(JSON.stringify(res, null, 2))
-            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
-            expectType<Maybe<string>>(
-                res?.[0]?.recurse?.recurse?.recurse?.value,
-            )
-            expectType<Maybe<string>>(res?.[0]?.recurse?.recurse?.value)
-        }),
-    )
 
     it(
         'union types only 1 on_ normal syntax',
@@ -279,55 +233,6 @@ describe('execute queries', async function() {
         }),
     )
 
-    it(
-        'union types chain syntax',
-        withServer(async () => {
-            const account = await client.chain.query.account.get({
-                on_User: { name: 1 },
-            })
-            expectType<Maybe<Account>>(account)
-        }),
-    )
-    it(
-        'chain syntax result type only has requested fields',
-        withServer(async () => {
-            const res = await client.chain.query
-                .repository({ name: '' })
-                .get({ createdAt: 1 })
-            expectType<string>(res.createdAt)
-            // @ts-expect-error
-            res?.forks
-        }),
-    )
-    it(
-        'union types with chain and ...everything',
-        withServer(async () => {
-            const account = await client.chain.query.account.get({
-                __typename: 1,
-                on_User: { ...everything },
-            })
-            expectType<Maybe<string>>(account?.__typename)
-            if (isUser(account)) {
-                expectType<Maybe<string>>(account?.name)
-            }
-        }),
-    )
-    it(
-        'many union types',
-        withServer(async () => {
-            const account = await client.chain.query.account.get({
-                __typename: 1,
-                on_User: { ...everything },
-                on_Guest: { ...everything },
-            })
-            expectType<Maybe<string>>(account?.__typename)
-            // common props are on both types
-            expectType<Maybe<number>>(account?.common)
-            if (account && 'anonymous' in account) {
-                account?.anonymous
-            }
-        }),
-    )
     it(
         'ability to query interfaces that a union implements',
         withServer(async () => {
@@ -361,24 +266,7 @@ describe('execute queries', async function() {
             }
         }),
     )
-    it(
-        'ability to query interfaces that a union implements, chain syntax',
-        withServer(async () => {
-            const unionThatImplementsInterface = await client.chain.query
-                .unionThatImplementsInterface({})
-                .get({
-                    on_ClientError: { message: 1 },
-                    on_ClientErrorNameInvalid: { ownProp2: 1 },
-                })
 
-            if (
-                unionThatImplementsInterface?.__typename ===
-                'ClientErrorNameInvalid'
-            ) {
-                assert.ok(unionThatImplementsInterface?.ownProp2)
-            }
-        }),
-    )
     it(
         'interface types normal syntax',
         withServer(async () => {
@@ -404,22 +292,7 @@ describe('execute queries', async function() {
             assert(coordinates?.__typename)
         }),
     )
-    it(
-        'interface types chain syntax',
-        withServer(async () => {
-            const coordinates = await client.chain.query.coordinates.get({
-                // x: 1,
-                x: 1,
-                on_Bank: { address: 1 },
-            })
-            expectType<Maybe<string>>(coordinates?.x)
-            if (coordinates && 'address' in coordinates) {
-                expectType<Maybe<string>>(coordinates?.address)
-                assert(coordinates?.address)
-                assert(coordinates?.x)
-            }
-        }),
-    )
+
     it(
         'multiple interfaces types normal syntax',
         withServer(async () => {
