@@ -95,6 +95,7 @@ export function MyFooter({ ...rest }) {
     return (
         <Footer
             businessName='Genql'
+            className='dark'
             columns={{
                 Resources: [
                     <MyLink href={GITHUB_LINK}>Github</MyLink>,
