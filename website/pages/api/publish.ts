@@ -22,7 +22,7 @@ function generatePackageJson({ name, version }) {
         sideEffects: false,
         types: './index.d.ts',
         dependencies: {
-            '@genql/runtime': 'latest',
+            
         },
     }
 }

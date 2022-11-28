@@ -1,4 +1,3 @@
-import get from 'lodash/get'
 import {
     ClientOptions as SubscriptionOptions,
     SubscriptionClient as WsSubscriptionClient,

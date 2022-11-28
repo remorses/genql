@@ -1,0 +1,6 @@
+packages:
+  - cli
+  - website
+  - example-usage
+  - try-clients
+  - integration-tests

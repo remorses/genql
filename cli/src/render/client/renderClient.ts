@@ -9,7 +9,7 @@ import { requestTypeName } from '../requestTypes/requestTypeName'
 const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
     return `
-function(options: ClientOptions): Client {
+function(options${url ? '?' : ''}: ClientOptions): Client {
   return createClientOriginal({
       url: ${url},
       ...options,
@@ -19,7 +19,6 @@ function(options: ClientOptions): Client {
   }) as any
 }`
 }
-
 
 export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
     const queryType = schema.getQueryType()
@@ -33,6 +32,7 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
       generateGraphqlOperation,
       FieldsSelection, GraphqlOperation, ClientOptions, Observable
   } from '${RUNTIME_LIB_NAME}'
+  export type { FieldsSelection, ClientError, QueryResult } from '${RUNTIME_LIB_NAME}'
   import { SubscriptionClient } from 'subscriptions-transport-ws'
   import types from './types'
   export * from './schema'
@@ -44,7 +44,6 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
 
   export const createClient = ${renderClientCode(ctx)}
 
-  
   export const everything = {
     __scalar: true
   }

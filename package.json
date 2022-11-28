@@ -2,14 +2,6 @@
     "name": "genql",
     "private": true,
     "version": "2.0.0",
-    "workspaces": [
-        "cli",
-        "runtime",
-        "website",
-        "example-usage",
-        "try-clients",
-        "integration-tests"
-    ],
     "scripts": {
         "genall": "ultra -r gen",
         "tscall": "ultra -r --filter '@genql/*' tsc",
@@ -23,7 +15,7 @@
         "runexample": "node -r sucrase/register example/example.ts"
     },
     "devDependencies": {
-        "typescript": "^4.1.5",
+        "typescript": "^4.9.3",
         "lerna": "^3.22.1",
         "ultra-runner": "^3.9.0"
     }

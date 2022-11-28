@@ -24,7 +24,6 @@
         "@emotion/core": "^10.0.28",
         "@emotion/styled": "^10.0.27",
         "@genql/cli": "^2.10.0",
-        "@genql/runtime": "^2.10.0",
         "@types/js-cookie": "^2.2.6",
         "apollo-boost": "^0.4.9",
         "baby-i-am-faded": "^0.0.14",

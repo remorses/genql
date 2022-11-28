@@ -5,7 +5,7 @@ import {
     useLazyPromiseOutput,
 } from 'react-extra-hooks'
 
-import { FieldsSelection, ClientError } from '@genql/runtime'
+import { FieldsSelection, ClientError } from './hasura/generated'
 import {
     mutation_rootRequest as MutationRequest,
     createClient,
@@ -14,7 +14,7 @@ import {
     query_root as Query,
     mutation_root as Mutation,
     subscription_root as Subscription,
-} from './hasura'
+} from './hasura/generated'
 import { UseObservableOutput } from 'react-extra-hooks/dist/useLazyObservable'
 
 const client = createClient({
