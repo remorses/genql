@@ -15,7 +15,7 @@ export type NoExtraProperties<T, U extends T = T> = U &
 /////////////////////////
 
 export interface ExecutionResult<TData = { [key: string]: any }> {
-    errors?: ReadonlyArray<Error>
+    errors?: Array<Error>
     // TS_SPECIFIC: TData. Motivation: https://github.com/graphql/graphql-js/pull/2490#issuecomment-639154229
     data?: TData | null
 }

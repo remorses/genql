@@ -56,10 +56,16 @@ export const createFetcher = ({
         return async (body) => {
             const json = await fetcher!(body)
             if (Array.isArray(json)) {
-                return json.map((res) => {
-                    return res.data
+                return json.map((json) => {
+                    if (json?.errors?.length) {
+                        throw new ClientError(json.errors || [])
+                    }
+                    return json.data
                 })
             } else {
+                if (json?.errors?.length) {
+                    throw new ClientError(json.errors || [])
+                }
                 return json.data
             }
 
@@ -78,6 +84,7 @@ export const createFetcher = ({
 
     return async ({ query, variables }) => {
         const json = await batcher.fetch(query, variables)
+        // TODO the batcher throws errors itself, the error is the response json
         if (json?.errors?.length) {
             throw new ClientError(json.errors || [])
         }
