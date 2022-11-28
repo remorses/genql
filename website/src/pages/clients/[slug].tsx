@@ -40,7 +40,7 @@ const Page = ({
         </Head>
 
         <Hero
-            bullet='Genql'
+            bullet='Powered by Genql'
             heading={
                 <div className='tracking-wide'>
                     GraphQL client for the <br />
