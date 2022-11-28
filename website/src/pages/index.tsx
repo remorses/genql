@@ -84,7 +84,7 @@ const Page = () => (
             subheading={
                 <Fragment>
                     Genql generates a typed graphql client
-                    <br /> for your graphql api to use in browser or node.
+                    <br /> for your graphql api.
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
@@ -112,7 +112,7 @@ const Page = () => (
             // cta={<Button>Try Genql in 5 minutes</Button>}
             // fingerprint='Already using Genql? Sign in'
         />
-        <Divider heading='works in browser and node' />
+        {/* <Divider heading='works in browser and node' /> */}
         {/* <TestimonialLogos
             // heading='Works everywhere'
             // subheading='browser and node environments'
@@ -150,7 +150,7 @@ const Page = () => (
         </Box> */}
 
         {/* code snippets */}
-        <Stack spacing='40px' py='120px'>
+        <Stack spacing='40px' >
             {/* <SectionTitle
                 mt='40px'
                 heading='Graphql queries written in code'
