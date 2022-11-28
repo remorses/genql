@@ -1,4 +1,4 @@
-import { prettify } from '@genql/cli/dist/helpers/prettify'
+import { prettify } from '@genql/cli/src/helpers/prettify'
 import { parse } from 'graphql'
 import assert from 'assert'
 import { createClient, everything } from '../hasura/generated'

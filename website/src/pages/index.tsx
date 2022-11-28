@@ -66,7 +66,7 @@ const Page = () => (
             <title>Genql - SDK client for any GraphQL API</title>
         </Head>
 
-        <MyNavbar />
+        {/* <MyNavbar /> */}
 
         <Hero
             bullet='Introducing Genql 1.0'
@@ -267,7 +267,7 @@ const Page = () => (
                 }
             />
         </Section> */}
-        <MyFooter />
+        {/* <MyFooter /> */}
     </Stack>
 )
 

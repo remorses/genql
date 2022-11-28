@@ -159,12 +159,14 @@ importers:
       npm-name: ^7.1.0
       p-debounce: ^4.0.0
       postcss: ^8.4.19
+      prism-react-renderer: ^1.3.5
       react: ^18.2.0
       react-dom: ^18.2.0
       react-final-form: ^6.5.9
       react-icons: ^4.6.0
       react-keyframes: ^0.2.3
       react-runkit: ^0.9.0
+      react-simple-code-editor: ^0.13.1
       react-storage-hooks: ^4.0.1
       sucrase: ^3.29.0
       tailwindcss: ^3.2.4
@@ -193,12 +195,14 @@ importers:
       npm-name: 7.1.0
       p-debounce: 4.0.0
       postcss: 8.4.19
+      prism-react-renderer: 1.3.5_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-final-form: 6.5.9_b76tjmhm4bpbaoui6lan2hu4pm
       react-icons: 4.6.0_react@18.2.0
       react-keyframes: 0.2.3
       react-runkit: 0.9.0_react@18.2.0
+      react-simple-code-editor: 0.13.1_biqbaboplfbrettd7655fr4n2y
       react-storage-hooks: 4.0.1_react@18.2.0
       tailwindcss: 3.2.4_postcss@8.4.19
       tmp-promise: 3.0.3
@@ -9537,6 +9541,14 @@ packages:
       prettier: 2.8.0
     dev: true
 
+  /prism-react-renderer/1.3.5_react@18.2.0:
+    resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
+    peerDependencies:
+      react: '>=0.14.9'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /proc-log/2.0.1:
     resolution: {integrity: sha512-Kcmo2FhfDTXdcbfDH76N7uBYHINxc/8GW7UAVuVP9I+Va3uHSerrnKV6dLooga/gh7GlgzuCCr/eoldnL1muGw==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
@@ -9770,6 +9782,16 @@ packages:
       react: ^15.5.4
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /react-simple-code-editor/0.13.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-XYeVwRZwgyKtjNIYcAEgg2FaQcCZwhbarnkJIV20U2wkCU9q/CPFBo8nRXrK4GXUz3AvbqZFsZRrpUTkqqEYyQ==}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-storage-hooks/4.0.1_react@18.2.0:

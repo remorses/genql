@@ -1,12 +1,8 @@
-// @jsx jsx
 import { Box, Stack, Flex } from 'layout-kit-react'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import prismTheme from 'prism-react-renderer/themes/duotoneLight'
 import React, { useCallback } from 'react'
 import Editor from 'react-simple-code-editor'
-import { css, jsx } from '@emotion/core'
-
-jsx
 
 const CODE_FONT = `'Fira code','Fira Mono',monospace`
 
@@ -91,27 +87,18 @@ export const Code = ({
     )
 
     return (
-        <Flex
-            shadow='sm'
-            overflowX='auto'
-            overflowY='visible'
-            height='auto'
-            bg='gray.50'
-            // align='stretch'
-            borderRadius='8px'
-            css={css`
+        <>
+            <style jsx>{`
                 textarea {
                     border: none;
                     overflow: auto;
                     outline: none;
-                    
+
                     -webkit-box-shadow: none;
                     -moz-box-shadow: none;
                     box-shadow: none;
                 }
-            `}
-            {...rest}
-        >
+            `}</style>
             <Editor
                 value={value}
                 padding={60}
@@ -119,6 +106,7 @@ export const Code = ({
                 onValueChange={onChange}
                 readOnly={readOnly}
                 minLength={20}
+                className='bg-gray-100 text-gray-800 rounded shadow shrink-0'
                 style={{
                     whiteSpace: 'pre',
                     overflow: 'visible',
@@ -129,8 +117,6 @@ export const Code = ({
                     ...style,
                 }}
             />
-        </Flex>
+        </>
     )
 }
-
-

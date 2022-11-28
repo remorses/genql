@@ -35,9 +35,16 @@ export default function App(props) {
         )
     }
     return (
-        <>
+        <div
+            className='text-gray-100 md:px-[30px] flex flex-col space-y-[40px] min-h-[100vh]'
+            style={{ background: BG }}
+        >
+            <MyNavbar />
+
             <Component {...pageProps} />
-        </>
+            <div className='grow'></div>
+            <MyFooter dark />
+        </div>
     )
 }
 

@@ -1,5 +1,5 @@
 import { buildSchema } from 'graphql'
-import { generateQueries } from '../support/generateQueries'
+import { generateQueries } from '../src/support/generateQueries'
 
 it('generateQueries', async () => {
     const q = generateQueries({
