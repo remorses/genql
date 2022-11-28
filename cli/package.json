@@ -1,7 +1,7 @@
 {
     "name": "@genql/cli",
     "_": "[bump]",
-    "version": "2.10.0",
+    "version": "3.0.0",
     "description": "Generate a client sdk from your GraphQl API",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

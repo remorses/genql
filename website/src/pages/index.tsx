@@ -69,7 +69,7 @@ const Page = () => (
         {/* <MyNavbar /> */}
 
         <Hero
-            bullet='Introducing Genql 1.0'
+            bullet='Introducing Genql 3.0'
             cta={
                 <NextLink href='/docs'>
                     <Button>Read the docs</Button>
