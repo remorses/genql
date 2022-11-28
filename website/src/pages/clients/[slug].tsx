@@ -54,22 +54,15 @@ const Page = ({
             <div className=''></div>
         </PageContainer>
         <div className='pt-12'></div>
-        <PageContainer className='space-y-4' dontContain>
-            <h2 className='text-3xl font-bold '>How to install</h2>
-            <div className=''>
-                Use a package manager to install the API client
-            </div>
-            <div className=''>
-                <Code language='bash' code={`npm install @genql/${slug}`} />
-            </div>
-        </PageContainer>
-        <PageContainer className='space-y-4' dontContain>
-            <h2 className='text-3xl font-bold '>How to install</h2>
-            <div className=''>
-                Use a package manager to install the API client
-            </div>
-            <div className=''>
-                <Code language='bash' code={`npm install @genql/${slug}`} />
+        <PageContainer className='[--page-max-width:800px]' dontContain>
+            <div className='space-y-4'>
+                <h2 className='text-3xl font-bold '>How to install</h2>
+                <div className=''>
+                    Use a package manager to install the API client
+                </div>
+                <div className=''>
+                    <Code language='bash' code={`npm install @genql/${slug}`} />
+                </div>
             </div>
         </PageContainer>
     </main>
