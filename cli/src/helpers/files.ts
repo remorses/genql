@@ -12,12 +12,7 @@ export const ensurePath = async (path: string[], clear: boolean = false) => {
             })
         })
 
-    await new Promise((rs, rj) => {
-        mkdirp(resolve(...path), (err) => {
-            if (err) rj(err)
-            else rs(undefined)
-        })
-    })
+    await mkdirp(resolve(...path))
 }
 
 export const requireModuleFromPath = (path: string[]) =>
@@ -30,6 +25,6 @@ export const writeFileToPath = (path: string[], content: string) =>
     fs.writeFile(resolve(...path), content)
 
 export const readFilesAndConcat = (files: string[]) =>
-    Promise.all(
-        files.map((file) => readFileFromPath([file])),
-    ).then((contents) => contents.join('\n'))
+    Promise.all(files.map((file) => readFileFromPath([file]))).then(
+        (contents) => contents.join('\n'),
+    )

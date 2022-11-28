@@ -1,5 +1,5 @@
 exports['generate queries query 1'] = `
-query($v1: String!, $v2: String) {
+query ($v1: String!, $v2: String) {
   repository(name: $v1, owner: $v2) {
     createdAt
     forks {
@@ -54,7 +54,7 @@ fragment f3 on RecursiveType {
 `
 
 exports['generate queries recursive type with args 1'] = `
-query($v1: [String!]) {
+query ($v1: [String!]) {
   recursiveType(requiredVal: $v1) {
     value
     recurse {
@@ -115,7 +115,7 @@ fragment f1 on User {
 `
 
 exports['generate queries many 1'] = `
-query($v1: String!, $v2: String) {
+query ($v1: String!, $v2: String) {
   repository(name: $v1, owner: $v2) {
     createdAt
     forks {

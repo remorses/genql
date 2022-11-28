@@ -3,7 +3,6 @@ import { parse } from 'graphql'
 import assert from 'assert'
 import { createClient, everything } from '../hasura/generated'
 import fetch from 'isomorphic-unfetch'
-import QueryBatcher from 'graphql-query-batcher'
 
 const URL = 'https://hasura-2334534.herokuapp.com/v1/graphql'
 

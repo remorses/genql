@@ -2,7 +2,7 @@ import {
     ClientOptions as SubscriptionOptions,
     SubscriptionClient as WsSubscriptionClient,
 } from 'subscriptions-transport-ws'
-import ws from 'ws'
+
 import { Observable } from 'zen-observable-ts'
 import { ClientError } from '../error'
 import { BatchOptions, createFetcher } from '../fetcher'
@@ -19,7 +19,7 @@ export type Headers =
 
 export type BaseFetcher = (
     operation: GraphqlOperation | GraphqlOperation[],
-) => Promise<ExecutionResult>
+) => Promise<ExecutionResult | ExecutionResult[]>
 
 export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string
@@ -53,7 +53,7 @@ export const createClient = ({
     } = {}
 
     if (queryRoot) {
-        client.query = (request) => {
+        client.query = (request: any) => {
             if (!queryRoot) throw new Error('queryRoot argument is missing')
 
             const resultPromise = fetcher(
@@ -64,7 +64,7 @@ export const createClient = ({
         }
     }
     if (mutationRoot) {
-        client.mutation = (request) => {
+        client.mutation = (request: any) => {
             if (!mutationRoot)
                 throw new Error('mutationRoot argument is missing')
 
@@ -76,7 +76,7 @@ export const createClient = ({
         }
     }
     if (subscriptionRoot) {
-        client.subscription = (request) => {
+        client.subscription = (request: any) => {
             if (!subscriptionRoot) {
                 throw new Error('subscriptionRoot argument is missing')
             }
@@ -115,11 +115,9 @@ export const createClient = ({
             return obs
         }
     }
-   
+
     return client as any
 }
-
-
 
 function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
     let { url, headers = {} } = opts.subscription || {}
@@ -147,6 +145,6 @@ function getSubscriptionClient(opts: ClientOptions = {}): WsSubscriptionClient {
             },
             ...opts,
         },
-        typeof window === 'undefined' ? ws : undefined,
+        // typeof window === 'undefined' ? ws : undefined,
     )
 }

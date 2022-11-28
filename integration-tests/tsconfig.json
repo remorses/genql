@@ -13,7 +13,7 @@
 
         "esModuleInterop": true,
         "allowJs": true,
-        "skipLibCheck": false,
+        "skipLibCheck": true,
         "noImplicitThis": false,
         "resolveJsonModule": true,
         "lib": ["dom", "es2017", "esnext.asynciterable"]

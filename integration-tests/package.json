@@ -12,14 +12,15 @@
         "flame": "node --prof-process --preprocess -j isolate*.log | flamebearer && open flamegraph.html"
     },
     "dependencies": {
-        "@genql/cli": "^2.10.0",
-        "apollo-server": "^2.14.1",
+        "@genql/cli": "workspace:^2.10.0",
+        "apollo-server": "^3.11.1",
         "await-sleep": "^0.0.1",
-        "deep-equal": "^2.0.3",
-        "graphql": "^15.1.0",
+        "deep-equal": "^2.1.0",
+        "graphql": "^16.6.0",
         "graphql-easy-mocks": "^1.1.1",
-        "tsd": "^0.11.0",
-        "tsdef": "^0.0.13"
+        "graphql-subscriptions": "^2.0.0",
+        "tsd": "^0.24.1",
+        "tsdef": "^0.0.14"
     },
     "mocha": {
         "require": "sucrase/register",
@@ -27,9 +28,9 @@
         "timeout": 9999999999
     },
     "devDependencies": {
-        "@types/node": "^14.6.4",
-        "mocha": "^7.2.0",
-        "snap-shot-it": "^7.9.3",
-        "sucrase": "^3.15.0"
+        "@types/node": "^18.11.9",
+        "mocha": "^10.1.0",
+        "snap-shot-it": "^7.9.6",
+        "sucrase": "^3.29.0"
     }
 }

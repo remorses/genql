@@ -32,7 +32,7 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
       generateGraphqlOperation,
       FieldsSelection, GraphqlOperation, ClientOptions, Observable
   } from '${RUNTIME_LIB_NAME}'
-  export type { FieldsSelection, ClientError, QueryResult } from '${RUNTIME_LIB_NAME}'
+  export type { FieldsSelection, ClientError } from '${RUNTIME_LIB_NAME}'
   import { SubscriptionClient } from 'subscriptions-transport-ws'
   import types from './types'
   export * from './schema'
@@ -51,6 +51,9 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
 
     if (queryType) {
         ctx.addCodeBlock(`
+        export type QueryResult<fields extends ${requestTypeName(
+            queryType,
+        )}> = FieldsSelection<${queryType.name}, fields>
         export const generateQueryOp: (fields: ${requestTypeName(
             queryType,
         )} & { __name?: string }) => GraphqlOperation = function(fields) {
@@ -60,6 +63,9 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
     }
     if (mutationType) {
         ctx.addCodeBlock(`
+        export type MutationResult<fields extends ${requestTypeName(
+            mutationType,
+        )}> = FieldsSelection<${mutationType.name}, fields>
         export const generateMutationOp: (fields: ${requestTypeName(
             mutationType,
         )} & { __name?: string }) => GraphqlOperation = function(fields) {
@@ -69,6 +75,9 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
     }
     if (subscriptionType) {
         ctx.addCodeBlock(`
+        export type SubscriptionResult<fields extends ${requestTypeName(
+            subscriptionType,
+        )}> = FieldsSelection<${subscriptionType.name}, fields>
         export const generateSubscriptionOp: (fields: ${requestTypeName(
             subscriptionType,
         )} & { __name?: string }) => GraphqlOperation = function(fields) {

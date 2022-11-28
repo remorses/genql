@@ -1,4 +1,6 @@
-import QueryBatcher from 'graphql-query-batcher'
+// @ts-ignore
+import QueryBatcher from './batcher'
+
 import fetch from 'isomorphic-unfetch'
 import { ClientOptions } from './client/createClient'
 import { GraphqlOperation } from './client/generateGraphqlOperation'
@@ -53,23 +55,23 @@ export const createFetcher = ({
     if (!batch) {
         return async (body) => {
             const json = await fetcher!(body)
-            if (json?.errors?.length) {
-                throw new ClientError(json.errors)
-            }
-            if (json?.data) {
+            if (Array.isArray(json)) {
+                return json.map((res) => {
+                    return res.data
+                })
+            } else {
                 return json.data
             }
-            throw new Error(
-                'fetcher returned unexpected result ' + JSON.stringify(json),
-            )
+
+            // TODO how to handle fetch that returns errors? throw here? throw in default fetcher? i should have same behaviour in batch and not batch
         }
     }
 
     const batcher = new QueryBatcher(
-        async (batchedQuery: GraphqlOperation[]) => {
+        async (batchedQuery) => {
             // console.log(batchedQuery) // [{ query: 'query{user{age}}', variables: {} }, ...]
             const json = await fetcher!(batchedQuery)
-            return json
+            return json as any
         },
         batch === true ? DEFAULT_BATCH_OPTIONS : batch,
     )
@@ -77,7 +79,7 @@ export const createFetcher = ({
     return async ({ query, variables }) => {
         const json = await batcher.fetch(query, variables)
         if (json?.errors?.length) {
-            throw new ClientError(json.errors)
+            throw new ClientError(json.errors || [])
         }
         if (json?.data) {
             return json.data

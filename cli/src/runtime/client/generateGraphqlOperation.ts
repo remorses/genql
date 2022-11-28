@@ -1,6 +1,4 @@
-
 import { LinkedField, LinkedType } from '../types'
-import { startsWith } from 'lodash'
 
 export interface Args {
     [arg: string]: any | undefined
@@ -29,7 +27,8 @@ export interface Context {
 
 export interface GraphqlOperation {
     query: string
-    variables: { [name: string]: any }
+    variables?: { [name: string]: any }
+    operationName?: string
 }
 
 const parseRequest = (
@@ -192,7 +191,7 @@ export const getFieldFromPath = (
             throw new Error(`type \`${type.name}\` does not have fields`)
 
         const possibleTypes = Object.keys(type.fields)
-            .filter((i) => startsWith(i, 'on_'))
+            .filter((i) => i.startsWith('on_'))
             .reduce(
                 (types, fieldName) => {
                     const field = type.fields && type.fields[fieldName]

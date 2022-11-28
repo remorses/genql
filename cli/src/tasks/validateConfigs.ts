@@ -1,4 +1,4 @@
-import chalk from 'chalk'
+import kleur from 'kleur'
 import { Config } from '../config'
 
 export const validateConfigs = (configs: Config[]) => {
@@ -26,7 +26,7 @@ export const validateConfigs = (configs: Config[]) => {
             )
     })
 
-    errors.forEach((error) => console.log(chalk.red(`Error: ${error}`)))
+    errors.forEach((error) => console.log(kleur.red(`Error: ${error}`)))
 
     return errors.length === 0
 }

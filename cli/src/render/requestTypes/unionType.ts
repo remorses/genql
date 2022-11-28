@@ -5,7 +5,7 @@ import { RenderContext } from '../common/RenderContext'
 import { requestTypeName } from './requestTypeName'
 
 export const unionType = (type: GraphQLUnionType, ctx: RenderContext) => {
-    let types = type.getTypes()
+    let types = [...type.getTypes()]
     if (ctx.config?.sortProperties) {
         types = types.sort()
     }

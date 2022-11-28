@@ -25,7 +25,7 @@ export const objectType = (
         const fieldObj: Field<string> = { type: namedType.name }
         r[f] = fieldObj
 
-        const args: GraphQLArgument[] =
+        const args: readonly GraphQLArgument[] =
             (<GraphQLField<any, any>>field).args || []
 
         if (args.length > 0) {

@@ -1,5 +1,5 @@
 export class ClientError extends Error {
-    constructor(errors?: readonly Error[]) {
+    constructor(errors?: Error[]) {
         const message = extractMessage(errors || [])
         super(
             errors
@@ -15,7 +15,7 @@ export class ClientError extends Error {
     }
 }
 
-function extractMessage(errors: readonly Error[]): string {
+function extractMessage(errors: Error[]): string {
     try {
         return errors![0].message
     } catch (e) {

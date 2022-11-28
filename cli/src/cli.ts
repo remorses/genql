@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import chalk from 'chalk'
+import kleur from 'kleur'
 import yargs from 'yargs'
 import { generate } from './main'
 import { validateConfigs } from './tasks/validateConfigs'
@@ -106,7 +106,7 @@ if (!validateConfigs([config])) {
 
 generate(config)
     .catch((e: any) => {
-        console.error(chalk.red('Cannot generate, got an error:'))
+        console.error(kleur.red('Cannot generate, got an error:'))
         console.error(e)
         process.exit(1)
     })
@@ -119,7 +119,7 @@ generate(config)
 export function printHelp({ dirPath }) {
     console.log()
     console.log(
-        `${chalk.green('Success!')} Generated client code inside '${dirPath}'`,
+        `${kleur.green('Success!')} Generated client code inside '${dirPath}'`,
     )
     console.log()
     console.log()

@@ -13,7 +13,9 @@ export type PrintOptions = {
     thenCode?: string
 }
 export function print(ast: ASTNode, options: PrintOptions = {}): string {
-    const str = visit(ast, { leave: printDocASTReducer(options) })
+    const str = visit(ast, {
+        leave: printDocASTReducer(options),
+    }) as any as string // graphql people don't know how to type
     return str
 }
 

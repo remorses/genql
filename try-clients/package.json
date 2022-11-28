@@ -22,14 +22,13 @@
     "dependencies": {
         "@shitty-scope-name/dsfxxxxxaxaxa": "1.1.0",
         "@shitty-scope-name/hasura-testing-client-example-for-tests": "^1.3.0",
-        "compressed-json": "^1.0.15",
-        "dotenv": "^8.2.0",
-        "graphql-query-batcher": "^1.0.1",
-        "isomorphic-unfetch": "^3.0.0"
+        "compressed-json": "^1.0.16",
+        "dotenv": "^16.0.3",
+        "isomorphic-unfetch": "^3.1.0"
     },
     "devDependencies": {
-        "mocha": "^8.0.1",
-        "sucrase": "^3.15.0",
-        "ts-node": "^8.10.2"
+        "mocha": "^10.1.0",
+        "sucrase": "^3.29.0",
+        "ts-node": "^10.9.1"
     }
 }

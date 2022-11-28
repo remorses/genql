@@ -15,8 +15,9 @@
         "runexample": "node -r sucrase/register example/example.ts"
     },
     "devDependencies": {
+        "graphql": "^16.6.0",
+        "lerna": "^6.0.3",
         "typescript": "^4.9.3",
-        "lerna": "^3.22.1",
-        "ultra-runner": "^3.9.0"
+        "ultra-runner": "^3.10.5"
     }
 }

@@ -9,7 +9,6 @@ import {
     LinkedFieldMap,
     LinkedArgMap,
 } from '../types'
-import assign from 'lodash/assign'
 
 export interface PartialLinkedFieldMap {
     [field: string]: {
@@ -21,13 +20,13 @@ export interface PartialLinkedFieldMap {
 export const linkTypeMap = (
     typeMap: CompressedTypeMap<number>,
 ): LinkedTypeMap => {
-    const indexToName: Record<number, string> = assign(
+    const indexToName: Record<number, string> = Object.assign(
         {},
         ...Object.keys(typeMap.types).map((k, i) => ({ [i]: k })),
     )
 
     // add the name value
-    let intermediaryTypeMap = assign(
+    let intermediaryTypeMap = Object.assign(
         {},
         ...Object.keys(typeMap.types || {}).map(
             (k): Record<string, LinkedType> => {
@@ -43,7 +42,7 @@ export const linkTypeMap = (
                             return type && typeMap.scalars.includes(type)
                         }),
                         // fields with corresponding `type` and `args`
-                        fields: assign(
+                        fields: Object.assign(
                             {},
                             ...Object.keys(fields).map(
                                 (f): PartialLinkedFieldMap => {
@@ -55,7 +54,7 @@ export const linkTypeMap = (
                                         [f]: {
                                             // replace index with type name
                                             type: indexToName[typeIndex],
-                                            args: assign(
+                                            args: Object.assign(
                                                 {},
                                                 ...Object.keys(args || {}).map(
                                                     (k) => {
