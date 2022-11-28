@@ -29,6 +29,7 @@ import {
 import { BG } from '../constants'
 import { MyFooter, MyNavbar } from './_app'
 import Head from 'next/head'
+import { Bg } from '@app/components/bg'
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -68,8 +69,7 @@ const Page = () => (
             <title>Genql - SDK client for any GraphQL API</title>
         </Head>
 
-        {/* <MyNavbar /> */}
-        <Bg />
+        {/* <Bg /> */}
         <Hero
             bullet='Introducing Genql 3.0'
             cta={
@@ -88,8 +88,8 @@ const Page = () => (
             }
             subheading={
                 <Fragment>
-                    Genql generates a typed graphql client
-                    <br /> for your graphql api.
+                    Genql generates a typescript sdk
+                    <br /> for your GraphQL api
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
@@ -117,88 +117,6 @@ const Page = () => (
             // cta={<Button>Try Genql in 5 minutes</Button>}
             // fingerprint='Already using Genql? Sign in'
         />
-        {/* <Divider heading='works in browser and node' /> */}
-        {/* <TestimonialLogos
-            // heading='Works everywhere'
-            // subheading='browser and node environments'
-            items={[
-                // <Box size='80px' as={ReactIcon} />,
-                // <Box size='90px' as={AngularIcon} />,
-                // <Box size='90px' as={NodeIcon} />,
-                // // <Box size='90px' as={OtherIcon} />,
-                // <Image src={require('@app/../public/apollo-logo.svg')} />,
-                // <Image src={require('@app/../public/nextjs-logo.svg')} />,
-                // <Image src={require('@app/../public/hasura-logo.svg')} />,
-                {
-                    src: '/nodejs.svg',
-
-                }
-            ]}
-        /> */}
-
-        {/* cta form  */}
-
-        {/* <Box>
-            <Stack spacing='40px' mb='-100px'>
-                <SectionTitle
-                    // opacity={0.8}
-                    dark
-                    subheading={
-                        <>
-                            Generate a typed graphql client for your graphql
-                            api.
-                        </>
-                    }
-                />
-                <MainForm alignSelf='center' />
-            </Stack>
-        </Box> */}
-
-        {/* code snippets */}
-
-        {/* <SectionTitle
-                mt='40px'
-                heading='Graphql queries written in code'
-                subheading='Genql generates a graphql client with typescript types, giving you type safety and auto completion'
-            /> */}
-        <PageContainer>
-            <Stack
-                as={Faded}
-                // @ts-ignore
-                cascade
-                fontSize={['sm', null, 'md']}
-                spacing='40px'
-                justify='center'
-                direction={['column', null, 'row']}
-                align='center'
-            >
-                {/* <CodeSnippet
-                        // bg='gray.200'
-                        shadow='xl'
-                        lineNumbers
-                        // w='500px'
-                        w='auto'
-                        // minWidth='300px'
-                        code={jsQueryCode}
-                        language='javascript'
-                    />
-                    <Box
-                        opacity={0.6}
-                        size='30px'
-                        color='primary'
-                        as={ArrowRight}
-                    />
-                    <CodeSnippet
-                        dark
-                        shadow='xl'
-                        lineNumbers
-                        w='auto'
-                        // minWidth='300px'
-                        code={gqlQueryCode}
-                        language='graphql'
-                    /> */}
-            </Stack>
-        </PageContainer>
 
         {/* <PageContainer dontContain>
             <FeaturesBlocks
@@ -351,44 +269,6 @@ const Page = () => (
 )
 
 export default Page
-
-function Bg() {
-    return (
-        <>
-            <style jsx global>{`
-                .background_main__HFlNS {
-                    width: 100vw;
-                    min-height: 100vh;
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    padding: 120px 24px 160px;
-                    pointer-events: none;
-                }
-
-                .background_content__pv7b5 {
-                    transform: translateX(0px) translateY(0px) translateZ(0px);
-                    max-width: 1800px;
-                    background-image: radial-gradient(
-                        at 40% 10%,
-                        #4bfefe 0,
-                        transparent 100%
-                    );
-                    position: absolute;
-                    content: '';
-                    width: 100%;
-                    height: 400px;
-                    filter: blur(100px) saturate(150%);
-                    top: 10px;
-                    opacity: 0.13;
-                }
-            `}</style>
-            <div className='background_main__HFlNS'>
-                <div className='background_content__pv7b5' />
-            </div>
-        </>
-    )
-}
 
 function FeaturesBlocks({ items }) {
     return (

@@ -1,6 +1,6 @@
 import { Stack } from 'layout-kit-react'
 import React, { useEffect, useState } from 'react'
-import { Code } from '@app/components/Code'
+import { Code } from '@app/components/CodeEditor'
 import gql from 'graphql-tag'
 import { print } from '@genql/cli/src/printer'
 import { useDebouncedCallback } from 'use-debounce'

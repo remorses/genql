@@ -1,0 +1,5 @@
+name: countries
+content: |
+  GraphQl API for up to date countries data: country codes, languages, phone codes and more
+website: trevorblades.com
+endpoint: https://countries.trevorblades.com/

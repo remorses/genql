@@ -1,0 +1,5 @@
+name: fly.io
+content: |
+  GraphQl for the fly.io cloud platform
+website: fly.io
+endpoint: https://countries.trevorblades.com/
