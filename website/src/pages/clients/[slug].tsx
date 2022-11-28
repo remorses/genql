@@ -12,6 +12,10 @@ import { Fragment } from 'react'
 import { FaThumbsDown } from 'react-icons/fa'
 import { FiArchive } from 'react-icons/fi'
 
+import 'prismjs/components/prism-typescript'
+
+import 'prismjs/themes/prism-coy.css'
+
 import { BG } from '@app/constants'
 import Head from 'next/head'
 import {
@@ -50,18 +54,70 @@ const Page = ({
             }
         />
 
-        <PageContainer className='pt-12' dontContain>
-            <div className=''></div>
-        </PageContainer>
         <div className='pt-12'></div>
-        <PageContainer className='[--page-max-width:800px]' dontContain>
+        <PageContainer
+            className='space-y-16 [--page-max-width:800px]'
+            dontContain
+        >
             <div className='space-y-4'>
                 <h2 className='text-3xl font-bold '>How to install</h2>
                 <div className=''>
                     Use a package manager to install the API client
                 </div>
                 <div className=''>
-                    <Code language='bash' code={`npm install @genql/${slug}`} />
+                    <Code
+                        language='bash'
+                        code={`npm install graphql @genql/${slug}`}
+                    />
+                </div>
+            </div>
+            <div className='space-y-4'>
+                <h2 className='text-3xl font-bold '>Using the client</h2>
+                <div className=''>
+                    Use a package manager to install the API client
+                </div>
+                <div className=''>
+                    <Code
+                        language='typescript'
+                        code={dedent`
+                        import { createClient } from '@genql/${slug}'
+                        const client = createClient()
+
+                        `}
+                    />
+                </div>
+            </div>
+            <div className='space-y-4'>
+                <h2 className='text-3xl font-bold '>Authorization</h2>
+                <div className=''>
+                    You can pass your credentials to the client using an header
+                </div>
+                <div className=''>
+                    <Code
+                        language='typescript'
+                        code={dedent`
+                        import { createClient } from '@genql/${slug}'
+                        const client = createClient({
+                            headers: {
+                            }
+                        })
+                        `}
+                    />
+                </div>
+            </div>
+            <div className='space-y-4'>
+                <h2 className='text-3xl font-bold '>Example queries</h2>
+                <div className=''>
+                    Use a package manager to install the API client
+                </div>
+                <div className=''>
+                    <Code
+                        language='typescript'
+                        code={dedent`
+                        import { createClient } from '@genql/${slug}'
+
+                        `}
+                    />
                 </div>
             </div>
         </PageContainer>
