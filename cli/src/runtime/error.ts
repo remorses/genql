@@ -1,8 +1,10 @@
 export class GenqlError extends Error {
     errors: Array<GraphqlError> = []
-    constructor(errors: any[]) {
-        console.log('GenqlError', errors)
-
+    /**
+     * Partial data returned by the server
+     */
+    data?: any
+    constructor(errors: any[], data: any) {
         let message = Array.isArray(errors)
             ? errors.map((x) => x?.message || '').join('\n')
             : ''
@@ -11,6 +13,7 @@ export class GenqlError extends Error {
         }
         super(message)
         this.errors = errors
+        this.data = data
 
         // new.target.prototype.name = new.target.name
         // Object.setPrototypeOf(this, new.target.prototype)

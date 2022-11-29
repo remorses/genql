@@ -1,4 +1,5 @@
 import { GraphqlOperation } from './client/generateGraphqlOperation'
+import { GenqlError } from './error'
 
 type Variables = Record<string, any>
 
@@ -48,7 +49,9 @@ function dispatchQueueBatch(client: QueryBatcher, queue: Queue): void {
     client.fetcher(batchedQuery).then((responses: any) => {
         if (queue.length === 1 && !Array.isArray(responses)) {
             if (responses.errors && responses.errors.length) {
-                queue[0].reject(responses)
+                queue[0].reject(
+                    new GenqlError(responses.errors, responses.data),
+                )
                 return
             }
 
@@ -60,7 +63,9 @@ function dispatchQueueBatch(client: QueryBatcher, queue: Queue): void {
 
         for (let i = 0; i < queue.length; i++) {
             if (responses[i].errors && responses[i].errors.length) {
-                queue[i].reject(responses[i])
+                queue[i].reject(
+                    new GenqlError(responses[i].errors, responses[i].data),
+                )
             } else {
                 queue[i].resolve(responses[i])
             }

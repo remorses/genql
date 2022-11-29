@@ -338,6 +338,34 @@ describe('execute queries', async function () {
         }),
     )
     it(
+        'errors with batching',
+        withServer(async () => {
+            const client = createClient({
+                url: URL,
+                batch: {
+                    batchInterval: 100,
+                },
+            })
+            const [err1, err2] = await Promise.all([
+                client
+                    .query({
+                        throwsError: true,
+                    })
+                    .catch((err) => err),
+                client
+                    .query({
+                        throwsError: true,
+                    })
+                    .catch((err) => err),
+            ])
+            // console.log(err1, err2)
+            assert.ok(err1)
+            assert.ok(err2)
+            assert.ok(err1 instanceof GenqlError && err1.errors.length)
+            assert.ok(err2 instanceof GenqlError && err1.errors.length)
+        }),
+    )
+    it(
         'batches requests',
         withServer(async () => {
             let batchedQueryLength = -1

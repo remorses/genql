@@ -58,13 +58,13 @@ export const createFetcher = ({
             if (Array.isArray(json)) {
                 return json.map((json) => {
                     if (json?.errors?.length) {
-                        throw new GenqlError(json.errors || [])
+                        throw new GenqlError(json.errors || [], json.data)
                     }
                     return json.data
                 })
             } else {
                 if (json?.errors?.length) {
-                    throw new GenqlError(json.errors || [])
+                    throw new GenqlError(json.errors || [], json.data)
                 }
                 return json.data
             }
@@ -84,16 +84,12 @@ export const createFetcher = ({
 
     return async ({ query, variables }) => {
         const json = await batcher.fetch(query, variables)
-        // TODO the batcher throws errors itself, the error is the response json
-        if (json?.errors?.length) {
-            throw new GenqlError(json.errors || [])
-        }
         if (json?.data) {
             return json.data
         }
         // TODO
         throw new Error(
-            'fetcher returned unexpected result ' + JSON.stringify(json),
+            'Genql fetcher returned unexpected result ' + JSON.stringify(json),
         )
     }
 }
