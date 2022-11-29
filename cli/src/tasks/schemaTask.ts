@@ -2,7 +2,6 @@ import { buildASTSchema, assertValidSchema, GraphQLSchema } from 'graphql'
 import { ListrTask } from 'listr'
 import { existsSync } from 'fs-extra'
 import { Config } from '../config'
-import { requireModuleFromPath } from '../helpers/files'
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
 import { lexicographicSortSchema } from 'graphql'
 import {

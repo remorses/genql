@@ -4,7 +4,6 @@ import yargs from 'yargs'
 import { generate } from './main'
 import { validateConfigs } from './tasks/validateConfigs'
 import { Config } from './config'
-import { version } from './version'
 import { existsSync, readFileSync } from 'fs'
 import { parseColonSeparatedStrings } from './helpers/parse'
 

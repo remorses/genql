@@ -1,6 +1,6 @@
 import { GraphQLSchema, GraphQLEnumType, isEnumType } from 'graphql'
 import Listr, { ListrTask } from 'listr'
-import { camelCase } from 'lodash'
+import camelCase from 'lodash/camelCase'
 import { Config } from '../config'
 import { ensurePath, writeFileToPath } from '../helpers/files'
 import { renderChainTypes } from '../render/chain/renderChainTypes'

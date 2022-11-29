@@ -9,26 +9,12 @@ import path from 'path'
 import tmp from 'tmp-promise'
 import { NPM_SCOPE, NPM_TOKEN } from '../constants'
 import { generateQueries } from '../support/generateQueries'
+import { YamlFileData } from '@app/pages/clients/[slug]'
 
-function generatePackageJson({ name, version }) {
-    return {
-        name,
-        description: 'Graphql client',
-        version: `1.${version}.0`,
-        main: './index.js',
-        module: './index.esm.js',
-        sideEffects: false,
-        types: './index.d.ts',
-        dependencies: {},
-    }
-}
-
-function generateReadme({ name, schema }) {
-    const exampleCode = generateQueries({
-        packageName: name,
-        schema: buildSchema(schema),
-        number: 3,
-    })
+function generateReadme({
+    name,
+    exampleCode,
+}: YamlFileData & { schema: string }) {
     return `
 # ${name}
 
@@ -60,41 +46,60 @@ export function runCommand({ cmd, cwd }) {
     })
 }
 
-export async function createPackage({
-    // TODO move pkg gen logic in cli,
-    endpoint,
-    name,
-    version,
-    callback,
-}: GenerateApiParams & { callback; version }) {
+export async function createPackage(args: YamlFileData & { slug: string }) {
+    const { endpoint, name, slug, version } = args
     const { path: tmpPath, cleanup } = await tmp.dir({
         unsafeCleanup: true,
     })
+    console.log('tmpPath', tmpPath)
     try {
-        const packageJson = generatePackageJson({ name, version })
+        // TODO bump version
+        const packageJson = {
+            name: `@genql/${slug}`,
+            description: `SDK client for ${name} GraphQL API`,
+            version: version,
+            main: './dist/index.js',
+            // module: './index.esm.js',
+            sideEffects: false,
+            types: './dist/index.d.ts',
+            dependencies: {
+                graphql: '^16.0.0',
+                'isomorphic-unfetch': '*', // TODO replace isomorphic-unfetch with native-fetch
+            },
+        }
+
         await generate({
             endpoint,
-            output: tmpPath,
+            output: path.resolve(tmpPath, 'src'),
         })
+
         await fs.writeFile(
             path.join(tmpPath, 'package.json'),
             JSON.stringify(packageJson, null, 4),
         )
+        await fs.writeFile(
+            path.join(tmpPath, 'tsconfig.json'),
+            JSON.stringify(tsconfig, null, 4),
+        )
+        // await runCommand({ cmd: `tree`, cwd: tmpPath })
+        await runCommand({ cmd: `pnpm i`, cwd: tmpPath })
+        await runCommand({ cmd: `tsc`, cwd: tmpPath })
+        // await runCommand({ cmd: `tree`, cwd: tmpPath })
+
         const readme = generateReadme({
-            name: packageJson.name,
+            ...args,
             schema: await fs.readFile(
-                path.join(tmpPath, 'schema.graphql'),
+                path.join(tmpPath, 'src/schema.graphql'),
                 'utf-8',
             ),
         })
         await fs.writeFile(path.join(tmpPath, 'README.md'), readme)
-        const cwd = path.join(tmpPath)
-        await callback({ name: packageJson.name, cwd })
+
         return packageJson
     } catch (e) {
         throw new Error('Could not publish package: ' + String(e))
     } finally {
-        await cleanup()
+        // await cleanup()
     }
 }
 
@@ -107,4 +112,36 @@ export interface Package {
     name: string
     graphql_endpoint: string
     user_uid: string
+}
+
+const tsconfig = {
+    compilerOptions: {
+        noImplicitReturns: true,
+        noUnusedParameters: false,
+        rootDir: 'src',
+        noImplicitAny: false,
+        strict: true,
+        declaration: true,
+        target: 'ES2015',
+        module: 'CommonJS',
+        moduleResolution: 'node',
+        resolveJsonModule: true,
+        outDir: './dist',
+        esModuleInterop: true,
+        allowJs: true,
+        sourceMap: true,
+        lib: ['dom', 'es2017', 'ES2015', 'esnext.asynciterable'],
+        skipLibCheck: true,
+        isolatedModules: true,
+    },
+    include: ['src'],
+    exclude: [
+        'node_modules',
+        'package.json',
+        '**/*.case.ts',
+        'tests',
+        'example',
+        'dist',
+        '**/__tests__',
+    ],
 }

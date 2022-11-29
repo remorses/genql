@@ -15,8 +15,6 @@ export const ensurePath = async (path: string[], clear: boolean = false) => {
     await mkdirp(resolve(...path))
 }
 
-export const requireModuleFromPath = (path: string[]) =>
-    require(resolve(...path))
 
 export const readFileFromPath = (path: string[]) =>
     fs.readFile(resolve(...path)).then((b) => b.toString())

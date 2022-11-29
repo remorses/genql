@@ -11,7 +11,9 @@ export class ClientError extends Error {
 
         new.target.prototype.name = new.target.name
         Object.setPrototypeOf(this, new.target.prototype)
-        if (Error.captureStackTrace) Error.captureStackTrace(this, ClientError)
+        // if (Error['captureStackTrace']) {
+        //     Error.captureStackTrace(this, ClientError)
+        // }
     }
 }
 

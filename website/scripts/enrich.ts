@@ -1,4 +1,5 @@
 import yaml from 'yaml'
+import semver from 'semver'
 import url from 'url'
 import { fetch } from 'native-fetch'
 import path from 'path'
@@ -11,6 +12,7 @@ import { GraphQLSchema } from 'graphql'
 import { YamlFileData } from '../src/pages/clients/[slug]'
 import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
 import { generateQueries } from '../src/support/generateQueries'
+import { createPackage } from '../src/support/publish'
 
 async function main() {
     const folder = path.resolve('./clients')
@@ -59,6 +61,10 @@ async function main() {
                             favs[0].href,
                             website,
                         ).toString()
+                    }
+                    {
+                        const json = await createPackage({ ...enriched, slug })
+                        enriched.version = semver.inc(json.version, 'minor')
                     }
                     console.log('Writing file', path.basename(file))
                     fs.writeFileSync(file, yaml.stringify(enriched), 'utf-8')

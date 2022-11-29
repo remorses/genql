@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "next dev -p 3030",
         "test": "mocha",
-        "enrich": "esmo scripts/enrich.ts",
+        "enrich": "esno scripts/enrich.ts",
         "build": "yarn --cwd .. buildall && next build",
         "start": "next start -p 3030"
     },
@@ -18,7 +18,6 @@
         "@emotion/react": "^11.10.5",
         "@genql/cli": "workspace:*",
         "@types/js-cookie": "^3.0.2",
-        "@types/tailwindcss": "^3.1.0",
         "autoprefixer": "^10.4.13",
         "baby-i-am-faded": "^4.0.14",
         "beskar": "remorses/beskar#main",
@@ -55,6 +54,7 @@
         "react-runkit": "^0.9.0",
         "react-simple-code-editor": "^0.13.1",
         "react-storage-hooks": "^4.0.1",
+        "semver": "^7.3.8",
         "tailwindcss": "^3.2.4",
         "tmp-promise": "^3.0.3",
         "undici": "^5.13.0",
@@ -64,6 +64,8 @@
     "devDependencies": {
         "@types/node": "^18.11.9",
         "@types/react": "^18.0.25",
+        "@types/semver": "^7.3.13",
+        "@types/tailwindcss": "^3.1.0",
         "@types/tmp": "^0.2.3",
         "mocha": "^10.1.0",
         "sucrase": "^3.29.0"

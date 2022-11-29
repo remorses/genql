@@ -1,7 +1,7 @@
 import { GraphQLUnionType } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { FieldMap, Type } from '../../runtime/types'
-import { flatten, uniq } from 'lodash'
+import uniq from 'lodash/uniq'
 
 export const unionType = (type: GraphQLUnionType, _: RenderContext) => {
     const types = type.getTypes()
@@ -10,7 +10,7 @@ export const unionType = (type: GraphQLUnionType, _: RenderContext) => {
         return r
     }, {})
 
-    const commonInterfaces = uniq(flatten(types.map((x) => x.getInterfaces())))
+    const commonInterfaces = uniq(types.map((x) => x.getInterfaces()).flat())
     commonInterfaces.forEach((t) => {
         typeObj[`on_${t.name}`] = { type: t.name }
     })

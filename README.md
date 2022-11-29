@@ -83,11 +83,11 @@ query {
 
 ### todos
 
-[ ] upgrade grahql to 16
+[x] upgrade grahql to 16
 [ ] support for custom scalars
 [ ] add the original json response to the error thrown
 [ ] make separate client for subscriptions
-[ ] replace the subscription library
+[ ] replace the subscription library (zen-observable-ts and subscriptions-transport-ws)
 [ ] remove chain syntax
 [ ] redo the docs website with Notaku, host on /docs
 [ ] only output typescript code

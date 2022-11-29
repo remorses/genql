@@ -157,6 +157,7 @@ export type YamlFileData = {
     website: string
     favicon?: string
     endpoint: string
+    version: string
     exampleCode?: string
     useGet?: boolean
     // tags: string[]

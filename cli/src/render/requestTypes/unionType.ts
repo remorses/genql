@@ -1,5 +1,5 @@
 import { GraphQLUnionType } from 'graphql'
-import { flatten, uniq } from 'lodash'
+import uniq from 'lodash/uniq'
 import { typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
 import { requestTypeName } from './requestTypeName'
@@ -11,7 +11,7 @@ export const unionType = (type: GraphQLUnionType, ctx: RenderContext) => {
     }
     const fieldStrings = types.map((t) => `on_${t.name}?:${requestTypeName(t)}`)
 
-    const commonInterfaces = uniq(flatten(types.map((x) => x.getInterfaces())))
+    const commonInterfaces = uniq(types.map((x) => x.getInterfaces()).flat())
     fieldStrings.push(
         ...commonInterfaces.map((type) => {
             return `on_${type.name}?: ${requestTypeName(type)}`

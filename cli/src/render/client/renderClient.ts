@@ -2,7 +2,7 @@ import { GraphQLEnumType, GraphQLSchema, isEnumType } from 'graphql'
 import { RenderContext } from '../common/RenderContext'
 import { RUNTIME_LIB_NAME } from '../../config'
 import { excludedTypes } from '../common/excludedTypes'
-const { version } = require('../../../package.json')
+
 import camelCase from 'lodash/camelCase'
 import { requestTypeName } from '../requestTypes/requestTypeName'
 
@@ -30,17 +30,15 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
       linkTypeMap, 
       createClient as createClientOriginal, 
       generateGraphqlOperation,
-      FieldsSelection, GraphqlOperation, ClientOptions, Observable
+      FieldsSelection, GraphqlOperation, ClientOptions
   } from '${RUNTIME_LIB_NAME}'
   export type { FieldsSelection, ClientError } from '${RUNTIME_LIB_NAME}'
-  import { SubscriptionClient } from 'subscriptions-transport-ws'
+
   import types from './types'
   export * from './schema'
   const typeMap = linkTypeMap(types as any)
 
   ${renderClientType({ mutationType, queryType, subscriptionType })}
-
-  export const version = ${JSON.stringify(version)}
 
   export const createClient = ${renderClientCode(ctx)}
 
@@ -140,17 +138,17 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
       `
     }
 
-    if (subscriptionType) {
-        interfaceContent += `
-      subscription<R extends ${requestTypeName(subscriptionType)}>(
-          request: R & { __name?: string },
-      ): Observable<FieldsSelection<${subscriptionType.name}, R>>
-      `
-    }
+    // TODO add subscription client
+    // if (subscriptionType) {
+    //     interfaceContent += `
+    //   subscription<R extends ${requestTypeName(subscriptionType)}>(
+    //       request: R & { __name?: string },
+    //   ): Observable<FieldsSelection<${subscriptionType.name}, R>>
+    //   `
+    // }
 
     return `
   export interface Client {
-      wsClient?: SubscriptionClient
       ${interfaceContent}
   }
   `
