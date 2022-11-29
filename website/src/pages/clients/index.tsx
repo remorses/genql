@@ -44,7 +44,13 @@ const Page = ({ items }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     return {
                         heading: `${x.name}`,
                         href: `/clients/${x.slug}`,
-                        // icon: `https://${x.website}/favicon.ico`,
+                        icon: x.favicon && (
+                            <img
+                                className='rounded h-[18px]'
+                                alt='icon'
+                                src={x.favicon}
+                            />
+                        ),
                         description: `GraphQL client for ${x.website} API`,
                     }
                 })}

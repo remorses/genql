@@ -30,6 +30,7 @@ const Page = ({
     name,
     content,
     website,
+    favicon,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
     <main
         style={{ background: BG }}
@@ -40,7 +41,18 @@ const Page = ({
         </Head>
 
         <Hero
-            bullet='Powered by Genql'
+            bullet={
+                <div className='flex items-center gap-2 -mx-1'>
+                    {favicon && (
+                        <img
+                            className='rounded h-[18px]'
+                            alt='icon'
+                            src={favicon}
+                        />
+                    )}
+                    <div>Powered by Genql</div>
+                </div>
+            }
             heading={
                 <div className='tracking-wide'>
                     GraphQL client for the <br />
@@ -143,6 +155,8 @@ export type YamlFileData = {
     name: string
     content: string
     website: string
+    favicon?: string
+    endpoint: string
     // tags: string[]
 }
 
