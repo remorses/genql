@@ -1,7 +1,7 @@
 <div align='center'>
     <br/>
     <br/>
-    <img src='https://genql.now.sh/banner.jpg' width='420px'>
+    <img src='https://genql.dev/banner.jpg' width='420px'>
     <br/>
     <br/>
     <h3>Type safe Graphql query builder</h3>
@@ -10,7 +10,7 @@
     <br/>
 </div>
 
-Read the [quick start guide](https://genql.now.sh/docs) to generate a client locally
+Read the [quick start guide](https://genql.dev/docs) to generate a client locally
 
 🔥 **Features**
 
@@ -70,29 +70,12 @@ query {
 
 ## Sponsors
 
-[**Notaku**](https://notaku.website)
-
+[**Notaku**](https://notaku.so)
 
 [![Notaku](https://notaku.so/github_banner.jpg)](https://notaku.so)
 
-[![Vercel](https://genql.now.sh/vercel-logo.svg)](https://vercel.com?utm_source=genql)
+[![Vercel](https://genql.dev/vercel-logo.svg)](https://vercel.com?utm_source=genql)
 
 ---
 
 [Licensed under MIT]().
-
-### todos
-
-[x] upgrade grahql to 16
-[ ] support for custom scalars
-[ ] add the original json response to the error thrown
-[ ] make separate client for subscriptions
-[ ] replace the subscription library (zen-observable-ts and subscriptions-transport-ws)
-[ ] remove chain syntax
-[ ] redo the docs website with Notaku, host on /docs
-[ ] only output typescript code
-[ ] remove need for @genql/runtime, bundle runtime in the generated code
-[ ] add redirect from genql.now.sh to genql.io
-[ ] create a directory of already generated clients (published on @genql/x on npm), add carbon ads and optimize for SEO
-[ ] use the native-fetch library for fetch impl
-[ ] remove lodash dep
