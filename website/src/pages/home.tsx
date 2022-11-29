@@ -57,20 +57,14 @@ query {
 }`
 
 const Page = () => (
-    <Stack
-        as={'main'}
-        style={{ background: BG }}
-        className='dark  py-14'
-        w='100%'
-        align='stretch'
-        spacing='40px'
-    >
+    <div style={{ background: BG }} className='dark py-14 space-y-[40px]'>
         <Head>
             <title>Genql - SDK client for any GraphQL API</title>
         </Head>
 
         {/* <Bg /> */}
         <Hero
+            className='text-white'
             bullet='Introducing Genql 3.0'
             cta={
                 <div className='flex items-center gap-4'>
@@ -265,7 +259,7 @@ const Page = () => (
             />
         </Section> */}
         {/* <MyFooter /> */}
-    </Stack>
+    </div>
 )
 
 export default Page

@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-main.dark {
-    color: rgb(235, 235, 235);
-}
 
 @keyframes fadeCardsScale {
     from {

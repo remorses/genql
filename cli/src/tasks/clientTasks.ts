@@ -61,7 +61,6 @@ export const clientTasks = (config: Config): ListrTask[] => {
                 renderRequestTypes(ctx.schema, renderCtx)
                 renderTypeGuards(ctx.schema, renderCtx)
                 renderEnumsMaps(ctx.schema, renderCtx)
-                // renderChainTypes(ctx.schema, renderCtx)
 
                 await writeFileToPath(
                     [output, schemaTypesFile],
