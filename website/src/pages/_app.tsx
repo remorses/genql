@@ -1,23 +1,15 @@
 import { Footer, Link, NavBar } from 'beskar/landing'
 import NextNprogress from 'nextjs-progressbar'
-import Cookies from 'js-cookie'
 
-import { Box, Stack } from 'layout-kit-react'
+import { Bg } from '@app/components/bg'
+import 'baby-i-am-faded/styles.css'
+import classNames from 'classnames'
+import { Box } from 'layout-kit-react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
-import {
-    DOCS_LINK,
-    firebaseConfig,
-    FIREBASE_ID_TOKEN_COOKIE,
-    GITHUB_LINK,
-    BG,
-} from '../constants'
-import 'baby-i-am-faded/styles.css'
+import { BG, DOCS_LINK, GITHUB_LINK } from '../constants'
 import '../global.css'
-import { Bg } from '@app/components/bg'
-import classNames from 'classnames'
 
 // 'radial-gradient( 37.86% 77.79% at 50% 100%, rgba(113,128,150,0.25) 0%, rgba(113,128,150,0) 100% ), linear-gradient(180deg,#1a202c 0%,#2d3748 100%), linear-gradient(180deg,#0d0f14 0%,rgba(27,32,43,0) 100%),#2f3747'
 

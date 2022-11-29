@@ -21,7 +21,7 @@
         "@types/tailwindcss": "^3.1.0",
         "autoprefixer": "^10.4.13",
         "baby-i-am-faded": "^4.0.14",
-        "beskar": "remorses/beskar#5eb0897b25bb989932718a563a985b75e1c6078e",
+        "beskar": "remorses/beskar#main",
         "classnames": "^2.3.2",
         "dayjs": "^1.11.6",
         "dedent": "^0.7.0",
