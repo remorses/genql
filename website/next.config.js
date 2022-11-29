@@ -1,4 +1,30 @@
 const withTM = require('next-transpile-modules')(['@genql/cli', 'beskar'])
-// Tell webpack to compile the "bar" package
-// https://www.npmjs.com/package/next-transpile-modules
-module.exports = withTM({ })
+
+/** @type {import('next').NextConfig} */
+const config = {
+    rewrites() {
+        const rewriteDocsTo =
+            'https://aeea2a8f-f718-4d46.docs-base-path.notaku.site'
+
+        return [
+            {
+                source: '/docs',
+                destination: `${rewriteDocsTo}/docs`,
+            },
+            {
+                source: '/docs/:path*',
+                destination: `${rewriteDocsTo}/docs/:path*`,
+            },
+            // {
+            //     source: '/blog',
+            //     destination: `${rewriteBlogTo}/blog`,
+            // },
+            // {
+            //     source: '/blog/:path*',
+            //     destination: `${rewriteBlogTo}/blog/:path*`,
+            // },
+        ]
+    },
+}
+
+module.exports = withTM(config)
