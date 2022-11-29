@@ -1,4 +1,4 @@
-import { ClientError } from '../error'
+import { GenqlError } from '../error'
 import { BatchOptions, createFetcher } from '../fetcher'
 import { ExecutionResult, LinkedType } from '../types'
 import {

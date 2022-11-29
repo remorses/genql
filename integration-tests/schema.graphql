@@ -17,6 +17,7 @@ type Query {
     user: User
     someScalarValue(x: Float): String
     recursiveType(requiredVal: [String!]): [RecursiveType]
+    throwsError: String!
 }
 
 type RecursiveType {

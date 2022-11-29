@@ -20,6 +20,7 @@ import {
     isBank,
     Point,
     isUser,
+    GenqlError,
 } from '../generated'
 
 const PORT = 8099
@@ -64,6 +65,9 @@ describe('execute queries', async function () {
                 Query: {
                     user: () => {
                         return x
+                    },
+                    throwsError: () => {
+                        throw new Error('x')
                     },
                     unionThatImplementsInterface: ({ typename = '' } = {}) => {
                         return {
@@ -318,6 +322,19 @@ describe('execute queries', async function () {
                 coordinates?.x
                 coordinates?.y
             }
+        }),
+    )
+    it(
+        'errors',
+        withServer(async () => {
+            const err = await client
+                .query({
+                    throwsError: true,
+                })
+                .catch((err) => err)
+            assert.ok(err instanceof Error)
+            assert.ok(err instanceof GenqlError)
+            assert.ok(err instanceof GenqlError && err.errors.length)
         }),
     )
     it(

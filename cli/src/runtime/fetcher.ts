@@ -4,7 +4,7 @@ import QueryBatcher from './batcher'
 import fetch from 'isomorphic-unfetch'
 import { ClientOptions } from './client/createClient'
 import { GraphqlOperation } from './client/generateGraphqlOperation'
-import { ClientError } from './error'
+import { GenqlError } from './error'
 
 export interface Fetcher {
     (gql: GraphqlOperation): Promise<any>
@@ -58,13 +58,13 @@ export const createFetcher = ({
             if (Array.isArray(json)) {
                 return json.map((json) => {
                     if (json?.errors?.length) {
-                        throw new ClientError(json.errors || [])
+                        throw new GenqlError(json.errors || [])
                     }
                     return json.data
                 })
             } else {
                 if (json?.errors?.length) {
-                    throw new ClientError(json.errors || [])
+                    throw new GenqlError(json.errors || [])
                 }
                 return json.data
             }
@@ -86,7 +86,7 @@ export const createFetcher = ({
         const json = await batcher.fetch(query, variables)
         // TODO the batcher throws errors itself, the error is the response json
         if (json?.errors?.length) {
-            throw new ClientError(json.errors || [])
+            throw new GenqlError(json.errors || [])
         }
         if (json?.data) {
             return json.data

@@ -30,9 +30,10 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
       linkTypeMap, 
       createClient as createClientOriginal, 
       generateGraphqlOperation,
-      FieldsSelection, GraphqlOperation, ClientOptions
+      FieldsSelection, GraphqlOperation, ClientOptions, GenqlError
   } from '${RUNTIME_LIB_NAME}'
-  export type { FieldsSelection, ClientError } from '${RUNTIME_LIB_NAME}'
+  export type { FieldsSelection } from '${RUNTIME_LIB_NAME}'
+  export { GenqlError }
 
   import types from './types'
   export * from './schema'
