@@ -12,6 +12,7 @@ import {
 } from '../schema/fetchSchema'
 import { loadSchema } from '@graphql-tools/load'
 
+// TODO add timeout for fetchSchema
 export const schemaTask = (config: Config): ListrTask => {
     const processSchema = (schema) => {
         if (config.sortProperties) {

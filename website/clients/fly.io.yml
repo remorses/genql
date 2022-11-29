@@ -4,3 +4,92 @@ content: |
   GraphQl for the fly.io cloud platform
 website: https://fly.io
 endpoint: https://countries.trevorblades.com/
+exampleCode: |+
+  import { createClient } from '@genql/fly.io'
+  const client = createClient()
+
+
+  // query variables
+  let representations
+
+  client
+    .query({
+      _entities: [
+        {
+          representations: representations,
+        },
+      ],
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+  client
+    .query({
+      _service: {
+        sdl: true,
+      },
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+  // query variables
+  let filter
+
+  client
+    .query({
+      countries: [
+        {
+          filter: filter,
+        },
+        {
+          code: true,
+          name: true,
+          native: true,
+          phone: true,
+          continent: {
+            code: true,
+            name: true,
+            countries: {
+              code: true,
+              name: true,
+              native: true,
+              phone: true,
+              capital: true,
+              currency: true,
+              emoji: true,
+              emojiU: true,
+            },
+          },
+          capital: true,
+          currency: true,
+          languages: {
+            code: true,
+            name: true,
+            native: true,
+            rtl: true,
+          },
+          emoji: true,
+          emojiU: true,
+          states: {
+            code: true,
+            name: true,
+            country: {
+              code: true,
+              name: true,
+              native: true,
+              phone: true,
+              capital: true,
+              currency: true,
+              emoji: true,
+              emojiU: true,
+            },
+          },
+        },
+      ],
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+

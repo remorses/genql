@@ -57,7 +57,7 @@ const printDocASTReducer = ({
         // the query short form.
         let code = join(node.variableDefinitions, '\n')
         if (node.variableDefinitions.length) {
-            code = '// variables\n' + code
+            code = '// query variables\n' + code
             code += '\n\n'
         }
         code += `${clientVarName}.${node.operation}(` + selectionSet + ')'
@@ -68,7 +68,7 @@ const printDocASTReducer = ({
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
-        return 'var ' + variable.replace('$', '')
+        return 'let ' + variable.replace('$', '')
     },
     SelectionSet: ({ selections }) => block(selections),
 

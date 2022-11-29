@@ -31,6 +31,8 @@ const Page = ({
     content,
     website,
     favicon,
+    exampleCode,
+    endpoint,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
     <main
         style={{ background: BG }}
@@ -45,7 +47,7 @@ const Page = ({
                 <div className='flex items-center gap-2 -mx-1'>
                     {favicon && (
                         <img
-                            className='rounded h-[18px]'
+                            className='rounded h-[17px]'
                             alt='icon'
                             src={favicon}
                         />
@@ -117,21 +119,17 @@ const Page = ({
                     />
                 </div>
             </div>
-            <div className='space-y-4'>
-                <h2 className='text-3xl font-bold '>Example queries</h2>
-                <div className=''>
-                    Use a package manager to install the API client
+            {exampleCode && (
+                <div className='space-y-4'>
+                    <h2 className='text-3xl font-bold '>Example queries</h2>
+                    <div className=''>
+                        Use a package manager to install the API client
+                    </div>
+                    <div className=''>
+                        <Code language='typescript' code={exampleCode || ''} />
+                    </div>
                 </div>
-                <div className=''>
-                    <Code
-                        language='typescript'
-                        code={dedent`
-                        import { createClient } from '@genql/${slug}'
-
-                        `}
-                    />
-                </div>
-            </div>
+            )}
         </PageContainer>
     </main>
 )
@@ -157,6 +155,8 @@ export type YamlFileData = {
     website: string
     favicon?: string
     endpoint: string
+    exampleCode?: string
+    useGet?: boolean
     // tags: string[]
 }
 

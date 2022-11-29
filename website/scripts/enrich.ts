@@ -5,6 +5,12 @@ import path from 'path'
 import pLimit from 'p-limit'
 import fs from 'fs'
 import parseHead from 'parse-head'
+import { print } from '@genql/cli/src/printer'
+import { GraphQLSchema } from 'graphql'
+
+import { YamlFileData } from '../src/pages/clients/[slug]'
+import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
+import { generateQueries } from '../src/support/generateQueries'
 
 async function main() {
     const folder = path.resolve('./clients')
@@ -15,22 +21,44 @@ async function main() {
             limit(async () => {
                 try {
                     const content = await fs.readFileSync(file, 'utf-8')
-                    const data = yaml.parse(content)
-                    const { name, version, website } = data
+                    const slug = path.basename(file, '.yml')
+                    const data: YamlFileData = yaml.parse(content)
+                    const { name, website, useGet, endpoint } = data
+                    const enriched = {
+                        ...data,
+                    }
                     const res = await fetch(website, {
                         headers: { accept: 'text/html' },
                     })
+
                     const html = await res.text()
                     const head = await parseHead(html)
                     // console.log(head)
                     const favs: any[] = await getFavicons(head, {})
                     console.log(favs)
-                    if (!favs.length) {
-                        return
+
+                    const schema = await fetchSchema({
+                        endpoint,
+                        usePost: !useGet,
+                        // headers: config.headers,
+                    }).catch((e) => {
+                        console.log(`Failed fetching schema fro ${slug}`, e)
+                        return null
+                    })
+                    if (schema) {
+                        const exampleCode = generateQueries({
+                            packageName: `@genql/${slug}`,
+                            number: 3,
+                            schema,
+                        })
+                        enriched.exampleCode = exampleCode
                     }
-                    const enriched = {
-                        ...data,
-                        favicon: new URL(favs[0].href, website).toString(),
+
+                    if (favs.length) {
+                        enriched.favicon = new URL(
+                            favs[0].href,
+                            website,
+                        ).toString()
                     }
                     console.log('Writing file', path.basename(file))
                     fs.writeFileSync(file, yaml.stringify(enriched), 'utf-8')
