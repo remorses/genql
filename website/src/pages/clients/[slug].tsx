@@ -102,9 +102,10 @@ const Page = ({
                 </div>
             </div>
             <div className='space-y-4'>
-                <h2 className='text-3xl font-bold '>Authorization</h2>
+                <h2 className='text-3xl font-bold '>Passing headers</h2>
                 <div className=''>
-                    You can pass your credentials to the client using an header
+                    You can use the headers options to pass credentials or other
+                    headers
                 </div>
                 <div className=''>
                     <Code
@@ -113,6 +114,7 @@ const Page = ({
                         import { createClient } from '@genql/${slug}'
                         const client = createClient({
                             headers: {
+                                Authorization: \`Bearer ${'$'}{Token}\`
                             }
                         })
                         `}
