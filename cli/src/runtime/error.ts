@@ -14,12 +14,6 @@ export class GenqlError extends Error {
         super(message)
         this.errors = errors
         this.data = data
-
-        // new.target.prototype.name = new.target.name
-        // Object.setPrototypeOf(this, new.target.prototype)
-        // if (Error['captureStackTrace']) {
-        //     Error.captureStackTrace(this, ClientError)
-        // }
     }
 }
 
