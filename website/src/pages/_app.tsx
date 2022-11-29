@@ -124,6 +124,9 @@ export function MyNavbar({ ...rest }) {
         <MyLink isExternal href={DOCS_LINK}>
             Docs
         </MyLink>,
+        <MyLink isExternal href={CHANGELOG_LINK}>
+            Changelog
+        </MyLink>,
     ].filter(Boolean)
     if (pathname !== '/') {
         navs.unshift(<MyLink href='/'>Home</MyLink>)
