@@ -7,24 +7,41 @@ import packageNameAvailable from 'npm-name'
 import os from 'os'
 import path from 'path'
 import tmp from 'tmp-promise'
-import { NPM_SCOPE, NPM_TOKEN } from '../constants'
+import { NPM_SCOPE, NPM_TOKEN, websiteUrl } from '../constants'
 import { generateQueries } from '../support/generateQueries'
 import { YamlFileData } from '@app/pages/clients/[slug]'
 
 function generateReadme({
     name,
+    slug,
     exampleCode,
-}: YamlFileData & { schema: string }) {
+}: YamlFileData & { slug: string }) {
     return `
 # ${name}
 
-Your awesome graphql client ❤️
+GraphQl client for ${name} with full typescript support
+
+## Installation
+
+\`\`\`
+npm install ${NPM_SCOPE}/${name}
+\`\`\`
+
+## Docs
+
+You can read more about usage in the [client docs](${websiteUrl}/clients/${slug}) and [Genql docs](${websiteUrl}/docs)})
 
 ## Example usage
 
 \`\`\`js
 ${exampleCode}
 \`\`\`
+
+## Sponsor
+
+This project is sponsored by [Notaku](https://notaku.so)
+
+[![Notaku](https://notaku.so/github_banner.jpg)](https://notaku.so)
 
 `
 }
@@ -55,7 +72,7 @@ export async function createPackage(args: YamlFileData & { slug: string }) {
     try {
         // TODO bump version
         const packageJson = {
-            name: `@genql/${slug}`,
+            name: `${NPM_SCOPE}/${slug}`,
             description: `SDK client for ${name} GraphQL API`,
             version: version,
             main: './dist/index.js',
@@ -88,10 +105,7 @@ export async function createPackage(args: YamlFileData & { slug: string }) {
 
         const readme = generateReadme({
             ...args,
-            schema: await fs.readFile(
-                path.join(tmpPath, 'src/schema.graphql'),
-                'utf-8',
-            ),
+            slug,
         })
         await fs.writeFile(path.join(tmpPath, 'README.md'), readme)
 

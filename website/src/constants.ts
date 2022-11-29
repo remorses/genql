@@ -10,3 +10,4 @@ export const BG = '#2d3748'
 
 export const GITHUB_LINK = 'https://github.com/remorses/genql'
 export const DOCS_LINK = '/docs'
+export const websiteUrl = 'https://genql.dev'

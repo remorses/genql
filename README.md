@@ -73,7 +73,7 @@ query {
 [**Notaku**](https://notaku.website)
 
 
-[![Notaku](https://preview.notaku.website/github_banner.jpg)](https://notaku.website)
+[![Notaku](https://notaku.so/github_banner.jpg)](https://notaku.so)
 
 [![Vercel](https://genql.now.sh/vercel-logo.svg)](https://vercel.com?utm_source=genql)
 
