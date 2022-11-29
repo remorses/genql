@@ -1,6 +1,6 @@
 favicon: https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d
 name: fly.io
-version: 0.9.0
+version: 0.10.0
 content: |
   GraphQl for the fly.io cloud platform
 website: https://fly.io
@@ -91,4 +91,51 @@ exampleCode: |+
     .then((x) => console.log(JSON.stringify(x, null, 4)))
 
 
+
+  // Mutations
+  // query variables
+  let id
+  let showCompleted
+  let appId
+  let hostname
+
+  client
+    .mutation({
+      addCertificate: [
+        {
+          appId: appId,
+          hostname: hostname,
+        },
+        {
+          app: {
+            allocation: [
+              {
+                id: id,
+              },
+              {
+                canary: true,
+              },
+            ],
+            allocations: [
+              {
+                showCompleted: showCompleted,
+              },
+              {
+                canary: true,
+              },
+            ],
+            appUrl: true,
+          },
+          certificate: {
+            certificateAuthority: true,
+          },
+          check: {
+            aRecords: true,
+            aaaaRecords: true,
+            acmeDnsConfigured: true,
+          },
+        },
+      ],
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
 
