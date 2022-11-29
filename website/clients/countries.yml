@@ -1,5 +1,7 @@
+favicon: https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/kitchen-knife_1f52a.png
 name: countries
-content: |
-  GraphQl API for up to date countries data: country codes, languages, phone codes and more
-website: trevorblades.com
+content: >
+  GraphQl API for up to date countries data: country codes, languages,
+  phone codes and more
+website: https://trevorblades.com
 endpoint: https://countries.trevorblades.com/
