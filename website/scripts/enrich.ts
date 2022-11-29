@@ -37,7 +37,7 @@ async function main() {
                     const head = await parseHead(html)
                     // console.log(head)
                     const favs: any[] = await getFavicons(head, {})
-                    console.log(favs)
+                    // console.log(favs)
 
                     const schema = await fetchSchema({
                         endpoint,
@@ -47,6 +47,9 @@ async function main() {
                         console.log(`Failed fetching schema fro ${slug}`, e)
                         return null
                     })
+                    if (!schema) {
+                        console.log(`Failed fetching schema fro ${slug}`)
+                    }
                     if (schema) {
                         const exampleCode = generateQueries({
                             packageName: `@genql/${slug}`,
@@ -54,6 +57,8 @@ async function main() {
                             schema,
                         })
                         enriched.exampleCode = exampleCode
+                    } else {
+                        enriched.exampleCode = ''
                     }
 
                     if (favs.length) {

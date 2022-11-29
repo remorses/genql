@@ -20,7 +20,7 @@ export function print(ast: ASTNode, options: PrintOptions = {}): string {
         ]),
     )
     const str = visit(ast, visitor) as any as string // graphql people don't know how to type
-    console.log(str)
+    // console.log(str)
     return str
 }
 

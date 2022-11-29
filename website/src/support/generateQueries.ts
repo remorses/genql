@@ -1,5 +1,5 @@
 import { print } from '@genql/cli/src/printer'
-import { GraphQLSchema, parse } from 'graphql'
+import { GraphQLField, GraphQLNonNull, GraphQLSchema, parse } from 'graphql'
 // import { generateRandomQuery } from 'ibm-graphql-query-generator'
 
 export function generateQueries(p: {
@@ -14,16 +14,25 @@ export function generateQueries(p: {
     const queries = generateRandomQueries({
         // seed: 2,
         gqlSchema: p.schema,
-        depthLimit: 3,
+        depthLimit: 2,
         type: 'query',
     }).slice(0, mutationIndex)
     const mutations = generateRandomQueries({
         // seed: 2,
         gqlSchema: p.schema,
         depthLimit: 3,
-        type: 'mutations',
+        type: 'mutation',
     }).slice(0, 2)
-    const compiled = [...queries, ...mutations].map((x) => parse(x))
+    const compiled = [...queries, ...mutations]
+        .map((x) => {
+            try {
+                return parse(x)
+            } catch (e) {
+                console.log('Failed graphql parsing', x, e)
+                return
+            }
+        })
+        .filter(Boolean)
     for (let i = 0; i <= p.number; i++) {
         code += '\n\n'
         const q = compiled[i]
@@ -58,7 +67,10 @@ function generateRandomQueries({
     includeDeprecatedFields = false,
     type,
 }) {
-    let includeCrossReferences = true
+    if (!gqlSchema) {
+        throw new Error('gqlSchema is required')
+    }
+    let includeCrossReferences = false
 
     /**
      * Compile arguments dictionary for a field
@@ -66,20 +78,30 @@ function generateRandomQueries({
      * @param duplicateArgCounts map for deduping argument name collisions
      * @param allArgsDict dictionary of all arguments
      */
-    const getFieldArgsDict = (field, duplicateArgCounts, allArgsDict = {}) =>
-        field.args.reduce((o, arg) => {
-            if (arg.name in duplicateArgCounts) {
-                const index = duplicateArgCounts[arg.name] + 1
-                duplicateArgCounts[arg.name] = index
-                o[`${arg.name}${index}`] = arg
-            } else if (allArgsDict[arg.name]) {
-                duplicateArgCounts[arg.name] = 1
-                o[`${arg.name}1`] = arg
-            } else {
-                o[arg.name] = arg
-            }
-            return o
-        }, {})
+    const getFieldArgsDict = (
+        field: GraphQLField<any, any>,
+        duplicateArgCounts,
+        allArgsDict = {},
+    ) =>
+        field.args
+            .filter((x, i) => {
+                // console.log('required', x)
+                const required = x.type instanceof GraphQLNonNull
+                return required || i < 2
+            })
+            .reduce((o, arg) => {
+                if (arg.name in duplicateArgCounts) {
+                    const index = duplicateArgCounts[arg.name] + 1
+                    duplicateArgCounts[arg.name] = index
+                    o[`${arg.name}${index}`] = arg
+                } else if (allArgsDict[arg.name]) {
+                    duplicateArgCounts[arg.name] = 1
+                    o[`${arg.name}1`] = arg
+                } else {
+                    o[arg.name] = arg
+                }
+                return o
+            }, {})
 
     /**
      * Generate variables string
@@ -140,11 +162,15 @@ function generateRandomQueries({
             }
             const childKeys = Object.keys(curType.getFields())
             childQuery = childKeys
-                .filter((fieldName) => {
+                .filter((fieldName, i) => {
+                    if (i >= 3) {
+                        return false
+                    }
                     /* Exclude deprecated fields */
                     const fieldSchema = gqlSchema.getType(curType).getFields()[
                         fieldName
                     ]
+
                     return (
                         includeDeprecatedFields ||
                         !fieldSchema.deprecationReason
@@ -175,8 +201,11 @@ function generateRandomQueries({
                     duplicateArgCounts,
                     argumentsDict,
                 )
+                const len = Object.keys(dict).length
                 Object.assign(argumentsDict, dict)
-                queryStr += `(${getArgsToVarsStr(dict)})`
+                if (len > 0) {
+                    queryStr += `(${getArgsToVarsStr(dict)})`
+                }
             }
             if (childQuery) {
                 queryStr += `{\n${childQuery}\n${'    '.repeat(curDepth)}}`
@@ -228,7 +257,7 @@ function generateRandomQueries({
      * @param obj one of the root objects(Query, Mutation, Subscription)
      * @param name description of the current object
      */
-    const generateQueries = (obj, name) => {
+    const generateQueries = (obj, name, queryName) => {
         return Object.keys(obj).map((type) => {
             const field = gqlSchema.getType(name).getFields()[type]
             /* Only process non-deprecated queries/mutations: */
@@ -238,20 +267,7 @@ function generateRandomQueries({
                     queryResult.argumentsDict,
                 )
                 let query = queryResult.queryStr
-                let queryName
-                switch (true) {
-                    case /Mutation/.test(name):
-                        queryName = 'mutation'
-                        break
-                    case /Query/.test(name):
-                        queryName = 'query'
-                        break
-                    case /Subscription/.test(name):
-                        queryName = 'subscription'
-                        break
-                    default:
-                        break
-                }
+
                 query = `${queryName || name.toLowerCase()} ${type}${
                     varsToTypesStr ? `(${varsToTypesStr})` : ''
                 }{\n${query}\n}`
@@ -267,10 +283,9 @@ function generateRandomQueries({
             ...generateQueries(
                 gqlSchema.getMutationType().getFields(),
                 gqlSchema.getMutationType().name,
+                'mutation', // ,
             ),
         )
-    } else {
-        console.log('[gqlg warning]:', 'No mutation type found in your schema')
     }
 
     if (type === 'query' && gqlSchema.getQueryType()) {
@@ -278,10 +293,9 @@ function generateRandomQueries({
             ...generateQueries(
                 gqlSchema.getQueryType().getFields(),
                 gqlSchema.getQueryType().name,
+                'query', // gqlSchema.getQueryType().name,
             ),
         )
-    } else {
-        console.log('[gqlg warning]:', 'No query type found in your schema')
     }
 
     if (type === 'subscription' && gqlSchema.getSubscriptionType()) {
@@ -289,12 +303,8 @@ function generateRandomQueries({
             ...generateQueries(
                 gqlSchema.getSubscriptionType().getFields(),
                 gqlSchema.getSubscriptionType().name,
+                'subscription', //gqlSchema.getSubscriptionType().name,
             ),
-        )
-    } else {
-        console.log(
-            '[gqlg warning]:',
-            'No subscription type found in your schema',
         )
     }
     return res

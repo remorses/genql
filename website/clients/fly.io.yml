@@ -1,23 +1,34 @@
 favicon: https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d
 name: fly.io
-version: 0.1.0
+version: 0.9.0
 content: |
   GraphQl for the fly.io cloud platform
 website: https://fly.io
-endpoint: https://countries.trevorblades.com/
+endpoint: https://api.fly.io/graphql
 exampleCode: |+
   import { createClient } from '@genql/fly.io'
   const client = createClient()
 
 
   // query variables
-  let representations
+  let id
+  let name
 
   client
     .query({
-      _entities: [
+      addOn: [
         {
-          representations: representations,
+          id: id,
+          name: name,
+        },
+        {
+          addOnPlan: {
+            displayName: true,
+            id: true,
+            maxCommandsPerSec: true,
+          },
+          hostname: true,
+          id: true,
         },
       ],
     })
@@ -25,68 +36,55 @@ exampleCode: |+
 
 
 
+  // query variables
+  let after
+  let before
+
   client
     .query({
-      _service: {
-        sdl: true,
-      },
+      addOnPlans: [
+        {
+          after: after,
+          before: before,
+        },
+        {
+          edges: {
+            cursor: true,
+          },
+          nodes: {
+            displayName: true,
+            id: true,
+            maxCommandsPerSec: true,
+          },
+          pageInfo: {
+            endCursor: true,
+            hasNextPage: true,
+            hasPreviousPage: true,
+          },
+        },
+      ],
     })
     .then((x) => console.log(JSON.stringify(x, null, 4)))
 
 
 
   // query variables
-  let filter
+  let name
 
   client
     .query({
-      countries: [
+      addOnProvider: [
         {
-          filter: filter,
+          name: name,
         },
         {
-          code: true,
+          excludedRegions: {
+            code: true,
+            gatewayAvailable: true,
+            latitude: true,
+          },
+          id: true,
           name: true,
-          native: true,
-          phone: true,
-          continent: {
-            code: true,
-            name: true,
-            countries: {
-              code: true,
-              name: true,
-              native: true,
-              phone: true,
-              capital: true,
-              currency: true,
-              emoji: true,
-              emojiU: true,
-            },
-          },
-          capital: true,
-          currency: true,
-          languages: {
-            code: true,
-            name: true,
-            native: true,
-            rtl: true,
-          },
-          emoji: true,
-          emojiU: true,
-          states: {
-            code: true,
-            name: true,
-            country: {
-              code: true,
-              name: true,
-              native: true,
-              phone: true,
-              capital: true,
-              currency: true,
-              emoji: true,
-              emojiU: true,
-            },
-          },
         },
       ],
     })
