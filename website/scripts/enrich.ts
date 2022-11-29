@@ -182,3 +182,5 @@ function generateBaseUrlMap(options, headers) {
         : (icon) =>
               Object.assign(icon, { href: url.resolve(baseUrl, icon.href) })
 }
+
+
