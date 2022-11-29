@@ -50,7 +50,7 @@ export function runCommand({ cmd, cwd }) {
     return new Promise((res, rej) => {
         const ps = exec(
             cmd,
-            { cwd, env: { ...process.env, HOME: os.tmpdir() } },
+            { cwd, env: { ...process.env } },
             (err, stdout, stderr) => {
                 if (err) {
                     rej(err)
@@ -63,7 +63,9 @@ export function runCommand({ cmd, cwd }) {
     })
 }
 
-export async function createPackage(args: YamlFileData & { slug: string }) {
+export async function createPackage(
+    args: YamlFileData & { slug: string; publish: boolean },
+) {
     const { endpoint, name, slug, version } = args
     const { path: tmpPath, cleanup } = await tmp.dir({
         unsafeCleanup: true,
@@ -108,6 +110,13 @@ export async function createPackage(args: YamlFileData & { slug: string }) {
             slug,
         })
         await fs.writeFile(path.join(tmpPath, 'README.md'), readme)
+        if (args.publish) {
+            console.log(`publishing ${slug}`)
+            await runCommand({
+                cmd: `npm publish --access public`,
+                cwd: tmpPath,
+            })
+        }
 
         return packageJson
     } catch (e) {

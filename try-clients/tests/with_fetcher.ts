@@ -1,4 +1,4 @@
-import { prettify } from '@genql/cli/src/helpers/prettify'
+
 import { parse } from 'graphql'
 import assert from 'assert'
 import { createClient, everything } from '../hasura/generated'
@@ -29,49 +29,5 @@ describe('use fetcher', () => {
         })
         console.log(res)
         assert(res)
-    })
-})
-
-describe('batch queries', () => {
-    const fetcher = (batchedQuery) => {
-        assert(batchedQuery.length === 3)
-        return fetch(URL, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                // Authorization: 'Bearer ' + process.env.GITHUB_TOKEN,
-            },
-            body: JSON.stringify(batchedQuery),
-        }).then((response) => response.json())
-    }
-
-    const batcher = new QueryBatcher(fetcher, {
-        maxBatchSize: 10,
-        batchInterval: 100,
-    })
-    const client = createClient({
-        fetcher: ({ query, variables }: any) => {
-            return batcher.fetch(query, variables)
-        },
-    })
-    it('query with fetcher', async () => {
-        const res = await Promise.all([
-            client.query({
-                user: {
-                    age: true,
-                },
-            }),
-            client.query({
-                user: {
-                    id: true,
-                },
-            }),
-            client.query({
-                user: {
-                    name: true,
-                },
-            }),
-        ])
     })
 })

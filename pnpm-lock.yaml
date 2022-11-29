@@ -4,14 +4,18 @@ importers:
 
   .:
     specifiers:
+      '@types/mocha': ^10.0.1
       esno: 0.14.1
       graphql: ^16.6.0
+      isomorphic-unfetch: ^3.1.0
       lerna: ^6.0.3
       typescript: '4.8'
       ultra-runner: ^3.10.5
     devDependencies:
+      '@types/mocha': 10.0.1
       esno: 0.14.1
       graphql: 16.6.0
+      isomorphic-unfetch: 3.1.0
       lerna: 6.0.3
       typescript: 4.8.4
       ultra-runner: 3.10.5
@@ -82,6 +86,7 @@ importers:
   integration-tests:
     specifiers:
       '@genql/cli': workspace:*
+      '@graphql-tools/schema': ^9.0.10
       '@types/node': ^18.11.9
       apollo-server: ^3.11.1
       await-sleep: ^0.0.1
@@ -96,6 +101,7 @@ importers:
       tsdef: ^0.0.14
     dependencies:
       '@genql/cli': link:../cli
+      '@graphql-tools/schema': 9.0.10_graphql@16.6.0
       apollo-server: 3.11.1_graphql@16.6.0
       await-sleep: 0.0.1
       deep-equal: 2.1.0
@@ -112,8 +118,7 @@ importers:
 
   try-clients:
     specifiers:
-      '@shitty-scope-name/dsfxxxxxaxaxa': 1.1.0
-      '@shitty-scope-name/hasura-testing-client-example-for-tests': ^1.3.0
+      '@shitty-scope-name/countries': ^0.0.0
       compressed-json: ^1.0.16
       dotenv: ^16.0.3
       isomorphic-unfetch: ^3.1.0
@@ -121,8 +126,7 @@ importers:
       sucrase: ^3.29.0
       ts-node: ^10.9.1
     dependencies:
-      '@shitty-scope-name/dsfxxxxxaxaxa': 1.1.0
-      '@shitty-scope-name/hasura-testing-client-example-for-tests': 1.3.0
+      '@shitty-scope-name/countries': 0.0.0
       compressed-json: 1.0.16
       dotenv: 16.0.3
       isomorphic-unfetch: 3.1.0
@@ -3038,26 +3042,13 @@ packages:
       - zenObservable
     dev: false
 
-  /@shitty-scope-name/dsfxxxxxaxaxa/1.1.0:
-    resolution: {integrity: sha512-7Z5ZNRtMf5FWwuzvcH6Dn5vzu8DWKsgEXFG4d3Rf2KtP/4oDl/P5DZ4FhXYdjTaF4PKQr3uufvoR6CoSvOtv+g==}
+  /@shitty-scope-name/countries/0.0.0:
+    resolution: {integrity: sha512-b+5PzWrQhwJEKMp7JWrLaZuMZOgENddCbcgMHObYQNkzZPoN7odX8hlrKnngUSyvWWqiXC/8+DB0C4Tcbbx8yA==}
     dependencies:
-      genql-runtime: 1.1.28
+      graphql: 16.6.0
+      isomorphic-unfetch: 3.1.0
     transitivePeerDependencies:
-      - bufferutil
       - encoding
-      - graphql
-      - utf-8-validate
-    dev: false
-
-  /@shitty-scope-name/hasura-testing-client-example-for-tests/1.3.0:
-    resolution: {integrity: sha512-rc8y+AL63qSB71yxFPDPw2jm7qpXNI3xH2sFgYiDgOwHygJUcY6K2g0vdvbfQvHBCtBs3pUafPo6Qhvt42YQ4w==}
-    dependencies:
-      genql-runtime: 1.1.28
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - graphql
-      - utf-8-validate
     dev: false
 
   /@sinclair/typebox/0.24.51:
@@ -3478,24 +3469,6 @@ packages:
       rxjs: 6.6.7
     dev: true
 
-  /@types/lodash.assign/4.2.7:
-    resolution: {integrity: sha512-FABtilcXqbXBj9jnSqgTbmr0Wy3lhDgMkGtNfcE+wipuKi2/fv7wB9rCeJfLi1H/qt1YxVAENtQkdKisYIwFKg==}
-    dependencies:
-      '@types/lodash': 4.14.190
-    dev: false
-
-  /@types/lodash.get/4.4.7:
-    resolution: {integrity: sha512-af34Mj+KdDeuzsJBxc/XeTtOx0SZHZNLd+hdrn+PcKGQs0EG2TJTzQAOTCZTgDJCArahlCzLWSy8c2w59JRz7Q==}
-    dependencies:
-      '@types/lodash': 4.14.190
-    dev: false
-
-  /@types/lodash.startswith/4.2.7:
-    resolution: {integrity: sha512-XwC4ahSrdYIuItxAkhXmIh1apqi6BEEMXa8Ip8cD9tQ09cu2g5D4XMN2Wn3mfoSY/m0TPSS3c5AsLKAmTzQgPA==}
-    dependencies:
-      '@types/lodash': 4.14.190
-    dev: false
-
   /@types/lodash/4.14.190:
     resolution: {integrity: sha512-5iJ3FBJBvQHQ8sFhEhJfjUP+G+LalhavTkYyrAYqz5MEJG+erSv0k9KJLb6q7++17Lafk1scaTIFXcMJlwK8Mw==}
 
@@ -3521,6 +3494,10 @@ packages:
     resolution: {integrity: sha512-o0K1tSO0Dx5X6xlU5F1D6625FawhC3dU3iqr25lluNv/+/QIVH8RLNEiVokgIZo+mz+87w/3Mkg/VvQS+J51fQ==}
     dependencies:
       '@types/node': 18.11.9
+    dev: true
+
+  /@types/mocha/10.0.1:
+    resolution: {integrity: sha512-/fvYntiO1GeICvqbQ3doGDIP97vWmvFt83GKguJ6prmQM2iXZfFcq6YE8KteFyRtX2/h5Hf91BYvPodJKFYv5Q==}
     dev: true
 
   /@types/node/10.17.60:
@@ -3626,12 +3603,6 @@ packages:
   /@types/tmp/0.2.3:
     resolution: {integrity: sha512-dDZH/tXzwjutnuk4UacGgFRwV+JSLaXL1ikvidfJprkb7L9Nx1njcRHHmi3Dsvt7pgqqTEeucQuOrWHPFgzVHA==}
     dev: true
-
-  /@types/ws/6.0.4:
-    resolution: {integrity: sha512-PpPrX7SZW9re6+Ha8ojZG4Se8AZXgf0GK6zmfqEuCsY49LFDNXO3SByp44X3dFEqtB73lkCDAdUazhAjVPiNwg==}
-    dependencies:
-      '@types/node': 18.11.9
-    dev: false
 
   /@types/ws/7.4.7:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
@@ -6603,30 +6574,6 @@ packages:
       wide-align: 1.1.5
     dev: true
 
-  /genql-runtime/1.1.28:
-    resolution: {integrity: sha512-nsC/rAGhtfBQd8hC8OCkhAgK8+Os7iwOSaqjy0uai70HNDxtlO2GqZAeBnEfNuRqcECQPG9X3zNJcZawjdEEuQ==}
-    dependencies:
-      '@types/lodash.assign': 4.2.7
-      '@types/lodash.get': 4.4.7
-      '@types/lodash.startswith': 4.2.7
-      '@types/qs': 6.9.7
-      '@types/ws': 6.0.4
-      isomorphic-unfetch: 3.1.0
-      lodash.assign: 4.2.0
-      lodash.get: 4.4.2
-      lodash.startswith: 4.2.1
-      subscriptions-transport-ws: 0.9.19
-      tslib: 2.4.1
-      utility-types: 3.10.0
-      ws: 6.2.2
-      zen-observable-ts: 0.8.21
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - graphql
-      - utf-8-validate
-    dev: false
-
   /gensync/1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
@@ -7694,7 +7641,6 @@ packages:
       unfetch: 4.2.0
     transitivePeerDependencies:
       - encoding
-    dev: false
 
   /istanbul-lib-coverage/3.2.0:
     resolution: {integrity: sha512-eOeJ5BHCmHYvQK7xt9GkdHuzuCGS1Y6g9Gvnx3Ym33fz/HpLRYxiS0wHNr+m/MBC8B647Xt608vCDEvhl9c6Mw==}
@@ -8477,14 +8423,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
 
-  /lodash.assign/4.2.0:
-    resolution: {integrity: sha512-hFuH8TY+Yji7Eja3mGiuAxBqLagejScbG8GbG0j6o9vzn0YL14My+ktnqtZgFTosKymC9/44wP6s7xyuLfnClw==}
-    dev: false
-
-  /lodash.get/4.4.2:
-    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
-    dev: false
-
   /lodash.ismatch/4.4.0:
     resolution: {integrity: sha512-fPMfXjGQEV9Xsq/8MTSgUf255gawYRbjwMyDbcvDhXgV7enSZA0hynz6vMPnpAb5iONEzBHBPsT+0zes5Z301g==}
     dev: true
@@ -8495,10 +8433,6 @@ packages:
 
   /lodash.sortby/4.7.0:
     resolution: {integrity: sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==}
-    dev: false
-
-  /lodash.startswith/4.2.1:
-    resolution: {integrity: sha512-XClYR1h4/fJ7H+mmCKppbiBmljN/nGs73iq2SjCT9SF4CBPoUHzLvWmH1GtZMhMBZSiRkHXfeA2RY1eIlJ75ww==}
     dev: false
 
   /lodash.zip/4.2.0:
@@ -11160,22 +11094,6 @@ packages:
     resolution: {integrity: sha512-GP6WDNWf+o403jrEp9c5jibKavrtLW+/qYGhFxFrG8maXhwTBI7gLLhiBb0o7uFccWN+EOS9aMO6cGHWAO07OA==}
     dev: false
 
-  /subscriptions-transport-ws/0.9.19:
-    resolution: {integrity: sha512-dxdemxFFB0ppCLg10FTtRqH/31FNRL1y1BQv8209MK5I4CwALb7iihQg+7p65lFcIl8MHatINWBLOqpgU4Kyyw==}
-    deprecated: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
-    peerDependencies:
-      graphql: '>=0.10.0'
-    dependencies:
-      backo2: 1.0.2
-      eventemitter3: 3.1.2
-      iterall: 1.3.0
-      symbol-observable: 1.2.0
-      ws: 6.2.2
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-    dev: false
-
   /subscriptions-transport-ws/0.9.19_graphql@16.6.0:
     resolution: {integrity: sha512-dxdemxFFB0ppCLg10FTtRqH/31FNRL1y1BQv8209MK5I4CwALb7iihQg+7p65lFcIl8MHatINWBLOqpgU4Kyyw==}
     deprecated: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
@@ -11684,7 +11602,6 @@ packages:
 
   /unfetch/4.2.0:
     resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
-    dev: false
 
   /unique-filename/2.0.1:
     resolution: {integrity: sha512-ODWHtkkdx3IAR+veKxFV+VBkUMcN+FaqzUUd7IZzt+0zhDZFPFxhlqwPF3YQvMHx1TD0tdgYl+kuPnJ8E6ql7A==}
@@ -11783,11 +11700,6 @@ packages:
       for-each: 0.3.3
       has-symbols: 1.0.3
       object.getownpropertydescriptors: 2.1.5
-    dev: false
-
-  /utility-types/3.10.0:
-    resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
-    engines: {node: '>= 4'}
     dev: false
 
   /utils-merge/1.0.1:

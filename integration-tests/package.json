@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@genql/cli": "workspace:*",
+        "@graphql-tools/schema": "^9.0.10",
         "apollo-server": "^3.11.1",
         "await-sleep": "^0.0.1",
         "deep-equal": "^2.1.0",

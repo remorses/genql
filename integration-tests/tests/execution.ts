@@ -37,7 +37,7 @@ async function server({ resolvers, port = PORT }) {
                 typeDefs,
                 resolvers,
                 resolverValidationOptions: {
-                    requireResolversForResolveType: false,
+                    // requireResolversForResolveType: false,
                 },
             }),
         })
@@ -416,108 +416,108 @@ describe('execute queries', async function () {
     )
 })
 
-// TODO apollo server changed everything in version 3 and i don't have time to fix their shit
-describe.skip('execute subscriptions', async function () {
-    const x: DeepPartial<User> = {
-        name: 'John',
-    }
-    const pubsub = new PubSub()
-    const USER_EVENT = 'userxxx'
+// // TODO apollo server changed everything in version 3 and i don't have time to fix their shit
+// describe.skip('execute subscriptions', async function () {
+//     const x: DeepPartial<User> = {
+//         name: 'John',
+//     }
+//     const pubsub = new PubSub()
+//     const USER_EVENT = 'userxxx'
 
-    const makeServer = () =>
-        server({
-            resolvers: {
-                Subscription: {
-                    user: {
-                        subscribe: () => {
-                            return pubsub.asyncIterator([USER_EVENT])
-                        },
-                    },
-                },
-            },
-        })
+//     const makeServer = () =>
+//         server({
+//             resolvers: {
+//                 Subscription: {
+//                     user: {
+//                         subscribe: () => {
+//                             return pubsub.asyncIterator([USER_EVENT])
+//                         },
+//                     },
+//                 },
+//             },
+//         })
 
-    it('simple ', async () => {
-        const client = createClient({
-            url: SUB_URL,
-        })
+//     it('simple ', async () => {
+//         const client = createClient({
+//             url: SUB_URL,
+//         })
 
-        const stop = await makeServer()
-        // await pubsub.publish(USER_EVENT, { user: x })
-        await sleep(100)
-        const sub = await client
-            .subscription({
-                user: {
-                    name: true,
-                    common: 1,
-                    __typename: true,
-                },
-            })
-            .subscribe({
-                next: (x) => {
-                    expectType<Maybe<string>>(x.user?.name)
-                    expectType<Maybe<string>>(x.user?.__typename)
-                    expectType<Maybe<number>>(x.user?.common)
-                    console.log(x)
-                },
-                complete: () => console.log('complete'),
-                error: console.error,
-            })
+//         const stop = await makeServer()
+//         // await pubsub.publish(USER_EVENT, { user: x })
+//         await sleep(100)
+//         const sub = await client
+//             .subscription({
+//                 user: {
+//                     name: true,
+//                     common: 1,
+//                     __typename: true,
+//                 },
+//             })
+//             .subscribe({
+//                 next: (x) => {
+//                     expectType<Maybe<string>>(x.user?.name)
+//                     expectType<Maybe<string>>(x.user?.__typename)
+//                     expectType<Maybe<number>>(x.user?.common)
+//                     console.log(x)
+//                 },
+//                 complete: () => console.log('complete'),
+//                 error: console.error,
+//             })
 
-        // await sleep(1000)
-        await pubsub.publish(USER_EVENT, { user: x })
-        // console.log(JSON.stringify(res, null, 2))
-        sub.unsubscribe()
-        client?.wsClient?.close?.()
-        await stop()
-        // assert(deepEq(res.user, x))
-    })
+//         // await sleep(1000)
+//         await pubsub.publish(USER_EVENT, { user: x })
+//         // console.log(JSON.stringify(res, null, 2))
+//         sub.unsubscribe()
+//         client?.wsClient?.close?.()
+//         await stop()
+//         // assert(deepEq(res.user, x))
+//     })
 
-    it('headers function gets called', async () => {
-        let headersCalledNTimes = 0
+//     it('headers function gets called', async () => {
+//         let headersCalledNTimes = 0
 
-        const client = createClient({
-            url: SUB_URL,
-            subscription: {
-                headers: async () => {
-                    headersCalledNTimes++
-                    return {}
-                },
-            },
-        })
-        const stop = await makeServer()
-        // await pubsub.publish(USER_EVENT, { user: x })
-        await sleep(100)
-        let subscribeCalledNTimes = 0
-        const sub = client
-            .subscription({
-                user: {
-                    name: true,
-                    common: 1,
-                    __typename: true,
-                },
-            })
-            .subscribe({
-                next: (x) => {
-                    expectType<Maybe<string>>(x.user?.name)
-                    expectType<Maybe<string>>(x.user?.__typename)
-                    expectType<Maybe<number>>(x.user?.common)
-                    console.log(x)
-                    subscribeCalledNTimes++
-                },
-                complete: () => console.log('complete'),
-                error: console.error,
-            })
+//         const client = createClient({
+//             url: SUB_URL,
+//             subscription: {
+//                 headers: async () => {
+//                     headersCalledNTimes++
+//                     return {}
+//                 },
+//             },
+//         })
+//         const stop = await makeServer()
+//         // await pubsub.publish(USER_EVENT, { user: x })
+//         await sleep(100)
+//         let subscribeCalledNTimes = 0
+//         const sub = client
+//             .subscription({
+//                 user: {
+//                     name: true,
+//                     common: 1,
+//                     __typename: true,
+//                 },
+//             })
+//             .subscribe({
+//                 next: (x) => {
+//                     expectType<Maybe<string>>(x.user?.name)
+//                     expectType<Maybe<string>>(x.user?.__typename)
+//                     expectType<Maybe<number>>(x.user?.common)
+//                     console.log(x)
+//                     subscribeCalledNTimes++
+//                 },
+//                 complete: () => console.log('complete'),
+//                 error: console.error,
+//             })
 
-        await sleep(100)
-        await pubsub.publish(USER_EVENT, { user: x })
-        await pubsub.publish(USER_EVENT, { user: x })
-        await sleep(100)
-        assert.strictEqual(subscribeCalledNTimes, 2, 'subscribeCalledNTimes')
-        // console.log(JSON.stringify(res, null, 2))
-        sub.unsubscribe()
-        client.wsClient!.close()
-        await stop()
-        assert.strictEqual(headersCalledNTimes, 1)
-    })
-})
+//         await sleep(100)
+//         await pubsub.publish(USER_EVENT, { user: x })
+//         await pubsub.publish(USER_EVENT, { user: x })
+//         await sleep(100)
+//         assert.strictEqual(subscribeCalledNTimes, 2, 'subscribeCalledNTimes')
+//         // console.log(JSON.stringify(res, null, 2))
+//         sub.unsubscribe()
+//         client.wsClient!.close()
+//         await stop()
+//         assert.strictEqual(headersCalledNTimes, 1)
+//     })
+// })

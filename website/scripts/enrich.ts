@@ -68,7 +68,11 @@ async function main() {
                         ).toString()
                     }
                     {
-                        const json = await createPackage({ ...enriched, slug })
+                        const json = await createPackage({
+                            ...enriched,
+                            slug,
+                            publish: true,
+                        })
                         enriched.version = semver.inc(json.version, 'minor')
                     }
                     console.log('Writing file', path.basename(file))
@@ -182,5 +186,3 @@ function generateBaseUrlMap(options, headers) {
         : (icon) =>
               Object.assign(icon, { href: url.resolve(baseUrl, icon.href) })
 }
-
-
