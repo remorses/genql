@@ -113,7 +113,7 @@ function generateRandomQueries({
     const generateQuery = (
         curName,
         curParentType,
-        curParentName,
+        curParentName = '',
         argumentsDict = {},
         duplicateArgCounts = {},
         crossReferenceKeyList = [], // [`${curParentName}To${curName}Key`]
@@ -133,7 +133,7 @@ function generateRandomQueries({
                     crossReferenceKeyList.indexOf(crossReferenceKey) !== -1) ||
                 (fromUnion ? curDepth - 2 : curDepth) > depthLimit
             ) {
-                return ''
+                return { queryStr: '' }
             }
             if (!fromUnion) {
                 crossReferenceKeyList.push(crossReferenceKey)
