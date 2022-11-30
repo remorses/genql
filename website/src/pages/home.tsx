@@ -83,7 +83,7 @@ const Page = () => (
             subheading={
                 <Fragment>
                     Genql generates a TypeScript SDK
-                    <br /> for your GraphQL API
+                    <br className='max-md:hidden' /> for your GraphQL API
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
