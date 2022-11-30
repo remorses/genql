@@ -1,0 +1,6 @@
+content: |
+  The Contentful API let you manage your CMS programmatically. For example you can use this client to write scripts and automations.
+website: https://contentful.com
+endpoint: https://graphql.contentful.com/graphql
+favicon: https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d
+version: 0.1.0

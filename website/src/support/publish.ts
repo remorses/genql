@@ -12,19 +12,21 @@ import { generateQueries } from '../support/generateQueries'
 import { YamlFileData } from '@app/pages/clients/[slug]'
 
 function generateReadme({
-    name,
     slug,
+    website,
     exampleCode,
 }: YamlFileData & { slug: string }) {
+    const host = new URL(website).host
     return `
-# ${name}
 
-GraphQl client for ${name} with full typescript support
+# ${host} TypeScript API client
+
+GraphQl client for ${host} with full typescript support
 
 ## Installation
 
 \`\`\`
-npm install ${NPM_SCOPE}/${name}
+npm install ${NPM_SCOPE}/${slug}
 \`\`\`
 
 ## Docs
@@ -66,15 +68,16 @@ export function runCommand({ cmd, cwd }) {
 export async function createPackage(
     args: YamlFileData & { slug: string; publish: boolean },
 ) {
-    const { endpoint, name, slug, version } = args
+    const { endpoint, slug, version } = args
     const { path: tmpPath, cleanup } = await tmp.dir({
         unsafeCleanup: true,
     })
     console.log('tmpPath', tmpPath)
+    const host = new URL(endpoint).host
     try {
         const packageJson = {
             name: `${NPM_SCOPE}/${slug}`,
-            description: `SDK client for ${name} GraphQL API`,
+            description: `SDK client for ${host} GraphQL API`,
             version: version,
             main: './dist/index.js',
             // module: './index.esm.js',
@@ -123,7 +126,7 @@ export async function createPackage(
 
         return packageJson
     } catch (e) {
-        throw new Error('Could not publish package: ' + String(e))
+        throw new Error('Could not publish: ' + String(e))
     } finally {
         await cleanup()
     }

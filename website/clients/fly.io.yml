@@ -1,6 +1,5 @@
 favicon: https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d
-name: fly.io
-version: 0.1.0
+version: 0.4.0
 content: |
   GraphQl for the fly.io cloud platform
 website: https://fly.io

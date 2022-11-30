@@ -39,10 +39,12 @@ const Page = ({ items }: InferGetStaticPropsType<typeof getStaticProps>) => (
         <PageContainer className='pt-12' dontContain>
             {/* // TODO add search for clients? */}
             {/* TODO add clients pagination */}
+
             <FeaturesBlocks
                 items={items.map((x) => {
+                    const host = new URL(x.website).host
                     return {
-                        heading: `${x.name}`,
+                        heading: `${host}`,
                         href: `/clients/${x.slug}`,
                         icon: x.favicon && (
                             <img
@@ -51,7 +53,8 @@ const Page = ({ items }: InferGetStaticPropsType<typeof getStaticProps>) => (
                                 src={x.favicon}
                             />
                         ),
-                        description: `GraphQL client for ${x.website} API`,
+                        description:
+                            truncate(x.content) || `GraphQL client for ${host}`,
                     }
                 })}
             />
@@ -132,4 +135,9 @@ export function getStaticProps() {
             items,
         },
     }
+}
+
+function truncate(str: string, max = 90) {
+    if (str.length <= max) return str
+    return str.slice(0, max) + '...'
 }

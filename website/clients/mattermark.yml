@@ -1,0 +1,7 @@
+content: |
+  API for mattermark.com, discover, prospect, and track the world’s fastest-growing companies and investors.
+website: https://mattermark.com/
+docs: https://developer.mattermark.com/docs/graphql
+endpoint: https://eapi.mattermark.com/
+favicon: https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d
+version: 0.0.0

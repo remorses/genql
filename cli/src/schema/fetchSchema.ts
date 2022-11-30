@@ -10,9 +10,11 @@ import qs from 'qs'
 import { sortBy } from 'lodash'
 
 export interface SchemaFetcher {
-    (query: string, fetchImpl: typeof fetch, qsImpl: typeof qs): Promise<
-        ExecutionResult
-    >
+    (
+        query: string,
+        fetchImpl: typeof fetch,
+        qsImpl: typeof qs,
+    ): Promise<ExecutionResult>
 }
 
 export const fetchSchema = async ({
@@ -42,7 +44,8 @@ export const fetchSchema = async ({
     )
     if (!response.ok) {
         throw new Error(
-            'introspection query was not successful, ' + response.statusText,
+            `introspection for ${new URL(endpoint).host} failed, ` +
+                response.statusText,
         )
     }
 

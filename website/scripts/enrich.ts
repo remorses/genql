@@ -14,18 +14,22 @@ import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
 import { generateQueries } from '../src/support/generateQueries'
 import { createPackage } from '../src/support/publish'
 
+let publish = false
+
 async function main() {
     const folder = path.resolve('./clients')
     const files = await fs.readdirSync(folder).map((x) => path.join(folder, x))
     const limit = pLimit(10)
+    const errored = {}
     await Promise.all(
         files.map((file) =>
             limit(async () => {
+                const slug = path.basename(file, '.yml')
                 try {
                     const content = await fs.readFileSync(file, 'utf-8')
-                    const slug = path.basename(file, '.yml')
+
                     const data: YamlFileData = yaml.parse(content)
-                    const { name, website, useGet, endpoint } = data
+                    const { website, useGet, endpoint } = data
                     const enriched = {
                         ...data,
                     }
@@ -71,7 +75,7 @@ async function main() {
                         const json = await createPackage({
                             ...enriched,
                             slug,
-                            publish: true,
+                            publish,
                         })
                         enriched.version = semver.inc(json.version, 'minor')
                     }
@@ -88,10 +92,12 @@ async function main() {
                     )
                 } catch (e) {
                     console.log('ERROR', e)
+                    errored[slug] = e.message
                 }
             }),
         ),
     )
+    console.log('Clients that did error out:', JSON.stringify(errored, null, 4))
 }
 
 main()
