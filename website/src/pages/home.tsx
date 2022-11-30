@@ -67,7 +67,7 @@ const Page = () => (
             className='text-white'
             bullet='Introducing Genql 3.0'
             cta={
-                <div className='flex items-center gap-4'>
+                <div className='flex flex-col md:flex-row items-center gap-4'>
                     <Button href='/docs'>Quick Start</Button>
                     <Button ghost href='/clients'>
                         Explore GraphQL Clients
@@ -198,8 +198,8 @@ const Page = () => (
                         muted
                         style={{
                             mixBlendMode: 'lighten',
-                            minWidth: '800px',
                         }}
+                        className='md:max-w-[800px] max-w-full'
                         // borderRadius='10px'
                         src='/completion.mp4'
                     />
@@ -223,9 +223,10 @@ const Page = () => (
                             loop
                             autoPlay
                             muted
+                            className='md:max-w-[800px] max-w-full'
                             style={{
                                 mixBlendMode: 'lighten',
-                                minWidth: '800px',
+
                                 // zIndex: 1000,
                             }}
                             // borderRadius='10px'
