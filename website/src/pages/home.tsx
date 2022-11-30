@@ -203,6 +203,7 @@ const Page = () => (
                     <video
                         loop
                         autoPlay
+                        playsInline
                         muted
                         style={{
                             mixBlendMode: 'lighten',
@@ -238,6 +239,7 @@ const Page = () => (
                         <video
                             loop
                             autoPlay
+                            playsInline
                             muted
                             className='md:max-w-[800px] max-w-full'
                             style={{
