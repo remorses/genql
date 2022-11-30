@@ -15,10 +15,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm i -g npm@latest
-      - run: yarn
-      - run: yarn buildall
-      - run: yarn test
+      - run: npm i -g pnpm
+      - run: pnpm i
+      - run: pnpm buildall
+      - run: pnpm test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Bump version
@@ -36,5 +36,3 @@ jobs:
       #   if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-
-          
