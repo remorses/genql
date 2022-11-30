@@ -397,11 +397,13 @@ describe('execute queries', async function () {
         'batches requests',
         withServer(async () => {
             let batchedQueryLength = -1
+            let requestsCount = 0
             const client = createClient({
                 url: URL,
                 batch: true,
                 fetcher: async (body) => {
                     console.log(body)
+                    requestsCount += 1
                     batchedQueryLength = Array.isArray(body) ? body.length : -1
                     const res = await fetch(URL, {
                         headers: {
@@ -429,6 +431,7 @@ describe('execute queries', async function () {
             ])
             assert.strictEqual(res.length, 2)
             assert.strictEqual(batchedQueryLength, 2)
+            assert.strictEqual(requestsCount, 1)
         }),
     )
     it(
