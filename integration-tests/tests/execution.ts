@@ -338,7 +338,7 @@ describe('execute queries', async function () {
         }),
     )
     it(
-        'errors with batching',
+        'errors are thrown with batching',
         withServer(async () => {
             const client = createClient({
                 url: URL,
@@ -363,6 +363,34 @@ describe('execute queries', async function () {
             assert.ok(err2)
             assert.ok(err1 instanceof GenqlError && err1.errors.length)
             assert.ok(err2 instanceof GenqlError && err1.errors.length)
+        }),
+    )
+    it(
+        '1 error and 1 result with batching',
+        withServer(async () => {
+            const client = createClient({
+                url: URL,
+                batch: {
+                    batchInterval: 100,
+                },
+            })
+            const [err1, res] = await Promise.all([
+                client
+                    .query({
+                        throwsError: true,
+                    })
+                    .catch((err) => err),
+                client.query({
+                    user: {
+                        name: true,
+                    },
+                }),
+            ])
+            // console.log(err1, err2)
+            assert.ok(err1)
+            assert.ok(res)
+            assert.ok(err1 instanceof GenqlError && err1.errors.length)
+            assert.ok(res.user)
         }),
     )
     it(
