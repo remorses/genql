@@ -15,12 +15,14 @@ export const ensurePath = async (path: string[], clear: boolean = false) => {
     await mkdirp(resolve(...path))
 }
 
-
 export const readFileFromPath = (path: string[]) =>
     fs.readFile(resolve(...path)).then((b) => b.toString())
 
-export const writeFileToPath = (path: string[], content: string) =>
-    fs.writeFile(resolve(...path), content)
+export const writeFileToPath = async (path: string[], content: string) => {
+    const folder = resolve(...path, '..')
+    await fs.mkdir(folder, { recursive: true })
+    await fs.writeFile(resolve(...path), content)
+}
 
 export const readFilesAndConcat = (files: string[]) =>
     Promise.all(files.map((file) => readFileFromPath([file]))).then(
