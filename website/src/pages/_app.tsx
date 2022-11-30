@@ -17,18 +17,6 @@ export default function App(props) {
     const { Component, pageProps } = props
     const { pathname } = useRouter()
 
-    // console.log({ pathname })
-    if (pathname.startsWith('/docs')) {
-        return (
-            <>
-                <Head>
-                    <script src='https://embed.runkit.com'></script>
-                </Head>
-
-                <Component {...pageProps} />
-            </>
-        )
-    }
     return (
         <>
             <NextNprogress
@@ -41,7 +29,7 @@ export default function App(props) {
             />
 
             <div
-                className='relative text-gray-100 md:px-[30px] flex flex-col space-y-[40px] min-h-[100vh]'
+                className='relative overflow-x-hidden max-w-full text-gray-100 md:px-[30px] flex flex-col space-y-[40px] min-h-[100vh]'
                 style={{ background: BG }}
             >
                 <MyNavbar />
