@@ -8,7 +8,7 @@ website: https://chargetrip.com
 endpoint: https://api.chargetrip.io/graphql
 docs: https://developers.chargetrip.com/api-reference/api/quick-setup-guide/
 favicon: https://chargetrip.com/favicon.ico
-version: 0.4.0
+version: 0.10.0
 exampleCode: |+
   import { createClient } from '@genql/chargetrip'
   const client = createClient()

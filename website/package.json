@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev -p 3030",
-        "test": "mocha",
+        "test": "",
         "enrich": "esno scripts/enrich.ts",
         "build": "yarn --cwd .. buildall && next build",
         "start": "next start -p 3030"

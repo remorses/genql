@@ -1,17 +1,17 @@
-export interface InterfaceRequest {
+export interface InterfaceGenqlSelection {
   noArgs?: boolean | number
   /**
    * @deprecated No longer supported
    * single line description
    */
   other?: boolean | number
-  on_Object?: ObjectRequest
+  on_Object?: ObjectGenqlSelection
   __typename?: boolean | number
   __scalar?: boolean | number
 }
 
 /** single line description */
-export interface ObjectRequest {
+export interface ObjectGenqlSelection {
   /**
    * @deprecated No longer supported
    * single line description
@@ -26,14 +26,14 @@ export interface ObjectRequest {
     },
   ]
   optionalArgObj?:
-    | [{ optional?: Scalars['String'] | null }, InterfaceRequest]
-    | InterfaceRequest
+    | [{ optional?: Scalars['String'] | null }, InterfaceGenqlSelection]
+    | InterfaceGenqlSelection
   requiredArgObj?: [
     {
       /** single line description */
       required: Enum
     },
-    InterfaceRequest,
+    InterfaceGenqlSelection,
   ]
   argTypes?: [
     {
@@ -56,8 +56,8 @@ export interface ObjectRequest {
   __scalar?: boolean | number
 }
 
-export interface InterfaceFieldRequest {
-  field?: InterfaceRequest
+export interface InterfaceFieldGenqlSelection {
+  field?: InterfaceGenqlSelection
   __typename?: boolean | number
   __scalar?: boolean | number
 }

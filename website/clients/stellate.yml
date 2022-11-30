@@ -1,8 +1,113 @@
-favicon: https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d
-version: 0.1.0
-content: |
-  You can use this API client to automate and create scripts to manage your Stellate account
+favicon: https://stellate.co/favicon-128.png
+version: 0.3.0
+content: >
+  You can use this API client to automate and create scripts to manage
+  your Stellate account
+
 
   Stellate is a platform to cache and improve latency for your GraphQL APIs
 website: https://stellate.co
 endpoint: https://graph.stellate.co
+exampleCode: |+
+  import { createClient } from '@genql/stellate'
+  const client = createClient()
+
+
+  // query variables
+  let id
+
+  client
+    .query({
+      alert: [
+        {
+          id: id,
+        },
+        {
+          filters: {
+            id: true,
+            scope: true,
+            type: true,
+          },
+          id: true,
+          interval: true,
+        },
+      ],
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+  // query variables
+  let after
+  let before
+  let id
+  let slug
+
+  client
+    .query({
+      organization: [
+        {
+          id: id,
+          slug: slug,
+        },
+        {
+          id: true,
+          name: true,
+          services: [
+            {
+              after: after,
+              before: before,
+            },
+            {
+              totalCount: true,
+            },
+          ],
+        },
+      ],
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+  // query variables
+  let after
+  let before
+
+  client
+    .query({
+      organizations: [
+        {
+          after: after,
+          before: before,
+        },
+        {
+          edges: {
+            cursor: true,
+          },
+          pageInfo: {
+            endCursor: true,
+            hasNextPage: true,
+            hasPreviousPage: true,
+          },
+          totalCount: true,
+        },
+      ],
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+  // Mutations
+  // query variables
+  let input
+
+  client
+    .mutation({
+      applyForJob: [
+        {
+          input: input,
+        },
+      ],
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+

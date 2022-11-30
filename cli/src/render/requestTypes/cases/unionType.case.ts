@@ -1,13 +1,13 @@
-export interface UnionRequest {
-  on_A?: ARequest
-  on_B?: BRequest
+export interface UnionGenqlSelection {
+  on_A?: AGenqlSelection
+  on_B?: BGenqlSelection
   __typename?: boolean | number
 }
 
 /** single line description */
-export interface UnionDRequest {
-  on_A?: ARequest
-  on_B?: BRequest
+export interface UnionDGenqlSelection {
+  on_A?: AGenqlSelection
+  on_B?: BGenqlSelection
   __typename?: boolean | number
 }
 
@@ -15,8 +15,8 @@ export interface UnionDRequest {
  * multiline
  * description
  */
-export interface UnionMDRequest {
-  on_A?: ARequest
-  on_B?: BRequest
+export interface UnionMDGenqlSelection {
+  on_A?: AGenqlSelection
+  on_B?: BGenqlSelection
   __typename?: boolean | number
 }

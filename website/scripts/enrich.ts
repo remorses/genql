@@ -29,6 +29,9 @@ async function main() {
                     const content = await fs.readFileSync(file, 'utf-8')
 
                     const data: YamlFileData = yaml.parse(content)
+                    if (data.disabled) {
+                        return
+                    }
                     const { website, useGet, endpoint } = data
                     const enriched = {
                         ...data,

@@ -12,6 +12,8 @@ import { inputObjectType } from './inputObjectType'
 import { objectType } from './objectType'
 import { unionType } from './unionType'
 import { sortKeys } from '../common/support'
+import { emitWarning } from 'process'
+import { requestTypeName } from './requestTypeName'
 
 export const renderRequestTypes = (
     schema: GraphQLSchema,
@@ -34,9 +36,12 @@ export const renderRequestTypes = (
     }
 
     const aliases = [
-        { type: schema.getQueryType(), name: 'QueryRequest' },
-        { type: schema.getMutationType(), name: 'MutationRequest' },
-        { type: schema.getSubscriptionType(), name: 'SubscriptionRequest' },
+        { type: schema.getQueryType(), name: 'QueryGenqlSelection' },
+        { type: schema.getMutationType(), name: 'MutationGenqlSelection' },
+        {
+            type: schema.getSubscriptionType(),
+            name: 'SubscriptionGenqlSelection',
+        },
     ]
         .map(renderAlias)
         .filter(Boolean)
@@ -52,8 +57,9 @@ function renderAlias({
     type?: GraphQLObjectType | null
     name: string
 }) {
-    if (type && type.name + 'Request' !== name) { // TODO make the camel case or kebab case an option
-        return `export type ${name} = ${type.name + 'Request'}`
+    if (type && requestTypeName(type) !== name) {
+        // TODO make the camel case or kebab case an option
+        return `export type ${name} = ${requestTypeName(type)}`
     }
     return ''
 }

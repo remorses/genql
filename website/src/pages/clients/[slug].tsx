@@ -170,6 +170,7 @@ export type YamlFileData = {
     version: string
     exampleCode?: string
     useGet?: boolean
+    disabled?: boolean
     // tags: string[]
 }
 

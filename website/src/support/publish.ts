@@ -50,16 +50,25 @@ This project is sponsored by [Notaku](https://notaku.so)
 
 export function runCommand({ cmd, cwd }) {
     return new Promise((res, rej) => {
+        let stderr = ''
+        let stdout = ''
         const ps = exec(
             cmd,
             { cwd, env: { ...process.env } },
             (err, stdout, stderr) => {
                 if (err) {
-                    rej(err)
+                    rej(new Error(`${cmd} failed: ${stdout}\n${stderr}\n`))
                 }
                 res(stdout)
             },
         )
+        ps.stderr.on('data', (data) => {
+            stderr += data.toString()
+        })
+        ps.stdout.on('data', (data) => {
+            stdout += data.toString()
+        })
+
         ps.stdout.pipe(process.stdout)
         ps.stderr.pipe(process.stdout)
     })
@@ -72,7 +81,7 @@ export async function createPackage(
     const { path: tmpPath, cleanup } = await tmp.dir({
         unsafeCleanup: true,
     })
-    console.log('tmpPath', tmpPath)
+    console.log('tmpPath', slug, tmpPath)
     const host = new URL(endpoint).host
     try {
         const packageJson = {
@@ -123,12 +132,11 @@ export async function createPackage(
                 cwd: tmpPath,
             })
         }
-
+        await cleanup()
         return packageJson
     } catch (e) {
         throw new Error('Could not publish: ' + String(e))
     } finally {
-        await cleanup()
     }
 }
 
