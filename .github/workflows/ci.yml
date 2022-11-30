@@ -10,13 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm i -g pnpm
-      - run: pnpm i
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/pnpm
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      # setup pnpm
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 7
+          run_install: false
+      # scripts
+      - run: pnpm i --store-dir ~/pnpm
       - run: pnpm buildall
       - run: pnpm test
         env:
