@@ -81,10 +81,7 @@ export function MyFooter({ ...rest }) {
                     <MyLink href={GITHUB_LINK}>Github</MyLink>,
                     <MyLink href={DOCS_LINK}>Docs</MyLink>,
                 ],
-                'Find Us': [
-                    <MyLink href='https://twitter.com/__morse'>Twitter</MyLink>,
-                    <MyLink href='https://github.com/remorses/'>Github</MyLink>,
-                ],
+
                 'Who made this?': [
                     <MyLink href='https://twitter.com/__morse'>
                         My Twitter
