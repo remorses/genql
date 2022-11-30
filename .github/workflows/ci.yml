@@ -30,6 +30,7 @@ jobs:
       # scripts
       - run: pnpm i --store-dir ~/pnpm
       - run: pnpm buildall
+      - run: pnpm genall  
       - run: pnpm test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
