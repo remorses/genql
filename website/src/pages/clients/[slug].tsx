@@ -74,6 +74,9 @@ const Page = ({
             dontContain
         >
             <div className='space-y-4'>
+                <div className='whitespace-pre-wrap'>{content}</div>
+            </div>
+            <div className='space-y-4'>
                 <h2 className='text-3xl font-bold '>How to install</h2>
                 <div className=''>
                     Use a package manager to install the API client

@@ -72,7 +72,6 @@ export async function createPackage(
     })
     console.log('tmpPath', tmpPath)
     try {
-        // TODO bump version
         const packageJson = {
             name: `${NPM_SCOPE}/${slug}`,
             description: `SDK client for ${name} GraphQL API`,
@@ -80,6 +79,10 @@ export async function createPackage(
             main: './dist/index.js',
             // module: './index.esm.js',
             sideEffects: false,
+            repository: {
+                type: 'git',
+                url: 'https://github.com/remorses/genql',
+            },
             types: './dist/index.d.ts',
             dependencies: {
                 graphql: '^16.0.0',
@@ -122,7 +125,7 @@ export async function createPackage(
     } catch (e) {
         throw new Error('Could not publish package: ' + String(e))
     } finally {
-        // await cleanup()
+        await cleanup()
     }
 }
 

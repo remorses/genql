@@ -76,7 +76,16 @@ async function main() {
                         enriched.version = semver.inc(json.version, 'minor')
                     }
                     console.log('Writing file', path.basename(file))
-                    fs.writeFileSync(file, yaml.stringify(enriched), 'utf-8')
+                    fs.writeFileSync(
+                        file,
+                        yaml.stringify({
+                            ...enriched,
+                            version: enriched.version,
+                            exampleCode: enriched.exampleCode,
+                            favicon: enriched.favicon,
+                        }),
+                        'utf-8',
+                    )
                 } catch (e) {
                     console.log('ERROR', e)
                 }
