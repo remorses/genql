@@ -189,7 +189,15 @@ const Page = () => (
             flip
             heading='Auto completion'
             className='md:!pt-24'
-            subheading='Queries written with a genql client support auto completion thanks to typescript typings'
+            subheading={
+                <div>
+                    Genql generates a TypeScript sdk for your GraphQL API.
+                    <br />
+                    <br />
+                    You get IDE auto completion for your API and writing queries
+                    becomes a breeze.
+                </div>
+            }
             image={
                 <Box overflow='hidden' className='relative' mr='-50%' mb='-50%'>
                     <video
@@ -210,7 +218,15 @@ const Page = () => (
         <div className='!pt-32'>
             <Feature
                 heading='Type Validation'
-                subheading={`Every query written with genql is validated against its schema, you can't write invalid queries anymore`}
+                subheading={
+                    <div>
+                        {`Every query written with genql is validated against its schema, you can't write invalid queries anymore`}
+                        <br />
+                        <br />
+                        Fixing your queries after a schema change becomes very
+                        easy
+                    </div>
+                }
                 image={
                     <Box
                         overflow='hidden'
