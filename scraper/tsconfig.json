@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "noImplicitReturns": true,
+        "noUnusedParameters": false,
+        "rootDir": "src",
+        "noImplicitAny": false,
+        "strict": true,
+        "declaration": true,
+        "target": "ES2015",
+        "module": "CommonJS",
+        "declarationMap": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "allowJs": true,
+        "sourceMap": true,
+        "lib": ["dom", "es2017", "ES2015", "esnext.asynciterable"],
+        "skipLibCheck": true,
+        "isolatedModules": true
+    },
+    "include": ["src"],
+    "exclude": [
+        "node_modules",
+        "package.json",
+        "**/*.case.ts",
+        "tests",
+        "example",
+        "dist",
+        "**/__tests__"
+    ]
+}

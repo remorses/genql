@@ -118,6 +118,12 @@ importers:
       snap-shot-it: 7.9.6
       sucrase: 3.29.0
 
+  scraper:
+    specifiers:
+      '@types/node': ^18.11.9
+    devDependencies:
+      '@types/node': 18.11.9
+
   try-clients:
     specifiers:
       '@shitty-scope-name/countries': ^0.0.0

@@ -1,0 +1,18 @@
+{
+    "name": "scraper",
+    "version": "1.0.0",
+    "private": true,
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "generate": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
+        "main": "doppler -c dev run -- node -r sucrase/register src/main.ts"
+    },
+    "keywords": [],
+    "author": "remorses <beats.by.morse@gmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^18.11.9"
+    }
+}

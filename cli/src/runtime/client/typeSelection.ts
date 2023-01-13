@@ -91,7 +91,6 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends Nil
           }[keyof SRC]
       >
 
-// TODO response union types are very dumb
 type Handle__isUnion<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
     : Omit<SRC, FieldsToRemove> // just return the union type
