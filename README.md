@@ -28,7 +28,7 @@ First generate your client executing
 
 ```sh
 npm i -D @genql/cli # cli to generate the client code
-npm i graphql # runtime dependency
+npm i graphql @genql/runtime # runtime dependencies
 genql --schema ./schema.graphql --output ./generated
 ```
 
