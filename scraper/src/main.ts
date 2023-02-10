@@ -35,6 +35,8 @@ function executeCommand(command: string) {
     })
 }
 
+// TODO create a csv file i can use to keep state so i can add graphql clients one a a time and mark them when completed
+// csv should contain api endpoint, added, discarded, fake, website, website title, website description
 async function main() {
     const res = await sourceGraph.query({
         search: [

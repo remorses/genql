@@ -72,7 +72,6 @@ const parseRequest = (
         const fieldNames = Object.keys(fields).filter((k) => Boolean(fields[k]))
 
         if (fieldNames.length === 0) {
-            // TODO if fields are empty just return?
             throw new Error('field selection should not be empty')
         }
 

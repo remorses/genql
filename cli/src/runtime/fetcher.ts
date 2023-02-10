@@ -68,8 +68,6 @@ export const createFetcher = ({
                 }
                 return json.data
             }
-
-            // TODO how to handle fetch that returns errors? throw here? throw in default fetcher? i should have same behaviour in batch and not batch
         }
     }
 
