@@ -294,14 +294,15 @@ function fetchWithTimeout(
     options: RequestInit,
     timeout,
 ): Promise<Response> {
+    const controller = new AbortController()
     return Promise.race([
-        fetch(url, options),
+        fetch(url, { ...options, signal: controller.signal }),
 
         new Promise<any>((_, reject) =>
-            setTimeout(
-                () => reject(new Error('fetch timeout for ' + url)),
-                timeout,
-            ),
+            setTimeout(() => {
+                controller.abort()
+                reject(new Error('fetch timeout for ' + url))
+            }, timeout),
         ),
     ])
 }
