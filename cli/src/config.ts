@@ -1,6 +1,4 @@
-
 export const RUNTIME_LIB_NAME = './runtime'
-
 
 export interface Config {
     verbose?: boolean
@@ -13,12 +11,7 @@ export interface Config {
     // options?: Options
     headers?: Record<string, string>
     scalarTypes?: { [k: string]: string }
+    // import fetch from a package
+    fetchImport?: string
     sortProperties?: boolean
 }
-
-
-// export interface Options {
-//     schemaValidation?: GraphQLSchemaValidationOptions
-//     schemaPrint?: SchemaPrintOptions
-//     schemaBuild?: BuildSchemaOptions & ParseOptions
-// }

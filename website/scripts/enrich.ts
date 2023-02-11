@@ -60,7 +60,7 @@ async function main() {
                     if (schema) {
                         const exampleCode = generateQueries({
                             packageName: `@genql/${slug}`,
-                            number: 3,
+                            number: 5,
                             schema,
                         })
                         enriched.exampleCode = exampleCode

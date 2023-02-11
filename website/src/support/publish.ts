@@ -49,20 +49,6 @@ This project is sponsored by [Notaku](https://notaku.so)
 `
 }
 
-function generateIndex({}) {
-    return `
-import { createClient as generatedCreateClient } from './generated'
-import { fetch } from 'native-fetch'
-
-export const createClient: typeof generatedCreateClient = options => {
-    return generatedCreateClient({
-        fetch,
-        ...options,
-    })
-}
-`
-}
-
 export function runCommand({ cmd, cwd }) {
     return new Promise((res, rej) => {
         let stderr = ''
@@ -120,17 +106,18 @@ export async function createPackage(
 
         await generate({
             endpoint,
-            output: path.resolve(tmpPath, 'src/generated'),
+            output: path.resolve(tmpPath, 'src'),
+            fetchImport: "import { fetch } from 'native-fetch'",
         })
 
         await fs.writeFile(
             path.join(tmpPath, 'package.json'),
             JSON.stringify(packageJson, null, 4),
         )
-        await fs.writeFile(
-            path.join(tmpPath, 'src/index.ts'),
-            generateIndex({}),
-        )
+        // await fs.writeFile(
+        //     path.join(tmpPath, 'src/index.ts'),
+        //     generateIndex({}),
+        // )
         await fs.writeFile(
             path.join(tmpPath, 'tsconfig.json'),
             JSON.stringify(tsconfig, null, 4),
