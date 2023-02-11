@@ -5,7 +5,7 @@ import {
     LinkedField,
     LinkedType,
     LinkedTypeMap,
-} from '../types'
+} from './types'
 
 export interface PartialLinkedFieldMap {
     [field: string]: {

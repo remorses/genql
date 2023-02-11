@@ -1,6 +1,6 @@
-import { GenqlError } from '../error'
-import { BatchOptions, createFetcher } from '../fetcher'
-import { ExecutionResult, LinkedType } from '../types'
+import { GenqlError } from './error'
+import { BatchOptions, createFetcher } from './fetcher'
+import { ExecutionResult, LinkedType } from './types'
 import {
     generateGraphqlOperation,
     GraphqlOperation,

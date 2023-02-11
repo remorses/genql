@@ -1,4 +1,4 @@
-import { GraphqlOperation } from './client/generateGraphqlOperation'
+import { GraphqlOperation } from './generateGraphqlOperation'
 import { GenqlError } from './error'
 
 type Variables = Record<string, any>

@@ -2,8 +2,8 @@
 import QueryBatcher from './batcher'
 
 import fetch from 'isomorphic-unfetch'
-import { ClientOptions } from './client/createClient'
-import { GraphqlOperation } from './client/generateGraphqlOperation'
+import { ClientOptions } from './createClient'
+import { GraphqlOperation } from './generateGraphqlOperation'
 import { GenqlError } from './error'
 
 export interface Fetcher {
