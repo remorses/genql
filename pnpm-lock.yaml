@@ -178,6 +178,7 @@ importers:
       next: ^12
       next-auth: ^4.17.0
       next-cookies: ^2.0.3
+      next-seo: ^5.15.0
       next-themes: ^0.2.1
       next-transpile-modules: ^10.0.0
       nextjs-progressbar: ^0.0.16
@@ -226,6 +227,7 @@ importers:
       next: 12.3.4_biqbaboplfbrettd7655fr4n2y
       next-auth: 4.17.0_bhgafntz2ozm43l35i5qtimxry
       next-cookies: 2.0.3
+      next-seo: 5.15.0_bhgafntz2ozm43l35i5qtimxry
       next-themes: 0.2.1_bhgafntz2ozm43l35i5qtimxry
       next-transpile-modules: 10.0.0
       nextjs-progressbar: 0.0.16_next@12.3.4+react@18.2.0
@@ -9002,6 +9004,18 @@ packages:
     resolution: {integrity: sha512-YVCQzwZx+sz+KqLO4y9niHH9jjz6jajlEQbAKfsYVT6DOfngb/0k5l6vFK4rmpExVug96pGag8OBsdSRL9FZhQ==}
     dependencies:
       universal-cookie: 4.0.4
+    dev: false
+
+  /next-seo/5.15.0_bhgafntz2ozm43l35i5qtimxry:
+    resolution: {integrity: sha512-LGbcY91yDKGMb7YI+28n3g+RuChUkt6pXNpa8FkfKkEmNiJkeRDEXTnnjVtwT9FmMhG6NH8qwHTelGrlYm9rgg==}
+    peerDependencies:
+      next: ^8.1.1-canary.54 || >=9.0.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      next: 12.3.4_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /next-themes/0.2.1_bhgafntz2ozm43l35i5qtimxry:

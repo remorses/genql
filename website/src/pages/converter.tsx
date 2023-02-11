@@ -1,4 +1,5 @@
 import { Stack } from 'layout-kit-react'
+import { NextSeo } from 'next-seo'
 import React, { useEffect, useState } from 'react'
 import { Code } from '@app/components/CodeEditor'
 import gql from 'graphql-tag'
@@ -27,6 +28,12 @@ function Page({}) {
     const [invalid, setInvalid] = useState('')
     return (
         <div className='space-y-12'>
+            <NextSeo
+                {...{
+                    title: 'GraphQL to Genql TypeScript code converter',
+                    description: 'Quickly migrate your queries to be type safe',
+                }}
+            />
             <div className='text-center space-y-6'>
                 <h1 className='text-5xl font-semibold '>
                     Convert GraphQL to Genql code
