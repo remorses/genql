@@ -259,7 +259,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                 }
             />
         </div>
-        <PageContainer className='pt-24 space-y-24 ' dontContain>
+        <PageContainer className='pt-24 space-y-12 ' dontContain>
             <div className='text-center space-y-6 max-w-2xl self-center'>
                 <h2 className='text-5xl font-semibold leading-tight'>
                     An SDK for every GraphQL API
