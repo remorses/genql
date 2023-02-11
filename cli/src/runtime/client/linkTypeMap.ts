@@ -1,13 +1,10 @@
 import {
+    CompressedType,
+    CompressedTypeMap,
+    LinkedArgMap,
     LinkedField,
     LinkedType,
     LinkedTypeMap,
-    CompressedTypeMap,
-    CompressedType,
-    CompressedField,
-    CompressedFieldMap,
-    LinkedFieldMap,
-    LinkedArgMap,
 } from '../types'
 
 export interface PartialLinkedFieldMap {
@@ -25,14 +22,12 @@ export const linkTypeMap = (
         ...Object.keys(typeMap.types).map((k, i) => ({ [i]: k })),
     )
 
-    // add the name value
     let intermediaryTypeMap = Object.assign(
         {},
         ...Object.keys(typeMap.types || {}).map(
             (k): Record<string, LinkedType> => {
                 const type: CompressedType = typeMap.types[k]!
                 const fields = type || {}
-                // processFields(fields, indexToName)
                 return {
                     [k]: {
                         name: k,

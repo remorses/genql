@@ -156,7 +156,6 @@ export const generateGraphqlOperation = (
         varNames.length > 0
             ? `(${varNames.map((v) => {
                   const variableType = ctx.variables[v].typing[1]
-                  //   console.log('variableType', variableType)
                   return `$${v}:${variableType}`
               })})`
             : ''
