@@ -1,4 +1,7 @@
 import { spawn } from 'child_process'
+import fs from 'fs'
+import Papa from 'papaparse'
+import path from 'path'
 import { createClient } from './generated'
 
 const { SOURCEGRAPH_TOKEN } = process.env
@@ -35,9 +38,31 @@ function executeCommand(command: string) {
     })
 }
 
+let csvPath = path.resolve('data.csv')
+
+type CsvDataType = {
+    url: string
+    added: boolean
+    discarded: boolean
+    website: string
+}
+
 // TODO create a csv file i can use to keep state so i can add graphql clients one a a time and mark them when completed
 // csv should contain api endpoint, added, discarded, fake, website, website title, website description
 async function main() {
+    let csvData: CsvDataType[] = []
+    if (fs.existsSync(csvPath)) {
+        let csv = fs.readFileSync(csvPath, 'utf-8')
+        Papa.parse(csv, {
+            header: true,
+            complete(res) {
+                if (res.errors.length) {
+                    throw new Error(res.errors.join(', '))
+                }
+                csvData = res.data as any
+            },
+        })
+    }
     const res = await sourceGraph.query({
         search: {
             __args: {
@@ -106,6 +131,10 @@ async function main() {
     // console.log(JSON.stringify(res, null, 2))
     // console.log(lines?.join(`\n\n`))
     console.log(data.map((x) => JSON.stringify(x, null, 2))?.join(`\n\n`))
+    let csv = Papa.unparse(data, { header: true, delimiter: ',' })
+
+    console.log(`Writing to ${csvPath}`)
+    fs.writeFileSync(csvPath, csv, 'utf8')
     console.log(res?.search?.results.matchCount)
 }
 

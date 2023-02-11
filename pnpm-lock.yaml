@@ -118,6 +118,17 @@ importers:
       snap-shot-it: 7.9.6
       sucrase: 3.29.0
 
+  scraper:
+    specifiers:
+      '@types/node': ^18.11.9
+      '@types/papaparse': ^5.3.7
+      papaparse: ^5.3.2
+    dependencies:
+      '@types/papaparse': 5.3.7
+      papaparse: 5.3.2
+    devDependencies:
+      '@types/node': 18.11.9
+
   try-clients:
     specifiers:
       '@shitty-scope-name/countries': ^0.0.0
@@ -3546,6 +3557,12 @@ packages:
 
   /@types/nprogress/0.2.0:
     resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
+    dev: false
+
+  /@types/papaparse/5.3.7:
+    resolution: {integrity: sha512-f2HKmlnPdCvS0WI33WtCs5GD7X1cxzzS/aduaxSu3I7TbhWlENjSPs6z5TaB9K0J+BH1jbmqTaM+ja5puis4wg==}
+    dependencies:
+      '@types/node': 18.11.9
     dev: false
 
   /@types/parse-json/4.0.0:

@@ -13,5 +13,9 @@
     "license": "ISC",
     "devDependencies": {
         "@types/node": "^18.11.9"
+    },
+    "dependencies": {
+        "@types/papaparse": "^5.3.7",
+        "papaparse": "^5.3.2"
     }
 }
