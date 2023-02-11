@@ -60,7 +60,7 @@ const printDocASTReducer = ({
             code = '// query variables\n' + code
             code += '\n\n'
         }
-        code += `${clientVarName}.${node.operation}(` + selectionSet + ')'
+        code += `${clientVarName}.${node.operation}({` + selectionSet + '})'
         if (thenCode) {
             code += `.then(${thenCode})`
         }
@@ -70,17 +70,17 @@ const printDocASTReducer = ({
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
         return 'let ' + variable.replace('$', '')
     },
-    SelectionSet: ({ selections }) => block(selections),
+    SelectionSet: ({ selections }) => selections,
 
     Field: ({ alias, name, arguments: args, directives, selectionSet }) => {
         if (args.length == 0 && !join([selectionSet])) {
             return name + ': true'
         }
         if (args.length == 0) {
-            return name + ': ' + join([selectionSet])
+            return name + ': ' + block(selectionSet)
         }
-        const argsAndFields = join([block(args), ',', selectionSet])
-        return name + ': ' + wrap('[', argsAndFields, ']')
+
+        return name + ': ' + block(['__args: ' + block(args), ...selectionSet])
     },
     // join(directives, ' '),
 
@@ -97,12 +97,15 @@ const printDocASTReducer = ({
 
     FragmentSpread: ({ name, directives }) => {
         // TODO FragmentSpread
-        return '...' + name + ','
+        return '...' + name
     },
 
     InlineFragment: ({ typeCondition, directives, selectionSet }) => {
-        console.log({ selectionSet, directives, typeCondition })
-        return join(['', wrap('on_', typeCondition), ':', selectionSet], ' ')
+        // console.log({ selectionSet, directives, typeCondition })
+        return join(
+            ['', wrap('on_', typeCondition), ':', block(selectionSet)],
+            ' ',
+        )
     },
 
     FragmentDefinition: ({
@@ -115,7 +118,7 @@ const printDocASTReducer = ({
         // TODO FragmentDefinition
         // Note: fragment variable definitions are experimental and may be changed
         // or removed in the future.
-        return `const ${name} = ` + selectionSet
+        return `var ${name} = ` + block(selectionSet) + ''
     },
     // Directive
 })
@@ -125,6 +128,8 @@ const printDocASTReducer = ({
  * print all items together separated by separator if provided
  */
 function join(maybeArray: Array<string>, separator = '') {
+    // console.log({ maybeArray })
+    if (!maybeArray) return ''
     return maybeArray?.filter((x) => x).join(separator) ?? ''
 }
 
