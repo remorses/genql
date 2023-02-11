@@ -110,7 +110,7 @@ async function main() {
                         return null
                     }
                     let website = topLevelDomain(url)
-                    return { url, line: url, website }
+                    return { url, line: x, website }
                 })
                 .filter((data) => {
                     let x = data?.url
