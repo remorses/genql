@@ -1,7 +1,6 @@
 // @ts-ignore
 import QueryBatcher from './batcher'
 
-import fetch from 'isomorphic-unfetch'
 import { ClientOptions } from './createClient'
 import { GraphqlOperation } from './generateGraphqlOperation'
 import { GenqlError } from './error'

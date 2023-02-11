@@ -98,7 +98,7 @@ export async function createPackage(
             types: './dist/index.d.ts',
             dependencies: {
                 graphql: '^16.0.0',
-                'isomorphic-unfetch': '*', // TODO replace isomorphic-unfetch with native-fetch
+                'native-fetch': '*',
             },
         }
 
