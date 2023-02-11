@@ -69,41 +69,43 @@ async function main() {
         }
         return []
     })
-    const urls = [
+    let data = [
         ...new Set(
             lines
                 ?.map((x) => {
                     const match = x.match(urlRegex)
-                    if (match) {
-                        return match[0]
+                    if (!match) {
+                        return
                     }
-                    return ''
-                })
-                ?.map((x) => {
+                    let url = match[0]
                     try {
-                        let u = new URL(x)
-                        return u.origin + u.pathname
+                        let u = new URL(url)
+                        url = u.origin + u.pathname
                     } catch {
-                        return ''
+                        return null
                     }
+                    let website = topLevelDomain(url)
+                    return { url, line: url, website }
                 })
-                .filter((x) => {
+                .filter((data) => {
+                    let x = data?.url
                     if (!x) {
                         return false
                     }
                     if (!x.includes('.')) {
                         return false
                     }
-                    if (ignore.some((y) => x.includes(y))) {
+                    if (ignore.some((y) => x!.includes(y))) {
                         return false
                     }
                     return true
                 }),
         ),
     ]
+    data = unique(data, (x) => x?.url!)
     // console.log(JSON.stringify(res, null, 2))
     // console.log(lines?.join(`\n\n`))
-    console.log(urls?.join(`\n\n`))
+    console.log(data.map((x) => JSON.stringify(x, null, 2))?.join(`\n\n`))
     console.log(res?.search?.results.matchCount)
 }
 
@@ -116,6 +118,8 @@ const ignore = [
     'myapi.com',
     'github.com',
     'githubusercontent.com',
+    'herokuapp.com',
+    'cloudfunctions.net',
     // 'herokuapp.',
     // 'vercel.app', // TODO exclude vercel.app?
 ]
@@ -123,3 +127,22 @@ const ignore = [
 const urlRegex = /https:\/\/[^\s"'\)]*/
 
 main()
+
+// gets the last domain with only 1 dot
+function topLevelDomain(url: string) {
+    let u = new URL(url)
+    let origin = u.hostname
+    let parts = origin.split('.')
+    if (parts.length < 3) {
+        return url
+    }
+    return 'https://' + parts.slice(-2).join('.')
+}
+
+function unique<T>(arr: T[], key: (x: T) => string) {
+    let map = new Map<string, T>()
+    arr.forEach((x) => {
+        map.set(key(x), x)
+    })
+    return [...map.values()]
+}
