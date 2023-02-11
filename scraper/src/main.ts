@@ -286,7 +286,11 @@ function urlWithBase(url: string, base: string) {
     if (!url) {
         return ''
     }
-    return new URL(url, base).href
+    try {
+        return new URL(url, base).href
+    } catch {
+        return ''
+    }
 }
 
 function fetchWithTimeout(
