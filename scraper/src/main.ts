@@ -22,6 +22,47 @@ type CsvDataType = {
     website: string
 }
 
+/*
+
+how the data for the website is collected
+
+# discovering new APIs
+- read csv file
+- get new graphql stuff from sourcegraph
+- add the ones that are not in the csv file
+- fill some data automatically like website, slug, url, seo description, etc
+- new entries have status "raw"
+- generate queries in another csv file
+
+# let people add new clients
+- open issue with template and inputs
+- manually add to csv file
+
+# generating the clients
+- read csv file
+- generate clients for all entries with status "raw"
+- if it fails set status to "failed" and maybe also set error message
+- if it succeeds set status to "works"
+
+# making a client available in website
+- manually change csv status to "enabled"
+- add some description for SEO
+- maybe add some hint for generated queries like { mutations: [updateCountry, somethingElse, ...]}
+
+# generating queries
+- useful for SEO and add more content
+- use hints from main csv to decide what fields to generate
+- use OpenAI to add description to queries
+- save in another csv file associated with slug (because machine generated, to not clutter manually updated csv file)
+
+# updating client
+- every n days check for all enabled clients that
+- generate client again, if changed increment version and publish (to determine changes use schema hash? i should sort it first)
+- if changed, regenerate queries
+
+
+*/
+
 // TODO add fields to csv if missing like
 // added, discarded, SEO description, authorization type (Bearer, None, etc), description
 
@@ -85,6 +126,9 @@ async function main() {
                     try {
                         let u = new URL(url)
                         if (u.pathname.length > 200) {
+                            return null
+                        }
+                        if (u.port) {
                             return null
                         }
                         url = u.origin + u.pathname
