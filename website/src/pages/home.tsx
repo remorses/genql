@@ -33,6 +33,7 @@ import { Bg } from '@app/components/bg'
 import { ExploreClients } from './clients'
 import { InferGetStaticPropsType } from 'next/types'
 import { getClientsData } from '@app/support/utils'
+import { NextSeo } from 'next-seo'
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -61,9 +62,13 @@ query {
 
 const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
     <div style={{ background: BG }} className='dark py-14 space-y-[40px]'>
-        <Head>
-            <title>Genql - SDK client for any GraphQL API</title>
-        </Head>
+        <NextSeo
+            {...{
+                title: 'Genql - SDK client for any GraphQL API',
+                description:
+                    'Type safe GraphQL query builder for TypeScript. Create an SDK for any GraphQL API',
+            }}
+        />
 
         {/* <Bg /> */}
         <Hero
