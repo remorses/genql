@@ -16,7 +16,7 @@ function Page({}) {
             setGenqlTranslation('\n' + print(query, {}))
         } catch (e) {
             console.error(e)
-            setInvalid(e.message)
+            setInvalid('Line ' + e.locations?.[0]?.line + ': ' + e.message)
         }
     }, 400)
     useEffect(() => {
@@ -36,20 +36,12 @@ function Page({}) {
                 align={['center', null, null, 'flex-start']}
                 direction={['column', null, null, 'row']}
             >
-                <Stack minWidth='0' align='stretch' className='grow'>
-                    {invalid && (
-                        <Stack
-                            as='pre'
-                            px='20px'
-                            zIndex={1000}
-                            mb='-40px'
-                            color='red.500'
-                        >
-                            {invalid}
-                        </Stack>
-                    )}
+                <div className='flex flex-col gap-4 grow'>
                     <Code value={code} onChange={setCode} />
-                </Stack>
+                    {invalid && (
+                        <pre className='text-red-300 text-sm'>{invalid}</pre>
+                    )}
+                </div>
                 <div className='grow'>
                     <Code
                         hideLinesNumbers
