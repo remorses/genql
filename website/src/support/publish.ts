@@ -11,8 +11,8 @@ import fsx from 'fs-extra'
 import tmp from 'tmp-promise'
 import { NPM_SCOPE, NPM_TOKEN, websiteUrl } from '../constants'
 import { generateQueries } from '../support/generateQueries'
-import { YamlFileData } from '@app/pages/clients/[slug]'
 import { red } from 'kleur'
+import { YamlFileData } from './utils'
 
 function generateReadme({
     slug,
