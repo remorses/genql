@@ -124,6 +124,7 @@ const ignore = [
     'localhost:',
     '{',
     'myapi.com',
+    'twitter.com',
     'github.com',
     'githubusercontent.com',
     'herokuapp.com',
