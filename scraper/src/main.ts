@@ -39,31 +39,29 @@ function executeCommand(command: string) {
 // csv should contain api endpoint, added, discarded, fake, website, website title, website description
 async function main() {
     const res = await sourceGraph.query({
-        search: [
-            {
+        search: {
+            __args: {
                 query: `/\\((?:"|')https:\\/\\/.*\\/graphql/ count:500`,
                 patternType: 'standard',
                 // patternType: 'regexp',
             },
-            {
-                results: {
-                    matchCount: true,
-                    resultCount: true,
-                    approximateResultCount: true,
-                    limitHit: true,
+            results: {
+                matchCount: true,
+                resultCount: true,
+                approximateResultCount: true,
+                limitHit: true,
 
-                    results: {
-                        on_FileMatch: {
-                            __scalar: true,
-                            lineMatches: { preview: true },
-                            // chunkMatches: {
-                            //     __scalar: true,
-                            // },
-                        },
+                results: {
+                    on_FileMatch: {
+                        __scalar: true,
+                        lineMatches: { preview: true },
+                        // chunkMatches: {
+                        //     __scalar: true,
+                        // },
                     },
                 },
             },
-        ],
+        },
     })
     const lines = res?.search?.results.results.flatMap((x) => {
         if (x.__typename === 'FileMatch') {

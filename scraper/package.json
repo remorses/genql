@@ -5,8 +5,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "generate": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
+        "gen": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
         "main": "doppler -c dev run -- node -r sucrase/register src/main.ts"
     },
     "keywords": [],
