@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import packageNameAvailable from 'npm-name'
 import os from 'os'
 import path from 'path'
+import fsx from 'fs-extra'
 import tmp from 'tmp-promise'
 import { NPM_SCOPE, NPM_TOKEN, websiteUrl } from '../constants'
 import { generateQueries } from '../support/generateQueries'
@@ -45,6 +46,20 @@ This project is sponsored by [Notaku](https://notaku.so)
 
 [![Notaku](https://notaku.so/github_banner.jpg)](https://notaku.so)
 
+`
+}
+
+function generateIndex({}) {
+    return `
+import { createClient as generatedCreateClient } from './generated'
+import { fetch } from 'native-fetch'
+
+export const createClient: typeof generatedCreateClient = options => {
+    return generatedCreateClient({
+        fetch,
+        ...options,
+    })
+}
 `
 }
 
@@ -89,6 +104,7 @@ export async function createPackage(
             description: `SDK client for ${host} GraphQL API`,
             version: version,
             main: './dist/index.js',
+            files: ['dist', 'src', 'README.md', 'package.json'],
             // module: './index.esm.js',
             sideEffects: false,
             repository: {
@@ -97,14 +113,14 @@ export async function createPackage(
             },
             types: './dist/index.d.ts',
             dependencies: {
-                graphql: '^16.6.0',
+                // graphql: '^16.6.0',
                 'native-fetch': '^4.0.2',
             },
         }
 
         await generate({
             endpoint,
-            output: path.resolve(tmpPath, 'src'),
+            output: path.resolve(tmpPath, 'src/generated'),
         })
 
         await fs.writeFile(
@@ -112,11 +128,21 @@ export async function createPackage(
             JSON.stringify(packageJson, null, 4),
         )
         await fs.writeFile(
+            path.join(tmpPath, 'src/index.ts'),
+            generateIndex({}),
+        )
+        await fs.writeFile(
             path.join(tmpPath, 'tsconfig.json'),
             JSON.stringify(tsconfig, null, 4),
         )
         // await runCommand({ cmd: `tree`, cwd: tmpPath })
-        await runCommand({ cmd: `pnpm i`, cwd: tmpPath })
+        // await runCommand({ cmd: `pnpm i`, cwd: tmpPath })
+        // await runCommand({ cmd: `npm i`, cwd: tmpPath })
+        // copy native-fetch into node_modules
+        fsx.copySync(
+            path.resolve(require.resolve('native-fetch/package.json'), '..'),
+            path.join(tmpPath, 'node_modules/native-fetch'),
+        )
         await runCommand({ cmd: `tsc`, cwd: tmpPath })
         // await runCommand({ cmd: `tree`, cwd: tmpPath })
 

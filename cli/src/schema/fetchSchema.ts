@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-unfetch'
+import fetch from 'native-fetch'
 import {
     buildClientSchema,
     ExecutionResult,
