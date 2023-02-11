@@ -26,8 +26,15 @@ function Page({}) {
     const [genqlTranslation, setGenqlTranslation] = useState('')
     const [invalid, setInvalid] = useState('')
     return (
-        <div>
-            <div className=''></div>
+        <div className='space-y-12'>
+            <div className='text-center space-y-6'>
+                <h1 className='text-5xl font-semibold '>
+                    Convert GraphQL to Genql code
+                </h1>
+                <h2 className='text-xl opacity-80'>
+                    Quickly migrate your queries to be type safe
+                </h2>
+            </div>
 
             <Stack
                 spacing='40px'
