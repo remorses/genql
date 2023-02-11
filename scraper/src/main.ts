@@ -13,31 +13,6 @@ const sourceGraph = createClient({
     headers: { Authorization: `token ${SOURCEGRAPH_TOKEN}` },
 })
 
-// executes a command and returns the output, it also prints the stdout and stderr in real time
-function executeCommand(command: string) {
-    return new Promise((resolve, reject) => {
-        const p = spawn(command, [], { shell: true })
-        let stdout = ''
-        p.stdout.on('data', (data) => {
-            let str = data.toString()
-            console.log(str)
-            stdout += str
-        })
-        p.stderr.on('data', (data) => {
-            let str = data.toString()
-            console.log(str)
-        })
-
-        p.on('close', (code) => {
-            if (code === 0) {
-                resolve({ stdout })
-            } else {
-                reject()
-            }
-        })
-    })
-}
-
 let csvPath = path.resolve('data.csv')
 
 type CsvDataType = {
@@ -47,8 +22,9 @@ type CsvDataType = {
     website: string
 }
 
-// TODO create a csv file i can use to keep state so i can add graphql clients one a a time and mark them when completed
-// csv should contain api endpoint, added, discarded, fake, website, website title, website description
+// TODO add fields to csv if missing like
+// added, discarded, SEO description, authorization type (Bearer, None, etc), description
+
 async function main() {
     let csvData: CsvDataType[] = []
     if (fs.existsSync(csvPath)) {
@@ -63,6 +39,9 @@ async function main() {
             },
         })
     }
+    // TODO also find graphql urls from
+    // graphql codegen config files like https://sourcegraph.com/github.com/raycast/extensions/-/blob/extensions/sourcegraph/graphql-codegen.yml?L2:18&subtree=true
+    // go graphql.NewClient(
     const res = await sourceGraph.query({
         search: {
             __args: {
@@ -174,4 +153,29 @@ function unique<T>(arr: T[], key: (x: T) => string) {
         map.set(key(x), x)
     })
     return [...map.values()]
+}
+
+// executes a command and returns the output, it also prints the stdout and stderr in real time
+function executeCommand(command: string) {
+    return new Promise((resolve, reject) => {
+        const p = spawn(command, [], { shell: true })
+        let stdout = ''
+        p.stdout.on('data', (data) => {
+            let str = data.toString()
+            console.log(str)
+            stdout += str
+        })
+        p.stderr.on('data', (data) => {
+            let str = data.toString()
+            console.log(str)
+        })
+
+        p.on('close', (code) => {
+            if (code === 0) {
+                resolve({ stdout })
+            } else {
+                reject()
+            }
+        })
+    })
 }
