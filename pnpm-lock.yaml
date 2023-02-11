@@ -118,26 +118,20 @@ importers:
       snap-shot-it: 7.9.6
       sucrase: 3.29.0
 
-  scraper:
-    specifiers:
-      '@types/node': ^18.11.9
-    devDependencies:
-      '@types/node': 18.11.9
-
   try-clients:
     specifiers:
       '@shitty-scope-name/countries': ^0.0.0
       compressed-json: ^1.0.16
       dotenv: ^16.0.3
-      isomorphic-unfetch: ^3.1.0
       mocha: ^10.1.0
+      native-fetch: ^4.0.2
       sucrase: ^3.29.0
       ts-node: ^10.9.1
     dependencies:
       '@shitty-scope-name/countries': 0.0.0
       compressed-json: 1.0.16
       dotenv: 16.0.3
-      isomorphic-unfetch: 3.1.0
+      native-fetch: 4.0.2
     devDependencies:
       mocha: 10.1.0
       sucrase: 3.29.0
@@ -164,7 +158,6 @@ importers:
       gql-generator: ^1.0.18
       graphql-tag: ^2.12.6
       ibm-graphql-query-generator: ^1.3.0
-      isomorphic-unfetch: ^3.1.0
       js-cookie: ^3.0.1
       layout-kit-react: ^2.0.2
       mocha: ^10.1.0
@@ -212,7 +205,6 @@ importers:
       gql-generator: 1.0.18
       graphql-tag: 2.12.6
       ibm-graphql-query-generator: 1.3.0
-      isomorphic-unfetch: 3.1.0
       js-cookie: 3.0.1
       layout-kit-react: 2.0.2_lixokbjvsf34hfwdrnggk3v6ge
       native-fetch: 4.0.2_undici@5.13.0
@@ -1207,7 +1199,7 @@ packages:
     dependencies:
       '@graphql-tools/utils': 8.9.0_graphql@16.6.0
       graphql: 16.6.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@graphql-tools/mock/8.7.12_graphql@16.6.0:
@@ -1252,7 +1244,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 16.6.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@graphql-tools/utils/9.1.1_graphql@16.6.0:
