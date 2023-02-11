@@ -1,16 +1,18 @@
 import {
     getNamedType,
+    GraphQLField,
     GraphQLInterfaceType,
     GraphQLObjectType,
     isEnumType,
     isInterfaceType,
     isScalarType,
 } from 'graphql'
-import { fieldComment, typeComment } from '../common/comment'
+import { argumentComment, fieldComment, typeComment } from '../common/comment'
 import { RenderContext } from '../common/RenderContext'
-import { toArgsString } from '../common/toArgsString'
+
 import { requestTypeName } from './requestTypeName'
 import { sortKeys } from '../common/support'
+import { renderTyping } from '../common/renderTyping'
 
 const INDENTATION = '    '
 
@@ -38,18 +40,27 @@ export const objectType = (
 
         if (argsPresent) {
             if (resolvable) {
-                types.push(`[${argsString},${requestTypeName(resolvedType)}]`)
+                types.push(
+                    `(${requestTypeName(resolvedType)} & { __args${
+                        argsOptional ? '?' : ''
+                    }: ${argsString} })`,
+                )
             } else {
-                types.push(`[${argsString}]`)
+                // TODO if i want to add __directive support, i need to make this __args optional
+                types.push(`{ __args: ${argsString} }`)
             }
+            // if (resolvable) {
+            //     types.push(`[${argsString},${requestTypeName(resolvedType)}]`)
+            // } else {
+            //     types.push(`[${argsString}]`)
+            // }
         }
 
-        if (!argsPresent || argsOptional) {
-            if (resolvable) {
-                types.push(`${requestTypeName(resolvedType)}`)
-            } else {
-                types.push('boolean | number')
-            }
+        if (argsOptional && !resolvable) {
+            types.push('boolean | number')
+        }
+        if (!argsPresent && resolvable) {
+            types.push(requestTypeName(resolvedType))
         }
 
         return `${fieldComment(field)}${field.name}?: ${types.join(' | ')}`
@@ -82,4 +93,17 @@ export const objectType = (
             type,
         )}{\n${fieldStrings.join('\n')}\n}`,
     )
+}
+
+export const toArgsString = (field: GraphQLField<any, any, any>) => {
+    return `{${field.args
+        .map(
+            (a) =>
+                `${argumentComment(a)}${a.name}${renderTyping(
+                    a.type,
+                    false,
+                    true,
+                )}`,
+        )
+        .join(', ')}}`
 }

@@ -8,7 +8,7 @@ export interface Fields {
     [field: string]: Request
 }
 
-export type Request = boolean | number | Fields | [Args, Fields?]
+export type Request = boolean | number | Fields
 
 export interface Variables {
     [name: string]: {
@@ -36,8 +36,11 @@ const parseRequest = (
     ctx: Context,
     path: string[],
 ): string => {
-    if (Array.isArray(request)) {
-        const [args, fields] = request
+    if (typeof request === 'object' && '__args' in request) {
+        
+        const args = request.__args
+        const fields = { ...request }
+        delete fields.__args
         const argNames = Object.keys(args)
 
         if (argNames.length === 0) {
@@ -46,7 +49,7 @@ const parseRequest = (
 
         const field = getFieldFromPath(ctx.root, path)
 
-        return `(${argNames.map((argName) => {
+        const argStrings = argNames.map((argName) => {
             ctx.varCounter++
             const varName = `v${ctx.varCounter}`
 
@@ -66,7 +69,8 @@ const parseRequest = (
             }
 
             return `${argName}:$${varName}`
-        })})${parseRequest(fields, ctx, path)}`
+        })
+        return `(${argStrings})${parseRequest(fields, ctx, path)}`
     } else if (typeof request === 'object') {
         const fields = request
         const fieldNames = Object.keys(fields).filter((k) => Boolean(fields[k]))

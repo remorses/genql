@@ -92,6 +92,7 @@ type SRC = {
             optional?: string
         }[]
     }
+    argumentScalar?: string
 }
 
 describe('pick', () => {
@@ -103,15 +104,13 @@ describe('pick', () => {
                 a: 1,
             },
         },
-        argumentSyntax: [
-            { x: 3 },
-            {
-                a: 1,
-                nesting: {
-                    __scalar: 1,
-                },
+        argumentSyntax: {
+            __args: { x: 3 },
+            a: 1,
+            nesting: {
+                __scalar: 1,
             },
-        ] as const,
+        },
     }
     const z: FieldsSelection<SRC, NoExtraProperties<typeof req>> = {} as any
     test(
@@ -158,12 +157,13 @@ describe('__scalar', () => {
                 a: 1,
             },
         },
-        argumentSyntax: [
-            { a: 7 },
-            {
-                __scalar: 1,
-            },
-        ] as const,
+        argumentSyntax: {
+            __args: { a: 7 },
+            __scalar: 1,
+        },
+        argumentScalar: {
+            __args: { x: 9 },
+        },
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
     test(
@@ -215,6 +215,15 @@ describe('__scalar', () => {
             z.argumentSyntax.nesting.x
         }),
     )
+    test(
+        'argument syntax on scalar',
+        dontExecute(() => {
+            z.argumentScalar
+            z.argumentScalar?.charAt
+            // @ts-expect-error
+            z.argumentScalar.xx
+        }),
+    )
 })
 
 describe('optional fields', () => {
@@ -228,12 +237,9 @@ describe('optional fields', () => {
                 __scalar: 1,
             },
         },
-        argumentSyntax: [
-            {},
-            {
-                optional: 1,
-            },
-        ] as const,
+        argumentSyntax: {
+            optional: 1,
+        },
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
     test(
@@ -359,17 +365,15 @@ describe('arrays', () => {
             x: 1,
             optional: 1,
         },
-        nested: [
-            { x: 1 },
-            {
-                __scalar: 1,
-                list: {
-                    edges: {
-                        x: 1,
-                    },
+        nested: {
+            __args: { x: 1 },
+            __scalar: 1,
+            list: {
+                edges: {
+                    x: 1,
                 },
             },
-        ] as const,
+        },
         argumentSyntax: {
             list: {
                 x: 1,
@@ -403,9 +407,9 @@ describe('arrays', () => {
         'args syntax',
         dontExecute(() => {
             z.argumentSyntax.list[0].x
-            z.argumentSyntax.list[0].optional?.blink
+            z.argumentSyntax.list[0].optional?.charAt
             // @ts-expect-error optional
-            z.argumentSyntax.list[0].optional.blink
+            z.argumentSyntax.list[0].optional.charAt
         }),
     )
 })

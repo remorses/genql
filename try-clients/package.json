@@ -6,9 +6,8 @@
     "main": "index.js",
     "scripts": {
         "test": "mocha",
-        "gen": "yarn hasura && yarn github && yarn simple && tsc --noEmit",
+        "gen": "yarn github && yarn simple && tsc --noEmit",
         "simple": "yarn --cwd .. play --esm-and-cjs --sort --schema try-clients/simple.graphql -o try-clients/simple/generated",
-        "hasura": "yarn --cwd .. play -e https://hasura-2334534.herokuapp.com/v1/graphql -o try-clients/hasura/generated",
         "github": "yarn --cwd .. play --schema try-clients/github.graphql -o try-clients/github/generated -S HTML:string -S URI:string "
     },
     "mocha": {

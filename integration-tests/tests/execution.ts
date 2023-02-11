@@ -150,7 +150,7 @@ describe('execute queries', async function () {
             })
             assert(res.someScalarValue?.toLocaleLowerCase)
             var res = await client.query({
-                someScalarValue: [{ x: 3 }],
+                someScalarValue: { __args: { x: 1 } },
             })
             assert(res.someScalarValue?.toLocaleLowerCase)
         }),
@@ -181,18 +181,16 @@ describe('execute queries', async function () {
                 .catch(id)
 
             const res = await client.query({
-                repository: [
-                    {
+                repository: {
+                    __args: {
                         name: 'genql',
                         owner: 'remorses',
                     },
-                    {
-                        ...everything,
-                        forks: {
-                            edges: { node: { name: true, number: true } },
-                        },
+                    ...everything,
+                    forks: {
+                        edges: { node: { name: true, number: true } },
                     },
-                ],
+                },
             })
             console.log(JSON.stringify(res, null, 2))
             // @ts-expect-error because top level fields are filtered based on query

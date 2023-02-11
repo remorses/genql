@@ -15,18 +15,16 @@ describe('github', () => {
     })
     it('simple normal syntax', async () => {
         var res1 = await client.query({
-            repository: [
-                {
+            repository: {
+                __args: {
                     name: 'genql',
                     owner: 'remorses',
                 },
-                {
-                    ...everything,
-                    codeOfConduct: {
-                        body: true,
-                    },
+                ...everything,
+                codeOfConduct: {
+                    body: true,
                 },
-            ],
+            },
         })
         console.log(res1)
     })
