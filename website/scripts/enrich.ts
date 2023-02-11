@@ -10,11 +10,10 @@ import parseHead from 'parse-head'
 import { print } from '@genql/cli/src/printer'
 import { GraphQLSchema } from 'graphql'
 
-
-import { YamlFileData } from '../src/pages/clients/[slug]'
 import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
 import { generateQueries } from '../src/support/generateQueries'
 import { createPackage } from '../src/support/publish'
+import { YamlFileData } from '../src/support/utils'
 
 let publish = false
 
