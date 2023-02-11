@@ -84,6 +84,9 @@ async function main() {
                     let url = match[0]
                     try {
                         let u = new URL(url)
+                        if (u.pathname.length > 200) {
+                            return null
+                        }
                         url = u.origin + u.pathname
                     } catch {
                         return null
@@ -129,6 +132,7 @@ const ignore = [
     'githubusercontent.com',
     'herokuapp.com',
     'cloudfunctions.net',
+    'instagram.com',
     // 'herokuapp.',
     // 'vercel.app', // TODO exclude vercel.app?
 ]
