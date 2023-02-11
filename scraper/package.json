@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@types/papaparse": "^5.3.7",
-        "papaparse": "^5.3.2"
+        "papaparse": "^5.3.2",
+        "posthtml": "^0.16.6"
     }
 }

@@ -228,3 +228,60 @@ function executeCommand(command: string) {
         })
     })
 }
+import posthtml from 'posthtml'
+
+
+async function getSiteMeta(site: string) {
+    const res = await fetch(site, {
+        // like chrome
+        headers: { accept: 'text/html', 'user-agent': 'Mozilla/5.0' },
+    })
+    const html = await res.text()
+    let description = ''
+    let title = ''
+    let image = ''
+    let favicon = ''
+
+    posthtml()
+        .use((tree) => {
+            tree.walk((node) => {
+                if (node?.attrs?.rel === 'apple-touch-icon') {
+                    favicon = urlWithBase(node.attrs.href || '', site)
+                    return node
+                }
+                if (node?.attrs?.rel === 'icon') {
+                    favicon = urlWithBase(node.attrs.href || '', site)
+                    return node
+                }
+
+                return node
+            })
+        })
+        .use((tree) => {
+            tree.walk((node) => {
+                // get description and title
+                if (node.tag === 'meta') {
+                    if (node.attrs?.description) {
+                        description = node.attrs?.description
+                    }
+                    if (node.attrs?.title) {
+                        title = node.attrs?.title
+                    }
+                    // og image
+                    if (node.attrs?.property === 'og:image') {
+                        image = urlWithBase(node.attrs?.content || '', site)
+                    }
+                }
+                return node
+            })
+        })
+        .process(html, { sync: true })
+    return { description, title, image, favicon }
+}
+
+function urlWithBase(url: string, base: string) {
+    if (!url) {
+        return ''
+    }
+    return new URL(url, base).href
+}
