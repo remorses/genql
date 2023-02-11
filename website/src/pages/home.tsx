@@ -68,7 +68,14 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
         {/* <Bg /> */}
         <Hero
             className='text-white'
-            bullet='Introducing Genql 3.0'
+            bullet={
+                <a
+                    className='appearance-none'
+                    href='https://changelog.genql.dev'
+                >
+                    Introducing Genql 3.0
+                </a>
+            }
             cta={
                 <div className='flex flex-col md:flex-row items-center gap-4'>
                     <Button href='/docs'>Quick Start</Button>
@@ -77,12 +84,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     </Button>
                 </div>
             }
-            heading={
-                <div className=''>
-                    Type safe GraphQL <br />
-                    query builder
-                </div>
-            }
+            heading={<div className=''>Type safe GraphQL query builder</div>}
             subheading={
                 <Fragment>
                     Genql generates a TypeScript SDK
