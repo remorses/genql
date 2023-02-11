@@ -1,5 +1,4 @@
-// @ts-ignore
-import QueryBatcher from './batcher'
+import { QueryBatcher } from './batcher'
 
 import { ClientOptions } from './createClient'
 import { GraphqlOperation } from './generateGraphqlOperation'
