@@ -22,6 +22,7 @@ export const createFetcher = ({
     url,
     headers = {},
     fetcher,
+    fetch: _fetch,
     batch = false,
     ...rest
 }: ClientOptions): Fetcher => {
@@ -33,7 +34,13 @@ export const createFetcher = ({
             let headersObject =
                 typeof headers == 'function' ? await headers() : headers
             headersObject = headersObject || {}
-            const res = await fetch(url!, {
+            if (typeof fetch === 'undefined' && !_fetch) {
+                throw new Error(
+                    'Global `fetch` function is not available, pass a fetch polyfill to Genql `createClient`',
+                )
+            }
+            let fetchImpl = _fetch || fetch
+            const res = await fetchImpl(url!, {
                 headers: {
                     'Content-Type': 'application/json',
                     ...headersObject,

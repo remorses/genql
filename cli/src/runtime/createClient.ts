@@ -19,6 +19,7 @@ export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string
     batch?: BatchOptions | boolean
     fetcher?: BaseFetcher
+    fetch?: Function
     headers?: Headers
 }
 
