@@ -230,12 +230,15 @@ function executeCommand(command: string) {
 }
 import posthtml from 'posthtml'
 
-
 async function getSiteMeta(site: string) {
-    const res = await fetch(site, {
-        // like chrome
-        headers: { accept: 'text/html', 'user-agent': 'Mozilla/5.0' },
-    })
+    const res = await fetchWithTimeout(
+        site,
+        {
+            // like chrome
+            headers: { accept: 'text/html', 'user-agent': 'Mozilla/5.0' },
+        },
+        7000,
+    )
     const html = await res.text()
     let description = ''
     let title = ''
@@ -284,4 +287,21 @@ function urlWithBase(url: string, base: string) {
         return ''
     }
     return new URL(url, base).href
+}
+
+function fetchWithTimeout(
+    url,
+    options: RequestInit,
+    timeout,
+): Promise<Response> {
+    return Promise.race([
+        fetch(url, options),
+
+        new Promise<any>((_, reject) =>
+            setTimeout(
+                () => reject(new Error('fetch timeout for ' + url)),
+                timeout,
+            ),
+        ),
+    ])
 }
