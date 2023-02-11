@@ -97,8 +97,8 @@ export async function createPackage(
             },
             types: './dist/index.d.ts',
             dependencies: {
-                graphql: '^16.0.0',
-                'native-fetch': '*',
+                graphql: '^16.6.0',
+                'native-fetch': '^4.0.2',
             },
         }
 
