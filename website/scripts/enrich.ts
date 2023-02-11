@@ -1,4 +1,5 @@
 import yaml from 'yaml'
+import { red } from 'kleur'
 import semver from 'semver'
 import url from 'url'
 import { fetch } from 'native-fetch'
@@ -8,6 +9,7 @@ import fs from 'fs'
 import parseHead from 'parse-head'
 import { print } from '@genql/cli/src/printer'
 import { GraphQLSchema } from 'graphql'
+
 
 import { YamlFileData } from '../src/pages/clients/[slug]'
 import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
@@ -51,11 +53,10 @@ async function main() {
                         usePost: !useGet,
                         // headers: config.headers,
                     }).catch((e) => {
-                        console.log(`Failed fetching schema fro ${slug}`, e)
                         return null
                     })
                     if (!schema) {
-                        console.log(`Failed fetching schema fro ${slug}`)
+                        console.log(red(`Failed fetching schema from ${slug}`))
                     }
                     if (schema) {
                         const exampleCode = generateQueries({
@@ -94,7 +95,7 @@ async function main() {
                         'utf-8',
                     )
                 } catch (e) {
-                    console.log('ERROR', e)
+                    console.log(red(e))
                     errored[slug] = e.message
                 }
             }),

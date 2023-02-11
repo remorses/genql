@@ -1,4 +1,5 @@
 import { exec } from 'child_process'
+import resolve from 'resolve'
 import { promises as fs } from 'fs'
 import { generate } from '@genql/cli/src/main'
 import { buildSchema } from 'graphql'
@@ -11,6 +12,7 @@ import tmp from 'tmp-promise'
 import { NPM_SCOPE, NPM_TOKEN, websiteUrl } from '../constants'
 import { generateQueries } from '../support/generateQueries'
 import { YamlFileData } from '@app/pages/clients/[slug]'
+import { red } from 'kleur'
 
 function generateReadme({
     slug,
@@ -100,6 +102,7 @@ export async function createPackage(
             types: './dist/index.d.ts',
             dependencies: {
                 // graphql: '^16.6.0',
+                undici: '^5.18.0',
                 'native-fetch': '^4.0.2',
             },
         }
@@ -127,7 +130,7 @@ export async function createPackage(
         // await runCommand({ cmd: `npm i`, cwd: tmpPath })
         // copy native-fetch into node_modules
         fsx.copySync(
-            path.resolve(require.resolve('native-fetch/package.json'), '..'),
+            path.resolve(resolve.sync('native-fetch/package.json'), '..'),
             path.join(tmpPath, 'node_modules/native-fetch'),
         )
         await runCommand({ cmd: `tsc`, cwd: tmpPath })
@@ -145,10 +148,10 @@ export async function createPackage(
                 cwd: tmpPath,
             })
         }
-        await cleanup()
+        // await cleanup()
         return packageJson
     } catch (e) {
-        throw new Error('Could not publish: ' + String(e))
+        throw new Error(red('Could not publish: ' + String(e)))
     } finally {
     }
 }

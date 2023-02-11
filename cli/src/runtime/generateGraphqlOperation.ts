@@ -37,7 +37,7 @@ const parseRequest = (
     path: string[],
 ): string => {
     if (typeof request === 'object' && '__args' in request) {
-        const args = request.__args
+        const args: any = request.__args
         let fields: Request | undefined = { ...request }
         delete fields.__args
         const argNames = Object.keys(args)

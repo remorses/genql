@@ -80,7 +80,11 @@ const printDocASTReducer = ({
             return name + ': ' + block(selectionSet)
         }
 
-        return name + ': ' + block(['__args: ' + block(args), ...selectionSet])
+        return (
+            name +
+            ': ' +
+            block(['__args: ' + block(args), ...(selectionSet || [])])
+        )
     },
     // join(directives, ' '),
 

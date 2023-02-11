@@ -1,5 +1,5 @@
 favicon: https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/kitchen-knife_1f52a.png
-version: 0.10.0
+version: 0.13.0
 content: >
   GraphQl API for up to date countries data: country codes, languages,
   phone codes and more
@@ -15,11 +15,11 @@ exampleCode: |+
 
   client
     .query({
-      _entities: [
-        {
+      _entities: {
+        __args: {
           representations: representations,
         },
-      ],
+      },
     })
     .then((x) => console.log(JSON.stringify(x, null, 4)))
 
@@ -40,16 +40,14 @@ exampleCode: |+
 
   client
     .query({
-      countries: [
-        {
+      countries: {
+        __args: {
           filter: filter,
         },
-        {
-          code: true,
-          name: true,
-          native: true,
-        },
-      ],
+        code: true,
+        name: true,
+        native: true,
+      },
     })
     .then((x) => console.log(JSON.stringify(x, null, 4)))
 

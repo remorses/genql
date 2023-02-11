@@ -145,6 +145,7 @@ importers:
       '@types/js-cookie': ^3.0.2
       '@types/node': ^18.11.9
       '@types/react': ^18.0.25
+      '@types/resolve': ^1.20.2
       '@types/semver': ^7.3.13
       '@types/tailwindcss': ^3.1.0
       '@types/tmp': ^0.2.3
@@ -159,6 +160,7 @@ importers:
       graphql-tag: ^2.12.6
       ibm-graphql-query-generator: ^1.3.0
       js-cookie: ^3.0.1
+      kleur: ^4.1.5
       layout-kit-react: ^2.0.2
       mocha: ^10.1.0
       native-fetch: ^4.0.2
@@ -184,11 +186,12 @@ importers:
       react-runkit: ^0.9.0
       react-simple-code-editor: ^0.13.1
       react-storage-hooks: ^4.0.1
+      resolve: 1.22.1
       semver: ^7.3.8
       sucrase: ^3.29.0
       tailwindcss: ^3.2.6
       tmp-promise: ^3.0.3
-      undici: ^5.13.0
+      undici: ^5.18.0
       use-debounce: ^8.0.4
       yaml: ^2.1.3
     dependencies:
@@ -206,8 +209,9 @@ importers:
       graphql-tag: 2.12.6
       ibm-graphql-query-generator: 1.3.0
       js-cookie: 3.0.1
+      kleur: 4.1.5
       layout-kit-react: 2.0.2_lixokbjvsf34hfwdrnggk3v6ge
-      native-fetch: 4.0.2_undici@5.13.0
+      native-fetch: 4.0.2_undici@5.18.0
       next: 12.3.4_biqbaboplfbrettd7655fr4n2y
       next-auth: 4.17.0_bhgafntz2ozm43l35i5qtimxry
       next-cookies: 2.0.3
@@ -230,16 +234,18 @@ importers:
       react-runkit: 0.9.0_react@18.2.0
       react-simple-code-editor: 0.13.1_biqbaboplfbrettd7655fr4n2y
       react-storage-hooks: 4.0.1_react@18.2.0
+      resolve: 1.22.1
       semver: 7.3.8
       tailwindcss: 3.2.6_postcss@8.4.19
       tmp-promise: 3.0.3
-      undici: 5.13.0
+      undici: 5.18.0
       use-debounce: 8.0.4_react@18.2.0
       yaml: 2.1.3
     devDependencies:
       '@types/fs-extra': 11.0.1
       '@types/node': 18.11.9
       '@types/react': 18.0.25
+      '@types/resolve': 1.20.2
       '@types/semver': 7.3.13
       '@types/tailwindcss': 3.1.0_postcss@8.4.19
       '@types/tmp': 0.2.3
@@ -2600,7 +2606,7 @@ packages:
       ignore: 5.2.1
       nx: 15.2.1
       semver: 7.3.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -3572,6 +3578,10 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
       csstype: 3.1.1
+
+  /@types/resolve/1.20.2:
+    resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
+    dev: true
 
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
@@ -4597,7 +4607,7 @@ packages:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
     engines: {node: '>=10', npm: '>=6'}
     dependencies:
-      '@babel/runtime': 7.20.6
+      '@babel/runtime': 7.20.13
       cosmiconfig: 7.1.0
       resolve: 1.22.1
     dev: false
@@ -8925,12 +8935,12 @@ packages:
     peerDependencies:
       undici: '*'
 
-  /native-fetch/4.0.2_undici@5.13.0:
+  /native-fetch/4.0.2_undici@5.18.0:
     resolution: {integrity: sha512-4QcVlKFtv2EYVS5MBgsGX5+NWKtbDbIECdUXDBGDMAZXq3Jkv9zf+y8iS7Ub8fEdga3GpYeazp9gauNqXHJOCg==}
     peerDependencies:
       undici: '*'
     dependencies:
-      undici: 5.13.0
+      undici: 5.18.0
     dev: false
 
   /natural-compare/1.4.0:
@@ -9344,7 +9354,7 @@ packages:
       tar-stream: 2.2.0
       tmp: 0.2.1
       tsconfig-paths: 3.14.1
-      tslib: 2.4.1
+      tslib: 2.5.0
       v8-compile-cache: 2.3.0
       yargs: 17.6.2
       yargs-parser: 21.1.1
@@ -11502,6 +11512,7 @@ packages:
 
   /tslib/2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
+    dev: false
 
   /tslib/2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
@@ -11621,8 +11632,8 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: false
 
-  /undici/5.13.0:
-    resolution: {integrity: sha512-UDZKtwb2k7KRsK4SdXWG7ErXiL7yTGgLWvk2AXO1JMjgjh404nFo6tWSCM2xMpJwMPx3J8i/vfqEh1zOqvj82Q==}
+  /undici/5.18.0:
+    resolution: {integrity: sha512-1iVwbhonhFytNdg0P4PqyIAXbdlVZVebtPDvuM36m66mRw4OGrCm2MYynJv/UENFLdP13J1nPVQzVE2zTs1OeA==}
     engines: {node: '>=12.18'}
     dependencies:
       busboy: 1.6.0

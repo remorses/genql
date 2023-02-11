@@ -90,7 +90,6 @@ export const createFetcher = ({
         if (json?.data) {
             return json.data
         }
-        // TODO
         throw new Error(
             'Genql fetcher returned unexpected result ' + JSON.stringify(json),
         )

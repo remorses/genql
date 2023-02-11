@@ -1,5 +1,5 @@
 favicon: https://stellate.co/favicon-128.png
-version: 0.3.0
+version: 0.6.0
 content: >
   You can use this API client to automate and create scripts to manage
   your Stellate account
@@ -18,20 +18,18 @@ exampleCode: |+
 
   client
     .query({
-      alert: [
-        {
+      alert: {
+        __args: {
           id: id,
         },
-        {
-          filters: {
-            id: true,
-            scope: true,
-            type: true,
-          },
+        filters: {
           id: true,
-          interval: true,
+          scope: true,
+          type: true,
         },
-      ],
+        id: true,
+        interval: true,
+      },
     })
     .then((x) => console.log(JSON.stringify(x, null, 4)))
 
@@ -45,25 +43,21 @@ exampleCode: |+
 
   client
     .query({
-      organization: [
-        {
+      organization: {
+        __args: {
           id: id,
           slug: slug,
         },
-        {
-          id: true,
-          name: true,
-          services: [
-            {
-              after: after,
-              before: before,
-            },
-            {
-              totalCount: true,
-            },
-          ],
+        id: true,
+        name: true,
+        services: {
+          __args: {
+            after: after,
+            before: before,
+          },
+          totalCount: true,
         },
-      ],
+      },
     })
     .then((x) => console.log(JSON.stringify(x, null, 4)))
 
@@ -75,23 +69,21 @@ exampleCode: |+
 
   client
     .query({
-      organizations: [
-        {
+      organizations: {
+        __args: {
           after: after,
           before: before,
         },
-        {
-          edges: {
-            cursor: true,
-          },
-          pageInfo: {
-            endCursor: true,
-            hasNextPage: true,
-            hasPreviousPage: true,
-          },
-          totalCount: true,
+        edges: {
+          cursor: true,
         },
-      ],
+        pageInfo: {
+          endCursor: true,
+          hasNextPage: true,
+          hasPreviousPage: true,
+        },
+        totalCount: true,
+      },
     })
     .then((x) => console.log(JSON.stringify(x, null, 4)))
 
@@ -103,11 +95,28 @@ exampleCode: |+
 
   client
     .mutation({
-      applyForJob: [
-        {
+      applyForJob: {
+        __args: {
           input: input,
         },
-      ],
+      },
     })
     .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+  // query variables
+  let input
+
+  client
+    .mutation({
+      submitApiFeedback: {
+        __args: {
+          input: input,
+        },
+      },
+    })
+    .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
 

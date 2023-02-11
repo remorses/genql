@@ -1,4 +1,4 @@
-import fetch from 'native-fetch'
+import { fetch } from 'native-fetch'
 import {
     buildClientSchema,
     ExecutionResult,
@@ -51,9 +51,9 @@ export const fetchSchema = async ({
 
     const result = await response.json().catch((e) => {
         const contentType = response.headers.get('Content-Type')
-        console.log(`content type is ${contentType}`)
+        
         throw new Error(
-            `endpoint '${endpoint}' did not return valid json, check that your endpoint points to a valid graphql api`,
+            `endpoint '${endpoint}' did not return valid json, content type is ${contentType}, check that your endpoint points to a valid graphql api`,
         )
     })
     if (!result.data) {
