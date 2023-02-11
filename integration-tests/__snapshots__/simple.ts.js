@@ -165,3 +165,25 @@ fragment f1 on User {
 }
 
 `
+
+exports['generate queries optional arg 1'] = `
+query {
+  optionalArgs {
+    createdAt
+    forks {
+      edges {
+        cursor
+        node {
+          ...f1
+        }
+      }
+    }
+  }
+}
+fragment f1 on Fork {
+  name
+  number
+  __typename
+}
+
+`

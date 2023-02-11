@@ -175,8 +175,7 @@ describe('execute queries', async function () {
         withServer(async () => {
             client
                 .query({
-                    // @ts-expect-error because name is required
-                    repository: [{}, { __scalar: true }],
+                    repository: { __args: { name: 'x' }, __scalar: true },
                 })
                 .catch(id)
 

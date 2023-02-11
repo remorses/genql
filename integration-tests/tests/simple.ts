@@ -39,6 +39,22 @@ describe('generate queries', () => {
         })
         snapshot(prettify(query, 'graphql'))
     })
+    it('optional arg', () => {
+        const { query } = generateQueryOp({
+            optionalArgs: {
+                createdAt: true,
+                forks: {
+                    edges: {
+                        cursor: true,
+                        node: {
+                            ...everything,
+                        },
+                    },
+                },
+            },
+        })
+        snapshot(prettify(query, 'graphql'))
+    })
     it('recursive type', () => {
         const { query } = generateQueryOp({
             recursiveType: {

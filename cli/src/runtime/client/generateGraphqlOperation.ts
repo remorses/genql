@@ -37,9 +37,8 @@ const parseRequest = (
     path: string[],
 ): string => {
     if (typeof request === 'object' && '__args' in request) {
-        
         const args = request.__args
-        const fields = { ...request }
+        let fields: Request | undefined = { ...request }
         delete fields.__args
         const argNames = Object.keys(args)
 
@@ -71,12 +70,14 @@ const parseRequest = (
             return `${argName}:$${varName}`
         })
         return `(${argStrings})${parseRequest(fields, ctx, path)}`
-    } else if (typeof request === 'object') {
+    } else if (typeof request === 'object' && Object.keys(request).length > 0) {
         const fields = request
         const fieldNames = Object.keys(fields).filter((k) => Boolean(fields[k]))
 
         if (fieldNames.length === 0) {
-            throw new Error('field selection should not be empty')
+            throw new Error(
+                `field selection should not be empty: ${path.join('.')}`,
+            )
         }
 
         const type =
