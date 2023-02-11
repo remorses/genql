@@ -24,6 +24,7 @@ import {
     InferGetStaticPropsType,
 } from 'next'
 import path from 'path'
+import { YamlFileData } from '@app/support/utils'
 
 const Page = ({
     slug,
@@ -161,18 +162,6 @@ export function getStaticPaths() {
     }
 }
 
-export type YamlFileData = {
-    // name: string
-    content: string
-    website: string
-    favicon?: string
-    endpoint: string
-    version: string
-    exampleCode?: string
-    useGet?: boolean
-    disabled?: boolean
-    // tags: string[]
-}
 
 export function getStaticProps(ctx: GetStaticPropsContext) {
     const slug = ctx.params.slug

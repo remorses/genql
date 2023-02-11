@@ -30,6 +30,9 @@ import { BG } from '../constants'
 import { MyFooter, MyNavbar } from './_app'
 import Head from 'next/head'
 import { Bg } from '@app/components/bg'
+import { ExploreClients } from './clients'
+import { InferGetStaticPropsType } from 'next/types'
+import { getClientsData } from '@app/support/utils'
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -56,7 +59,7 @@ query {
     }
 }`
 
-const Page = () => (
+const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
     <div style={{ background: BG }} className='dark py-14 space-y-[40px]'>
         <Head>
             <title>Genql - SDK client for any GraphQL API</title>
@@ -254,6 +257,18 @@ const Page = () => (
                 }
             />
         </div>
+        <PageContainer className='pt-24 space-y-24 ' dontContain>
+            <div className='text-center space-y-6 max-w-2xl self-center'>
+                <h2 className='text-5xl font-semibold leading-tight'>
+                    An SDK for every GraphQL API
+                </h2>
+                <div className='text-xl opacity-70'>
+                    GenQL has a big catalog of already generated SDKs for all
+                    public GraphQL APIs you can find
+                </div>
+            </div>
+            <ExploreClients items={clients} loadMoreHref='/clients' />
+        </PageContainer>
 
         {/* <Section degree={0} zIndex={1} bg='white'>
             <Banner
@@ -329,4 +344,13 @@ function FeaturesBlocks({ items }) {
             })}
         </Faded>
     )
+}
+
+export async function getStaticProps() {
+    const clients = (await getClientsData()).slice(0, 6)
+    return {
+        props: {
+            clients,
+        },
+    }
 }
