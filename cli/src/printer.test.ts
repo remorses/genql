@@ -31,7 +31,7 @@ describe('printer', () => {
     it('printed code is valid, args', () => {
         const ast = parse(`
             query {
-                user(name: "xxx", number: 3) {
+                user(name: "xxx", number: 3, another: {a: 1, b: "2"}) {
                     name
                     field {
                         scalar
