@@ -19,29 +19,42 @@ export interface SchemaFetcher {
 
 export const fetchSchema = async ({
     endpoint,
-    usePost = false,
+    usePost = true,
     headers,
+    timeout = 20 * 1000,
     options,
 }: {
     endpoint: string
-    usePost: boolean
+    usePost?: boolean
+    timeout?: number
     headers?: Record<string, string>
     options?: GraphQLSchemaValidationOptions
 }) => {
+    let controller = new AbortController()
+    let id = setTimeout(() => {
+        controller.abort()
+    }, timeout)
     const response = await fetch(
         usePost
             ? endpoint
             : `${endpoint}?${qs.stringify({ query: getIntrospectionQuery() })}`,
-        usePost
-            ? {
-                  method: usePost ? 'POST' : 'GET',
-                  body: JSON.stringify({ query: getIntrospectionQuery() }),
-                  headers: { ...headers, 'Content-Type': 'application/json' },
-              }
-            : {
-                  headers,
-              },
+        {
+            signal: controller.signal,
+            ...(usePost
+                ? {
+                      method: usePost ? 'POST' : 'GET',
+                      body: JSON.stringify({ query: getIntrospectionQuery() }),
+                      headers: {
+                          ...headers,
+                          'Content-Type': 'application/json',
+                      },
+                  }
+                : {
+                      headers,
+                  }),
+        },
     )
+    clearTimeout(id)
     if (!response.ok) {
         throw new Error(
             `introspection for ${new URL(endpoint).host} failed, ` +
@@ -51,7 +64,7 @@ export const fetchSchema = async ({
 
     const result = await response.json().catch((e) => {
         const contentType = response.headers.get('Content-Type')
-        
+
         throw new Error(
             `endpoint '${endpoint}' did not return valid json, content type is ${contentType}, check that your endpoint points to a valid graphql api`,
         )

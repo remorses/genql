@@ -1,5 +1,9 @@
 import { spawn } from 'child_process'
-import fs from 'fs'
+import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
+
+import { CsvStore } from './utils'
+import { Sema } from 'async-sema'
+import fs, { stat } from 'fs'
 import Papa from 'papaparse'
 import path from 'path'
 import { createClient } from './generated'
@@ -13,13 +17,14 @@ const sourceGraph = createClient({
     headers: { Authorization: `token ${SOURCEGRAPH_TOKEN}` },
 })
 
-let csvPath = path.resolve('data.csv')
-
 type CsvDataType = {
     url: string
-    added: boolean
-    discarded: boolean
-    website: string
+    description?: string
+    title?: string
+    favicon?: string
+    status?: 'discarded' | '' | 'failed' | 'works' | 'enabled'
+    website?: string
+    slug?: string
 }
 
 /*
@@ -66,20 +71,31 @@ how the data for the website is collected
 // TODO add fields to csv if missing like
 // added, discarded, SEO description, authorization type (Bearer, None, etc), description
 
-async function main() {
-    let csvData: CsvDataType[] = []
-    if (fs.existsSync(csvPath)) {
-        let csv = fs.readFileSync(csvPath, 'utf-8')
-        Papa.parse(csv, {
-            header: true,
-            complete(res) {
-                if (res.errors.length) {
-                    throw new Error(res.errors.join(', '))
-                }
-                csvData = res.data as any
-            },
-        })
+type CsvQueryType = {
+    slug: string
+    query1: string
+    query2: string
+    query3: string
+    query4: string
+    query5: string
+}
+
+async function discover() {
+    let dataStore = new CsvStore<CsvDataType>('data.csv', (x) =>
+        getCleanUrl(x.url),
+    )
+    await dataStore.read()
+    let queriesStore = new CsvStore<CsvQueryType>('queries.csv', (x) => x.slug)
+    await queriesStore.read()
+
+    let apiToRecord = new Map<string, CsvDataType>()
+    for (let record of dataStore.data) {
+        let hostname = getCleanUrl(record.url)
+        if (hostname) {
+            apiToRecord.set(hostname, record)
+        }
     }
+
     // TODO also find graphql urls from
     // graphql codegen config files like https://sourcegraph.com/github.com/raycast/extensions/-/blob/extensions/sourcegraph/graphql-codegen.yml?L2:18&subtree=true
     // go graphql.NewClient(
@@ -114,53 +130,96 @@ async function main() {
         }
         return []
     })
-    let data = [
-        ...new Set(
-            lines
-                ?.map((x) => {
-                    const match = x.match(urlRegex)
-                    if (!match) {
-                        return
-                    }
-                    let url = match[0]
-                    try {
-                        let u = new URL(url)
-                        if (u.pathname.length > 200) {
-                            return null
-                        }
-                        if (u.port) {
-                            return null
-                        }
-                        url = u.origin + u.pathname
-                    } catch {
-                        return null
-                    }
-                    let website = topLevelDomain(url)
-                    return { url, line: x, website }
+    let sourcegraphUrls = lines!
+        .map((x) => {
+            const match = x.match(urlRegex)
+            if (!match) {
+                return
+            }
+            let url = match[0]
+            try {
+                let u = new URL(url)
+                if (u.pathname.length > 200) {
+                    return null
+                }
+                if (u.port) {
+                    return null
+                }
+                url = u.origin + u.pathname
+            } catch {
+                return null
+            }
+            return { url, line: x }
+        })
+        ?.filter((data) => {
+            let x = data?.url
+            if (!x) {
+                return false
+            }
+            if (!x.includes('.')) {
+                return false
+            }
+            if (ignore.some((y) => x!.includes(y))) {
+                return false
+            }
+            return true
+        })
+    let allUrls = [...sourcegraphUrls]
+    let sema = new Sema(10)
+    let data = await Promise.all(
+        allUrls!.map(async (x) => {
+            await sema.acquire()
+            let url = x?.url! || ''
+            try {
+                const record = apiToRecord.get(getCleanUrl(url))
+                if (record?.status) {
+                    console.log(
+                        `Skipping ${url} because status is ${record?.status}`,
+                    )
+                    return
+                }
+                let website = topLevelDomainUrl(url)
+                let meta = await getSiteMeta(website)
+                let status: CsvDataType['status'] = ''
+                if (!meta) {
+                    status = 'failed'
+                }
+                let schema = await fetchSchema({
+                    endpoint: url,
+                    timeout: 10 * 1000,
+                    // usePost: false,
                 })
-                .filter((data) => {
-                    let x = data?.url
-                    if (!x) {
-                        return false
-                    }
-                    if (!x.includes('.')) {
-                        return false
-                    }
-                    if (ignore.some((y) => x!.includes(y))) {
-                        return false
-                    }
-                    return true
-                }),
-        ),
-    ]
+                let { description, title, favicon, image } = meta || {}
+                let r: CsvDataType = {
+                    url,
+                    // line: x,
+                    website,
+                    description,
+                    title,
+                    favicon,
+                    status,
+                    // image,
+                }
+                return r
+            } catch (e) {
+                console.error(e)
+                let r: CsvDataType = {
+                    url,
+                    status: 'failed',
+                    // image,
+                }
+                return r
+            } finally {
+                sema.release()
+            }
+        }),
+    )
+
     data = unique(data, (x) => x?.url!)
     // console.log(JSON.stringify(res, null, 2))
     // console.log(lines?.join(`\n\n`))
     console.log(data.map((x) => JSON.stringify(x, null, 2))?.join(`\n\n`))
-    let csv = Papa.unparse(data, { header: true, delimiter: ',' })
-
-    console.log(`Writing to ${csvPath}`)
-    fs.writeFileSync(csvPath, csv, 'utf8')
+    await dataStore.upsert(data)
     console.log(res?.search?.results.matchCount)
 }
 
@@ -183,15 +242,15 @@ const ignore = [
 
 const urlRegex = /https:\/\/[^\s"'\)]*/
 
-main()
+discover()
 
 // gets the last domain with only 1 dot
-function topLevelDomain(url: string) {
+function topLevelDomainUrl(url: string) {
     let u = new URL(url)
     let origin = u.hostname
     let parts = origin.split('.')
     if (parts.length < 3) {
-        return url
+        return u.origin
     }
     return 'https://' + parts.slice(-2).join('.')
 }
@@ -228,85 +287,14 @@ function executeCommand(command: string) {
         })
     })
 }
-import posthtml from 'posthtml'
 
-async function getSiteMeta(site: string) {
-    const res = await fetchWithTimeout(
-        site,
-        {
-            // like chrome
-            headers: { accept: 'text/html', 'user-agent': 'Mozilla/5.0' },
-        },
-        7000,
-    )
-    const html = await res.text()
-    let description = ''
-    let title = ''
-    let image = ''
-    let favicon = ''
 
-    posthtml()
-        .use((tree) => {
-            tree.walk((node) => {
-                if (node?.attrs?.rel === 'apple-touch-icon') {
-                    favicon = urlWithBase(node.attrs.href || '', site)
-                    return node
-                }
-                if (node?.attrs?.rel === 'icon') {
-                    favicon = urlWithBase(node.attrs.href || '', site)
-                    return node
-                }
 
-                return node
-            })
-        })
-        .use((tree) => {
-            tree.walk((node) => {
-                // get description and title
-                if (node.tag === 'meta') {
-                    if (node.attrs?.description) {
-                        description = node.attrs?.description
-                    }
-                    if (node.attrs?.title) {
-                        title = node.attrs?.title
-                    }
-                    // og image
-                    if (node.attrs?.property === 'og:image') {
-                        image = urlWithBase(node.attrs?.content || '', site)
-                    }
-                }
-                return node
-            })
-        })
-        .process(html, { sync: true })
-    return { description, title, image, favicon }
-}
-
-function urlWithBase(url: string, base: string) {
-    if (!url) {
-        return ''
-    }
+function getCleanUrl(url) {
     try {
-        return new URL(url, base).href
+        let u = new URL(url)
+        return u.origin + u.pathname
     } catch {
         return ''
     }
-}
-
-function fetchWithTimeout(
-    url,
-    options: RequestInit,
-    timeout,
-): Promise<Response> {
-    const controller = new AbortController()
-    return Promise.race([
-        fetch(url, { ...options, signal: controller.signal }),
-
-        new Promise<any>((_, reject) =>
-            setTimeout(() => {
-                controller.abort()
-                reject(new Error('fetch timeout for ' + url))
-            }, timeout),
-        ),
-    ])
 }

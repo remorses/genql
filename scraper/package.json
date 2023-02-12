@@ -6,7 +6,8 @@
     "main": "index.js",
     "scripts": {
         "gen": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
-        "main": "doppler -c dev run -- node -r sucrase/register src/main.ts"
+        "test": "vitest",
+        "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts"
     },
     "keywords": [],
     "author": "remorses <beats.by.morse@gmail.com>",
@@ -15,8 +16,11 @@
         "@types/node": "^18.11.9"
     },
     "dependencies": {
+        "@genql/cli": "workspace:*",
         "@types/papaparse": "^5.3.7",
+        "async-sema": "^3.1.1",
         "papaparse": "^5.3.2",
-        "posthtml": "^0.16.6"
+        "posthtml": "^0.16.6",
+        "vitest": "^0.28.4"
     }
 }
