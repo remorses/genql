@@ -57,7 +57,7 @@ export const fetchSchema = async ({
     clearTimeout(id)
     if (!response.ok) {
         throw new Error(
-            `introspection for ${new URL(endpoint).host} failed, ` +
+            `introspection for ${endpoint} failed, ` +
                 response.statusText,
         )
     }
@@ -71,7 +71,7 @@ export const fetchSchema = async ({
     })
     if (!result.data) {
         throw new Error(
-            'introspection request did not receive a valid response',
+            `introspection request did not receive a valid response: ${JSON.stringify(result).slice(0, 100)}...`,
         )
     }
 

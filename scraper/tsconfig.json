@@ -4,7 +4,7 @@
         "noUnusedParameters": false,
         "rootDir": "src",
         "noImplicitAny": false,
-        "strict": true,
+        "strict": false,
         "declaration": true,
         "target": "ES2015",
         "module": "CommonJS",

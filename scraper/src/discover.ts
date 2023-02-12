@@ -202,7 +202,7 @@ async function discover() {
                 }
                 return r
             } catch (e) {
-                console.error(e)
+                console.error(red(e?.['message']))
                 let r: CsvDataType = {
                     url,
                     status: 'failed',
@@ -298,3 +298,7 @@ function getCleanUrl(url) {
         return ''
     }
 }
+function red(arg0: any): any {
+    throw new Error('Function not implemented.')
+}
+
