@@ -1,7 +1,7 @@
 import { spawn } from 'child_process'
 import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
 
-import { CsvStore } from './utils'
+import { CsvStore, getSiteMeta } from './utils'
 import { Sema } from 'async-sema'
 import fs, { stat } from 'fs'
 import Papa from 'papaparse'
