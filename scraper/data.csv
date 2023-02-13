@@ -2,7 +2,6 @@ url,website,description,title,favicon,status
 https://api.linear.app/graphql,https://linear.app,"Linear streamlines issues, sprints, and product roadmaps. It’s the new standard for modern software development.",Linear – A better way to build products,https://linear.app/static/apple-touch-icon.png,
 https://indexer.tzprofiles.com/v1/graphql,https://tzprofiles.com,,Tezos Profiles,https://tzprofiles.com/favicon.png,
 https://murphdog.com/api/graphql,,,,,failed
-https://saydle.hasura.app/v1/graphql,,,,,failed
 https://members.luscious.net/graphql/nobatch/,,,,,failed
 https://machinebox.io/graphql,,,,,failed
 https://www.epicgames.com/graphql,,,,,failed
@@ -30,7 +29,6 @@ https://api.cloudflare.com/client/v4/graphql,,,,,failed
 https://examples-api.gqty.dev/graphql,,,,,failed
 https://gitlab.com/api/graphql,https://gitlab.com,"From planning to production, bring teams together in one application. Ship secure code more efficiently to deliver value faster.",The DevSecOps Platform | GitLab,https://gitlab.com/nuxt-images/ico/apple-touch-icon-180x180.png?cache=2022041,
 https://hackerone.com/graphql,,,,,failed
-https://www.facebook.com/api/graphql/,,,,,failed
 https://qwerty.cdn.prismic.io/graphql,,,,,failed
 https://api.zora.co/graphql,https://zora.co,Discover. Create. Collect. Enjoy.,ZORA - Enjoy Ethereum,https://zora.co/icon-ios.png,
 https://naver.com/test/api/graphql,,,,,failed
@@ -52,7 +50,6 @@ https://api.spacex.land/graphql/,,,,,failed
 https://graphql.github.io/graphql-spec/June2018/,,,,,failed
 https://vglist.co/graphql,,,,,failed
 https://api.opencollective.com/graphql/v2,https://opencollective.com,Open Collective is a legal and financial toolbox for groups. It’s a fundraising + legal status + money management platform for your community. What do you want to do?,Loading,,
-https://demo.api-platform.com/graphql,https://api-platform.com,"The API-first framework: REST, GraphQL and real-time",API Platform,https://api-platform.com/512.png,
 https://www.gjtorikian.com/graphql-docs,,,,,failed
 https://hub.snapshot.org/graphql,https://snapshot.org,,Snapshot,https://snapshot.org/favicon.png,
 https://your.domain/graphql/endpoint,,,,,failed
@@ -61,10 +58,12 @@ https://api.thegraph.com/index-node/graphql,https://thegraph.com,The Graph is an
 https://www.paypal.com/graphql,,,,,failed
 https://www.paypal.com/targeting/graphql,,,,,failed
 https://graphql-demo.commonsware.com/0.3/graphql,,,,,failed
+https://api.jumpstart.id/graphql,,,,,failed
 https://www.walmart.com/terra-firma/graphql,,,,,failed
 https://leetcode.cn/graphql,,,,,failed
 https://leetcode.cn/graphql/noj-go/,https://leetcode.cn,,力扣,,
 https://www.tf1.fr/graphql/web,https://tf1.fr,"Regardez en replay ou en direct les programmes des chaînes TF1, TMC, TFX et TF1 Séries Films. Découvrez également nos vidéos et news exclusives !","MYTF1 : TF1, TMC, TFX et TF1 Séries Films en replay ou en direct",https://tf1.fr/public/2.48.1/favicon-512x512.png,
+https://www.facebook.com/api/graphql/,,,,,failed
 https://app.shopify.com/services/graphql/introspection/storefront,,,,,failed
 https://leetcode.com/graphql/,,,,,failed
 https://api.spacex.land/graphql,,,,,failed
@@ -72,21 +71,13 @@ https://your-instance.cloud.dgraph.io/graphql,,,,,failed
 https://data.naviapp.io/graphql,,,,,failed
 https://data.rcsb.org/graphql,https://rcsb.org,"As a member of the wwPDB, the RCSB PDB curates and annotates PDB data according to agreed upon standards. The RCSB PDB also provides a variety of tools and resources. Users can perform simple and advanced searches based on annotations relating to sequence, structure and function. These molecules are visualized, downloaded, and analyzed by users who range from students to specialized scientists.",RCSB PDB: Homepage,https://rcsb.org/img/rcsb-apple-touch-icon.jpg,
 https://graphql.dev.hedvigit.com/graphql,https://hedvigit.com,,,,failed
-https://randy.butternubs.com/graphql,,,,,failed
-https://api.opensea.io/graphql/,,,,,failed
-https://api.looksrare.org/graphql,,,,,failed
-https://arweave.dev/graphql,https://arweave.dev,,,,
+https://graphqlplayground.azurewebsites.net/api/graphql,,,,,failed
 https://mobileqa.beta.instructure.com/api/graphql/,,,,,failed
 https://app.segment.com/gateway-api/graphql,https://segment.com,"Twilio Segment is a customer data platform (CDP) that helps you collect, clean, and activate your customer data.",Twilio Segment ranked #1 CDP for worldwide market share (IDC 2020),https://segment.com/_next/static/images/favicon-16x16-34494a07d899bde300ee54030b1a6e1a.png,
 https://api.url/graphql,,,,,failed
 https://superheroes.org/graphql,,,,,failed
-https://beta.ratebeer.com/v1/api/graphql/,,,,,failed
-https://simpleicons.org/icons/graphql.svg,,,,,failed
-https://gql-endpoint.com/graphql,,,,,failed
 https://figgy.princeton.edu/graphql,https://princeton.edu,"Through teaching and research, we educate people who will contribute to society and develop knowledge that will make a difference in the world.",Princeton University,https://princeton.edu/profiles/contrib/lightning/favicon.ico,
-https://web-api.okjike.com/api/graphql,,,,,failed
 https://workshop.chillicream.com/graphql,https://chillicream.com,We help companies and developers to build next level APIs with GraphQL by providing them the right tooling.,Home - ChilliCream GraphQL Platform,https://chillicream.com/icons/icon-512x512.png?v=d8d16879bcc63b3adfe3ede735f84bd3,
-https://api.tezos.domains/graphql,https://tezos.domains,"Distributed, open and extensible naming system using the Tezos blockchain.",Tezos Domains,https://tezos.domains/img/favicon.ico,
 https://demo.wpgraphql.com/graphql,https://wpgraphql.com,,,https://wpgraphql.com/favicons/favicon-16x16.png?v=4,
 https://graphql.api.apollographql.com/api/graphql,https://apollographql.com,"Apollo Graph Platform — unify APIs, microservices, &amp; databases into a graph that you can query with GraphQL","Apollo GraphQL | Supergraph: unify APIs, microservices, &amp; databases in a composable graph",,
 https://graphql-dot-confetti-349319.uw.r.appspot.com/graphql,https://appspot.com,"Google Cloud Platform lets you build, deploy, and scale applications, websites, and services on the same infrastructure as Google.",Google Cloud Platform,,
@@ -96,10 +87,10 @@ https://brainly.co.id/graphql/id,https://co.id,,,,failed
 https://content.wpgraphql.com/graphql,https://wpgraphql.com,,,https://wpgraphql.com/favicons/favicon-16x16.png?v=4,
 https://www.mixcloud.com/graphql,https://mixcloud.com,,Mixcloud,https://mixcloud.com/media/client/www/9d95755ec10b665a51b7.png,
 https://tarkov-tools.com/graphql,,,,,failed
+https://simpleicons.org/icons/graphql.svg,,,,,failed
 https://test-graphql.biz/graphql,,,,,failed
 https://api.datacite.org/graphql,https://datacite.org,"DataCite - ",Welcome to DataCite,https://datacite.org/images/favicon.ico,
 https://arweave.net/graphql,https://arweave.net,,,,
-https://cdn.jsdelivr.net/gh/bitquery/graphql-ide@1.1.19/src/assets/images/pencil-alt-solid.svg,,,,,failed
 https://graphql.anilist.co/,https://anilist.co,,AniList,https://anilist.co/img/icons/apple-touch-icon.png,
 https://graph.facebook.com/graphql,,,,,failed
 https://mycelium.truffle.vip/graphql,https://truffle.vip,Websites for creators,Home | Truffle,https://cdn.bio/ugc/file/094ee050-61d3-11eb-ae77-b305acd7f0af/7eed5dc0-a19f-11ec-9de4-154cb702c166.small.png,
@@ -108,10 +99,19 @@ https://api.remote.it/graphql/v1,,,,,failed
 https://hdapi.teztools.io/v1/graphql,,,,,failed
 https://smelt.suse.de/graphql/,,,,,failed
 https://docs.shiney.dev/graphql/latest,,,,,failed
-https://fastball-gateway.mlb.com/graphql,https://mlb.com,"Coverage includes audio and video clips, interviews, statistics, schedules and exclusive stories.",,https://www.mlbstatic.com/team-logos/apple-touch-icons-180x180/mlb.png,
-https://video.vice.com/api/v1/graphql,,,,,failed
 https://api.devprtcl.com/v1/graphql,,,,,failed
-https://www.palcomp3.com.br/graphql/,https://com.br,,,,failed
 https://quote.cnbc.com/quote-html-webservice/quote.htm,,,,,failed
-https://www.telegraaf.nl/graphql,,,,,failed
-https://www.khanacademy.org/api/internal/graphql,,,,,failed
+https://api.svt.se/contento/graphql,https://svt.se,"SVT:s nyhetstjänst med nyheter från hela Sverige och världen inom kultur, sport och väder.",SVT Nyheter,https://www.svtstatic.se/news/news-render/dist/news-icon-16x16-00d0a8d2e094e9c0dc8b.png,
+https://contento-search.svt.se/graphql,https://svt.se,"SVT:s nyhetstjänst med nyheter från hela Sverige och världen inom kultur, sport och väder.",SVT Nyheter,https://www.svtstatic.se/news/news-render/dist/news-icon-16x16-00d0a8d2e094e9c0dc8b.png,
+https://graphql.tv4play.se/graphql,https://tv4play.se,"Se de bästa serierna på TV4 Play. Streama direkt i din TV, mobil eller surfplatta.",TV4 Play - Streama dina favoritprogram när du vill,https://tv4play.se/static/tv4/apple-touch-icon.png,
+https://www.lego.com/api/graphql/AccountOrderDetails,,,,,failed
+https://laughing-train.keksdose.xyz/graphql,https://keksdose.xyz,,,,failed
+https://senior-bff.ketnet.be/graphql,https://ketnet.be,,Ketnet,https://ketnet.be/logo192.png,
+https://graph.kijk.nl/graphql,https://kijk.nl,,Gratis films en programma’s kijken? Ga lekker kijken! | KIJK,https://kijk.nl/static/favicons/favicon-32x32.png,
+https://graph.kijk.nl/graphql-video,,,,,failed
+https://serve.onegraph.com/graphql,,,,,failed
+https://kitsu.io/api/graphql,https://kitsu.io,,,https://kitsu.io/favicon-194x194-2f4dbec5ffe82b8f61a3c6d28a77bc6e.png,
+https://api.tarkov.dev/graphql,https://tarkov.dev,"Checkout all information for items, crafts, barters, maps, loot tiers, hideout profits, trader details, a free API, and more with tarkov.dev! A free, community made, and open source ecosystem of Escape from Tarkov tools and guides.",Tarkov.dev,https://tarkov.dev/favicon-16x16.png,
+https://gateway.qa.braintreepayments.com/,,,,,failed
+https://api.braintreegateway.com/,,,,,failed
+https://api.sandbox.braintreegateway.com/,,,,,failed

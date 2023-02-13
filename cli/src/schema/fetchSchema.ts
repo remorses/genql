@@ -71,7 +71,7 @@ export const fetchSchema = async ({
     })
     if (!result.data) {
         throw new Error(
-            `introspection request did not receive a valid response: ${JSON.stringify(result).slice(0, 100)}...`,
+            `introspection for ${endpoint} failed: ${JSON.stringify(result).slice(0, 200)}...`,
         )
     }
 

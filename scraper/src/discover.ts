@@ -1,4 +1,5 @@
 import { spawn } from 'child_process'
+import { red } from 'kleur'
 import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
 
 import { CsvStore, getSiteMeta } from './utils'
@@ -181,9 +182,9 @@ async function discover() {
                 let website = topLevelDomainUrl(url)
                 let meta = await getSiteMeta(website)
                 let status: CsvDataType['status'] = ''
-                if (!meta) {
-                    status = 'failed'
-                }
+                // if (!meta) {
+                //     status = 'failed'
+                // }
                 let schema = await fetchSchema({
                     endpoint: url,
                     timeout: 10 * 1000,
@@ -288,8 +289,6 @@ function executeCommand(command: string) {
     })
 }
 
-
-
 function getCleanUrl(url) {
     try {
         let u = new URL(url)
@@ -298,7 +297,3 @@ function getCleanUrl(url) {
         return ''
     }
 }
-function red(arg0: any): any {
-    throw new Error('Function not implemented.')
-}
-
