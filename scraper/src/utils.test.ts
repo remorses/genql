@@ -1,5 +1,5 @@
 import { expect, describe, test } from 'vitest'
-import { getSiteMeta } from './utils'
+import { getSiteMeta } from './utils/utils'
 
 describe('getSiteMeta', () => {
     test('getSiteMeta', async () => {

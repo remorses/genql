@@ -1,13 +1,27 @@
 import { spawn } from 'child_process'
+import { GraphQLSchema, lexicographicSortSchema } from 'graphql'
+import { sort } from 'fast-sort'
 import { red } from 'kleur'
-import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
+import {
+    fetchSchema,
+    fetchSchemaWithRetry,
+} from '@genql/cli/src/schema/fetchSchema'
 
-import { CsvStore, getSiteMeta } from './utils'
+import {
+    CsvDataType,
+    GeneratedEntry,
+    CsvStore,
+    getCleanUrl,
+    getSiteMeta,
+    generatedStore,
+    dataStore,
+} from './utils/utils'
 import { Sema } from 'async-sema'
 import fs, { stat } from 'fs'
 import Papa from 'papaparse'
 import path from 'path'
 import { createClient } from './generated'
+import { generateQueries } from './utils/generateQueries'
 
 const { SOURCEGRAPH_TOKEN } = process.env
 
@@ -17,16 +31,6 @@ if (!SOURCEGRAPH_TOKEN) {
 const sourceGraph = createClient({
     headers: { Authorization: `token ${SOURCEGRAPH_TOKEN}` },
 })
-
-type CsvDataType = {
-    url: string
-    description?: string
-    title?: string
-    favicon?: string
-    status?: 'discarded' | '' | 'failed' | 'works' | 'enabled'
-    website?: string
-    slug?: string
-}
 
 /*
 
@@ -72,22 +76,10 @@ how the data for the website is collected
 // TODO add fields to csv if missing like
 // added, discarded, SEO description, authorization type (Bearer, None, etc), description
 
-type CsvQueryType = {
-    slug: string
-    query1: string
-    query2: string
-    query3: string
-    query4: string
-    query5: string
-}
-
 async function discover() {
-    let dataStore = new CsvStore<CsvDataType>('data.csv', (x) =>
-        getCleanUrl(x.url),
-    )
     await dataStore.read()
-    let queriesStore = new CsvStore<CsvQueryType>('queries.csv', (x) => x.slug)
-    await queriesStore.read()
+
+    await generatedStore.read()
 
     // console.log(dataStore.data[0])
     // return
@@ -169,41 +161,60 @@ async function discover() {
         })
     let allUrls = [...sourcegraphUrls]
     let sema = new Sema(10)
+    let allRecords: CsvDataType[] = [...dataStore.data]
+    for (let x of allUrls) {
+        let url = x.url
+        const record: CsvDataType = apiToRecord.get(getCleanUrl(url))
+        if (!record) {
+            allRecords.push({
+                url,
+            })
+        }
+    }
     let data = await Promise.all(
-        allUrls!.map(async (x) => {
+        allRecords!.map(async (record) => {
             await sema.acquire()
-            let url = x?.url! || ''
+            let url = record.url || ''
+            let website = topLevelDomainUrl(url)
             try {
-                const record = apiToRecord.get(getCleanUrl(url))
-                if (record?.status) {
-                    console.log(
-                        `Skipping ${url} because status is ${record?.status}`,
-                    )
-                    return
-                }
-                let website = topLevelDomainUrl(url)
                 let meta = await getSiteMeta(website)
-                let status: CsvDataType['status'] = ''
-                // if (!meta) {
-                //     status = 'failed'
-                // }
-                let schema = await fetchSchema({
-                    endpoint: url,
-                    timeout: 10 * 1000,
-                    // usePost: false,
-                })
+
                 let { description, title, favicon, image } = meta || {}
-                let r: CsvDataType = {
-                    url,
-                    // line: x,
+                if (description) {
+                    // remove new lines
+                    description = description
+                        .replace(/\n/g, ' ')
+                        .trim()
+                        .slice(0, 300)
+                }
+                assignIfMissing(record, {
                     website,
                     description,
                     title,
-                    favicon,
-                    status,
-                    // image,
+                })
+                // if (record?.status && !record?.status.startsWith('failed')) {
+                //     console.log(
+                //         `Skipping ${url} because status is ${JSON.stringify(
+                //             record?.status,
+                //         )}`,
+                //     )
+                //     return
+                // }
+                let schema: GraphQLSchema = null
+                try {
+                    schema = await fetchSchemaWithRetry({
+                        endpoint: url,
+                        timeout: 7 * 1000,
+                        // usePost: false,
+                    })
+                } catch (e) {
+                    console.error(`Could not fetch schema`, red(e?.['message']))
                 }
-                return r
+                if (!schema) {
+                    record.status = 'failed:schema'
+                }
+                // let enriched = await enrichEntry(x)
+                return record
             } catch (e) {
                 console.error(red(e?.['message']))
                 let r: CsvDataType = {
@@ -218,7 +229,6 @@ async function discover() {
         }),
     )
 
-    data = unique(data, (x) => x?.url!)
     // console.log(JSON.stringify(res, null, 2))
     // console.log(lines?.join(`\n\n`))
     console.log(data.map((x) => JSON.stringify(x, null, 2))?.join(`\n\n`))
@@ -258,44 +268,10 @@ function topLevelDomainUrl(url: string) {
     return 'https://' + parts.slice(-2).join('.')
 }
 
-function unique<T>(arr: T[], key: (x: T) => string) {
-    let map = new Map<string, T>()
-    arr.forEach((x) => {
-        map.set(key(x), x)
-    })
-    return [...map.values()]
-}
-
-// executes a command and returns the output, it also prints the stdout and stderr in real time
-function executeCommand(command: string) {
-    return new Promise((resolve, reject) => {
-        const p = spawn(command, [], { shell: true })
-        let stdout = ''
-        p.stdout.on('data', (data) => {
-            let str = data.toString()
-            console.log(str)
-            stdout += str
-        })
-        p.stderr.on('data', (data) => {
-            let str = data.toString()
-            console.log(str)
-        })
-
-        p.on('close', (code) => {
-            if (code === 0) {
-                resolve({ stdout })
-            } else {
-                reject()
-            }
-        })
-    })
-}
-
-function getCleanUrl(url) {
-    try {
-        let u = new URL(url)
-        return u.origin + u.pathname
-    } catch {
-        return ''
+function assignIfMissing<T>(obj: T, toAssign: Partial<T>) {
+    for (let key of Object.keys(toAssign)) {
+        if (obj[key] === undefined) {
+            obj[key] = toAssign[key]
+        }
     }
 }

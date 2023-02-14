@@ -5,7 +5,6 @@ import { Config } from '../config'
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
 import { lexicographicSortSchema } from 'graphql'
 import {
-    customFetchSchema,
     fetchSchema,
     SchemaFetcher,
 } from '../schema/fetchSchema'

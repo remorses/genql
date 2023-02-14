@@ -1,13 +1,43 @@
 import Papa from 'papaparse'
+import { sort } from 'fast-sort'
 import posthtml from 'posthtml'
 import fs from 'fs'
+import { spawn } from 'child_process'
+
+export type CsvDataType = {
+    slug?: string
+    url: string
+    title?: string
+    description?: string
+    status?: 'discarded' | '' | 'failed' | 'failed:schema' | 'works' | 'enabled'
+    website?: string
+}
+
+export type GeneratedEntry = {
+    slug: string
+    version?: string
+    schemaHash?: string
+    // Use markdown for queries code, use OpenAI to generate descriptions
+    queriesCode: string
+    favicon?: string
+    tempFolder?: string
+}
 
 export class CsvStore<T> {
     data: T[] = []
     idKey: (x: T) => string
-    constructor(public path: string, idKey: (x: T) => string) {
+    firstHeaders: string[]
+    transform: (x: T[]) => T[]
+    constructor(
+        public path: string,
+        idKey: (x: T) => string,
+        transform: (x: T[]) => T[],
+        firstHeaders?: string[],
+    ) {
         this.path = path
+        this.firstHeaders = firstHeaders || []
         this.idKey = idKey
+        this.transform = transform
     }
     async read(): Promise<T[]> {
         let csvData: T[] = []
@@ -24,9 +54,11 @@ export class CsvStore<T> {
                     }
                     return value
                 },
+
                 transformHeader(header) {
                     return header.trim()
                 },
+
                 complete: (res) => {
                     if (res.errors.length) {
                         return reject(new Error(res.errors.join(', ')))
@@ -54,8 +86,13 @@ export class CsvStore<T> {
         await this.write(this.data)
     }
     async write(data: (T | undefined)[]) {
+        data = unique(data, this.idKey)
+        data = this.transform(data)
         let csv = Papa.unparse(data.filter(Boolean), {
             header: true,
+            columns: [
+                ...new Set(...this.firstHeaders, ...Object.keys(data[0] || {})),
+            ],
             delimiter: ',',
         })
 
@@ -63,6 +100,32 @@ export class CsvStore<T> {
         fs.writeFileSync(this.path, csv, 'utf8')
     }
 }
+
+export function unique<T>(arr: T[], key: (x: T) => string) {
+    let map = new Map<string, T>()
+    arr.forEach((x) => {
+        map.set(key(x), x)
+    })
+    return [...map.values()]
+}
+
+export let dataStore = new CsvStore<CsvDataType>(
+    'data.csv',
+    (x) => getCleanUrl(x.url),
+    (data) => {
+        data = sort(data).asc([(x) => x.status, (x) => x.slug])
+        return data
+    },
+    ['slug', 'status', 'url', 'title', 'description', 'website'],
+)
+export let generatedStore = new CsvStore<GeneratedEntry>(
+    'generated.csv',
+    (x) => x.slug,
+    (data) => {
+        data = sort(data).asc([(x) => x.version, (x) => x.slug])
+        return data
+    },
+)
 
 export async function getSiteMeta(site: string) {
     try {
@@ -116,8 +179,8 @@ export async function getSiteMeta(site: string) {
                     }
                     // get description and title
                     if (node.tag === 'meta') {
-                        if (node.attrs?.name === 'description') {
-                            description = arrayToText(node.attrs.content)
+                        if (node.attrs?.['name'] === 'description') {
+                            description = arrayToText(node.attrs?.['content'])
                         }
 
                         // og image
@@ -173,4 +236,38 @@ function arrayToText(arr: any) {
         return arr.map((x) => x?.toString()).join(' ')
     }
     return ''
+}
+
+// executes a command and returns the output, it also prints the stdout and stderr in real time
+export function executeCommand(command: string) {
+    return new Promise((resolve, reject) => {
+        const p = spawn(command, [], { shell: true })
+        let stdout = ''
+        p.stdout.on('data', (data) => {
+            let str = data.toString()
+            console.log(str)
+            stdout += str
+        })
+        p.stderr.on('data', (data) => {
+            let str = data.toString()
+            console.log(str)
+        })
+
+        p.on('close', (code) => {
+            if (code === 0) {
+                resolve({ stdout })
+            } else {
+                reject()
+            }
+        })
+    })
+}
+
+export function getCleanUrl(url) {
+    try {
+        let u = new URL(url)
+        return u.origin + u.pathname
+    } catch {
+        return ''
+    }
 }

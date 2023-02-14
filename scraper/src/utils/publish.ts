@@ -3,22 +3,21 @@ import resolve from 'resolve'
 import { promises as fs } from 'fs'
 import { generate } from '@genql/cli/src/main'
 import { buildSchema } from 'graphql'
-import { NextApiRequest, NextApiResponse } from 'next'
 import packageNameAvailable from 'npm-name'
 import os from 'os'
 import path from 'path'
 import fsx from 'fs-extra'
 import tmp from 'tmp-promise'
-import { NPM_SCOPE, NPM_TOKEN, websiteUrl } from '../constants'
-import { generateQueries } from '../support/generateQueries'
+import { NPM_SCOPE, websiteUrl } from '../constants'
+
 import { red } from 'kleur'
-import { YamlFileData } from './utils'
+import { CsvDataType, GeneratedEntry } from './utils'
 
 function generateReadme({
     slug,
     website,
-    exampleCode,
-}: YamlFileData & { slug: string }) {
+    queriesCode,
+}: CsvDataType & GeneratedEntry) {
     const host = new URL(website).host
     return `
 
@@ -39,7 +38,7 @@ You can read more about usage in the [client docs](${websiteUrl}/clients/${slug}
 ## Example usage
 
 \`\`\`js
-${exampleCode}
+${queriesCode}
 \`\`\`
 
 ## Sponsor
@@ -78,14 +77,14 @@ export function runCommand({ cmd, cwd }) {
 }
 
 export async function createPackage(
-    args: YamlFileData & { slug: string; publish: boolean },
+    args: CsvDataType & GeneratedEntry & { publish: boolean },
 ) {
-    const { endpoint, slug, version } = args
+    const { url, slug, version } = args
     const { path: tmpPath, cleanup } = await tmp.dir({
         unsafeCleanup: true,
     })
     console.log('tmpPath', slug, tmpPath)
-    const host = new URL(endpoint).host
+    const host = new URL(url).host
     try {
         const packageJson = {
             name: `${NPM_SCOPE}/${slug}`,
@@ -108,7 +107,7 @@ export async function createPackage(
         }
 
         await generate({
-            endpoint,
+            endpoint: url,
             output: path.resolve(tmpPath, 'src'),
             fetchImport: "import { fetch } from 'native-fetch'",
         })
@@ -149,9 +148,10 @@ export async function createPackage(
             })
         }
         // await cleanup()
-        return packageJson
+        return { packageJson, tempFolder: tmpPath }
     } catch (e) {
         throw new Error(red('Could not publish: ' + String(e)))
+        return { packageJson: {}, tempFolder: '' }
     } finally {
     }
 }

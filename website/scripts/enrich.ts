@@ -11,7 +11,7 @@ import { print } from '@genql/cli/src/printer'
 import { GraphQLSchema } from 'graphql'
 
 import { fetchSchema } from '@genql/cli/src/schema/fetchSchema'
-import { generateQueries } from '../src/support/generateQueries'
+import { generateQueries } from '../../scraper/src/utils/generateQueries'
 import { createPackage } from '../src/support/publish'
 import { YamlFileData } from '../src/support/utils'
 

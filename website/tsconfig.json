@@ -25,5 +25,5 @@
         "**/*.ts",
         "**/*.tsx",
         "tests/testGenerateQueries"
-    ]
+, "../scraper/src/generateQueries.ts"    ]
 }

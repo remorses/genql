@@ -8,6 +8,7 @@ import {
 import { GraphQLSchemaValidationOptions } from 'graphql/type/schema'
 import qs from 'qs'
 import { sortBy } from 'lodash'
+import { Arguments } from 'yargs'
 
 export interface SchemaFetcher {
     (
@@ -57,8 +58,7 @@ export const fetchSchema = async ({
     clearTimeout(id)
     if (!response.ok) {
         throw new Error(
-            `introspection for ${endpoint} failed, ` +
-                response.statusText,
+            `introspection for ${endpoint} failed, ${response.status} ${response.statusText}`,
         )
     }
 
@@ -71,7 +71,9 @@ export const fetchSchema = async ({
     })
     if (!result.data) {
         throw new Error(
-            `introspection for ${endpoint} failed: ${JSON.stringify(result).slice(0, 200)}...`,
+            `introspection for ${endpoint} failed: ${JSON.stringify(
+                result,
+            ).slice(0, 200)}...`,
         )
     }
 
@@ -81,17 +83,13 @@ export const fetchSchema = async ({
     return buildClientSchema(result.data, options)
 }
 
-export const customFetchSchema = async (
-    fetcher: SchemaFetcher,
-    options?: GraphQLSchemaValidationOptions,
-) => {
-    const result = await fetcher(getIntrospectionQuery(), fetch, qs)
-
-    if (!result.data) {
-        throw new Error(
-            'introspection request did not receive a valid response',
-        )
+export function fetchSchemaWithRetry(args: Parameters<typeof fetchSchema>[0]) {
+    for (let usePost of [true, false]) {
+        try {
+            return fetchSchema({ ...args, usePost })
+        } catch (e) {
+            console.log(e?.['message'])
+        }
     }
-
-    return buildClientSchema(result.data as any, options)
+    return null
 }
