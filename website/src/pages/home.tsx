@@ -232,7 +232,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                         style={{
                             mixBlendMode: 'lighten',
                         }}
-                        className='md:max-w-[800px] max-w-full'
+                        className='min-h-[500px] md:max-w-[800px] max-w-full'
                         // borderRadius='10px'
                         src='/completion.mp4'
                     />
@@ -265,7 +265,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                             autoPlay
                             playsInline
                             muted
-                            className='md:max-w-[800px] max-w-full'
+                            className='min-h-[500px] md:max-w-[800px] max-w-full'
                             style={{
                                 mixBlendMode: 'lighten',
 
