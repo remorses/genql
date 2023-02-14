@@ -97,7 +97,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                 <div className='flex flex-col md:flex-row items-center gap-4'>
                     <Button href='/docs'>Quick Start</Button>
                     <Button ghost href='/apis'>
-                        Explore GraphQL Clients
+                        Explore GraphQL APIs
                     </Button>
                 </div>
             }
