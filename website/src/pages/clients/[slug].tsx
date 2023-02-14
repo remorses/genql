@@ -59,7 +59,7 @@ const Page = ({
                     </div>
                 }
                 heading={
-                    <div className='tracking-wide'>
+                    <div className='tracking-wide leading-tight'>
                         GraphQL client for the <br />
                         <span className='font-bold'>{host}</span> API
                     </div>
