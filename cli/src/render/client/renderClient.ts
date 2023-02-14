@@ -143,7 +143,7 @@ function renderClientType({ queryType, mutationType, subscriptionType }) {
       `
     }
 
-    // TODO add subscription client
+    // TODO add subscription client again
     // if (subscriptionType) {
     //     interfaceContent += `
     //   subscription<R extends ${requestTypeName(subscriptionType)}>(
