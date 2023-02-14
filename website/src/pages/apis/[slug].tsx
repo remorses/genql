@@ -64,13 +64,13 @@ const Page = ({
             <Hero
                 bullet={
                     <div className='flex items-center gap-2 -mx-1'>
-                        {favicon && (
+                        {/* {favicon && (
                             <img
                                 className='rounded h-[17px]'
                                 alt='icon'
                                 src={favicon}
                             />
-                        )}
+                        )} */}
                         <div>Powered by Genql</div>
                     </div>
                 }
