@@ -102,8 +102,9 @@ const Page = ({
                         .
                     </p>
                     <p className=''>
-                        It is fully type safe when using TypeScript and you can
-                        use auto completion to discover fields and types.
+                        This library is fully type safe and thanks to TypeScript
+                        auto completion you can discover fields and methods very
+                        easily.
                     </p>
                 </div>
                 <div className='space-y-4'>
