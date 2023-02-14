@@ -18,6 +18,15 @@ export class CsvStore<T> {
         return await new Promise((resolve, reject) => {
             let r = Papa.parse(csv, {
                 header: true,
+                transform(value, field) {
+                    if (typeof value === 'string') {
+                        return value.trim()
+                    }
+                    return value
+                },
+                transformHeader(header) {
+                    return header.trim()
+                },
                 complete: (res) => {
                     if (res.errors.length) {
                         return reject(new Error(res.errors.join(', ')))
@@ -87,12 +96,12 @@ export async function getSiteMeta(site: string) {
         posthtml()
             .use((tree) => {
                 tree.walk((node) => {
-                    if (node?.attrs?.rel === 'apple-touch-icon') {
-                        favicon = urlWithBase(node.attrs.href || '', site)
+                    if (node?.attrs?.['rel'] === 'apple-touch-icon') {
+                        favicon = urlWithBase(node.attrs?.['href'] || '', site)
                         return node
                     }
-                    if (node?.attrs?.rel === 'icon') {
-                        favicon = urlWithBase(node.attrs.href || '', site)
+                    if (node?.attrs?.['rel'] === 'icon') {
+                        favicon = urlWithBase(node.attrs?.['href'] || '', site)
                         return node
                     }
 

@@ -1,0 +1,4 @@
+content: |
+  GraphQl for the fly.io cloud platform
+website: https://fly.io
+endpoint: https://api.fly.io/graphql

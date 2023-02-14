@@ -89,6 +89,8 @@ async function discover() {
     let queriesStore = new CsvStore<CsvQueryType>('queries.csv', (x) => x.slug)
     await queriesStore.read()
 
+    // console.log(dataStore.data[0])
+    // return
     let apiToRecord = new Map<string, CsvDataType>()
     for (let record of dataStore.data) {
         let hostname = getCleanUrl(record.url)
