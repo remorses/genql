@@ -30,6 +30,7 @@ import {
 } from 'next'
 import path from 'path'
 import { getClientsData } from '@app/support/utils'
+import { NextSeo } from 'next-seo'
 
 function InlineCode({ children }: { children: string }) {
     return <InlineCode_ style={{ background: '#333' }}>{children}</InlineCode_>
@@ -55,10 +56,12 @@ const Page = ({
             style={{ background: BG }}
             className='dark py-14 w-full items-stretch space-y-[40px]'
         >
-            <Head>
-                <title>TypeScript SDK for {host} API - Powered by Genql</title>
-            </Head>
-
+            <NextSeo
+                {...{
+                    title: `TypeScript SDK for ${host} API - Powered by Genql`,
+                    description: `API client for the ${host} GraphQL API. Full typescript support, works on browser and server.`,
+                }}
+            />
             <Hero
                 bullet={
                     <div className='flex items-center gap-2 -mx-1'>
