@@ -95,7 +95,11 @@ const Page = ({
                 <div className='space-y-4'>
                     <p className='whitespace-pre-wrap'>{description}</p>
                     <p className=''>
-                        This SDK has been generated from the {host} GraphQL API.
+                        This SDK was created from the {host} GraphQL API with{' '}
+                        <Link underline href={websiteUrl}>
+                            Genql
+                        </Link>
+                        .
                     </p>
                     <p className=''>
                         It is fully type safe when using TypeScript and you can
