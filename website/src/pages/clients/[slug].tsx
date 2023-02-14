@@ -5,7 +5,8 @@ import fs from 'fs'
 
 import { Faded } from 'baby-i-am-faded'
 
-import { Hero, PageContainer } from 'beskar/landing'
+import { Hero, InlineCode as InlineCode_, PageContainer } from 'beskar/landing'
+import { gray } from 'beskar/colors'
 import { Code } from '@app/components/Code'
 import NextLink from 'next/link'
 import { Fragment } from 'react'
@@ -24,6 +25,17 @@ import {
 } from 'next'
 import path from 'path'
 import { getClientsData } from '@app/support/utils'
+
+function InlineCode({ children }: { children: string }) {
+    return <InlineCode_ style={{ background: '#333' }}>{children}</InlineCode_>
+}
+function H2({ children }: { children: string }) {
+    return (
+        <h2 className='text-3xl font-semibold text-white leading-tight'>
+            {children}
+        </h2>
+    )
+}
 
 const Page = ({
     slug,
@@ -72,14 +84,14 @@ const Page = ({
 
             <div className='pt-8'></div>
             <PageContainer
-                className='space-y-12 [--page-max-width:800px]'
+                className='space-y-12 [--page-max-width:800px] text-gray-300 text-lg'
                 dontContain
             >
                 <div className='space-y-4'>
                     <div className='whitespace-pre-wrap'>{description}</div>
                 </div>
                 <div className='space-y-4'>
-                    <h2 className='text-3xl font-bold '>How to install</h2>
+                    <H2>How to install</H2>
                     <div className=''>
                         Use a package manager to install the API client
                     </div>
@@ -91,7 +103,7 @@ const Page = ({
                     </div>
                 </div>
                 <div className='space-y-4'>
-                    <h2 className='text-3xl font-bold '>Using the client</h2>
+                    <H2>Using the client</H2>
                     <div className=''>
                         Use a package manager to install the API client
                     </div>
@@ -107,7 +119,7 @@ const Page = ({
                     </div>
                 </div>
                 <div className='space-y-4'>
-                    <h2 className='text-3xl font-bold '>Passing headers</h2>
+                    <H2>Passing headers</H2>
                     <div className=''>
                         You can use the headers options to pass credentials or
                         other headers
@@ -115,7 +127,6 @@ const Page = ({
                     <div className=''>
                         <Code
                             language='typescript'
-                            
                             code={dedent`
                         import { createClient } from '@genql/${slug}'
                         const client = createClient({
@@ -129,10 +140,25 @@ const Page = ({
                 </div>
                 {queriesCode && (
                     <div className='space-y-4'>
-                        <h2 className='text-3xl font-bold '>Example queries</h2>
-                        <div className=''>
-                            Use a package manager to install the API client
-                        </div>
+                        <H2>Example queries</H2>
+
+                        <p>
+                            This SDK is generated from the{' '}
+                            <InlineCode>{host}</InlineCode> GraphQL API so the
+                            client has a structure similar to the one used by
+                            GraphQL queries.
+                        </p>
+                        <p>
+                            To fetch fields you need to explicitly pass{' '}
+                            <InlineCode>field: true</InlineCode>, you can also
+                            pass <InlineCode>__args</InlineCode> to fetch all
+                            scalar fields on a type.
+                        </p>
+                        <p>
+                            Notice that to pass arguments you can use{' '}
+                            <InlineCode>__args</InlineCode>
+                        </p>
+
                         <div className=''>
                             <Code
                                 language='typescript'

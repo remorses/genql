@@ -26,46 +26,54 @@ export async function publish() {
     let sema = new Sema(10)
 
     let newGenerations: GeneratedEntry[] = []
-    await Promise.all(
-        data
-            .filter((x) => x && x.slug && x.status === 'enabled')
-            .map(async (x) => {
-                try {
-                    await sema.acquire()
-                    let previous = generated.find((y) => y.slug === x.slug)
-                    let generatedEntry = await generateData(x, previous)
-                    let publish = !dry
-                    if (previous?.version) {
-                        if (previous.schemaHash === generatedEntry.schemaHash) {
-                            console.log(
-                                `Skipping publish for ${x.slug} because schema is the same`,
-                            )
-                            publish = false
-                        } else if (publish) {
-                            console.log(
-                                `Publishing new version for ${x.slug} because schema changed: ${previous.version} -> ${generatedEntry.version}`,
-                            )
+    try {
+        await Promise.all(
+            data
+                .filter((x) => x && x.slug && x.status === 'enabled')
+                .map(async (x) => {
+                    try {
+                        await sema.acquire()
+                        let previous = generated.find((y) => y.slug === x.slug)
+                        let generatedEntry = await generateData(x, previous)
+                        let publish = !dry
+                        if (previous?.version) {
+                            if (
+                                previous.schemaHash ===
+                                generatedEntry.schemaHash
+                            ) {
+                                console.log(
+                                    `Skipping publish for ${x.slug} because schema is the same`,
+                                )
+                                publish = false
+                            } else if (publish) {
+                                console.log(
+                                    `Publishing new version for ${x.slug} because schema changed: ${previous.version} -> ${generatedEntry.version}`,
+                                )
+                            }
                         }
+                        const { tempFolder } = await createPackage({
+                            ...generatedEntry,
+                            ...x,
+                            publish,
+                        })
+                        if (!publish) {
+                            generatedEntry.version = previous?.version || ''
+                        }
+                        if (publish) {
+                            generatedEntry.lastPublished =
+                                new Date().toISOString()
+                        }
+                        newGenerations.push({ ...generatedEntry, tempFolder })
+                    } catch (e) {
+                        console.error(`Could not publish:`, e?.message)
+                    } finally {
+                        sema.release()
                     }
-                    const { tempFolder } = await createPackage({
-                        ...generatedEntry,
-                        ...x,
-                        publish,
-                    })
-                    if (!publish) {
-                        generatedEntry.version = previous?.version || ''
-                    }
-                    if (publish) {
-                        generatedEntry.lastPublished = new Date().toISOString()
-                    }
-                    newGenerations.push({ ...generatedEntry, tempFolder })
-                } catch (e) {
-                    console.error(`Could not publish:`, e?.message)
-                } finally {
-                    sema.release()
-                }
-            }),
-    )
+                }),
+        )
+    } catch (e) {
+        console.error(e)
+    }
     await generatedStore.upsert(newGenerations)
 }
 

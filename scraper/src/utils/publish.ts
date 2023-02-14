@@ -33,7 +33,7 @@ npm install ${NPM_SCOPE}/${slug}
 
 ## Docs
 
-You can read more about usage in the [client docs](${websiteUrl}/clients/${slug}) and [Genql docs](${websiteUrl}/docs)})
+You can read more about usage in the [client docs](${websiteUrl}/clients/${slug}) and [Genql docs](${websiteUrl}/docs)
 
 ## Example usage
 
