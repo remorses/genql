@@ -4,9 +4,9 @@ const client = createClient()
 
 
 // query variables
-let networks = null // type is [NetworkInput]
-let sort = null // type is AggregateAttributeSortKeySortInput
-let where = null // type is AggregateAttributesQueryInput
+let networks
+let sort
+let where
 
 client
   .query({
@@ -29,12 +29,12 @@ client
 
 
 // query variables
-let networks = null // type is [NetworkInput]
-let where = null // type is CollectionAddressAndAttributesInput
-let networks1 = null // type is [NetworkInput]
-let where1 = null // type is CollectionAddressOwnerAddressAttributesInput
-let networks2 = null // type is [NetworkInput]
-let where2 = null // type is CollectionAddressAndAttributesInput
+let networks
+let where
+let networks1
+let where1
+let networks2
+let where2
 
 client
   .query({
@@ -61,7 +61,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://zora.co/icon-ios.png,0.2.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-7130-2dRGWI4iToM3,2023-02-14T18:13:37.501Z
+",https://zora.co/icon-ios.png,0.2.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-XlQqzgj63UMX,2023-02-14T18:13:37.501Z
 wapm-registry,4c9d2419ad9daf2d55895b7053f20cd2ad223665e8fa5fcffc2739b1519df383,"import { createClient } from '@shitty-scope-name/wapm-registry'
 const client = createClient()
 
@@ -104,7 +104,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://wapm.io/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-7130-idUGvEyjJl7h,2023-02-14T18:13:37.509Z
+",https://wapm.io/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-7enB9orhBfww,2023-02-14T18:13:37.509Z
 universe-com,ff72073c5d7a3e1f3c3aa2fc8c7dc382f91cb349d80e4792bcf8828afefa00d3,"import { createClient } from '@shitty-scope-name/universe-com'
 const client = createClient()
 
@@ -172,7 +172,7 @@ client
 
 
 // query variables
-let blockHash = null // type is Bytes
+let blockHash
 let network = ''
 
 client
@@ -186,13 +186,13 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://storage.googleapis.com/graph-web/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-7130-n1j7b1vXmRQ1,2023-02-14T18:13:37.510Z
+",https://storage.googleapis.com/graph-web/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-EMS5H2pIqgyG,2023-02-14T18:13:37.510Z
 tezos-domains,92e6714ff12686eafa3c756f27bcb984e84732310c0b8d7ca49d09e8ed718bab,"import { createClient } from '@shitty-scope-name/tezos-domains'
 const client = createClient()
 
 
 // query variables
-let atBlock = null // type is BlockHistoryFilter
+let atBlock
 let domainName = ''
 let startedAtLevel = 3
 
@@ -218,7 +218,7 @@ client
 
 // query variables
 let after = ''
-let atBlock = null // type is BlockHistoryFilter
+let atBlock
 
 client
   .query({
@@ -243,7 +243,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://tezos.domains/img/favicon.ico,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-7130-Bg41zRwFBent,2023-02-14T18:13:37.510Z
+",https://tezos.domains/img/favicon.ico,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-w1uaIr3wPZdM,2023-02-14T18:13:37.510Z
 sourcegraph,850c0e695a1ef4b3cc91d07f570eb82dd35c6ebee737723c6c2c98ed34c3bbb0,"import { createClient } from '@shitty-scope-name/sourcegraph'
 const client = createClient()
 
@@ -281,4 +281,4 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-7130-C1x5usw12cgb,2023-02-14T18:13:37.511Z
+",,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-haoY0gx7eD8D,2023-02-14T18:13:37.511Z

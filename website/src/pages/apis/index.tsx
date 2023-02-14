@@ -45,7 +45,6 @@ const Page = ({ items }: InferGetStaticPropsType<typeof getStaticProps>) => (
         </PageContainer>
     </main>
 )
-
 export default Page
 
 export function ExploreClients({

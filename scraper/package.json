@@ -9,15 +9,16 @@
         "test": "vitest --run",
         "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts",
         "format": "doppler -c dev run -- node -r sucrase/register src/format.ts",
-        "publish:dry": "DRY=1 doppler -c dev run -- node -r sucrase/register src/publish.ts",
+        "publish:dry": "DRY=1 doppler -c production run -- node -r sucrase/register src/publish.ts",
         "publish:dev": "DRY=0 doppler -c dev run -- node -r sucrase/register src/publish.ts",
-        "publish:prod": "DRY=0 doppler -c dev production -- node -r sucrase/register src/publish.ts"
+        "publish:prod": "DRY=0 doppler -c production run -- node -r sucrase/register src/publish.ts"
     },
     "keywords": [],
     "author": "remorses <beats.by.morse@gmail.com>",
     "license": "ISC",
     "devDependencies": {
         "@types/node": "^18.11.9"
+        
     },
     "dependencies": {
         "@genql/cli": "workspace:*",

@@ -78,9 +78,7 @@ export async function publish() {
 }
 
 async function generateData(entry: CsvDataType, previous: GeneratedEntry) {
-    if (!previous.createdAt) {
-        previous.createdAt = new Date().toISOString()
-    }
+    let createdAt = previous?.createdAt || new Date().toISOString()
     let schema = await fetchSchemaWithRetry({ endpoint: entry.url })
     let schemaHash = schema ? hashSchema(schema) : ''
     if (schema) {
@@ -102,6 +100,7 @@ async function generateData(entry: CsvDataType, previous: GeneratedEntry) {
         queriesCode,
         favicon: meta?.favicon || previous?.favicon,
         version,
+        createdAt,
     }
     return generated
 }
