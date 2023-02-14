@@ -24,7 +24,7 @@ function generateReadme({
 
 # ${host} TypeScript API client
 
-GraphQl client for ${host} with full typescript support
+GraphQl client for ${host} with full TypeScript support
 
 ## Installation
 
@@ -44,7 +44,7 @@ ${exampleCode}
 
 ## Sponsor
 
-This project is sponsored by [Notaku](https://notaku.so)
+This project is sponsored by [Notaku](https://notaku.so/product/docs): Create public docs websites from your Notion pages
 
 [![Notaku](https://notaku.so/github_banner.jpg)](https://notaku.so)
 
