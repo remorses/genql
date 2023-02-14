@@ -6,7 +6,7 @@
         "dev": "next dev -p 3030",
         "test": "",
         "enrich": "esno scripts/enrich.ts",
-        "build": "cd .. && pnpm buildall && next build",
+        "build": "next build",
         "start": "next start -p 3030"
     },
     "mocha": {
