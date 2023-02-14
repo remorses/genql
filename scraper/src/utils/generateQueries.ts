@@ -24,6 +24,7 @@ export function generateQueries(p: {
         type: 'mutation',
     }).slice(0, 2)
     const compiled = [...queries, ...mutations]
+        .filter(Boolean)
         .map((x) => {
             try {
                 return parse(x)

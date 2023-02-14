@@ -131,6 +131,7 @@ export async function createPackage(
         fsx.copySync(
             path.resolve(resolve.sync('native-fetch/package.json'), '..'),
             path.join(tmpPath, 'node_modules/native-fetch'),
+            { dereference: true, overwrite: true },
         )
         await runCommand({ cmd: `tsc`, cwd: tmpPath })
         // await runCommand({ cmd: `tree`, cwd: tmpPath })

@@ -121,6 +121,7 @@ importers:
   scraper:
     specifiers:
       '@genql/cli': workspace:*
+      '@types/fs-extra': ^11.0.1
       '@types/node': ^18.11.9
       '@types/papaparse': ^5.3.7
       async-sema: ^3.1.1
@@ -135,6 +136,7 @@ importers:
       vitest: ^0.28.4
     dependencies:
       '@genql/cli': link:../cli
+      '@types/fs-extra': 11.0.1
       '@types/papaparse': 5.3.7
       async-sema: 3.1.1
       fast-sort: 3.2.1
@@ -3630,7 +3632,6 @@ packages:
     dependencies:
       '@types/jsonfile': 6.1.1
       '@types/node': 18.11.9
-    dev: true
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
@@ -3703,7 +3704,6 @@ packages:
     resolution: {integrity: sha512-GSgiRCVeapDN+3pqA35IkQwasaCh/0YFH5dEF6S88iDvEn901DjOeH3/QPY+XYP1DFzDZPvIvfeEgk+7br5png==}
     dependencies:
       '@types/node': 18.11.9
-    dev: true
 
   /@types/keygrip/1.0.2:
     resolution: {integrity: sha512-GJhpTepz2udxGexqos8wgaBx4I/zWIDPh/KOGEwAqtuGDkOUJu5eFvwmdBX4AmB8Odsr+9pHCQqiAqDL/yKMKw==}

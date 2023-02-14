@@ -68,7 +68,28 @@ const printDocASTReducer = ({
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
-        return 'let ' + variable.replace('$', '')
+        if (!defaultValue) {
+            if (type === 'String') {
+                defaultValue = '""'
+            } else if (type === 'Int') {
+                defaultValue = '3'
+            } else if (type === 'Float') {
+                defaultValue = '3.0'
+            } else if (type === 'Boolean') {
+                defaultValue = 'false'
+            } else if (type === 'ID') {
+                defaultValue = '""'
+            } else if (type === 'Date') {
+                defaultValue = `new Date().toISOString() // ${type}`
+            } else if (type === 'DateTime') {
+                defaultValue = `new Date().toISOString() // ${type}`
+            } else if (type === 'Time') {
+                defaultValue = `new Date().toISOString() // ${type}`
+            } else {
+                defaultValue = `null // ${type}`
+            }
+        }
+        return 'let ' + variable.replace('$', '') + ' = ' + defaultValue
     },
     SelectionSet: ({ selections }) => selections,
 

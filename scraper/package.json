@@ -9,7 +9,8 @@
         "test": "vitest",
         "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts",
         "format": "doppler -c dev run -- node -r sucrase/register src/format.ts",
-        "publish:dry": "doppler -c dev run -- node -r sucrase/register src/publish.ts"
+        "publish:dry": "DRY=1 doppler -c dev run -- node -r sucrase/register src/publish.ts",
+        "publish:prod": "DRY=0 doppler -c dev run -- node -r sucrase/register src/publish.ts"
     },
     "keywords": [],
     "author": "remorses <beats.by.morse@gmail.com>",
@@ -19,6 +20,7 @@
     },
     "dependencies": {
         "@genql/cli": "workspace:*",
+        "@types/fs-extra": "^11.0.1",
         "@types/papaparse": "^5.3.7",
         "async-sema": "^3.1.1",
         "fast-sort": "^3.2.1",

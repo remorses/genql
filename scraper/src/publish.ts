@@ -13,7 +13,12 @@ import {
     getSiteMeta,
 } from './utils/utils'
 
-let dry = true
+let DRY = process.env.DRY
+if (!DRY) {
+    throw new Error('DRY is not set')
+}
+
+let dry = Number(DRY) === 1
 
 export async function publish() {
     let data = await dataStore.read()
@@ -29,11 +34,19 @@ export async function publish() {
                     await sema.acquire()
                     let previous = generated.find((y) => y.slug === x.slug)
                     let generatedEntry = await generateData(x, previous)
-
+                    let publish = !dry
+                    if (previous?.version) {
+                        if (previous.schemaHash === generatedEntry.schemaHash) {
+                            console.log(
+                                `Skipping publish for ${x.slug} because schema is the same`,
+                            )
+                            publish = false
+                        }
+                    }
                     const { tempFolder } = await createPackage({
                         ...generatedEntry,
                         ...x,
-                        publish: !dry,
+                        publish,
                     })
                     newGenerations.push({ ...generatedEntry, tempFolder })
                 } catch (e) {
