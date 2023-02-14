@@ -1,7 +1,7 @@
 import { Footer, Link, NavBar } from 'beskar/landing'
 import NextNprogress from 'nextjs-progressbar'
 
-import { Bg } from '@app/components/bg'
+import { Bg, Dots } from '@app/components/bg'
 import 'baby-i-am-faded/styles.css'
 import classNames from 'classnames'
 import { Box } from 'layout-kit-react'
@@ -32,11 +32,12 @@ export default function App(props) {
                 className='relative overflow-x-hidden max-w-full text-gray-100 md:px-[30px] flex flex-col space-y-[40px] min-h-[100vh]'
                 style={{ background: BG }}
             >
+                {/* <Bg /> */}
+                <Dots className='text-white mx-auto w-[140%] hidden md:block absolute self-center' />
                 <MyNavbar />
                 <Component {...pageProps} />
                 <div className='grow'></div>
                 <MyFooter dark />
-                <Bg />
             </div>
         </>
     )
