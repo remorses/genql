@@ -61,7 +61,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://zora.co/icon-ios.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-87847-ldW6DyUFqpkU
+",https://zora.co/icon-ios.png,0.2.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-KX2pcrvk9XVG
 wapm-registry,4c9d2419ad9daf2d55895b7053f20cd2ad223665e8fa5fcffc2739b1519df383,"import { createClient } from '@shitty-scope-name/wapm-registry'
 const client = createClient()
 
@@ -104,7 +104,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://wapm.io/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-87847-Xu0X6zYgfjy6
+",https://wapm.io/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-zXNcjaNyyqpt
 universe-com,ff72073c5d7a3e1f3c3aa2fc8c7dc382f91cb349d80e4792bcf8828afefa00d3,"import { createClient } from '@shitty-scope-name/universe-com'
 const client = createClient()
 
@@ -152,7 +152,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://universe.com/multiverse/assets/apple-touch-icon-57x57-dc48dc1839e5e7401c5b4beccd693ee7.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-87847-IWSSyeKwkvd8
+",https://universe.com/multiverse/assets/apple-touch-icon-57x57-dc48dc1839e5e7401c5b4beccd693ee7.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-ZydkjASNwvK9
 thegraph,2d1cbaad0af30128c465d5f2c8734884a6fff598f7f603f0e68d1918506baad9,"import { createClient } from '@shitty-scope-name/thegraph'
 const client = createClient()
 
@@ -188,7 +188,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://storage.googleapis.com/graph-web/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-87847-jSg6X8HC6dYn
+",https://storage.googleapis.com/graph-web/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-rayjNOVogjQt
 tezos-domains,92e6714ff12686eafa3c756f27bcb984e84732310c0b8d7ca49d09e8ed718bab,"import { createClient } from '@shitty-scope-name/tezos-domains'
 const client = createClient()
 
@@ -245,7 +245,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://tezos.domains/img/favicon.ico,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-87847-HSmr2hpI1lsA
+",https://tezos.domains/img/favicon.ico,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-7CkWdEX8i2Wo
 sourcegraph,850c0e695a1ef4b3cc91d07f570eb82dd35c6ebee737723c6c2c98ed34c3bbb0,"import { createClient } from '@shitty-scope-name/sourcegraph'
 const client = createClient()
 
@@ -283,4 +283,4 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-87847-21t51hWlFZyM
+",,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-qJlRGojhGJbl

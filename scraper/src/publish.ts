@@ -41,6 +41,10 @@ export async function publish() {
                                 `Skipping publish for ${x.slug} because schema is the same`,
                             )
                             publish = false
+                        } else if (publish) {
+                            console.log(
+                                `Publishing new version for ${x.slug} because schema changed: ${previous.version} -> ${generatedEntry.version}`,
+                            )
                         }
                     }
                     const { tempFolder } = await createPackage({

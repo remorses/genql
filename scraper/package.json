@@ -10,7 +10,8 @@
         "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts",
         "format": "doppler -c dev run -- node -r sucrase/register src/format.ts",
         "publish:dry": "DRY=1 doppler -c dev run -- node -r sucrase/register src/publish.ts",
-        "publish:prod": "DRY=0 doppler -c dev run -- node -r sucrase/register src/publish.ts"
+        "publish:dev": "DRY=0 doppler -c dev run -- node -r sucrase/register src/publish.ts",
+        "publish:prod": "DRY=0 doppler -c dev production -- node -r sucrase/register src/publish.ts"
     },
     "keywords": [],
     "author": "remorses <beats.by.morse@gmail.com>",

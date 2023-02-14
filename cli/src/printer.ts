@@ -68,27 +68,41 @@ const printDocASTReducer = ({
     },
 
     VariableDefinition: ({ variable, type, defaultValue, directives }) => {
+        let typeUnwrapped = type
+            ?.replace('[', '')
+            .replace(']', '')
+            .replace('!', '')
+            .trim()
+
         if (!defaultValue) {
-            if (type === 'String') {
+            if (typeUnwrapped === 'String') {
                 defaultValue = '""'
-            } else if (type === 'Int') {
+            } else if (typeUnwrapped === 'Int') {
                 defaultValue = '3'
-            } else if (type === 'Float') {
+            } else if (typeUnwrapped === 'Float') {
                 defaultValue = '3.0'
-            } else if (type === 'Boolean') {
+            } else if (typeUnwrapped === 'Boolean') {
                 defaultValue = 'false'
-            } else if (type === 'ID') {
+            } else if (typeUnwrapped === 'ID') {
                 defaultValue = '""'
-            } else if (type === 'Date') {
-                defaultValue = `new Date().toISOString() // ${type}`
-            } else if (type === 'DateTime') {
-                defaultValue = `new Date().toISOString() // ${type}`
-            } else if (type === 'Time') {
-                defaultValue = `new Date().toISOString() // ${type}`
+            } else if (typeUnwrapped === 'Date') {
+                defaultValue = `new Date().toISOString()`
+            } else if (typeUnwrapped === 'DateTime') {
+                defaultValue = `new Date().toISOString()`
+            } else if (typeUnwrapped === 'Time') {
+                defaultValue = `new Date().toISOString()`
+            } else {
+            }
+            if (defaultValue) {
+                const isList = type.startsWith('[') && type.endsWith(']')
+                if (isList) {
+                    defaultValue = `[${defaultValue}]`
+                }
             } else {
                 defaultValue = `null // ${type}`
             }
         }
+
         return 'let ' + variable.replace('$', '') + ' = ' + defaultValue
     },
     SelectionSet: ({ selections }) => selections,
