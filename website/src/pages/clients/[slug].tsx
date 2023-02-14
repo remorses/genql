@@ -71,9 +71,9 @@ const Page = ({
                 }
             />
 
-            <div className='pt-12'></div>
+            <div className='pt-8'></div>
             <PageContainer
-                className='space-y-16 [--page-max-width:800px]'
+                className='space-y-12 [--page-max-width:800px]'
                 dontContain
             >
                 <div className='space-y-4'>
