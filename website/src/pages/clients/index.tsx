@@ -102,7 +102,7 @@ export function ExploreClients({
                                         }
                                     }
                                     className={classNames(
-                                        'dark:bg-gray-900/60 dark:border-gray-600 border-gray-400 hover:scale-[97%] transition-transform shadow backdrop-blur-lg flex flex-col p-6 min-h-[140px] rounded-md',
+                                        'dark:bg-gray-800/60 dark:border-gray-600 border-gray-400 hover:scale-[97%] transition-transform shadow backdrop-blur-lg flex flex-col p-6 min-h-[140px] rounded-md',
                                         'border-2 origin-center',
                                     )}
                                 >
