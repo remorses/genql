@@ -45,8 +45,6 @@ export async function publish() {
                             console.log(
                                 `Publishing new version for ${x.slug} because schema changed: ${previous.version} -> ${generatedEntry.version}`,
                             )
-                            generatedEntry.lastPublished =
-                                new Date().toISOString()
                         }
                     }
                     const { tempFolder } = await createPackage({
@@ -54,6 +52,12 @@ export async function publish() {
                         ...x,
                         publish,
                     })
+                    if (!publish) {
+                        generatedEntry.version = previous?.version || ''
+                    }
+                    if (publish) {
+                        generatedEntry.lastPublished = new Date().toISOString()
+                    }
                     newGenerations.push({ ...generatedEntry, tempFolder })
                 } catch (e) {
                     console.error(`Could not publish:`, e?.message)

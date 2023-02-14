@@ -187,7 +187,7 @@ async function discover() {
                         .replace(/\r/g, ' ')
                         .replace(/\t/g, ' ')
                         .trim()
-                        .slice(0, 300)
+                        .slice(0, 200)
                 }
                 assignIfMissing(record, {
                     website,

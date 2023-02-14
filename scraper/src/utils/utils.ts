@@ -4,6 +4,7 @@ import { sort } from 'fast-sort'
 import posthtml from 'posthtml'
 import fs from 'fs'
 import { spawn } from 'child_process'
+import { NPM_SCOPE } from '../constants'
 
 export type CsvDataType = {
     slug?: string
@@ -131,10 +132,10 @@ export let dataStore = new CsvStore<CsvDataType>(
         data = sort(data).desc([(x) => x.status, (x) => x.slug])
         return data
     },
-    ['slug', 'status', 'website', 'url', 'title', 'description'],
+    ['slug', 'status', 'website', 'url', 'description', 'title'],
 )
 export let generatedStore = new CsvStore<GeneratedEntry>(
-    path.resolve('../scraper/generated.csv'),
+    path.resolve(`../scraper/${NPM_SCOPE}-generated.csv`),
     (x) => x.slug.trim(),
     (data) => {
         data = sort(data).desc([(x) => x.version, (x) => x.slug])
