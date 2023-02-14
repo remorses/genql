@@ -56,9 +56,7 @@ const Page = ({
             className='dark py-14 w-full items-stretch space-y-[40px]'
         >
             <Head>
-                <title>
-                    TypeScript SDK client for {host} API - Powered by Genql
-                </title>
+                <title>TypeScript SDK for {host} API - Powered by Genql</title>
             </Head>
 
             <Hero
