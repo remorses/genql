@@ -99,11 +99,15 @@ const printDocASTReducer = ({
                     defaultValue = `[${defaultValue}]`
                 }
             } else {
-                defaultValue = `null // type is ${type}`
+                // defaultValue = `null // type is ${type}`
             }
         }
 
-        return 'let ' + variable.replace('$', '') + ' = ' + defaultValue
+        return (
+            'let ' +
+            variable.replace('$', '') +
+            (defaultValue ? ' = ' + defaultValue : '')
+        )
     },
     SelectionSet: ({ selections }) => selections,
 

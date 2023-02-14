@@ -23,7 +23,7 @@ function generateReadme({
 
 # ${host} TypeScript API client
 
-GraphQl client for ${host} with full TypeScript support
+GraphQL client for ${host} with full TypeScript support
 
 ## Installation
 
