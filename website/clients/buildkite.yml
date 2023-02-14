@@ -1,7 +1,0 @@
-content: |
-  This API lets you manage your Buildkite CI workflows programmatically.
-website: https://buildkite.com/
-endpoint: https://graphql.buildkite.com/v1
-docs: https://buildkite.com/docs/apis/graphql-api
-favicon: https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d
-version: 0.1.0
