@@ -13,8 +13,7 @@ import { FaThumbsDown } from 'react-icons/fa'
 import { FiArchive } from 'react-icons/fi'
 
 import 'prismjs/components/prism-typescript'
-
-import 'prismjs/themes/prism-coy.css'
+import 'prismjs/themes/prism-twilight.css'
 
 import { BG } from '@app/constants'
 import Head from 'next/head'
@@ -116,6 +115,7 @@ const Page = ({
                     <div className=''>
                         <Code
                             language='typescript'
+                            
                             code={dedent`
                         import { createClient } from '@genql/${slug}'
                         const client = createClient({
