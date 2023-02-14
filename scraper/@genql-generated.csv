@@ -1,4 +1,4 @@
-slug,schemaHash,queriesCode,favicon,version,createdAt,tempFolder
+slug,schemaHash,queriesCode,favicon,version,createdAt,tempFolder,lastPublished
 zora,0ba564c8df1f0773eda0e86149dd3ee362a02dac3f2cf2175cacfd278aa6b73e,"import { createClient } from '@genql/zora'
 const client = createClient()
 
@@ -61,7 +61,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://zora.co/icon-ios.png,,2023-02-14T18:48:41.808Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13633-q20izaGJdRAx
+",https://zora.co/icon-ios.png,0.0.0,2023-02-14T18:48:41.808Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13967-nLCiBon09ucs,2023-02-14T18:49:56.995Z
 wapm-registry,4c9d2419ad9daf2d55895b7053f20cd2ad223665e8fa5fcffc2739b1519df383,"import { createClient } from '@genql/wapm-registry'
 const client = createClient()
 
@@ -104,7 +104,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://wapm.io/favicon.png,,2023-02-14T18:48:41.815Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13633-QVRWjqSBqqVv
+",https://wapm.io/favicon.png,0.0.0,2023-02-14T18:48:41.815Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13967-ssDqPP3vJFmj,2023-02-14T18:49:55.112Z
 thegraph,2d1cbaad0af30128c465d5f2c8734884a6fff598f7f603f0e68d1918506baad9,"import { createClient } from '@genql/thegraph'
 const client = createClient()
 
@@ -140,7 +140,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://storage.googleapis.com/graph-web/favicon.png,,2023-02-14T18:48:41.816Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13633-xcMF2sxRIE02
+",https://storage.googleapis.com/graph-web/favicon.png,0.0.0,2023-02-14T18:48:41.816Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13967-Et9qhYPIFmOQ,2023-02-14T18:50:00.617Z
 tezos-domains,92e6714ff12686eafa3c756f27bcb984e84732310c0b8d7ca49d09e8ed718bab,"import { createClient } from '@genql/tezos-domains'
 const client = createClient()
 
@@ -197,7 +197,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://tezos.domains/img/favicon.ico,,2023-02-14T18:48:41.817Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13633-TcNwW5VcAY0O
+",https://tezos.domains/img/favicon.ico,0.0.0,2023-02-14T18:48:41.817Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13967-SXPd1ILQtpn4,2023-02-14T18:49:53.656Z
 sourcegraph,850c0e695a1ef4b3cc91d07f570eb82dd35c6ebee737723c6c2c98ed34c3bbb0,"import { createClient } from '@genql/sourcegraph'
 const client = createClient()
 
@@ -235,7 +235,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",,,2023-02-14T18:48:41.818Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13633-xvAL91dqvOZe
+",,0.0.0,2023-02-14T18:48:41.818Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13967-G2FRO890vavd,2023-02-14T18:49:58.934Z
 pokeapi,d573870e7185ab99f1e952e796d71b2b415bd5262d6d898683e55a42b816e953,"import { createClient } from '@genql/pokeapi'
 const client = createClient()
 
@@ -290,7 +290,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://pokeapi.co/pokeapi_192_square.png,,2023-02-14T18:48:41.818Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13633-VaRcFvC6kmxz
+",https://pokeapi.co/pokeapi_192_square.png,0.0.0,2023-02-14T18:48:41.818Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13967-HfMGgG4QJuhB,2023-02-14T18:50:03.937Z
 opencollective,8f21582e9769cbc6d739c8c310e0f38285415e282ab2b53dfdc91e8bb812bf96,"import { createClient } from '@genql/opencollective'
 const client = createClient()
 
@@ -363,4 +363,4 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",,,2023-02-14T18:48:41.819Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13633-Cr6aUoRRdUIF
+",,0.0.0,2023-02-14T18:48:41.819Z,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13967-4rrMB02FWb5D,2023-02-14T18:50:00.420Z
