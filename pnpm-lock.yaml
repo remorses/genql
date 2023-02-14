@@ -227,6 +227,7 @@ importers:
       tmp-promise: ^3.0.3
       undici: ^5.18.0
       use-debounce: ^8.0.4
+      xmldom: ^0.6.0
       yaml: ^2.1.3
     dependencies:
       '@emotion/react': 11.10.5_fan5qbzahqtxlm5dzefqlqx5ia
@@ -277,6 +278,7 @@ importers:
       tmp-promise: 3.0.3
       undici: 5.18.0
       use-debounce: 8.0.4_react@18.2.0
+      xmldom: 0.6.0
       yaml: 2.1.3
     devDependencies:
       '@types/fs-extra': 11.0.1
@@ -12804,6 +12806,11 @@ packages:
         optional: true
     dependencies:
       async-limiter: 1.0.1
+    dev: false
+
+  /xmldom/0.6.0:
+    resolution: {integrity: sha512-iAcin401y58LckRZ0TkI4k0VSM1Qg0KGSc3i8rU+xrxe19A/BN1zHyVSJY7uoutVlaTSzYyk/v5AmkewAP7jtg==}
+    engines: {node: '>=10.0.0'}
     dev: false
 
   /xss/1.0.14:
