@@ -17,6 +17,7 @@
     "dependencies": {
         "@emotion/react": "^11.10.5",
         "@genql/cli": "workspace:*",
+        "scraper": "workspace:*",
         "@types/js-cookie": "^3.0.2",
         "autoprefixer": "^10.4.13",
         "baby-i-am-faded": "^4.0.14",

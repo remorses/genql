@@ -16,6 +16,7 @@ import path from 'path'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 import { getClientsData } from '@app/support/utils'
+import type { CsvDataType, GeneratedEntry } from 'scraper/src/utils/utils'
 
 const Page = ({ items }: InferGetStaticPropsType<typeof getStaticProps>) => (
     <main
@@ -48,7 +49,14 @@ const Page = ({ items }: InferGetStaticPropsType<typeof getStaticProps>) => (
 
 export default Page
 
-export function ExploreClients({ items, loadMoreHref = '' }) {
+export function ExploreClients({
+    items,
+    loadMoreHref = '',
+}: {
+    items: (CsvDataType & GeneratedEntry)[]
+    loadMoreHref?: string
+}) {
+    let cols = 1
     return (
         <div className='flex flex-col items-center gap-8 w-full'>
             <Faded
@@ -74,7 +82,7 @@ export function ExploreClients({ items, loadMoreHref = '' }) {
                                 />
                             ),
                             description:
-                                truncate(x.content) ||
+                                truncate(x.description) ||
                                 `GraphQL client for ${host}`,
                         }
                     })
@@ -86,11 +94,13 @@ export function ExploreClients({ items, loadMoreHref = '' }) {
                                 legacyBehavior
                             >
                                 <a
-                                    style={{
-                                        gridColumn: x.cols
-                                            ? `span ${x.cols} / span ${x.cols}`
-                                            : undefined,
-                                    }}
+                                    style={
+                                        {
+                                            // gridColumn: cols
+                                            //     ? `span ${cols} / span ${cols}`
+                                            //     : undefined,
+                                        }
+                                    }
                                     className={classNames(
                                         'dark:bg-gray-900/60 dark:border-gray-600 border-gray-400 hover:scale-[97%] transition-transform shadow backdrop-blur-lg flex flex-col p-6 min-h-[140px] rounded-md',
                                         'border-2 origin-center',
@@ -122,7 +132,7 @@ export function ExploreClients({ items, loadMoreHref = '' }) {
                         )
                     })}
             </Faded>
-            {items?.length && loadMoreHref && (
+            {!!items?.length && loadMoreHref && (
                 <NextLink legacyBehavior href={loadMoreHref}>
                     <a className='flex py-1 px-3 font-bold transition-colors rounded bg-gray-500/10 hover:bg-gray-100/10 appearance-none'>
                         Show More

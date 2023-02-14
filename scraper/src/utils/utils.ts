@@ -1,4 +1,5 @@
 import Papa from 'papaparse'
+import path from 'path'
 import { sort } from 'fast-sort'
 import posthtml from 'posthtml'
 import fs from 'fs'
@@ -42,9 +43,11 @@ export class CsvStore<T> {
     async read(): Promise<T[]> {
         let csvData: T[] = []
         if (!fs.existsSync(this.path)) {
+            console.log('file not found', this.path)
             return []
         }
         let csv = fs.readFileSync(this.path, 'utf-8')
+        // console.log('read', this.path)
         return await new Promise((resolve, reject) => {
             let r = Papa.parse(csv, {
                 header: true,
@@ -65,7 +68,8 @@ export class CsvStore<T> {
                     if (res.errors.length) {
                         return reject(new Error(JSON.stringify(res.errors)))
                     }
-                    csvData = res.data.filter(Boolean) as any
+                    csvData = this.transform(res.data.filter(Boolean) as any)
+
                     this.data = csvData
                     resolve(csvData)
                 },
@@ -118,7 +122,8 @@ export function unique<T>(arr: T[], key: (x: T) => string) {
 }
 
 export let dataStore = new CsvStore<CsvDataType>(
-    'data.csv',
+    path.resolve('../scraper/data.csv'),
+
     (x) => getCleanUrl(x.url),
     (data) => {
         data = sort(data).desc([(x) => x.status, (x) => x.slug])
@@ -127,7 +132,7 @@ export let dataStore = new CsvStore<CsvDataType>(
     ['slug', 'status', 'website', 'url', 'title', 'description'],
 )
 export let generatedStore = new CsvStore<GeneratedEntry>(
-    'generated.csv',
+    path.resolve('../scraper/generated.csv'),
     (x) => x.slug.trim(),
     (data) => {
         data = sort(data).desc([(x) => x.version, (x) => x.slug])

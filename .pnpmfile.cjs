@@ -4,7 +4,7 @@ const enforceSingleVersion = [
     'react-dom',
     'next-auth',
     'next',
-    'tailwindcss',
+    // 'tailwindcss',
     '@prisma/client',
     'next-themes',
     '@chakra-ui/react',
