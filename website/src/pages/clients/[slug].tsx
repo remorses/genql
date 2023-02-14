@@ -87,7 +87,7 @@ const Page = ({
                     <div className=''>
                         <Code
                             language='bash'
-                            code={`npm install graphql @genql/${slug}`}
+                            code={`npm install @genql/${slug}`}
                         />
                     </div>
                 </div>

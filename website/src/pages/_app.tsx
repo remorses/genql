@@ -33,7 +33,7 @@ export default function App(props) {
                 style={{ background: BG }}
             >
                 {/* <Bg /> */}
-                <Dots className='text-white mx-auto w-[140%] hidden md:block absolute self-center' />
+                <Dots hidden className='text-white mx-auto w-[140%] hidden md:block absolute self-center' />
                 <MyNavbar />
                 <Component {...pageProps} />
                 <div className='grow'></div>
