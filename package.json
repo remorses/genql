@@ -3,15 +3,15 @@
     "private": true,
     "version": "2.0.0",
     "scripts": {
-        "genall": "ultra -r gen",
-        "tscall": "ultra -r --filter '@genql/*' tsc",
-        "buildall": "ultra -r --filter '@genql/*' --topology build",
-        "test": "ultra -r test",
-        "watch": "ultra -r watch",
+        "genall": "pnpm run -r gen",
+        "tscall": "pnpm run -r --filter '@genql/*' tsc",
+        "buildall": "pnpm run -r --filter '@genql/*' build",
+        "test": "pnpm run -r test",
+        "watch": "pnpm run -r watch",
         "play": "node -r sucrase/register cli/src/cli.ts",
-        "integration": "cd integration-tests && yarn gen && tsc && yarn test",
-        "examplecli": "yarn play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
-        "publ": "yarn buildall && lerna publish minor",
+        "integration": "cd integration-tests && pnpm gen && tsc && pnpm test",
+        "examplecli": "pnpm play -o example/generated -e https://graphql-compose.herokuapp.com/northwind/",
+        "publ": "pnpm buildall && lerna publish minor",
         "runexample": "node -r sucrase/register example/example.ts"
     },
     "engines": {
@@ -24,7 +24,6 @@
         "native-fetch": "^4.0.2",
         "lerna": "^6.0.3",
         "sucrase": "^3.29.0",
-        "typescript": "4.8",
-        "ultra-runner": "^3.10.5"
+        "typescript": "4.8"
     }
 }
