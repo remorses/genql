@@ -22,6 +22,8 @@ export type GeneratedEntry = {
     queriesCode: string
     favicon?: string
     tempFolder?: string
+    lastPublished?: string
+    createdAt?: string
 }
 
 export class CsvStore<T> {

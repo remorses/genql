@@ -45,6 +45,8 @@ export async function publish() {
                             console.log(
                                 `Publishing new version for ${x.slug} because schema changed: ${previous.version} -> ${generatedEntry.version}`,
                             )
+                            generatedEntry.lastPublished =
+                                new Date().toISOString()
                         }
                     }
                     const { tempFolder } = await createPackage({
@@ -64,6 +66,9 @@ export async function publish() {
 }
 
 async function generateData(entry: CsvDataType, previous: GeneratedEntry) {
+    if (!previous.createdAt) {
+        previous.createdAt = new Date().toISOString()
+    }
     let schema = await fetchSchemaWithRetry({ endpoint: entry.url })
     let schemaHash = schema ? hashSchema(schema) : ''
     if (schema) {
