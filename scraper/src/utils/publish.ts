@@ -94,10 +94,12 @@ export async function createPackage(
             files: ['dist', 'src', 'README.md', 'package.json'],
             // module: './index.esm.js',
             sideEffects: false,
+            keywords: [host, 'graphql', 'sdk', 'typescript', 'genql'],
             repository: {
                 type: 'git',
                 url: 'https://github.com/remorses/genql',
             },
+            homepage: `${websiteUrl}/clients/${slug}`,
             types: './dist/index.d.ts',
             dependencies: {
                 // graphql: '^16.6.0',
