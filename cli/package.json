@@ -4,6 +4,7 @@
     "description": "Generate a TypeScript SDK for any GraphQl API",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "homepage": "https://genql.dev",
     "repository": {
         "url": "https://github.com/remorses/genql"
     },
@@ -28,7 +29,12 @@
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "watch": "tsc -w"
     },
-    "keywords": [],
+    "keywords": [
+        "genql",
+        "graphql",
+        "sdk",
+        "typescript"
+    ],
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
     "license": "MIT",
     "devDependencies": {
