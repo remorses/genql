@@ -33,7 +33,7 @@ npm install ${NPM_SCOPE}/${slug}
 
 ## Docs
 
-You can read more about usage in the [client docs](${websiteUrl}/clients/${slug}) and [Genql docs](${websiteUrl}/docs)
+You can read more about usage in the [client docs](${websiteUrl}/apis/${slug}) and [Genql docs](${websiteUrl}/docs)
 
 ## Example usage
 
@@ -99,7 +99,7 @@ export async function createPackage(
                 type: 'git',
                 url: 'https://github.com/remorses/genql',
             },
-            homepage: `${websiteUrl}/clients/${slug}`,
+            homepage: `${websiteUrl}/apis/${slug}`,
             types: './dist/index.d.ts',
             dependencies: {
                 // graphql: '^16.6.0',

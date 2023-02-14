@@ -73,7 +73,7 @@ export function ExploreClients({
                         const host = new URL(x.website).host
                         return {
                             heading: `${host}`,
-                            href: `/clients/${x.slug}`,
+                            href: `/apis/${x.slug}`,
                             icon: x.favicon && (
                                 <img
                                     className='rounded h-[18px]'

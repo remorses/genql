@@ -42,7 +42,7 @@ import { BG } from '../constants'
 import { MyFooter, MyNavbar } from './_app'
 import Head from 'next/head'
 import { Bg } from '@app/components/bg'
-import { ExploreClients } from './clients'
+import { ExploreClients } from './apis'
 import { InferGetStaticPropsType } from 'next/types'
 import { getClientsData } from '@app/support/utils'
 import { NextSeo } from 'next-seo'
@@ -96,7 +96,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
             cta={
                 <div className='flex flex-col md:flex-row items-center gap-4'>
                     <Button href='/docs'>Quick Start</Button>
-                    <Button ghost href='/clients'>
+                    <Button ghost href='/apis'>
                         Explore GraphQL Clients
                     </Button>
                 </div>
@@ -289,7 +289,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     public GraphQL APIs you can find
                 </div>
             </div>
-            <ExploreClients items={clients} loadMoreHref='/clients' />
+            <ExploreClients items={clients} loadMoreHref='/apis' />
         </PageContainer>
 
         {/* <Section degree={0} zIndex={1} bg='white'>

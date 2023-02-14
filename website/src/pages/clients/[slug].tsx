@@ -205,7 +205,7 @@ export async function getStaticPaths() {
     return {
         paths: items
             .map((x) => {
-                return x.slug ? `/clients/${x.slug}` : null
+                return x.slug ? `/apis/${x.slug}` : null
             })
             .filter(Boolean) as string[],
         fallback: false,
