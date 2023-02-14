@@ -8,10 +8,12 @@ import { requestTypeName } from '../requestTypes/requestTypeName'
 
 const renderClientCode = (ctx: RenderContext) => {
     const url = ctx.config?.endpoint ? `"${ctx.config.endpoint}"` : 'undefined'
+    const fetchImport = ctx.config?.fetchImport
     return `
 function(options${url ? '?' : ''}: ClientOptions): Client {
   return createClientOriginal({
       url: ${url},
+      ${fetchImport ? `fetch,` : ''}
       ...options,
       queryRoot: typeMap.Query!,
       mutationRoot: typeMap.Mutation!,
@@ -24,8 +26,10 @@ export const renderClientEsm = (schema: GraphQLSchema, ctx: RenderContext) => {
     const queryType = schema.getQueryType()
     const mutationType = schema.getMutationType()
     const subscriptionType = schema.getSubscriptionType()
+    const fetchImport = ctx.config?.fetchImport || ''
     ctx.addCodeBlock(`
-    ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
+${fetchImport}
+${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
   import { 
       linkTypeMap, 
       createClient as createClientOriginal, 

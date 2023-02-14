@@ -10,17 +10,17 @@
     <br/>
 </div>
 
-Read the [quick start guide](https://genql.dev/docs) to generate a client locally
+Read the [quick start guide](https://genql.dev/docs) to generate your client and start writing queries.
+
+You can stay up to date with the latest changes subscribing to the [Genql changelog](https://changelog.genql.dev).
 
 🔥 **Features**
 
--   Type completion
--   Type validation
--   Easily fetch all fields in a type
--   Support subscription
--   Graphql Client built in
--   Works with any client
--   Works in node and the browser
+-   Type completion & Type validation
+-   No dependencies
+-   Easily fetch all scalar fields in a type
+-   Works with any client (Apollo, Relay, etc)
+-   Works in browser, Node, Deno, Cloudflare workers, Bun and more
 
 ## Example
 
@@ -28,7 +28,6 @@ First generate your client executing
 
 ```sh
 npm i -D @genql/cli # cli to generate the client code
-npm i graphql @genql/runtime # runtime dependencies
 genql --schema ./schema.graphql --output ./generated
 ```
 
@@ -41,10 +40,19 @@ const client = createClient()
 client
     .query({
         countries: {
+            // pass arguments to the query
+            __args: {
+                filter: {
+                    currency: {
+                        eq: 'EUR',
+                    },
+                },
+            },
             name: true,
             code: true,
             nestedField: {
-                ...everything, // same as __scalar: true
+                // fetch all scalar fields
+                __scalar: true,
             },
         },
     })
@@ -55,7 +63,7 @@ The code above will fetch the graphql query below
 
 ```graphql
 query {
-    countries {
+    countries(filter: { currency: { eq: "EUR" } }) {
         name
         code
         nestedField {
@@ -65,6 +73,16 @@ query {
     }
 }
 ```
+
+## Why
+
+Genql has a lot of benefits over other writing graphql queries by hand:
+
+-   Writing queries is faster thanks to TypeScript auto completion
+-   You can safely update your schema and be sure your queries are still valid
+-   You can fetch all scalar fields in a type with `__scalar: true`
+-   No `graphql` package dependency
+-   You have to generate the client only after your schema changes, not after every query change
 
 ---
 

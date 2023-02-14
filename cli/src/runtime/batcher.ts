@@ -1,4 +1,4 @@
-import { GraphqlOperation } from './client/generateGraphqlOperation'
+import { GraphqlOperation } from './generateGraphqlOperation'
 import { GenqlError } from './error'
 
 type Variables = Record<string, any>
@@ -119,7 +119,7 @@ function dispatchQueue(client: QueryBatcher, options: Options): void {
  * const client = new QueryBatcher(fetcher, { maxBatchSize: 10 })
  */
 
-export default class QueryBatcher {
+export class QueryBatcher {
     fetcher: Fetcher
     _options: Options
     _queue: Queue

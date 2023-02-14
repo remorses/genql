@@ -20,23 +20,38 @@ describe('generate queries', () => {
     })
     it('query', () => {
         const { query } = generateQueryOp({
-            repository: [
-                {
+            repository: {
+                __args: {
                     name: 'repo',
                     owner: 'owner',
                 },
-                {
-                    createdAt: true,
-                    forks: {
-                        edges: {
-                            cursor: true,
-                            node: {
-                                ...everything,
-                            },
+
+                createdAt: true,
+                forks: {
+                    edges: {
+                        cursor: true,
+                        node: {
+                            ...everything,
                         },
                     },
                 },
-            ],
+            },
+        })
+        snapshot(prettify(query, 'graphql'))
+    })
+    it('optional arg', () => {
+        const { query } = generateQueryOp({
+            optionalArgs: {
+                createdAt: true,
+                forks: {
+                    edges: {
+                        cursor: true,
+                        node: {
+                            ...everything,
+                        },
+                    },
+                },
+            },
         })
         snapshot(prettify(query, 'graphql'))
     })
@@ -62,24 +77,22 @@ describe('generate queries', () => {
     })
     it('recursive type with args', () => {
         const { query } = generateQueryOp({
-            recursiveType: [
-                { requiredVal: ['ciao'] },
-                {
-                    value: 1,
+            recursiveType: {
+                __args: { requiredVal: ['ciao'] },
+                value: 1,
+                recurse: {
+                    ...everything,
                     recurse: {
-                        ...everything,
+                        value: 1,
                         recurse: {
-                            value: 1,
+                            ...everything,
                             recurse: {
                                 ...everything,
-                                recurse: {
-                                    ...everything,
-                                },
                             },
                         },
                     },
                 },
-            ],
+            },
         })
         snapshot(prettify(query, 'graphql'))
     })
@@ -105,23 +118,21 @@ describe('generate queries', () => {
     })
     it('many', () => {
         const { query } = generateQueryOp({
-            repository: [
-                {
+            repository: {
+                __args: {
                     name: 'repo',
                     owner: 'owner',
                 },
-                {
-                    createdAt: true,
-                    forks: {
-                        edges: {
-                            cursor: true,
-                            node: {
-                                ...everything,
-                            },
+                createdAt: true,
+                forks: {
+                    edges: {
+                        cursor: true,
+                        node: {
+                            ...everything,
                         },
                     },
                 },
-            ],
+            },
             user: {
                 ...everything,
             },

@@ -1,7 +1,6 @@
 import { parse } from 'graphql'
 import assert from 'assert'
 import { createClient, everything } from '@shitty-scope-name/countries'
-import fetch from 'isomorphic-unfetch'
 
 describe('countries real package', () => {
     const client = createClient({})

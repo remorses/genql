@@ -21,7 +21,7 @@ export const Code: React.FC<{ code: string; language: string }> = ({
         <pre
             style={{ fontSize: '14px' }}
             className={classNames(
-                'relative text-gray-800 shrink-0 !bg-gray-100 !border-transparent',
+                'relative text-gray-100 shrink-0 !bg-gray-800 !border-transparent',
                 'rounded-md focus:outline-none',
             )}
         >

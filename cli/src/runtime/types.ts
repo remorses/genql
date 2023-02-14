@@ -1,27 +1,8 @@
 
-
-
-type Impossible<K extends keyof any> = {
-    [P in K]: never
-}
-
-// The secret sauce! Provide it the type that contains only the properties you want,
-// and then a type that extends that type, based on what the caller provided
-// using generics.
-export type NoExtraProperties<T, U extends T = T> = U &
-    Impossible<Exclude<keyof U, keyof T>>
-
-
-/////////////////////////
-
 export interface ExecutionResult<TData = { [key: string]: any }> {
     errors?: Array<Error>
-    // TS_SPECIFIC: TData. Motivation: https://github.com/graphql/graphql-js/pull/2490#issuecomment-639154229
     data?: TData | null
 }
-
-// TYPE MAP ////////////
-// the type of types.json object
 
 export interface ArgMap<keyType = number> {
     [arg: string]: [keyType, string] | [keyType] | undefined
@@ -29,11 +10,8 @@ export interface ArgMap<keyType = number> {
 
 export type CompressedField<keyType = number> = [
     type: keyType,
-    args?: ArgMap<keyType>
+    args?: ArgMap<keyType>,
 ]
-
-
-// export type Field = [string] | [string, ArgMap]
 
 export interface CompressedFieldMap<keyType = number> {
     [field: string]: CompressedField<keyType> | undefined
@@ -50,7 +28,7 @@ export interface CompressedTypeMap<keyType = number> {
 
 // normal types
 export type Field<keyType = number> = {
-    type: keyType,
+    type: keyType
     args?: ArgMap<keyType>
 }
 
@@ -67,8 +45,6 @@ export interface TypeMap<keyType = number> {
     }
 }
 
-// LINKED TYPE ////////////
-
 export interface LinkedArgMap {
     [arg: string]: [LinkedType, string] | undefined
 }
@@ -76,7 +52,6 @@ export interface LinkedField {
     type: LinkedType
     args?: LinkedArgMap
 }
-
 
 export interface LinkedFieldMap {
     [field: string]: LinkedField | undefined
@@ -91,4 +66,3 @@ export interface LinkedType {
 export interface LinkedTypeMap {
     [type: string]: LinkedType | undefined
 }
-

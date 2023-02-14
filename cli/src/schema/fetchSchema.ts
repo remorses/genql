@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-unfetch'
+import { fetch } from 'native-fetch'
 import {
     buildClientSchema,
     ExecutionResult,
@@ -8,6 +8,7 @@ import {
 import { GraphQLSchemaValidationOptions } from 'graphql/type/schema'
 import qs from 'qs'
 import { sortBy } from 'lodash'
+import { Arguments } from 'yargs'
 
 export interface SchemaFetcher {
     (
@@ -19,46 +20,60 @@ export interface SchemaFetcher {
 
 export const fetchSchema = async ({
     endpoint,
-    usePost = false,
+    usePost = true,
     headers,
+    timeout = 20 * 1000,
     options,
 }: {
     endpoint: string
-    usePost: boolean
+    usePost?: boolean
+    timeout?: number
     headers?: Record<string, string>
     options?: GraphQLSchemaValidationOptions
 }) => {
+    let controller = new AbortController()
+    let id = setTimeout(() => {
+        controller.abort()
+    }, timeout)
     const response = await fetch(
         usePost
             ? endpoint
             : `${endpoint}?${qs.stringify({ query: getIntrospectionQuery() })}`,
-        usePost
-            ? {
-                  method: usePost ? 'POST' : 'GET',
-                  body: JSON.stringify({ query: getIntrospectionQuery() }),
-                  headers: { ...headers, 'Content-Type': 'application/json' },
-              }
-            : {
-                  headers,
-              },
+        {
+            signal: controller.signal,
+            ...(usePost
+                ? {
+                      method: usePost ? 'POST' : 'GET',
+                      body: JSON.stringify({ query: getIntrospectionQuery() }),
+                      headers: {
+                          ...headers,
+                          'Content-Type': 'application/json',
+                      },
+                  }
+                : {
+                      headers,
+                  }),
+        },
     )
+    clearTimeout(id)
     if (!response.ok) {
         throw new Error(
-            `introspection for ${new URL(endpoint).host} failed, ` +
-                response.statusText,
+            `introspection for ${endpoint} failed, ${response.status} ${response.statusText}`,
         )
     }
 
     const result = await response.json().catch((e) => {
         const contentType = response.headers.get('Content-Type')
-        console.log(`content type is ${contentType}`)
+
         throw new Error(
-            `endpoint '${endpoint}' did not return valid json, check that your endpoint points to a valid graphql api`,
+            `endpoint '${endpoint}' did not return valid json, content type is ${contentType}, check that your endpoint points to a valid graphql api`,
         )
     })
     if (!result.data) {
         throw new Error(
-            'introspection request did not receive a valid response',
+            `introspection for ${endpoint} failed: ${JSON.stringify(
+                result,
+            ).slice(0, 400)}...`,
         )
     }
 
@@ -68,17 +83,13 @@ export const fetchSchema = async ({
     return buildClientSchema(result.data, options)
 }
 
-export const customFetchSchema = async (
-    fetcher: SchemaFetcher,
-    options?: GraphQLSchemaValidationOptions,
-) => {
-    const result = await fetcher(getIntrospectionQuery(), fetch, qs)
-
-    if (!result.data) {
-        throw new Error(
-            'introspection request did not receive a valid response',
-        )
+export function fetchSchemaWithRetry(args: Parameters<typeof fetchSchema>[0]) {
+    for (let usePost of [true, false]) {
+        try {
+            return fetchSchema({ ...args, usePost })
+        } catch (e) {
+            console.log(e?.['message'])
+        }
     }
-
-    return buildClientSchema(result.data as any, options)
+    return null
 }

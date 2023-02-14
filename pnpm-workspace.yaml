@@ -1,6 +1,7 @@
 packages:
   - cli
   - website
+  - scraper
   - example-usage
   - try-clients
   - integration-tests

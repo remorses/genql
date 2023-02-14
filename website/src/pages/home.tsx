@@ -1,10 +1,22 @@
-import Image from 'next/image'
+import NextImage from 'next/image'
+import {
+    ChartSquareBarIcon,
+    CubeIcon,
+    GlobeIcon,
+    InboxInIcon,
+    LightningBoltIcon,
+    LinkIcon,
+    SearchCircleIcon,
+    UserAddIcon,
+} from '@heroicons/react/outline'
+
 import classNames from 'classnames'
 import { Box, Stack } from 'layout-kit-react'
 
 import { Faded } from 'baby-i-am-faded'
 
 import {
+    BrowserWindow,
     // Banner,
     Button,
     // CodeSnippet,
@@ -30,6 +42,10 @@ import { BG } from '../constants'
 import { MyFooter, MyNavbar } from './_app'
 import Head from 'next/head'
 import { Bg } from '@app/components/bg'
+import { ExploreClients } from './clients'
+import { InferGetStaticPropsType } from 'next/types'
+import { getClientsData } from '@app/support/utils'
+import { NextSeo } from 'next-seo'
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -56,16 +72,27 @@ query {
     }
 }`
 
-const Page = () => (
-    <div style={{ background: BG }} className='dark py-14 space-y-[40px]'>
-        <Head>
-            <title>Genql - SDK client for any GraphQL API</title>
-        </Head>
+const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
+    <div style={{ background: BG }} className=' py-14 space-y-[40px]'>
+        <NextSeo
+            {...{
+                title: 'Genql - SDK client for any GraphQL API',
+                description:
+                    'Type safe GraphQL query builder for TypeScript. Create an SDK for any GraphQL API',
+            }}
+        />
 
         {/* <Bg /> */}
         <Hero
-            className='text-white'
-            bullet='Introducing Genql 3.0'
+            className='text-white dark'
+            bullet={
+                <a
+                    className='appearance-none'
+                    href='https://changelog.genql.dev'
+                >
+                    Introducing Genql 3.0
+                </a>
+            }
             cta={
                 <div className='flex flex-col md:flex-row items-center gap-4'>
                     <Button href='/docs'>Quick Start</Button>
@@ -74,16 +101,11 @@ const Page = () => (
                     </Button>
                 </div>
             }
-            heading={
-                <div className=''>
-                    Type safe GraphQL <br />
-                    query builder
-                </div>
-            }
+            heading={<div className=''>Type safe GraphQL query builder</div>}
             subheading={
                 <Fragment>
                     Genql generates a TypeScript SDK
-                    <br /> for your GraphQL API
+                    <br className='max-md:hidden' /> for your GraphQL API
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
@@ -185,6 +207,9 @@ const Page = () => (
                 ]}
             />
         </PageContainer> */}
+        {/* <PageContainer className='text-gray-700'>
+            <Features />
+        </PageContainer> */}
         <Feature
             flip
             heading='Auto completion'
@@ -254,6 +279,18 @@ const Page = () => (
                 }
             />
         </div>
+        <PageContainer className='dark pt-24 space-y-12 ' dontContain>
+            <div className='text-center space-y-6 max-w-2xl self-center'>
+                <h2 className='text-5xl font-semibold leading-tight'>
+                    An SDK for every GraphQL API
+                </h2>
+                <div className='text-xl opacity-70'>
+                    GenQL has a big catalog of already generated SDKs for all
+                    public GraphQL APIs you can find
+                </div>
+            </div>
+            <ExploreClients items={clients} loadMoreHref='/clients' />
+        </PageContainer>
 
         {/* <Section degree={0} zIndex={1} bg='white'>
             <Banner
@@ -328,5 +365,127 @@ function FeaturesBlocks({ items }) {
                 )
             })}
         </Faded>
+    )
+}
+
+export async function getStaticProps() {
+    const clients = (await getClientsData()).slice(0, 6)
+    return {
+        props: {
+            clients,
+        },
+    }
+}
+
+export function FeaturesAppleBlocks({ items }) {
+    return (
+        <Faded
+            animationName='fadeCardsScale'
+            cascade
+            duration={300}
+            // cascadeIncrement={20}
+            waitMount
+            // timingFunction='ease-in'
+            className='grid grid-cols-1 md:grid-cols-3 gap-8 '
+        >
+            {items.map((x, i) => {
+                return (
+                    <div
+                        key={x.title + i}
+                        style={{
+                            gridColumn: x.cols
+                                ? `span ${x.cols} / span ${x.cols}`
+                                : undefined,
+                        }}
+                        className={classNames(
+                            'transition-transform max-md:!col-span-1 rounded-xl p-6 origin-center',
+                            'flex-col flex justify-between border-gray-400 backdrop-blur-lg',
+                            'dark:border-gray-600 overflow-hidden bg-white shadow-2xl dark:bg-gray-700/40 min-h-[400px] gap-4',
+                            x.className,
+                        )}
+                    >
+                        <div className='flex gap-3'>
+                            <div className='shrink-0 opacity-70 mt-1 text-4xl'>
+                                {x.icon}
+                            </div>
+                            <div className='space-y-2'>
+                                {x.heading && (
+                                    <div className='font-semibold text-3xl'>
+                                        {x.heading}
+                                    </div>
+                                )}
+                                <div className='whitespace-pre-wrap min-h-[2.2em] opacity-70'>
+                                    {x.description}
+                                </div>
+                            </div>
+                        </div>
+                        <div className='grow'></div>
+                        <div
+                            className={classNames(
+                                'w-full grow flex-col flex',
+                                '',
+                            )}
+                        >
+                            {x.image}
+                        </div>
+                    </div>
+                )
+            })}
+        </Faded>
+    )
+}
+
+export function Features() {
+    return (
+        <FeaturesAppleBlocks
+            items={[
+                {
+                    heading: 'Auto complete',
+                    icon: <SearchCircleIcon className='w-[1em]' />,
+                    cols: 2,
+                    description:
+                        'Notaku websites have very fast search built in.\nYour users will be able to find what they are looking for in seconds.',
+                    image: (
+                        <div className='relative flex -mx-[200px] -mb-20 flex-col'>
+                            <div className=' self-center '>
+                                <video
+                                    loop
+                                    autoPlay
+                                    playsInline
+                                    muted
+                                    style={
+                                        {
+                                            // mixBlendMode: 'lighten',
+                                        }
+                                    }
+                                    className='md:max-w-[600px] '
+                                    // borderRadius='10px'
+                                    src='/completion.mp4'
+                                />
+                                {/* <NextImage
+                                    src={require('@app/../public/landing-page/search_light.png')}
+                                    alt=''
+                                /> */}
+                            </div>
+                            {/* <div className='bg-gray-100 w-full h-[140px] absolute bottom-0'></div> */}
+                        </div>
+                    ),
+                },
+                {
+                    heading: 'Type safety',
+                    icon: <LightningBoltIcon className='w-[1em]' />,
+                    description:
+                        'Notaku websites are built with speed in mind. We host your websites in a CDN, fast and reliable.',
+                    image: (
+                        <div className='rounded-lg overflow-hidden self-center'>
+                            {/* <NextImage
+                                src={require('@app/../public/landing-page/web_vitals.png')}
+                                alt=''
+                            /> */}
+                        </div>
+                    ),
+                },
+            ]}
+        />
     )
 }

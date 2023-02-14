@@ -1,6 +1,6 @@
-import { GenqlError } from '../error'
-import { BatchOptions, createFetcher } from '../fetcher'
-import { ExecutionResult, LinkedType } from '../types'
+import { GenqlError } from './error'
+import { BatchOptions, createFetcher } from './fetcher'
+import { ExecutionResult, LinkedType } from './types'
 import {
     generateGraphqlOperation,
     GraphqlOperation,
@@ -19,6 +19,7 @@ export type ClientOptions = Omit<RequestInit, 'body' | 'headers'> & {
     url?: string
     batch?: BatchOptions | boolean
     fetcher?: BaseFetcher
+    fetch?: Function
     headers?: Headers
 }
 

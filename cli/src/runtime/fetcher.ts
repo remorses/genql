@@ -1,9 +1,7 @@
-// @ts-ignore
-import QueryBatcher from './batcher'
+import { QueryBatcher } from './batcher'
 
-import fetch from 'isomorphic-unfetch'
-import { ClientOptions } from './client/createClient'
-import { GraphqlOperation } from './client/generateGraphqlOperation'
+import { ClientOptions } from './createClient'
+import { GraphqlOperation } from './generateGraphqlOperation'
 import { GenqlError } from './error'
 
 export interface Fetcher {
@@ -24,6 +22,7 @@ export const createFetcher = ({
     url,
     headers = {},
     fetcher,
+    fetch: _fetch,
     batch = false,
     ...rest
 }: ClientOptions): Fetcher => {
@@ -35,7 +34,13 @@ export const createFetcher = ({
             let headersObject =
                 typeof headers == 'function' ? await headers() : headers
             headersObject = headersObject || {}
-            const res = await fetch(url!, {
+            if (typeof fetch === 'undefined' && !_fetch) {
+                throw new Error(
+                    'Global `fetch` function is not available, pass a fetch polyfill to Genql `createClient`',
+                )
+            }
+            let fetchImpl = _fetch || fetch
+            const res = await fetchImpl(url!, {
                 headers: {
                     'Content-Type': 'application/json',
                     ...headersObject,
@@ -68,8 +73,6 @@ export const createFetcher = ({
                 }
                 return json.data
             }
-
-            // TODO how to handle fetch that returns errors? throw here? throw in default fetcher? i should have same behaviour in batch and not batch
         }
     }
 
@@ -87,9 +90,8 @@ export const createFetcher = ({
         if (json?.data) {
             return json.data
         }
-        // TODO
         throw new Error(
-            'Genql fetcher returned unexpected result ' + JSON.stringify(json),
+            'Genql batch fetcher returned unexpected result ' + JSON.stringify(json),
         )
     }
 }

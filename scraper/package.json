@@ -1,0 +1,37 @@
+{
+    "name": "scraper",
+    "version": "1.0.0",
+    "private": true,
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "gen": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
+        "test": "vitest --run",
+        "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts",
+        "format": "doppler -c dev run -- node -r sucrase/register src/format.ts",
+        "publish:dry": "DRY=1 doppler -c dev run -- node -r sucrase/register src/publish.ts",
+        "publish:dev": "DRY=0 doppler -c dev run -- node -r sucrase/register src/publish.ts",
+        "publish:prod": "DRY=0 doppler -c dev production -- node -r sucrase/register src/publish.ts"
+    },
+    "keywords": [],
+    "author": "remorses <beats.by.morse@gmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^18.11.9"
+    },
+    "dependencies": {
+        "@genql/cli": "workspace:*",
+        "@types/fs-extra": "^11.0.1",
+        "@types/papaparse": "^5.3.7",
+        "async-sema": "^3.1.1",
+        "fast-sort": "^3.2.1",
+        "fs-extra": "^10.1.0",
+        "kleur": "^4.1.5",
+        "npm-name": "^7.1.0",
+        "papaparse": "^5.3.2",
+        "posthtml": "^0.16.6",
+        "resolve": "1.22.1",
+        "tmp-promise": "^3.0.3",
+        "vitest": "^0.28.4"
+    }
+}

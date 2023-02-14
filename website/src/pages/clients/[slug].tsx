@@ -13,8 +13,7 @@ import { FaThumbsDown } from 'react-icons/fa'
 import { FiArchive } from 'react-icons/fi'
 
 import 'prismjs/components/prism-typescript'
-
-import 'prismjs/themes/prism-coy.css'
+import 'prismjs/themes/prism-twilight.css'
 
 import { BG } from '@app/constants'
 import Head from 'next/head'
@@ -24,14 +23,14 @@ import {
     InferGetStaticPropsType,
 } from 'next'
 import path from 'path'
+import { getClientsData } from '@app/support/utils'
 
 const Page = ({
     slug,
-    content,
+    description,
     website,
     favicon,
-    exampleCode,
-    endpoint,
+    queriesCode,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const host = new URL(website).host
     return (
@@ -59,7 +58,7 @@ const Page = ({
                     </div>
                 }
                 heading={
-                    <div className='tracking-wide'>
+                    <div className='tracking-wide leading-tight'>
                         GraphQL client for the <br />
                         <span className='font-bold'>{host}</span> API
                     </div>
@@ -71,13 +70,13 @@ const Page = ({
                 }
             />
 
-            <div className='pt-12'></div>
+            <div className='pt-8'></div>
             <PageContainer
-                className='space-y-16 [--page-max-width:800px]'
+                className='space-y-12 [--page-max-width:800px]'
                 dontContain
             >
                 <div className='space-y-4'>
-                    <div className='whitespace-pre-wrap'>{content}</div>
+                    <div className='whitespace-pre-wrap'>{description}</div>
                 </div>
                 <div className='space-y-4'>
                     <h2 className='text-3xl font-bold '>How to install</h2>
@@ -87,7 +86,7 @@ const Page = ({
                     <div className=''>
                         <Code
                             language='bash'
-                            code={`npm install graphql @genql/${slug}`}
+                            code={`npm install @genql/${slug}`}
                         />
                     </div>
                 </div>
@@ -116,6 +115,7 @@ const Page = ({
                     <div className=''>
                         <Code
                             language='typescript'
+                            
                             code={dedent`
                         import { createClient } from '@genql/${slug}'
                         const client = createClient({
@@ -127,7 +127,7 @@ const Page = ({
                         />
                     </div>
                 </div>
-                {exampleCode && (
+                {queriesCode && (
                     <div className='space-y-4'>
                         <h2 className='text-3xl font-bold '>Example queries</h2>
                         <div className=''>
@@ -136,7 +136,7 @@ const Page = ({
                         <div className=''>
                             <Code
                                 language='typescript'
-                                code={exampleCode || ''}
+                                code={queriesCode || ''}
                             />
                         </div>
                     </div>
@@ -148,40 +148,25 @@ const Page = ({
 
 export default Page
 
-export function getStaticPaths() {
-    const clientsFolder = path.resolve(process.cwd(), 'clients')
-    const allFiles = fs.readdirSync(clientsFolder)
-    const paths = allFiles.map((x) => {
-        return `/clients/${x.replace('.yml', '')}`
-    })
+export async function getStaticPaths() {
+    let items = await getClientsData()
+
     return {
-        paths,
+        paths: items
+            .map((x) => {
+                return x.slug ? `/clients/${x.slug}` : null
+            })
+            .filter(Boolean) as string[],
         fallback: false,
         // fallback: 'blocking',
     }
 }
 
-export type YamlFileData = {
-    // name: string
-    content: string
-    website: string
-    favicon?: string
-    endpoint: string
-    version: string
-    exampleCode?: string
-    useGet?: boolean
-    disabled?: boolean
-    // tags: string[]
-}
-
-export function getStaticProps(ctx: GetStaticPropsContext) {
-    const slug = ctx.params.slug
-    const dataFile = fs.readFileSync(
-        path.resolve(process.cwd(), 'clients', `${slug}.yml`),
-        'utf8',
-    )
-    const data: YamlFileData = yaml.parse(dataFile)
-
+export async function getStaticProps(ctx: GetStaticPropsContext) {
+    let items = await getClientsData()
+    let slug = ctx.params?.slug as string
+    console.log({ slug })
+    let data = items.find((x) => x.slug === slug)
     return {
         props: {
             ...data,
