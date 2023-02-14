@@ -99,7 +99,7 @@ const printDocASTReducer = ({
                     defaultValue = `[${defaultValue}]`
                 }
             } else {
-                defaultValue = `null // ${type}`
+                defaultValue = `null // type is ${type}`
             }
         }
 
