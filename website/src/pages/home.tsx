@@ -104,8 +104,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
             heading={<div className=''>Type safe GraphQL query builder</div>}
             subheading={
                 <Fragment>
-                    Genql generates a TypeScript SDK
-                    <br className='max-md:hidden' /> for your GraphQL API
+                    Genql generates a TypeScript SDK for your GraphQL API
                 </Fragment>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}

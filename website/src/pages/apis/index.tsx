@@ -32,8 +32,7 @@ const Page = ({ items }: InferGetStaticPropsType<typeof getStaticProps>) => (
             heading={<div className=''>A client for every GraphQL API</div>}
             subheading={
                 <Fragment>
-                    Genql generates a typescript sdk
-                    <br /> for any GraphQL api
+                    Genql generates a typescript sdk for any GraphQL api
                 </Fragment>
             }
         />
