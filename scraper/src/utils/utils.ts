@@ -48,6 +48,8 @@ export class CsvStore<T> {
         return await new Promise((resolve, reject) => {
             let r = Papa.parse(csv, {
                 header: true,
+                skipEmptyLines: true,
+                delimiter: ',',
                 transform(value, field) {
                     if (typeof value === 'string') {
                         return value.trim()
@@ -61,7 +63,7 @@ export class CsvStore<T> {
 
                 complete: (res) => {
                     if (res.errors.length) {
-                        return reject(new Error(res.errors.join(', ')))
+                        return reject(new Error(JSON.stringify(res.errors)))
                     }
                     csvData = res.data.filter(Boolean) as any
                     this.data = csvData
@@ -90,9 +92,15 @@ export class CsvStore<T> {
         data = this.transform(data)
         let csv = Papa.unparse(data.filter(Boolean), {
             header: true,
-            columns: [
-                ...new Set(...this.firstHeaders, ...Object.keys(data[0] || {})),
-            ],
+            skipEmptyLines: true,
+            columns: this.firstHeaders?.length
+                ? [
+                      ...new Set([
+                          ...this.firstHeaders,
+                          ...Object.keys(data[0] || {}),
+                      ]),
+                  ]
+                : undefined,
             delimiter: ',',
         })
 
@@ -113,16 +121,16 @@ export let dataStore = new CsvStore<CsvDataType>(
     'data.csv',
     (x) => getCleanUrl(x.url),
     (data) => {
-        data = sort(data).asc([(x) => x.status, (x) => x.slug])
+        data = sort(data).desc([(x) => x.status, (x) => x.slug])
         return data
     },
-    ['slug', 'status', 'url', 'title', 'description', 'website'],
+    ['slug', 'status', 'website', 'url', 'title', 'description'],
 )
 export let generatedStore = new CsvStore<GeneratedEntry>(
     'generated.csv',
-    (x) => x.slug,
+    (x) => x.slug.trim(),
     (data) => {
-        data = sort(data).asc([(x) => x.version, (x) => x.slug])
+        data = sort(data).desc([(x) => x.version, (x) => x.slug])
         return data
     },
 )

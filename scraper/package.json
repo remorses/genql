@@ -8,6 +8,7 @@
         "gen": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
         "test": "vitest",
         "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts",
+        "format": "doppler -c dev run -- node -r sucrase/register src/format.ts",
         "publish:dry": "doppler -c dev run -- node -r sucrase/register src/publish.ts"
     },
     "keywords": [],

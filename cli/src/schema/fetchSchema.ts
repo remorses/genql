@@ -73,7 +73,7 @@ export const fetchSchema = async ({
         throw new Error(
             `introspection for ${endpoint} failed: ${JSON.stringify(
                 result,
-            ).slice(0, 200)}...`,
+            ).slice(0, 400)}...`,
         )
     }
 

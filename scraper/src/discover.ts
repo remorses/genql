@@ -97,7 +97,7 @@ async function discover() {
     const res = await sourceGraph.query({
         search: {
             __args: {
-                query: `/\\((?:"|')https:\\/\\/.*\\/graphql/ count:500`,
+                query: `/\\((?:"|')https:\\/\\/.*\\/graphql/ count:1000`,
                 patternType: 'standard',
                 // patternType: 'regexp',
             },
@@ -160,7 +160,7 @@ async function discover() {
             return true
         })
     let allUrls = [...sourcegraphUrls]
-    let sema = new Sema(10)
+    let sema = new Sema(20)
     let allRecords: CsvDataType[] = [...dataStore.data]
     for (let x of allUrls) {
         let url = x.url
@@ -181,9 +181,11 @@ async function discover() {
 
                 let { description, title, favicon, image } = meta || {}
                 if (description) {
-                    // remove new lines
+                    // remove new lines and tabs
                     description = description
-                        .replace(/\n/g, ' ')
+                        .replace(/\r?\n/g, ' ')
+                        .replace(/\r/g, ' ')
+                        .replace(/\t/g, ' ')
                         .trim()
                         .slice(0, 300)
                 }
