@@ -5,7 +5,12 @@ import fs from 'fs'
 
 import { Faded } from 'baby-i-am-faded'
 
-import { Hero, InlineCode as InlineCode_, PageContainer } from 'beskar/landing'
+import {
+    Hero,
+    InlineCode as InlineCode_,
+    Link,
+    PageContainer,
+} from 'beskar/landing'
 import { gray } from 'beskar/colors'
 import { Code } from '@app/components/Code'
 import NextLink from 'next/link'
@@ -16,7 +21,7 @@ import { FiArchive } from 'react-icons/fi'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/themes/prism-twilight.css'
 
-import { BG } from '@app/constants'
+import { BG, websiteUrl } from '@app/constants'
 import Head from 'next/head'
 import {
     GetStaticPathsContext,
@@ -75,20 +80,27 @@ const Page = ({
                         <span className='font-bold'>{host}</span> API
                     </div>
                 }
-                subheading={
-                    <Fragment>
-                        Full typescript support, works on browser and server
-                    </Fragment>
-                }
+                // subheading={
+                //     <Fragment>
+                //         Full typescript support, works on browser and server
+                //     </Fragment>
+                // }
             />
 
             <div className='pt-8'></div>
             <PageContainer
-                className='space-y-12 [--page-max-width:800px] text-gray-300 text-lg'
+                className='space-y-8 [--page-max-width:800px] text-gray-300 text-lg'
                 dontContain
             >
                 <div className='space-y-4'>
-                    <div className='whitespace-pre-wrap'>{description}</div>
+                    <p className='whitespace-pre-wrap'>{description}</p>
+                    <p className=''>
+                        This SDK has been generated from the {host} GraphQL API.
+                    </p>
+                    <p className=''>
+                        It is fully type safe when using TypeScript and you can
+                        use auto completion to discover fields and types.
+                    </p>
                 </div>
                 <div className='space-y-4'>
                     <H2>How to install</H2>
@@ -167,6 +179,19 @@ const Page = ({
                         </div>
                     </div>
                 )}
+                <div className='space-y-4'>
+                    <H2>More usage examples</H2>
+                    <div className=''>
+                        This SDK was created using{' '}
+                        <Link underline href={websiteUrl}>
+                            Genql
+                        </Link>{' '}
+                        so you can find more usage examples in{' '}
+                        <Link underline href={websiteUrl}>
+                            the main Genql website and docs
+                        </Link>
+                    </div>
+                </div>
             </PageContainer>
         </main>
     )
