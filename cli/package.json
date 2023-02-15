@@ -17,14 +17,13 @@
         "genql": "./dist/cli.js"
     },
     "files": [
-        "/dist/*",
-        "/esm/*",
+        "dist",
         "src",
         "README.md"
     ],
     "scripts": {
         "start": "tsdx watch",
-        "build": "rm -rf dist esm *.tsbuildinfo && tsc",
+        "build": "cp ../README.md ./README.md && rm -rf dist esm *.tsbuildinfo && tsc",
         "test": "jest",
         "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
         "watch": "tsc -w"
