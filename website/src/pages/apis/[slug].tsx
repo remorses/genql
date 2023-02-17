@@ -92,7 +92,7 @@ const Page = ({
             <div className='pt-8'></div>
             <main className='space-y-8 max-w-[800px] self-center mx-auto text-gray-300 text-lg'>
                 <div className='space-y-4'>
-                    <p className='whitespace-pre-wrap'>{description}</p>
+                    <p className='whitespace-pre-wrap'>{addDot(description)}</p>
                     <p className=''>
                         This SDK was created from the {host} GraphQL API with{' '}
                         <Link underline href={websiteUrl}>
@@ -257,6 +257,12 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
             next,
         },
     }
+}
+
+function addDot(str: string) {
+    if (!str) return ''
+    str = str.trim()
+    return str.endsWith('.') ? str : str + '.'
 }
 
 function safeHost(host: string) {
