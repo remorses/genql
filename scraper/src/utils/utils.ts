@@ -208,10 +208,36 @@ export async function getSiteMeta(site: string) {
                 })
             })
             .process(html, { sync: true })
+        let validIcon = await validateFavicon(favicon)
+        if (!validIcon) {
+            favicon = ''
+        }
         return { description, title, image, favicon }
     } catch (e) {
         console.log(`Could not fetch ${site}`, e?.['message'])
         return
+    }
+}
+
+async function validateFavicon(url) {
+    try {
+        let res = await fetchWithTimeout(
+            url,
+            {
+                headers: { accept: 'image/*' },
+            },
+            5000,
+        )
+        if (!res.ok) {
+            return false
+        }
+        let content = res.headers.get('content-type')
+        if (content && !content?.startsWith('image/')) {
+            return false
+        }
+        return true
+    } catch {
+        return false
     }
 }
 
