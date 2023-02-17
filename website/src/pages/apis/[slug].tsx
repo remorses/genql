@@ -6,6 +6,7 @@ import fs from 'fs'
 import { Faded } from 'baby-i-am-faded'
 
 import {
+    Button,
     Hero,
     InlineCode as InlineCode_,
     Link,
@@ -45,11 +46,11 @@ function H2({ children }: { children: string }) {
 
 const Page = ({
     slug,
-    description,
-    website,
-    favicon,
-    queriesCode,
+    data,
+    next,
+    previous,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+    const { description, website, favicon, queriesCode } = data
     const host = new URL(website).host
     return (
         <main
@@ -89,10 +90,7 @@ const Page = ({
             />
 
             <div className='pt-8'></div>
-            <PageContainer
-                className='space-y-8 [--page-max-width:800px] text-gray-300 text-lg'
-                dontContain
-            >
+            <main className='space-y-8 max-w-[800px] self-center mx-auto text-gray-300 text-lg'>
                 <div className='space-y-4'>
                     <p className='whitespace-pre-wrap'>{description}</p>
                     <p className=''>
@@ -198,9 +196,31 @@ const Page = ({
                         </Link>
                     </div>
                 </div>
-            </PageContainer>
+                <div className='space-y-4'>
+                    <H2>Other API clients</H2>
+                    <div className='flex flex-col w-full gap-4'>
+                        {previous && (
+                            <Link underline href={`/apis/${previous.slug}`}>
+                                {safeHost(previous.website)} SDK
+                            </Link>
+                        )}
+                        {next && (
+                            <Link underline href={`/apis/${next.slug}`}>
+                                {safeHost(next.website)} SDK
+                            </Link>
+                        )}
+                        <Link underline href={`/apis`}>
+                            See all SDK available
+                        </Link>
+                    </div>
+                </div>
+            </main>
         </main>
     )
+}
+
+function BottomLink({ ...rest }) {
+    return <a className='block border appearance-none rounded p-4 ' {...rest} />
 }
 
 export default Page
@@ -222,12 +242,23 @@ export async function getStaticPaths() {
 export async function getStaticProps(ctx: GetStaticPropsContext) {
     let items = await getClientsData()
     let slug = ctx.params?.slug as string
-    console.log({ slug })
-    let data = items.find((x) => x.slug === slug)
+    // console.log({ slug })
+    let index = items.findIndex((x) => x.slug === slug)
+    let [previous, data, next] = [
+        items[index - 1] || null,
+        items[index],
+        items[index + 1] || null,
+    ]
     return {
         props: {
-            ...data,
             slug,
+            previous,
+            data,
+            next,
         },
     }
+}
+
+function safeHost(host: string) {
+    return host.replace(/https?:\/\//, '')
 }
