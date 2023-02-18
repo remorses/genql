@@ -23,12 +23,12 @@ type Query {
 
 type RecursiveType {
     value: String
-    recurse: RecursiveType
+    recurse(arg: Int): RecursiveType
 }
 
 type Repository {
     createdAt: String!
-    forks: ForkConnection
+    forks(filter: String): ForkConnection
 }
 
 type ForkConnection {

@@ -19,7 +19,7 @@ describe('generate queries', () => {
         assert.strictEqual(enumSomeEnum.Y, 'Y')
     })
     it('query', () => {
-        const { query,  } = generateQueryOp({
+        const { query } = generateQueryOp({
             repository: {
                 __args: {
                     name: 'repo',
@@ -81,10 +81,19 @@ describe('generate queries', () => {
                 __args: { requiredVal: ['ciao'] },
                 value: 1,
                 recurse: {
+                    __args: {
+                        arg: 1,
+                    },
                     ...everything,
                     recurse: {
+                        __args: {
+                            arg: 1,
+                        },
                         value: 1,
                         recurse: {
+                            __args: {
+                                arg: 1,
+                            },
                             ...everything,
                             recurse: {
                                 ...everything,
