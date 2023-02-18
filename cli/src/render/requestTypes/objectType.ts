@@ -106,5 +106,5 @@ export const toArgsString = (field: GraphQLField<any, any, any>) => {
                 )}`,
         )
         .join(', ')
-    return `NoExtraProperties<{${fields}}>`
+    return `{${fields}}`
 }

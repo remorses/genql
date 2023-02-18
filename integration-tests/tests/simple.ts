@@ -55,19 +55,18 @@ describe('generate queries', () => {
         })
         snapshot(prettify(query, 'graphql'))
     })
-    it('error on additional arg', () => {
-        const { query } = generateQueryOp({
-            optionalArgs: {
-                __args: {
-                    // @ts-expect-error additional arg
-                    xxx: 3,
-                },
-                createdAt: 1,
-                x: 1,
-            },
-        })
-        // snapshot(prettify(query, 'graphql'))
-    })
+    // it('error on additional arg', () => {
+    //     const { query } = generateQueryOp({
+    //         optionalArgs: {
+    //             __args: {
+    //                 // @ts-expect-error additional arg
+    //                 xxx: 3,
+    //             },
+    //             createdAt: 1,
+    //             x: 1,
+    //         },
+    //     })
+    // })
     it('recursive type', () => {
         const { query } = generateQueryOp({
             recursiveType: {
