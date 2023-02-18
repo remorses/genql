@@ -187,6 +187,7 @@ describe('execute queries', async function () {
                     },
                     ...everything,
                     forks: {
+                        __args: { filter: 'test' },
                         edges: { node: { name: true, number: true } },
                     },
                 },

@@ -54,13 +54,13 @@ fragment f3 on RecursiveType {
 `
 
 exports['generate queries recursive type with args 1'] = `
-query ($v1: [String!]) {
+query ($v1: [String!], $v2: Int, $v3: Int, $v4: Int) {
   recursiveType(requiredVal: $v1) {
     value
-    recurse {
-      recurse {
+    recurse(arg: $v2) {
+      recurse(arg: $v3) {
         value
-        recurse {
+        recurse(arg: $v4) {
           recurse {
             ...f3
           }
