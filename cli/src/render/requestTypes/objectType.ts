@@ -96,7 +96,7 @@ export const objectType = (
 }
 
 export const toArgsString = (field: GraphQLField<any, any, any>) => {
-    return `{${field.args
+    let fields = field.args
         .map(
             (a) =>
                 `${argumentComment(a)}${a.name}${renderTyping(
@@ -105,5 +105,6 @@ export const toArgsString = (field: GraphQLField<any, any, any>) => {
                     true,
                 )}`,
         )
-        .join(', ')}}`
+        .join(', ')
+    return `NoExtraProperties<{${fields}}>`
 }
