@@ -174,6 +174,7 @@ export const generateGraphqlOperation = (
             },
             {},
         ),
+        ...(operationName ? { operationName: operationName.toString() } : {}),
     }
 }
 
