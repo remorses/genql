@@ -118,6 +118,21 @@ describe('execute queries', async function () {
     })
 
     it(
+        'first query',
+        withServer(async () => {
+            const res = await client.query({
+                repository: {
+                    __args: {
+                        name: 'genql',
+                    },
+                    createdAt: true,
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            assert(res.repository.createdAt)
+        }),
+    )
+    it(
         'simple ',
         withServer(async () => {
             const res = await client.query({
