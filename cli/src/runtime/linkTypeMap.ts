@@ -42,7 +42,7 @@ export const linkTypeMap = (
                             ...Object.keys(fields).map(
                                 (f): PartialLinkedFieldMap => {
                                     const [typeIndex, args] = fields[f] || []
-                                    if (!typeIndex) {
+                                    if (typeIndex === undefined) {
                                         return {}
                                     }
                                     return {
