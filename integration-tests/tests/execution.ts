@@ -69,6 +69,11 @@ describe('execute queries', async function () {
                     throwsError: () => {
                         throw new Error('x')
                     },
+                    optionalArgs: () => {
+                        return {
+                            createdAt: 'now',
+                        }
+                    },
                     unionThatImplementsInterface: ({ typename = '' } = {}) => {
                         return {
                             message: 'A message',
@@ -127,9 +132,13 @@ describe('execute queries', async function () {
                     },
                     createdAt: true,
                 },
+                optionalArgs: {
+                    createdAt: true,
+                },
             })
             console.log(JSON.stringify(res, null, 2))
             assert(res.repository.createdAt)
+            assert(res.optionalArgs.createdAt)
         }),
     )
     it(
