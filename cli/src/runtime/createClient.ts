@@ -1,4 +1,4 @@
-import { GenqlError } from './error'
+
 import  { type BatchOptions, createFetcher } from './fetcher'
 import type { ExecutionResult, LinkedType } from './types'
 import {
