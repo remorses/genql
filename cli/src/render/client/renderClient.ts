@@ -34,7 +34,7 @@ ${renderClientTypesImports({ mutationType, queryType, subscriptionType })}
       linkTypeMap, 
       createClient as createClientOriginal, 
       generateGraphqlOperation,
-      FieldsSelection, GraphqlOperation, ClientOptions, GenqlError
+      type FieldsSelection, type GraphqlOperation, type ClientOptions, GenqlError
   } from '${RUNTIME_LIB_NAME}'
   export type { FieldsSelection } from '${RUNTIME_LIB_NAME}'
   export { GenqlError }
