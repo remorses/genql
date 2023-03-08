@@ -119,7 +119,7 @@ function renderClientTypesImports({
         )
     }
     if (imports.length > 0) {
-        return `import {${imports.join(',')}} from './schema'`
+        return `import type {${imports.join(',')}} from './schema'`
     }
     return ''
 }
