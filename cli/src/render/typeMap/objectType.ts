@@ -26,7 +26,7 @@ export const objectType = (
         r[f] = fieldObj
 
         const args: readonly GraphQLArgument[] =
-            (<GraphQLField<any, any>>field).args || []
+            (field as GraphQLField<any, any>).args || []
 
         if (args.length > 0) {
             fieldObj.args = args.reduce<ArgMap<string>>((r, a) => {

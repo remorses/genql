@@ -220,5 +220,5 @@ export const getFieldFromPath = (
         current = field
     })
 
-    return <LinkedField>current
+    return current as LinkedField
 }
