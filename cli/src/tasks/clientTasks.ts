@@ -46,6 +46,20 @@ export const clientTasks = (config: Config): ListrTask[] => {
         {
             title: `copy runtime files`,
             task: async (ctx) => {
+                // copy files from runtime folder to output
+                await fsx.ensureDir(path.resolve(output, 'runtime'))
+                let files = await fsx.readdir(runtimeFolderPath)
+                for (let file of files) {
+                    let contents = await fsx.readFile(
+                        path.resolve(runtimeFolderPath, file),
+                        'utf-8',
+                    )
+                    contents = '// @ts-nocheck\n' + contents
+                    await fsx.writeFile(
+                        path.resolve(output, 'runtime', file),
+                        contents,
+                    )
+                }
                 await fsx.copy(
                     runtimeFolderPath,
                     path.resolve(output, 'runtime'),
@@ -64,7 +78,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
 
                 await writeFileToPath(
                     [output, schemaTypesFile],
-                    renderCtx.toCode('typescript'),
+                    '// @ts-nocheck\n' + renderCtx.toCode('typescript'),
                 )
             },
         },
@@ -90,7 +104,7 @@ export const clientTasks = (config: Config): ListrTask[] => {
                 renderClientEsm(ctx.schema, renderCtx)
                 await writeFileToPath(
                     [output, clientFileEsm],
-                    renderCtx.toCode('typescript', true),
+                    '// @ts-nocheck\n' + renderCtx.toCode('typescript', true),
                 )
             },
         },
