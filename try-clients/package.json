@@ -5,7 +5,6 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "mocha",
         "gen": "pnpm github && pnpm simple && tsc --noEmit",
         "simple": "cd .. && pnpm play --esm-and-cjs --sort --schema try-clients/simple.graphql -o try-clients/simple/generated",
         "github": "cd .. && pnpm play --schema try-clients/github.graphql -o try-clients/github/generated -S HTML:string -S URI:string "

@@ -32,8 +32,6 @@ jobs:
       - run: pnpm buildall
       - run: pnpm genall
       - run: pnpm test
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Bump version
       #   if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/fields-selection'
       #   uses: remorses/bump-version@js
