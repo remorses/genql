@@ -60,10 +60,10 @@ export const clientTasks = (config: Config): ListrTask[] => {
                         contents,
                     )
                 }
-                await fsx.copy(
-                    runtimeFolderPath,
-                    path.resolve(output, 'runtime'),
-                )
+                // await fsx.copy(
+                //     runtimeFolderPath,
+                //     path.resolve(output, 'runtime'),
+                // )
             },
         },
         {
