@@ -1,6 +1,6 @@
 {
     "name": "@genql/cli",
-    "version": "3.0.5",
+    "version": "4.0.0",
     "description": "Generate a TypeScript SDK for any GraphQl API",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
