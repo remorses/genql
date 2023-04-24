@@ -36,8 +36,7 @@ export const objectType = (
         .map((f) => {
             return `${fieldComment(f)}${f.name}${renderTyping(
                 f.type,
-                true,
-                true,
+                false,
             )}`
         })
         .concat([

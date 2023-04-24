@@ -15,77 +15,77 @@ export interface Query {
     /** Some description */
     repository: Repository
     optionalArgs: Repository
-    user?: User
-    someScalarValue?: Scalars['String']
-    recursiveType?: (RecursiveType | undefined)[]
+    user?: (User | null)
+    someScalarValue?: (Scalars['String'] | null)
+    recursiveType?: ((RecursiveType | null)[] | null)
     throwsError: Scalars['String']
-    account?: Account
-    coordinates?: Point
-    unionThatImplementsInterface?: GenericError
-    InterfaceNotImplemented?: InterfaceNotImplemented
+    account?: (Account | null)
+    coordinates?: (Point | null)
+    unionThatImplementsInterface?: (GenericError | null)
+    InterfaceNotImplemented?: (InterfaceNotImplemented | null)
     __typename: 'Query'
 }
 
 export interface RecursiveType {
-    value?: Scalars['String']
-    recurse?: RecursiveType
+    value?: (Scalars['String'] | null)
+    recurse?: (RecursiveType | null)
     __typename: 'RecursiveType'
 }
 
 export interface Repository {
     createdAt: Scalars['String']
-    forks?: ForkConnection
+    forks?: (ForkConnection | null)
     __typename: 'Repository'
 }
 
 export interface ForkConnection {
-    edges?: (ForkEdge | undefined)[]
+    edges?: ((ForkEdge | null)[] | null)
     __typename: 'ForkConnection'
 }
 
 export interface ForkEdge {
-    cursor?: Scalars['String']
-    node?: Fork
+    cursor?: (Scalars['String'] | null)
+    node?: (Fork | null)
     __typename: 'ForkEdge'
 }
 
 export interface Fork {
-    name?: Scalars['String']
-    number?: Scalars['Int']
+    name?: (Scalars['String'] | null)
+    number?: (Scalars['Int'] | null)
     __typename: 'Fork'
 }
 
 export interface User {
     /** Some description */
-    name?: Scalars['String']
-    common?: Scalars['Int']
+    name?: (Scalars['String'] | null)
+    common?: (Scalars['Int'] | null)
     __typename: 'User'
 }
 
 export interface Subscription {
-    user?: User
+    user?: (User | null)
     __typename: 'Subscription'
 }
 
 export type Account = (User | Guest) & { __isUnion?: true }
 
 export interface Guest {
-    anonymous?: Scalars['Boolean']
-    common?: Scalars['Int']
+    anonymous?: (Scalars['Boolean'] | null)
+    common?: (Scalars['Int'] | null)
     __typename: 'Guest'
 }
 
 export interface House {
-    owner?: User
-    x?: Scalars['String']
-    y?: Scalars['String']
+    owner?: (User | null)
+    x?: (Scalars['String'] | null)
+    y?: (Scalars['String'] | null)
     __typename: 'House'
 }
 
 export interface Bank {
-    address?: Scalars['String']
-    x?: Scalars['String']
-    y?: Scalars['String']
+    address?: (Scalars['String'] | null)
+    x?: (Scalars['String'] | null)
+    y?: (Scalars['String'] | null)
     __typename: 'Bank'
 }
 
@@ -95,18 +95,18 @@ export type ClientError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid)
 
 export interface ClientErrorNameAlreadyTaken {
     message: Scalars['String']
-    ownProp1?: Scalars['String']
+    ownProp1?: (Scalars['String'] | null)
     __typename: 'ClientErrorNameAlreadyTaken'
 }
 
 export interface ClientErrorNameInvalid {
     message: Scalars['String']
-    ownProp2?: Scalars['String']
+    ownProp2?: (Scalars['String'] | null)
     __typename: 'ClientErrorNameInvalid'
 }
 
 export interface ClientErrorWithoutInterface {
-    ownProp3?: Scalars['String']
+    ownProp3?: (Scalars['String'] | null)
     __typename: 'ClientErrorWithoutInterface'
 }
 
@@ -114,10 +114,10 @@ export type GenericError = (ClientErrorNameAlreadyTaken | ClientErrorNameInvalid
 
 export interface InterfaceNotImplemented {
     id: Scalars['ID']
-    title?: Scalars['String']
-    url?: Scalars['String']
-    permalink?: Scalars['String']
-    entry_id?: Scalars['ID']
+    title?: (Scalars['String'] | null)
+    url?: (Scalars['String'] | null)
+    permalink?: (Scalars['String'] | null)
+    entry_id?: (Scalars['ID'] | null)
     __typename: string
 }
 

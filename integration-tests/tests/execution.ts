@@ -142,6 +142,26 @@ describe('execute queries', async function () {
         }),
     )
     it(
+        'can pass null to arguments',
+        withServer(async () => {
+            const res = await client.query({
+                repository: {
+                    __args: {
+                        name: 'genql',
+                        owner: null,
+                    },
+                    createdAt: true,
+                },
+                optionalArgs: {
+                    createdAt: true,
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            assert(res.repository.createdAt)
+            assert(res.optionalArgs.createdAt)
+        }),
+    )
+    it(
         'simple ',
         withServer(async () => {
             const res = await client.query({

@@ -6,7 +6,7 @@
     "main": "index.js",
     "scripts": {
         "gen": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
-        "test": "vitest --run",
+        "test": "tsc && vitest --run",
         "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts",
         "format": "doppler -c dev run -- node -r sucrase/register src/format.ts",
         "publish:dry": "DRY=1 doppler -c production run -- node -r sucrase/register src/publish.ts",

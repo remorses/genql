@@ -129,7 +129,7 @@ async function discover() {
         .map((x) => {
             const match = x.match(urlRegex)
             if (!match) {
-                return
+                return null
             }
             let url = match[0]
             try {

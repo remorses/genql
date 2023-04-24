@@ -1,5 +1,6 @@
 generated
 !integration-tests/generated
+integration-tests/generated/runtime
 
 # Logs
 logs

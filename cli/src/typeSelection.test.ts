@@ -49,8 +49,8 @@ type SRC = {
         }
     }
     optionalFields: {
-        a?: string
-        b?: number
+        a?: string | null
+        b?: number | null
     }
     order: {
         customer: {
@@ -247,6 +247,9 @@ describe('optional fields', () => {
             // @ts-expect-error
             z.optionalFields.a.toLocaleLowerCase
             z.optionalFields.a?.toLocaleLowerCase
+
+            // can use null
+            z.optionalFields.a = null
             // @ts-expect-error
             z.optionalFields.b.toLocaleLowerCase
             z.optionalFields.b?.toFixed

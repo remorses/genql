@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev -p 3030",
-        "test": "",
+        "test": "tsc",
         "sitemap": "esno scripts/sitemap.ts",
         "build": "pnpm sitemap && next build",
         "start": "next start -p 3030"

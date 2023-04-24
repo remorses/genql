@@ -6,21 +6,18 @@ const render = (
   nonNull: boolean,
   root: boolean,
   undefinableValues: boolean,
-  undefinableFields: boolean,
   wrap: (x: string) => string = x => x
 ): string => {
     
   if (root) {
-    if (undefinableFields) {
+    
       if (isNonNullType(type)) {
-        return `: ${render(type.ofType, true, false, undefinableValues, undefinableFields, wrap)}`
+        return `: ${render(type.ofType, true, false, undefinableValues, wrap)}`
       } else {
-        const rendered = render(type, true, false, undefinableValues, undefinableFields, wrap)
+        const rendered = render(type, true, false, undefinableValues, wrap)
         return undefinableValues ? `?: ${rendered}` : `?: (${rendered} | null)`
       }
-    } else {
-      return `: ${render(type, false, false, undefinableValues, undefinableFields, wrap)}`
-    }
+    
   }
 
   if (isNamedType(type)) {
@@ -41,7 +38,7 @@ const render = (
   }
 
   if (isListType(type)) {
-    const typing = `${render(type.ofType, false, false, undefinableValues, undefinableFields, wrap)}[]`
+    const typing = `${render(type.ofType, false, false, undefinableValues, wrap)}[]`
 
     if (undefinableValues) {
       return nonNull ? typing : `(${typing} | undefined)`
@@ -50,13 +47,12 @@ const render = (
     }
   }
 
-  return render((type as GraphQLNonNull<any>).ofType, true, false, undefinableValues, undefinableFields, wrap)
+  return render((type as GraphQLNonNull<any>).ofType, true, false, undefinableValues, wrap)
 }
 
 export const renderTyping = (
   type: GraphQLOutputType | GraphQLInputType,
   undefinableValues: boolean,
-  undefinableFields: boolean,
-  root = true,
-  wrap: any = undefined
-) => render(type, false, root, undefinableValues, undefinableFields, wrap)
+  
+  
+) => render(type, false, true, undefinableValues, )
