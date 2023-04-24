@@ -14,7 +14,7 @@ export const inputObjectType = (type: GraphQLInputObjectType, ctx: RenderContext
   
     const fieldStrings = Object.keys(fields).map(fieldName => {
     const field = fields[fieldName]
-    return `${argumentComment(field)}${field.name}${renderTyping(field.type, false)}`
+    return `${argumentComment(field)}${field.name}${renderTyping(field.type)}`
   })
 
   ctx.addCodeBlock(`${typeComment(type)}export interface ${type.name} {${fieldStrings.join(',')}}`)
