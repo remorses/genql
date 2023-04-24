@@ -1,4 +1,5 @@
 generated
+!integration-tests/generated
 
 # Logs
 logs
