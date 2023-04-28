@@ -57,7 +57,8 @@ export async function publish() {
                                 slug: generatedEntry.slug,
                                 url: x.url,
                                 version: generatedEntry.version,
-                                publish,
+                                npmScope: NPM_SCOPE,
+                                doNotPublish: !publish,
                             },
                         )
                         if (queriesCode) {

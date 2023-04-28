@@ -48,13 +48,13 @@ This project is sponsored by [Notaku](https://notaku.so/product/docs): Create pu
 `
 }
 
-export function runCommand({ cmd, cwd }) {
+export function runCommand({ cmd, cwd, env = {} }) {
     return new Promise((res, rej) => {
         let stderr = ''
         let stdout = ''
         const ps = exec(
             cmd,
-            { cwd, env: { ...process.env } },
+            { cwd, env: { ...process.env, ...env } },
             (err, stdout, stderr) => {
                 if (err) {
                     rej(new Error(`${cmd} failed: ${stdout}\n${stderr}\n`))
@@ -79,9 +79,11 @@ export async function createPackage({
     slug,
     version,
     npmScope,
-    publish,
+    doNotPublish,
+    npmToken,
 }: {
-    publish: boolean
+    doNotPublish: boolean
+    npmToken?: string
     slug: string
     url: string
     version: string
@@ -165,11 +167,12 @@ export async function createPackage({
             slug,
         })
         await fs.writeFile(path.join(tmpPath, 'README.md'), readme)
-        if (publish) {
+        if (!doNotPublish) {
             console.log(`publishing ${slug}`)
             await runCommand({
                 cmd: `npm publish --access public`,
                 cwd: tmpPath,
+                env: npmToken ? { NPM_TOKEN: npmToken } : null,
             })
         }
         // await cleanup()
