@@ -126,6 +126,7 @@ importers:
       '@types/fs-extra': ^11.0.1
       '@types/node': ^18.11.9
       '@types/papaparse': ^5.3.7
+      '@types/validate-npm-package-name': ^4.0.0
       async-sema: ^3.1.1
       fast-sort: ^3.2.1
       fs-extra: ^10.1.0
@@ -135,6 +136,7 @@ importers:
       posthtml: ^0.16.6
       resolve: 1.22.1
       tmp-promise: ^3.0.3
+      validate-npm-package-name: ^5.0.0
       vitest: ^0.28.4
     dependencies:
       '@genql/cli': link:../cli
@@ -149,9 +151,11 @@ importers:
       posthtml: 0.16.6
       resolve: 1.22.1
       tmp-promise: 3.0.3
+      validate-npm-package-name: 5.0.0
       vitest: 0.28.4
     devDependencies:
       '@types/node': 18.11.9
+      '@types/validate-npm-package-name': 4.0.0
 
   try-clients:
     specifiers:
@@ -3889,6 +3893,10 @@ packages:
     resolution: {integrity: sha512-dDZH/tXzwjutnuk4UacGgFRwV+JSLaXL1ikvidfJprkb7L9Nx1njcRHHmi3Dsvt7pgqqTEeucQuOrWHPFgzVHA==}
     dev: true
 
+  /@types/validate-npm-package-name/4.0.0:
+    resolution: {integrity: sha512-RpO62vB2lkjEkyLbwTheA2+uwYmtVMWTr/kWRI++UAgVdZqNqdAuIQl/SxBCGeMKfdjWaXPbyhZbiCc4PAj+KA==}
+    dev: true
+
   /@types/ws/7.4.7:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
     dependencies:
@@ -5087,7 +5095,6 @@ packages:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
       semver: 7.3.8
-    dev: true
 
   /busboy/0.3.1:
     resolution: {integrity: sha512-y7tTxhGKXcyBxRKAni+awqx8uqaJKrSFSNFSeRG5CsWNdmy2BIK+6VGWEW7TZnIO/533mtMEA4rOevQV815YJw==}
@@ -12443,6 +12450,13 @@ packages:
     dependencies:
       builtins: 5.0.1
     dev: true
+
+  /validate-npm-package-name/5.0.0:
+    resolution: {integrity: sha512-YuKoXDAhBYxY7SfOKxHBDoSyENFeW5VvIIQp2TGQuit8gpK6MnWaQelBKxso72DoxTZfZdcP3W90LqpSkgPzLQ==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    dependencies:
+      builtins: 5.0.1
+    dev: false
 
   /value-or-promise/1.0.11:
     resolution: {integrity: sha512-41BrgH+dIbCFXClcSapVs5M6GkENd3gQOJpEfPDNa71LsUGMXDL0jMWpI/Rh7WhX+Aalfz2TTS3Zt5pUsbnhLg==}
