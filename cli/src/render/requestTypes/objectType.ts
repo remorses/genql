@@ -101,6 +101,7 @@ export const toArgsString = (field: GraphQLField<any, any, any>) => {
             (a) =>
                 `${argumentComment(a)}${a.name}${renderTyping(
                     a.type,
+                    true
                 )}`,
         )
         .join(', ')

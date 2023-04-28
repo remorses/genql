@@ -431,3 +431,4 @@ export const enumSomeEnum2 = {
    hello: 'hello' as const,
    world: 'world' as const
 }
+
