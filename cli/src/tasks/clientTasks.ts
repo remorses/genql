@@ -78,7 +78,8 @@ export const clientTasks = (config: Config): ListrTask[] => {
 
                 await writeFileToPath(
                     [output, schemaTypesFile],
-                    '// @ts-nocheck\n' + renderCtx.toCode('typescript'),
+                    '// @ts-nocheck\n/* istanbul ignore file */\n/* tslint:disable */\n/* eslint-disable */\n\n' +
+                        renderCtx.toCode('typescript'),
                 )
             },
         },
