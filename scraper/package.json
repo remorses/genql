@@ -17,8 +17,8 @@
     "author": "remorses <beats.by.morse@gmail.com>",
     "license": "ISC",
     "devDependencies": {
-        "@types/node": "^18.11.9"
-        
+        "@types/node": "^18.11.9",
+        "@types/validate-npm-package-name": "^4.0.0"
     },
     "dependencies": {
         "@genql/cli": "workspace:*",
@@ -33,6 +33,7 @@
         "posthtml": "^0.16.6",
         "resolve": "1.22.1",
         "tmp-promise": "^3.0.3",
+        "validate-npm-package-name": "^5.0.0",
         "vitest": "^0.28.4"
     }
 }

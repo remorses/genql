@@ -21,7 +21,7 @@ import fs, { stat } from 'fs'
 import Papa from 'papaparse'
 import path from 'path'
 import { createClient } from './generated'
-import { generateQueries } from './utils/generateQueries'
+import { generateQueries } from './publish/generateQueries'
 
 const { SOURCEGRAPH_TOKEN } = process.env
 

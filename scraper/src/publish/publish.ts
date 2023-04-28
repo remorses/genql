@@ -1,8 +1,10 @@
 import { exec } from 'child_process'
+import validatePackageName from 'validate-npm-package-name'
+
 import resolve from 'resolve'
 import { promises as fs } from 'fs'
 import { generate } from '@genql/cli/src/main'
-import { buildSchema } from 'graphql'
+import { buildSchema, lexicographicSortSchema } from 'graphql'
 import packageNameAvailable from 'npm-name'
 import os from 'os'
 import path from 'path'
@@ -11,14 +13,10 @@ import tmp from 'tmp-promise'
 import { NPM_SCOPE, websiteUrl } from '../constants'
 
 import { red } from 'kleur'
-import { CsvDataType, GeneratedEntry } from './utils'
+import { fetchSchemaWithRetry } from '@genql/cli/src/schema/fetchSchema'
+import { generateQueries } from './generateQueries'
 
-function generateReadme({
-    slug,
-    website,
-    queriesCode,
-}: CsvDataType & GeneratedEntry) {
-    const host = new URL(website).host
+function generateReadme({ slug, host, queriesCode }) {
     return `
 
 # ${host} TypeScript API client
@@ -76,10 +74,33 @@ export function runCommand({ cmd, cwd }) {
     })
 }
 
-export async function createPackage(
-    args: CsvDataType & GeneratedEntry & { publish: boolean },
-) {
-    const { url, slug, version } = args
+export async function createPackage({
+    url,
+    slug,
+    version,
+    npmScope,
+    publish,
+}: {
+    publish: boolean
+    slug: string
+    url: string
+    version: string
+    npmScope: string
+}) {
+    const packageName = `${npmScope}/${slug}`
+    const valid = validatePackageName(packageName)
+    if (!valid.validForNewPackages) {
+        throw new Error(`Invalid npm package name ${packageName}`)
+    }
+    let schema = await fetchSchemaWithRetry({ endpoint: url })
+    if (schema) {
+        schema = lexicographicSortSchema(schema)
+    }
+
+    let queriesCode = await generateQueries({
+        packageName,
+        schema,
+    })
     const { path: tmpPath, cleanup } = await tmp.dir({
         unsafeCleanup: true,
     })
@@ -87,7 +108,7 @@ export async function createPackage(
     const host = new URL(url).host
     try {
         const packageJson = {
-            name: `${NPM_SCOPE}/${slug}`,
+            name: packageName,
             description: `SDK client for ${host} GraphQL API`,
             version: version,
             main: './dist/index.js',
@@ -139,11 +160,12 @@ export async function createPackage(
         // await runCommand({ cmd: `tree`, cwd: tmpPath })
 
         const readme = generateReadme({
-            ...args,
+            queriesCode,
+            host,
             slug,
         })
         await fs.writeFile(path.join(tmpPath, 'README.md'), readme)
-        if (args.publish) {
+        if (publish) {
             console.log(`publishing ${slug}`)
             await runCommand({
                 cmd: `npm publish --access public`,
@@ -151,9 +173,9 @@ export async function createPackage(
             })
         }
         // await cleanup()
-        return { packageJson, tempFolder: tmpPath }
+        return { packageJson, queriesCode, tempFolder: tmpPath }
     } catch (e) {
-        throw new Error(red('Could not publish: ' + String(e)))
+        throw new Error('Could not publish: ' + String(e))
         return { packageJson: {}, tempFolder: '' }
     } finally {
     }

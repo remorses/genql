@@ -3,8 +3,8 @@ import { Sema } from 'async-sema'
 import { createHash } from 'crypto'
 import { GraphQLSchema, lexicographicSortSchema, printSchema } from 'graphql'
 import { NPM_SCOPE } from './constants'
-import { generateQueries } from './utils/generateQueries'
-import { createPackage } from './utils/publish'
+
+import { createPackage } from './publish/index'
 import {
     CsvDataType,
     dataStore,
@@ -51,11 +51,18 @@ export async function publish() {
                                 )
                             }
                         }
-                        const { tempFolder } = await createPackage({
-                            ...generatedEntry,
-                            ...x,
-                            publish,
-                        })
+
+                        const { tempFolder, queriesCode } = await createPackage(
+                            {
+                                slug: generatedEntry.slug,
+                                url: x.url,
+                                version: generatedEntry.version,
+                                publish,
+                            },
+                        )
+                        if (queriesCode) {
+                            generatedEntry.queriesCode = queriesCode
+                        }
                         if (!publish) {
                             generatedEntry.version = previous?.version || ''
                         }
@@ -84,10 +91,7 @@ async function generateData(entry: CsvDataType, previous: GeneratedEntry) {
     if (schema) {
         schema = lexicographicSortSchema(schema)
     }
-    let queriesCode = await generateQueries({
-        packageName: `${NPM_SCOPE}/${entry.slug}`,
-        schema,
-    })
+
     let meta = await getSiteMeta(entry.website)
     let version = previous?.version || '0.0.0'
     if (schemaHash !== previous?.schemaHash) {
@@ -97,7 +101,6 @@ async function generateData(entry: CsvDataType, previous: GeneratedEntry) {
         ...previous,
         slug: entry.slug,
         schemaHash,
-        queriesCode,
         favicon: meta?.favicon || previous?.favicon,
         version,
         createdAt,
