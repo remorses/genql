@@ -1,5 +1,5 @@
 import { Config } from './config'
-import Listr from 'listr'
+import { Listr } from 'listr2'
 import { clientTasks } from './tasks/clientTasks'
 import { schemaTask } from './tasks/schemaTask'
 

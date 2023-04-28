@@ -1,13 +1,10 @@
 import { buildASTSchema, assertValidSchema, GraphQLSchema } from 'graphql'
-import { ListrTask } from 'listr'
+import { ListrTask } from 'listr2'
 import { existsSync } from 'fs-extra'
 import { Config } from '../config'
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
 import { lexicographicSortSchema } from 'graphql'
-import {
-    fetchSchema,
-    SchemaFetcher,
-} from '../schema/fetchSchema'
+import { fetchSchema, SchemaFetcher } from '../schema/fetchSchema'
 import { loadSchema } from '@graphql-tools/load'
 
 // TODO add timeout for fetchSchema

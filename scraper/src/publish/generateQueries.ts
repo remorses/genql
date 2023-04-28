@@ -4,8 +4,11 @@ import { GraphQLField, GraphQLNonNull, GraphQLSchema, parse } from 'graphql'
 export function generateQueries(p: {
     packageName: string
     number?: number
-    schema: GraphQLSchema
+    schema?: GraphQLSchema
 }) {
+    if (!p.schema) {
+        return ''
+    }
     p.number = p.number || 1
     let code = `import { createClient } from '${p.packageName}'\n`
     code += `const client = createClient()\n`
@@ -138,7 +141,7 @@ function generateRandomQueries({
         curParentName = '',
         argumentsDict = {},
         duplicateArgCounts = {},
-        crossReferenceKeyList = [], // [`${curParentName}To${curName}Key`]
+        crossReferenceKeyList = [] as string[], // [`${curParentName}To${curName}Key`]
         curDepth = 1,
         fromUnion = false,
     ) => {
@@ -277,7 +280,7 @@ function generateRandomQueries({
         })
     }
 
-    let res = []
+    let res: string[] = []
     if (type === 'mutation' && gqlSchema.getMutationType()) {
         res.push(
             ...generateQueries(

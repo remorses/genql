@@ -1,5 +1,5 @@
 import { GraphQLSchema, GraphQLEnumType, isEnumType } from 'graphql'
-import Listr, { ListrTask } from 'listr'
+import { ListrTask, Listr } from 'listr2'
 import camelCase from 'lodash/camelCase'
 import { Config } from '../config'
 import { ensurePath, writeFileToPath } from '../helpers/files'
