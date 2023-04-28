@@ -77,7 +77,7 @@ export function runCommand({ cmd, cwd, env = {} }) {
 export async function createPackage({
     url,
     slug,
-    version,
+    version = '0.0.0',
     npmScope,
     doNotPublish,
     npmToken,
@@ -86,7 +86,7 @@ export async function createPackage({
     npmToken?: string
     slug: string
     url: string
-    version: string
+    version?: string
     npmScope: string
 }) {
     const packageName = `${npmScope}/${slug}`
