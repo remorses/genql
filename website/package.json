@@ -61,7 +61,7 @@
         "semver": "^7.3.8",
         "tailwindcss": "^3.2.6",
         "tmp-promise": "^3.0.3",
-        "undici": "^5.18.0",
+        "undici": "^5.22.0",
         "use-debounce": "^8.0.4",
         "xmldom": "^0.6.0",
         "yaml": "^2.1.3"
