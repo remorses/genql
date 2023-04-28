@@ -4,7 +4,7 @@ import { createHash } from 'crypto'
 import { GraphQLSchema, lexicographicSortSchema, printSchema } from 'graphql'
 import { NPM_SCOPE } from './constants'
 
-import { createPackage } from './publish/index'
+import { createPackageAndPublish } from './publish/index'
 import {
     CsvDataType,
     dataStore,
@@ -52,7 +52,7 @@ export async function publish() {
                             }
                         }
 
-                        const { tempFolder, queriesCode } = await createPackage(
+                        const { tempFolder, queriesCode } = await createPackageAndPublish(
                             {
                                 slug: generatedEntry.slug,
                                 url: x.url,

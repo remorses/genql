@@ -1,5 +1,5 @@
-slug,schemaHash,queriesCode,favicon,version,tempFolder,createdAt
-zora,0ba564c8df1f0773eda0e86149dd3ee362a02dac3f2cf2175cacfd278aa6b73e,"import { createClient } from '@shitty-scope-name/zora'
+slug,schemaHash,queriesCode,favicon,version,tempFolder,createdAt,lastPublished
+zora,38da4e2546600d9cac0a6b95750d3e8f29d8ff5f6a6283f68db1ed7ab9ad3e43,"import { createClient } from '@shitty-scope-name/zora'
 const client = createClient()
 
 
@@ -39,19 +39,21 @@ let where2
 client
   .query({
     aggregateStat: {
-      floorPrice: {
+      accumulativeSales: {
         __args: {
           networks: networks,
           where: where,
         },
+        count: true,
+        date: true,
       },
-      nftCount: {
+      floorPrice: {
         __args: {
           networks: networks1,
           where: where1,
         },
       },
-      ownerCount: {
+      nftCount: {
         __args: {
           networks: networks2,
           where: where2,
@@ -61,25 +63,36 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://zora.co/icon-ios.png,0.2.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-XlQqzgj63UMX,2023-02-14T18:13:37.501Z
-wapm-registry,4c9d2419ad9daf2d55895b7053f20cd2ad223665e8fa5fcffc2739b1519df383,"import { createClient } from '@shitty-scope-name/wapm-registry'
+",https://zora.co/assets/favicon/favicon-16x16.png,0.3.0,/var/folders/8w/wvmrpgms5hngywvs8s99xnmm0000gn/T/tmp-30882-yLib4bed8OaI,2023-02-14T18:13:37.501Z,2023-04-28T12:40:11.089Z
+wapm-registry,f81af9ad851657c2f1ca0eef6bfabb1acaaff9b7436527b7218ee3555285cbe1,"import { createClient } from '@shitty-scope-name/wapm-registry'
 const client = createClient()
 
 
 // query variables
-let name = ''
-let namespace = ''
+let size = 3
+let input
 
 client
-  .query({
-    getAnyDeployConfig: {
+  .mutation({
+    acceptNamespaceCollaboratorInvite: {
       __args: {
-        name: name,
-        namespace: namespace,
+        input: input,
       },
-      createdAt: true,
-      id: true,
-      name: true,
+      clientMutationId: true,
+      namespaceCollaboratorInvite: {
+        accepted: {
+          createdAt: true,
+          id: true,
+        },
+        approvedBy: {
+          avatar: {
+            __args: {
+              size: size,
+            },
+          },
+        },
+        closedAt: true,
+      },
     },
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
@@ -87,24 +100,72 @@ client
 
 
 // query variables
-let name = ''
-let namespace = ''
+let size = 3
+let input
 
 client
-  .query({
-    getAnyDeployConfigVersion: {
+  .mutation({
+    acceptPackageCollaboratorInvite: {
       __args: {
-        name: name,
-        namespace: namespace,
+        input: input,
       },
-      config: true,
-      configWebc: true,
-      createdAt: true,
+      clientMutationId: true,
+      packageCollaboratorInvite: {
+        accepted: {
+          createdAt: true,
+          id: true,
+        },
+        approvedBy: {
+          avatar: {
+            __args: {
+              size: size,
+            },
+          },
+        },
+        closedAt: true,
+      },
     },
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://wapm.io/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-7enB9orhBfww,2023-02-14T18:13:37.509Z
+",https://wapm.io/favicon.png,0.2.0,/var/folders/8w/wvmrpgms5hngywvs8s99xnmm0000gn/T/tmp-30882-VN9xkY6Vy53p,2023-02-14T18:13:37.509Z,2023-04-28T12:40:08.450Z
+sourcegraph,a2383a5e4ba2fa5d4a50906997b3cfc15aff888fb14e043e0867d2f0741617a6,"import { createClient } from '@shitty-scope-name/sourcegraph'
+const client = createClient()
+
+
+// query variables
+let after = ''
+let before = ''
+
+client
+  .query({
+    accessRequests: {
+      __args: {
+        after: after,
+        before: before,
+      },
+      nodes: {
+        additionalInfo: true,
+        createdAt: true,
+        email: true,
+      },
+      pageInfo: {
+        endCursor: true,
+        hasNextPage: true,
+        hasPreviousPage: true,
+      },
+      totalCount: true,
+    },
+  })
+  .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+client
+  .query({ areExecutorsConfigured: true })
+  .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+",,0.2.0,/var/folders/8w/wvmrpgms5hngywvs8s99xnmm0000gn/T/tmp-30882-vEgPUxnjJIE3,2023-02-14T18:13:37.511Z,2023-04-28T12:40:11.089Z
 universe-com,ff72073c5d7a3e1f3c3aa2fc8c7dc382f91cb349d80e4792bcf8828afefa00d3,"import { createClient } from '@shitty-scope-name/universe-com'
 const client = createClient()
 
@@ -150,7 +211,7 @@ client
       },
     },
   })
-  .then((x) => console.log(JSON.stringify(x, null, 4)))",https://universe.com/multiverse/assets/apple-touch-icon-57x57-dc48dc1839e5e7401c5b4beccd693ee7.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-ZydkjASNwvK9,
+  .then((x) => console.log(JSON.stringify(x, null, 4)))",https://universe.com/multiverse/assets/apple-touch-icon-57x57-dc48dc1839e5e7401c5b4beccd693ee7.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-90506-ZydkjASNwvK9,,
 thegraph,2d1cbaad0af30128c465d5f2c8734884a6fff598f7f603f0e68d1918506baad9,"import { createClient } from '@shitty-scope-name/thegraph'
 const client = createClient()
 
@@ -186,7 +247,7 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://storage.googleapis.com/graph-web/favicon.png,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-EMS5H2pIqgyG,2023-02-14T18:13:37.510Z
+",https://storage.googleapis.com/graph-web/favicon.png,0.1.0,/var/folders/8w/wvmrpgms5hngywvs8s99xnmm0000gn/T/tmp-30882-6Kjk5y4lNWhI,2023-02-14T18:13:37.510Z,
 tezos-domains,92e6714ff12686eafa3c756f27bcb984e84732310c0b8d7ca49d09e8ed718bab,"import { createClient } from '@shitty-scope-name/tezos-domains'
 const client = createClient()
 
@@ -243,42 +304,132 @@ client
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",https://tezos.domains/img/favicon.ico,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-w1uaIr3wPZdM,2023-02-14T18:13:37.510Z
-sourcegraph,850c0e695a1ef4b3cc91d07f570eb82dd35c6ebee737723c6c2c98ed34c3bbb0,"import { createClient } from '@shitty-scope-name/sourcegraph'
+",https://tezos.domains/img/favicon.ico,0.1.0,/var/folders/8w/wvmrpgms5hngywvs8s99xnmm0000gn/T/tmp-30882-wwAG16EdJ1Fm,2023-02-14T18:13:37.510Z,
+pokeapi,d573870e7185ab99f1e952e796d71b2b415bd5262d6d898683e55a42b816e953,"import { createClient } from '@shitty-scope-name/pokeapi'
 const client = createClient()
 
 
+// query variables
+let distinct_on
+let limit = 3
+
 client
-  .query({ areExecutorsConfigured: true })
+  .query({
+    pokemon_v2_ability: {
+      __args: {
+        distinct_on: distinct_on,
+        limit: limit,
+      },
+      generation_id: true,
+      id: true,
+      is_main_series: true,
+    },
+  })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
 
 
 // query variables
-let precise = false
-let after = ''
-let email = ''
-let first = 3
+let columns
+let distinct = false
+let distinct_on
+let limit = 3
 
 client
   .query({
-    authorizedUserRepositories: {
+    pokemon_v2_ability_aggregate: {
       __args: {
-        after: after,
-        email: email,
-        first: first,
+        distinct_on: distinct_on,
+        limit: limit,
       },
-      pageInfo: {
-        endCursor: true,
-        hasNextPage: true,
-      },
-      totalCount: {
-        __args: {
-          precise: precise,
+      aggregate: {
+        count: {
+          __args: {
+            columns: columns,
+            distinct: distinct,
+          },
         },
+      },
+      nodes: {
+        generation_id: true,
+        id: true,
+        is_main_series: true,
       },
     },
   })
   .then((x) => console.log(JSON.stringify(x, null, 4)))
 
-",,0.1.0,/var/folders/fc/x_42l3cj7wgdbf872w0ng30w0000gn/T/tmp-13120-haoY0gx7eD8D,2023-02-14T18:13:37.511Z
+",https://pokeapi.co/pokeapi_192_square.png,0.1.0,/var/folders/8w/wvmrpgms5hngywvs8s99xnmm0000gn/T/tmp-30882-RkgHj7NFZtOO,2023-04-28T12:40:02.553Z,2023-04-28T12:40:11.133Z
+opencollective,b26b33282f27c75db07328979165c61885003c838dbe6b07389bbe28c708a511,"import { createClient } from '@shitty-scope-name/opencollective'
+const client = createClient()
+
+
+// query variables
+let channel
+let format
+let height = 3
+let githubHandle = ''
+let id = ''
+
+client
+  .query({
+    account: {
+      __args: {
+        githubHandle: githubHandle,
+        id: id,
+      },
+      activitySubscriptions: {
+        __args: {
+          channel: channel,
+        },
+        active: true,
+        channel: true,
+      },
+      backgroundImageUrl: {
+        __args: {
+          format: format,
+          height: height,
+        },
+      },
+      categories: true,
+    },
+  })
+  .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+
+
+// query variables
+let format
+let height = 3
+let country
+let hasCustomContributionsEnabled = false
+let limit = 3
+let offset = 3
+let tagSearchOperator
+
+client
+  .query({
+    accounts: {
+      __args: {
+        country: country,
+        hasCustomContributionsEnabled: hasCustomContributionsEnabled,
+        limit: limit,
+        offset: offset,
+        tagSearchOperator: tagSearchOperator,
+      },
+      limit: true,
+      nodes: {
+        backgroundImageUrl: {
+          __args: {
+            format: format,
+            height: height,
+          },
+        },
+        categories: true,
+      },
+      offset: true,
+    },
+  })
+  .then((x) => console.log(JSON.stringify(x, null, 4)))
+
+",,0.1.0,/var/folders/8w/wvmrpgms5hngywvs8s99xnmm0000gn/T/tmp-30882-4UmdKTB7dl9R,2023-04-28T12:40:02.553Z,2023-04-28T12:40:08.865Z
