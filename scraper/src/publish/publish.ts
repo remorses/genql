@@ -184,17 +184,6 @@ export async function createPackageAndPublish({
     }
 }
 
-export interface GenerateApiParams {
-    name: string
-    endpoint: string
-}
-
-export interface Package {
-    name: string
-    graphql_endpoint: string
-    user_uid: string
-}
-
 const tsconfig = {
     compilerOptions: {
         noImplicitReturns: true,
