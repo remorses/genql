@@ -1,18 +1,15 @@
 import { exec } from 'child_process'
 import validatePackageName from 'validate-npm-package-name'
 
-import resolve from 'resolve'
-import { promises as fs } from 'fs'
 import { generate } from '@genql/cli/src/main'
-import { buildSchema, lexicographicSortSchema } from 'graphql'
-import packageNameAvailable from 'npm-name'
-import os from 'os'
-import path from 'path'
+import { promises as fs } from 'fs'
 import fsx from 'fs-extra'
+import { lexicographicSortSchema } from 'graphql'
+import path from 'path'
+import resolve from 'resolve'
 import tmp from 'tmp-promise'
 import { NPM_SCOPE, websiteUrl } from '../constants'
 
-import { red } from 'kleur'
 import { fetchSchemaWithRetry } from '@genql/cli/src/schema/fetchSchema'
 import { generateQueries } from './generateQueries'
 
