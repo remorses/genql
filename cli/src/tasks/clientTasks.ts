@@ -19,10 +19,7 @@ const schemaGqlFile = 'schema.graphql'
 
 const typeMapFileEsm = 'types.ts'
 
-const cliRoot = path.resolve(
-    path.resolve(__dirname, '../../package.json'),
-    '..',
-)
+const cliRoot = path.resolve(require.resolve('../../package.json'), '..')
 
 const runtimeFolderPath = path.resolve(cliRoot, 'src/runtime')
 
