@@ -119,10 +119,9 @@ export const clientTasks = (config: Config): ListrTask[] => {
         {
             title: `writing files`,
             task: () =>
-                new Listr(
-                    tasks.filter((x) => Boolean(x)) as ReadonlyArray<ListrTask>,
-                    { concurrent: true },
-                ),
+                new Listr(tasks.filter((x) => Boolean(x)) as ListrTask[], {
+                    concurrent: true,
+                }),
         },
     ]
 }
