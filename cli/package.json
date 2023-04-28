@@ -55,8 +55,8 @@
         "ts-jest": "^29.0.3"
     },
     "dependencies": {
-        "@graphql-tools/graphql-file-loader": "^7.5.11",
-        "@graphql-tools/load": "^7.8.6",
+        "@graphql-tools/graphql-file-loader": "^7.5.17",
+        "@graphql-tools/load": "^7.8.14",
         "fs-extra": "^10.1.0",
         "graphql": "^16.6.0",
         "kleur": "^4.1.5",
