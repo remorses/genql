@@ -13,14 +13,16 @@ import { renderTypeGuards } from '../render/typeGuards/renderTypeGuards'
 import { renderTypeMap } from '../render/typeMap/renderTypeMap'
 import path from 'path'
 import fsx from 'fs-extra'
-import resolve from 'resolve'
 
 const schemaTypesFile = 'schema.ts'
 const schemaGqlFile = 'schema.graphql'
 
 const typeMapFileEsm = 'types.ts'
 
-const cliRoot = path.resolve(resolve.sync('../../package.json'), '..')
+const cliRoot = path.resolve(
+    path.resolve(__dirname, '../../package.json'),
+    '..',
+)
 
 const runtimeFolderPath = path.resolve(cliRoot, 'src/runtime')
 
