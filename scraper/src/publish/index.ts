@@ -1,3 +1,3 @@
-import { createPackage } from './publish'
+import { createPackageAndPublish } from './publish'
 
-export { createPackage }
+export { createPackageAndPublish as createPackage }

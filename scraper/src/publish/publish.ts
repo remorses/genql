@@ -74,7 +74,7 @@ export function runCommand({ cmd, cwd, env = {} }) {
     })
 }
 
-export async function createPackage({
+export async function createPackageAndPublish({
     url,
     slug,
     version = '0.0.0',
