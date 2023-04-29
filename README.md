@@ -14,7 +14,7 @@ Read the [quick start guide](https://genql.dev/docs) to generate your client and
 
 You can stay up to date with the latest changes subscribing to the [Genql changelog](https://changelog.genql.dev).
 
-🔥 **Features**
+**Features**
 
 -   ✅ Type completion & Type validation
 -   🍃 No dependencies (not even graphql)
