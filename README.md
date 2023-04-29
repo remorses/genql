@@ -1,7 +1,7 @@
 <div align='center'>
     <br/>
     <br/>
-    <img src='https://genql.dev/banner.jpg' width='420px'>
+    <img src='https://genql.dev/banner.png' width='380px'>
     <br/>
     <br/>
     <h3>Type safe Graphql query builder</h3>
