@@ -22,6 +22,7 @@ You can stay up to date with the latest changes subscribing to the [Genql change
 -   [Works with any client (Apollo, Relay, etc)](https://genql.dev/docs/usage/integrate-with-other-graphql-clients)
 -   [Support for Subscriptions](https://genql.dev/docs/usage/subscriptions)
 -   [Built in batching support](https://genql.dev/docs/usage/batching-queries)
+-   [Easy migrate existing GraphQL queries to Genql code](https://genql.dev/converter)
 -   Works in browser, Node, Deno, Cloudflare workers, Bun and more
 
 ## Example
