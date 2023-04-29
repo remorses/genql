@@ -5,6 +5,7 @@ import {
     GraphQLObjectType,
     isEnumType,
     isInterfaceType,
+    isNonNullType,
     isScalarType,
 } from 'graphql'
 import { argumentComment, fieldComment, typeComment } from '../common/comment'
@@ -99,9 +100,9 @@ export const toArgsString = (field: GraphQLField<any, any, any>) => {
     let fields = field.args
         .map(
             (a) =>
-                `${argumentComment(a)}${a.name}${renderTyping(
-                    a.type,
-                )}`,
+                `${argumentComment(a)}${a.name}${
+                    isNonNullType(a.type) ? ':' : '?:'
+                } ${renderTyping(a.type)}`,
         )
         .join(', ')
     return `{${fields}}`
