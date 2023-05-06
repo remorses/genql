@@ -1,6 +1,6 @@
 import { GraphQLSchema, GraphQLEnumType, isEnumType } from 'graphql'
 import { ListrTask, Listr } from 'listr2'
-import camelCase from 'lodash/camelCase'
+import { camelCase, capitalize } from '../utils'
 import { Config } from '../config'
 import { ensurePath, writeFileToPath } from '../helpers/files'
 import { renderClientEsm } from '../render/client/renderClient'
@@ -145,7 +145,9 @@ function renderEnumsMaps(schema: GraphQLSchema, ctx: RenderContext) {
         enums
             .map(
                 (type) =>
-                    `export const ${camelCase('enum' + type.name)} = {\n` +
+                    `export const ${
+                        'enum' + capitalize(camelCase(type.name))
+                    } = {\n` +
                     type
                         .getValues()
                         .map((v) => {
