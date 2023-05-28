@@ -52,6 +52,10 @@ type SRC = {
         a?: string | null
         b?: number | null
     }
+    optionalObject: {
+        x: string
+        optional: string | null
+    } | null
     order: {
         customer: {
             address: {
@@ -239,6 +243,10 @@ describe('optional fields', () => {
         argumentSyntax: {
             optional: 1,
         },
+        optionalObject: {
+            x: 1,
+            optional: 1,
+        }
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
     test(
@@ -257,6 +265,16 @@ describe('optional fields', () => {
             z.category.optionalFieldsNested.a
             // @ts-expect-error
             z.category?.optionalFieldsNested.a
+        }),
+    )
+    test(
+        'optional objects are preserved',
+        dontExecute(() => {
+            // @ts-expect-error
+            z.optionalObject.x
+            z.optionalObject?.x
+            // type is T | null
+            z.optionalObject = null
         }),
     )
     test(
@@ -444,8 +462,8 @@ describe('literals unions', () => {
     test(
         'accessible',
         dontExecute(() => {
-            z.nullableField.x
-            z.nullableField.optional?.big
+            z.nullableField?.x
+            z.nullableField?.optional?.big
             // @ts-expect-error optional
             z.nullableField.optional.big
         }),
