@@ -86,7 +86,7 @@ type Handle__isUnion<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
     : Omit<SRC, FieldsToRemove> // just return the union type
 
-type Scalar = string | number | Date | boolean | null | undefined
+type Scalar = string | number | Date | boolean | null | undefined | { __scalar: true }
 
 type Anify<T> = { [P in keyof T]?: any }
 
