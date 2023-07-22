@@ -5,7 +5,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "gen": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
+        "_gen": "cd .. && pnpm play -e 'https://sourcegraph.com/.api/graphql' -o scraper/src/generated",
         "test": "tsc && vitest --run",
         "discover": "doppler -c dev run -- node -r sucrase/register src/discover.ts",
         "format": "doppler -c dev run -- node -r sucrase/register src/format.ts",
