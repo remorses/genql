@@ -40,6 +40,7 @@ export const schemaTask = (config: Config): ListrTask => {
                 // const options = config.options && config.options.schemaBuild
                 const document = await loadSchema(schema, {
                     loaders: [new GraphQLFileLoader()],
+                    
                 })
                 ctx.schema = processSchema(document)
 
