@@ -8,6 +8,11 @@ enum SomeEnum2 {
     world
 }
 
+input InputWithRequiredFields {
+    requiredField: String!
+    optionalField: String
+}
+
 # Some comment
 type Query {
     """
@@ -19,6 +24,7 @@ type Query {
     someScalarValue(x: Float): String
     recursiveType(requiredVal: [String!]): [RecursiveType]
     throwsError: String!
+    requiredFields(input: InputWithRequiredFields!): String!
 }
 
 type RecursiveType {

@@ -17,7 +17,7 @@ export const inputObjectType = (
     const fieldStrings = Object.keys(fields).map((fieldName) => {
         const field = fields[fieldName]
         return `${argumentComment(field)}${field.name}${
-            isNonNullType(type) ? ':' : '?:'
+            isNonNullType(field.type) ? ':' : '?:'
         } ${renderTyping(field.type)}`
     })
 

@@ -9,6 +9,11 @@ enum SomeEnum2 {
   world
 }
 
+input InputWithRequiredFields {
+  requiredField: String!
+  optionalField: String
+}
+
 type Query {
   """Some description"""
   repository(name: String!, owner: String): Repository!
@@ -17,6 +22,7 @@ type Query {
   someScalarValue(x: Float): String
   recursiveType(requiredVal: [String!]): [RecursiveType]
   throwsError: String!
+  requiredFields(input: InputWithRequiredFields!): String!
   account: Account
   coordinates: Point
   unionThatImplementsInterface(typename: String): GenericError

@@ -3,17 +3,29 @@ export default {
         0,
         1,
         3,
-        4,
-        6,
-        15,
-        25
+        5,
+        7,
+        16,
+        26
     ],
     "types": {
         "SomeEnum": {},
         "SomeEnum2": {},
+        "InputWithRequiredFields": {
+            "requiredField": [
+                3
+            ],
+            "optionalField": [
+                3
+            ],
+            "__typename": [
+                3
+            ]
+        },
+        "String": {},
         "Query": {
             "repository": [
-                7,
+                8,
                 {
                     "name": [
                         3,
@@ -25,7 +37,7 @@ export default {
                 }
             ],
             "optionalArgs": [
-                7,
+                8,
                 {
                     "name": [
                         3
@@ -36,18 +48,18 @@ export default {
                 }
             ],
             "user": [
-                11
+                12
             ],
             "someScalarValue": [
                 3,
                 {
                     "x": [
-                        4
+                        5
                     ]
                 }
             ],
             "recursiveType": [
-                5,
+                6,
                 {
                     "requiredVal": [
                         3,
@@ -58,14 +70,23 @@ export default {
             "throwsError": [
                 3
             ],
+            "requiredFields": [
+                3,
+                {
+                    "input": [
+                        2,
+                        "InputWithRequiredFields!"
+                    ]
+                }
+            ],
             "account": [
-                13
+                14
             ],
             "coordinates": [
-                18
+                19
             ],
             "unionThatImplementsInterface": [
-                23,
+                24,
                 {
                     "typename": [
                         3
@@ -73,23 +94,22 @@ export default {
                 }
             ],
             "InterfaceNotImplemented": [
-                24
+                25
             ],
             "__typename": [
                 3
             ]
         },
-        "String": {},
         "Float": {},
         "RecursiveType": {
             "value": [
                 3
             ],
             "recurse": [
-                5,
+                6,
                 {
                     "arg": [
-                        6
+                        7
                     ]
                 }
             ],
@@ -103,7 +123,7 @@ export default {
                 3
             ],
             "forks": [
-                8,
+                9,
                 {
                     "filter": [
                         3
@@ -116,7 +136,7 @@ export default {
         },
         "ForkConnection": {
             "edges": [
-                9
+                10
             ],
             "__typename": [
                 3
@@ -127,7 +147,7 @@ export default {
                 3
             ],
             "node": [
-                10
+                11
             ],
             "__typename": [
                 3
@@ -138,7 +158,7 @@ export default {
                 3
             ],
             "number": [
-                6
+                7
             ],
             "__typename": [
                 3
@@ -149,7 +169,7 @@ export default {
                 3
             ],
             "common": [
-                6
+                7
             ],
             "__typename": [
                 3
@@ -157,7 +177,7 @@ export default {
         },
         "Subscription": {
             "user": [
-                11
+                12
             ],
             "__typename": [
                 3
@@ -165,10 +185,10 @@ export default {
         },
         "Account": {
             "on_User": [
-                11
+                12
             ],
             "on_Guest": [
-                14
+                15
             ],
             "__typename": [
                 3
@@ -176,10 +196,10 @@ export default {
         },
         "Guest": {
             "anonymous": [
-                15
+                16
             ],
             "common": [
-                6
+                7
             ],
             "__typename": [
                 3
@@ -188,7 +208,7 @@ export default {
         "Boolean": {},
         "House": {
             "owner": [
-                11
+                12
             ],
             "x": [
                 3
@@ -222,10 +242,10 @@ export default {
                 3
             ],
             "on_House": [
-                16
+                17
             ],
             "on_Bank": [
-                17
+                18
             ],
             "__typename": [
                 3
@@ -236,10 +256,10 @@ export default {
                 3
             ],
             "on_ClientErrorNameAlreadyTaken": [
-                20
+                21
             ],
             "on_ClientErrorNameInvalid": [
-                21
+                22
             ],
             "__typename": [
                 3
@@ -277,16 +297,16 @@ export default {
         },
         "GenericError": {
             "on_ClientErrorNameAlreadyTaken": [
-                20
-            ],
-            "on_ClientErrorNameInvalid": [
                 21
             ],
-            "on_ClientErrorWithoutInterface": [
+            "on_ClientErrorNameInvalid": [
                 22
             ],
+            "on_ClientErrorWithoutInterface": [
+                23
+            ],
             "on_ClientError": [
-                19
+                20
             ],
             "__typename": [
                 3
@@ -294,7 +314,7 @@ export default {
         },
         "InterfaceNotImplemented": {
             "id": [
-                25
+                26
             ],
             "title": [
                 3
@@ -306,7 +326,7 @@ export default {
                 3
             ],
             "entry_id": [
-                25
+                26
             ],
             "__typename": [
                 3

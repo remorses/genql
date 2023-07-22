@@ -55,6 +55,22 @@ describe('generate queries', () => {
         })
         snapshot(prettify(query, 'graphql'))
     })
+    it('required input arguments', () => {
+        generateQueryOp({
+            // @ts-expect-error
+            requiredFields: {},
+        })
+        generateQueryOp({
+            requiredFields: {
+                __args: {
+                    // @ts-expect-error
+                    input: {
+                        optionalField: 'x',
+                    },
+                },
+            },
+        })
+    })
     // it('error on additional arg', () => {
     //     const { query } = generateQueryOp({
     //         optionalArgs: {

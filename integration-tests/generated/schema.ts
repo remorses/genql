@@ -23,6 +23,7 @@ export interface Query {
     someScalarValue: (Scalars['String'] | null)
     recursiveType: ((RecursiveType | null)[] | null)
     throwsError: Scalars['String']
+    requiredFields: Scalars['String']
     account: (Account | null)
     coordinates: (Point | null)
     unionThatImplementsInterface: (GenericError | null)
@@ -125,6 +126,8 @@ export interface InterfaceNotImplemented {
     __typename: string
 }
 
+export interface InputWithRequiredFields {requiredField: Scalars['String'],optionalField?: (Scalars['String'] | null)}
+
 export interface QueryGenqlSelection{
     /** Some description */
     repository?: (RepositoryGenqlSelection & { __args: {name: Scalars['String'], owner?: (Scalars['String'] | null)} })
@@ -133,6 +136,7 @@ export interface QueryGenqlSelection{
     someScalarValue?: { __args: {x?: (Scalars['Float'] | null)} } | boolean | number
     recursiveType?: (RecursiveTypeGenqlSelection & { __args?: {requiredVal?: (Scalars['String'][] | null)} })
     throwsError?: boolean | number
+    requiredFields?: { __args: {input: InputWithRequiredFields} }
     account?: AccountGenqlSelection
     coordinates?: PointGenqlSelection
     unionThatImplementsInterface?: (GenericErrorGenqlSelection & { __args?: {typename?: (Scalars['String'] | null)} })
