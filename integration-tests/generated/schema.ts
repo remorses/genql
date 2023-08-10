@@ -5,8 +5,8 @@
 
 export type Scalars = {
     String: string,
-    Float: number,
     Int: number,
+    Float: number,
     Boolean: boolean,
     ID: string,
 }
@@ -18,6 +18,7 @@ export type SomeEnum2 = 'hello' | 'world'
 export interface Query {
     /** Some description */
     repository: Repository
+    queryWithDefaultArgs: (Scalars['String'] | null)
     optionalArgs: Repository
     user: (User | null)
     someScalarValue: (Scalars['String'] | null)
@@ -131,6 +132,7 @@ export interface InputWithRequiredFields {requiredField: Scalars['String'],optio
 export interface QueryGenqlSelection{
     /** Some description */
     repository?: (RepositoryGenqlSelection & { __args: {name: Scalars['String'], owner?: (Scalars['String'] | null)} })
+    queryWithDefaultArgs?: { __args: {input?: (DefaultArgsInput | null), defaultValue?: (Scalars['Int'] | null)} } | boolean | number
     optionalArgs?: (RepositoryGenqlSelection & { __args?: {name?: (Scalars['String'] | null), owner?: (Scalars['String'] | null)} })
     user?: UserGenqlSelection
     someScalarValue?: { __args: {x?: (Scalars['Float'] | null)} } | boolean | number
@@ -144,6 +146,8 @@ export interface QueryGenqlSelection{
     __typename?: boolean | number
     __scalar?: boolean | number
 }
+
+export interface DefaultArgsInput {string?: Scalars['String']}
 
 export interface RecursiveTypeGenqlSelection{
     value?: boolean | number

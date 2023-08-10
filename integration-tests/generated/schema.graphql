@@ -17,6 +17,7 @@ input InputWithRequiredFields {
 type Query {
   """Some description"""
   repository(name: String!, owner: String): Repository!
+  queryWithDefaultArgs(input: DefaultArgsInput, defaultValue: Int = 3): String
   optionalArgs(name: String, owner: String): Repository!
   user: User
   someScalarValue(x: Float): String
@@ -27,6 +28,10 @@ type Query {
   coordinates: Point
   unionThatImplementsInterface(typename: String): GenericError
   InterfaceNotImplemented: InterfaceNotImplemented
+}
+
+input DefaultArgsInput {
+  string: String! = "hello"
 }
 
 type RecursiveType {
