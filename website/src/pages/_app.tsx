@@ -102,7 +102,7 @@ export function MyFooter({ ...rest }) {
                 ],
                 'Proudly sponsored by Notaku': [
                     <PoweredByNotaku className='' />,
-                    // <Box as={PoweredByVercel} alignSelf='center' />,
+                    <Box as={PoweredByVercel} alignSelf='center' />,
                 ],
             }}
             {...rest}
