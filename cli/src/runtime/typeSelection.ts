@@ -46,10 +46,9 @@ type HandleObject<SRC extends Anify<DST>, DST> = SRC extends Nil
           {
               // using keyof SRC to maintain ?: relations of SRC type
               [Key in keyof SRC]: Key extends keyof DST
-                  ? FieldsSelection<
-                        SRC[Key],
-                        NonNullable<DST[Key]>
-                    >
+                  ? SRC[Key] extends infer NON_NULL_SRC | null
+                  ? FieldsSelection<NON_NULL_SRC, NonNullable<DST[Key]>> | null
+                  : FieldsSelection<SRC[Key], NonNullable<DST[Key]>>
                   : SRC[Key]
           },
           Exclude<keyof DST, FieldsToRemove>
