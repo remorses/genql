@@ -12,7 +12,7 @@
 
 Read the [quick start guide](https://genql.dev/docs) to generate your client and start writing queries.
 
-some new awesome change
+some new awesome change again
 
 You can stay up to date with the latest changes subscribing to the [Genql changelog](https://changelog.genql.dev).
 
