@@ -71,13 +71,7 @@ export function MyLink({ isExternal = false, href = '#', ...rest }) {
             href={href}
             passHref
             {...rest}
-        >
-            <Link
-                // color='black'
-                // color={{ light: 'blue.400', dark: 'white' }[colorMode]}
-                {...rest}
-            />
-        </NextLink>
+        ></NextLink>
     )
 }
 

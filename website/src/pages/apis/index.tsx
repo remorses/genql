@@ -90,6 +90,7 @@ export function ExploreClients({
                                 href={x.href || '/'}
                                 passHref
                                 legacyBehavior
+                                key={x.href}
                             >
                                 <a
                                     style={
