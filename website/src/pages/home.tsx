@@ -46,6 +46,7 @@ import { ExploreClients } from './apis'
 import { InferGetStaticPropsType } from 'next/types'
 import { getClientsData } from '@app/support/utils'
 import { NextSeo } from 'next-seo'
+import { CodeTabs } from '@app/components/\u0017code-tabs'
 
 const jsQueryCode = `
 import { createClient, everything } from '@genql/my-lib'
@@ -101,6 +102,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     </Button>
                 </div>
             }
+            // image={<CodeTabs />}
             heading={<div className=''>Type safe GraphQL query builder</div>}
             subheading={
                 <Fragment>
