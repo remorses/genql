@@ -1,0 +1,3 @@
+[submodule "beskar"]
+	path = beskar
+	url = https://github.com/remorses/beskar
