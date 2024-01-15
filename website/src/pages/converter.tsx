@@ -2,7 +2,7 @@ import { Stack } from 'layout-kit-react'
 import { NextSeo } from 'next-seo'
 import React, { useEffect, useState } from 'react'
 import { Code } from '@app/components/CodeEditor'
-import gql from 'graphql-tag'
+import { parse } from 'graphql'
 import { print } from '@genql/cli/src/printer'
 import { useDebouncedCallback } from 'use-debounce'
 import { BG } from '../constants'
@@ -12,7 +12,7 @@ function Page({}) {
     const onCodeChange = useDebouncedCallback(() => {
         setInvalid('')
         try {
-            const query = gql(code)
+            const query = parse(code)
             console.log('parsed')
             setGenqlTranslation('\n' + print(query, {}))
         } catch (e) {
