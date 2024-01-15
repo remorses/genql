@@ -137,7 +137,7 @@ describe('execute queries', async function () {
                     createdAt: true,
                 },
             })
-            console.log('first query',JSON.stringify(res, null, 2))
+            console.log('first query', JSON.stringify(res, null, 2))
             assert(res.repository.createdAt)
             assert(res.optionalArgs.createdAt)
         }),
@@ -243,7 +243,7 @@ describe('execute queries', async function () {
             res?.account
             // no optional chaining because repository is non null
             expectType<string>(res.repository.createdAt)
-            assert(res.repository.customScalar)
+
             expectType<Maybe<string>>(res.repository.__typename)
             expectType<Maybe<Maybe<string>[]>>(
                 res.repository?.forks?.edges?.map((x) => x?.node?.name),
@@ -251,6 +251,34 @@ describe('execute queries', async function () {
             expectType<Maybe<Maybe<number>[]>>(
                 res.repository?.forks?.edges?.map((x) => x?.node?.number),
             )
+        }),
+    )
+    it(
+        'custom scalar',
+        withServer(async () => {
+            const res = await client.query({
+                repository: {
+                    __args: {
+                        name: 'genql',
+                        owner: 'remorses',
+                    },
+                    customScalar: true,
+
+                    forks: {
+                        __args: { filter: 'test' },
+                        edges: { node: { name: true, number: true } },
+                    },
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            // @ts-expect-error because top level fields are filtered based on query
+            res?.account
+            // no optional chaining because repository is non null
+
+            let customScalar = res.repository.customScalar
+            assert(customScalar)
+
+            expectType<Maybe<{ x: string }>>(res.repository.customScalar)
         }),
     )
 

@@ -9,6 +9,7 @@ generate({
     output: path.join(__dirname, 'generated'),
     scalarTypes: {
         MongoID: 'string',
+        MyCustomScalar: `{ x: string }`,
     },
     // verbose: false,
 }).catch(console.error)

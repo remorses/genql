@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type Scalars = {
-    MyCustomScalar: any,
+    MyCustomScalar: { x: string },
     String: string,
     Int: number,
     Float: number,
