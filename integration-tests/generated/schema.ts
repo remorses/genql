@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 export type Scalars = {
+    MyCustomScalar: any,
     String: string,
     Int: number,
     Float: number,
@@ -41,6 +42,7 @@ export interface RecursiveType {
 export interface Repository {
     createdAt: Scalars['String']
     forks: (ForkConnection | null)
+    customScalar: (Scalars['MyCustomScalar'] | null)
     __typename: 'Repository'
 }
 
@@ -159,6 +161,7 @@ export interface RecursiveTypeGenqlSelection{
 export interface RepositoryGenqlSelection{
     createdAt?: boolean | number
     forks?: (ForkConnectionGenqlSelection & { __args?: {filter?: (Scalars['String'] | null)} })
+    customScalar?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }

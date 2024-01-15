@@ -2,353 +2,358 @@ export default {
     "scalars": [
         0,
         1,
-        3,
-        5,
+        2,
+        4,
         6,
-        17,
-        27
+        7,
+        18,
+        28
     ],
     "types": {
         "SomeEnum": {},
         "SomeEnum2": {},
+        "MyCustomScalar": {},
         "InputWithRequiredFields": {
             "requiredField": [
-                3
+                4
             ],
             "optionalField": [
-                3
+                4
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "String": {},
         "Query": {
             "repository": [
-                9,
+                10,
                 {
                     "name": [
-                        3,
+                        4,
                         "String!"
                     ],
                     "owner": [
-                        3
+                        4
                     ]
                 }
             ],
             "queryWithDefaultArgs": [
-                3,
+                4,
                 {
                     "input": [
-                        7
+                        8
                     ],
                     "defaultValue": [
-                        5
-                    ]
-                }
-            ],
-            "optionalArgs": [
-                9,
-                {
-                    "name": [
-                        3
-                    ],
-                    "owner": [
-                        3
-                    ]
-                }
-            ],
-            "user": [
-                13
-            ],
-            "someScalarValue": [
-                3,
-                {
-                    "x": [
                         6
                     ]
                 }
             ],
+            "optionalArgs": [
+                10,
+                {
+                    "name": [
+                        4
+                    ],
+                    "owner": [
+                        4
+                    ]
+                }
+            ],
+            "user": [
+                14
+            ],
+            "someScalarValue": [
+                4,
+                {
+                    "x": [
+                        7
+                    ]
+                }
+            ],
             "recursiveType": [
-                8,
+                9,
                 {
                     "requiredVal": [
-                        3,
+                        4,
                         "[String!]"
                     ]
                 }
             ],
             "throwsError": [
-                3
+                4
             ],
             "requiredFields": [
-                3,
+                4,
                 {
                     "input": [
-                        2,
+                        3,
                         "InputWithRequiredFields!"
                     ]
                 }
             ],
             "account": [
-                15
+                16
             ],
             "coordinates": [
-                20
+                21
             ],
             "unionThatImplementsInterface": [
-                25,
+                26,
                 {
                     "typename": [
-                        3
+                        4
                     ]
                 }
             ],
             "InterfaceNotImplemented": [
-                26
+                27
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Int": {},
         "Float": {},
         "DefaultArgsInput": {
             "string": [
-                3
+                4
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "RecursiveType": {
             "value": [
-                3
+                4
             ],
             "recurse": [
-                8,
+                9,
                 {
                     "arg": [
-                        5
+                        6
                     ]
                 }
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Repository": {
             "createdAt": [
-                3
+                4
             ],
             "forks": [
-                10,
+                11,
                 {
                     "filter": [
-                        3
+                        4
                     ]
                 }
             ],
+            "customScalar": [
+                2
+            ],
             "__typename": [
-                3
+                4
             ]
         },
         "ForkConnection": {
             "edges": [
-                11
+                12
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "ForkEdge": {
             "cursor": [
-                3
+                4
             ],
             "node": [
-                12
+                13
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Fork": {
             "name": [
-                3
+                4
             ],
             "number": [
-                5
+                6
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "User": {
             "name": [
-                3
+                4
             ],
             "common": [
-                5
+                6
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Subscription": {
             "user": [
-                13
+                14
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Account": {
             "on_User": [
-                13
+                14
             ],
             "on_Guest": [
-                16
+                17
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Guest": {
             "anonymous": [
-                17
+                18
             ],
             "common": [
-                5
+                6
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Boolean": {},
         "House": {
             "owner": [
-                13
+                14
             ],
             "x": [
-                3
+                4
             ],
             "y": [
-                3
+                4
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Bank": {
             "address": [
-                3
+                4
             ],
             "x": [
-                3
+                4
             ],
             "y": [
-                3
+                4
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "Point": {
             "x": [
-                3
+                4
             ],
             "y": [
-                3
+                4
             ],
             "on_House": [
-                18
-            ],
-            "on_Bank": [
                 19
             ],
+            "on_Bank": [
+                20
+            ],
             "__typename": [
-                3
+                4
             ]
         },
         "ClientError": {
             "message": [
-                3
+                4
             ],
             "on_ClientErrorNameAlreadyTaken": [
-                22
-            ],
-            "on_ClientErrorNameInvalid": [
                 23
             ],
+            "on_ClientErrorNameInvalid": [
+                24
+            ],
             "__typename": [
-                3
+                4
             ]
         },
         "ClientErrorNameAlreadyTaken": {
             "message": [
-                3
+                4
             ],
             "ownProp1": [
-                3
+                4
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "ClientErrorNameInvalid": {
             "message": [
-                3
+                4
             ],
             "ownProp2": [
-                3
+                4
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "ClientErrorWithoutInterface": {
             "ownProp3": [
-                3
+                4
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "GenericError": {
             "on_ClientErrorNameAlreadyTaken": [
-                22
-            ],
-            "on_ClientErrorNameInvalid": [
                 23
             ],
-            "on_ClientErrorWithoutInterface": [
+            "on_ClientErrorNameInvalid": [
                 24
             ],
+            "on_ClientErrorWithoutInterface": [
+                25
+            ],
             "on_ClientError": [
-                21
+                22
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "InterfaceNotImplemented": {
             "id": [
-                27
+                28
             ],
             "title": [
-                3
+                4
             ],
             "url": [
-                3
+                4
             ],
             "permalink": [
-                3
+                4
             ],
             "entry_id": [
-                27
+                28
             ],
             "__typename": [
-                3
+                4
             ]
         },
         "ID": {}

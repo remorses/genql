@@ -9,6 +9,8 @@ enum SomeEnum2 {
   world
 }
 
+scalar MyCustomScalar
+
 input InputWithRequiredFields {
   requiredField: String!
   optionalField: String
@@ -42,6 +44,7 @@ type RecursiveType {
 type Repository {
   createdAt: String!
   forks(filter: String): ForkConnection
+  customScalar: MyCustomScalar
 }
 
 type ForkConnection {

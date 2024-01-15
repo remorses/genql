@@ -86,6 +86,7 @@ describe('execute queries', async function () {
                     repository: () => {
                         return {
                             createdAt: 'now',
+                            customScalar: { x: true },
                         }
                     },
                     account: () => {
@@ -136,7 +137,7 @@ describe('execute queries', async function () {
                     createdAt: true,
                 },
             })
-            console.log(JSON.stringify(res, null, 2))
+            console.log('first query',JSON.stringify(res, null, 2))
             assert(res.repository.createdAt)
             assert(res.optionalArgs.createdAt)
         }),
@@ -161,7 +162,7 @@ describe('execute queries', async function () {
             assert(res.optionalArgs.createdAt)
         }),
     )
-   
+
     it(
         'simple ',
         withServer(async () => {
@@ -230,7 +231,7 @@ describe('execute queries', async function () {
                         name: 'genql',
                         owner: 'remorses',
                     },
-                    ...everything,
+                    __scalar: true,
                     forks: {
                         __args: { filter: 'test' },
                         edges: { node: { name: true, number: true } },
@@ -242,6 +243,7 @@ describe('execute queries', async function () {
             res?.account
             // no optional chaining because repository is non null
             expectType<string>(res.repository.createdAt)
+            assert(res.repository.customScalar)
             expectType<Maybe<string>>(res.repository.__typename)
             expectType<Maybe<Maybe<string>[]>>(
                 res.repository?.forks?.edges?.map((x) => x?.node?.name),
