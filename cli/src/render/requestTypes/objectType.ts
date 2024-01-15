@@ -101,7 +101,7 @@ export const toArgsString = (field: GraphQLField<any, any, any>) => {
         .map(
             (a) =>
                 `${argumentComment(a)}${a.name}${
-                    isNonNullType(a.type) ? ':' : '?:'
+                    isNonNullType(a.type) && a.defaultValue == null ? ':' : '?:'
                 } ${renderTyping(a.type)}`,
         )
         .join(', ')

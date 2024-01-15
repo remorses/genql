@@ -134,7 +134,7 @@ export interface InputWithRequiredFields {requiredField: Scalars['String'],optio
 export interface QueryGenqlSelection{
     /** Some description */
     repository?: (RepositoryGenqlSelection & { __args: {name: Scalars['String'], owner?: (Scalars['String'] | null)} })
-    queryWithDefaultArgs?: { __args: {input?: (DefaultArgsInput | null), defaultValue?: (Scalars['Int'] | null)} } | boolean | number
+    queryWithDefaultArgs?: { __args: {input?: (DefaultArgsInput | null), defaultValue?: (Scalars['Int'] | null), requiredButDefault?: Scalars['Int']} } | boolean | number
     optionalArgs?: (RepositoryGenqlSelection & { __args?: {name?: (Scalars['String'] | null), owner?: (Scalars['String'] | null)} })
     user?: UserGenqlSelection
     someScalarValue?: { __args: {x?: (Scalars['Float'] | null)} } | boolean | number

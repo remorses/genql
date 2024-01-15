@@ -19,7 +19,7 @@ input InputWithRequiredFields {
 type Query {
   """Some description"""
   repository(name: String!, owner: String): Repository!
-  queryWithDefaultArgs(input: DefaultArgsInput, defaultValue: Int = 3): String
+  queryWithDefaultArgs(input: DefaultArgsInput, defaultValue: Int = 3, requiredButDefault: Int! = 1): String
   optionalArgs(name: String, owner: String): Repository!
   user: User
   someScalarValue(x: Float): String

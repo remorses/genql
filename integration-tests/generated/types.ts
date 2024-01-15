@@ -46,6 +46,10 @@ export default {
                     ],
                     "defaultValue": [
                         6
+                    ],
+                    "requiredButDefault": [
+                        6,
+                        "Int!"
                     ]
                 }
             ],
