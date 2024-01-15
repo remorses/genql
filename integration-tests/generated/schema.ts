@@ -42,6 +42,7 @@ export interface RecursiveType {
 export interface Repository {
     createdAt: Scalars['String']
     forks: (ForkConnection | null)
+    scalarButWithRequiredArgs: Scalars['String']
     customScalar: (Scalars['MyCustomScalar'] | null)
     __typename: 'Repository'
 }
@@ -161,6 +162,7 @@ export interface RecursiveTypeGenqlSelection{
 export interface RepositoryGenqlSelection{
     createdAt?: boolean | number
     forks?: (ForkConnectionGenqlSelection & { __args?: {filter?: (Scalars['String'] | null)} })
+    scalarButWithRequiredArgs?: { __args: {x: Scalars['Int']} }
     customScalar?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number

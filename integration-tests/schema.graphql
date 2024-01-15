@@ -46,6 +46,7 @@ type RecursiveType {
 type Repository {
     createdAt: String!
     forks(filter: String): ForkConnection
+    scalarButWithRequiredArgs(x: Int!): String!
     customScalar: MyCustomScalar
 }
 

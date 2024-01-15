@@ -243,6 +243,8 @@ describe('execute queries', async function () {
             res?.account
             // no optional chaining because repository is non null
             expectType<string>(res.repository.createdAt)
+            // TODO
+            // expectType<never>(res.repository.scalarButWithRequiredArgs)
 
             expectType<Maybe<string>>(res.repository.__typename)
             expectType<Maybe<Maybe<string>[]>>(
@@ -254,7 +256,7 @@ describe('execute queries', async function () {
         }),
     )
     it(
-        'custom scalar',
+        'typed custom scalar',
         withServer(async () => {
             const res = await client.query({
                 repository: {
@@ -277,10 +279,30 @@ describe('execute queries', async function () {
 
             let customScalar = res.repository.customScalar
             assert(customScalar)
+            customScalar.x
 
             expectType<Maybe<{ x: string }>>(res.repository.customScalar)
         }),
     )
+    it(
+        'typed custom scalar with __scalar',
+        withServer(async () => {
+            const res = await client.query({
+                repository: {
+                    __args: {
+                        name: 'genql',
+                        owner: 'remorses',
+                    },
+                    __scalar: true,
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            // TODO
+            // res.repository.customScalar
+        }),
+    )
+
+    type t = { __args?: {} } extends { __args: any } ? 'ciao' : never
 
     it(
         'union types only 1 on_ normal syntax',

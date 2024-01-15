@@ -155,6 +155,15 @@ export default {
                     ]
                 }
             ],
+            "scalarButWithRequiredArgs": [
+                4,
+                {
+                    "x": [
+                        6,
+                        "Int!"
+                    ]
+                }
+            ],
             "customScalar": [
                 2
             ],
