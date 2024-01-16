@@ -24,21 +24,18 @@ i need to create a class Client with top level methods:
 
 ```ts
 class Client {
-    getCountries<Include>(req: ObjectTypeReq): Countries<Include> {
+    getCountries<Include extends CountryInclude, Select extends CountrySelect>(
+        req: GetCountriesRequest<Include, Select>,
+    ): Selection<Countries, Include, Select> {
         const { query, variables } = buildQuery(req, 'getCountries')
     }
 }
 
+type GetCountriesRequest<I, S> = {
+    args: GetCountriesArgs
+    select: Pick<Countries, S>
+    include: I
+}
+
 function buildQuery()
-```
-
-what if instead it used the builder pattern?
-
-```ts
-client.getContinents({
-    name: '',
-    include: {
-        countries: true,
-    },
-})
 ```
