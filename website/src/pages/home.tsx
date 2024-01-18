@@ -102,14 +102,19 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     </Button>
                 </div>
             }
+            
             image={<CodeTabs />}
             heading={
-                <div className=''>Generate an SDK for any GraphQL API</div>
+                <div className=''>
+                    Generate an SDK <br /> for any GraphQL API
+                </div>
             }
             subheading={
-                <Fragment>
-                    Genql generates a TypeScript SDK for your GraphQL API
-                </Fragment>
+                <div className='max-w-[600px]'>
+                    Genql turns you GraphQL API into a type safe SDK for your
+                    language of choice. Get a developer hub with examples and
+                    documentation for your API.
+                </div>
             }
             // image={<Image h='200px' w='300px' src='/robot.svg' />}
             // image={

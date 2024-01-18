@@ -59,7 +59,7 @@ export function CodeTabs() {
     }, [value])
     return (
         <Tabs
-            className='min-h-[400px]'
+            className='min-h-[400px] shrink-0'
             value={value}
             key={value}
             onValueChange={setValue}
