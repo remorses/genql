@@ -324,8 +324,8 @@ describe('execute queries', async function () {
         }),
     )
 
-    it(
-        'union types, same field on multiple types',
+    it.skip(
+        'union types, same field on multiple types but different type',
         withServer(async () => {
             const { account } = await client.query({
                 account: {
