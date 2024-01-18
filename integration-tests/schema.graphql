@@ -8,6 +8,8 @@ enum SomeEnum2 {
     world
 }
 
+scalar MyCustomScalar
+
 input InputWithRequiredFields {
     requiredField: String!
     optionalField: String
@@ -19,7 +21,11 @@ type Query {
     Some description
     """
     repository(name: String!, owner: String): Repository!
-    queryWithDefaultArgs(input: DefaultArgsInput, defaultValue: Int = 3): String
+    queryWithDefaultArgs(
+        input: DefaultArgsInput
+        defaultValue: Int = 3
+        requiredButDefault: Int! = 1
+    ): String
     optionalArgs(name: String, owner: String): Repository!
     user: User
     someScalarValue(x: Float): String
@@ -40,6 +46,8 @@ type RecursiveType {
 type Repository {
     createdAt: String!
     forks(filter: String): ForkConnection
+    scalarButWithRequiredArgs(x: Int!): String!
+    customScalar: MyCustomScalar
 }
 
 type ForkConnection {
@@ -62,6 +70,7 @@ type User {
     """
     name: String
     common: Int
+    commonButDiffType: Int
 }
 
 # ---
@@ -81,6 +90,7 @@ union Account = User | Guest
 type Guest {
     anonymous: Boolean
     common: Int
+    commonButDiffType: String
 }
 
 ##################

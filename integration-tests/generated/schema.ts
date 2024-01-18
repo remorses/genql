@@ -4,6 +4,7 @@
 /* eslint-disable */
 
 export type Scalars = {
+    MyCustomScalar: { x: string },
     String: string,
     Int: number,
     Float: number,
@@ -41,6 +42,8 @@ export interface RecursiveType {
 export interface Repository {
     createdAt: Scalars['String']
     forks: (ForkConnection | null)
+    scalarButWithRequiredArgs: Scalars['String']
+    customScalar: (Scalars['MyCustomScalar'] | null)
     __typename: 'Repository'
 }
 
@@ -65,6 +68,7 @@ export interface User {
     /** Some description */
     name: (Scalars['String'] | null)
     common: (Scalars['Int'] | null)
+    commonButDiffType: (Scalars['Int'] | null)
     __typename: 'User'
 }
 
@@ -78,6 +82,7 @@ export type Account = (User | Guest) & { __isUnion?: true }
 export interface Guest {
     anonymous: (Scalars['Boolean'] | null)
     common: (Scalars['Int'] | null)
+    commonButDiffType: (Scalars['String'] | null)
     __typename: 'Guest'
 }
 
@@ -132,7 +137,7 @@ export interface InputWithRequiredFields {requiredField: Scalars['String'],optio
 export interface QueryGenqlSelection{
     /** Some description */
     repository?: (RepositoryGenqlSelection & { __args: {name: Scalars['String'], owner?: (Scalars['String'] | null)} })
-    queryWithDefaultArgs?: { __args: {input?: (DefaultArgsInput | null), defaultValue?: (Scalars['Int'] | null)} } | boolean | number
+    queryWithDefaultArgs?: { __args: {input?: (DefaultArgsInput | null), defaultValue?: (Scalars['Int'] | null), requiredButDefault?: Scalars['Int']} } | boolean | number
     optionalArgs?: (RepositoryGenqlSelection & { __args?: {name?: (Scalars['String'] | null), owner?: (Scalars['String'] | null)} })
     user?: UserGenqlSelection
     someScalarValue?: { __args: {x?: (Scalars['Float'] | null)} } | boolean | number
@@ -159,6 +164,8 @@ export interface RecursiveTypeGenqlSelection{
 export interface RepositoryGenqlSelection{
     createdAt?: boolean | number
     forks?: (ForkConnectionGenqlSelection & { __args?: {filter?: (Scalars['String'] | null)} })
+    scalarButWithRequiredArgs?: { __args: {x: Scalars['Int']} }
+    customScalar?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -187,6 +194,7 @@ export interface UserGenqlSelection{
     /** Some description */
     name?: boolean | number
     common?: boolean | number
+    commonButDiffType?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -206,6 +214,7 @@ export interface AccountGenqlSelection{
 export interface GuestGenqlSelection{
     anonymous?: boolean | number
     common?: boolean | number
+    commonButDiffType?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }

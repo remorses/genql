@@ -23,6 +23,7 @@ type SRC = {
         a: string
         optional?: string
     }[]
+    customScalar: { json: true }
     nested?: {
         list?: {
             edges?: {
@@ -100,6 +101,7 @@ type SRC = {
 
 describe('pick', () => {
     const req = {
+        customScalar: true,
         category: {
             a: 1,
             b: 1,
@@ -147,6 +149,13 @@ describe('pick', () => {
         'argument syntax',
         dontExecute(() => {
             z.argumentSyntax.a.toLocaleLowerCase
+        }),
+    )
+    test(
+        'custom scalars',
+        dontExecute(() => {
+            const custom = z.customScalar
+            custom.json
         }),
     )
 })
@@ -246,7 +255,7 @@ describe('optional fields', () => {
         optionalObject: {
             x: 1,
             optional: 1,
-        }
+        },
     }
     const z: FieldsSelection<SRC, typeof req> = {} as any
     test(

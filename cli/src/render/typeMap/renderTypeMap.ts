@@ -12,6 +12,7 @@ import {
     isInterfaceType,
     isObjectType,
     isScalarType,
+    
     isUnionType,
 } from 'graphql'
 import { excludedTypes } from '../common/excludedTypes'
@@ -37,6 +38,7 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
                 result.types[t.name] = objectType(t, ctx)
             else if (isUnionType(t)) result.types[t.name] = unionType(t, ctx)
             else if (isScalarType(t) || isEnumType(t)) {
+        
                 result.scalars.push(t.name)
                 result.types[t.name] = {}
             }
@@ -67,7 +69,6 @@ export const renderTypeMap = (schema: GraphQLSchema, ctx: RenderContext) => {
     ctx.addCodeBlock(
         JSON.stringify(replaceTypeNamesWithIndexes(result), null, 4),
     )
-    
 
 
 }

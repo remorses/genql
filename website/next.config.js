@@ -1,10 +1,9 @@
-const withTM = require('next-transpile-modules')(['@genql/cli', 'beskar'])
-
 /** @type {import('next').NextConfig} */
 const config = {
     experimental: {
         externalDir: true,
     },
+    transpilePackages: ['@genql/cli', 'beskar'],
     rewrites() {
         const rewriteDocsTo =
             'https://aeea2a8f-f718-4d46.docs-base-path.notaku.site'
@@ -30,4 +29,4 @@ const config = {
     },
 }
 
-module.exports = withTM(config)
+module.exports = config

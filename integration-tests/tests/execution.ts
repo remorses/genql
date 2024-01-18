@@ -21,6 +21,7 @@ import {
     Point,
     isUser,
     GenqlError,
+    generateQueryOp,
 } from '../generated'
 
 const PORT = 8099
@@ -86,6 +87,7 @@ describe('execute queries', async function () {
                     repository: () => {
                         return {
                             createdAt: 'now',
+                            customScalar: { x: true },
                         }
                     },
                     account: () => {
@@ -136,7 +138,7 @@ describe('execute queries', async function () {
                     createdAt: true,
                 },
             })
-            console.log(JSON.stringify(res, null, 2))
+            console.log('first query', JSON.stringify(res, null, 2))
             assert(res.repository.createdAt)
             assert(res.optionalArgs.createdAt)
         }),
@@ -161,7 +163,7 @@ describe('execute queries', async function () {
             assert(res.optionalArgs.createdAt)
         }),
     )
-   
+
     it(
         'simple ',
         withServer(async () => {
@@ -230,7 +232,7 @@ describe('execute queries', async function () {
                         name: 'genql',
                         owner: 'remorses',
                     },
-                    ...everything,
+                    __scalar: true,
                     forks: {
                         __args: { filter: 'test' },
                         edges: { node: { name: true, number: true } },
@@ -242,6 +244,9 @@ describe('execute queries', async function () {
             res?.account
             // no optional chaining because repository is non null
             expectType<string>(res.repository.createdAt)
+            // TODO
+            // expectType<never>(res.repository.scalarButWithRequiredArgs)
+
             expectType<Maybe<string>>(res.repository.__typename)
             expectType<Maybe<Maybe<string>[]>>(
                 res.repository?.forks?.edges?.map((x) => x?.node?.name),
@@ -251,6 +256,54 @@ describe('execute queries', async function () {
             )
         }),
     )
+    it(
+        'typed custom scalar',
+        withServer(async () => {
+            const res = await client.query({
+                repository: {
+                    __args: {
+                        name: 'genql',
+                        owner: 'remorses',
+                    },
+                    customScalar: true,
+
+                    forks: {
+                        __args: { filter: 'test' },
+                        edges: { node: { name: true, number: true } },
+                    },
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            // @ts-expect-error because top level fields are filtered based on query
+            res?.account
+            // no optional chaining because repository is non null
+
+            let customScalar = res.repository.customScalar
+            assert(customScalar)
+            customScalar.x
+
+            expectType<Maybe<{ x: string }>>(res.repository.customScalar)
+        }),
+    )
+    it(
+        'typed custom scalar with __scalar',
+        withServer(async () => {
+            const res = await client.query({
+                repository: {
+                    __args: {
+                        name: 'genql',
+                        owner: 'remorses',
+                    },
+                    __scalar: true,
+                },
+            })
+            console.log(JSON.stringify(res, null, 2))
+            // TODO
+            // res.repository.customScalar
+        }),
+    )
+
+    type t = { __args?: {} } extends { __args: any } ? 'ciao' : never
 
     it(
         'union types only 1 on_ normal syntax',
@@ -266,6 +319,29 @@ describe('execute queries', async function () {
             // @ts-expect-error because on_User should be removed
             account?.on_User
             assert(account?.__typename)
+            expectType<Maybe<Account>>(account)
+            console.log(account)
+        }),
+    )
+
+    it.skip(
+        'union types, same field on multiple types but different type',
+        withServer(async () => {
+            const { account } = await client.query({
+                account: {
+                    __typename: 1,
+                    on_User: {
+                        commonButDiffType: 1,
+                    },
+                    on_Guest: {
+                        commonButDiffType: 1,
+                    },
+                },
+            })
+            // @ts-expect-error because on_User should be removed
+            account?.on_User
+            assert(account?.__typename)
+            assert(account?.commonButDiffType)
             expectType<Maybe<Account>>(account)
             console.log(account)
         }),

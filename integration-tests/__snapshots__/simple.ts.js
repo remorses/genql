@@ -95,6 +95,7 @@ subscription SomeName {
 fragment f1 on User {
   name
   common
+  commonButDiffType
   __typename
 }
 
@@ -109,6 +110,7 @@ subscription {
 fragment f1 on User {
   name
   common
+  commonButDiffType
   __typename
 }
 
@@ -139,6 +141,7 @@ fragment f1 on Fork {
 fragment f2 on User {
   name
   common
+  commonButDiffType
   __typename
 }
 
@@ -161,6 +164,7 @@ subscription {
 }
 fragment f1 on User {
   name
+  commonButDiffType
   __typename
 }
 
