@@ -2,8 +2,9 @@ For new changes see the new changelog built with [Notaku](https://notaku.so) and
 
 ## 2.11
 
-- Fix custom scalars typed with object types
-- Make required top level arguments with defaults non required
+-   Fix custom scalars typed with object types
+-   Make required top level arguments with defaults non required
+-   \_\_scalar: true should exclude scalars with required arguments
 
 ## 2.10.0
 
