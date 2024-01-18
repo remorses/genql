@@ -66,6 +66,7 @@ type User {
   """Some description"""
   name: String
   common: Int
+  commonButDiffType: Int
 }
 
 type Subscription {
@@ -77,6 +78,7 @@ union Account = User | Guest
 type Guest {
   anonymous: Boolean
   common: Int
+  commonButDiffType: String
 }
 
 type House implements Point {

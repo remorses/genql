@@ -208,6 +208,9 @@ export default {
             "common": [
                 6
             ],
+            "commonButDiffType": [
+                6
+            ],
             "__typename": [
                 4
             ]
@@ -237,6 +240,9 @@ export default {
             ],
             "common": [
                 6
+            ],
+            "commonButDiffType": [
+                4
             ],
             "__typename": [
                 4

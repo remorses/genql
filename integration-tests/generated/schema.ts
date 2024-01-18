@@ -68,6 +68,7 @@ export interface User {
     /** Some description */
     name: (Scalars['String'] | null)
     common: (Scalars['Int'] | null)
+    commonButDiffType: (Scalars['Int'] | null)
     __typename: 'User'
 }
 
@@ -81,6 +82,7 @@ export type Account = (User | Guest) & { __isUnion?: true }
 export interface Guest {
     anonymous: (Scalars['Boolean'] | null)
     common: (Scalars['Int'] | null)
+    commonButDiffType: (Scalars['String'] | null)
     __typename: 'Guest'
 }
 
@@ -192,6 +194,7 @@ export interface UserGenqlSelection{
     /** Some description */
     name?: boolean | number
     common?: boolean | number
+    commonButDiffType?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -211,6 +214,7 @@ export interface AccountGenqlSelection{
 export interface GuestGenqlSelection{
     anonymous?: boolean | number
     common?: boolean | number
+    commonButDiffType?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }

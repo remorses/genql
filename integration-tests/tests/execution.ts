@@ -21,6 +21,7 @@ import {
     Point,
     isUser,
     GenqlError,
+    generateQueryOp,
 } from '../generated'
 
 const PORT = 8099
@@ -318,6 +319,29 @@ describe('execute queries', async function () {
             // @ts-expect-error because on_User should be removed
             account?.on_User
             assert(account?.__typename)
+            expectType<Maybe<Account>>(account)
+            console.log(account)
+        }),
+    )
+
+    it(
+        'union types, same field on multiple types',
+        withServer(async () => {
+            const { account } = await client.query({
+                account: {
+                    __typename: 1,
+                    on_User: {
+                        commonButDiffType: 1,
+                    },
+                    on_Guest: {
+                        commonButDiffType: 1,
+                    },
+                },
+            })
+            // @ts-expect-error because on_User should be removed
+            account?.on_User
+            assert(account?.__typename)
+            assert(account?.commonButDiffType)
             expectType<Maybe<Account>>(account)
             console.log(account)
         }),

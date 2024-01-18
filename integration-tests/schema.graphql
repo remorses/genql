@@ -70,6 +70,7 @@ type User {
     """
     name: String
     common: Int
+    commonButDiffType: Int
 }
 
 # ---
@@ -89,6 +90,7 @@ union Account = User | Guest
 type Guest {
     anonymous: Boolean
     common: Int
+    commonButDiffType: String
 }
 
 ##################
