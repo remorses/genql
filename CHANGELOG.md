@@ -1,6 +1,6 @@
 For new changes see the new changelog built with [Notaku](https://notaku.so) and Notion: https://changelog.genql.dev
 
-## 2.11
+## 6.3.0
 
 -   Fix custom scalars typed with object types
 -   Make required top level arguments with defaults non required
