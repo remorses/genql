@@ -102,8 +102,11 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     </Button>
                 </div>
             }
-            
-            image={<CodeTabs />}
+            image={
+                <div className='w-full shrink-0 grow'>
+                    <CodeTabs />
+                </div>
+            }
             heading={
                 <div className=''>
                     Generate an SDK <br /> for any GraphQL API
