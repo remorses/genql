@@ -91,7 +91,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     className='appearance-none'
                     href='https://changelog.genql.dev'
                 >
-                    Introducing Genql 3.0
+                    Introducing Genql 6.0
                 </a>
             }
             cta={
@@ -102,8 +102,10 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
                     </Button>
                 </div>
             }
-            // image={<CodeTabs />}
-            heading={<div className=''>Type safe GraphQL query builder</div>}
+            image={<CodeTabs />}
+            heading={
+                <div className=''>Generate an SDK for any GraphQL API</div>
+            }
             subheading={
                 <Fragment>
                     Genql generates a TypeScript SDK for your GraphQL API
