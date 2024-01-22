@@ -254,6 +254,7 @@ describe('execute queries', async function () {
             expectType<Maybe<Maybe<number>[]>>(
                 res.repository?.forks?.edges?.map((x) => x?.node?.number),
             )
+            expectType<Maybe<Maybe<{ node }>[]>>(res.repository?.forks?.edges)
         }),
     )
     it(

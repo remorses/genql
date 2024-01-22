@@ -35,7 +35,7 @@ const testCase = async (
         }
     }
 
-    // if (output) throw new Error('test case did not run') // TODO readd tests
+    
 }
 
 test('scalarType', () =>

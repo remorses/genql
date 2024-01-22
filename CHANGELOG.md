@@ -1,5 +1,9 @@
 For new changes see the new changelog built with [Notaku](https://notaku.so) and Notion: https://changelog.genql.dev
 
+## 6.3.1
+
+-   Fix array types when array content is nullable, https://github.com/remorses/genql/pull/144. Thanks to @wellguimaraes
+
 ## 6.3.0
 
 -   Fix custom scalars typed with object types

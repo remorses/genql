@@ -19,7 +19,7 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
     object: HandleObject<SRC, DST>
     array: SRC extends Nil
         ? never
-        : SRC extends (infer T)[]
+        : SRC extends Array<infer T | null>
         ? Array<FieldsSelection<T, DST>>
         : never
     __scalar: Handle__scalar<SRC, DST>
