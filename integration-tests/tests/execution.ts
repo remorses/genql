@@ -610,6 +610,43 @@ describe('execute queries', async function () {
             assert.strictEqual(headersCalledNTimes, 2)
         }),
     )
+
+
+    it(
+        'raises synchronously thrown fetch errors in batch mode',
+        withServer(async () => {
+            let client = createClient({
+                url: URL,
+                batch: true,
+                fetch: () => {
+                    return fetch('http://not.a.domain.google.com/');
+                }
+            })
+
+            const makeCall = () => client.query({
+                repository: {
+                    __args: {
+                        name: 'genql',
+                    },
+                    createdAt: true,
+                },
+            })
+
+            await assert.rejects(makeCall, (err) => {
+                if (!(err instanceof TypeError)) {
+                    assert.fail('err is not Error');
+                }
+                const cause = err.cause as Record<string, string>;
+
+                assert.strictEqual(err.name, 'TypeError');
+                assert.strictEqual(cause.code, 'ENOTFOUND');
+                assert.strictEqual(cause.syscall, 'getaddrinfo');
+                return true;
+            }, 'failed to throw')
+                
+        }),
+    )
+
 })
 
 // // TODO apollo server changed everything in version 3 and i don't have time to fix their shit
