@@ -1,4 +1,4 @@
-name: Npm Packages
+name: CI
 
 on:
   push:
@@ -8,29 +8,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20.x
           registry-url: https://registry.npmjs.org/
-      - name: Cache pnpm modules
-        uses: actions/cache@v3
-        with:
-          path: ~/pnpm
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-
       # setup pnpm
       - uses: pnpm/action-setup@v2
         with:
           version: 8
           run_install: false
-      # scripts
-      - run: pnpm i --store-dir ~/pnpm
+      - name: Install pnpm dependencies (with cache)
+        uses: covbot/pnpm-install-with-cache@v1
       - run: pnpm buildall
       - run: pnpm genall
       - run: pnpm test

@@ -25,5 +25,8 @@
         "native-fetch": "^4.0.2",
         "sucrase": "^3.29.0",
         "typescript": "~5.3.3"
+    },
+    "dependencies": {
+        "@changesets/cli": "^2.27.1"
     }
 }
