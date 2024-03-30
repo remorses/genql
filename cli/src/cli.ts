@@ -43,18 +43,7 @@ const program = yargs
         description:
             'map a scalar to a type, for example `-S DateTime:string` ',
     })
-    .option('esm', {
-        type: 'boolean',
-        default: false,
-        description:
-            'generate only ES modules code, ./generated/index.js will use esm exports and imports',
-    })
-    .option('esm-and-cjs', {
-        type: 'boolean',
-        default: false,
-        description:
-            'generate both ES modules code and CJS code, useful when publishing a package, ./generated/index.js will use CJS require',
-    })
+
     .option('sort', {
         type: 'boolean',
         default: false,
@@ -70,6 +59,20 @@ const program = yargs
         '$0 --output ./generated --schema ./schema.graphql',
         'generate the client from a schema',
     )
+    .option('esm', {
+        type: 'boolean',
+
+        deprecate: 'No longer used',
+        default: false,
+        description: '',
+    })
+    .option('esm-and-cjs', {
+        type: 'boolean',
+        deprecated: true,
+        deprecate: 'No longer used',
+        default: false,
+        description: '',
+    })
     .help('help')
     .help('h').argv
 
