@@ -61,13 +61,14 @@ const program = yargs
     )
     .option('esm', {
         type: 'boolean',
-
+        hidden: true,
         deprecate: 'No longer used',
         default: false,
         description: '',
     })
     .option('esm-and-cjs', {
         type: 'boolean',
+        hidden: true,
         deprecated: true,
         deprecate: 'No longer used',
         default: false,
