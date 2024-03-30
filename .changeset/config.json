@@ -6,11 +6,5 @@
     "access": "public",
     "baseBranch": "master",
     "updateInternalDependencies": "patch",
-    "ignore": [
-        "website",
-        "try-clients",
-        "scraper",
-        "beskar",
-        "integration-tests"
-    ]
+    "ignore": ["website", "scraper", "beskar", "integration-tests"]
 }
