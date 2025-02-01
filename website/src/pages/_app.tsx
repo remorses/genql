@@ -84,6 +84,7 @@ export function MyFooter({ ...rest }) {
                 Resources: [
                     <MyLink href={GITHUB_LINK}>Github</MyLink>,
                     <MyLink href={DOCS_LINK}>Docs</MyLink>,
+                    <MyLink href={'https://antidetection.com'}>Unchatgpt</MyLink>,
                 ],
 
                 'Who made this?': [
