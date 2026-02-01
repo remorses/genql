@@ -114,7 +114,7 @@ const Page = ({ clients }: InferGetStaticPropsType<typeof getStaticProps>) => (
             }
             subheading={
                 <div className='max-w-[600px]'>
-                    Genql turns you GraphQL API into a type safe SDK for your
+                    Genql turns your GraphQL API into a type safe SDK for your
                     language of choice. Get a developer hub with examples and
                     documentation for your API.
                 </div>
