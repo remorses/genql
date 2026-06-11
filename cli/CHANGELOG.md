@@ -1,5 +1,11 @@
 # @genql/cli
 
+## 6.3.4
+
+### Patch Changes
+
+1. **Fixed code injection vulnerability in generated JSDoc comments (CWE-94)** — GraphQL type/field descriptions containing `*/` could break out of JSDoc comments and inject arbitrary TypeScript into the generated client. Any `*/` in schema-derived text is now escaped to `*\/` before interpolation. See [#197](https://github.com/remorses/genql/issues/197).
+
 ## 6.3.3
 
 ### Patch Changes
