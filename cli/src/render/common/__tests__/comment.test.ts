@@ -49,3 +49,25 @@ test('multiline deprecated', () => {
      */
   `)
 })
+
+test('escapes */ in single line text to prevent code injection', () => {
+  expect(comment({ text: 'before */ after' })).toBe(stripAndWrap`
+    /** before *\\/ after */
+  `)
+})
+
+test('escapes */ in multiline text to prevent code injection', () => {
+  expect(comment({ text: 'line one\n*/;malicious();/*\nline three' })).toBe(stripAndWrap`
+    /**
+     * line one
+     * *\\/;malicious();/*
+     * line three
+     */
+  `)
+})
+
+test('escapes */ in deprecated reason to prevent code injection', () => {
+  expect(comment({ deprecated: 'use */ something' })).toBe(stripAndWrap`
+    /** @deprecated use *\\/ something */
+  `)
+})
