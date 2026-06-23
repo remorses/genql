@@ -54,7 +54,8 @@ export const clientTasks = (config: Config): ListrTask[] => {
                         path.resolve(runtimeFolderPath, file),
                         'utf-8',
                     )
-                    contents = '// @ts-nocheck\n' + contents
+                    // extra newline makes clear this is for the file
+                    contents = '// @ts-nocheck\n\n' + contents
                     await fsx.writeFile(
                         path.resolve(output, 'runtime', file),
                         contents,
