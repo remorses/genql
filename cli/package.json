@@ -46,7 +46,7 @@
         "@types/mkdirp": "^1.0.2",
         "@types/node": "^18.11.9",
         "@types/prettier": "^2.7.1",
-        "@types/rimraf": "^3.0.2",
+        "@types/rimraf": "^4.0.5",
         "@types/yargs": "^15.0.5",
         "common-tags": "^1.8.2",
         "dotenv": "^16.0.3",
@@ -67,7 +67,7 @@
         "native-fetch": "^4.0.2",
         "prettier": "^2.8.0",
         "qs": "^6.11.0",
-        "rimraf": "^2.6.3",
+        "rimraf": "^4.4.1",
         "undici": "^5.22.0",
         "yargs": "^15.3.1"
     },
