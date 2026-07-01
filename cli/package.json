@@ -37,6 +37,9 @@
     ],
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
     "license": "MIT",
+    "engines": {
+        "node": ">=18.17.0"
+    },
     "devDependencies": {
         "@sucrase/jest-plugin": "^3.0.0",
         "@types/common-tags": "^1.8.1",
@@ -68,7 +71,7 @@
         "prettier": "^2.8.0",
         "qs": "^6.11.0",
         "rimraf": "^2.6.3",
-        "undici": "^5.22.0",
+        "undici": "^6.27.0",
         "yargs": "^15.3.1"
     },
     "jest": {
