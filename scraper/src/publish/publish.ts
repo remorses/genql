@@ -123,7 +123,7 @@ export async function createPackageAndPublish({
             types: './dist/index.d.ts',
             dependencies: {
                 // graphql: '^16.6.0',
-                undici: '^5.18.0',
+                undici: '^6.27.0',
                 'native-fetch': '^4.0.2',
             },
         }
