@@ -24,12 +24,15 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
         : never
     __scalar: Handle__scalar<SRC, DST>
     never: never
+    null: null
 }[DST extends Nil
     ? 'never'
     : DST extends false | 0
     ? 'never'
     : SRC extends Scalar
     ? 'scalar'
+    : SRC extends null
+    ? 'null'
     : SRC extends any[]
     ? 'array'
     : SRC extends { __isUnion?: any }
@@ -73,9 +76,9 @@ type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends Nil
                   ? never
                   : Key extends FieldsToRemove
                   ? never
-                  : SRC[Key] extends Scalar
-                  ? Key
                   : Key extends keyof DST
+                  ? (DST[Key] extends false ? never : Key)
+                  : SRC[Key] extends Scalar | null
                   ? Key
                   : never
           }[keyof SRC]
@@ -85,7 +88,7 @@ type Handle__isUnion<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
     : Omit<SRC, FieldsToRemove> // just return the union type
 
-type Scalar = string | number | Date | boolean | null | undefined
+type Scalar = string | number | Date | boolean | undefined
 
 type Anify<T> = { [P in keyof T]?: any }
 
