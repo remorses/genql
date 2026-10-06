@@ -37,7 +37,9 @@ export const objectType = (
         )
         const argsPresent = field.args.length > 0
         const argsString = toArgsString(field)
-        const argsOptional = !argsString.match(/[^?]:/)
+        const argsOptional = field.args.every(
+            (a) => !isNonNullType(a.type) || a.defaultValue != null,
+        )
 
         if (argsPresent) {
             if (resolvable) {
